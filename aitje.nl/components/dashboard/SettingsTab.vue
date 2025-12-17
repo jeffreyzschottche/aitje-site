@@ -11,7 +11,7 @@
             v-for="tab in subTabs"
             :key="tab.id"
             class="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold transition"
-            :class="activeSubTab === tab.id ? 'bg-yellow-400 text-black' : 'text-gray-700 hover:bg-gray-100'"
+            :class="activeSubTab === tab.id ? 'bg-[#facc15] text-black' : 'text-gray-700 hover:bg-gray-100'"
             @click="activeSubTab = tab.id"
           >
             <component :is="tab.icon" class="h-5 w-5" />
@@ -27,7 +27,7 @@
               <div class="mt-4 space-y-4">
                 <div>
                   <label class="block text-sm font-semibold text-gray-700">Apparaatnaam</label>
-                  <input v-model="deviceSettings.deviceName" class="mt-2 w-full rounded-xl border border-gray-300 px-4 py-2 transition focus:border-yellow-400 focus:outline-none" />
+                  <input v-model="deviceSettings.deviceName" class="mt-2 w-full rounded-xl border border-gray-300 px-4 py-2 transition focus:border-[#facc15] focus:outline-none" />
                 </div>
                 <div class="grid gap-4 md:grid-cols-2">
                   <InfoField label="Model versie" :value="deviceSettings.modelVersion" />
@@ -46,7 +46,7 @@
                   <span>115 GB / 256 GB</span>
                 </div>
                 <div class="mt-2 h-3 w-full rounded-full bg-gray-200">
-                  <div class="h-3 rounded-full bg-yellow-400" :style="{ width: `${deviceSettings.storageUsed}%` }"></div>
+                  <div class="h-3 rounded-full bg-[#facc15]" :style="{ width: `${deviceSettings.storageUsed}%` }"></div>
                 </div>
                 <label class="mt-4 flex items-center gap-3 text-sm text-gray-700">
                   <input type="checkbox" v-model="aiSettings.autoBackup" class="h-4 w-4" />
@@ -73,7 +73,7 @@
               <label class="block text-sm font-semibold text-gray-700">Netwerk modus</label>
               <select
                 v-model="networkSettings.networkMode"
-                class="mt-2 w-full rounded-xl border border-gray-300 px-4 py-2 transition focus:border-yellow-400 focus:outline-none"
+                class="mt-2 w-full rounded-xl border border-gray-300 px-4 py-2 transition focus:border-[#facc15] focus:outline-none"
               >
                 <option value="dhcp">DHCP (Automatisch)</option>
                 <option value="static">Statisch IP</option>
@@ -92,7 +92,7 @@
               <h3 class="text-xl font-semibold">Toon & Persoonlijkheid</h3>
               <div>
                 <label class="block text-sm font-semibold text-gray-700">Gesprekstoon</label>
-                <select v-model="aiSettings.tone" class="mt-2 w-full rounded-xl border border-gray-300 px-4 py-2 transition focus:border-yellow-400 focus:outline-none">
+                <select v-model="aiSettings.tone" class="mt-2 w-full rounded-xl border border-gray-300 px-4 py-2 transition focus:border-[#facc15] focus:outline-none">
                   <option value="professional">Professioneel</option>
                   <option value="friendly">Vriendelijk</option>
                   <option value="casual">Casual</option>
@@ -103,7 +103,7 @@
               <RangeField label="Formaliteit" :value="aiSettings.formalityLevel" @update:value="aiSettings.formalityLevel = $event" />
               <div>
                 <label class="block text-sm font-semibold text-gray-700">Doelgroep leeftijd</label>
-                <select v-model="aiSettings.targetAge" class="mt-2 w-full rounded-xl border border-gray-300 px-4 py-2 transition focus:border-yellow-400 focus:outline-none">
+                <select v-model="aiSettings.targetAge" class="mt-2 w-full rounded-xl border border-gray-300 px-4 py-2 transition focus:border-[#facc15] focus:outline-none">
                   <option value="child">Kinderen (6-12 jaar)</option>
                   <option value="teen">Tieners (13-17 jaar)</option>
                   <option value="adult">Volwassenen (18+ jaar)</option>
@@ -158,12 +158,12 @@
                     :checked="modesSettings[mode.id]"
                     @change="modesSettings[mode.id] = !modesSettings[mode.id]"
                   />
-                  <span class="absolute inset-0 rounded-full bg-gray-200 transition peer-checked:bg-yellow-400"></span>
+                  <span class="absolute inset-0 rounded-full bg-gray-200 transition peer-checked:bg-[#facc15]"></span>
                   <span class="absolute top-0.5 left-0.5 h-5 w-5 rounded-full bg-white transition peer-checked:translate-x-6"></span>
                 </label>
               </div>
             </div>
-            <div class="rounded-2xl border border-yellow-200 bg-yellow-50 p-4 text-sm text-gray-700">
+            <div class="rounded-2xl border border-[#facc15] bg-[#facc15] p-4 text-sm text-[#212121]">
               <strong>Let op:</strong> Het combineren van meerdere modes kan leiden tot verschillende antwoordstijlen.
             </div>
           </section>
@@ -187,7 +187,7 @@
               </div>
               <div>
                 <label class="block text-sm font-semibold text-gray-700">Log level</label>
-                <select v-model="debugSettings.logLevel" class="mt-2 w-full rounded-xl border border-gray-300 px-4 py-2 transition focus:border-yellow-400 focus:outline-none">
+                <select v-model="debugSettings.logLevel" class="mt-2 w-full rounded-xl border border-gray-300 px-4 py-2 transition focus:border-[#facc15] focus:outline-none">
                   <option value="error">Error</option>
                   <option value="warn">Warn</option>
                   <option value="info">Info</option>
@@ -214,7 +214,7 @@
           </section>
 
           <div class="flex flex-col gap-4 border-t border-gray-200 pt-4 md:flex-row">
-            <button type="submit" class="flex-1 rounded-full bg-yellow-400 px-6 py-3 text-base font-semibold text-black transition hover:bg-yellow-500">
+            <button type="submit" class="flex-1 rounded-full bg-[#facc15] px-6 py-3 text-base font-semibold text-black cursor-pointer transition-colors duration-200 hover:bg-black hover:text-[#facc15]">
               <Save class="mr-2 inline-block h-5 w-5" />
               Opslaan
             </button>
@@ -379,7 +379,7 @@ export const TextField = defineComponent({
       h('div', {}, [
         h('label', { class: 'text-sm font-semibold text-gray-700' }, props.label),
         h('input', {
-          class: 'mt-2 w-full rounded-xl border border-gray-300 px-4 py-2 transition focus:border-yellow-400 focus:outline-none',
+          class: 'mt-2 w-full rounded-xl border border-gray-300 px-4 py-2 transition focus:border-[#facc15] focus:outline-none',
           value: props.modelValue,
           onInput: (event: Event) => emit('update:modelValue', (event.target as HTMLInputElement).value)
         })
@@ -430,7 +430,7 @@ export const ToggleRow = defineComponent({
             checked: props.active,
             onChange: (event: Event) => emit('toggle', (event.target as HTMLInputElement).checked)
           }),
-          h('span', { class: 'absolute inset-0 rounded-full bg-gray-200 transition peer-checked:bg-yellow-400' }),
+          h('span', { class: 'absolute inset-0 rounded-full bg-gray-200 transition peer-checked:bg-[#facc15]' }),
           h('span', { class: 'absolute top-0.5 left-0.5 h-5 w-5 rounded-full bg-white transition peer-checked:translate-x-6' })
         ])
       ]);

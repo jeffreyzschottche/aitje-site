@@ -14,7 +14,7 @@
       >
         <div
           class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full"
-          :class="message.role === 'user' ? 'bg-gray-200' : 'bg-yellow-400'"
+          :class="message.role === 'user' ? 'bg-gray-200' : 'bg-[#facc15]'"
         >
           <component :is="message.role === 'user' ? User : Bot" class="h-5 w-5" />
         </div>
@@ -30,7 +30,7 @@
       </div>
 
       <div v-if="isTyping" class="flex gap-4">
-        <div class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-yellow-400">
+        <div class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-[#facc15]">
           <Bot class="h-5 w-5" />
         </div>
         <div class="rounded-lg bg-gray-100 px-4 py-3">
@@ -48,12 +48,12 @@
           v-model="input"
           type="text"
           placeholder="Typ je bericht..."
-          class="flex-1 rounded-lg border border-gray-300 px-4 py-3 text-gray-900 transition focus:border-yellow-400 focus:outline-none"
+          class="flex-1 rounded-lg border border-gray-300 px-4 py-3 text-gray-900 transition focus:border-[#facc15] focus:outline-none"
         />
         <button
           type="submit"
           :disabled="!input.trim() || isTyping"
-          class="inline-flex items-center gap-2 rounded-lg bg-yellow-400 px-6 py-3 font-semibold text-black transition hover:bg-yellow-500 disabled:cursor-not-allowed disabled:bg-gray-300"
+          class="inline-flex items-center gap-2 rounded-lg bg-[#facc15] px-6 py-3 font-semibold text-black cursor-pointer transition-colors duration-200 hover:bg-black hover:text-[#facc15] disabled:cursor-not-allowed disabled:bg-gray-300"
         >
           <Send class="h-5 w-5" />
           Verstuur

@@ -7,7 +7,7 @@
           <p class="text-sm text-gray-500">Upload documenten om de AI te trainen met jouw specifieke kennis</p>
         </div>
         <button
-          class="inline-flex items-center gap-2 rounded-full bg-yellow-400 px-4 py-2 text-sm font-semibold text-black transition hover:bg-yellow-500"
+          class="inline-flex items-center gap-2 rounded-full bg-[#facc15] px-4 py-2 text-sm font-semibold text-black cursor-pointer transition-colors duration-200 hover:bg-black hover:text-[#facc15]"
           @click="handleUpload"
         >
           <Upload class="h-5 w-5" />
@@ -28,20 +28,20 @@
           v-model="searchQuery"
           type="text"
           placeholder="Zoek documenten..."
-          class="w-full rounded-full border border-gray-300 px-12 py-3 text-gray-900 transition focus:border-yellow-400 focus:outline-none"
+          class="w-full rounded-full border border-gray-300 px-12 py-3 text-gray-900 transition focus:border-[#facc15] focus:outline-none"
         />
       </div>
 
       <section
-        class="rounded-3xl border-2 border-dashed border-gray-300 bg-white p-8 text-center transition hover:border-yellow-400"
+        class="rounded-3xl border-2 border-dashed border-gray-300 bg-white p-8 text-center transition hover:border-[#facc15]"
       >
-        <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-yellow-100 text-yellow-600">
+        <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#212121] text-[#facc15]">
           <Upload class="h-8 w-8" />
         </div>
         <h3 class="mt-4 text-xl font-semibold">Sleep bestanden hierheen</h3>
         <p class="text-sm text-gray-500">of klik om te bladeren</p>
         <button
-          class="mt-4 rounded-full bg-yellow-400 px-6 py-2 text-sm font-semibold text-black transition hover:bg-yellow-500"
+          class="mt-4 rounded-full bg-[#facc15] px-6 py-2 text-sm font-semibold text-black cursor-pointer transition-colors duration-200 hover:bg-black hover:text-[#facc15]"
           @click="handleUpload"
         >
           Selecteer bestanden
@@ -56,10 +56,10 @@
           <article
             v-for="doc in filteredDocs"
             :key="doc.id"
-            class="flex flex-col gap-4 rounded-2xl border border-gray-200 p-4 transition hover:border-yellow-400 md:flex-row md:items-center md:justify-between"
+            class="flex flex-col gap-4 rounded-2xl border border-gray-200 p-4 transition hover:border-[#facc15] md:flex-row md:items-center md:justify-between"
           >
             <div class="flex flex-1 items-center gap-4">
-              <div class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-yellow-100 text-yellow-600">
+              <div class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-[#212121] text-[#facc15]">
                 <FileText class="h-6 w-6" />
               </div>
               <div class="flex-1">
@@ -112,7 +112,7 @@
           </div>
           <label class="relative inline-block h-6 w-12">
             <input type="checkbox" class="peer sr-only" checked />
-            <span class="absolute inset-0 rounded-full bg-gray-200 transition peer-checked:bg-yellow-400"></span>
+            <span class="absolute inset-0 rounded-full bg-gray-200 transition peer-checked:bg-[#facc15]"></span>
             <span class="absolute top-0.5 left-0.5 h-5 w-5 rounded-full bg-white transition peer-checked:translate-x-6"></span>
           </label>
         </div>
@@ -121,7 +121,7 @@
             <p class="font-semibold text-gray-900">Chunk size</p>
             <p class="text-sm text-gray-500">Grootte van tekst segmenten voor verwerking</p>
           </div>
-          <select class="rounded-lg border border-gray-300 px-4 py-2 text-sm text-gray-900 transition focus:border-yellow-400 focus:outline-none">
+          <select class="rounded-lg border border-gray-300 px-4 py-2 text-sm text-gray-900 transition focus:border-[#facc15] focus:outline-none">
             <option>Klein (512 tokens)</option>
             <option selected>Gemiddeld (1024 tokens)</option>
             <option>Groot (2048 tokens)</option>
@@ -193,7 +193,7 @@ const statusLabels: Record<Document['status'], string> = {
 
 const statusClasses: Record<Document['status'], string> = {
   ready: 'bg-green-100 text-green-700',
-  processing: 'bg-yellow-100 text-yellow-700',
+  processing: 'bg-[#212121] text-[#facc15]',
   error: 'bg-red-100 text-red-700'
 };
 

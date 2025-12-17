@@ -6,7 +6,7 @@
           <h2 class="text-2xl font-semibold">Maps</h2>
           <p class="text-sm text-gray-500">Bekijk contactlocaties op de kaart</p>
         </div>
-        <button class="inline-flex items-center gap-2 rounded-full bg-yellow-400 px-4 py-2 text-sm font-semibold text-black transition hover:bg-yellow-500">
+        <button class="inline-flex items-center gap-2 rounded-full bg-[#facc15] px-4 py-2 text-sm font-semibold text-black cursor-pointer transition-colors duration-200 hover:bg-black hover:text-[#facc15]">
           <Plus class="h-5 w-5" />
           Locatie toevoegen
         </button>
@@ -67,7 +67,7 @@
               v-for="contact in contacts"
               :key="contact.id"
               class="w-full rounded-2xl border p-3 text-left transition"
-              :class="selectedContact?.id === contact.id ? 'border-yellow-400 bg-yellow-50' : 'border-gray-200 hover:border-gray-300'"
+              :class="selectedContact?.id === contact.id ? 'border-[#facc15] bg-[#facc15] text-[#212121]' : 'border-gray-200 hover:border-gray-300'"
               @click="selectedContact = contact"
             >
               <p class="text-sm font-semibold">{{ contact.name }}</p>

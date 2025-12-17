@@ -7,7 +7,7 @@
           <p class="text-sm text-gray-500">Beheer je contacten</p>
         </div>
         <button
-          class="inline-flex items-center gap-2 rounded-full bg-yellow-400 px-4 py-2 text-sm font-semibold text-black transition hover:bg-yellow-500"
+          class="inline-flex items-center gap-2 rounded-full bg-[#facc15] px-4 py-2 text-sm font-semibold text-black cursor-pointer transition-colors duration-200 hover:bg-black hover:text-[#facc15]"
           @click="toggleForm"
         >
           <Plus class="h-5 w-5" />
@@ -21,7 +21,7 @@
           v-model="searchQuery"
           type="text"
           placeholder="Zoek contacten..."
-          class="w-full rounded-full border border-gray-300 px-12 py-3 text-gray-900 transition focus:border-yellow-400 focus:outline-none"
+          class="w-full rounded-full border border-gray-300 px-12 py-3 text-gray-900 transition focus:border-[#facc15] focus:outline-none"
         />
       </div>
 
@@ -32,7 +32,7 @@
             <input
               v-model="formData.name"
               required
-              class="w-full rounded-xl border border-gray-300 px-4 py-2 text-gray-900 transition focus:border-yellow-400 focus:outline-none"
+              class="w-full rounded-xl border border-gray-300 px-4 py-2 text-gray-900 transition focus:border-[#facc15] focus:outline-none"
               placeholder="Voor- en achternaam"
             />
           </FormGroup>
@@ -41,7 +41,7 @@
               v-model="formData.email"
               type="email"
               required
-              class="w-full rounded-xl border border-gray-300 px-4 py-2 text-gray-900 transition focus:border-yellow-400 focus:outline-none"
+              class="w-full rounded-xl border border-gray-300 px-4 py-2 text-gray-900 transition focus:border-[#facc15] focus:outline-none"
               placeholder="email@example.nl"
             />
           </FormGroup>
@@ -49,21 +49,21 @@
             <input
               v-model="formData.phone"
               required
-              class="w-full rounded-xl border border-gray-300 px-4 py-2 text-gray-900 transition focus:border-yellow-400 focus:outline-none"
+              class="w-full rounded-xl border border-gray-300 px-4 py-2 text-gray-900 transition focus:border-[#facc15] focus:outline-none"
               placeholder="+31 6 12345678"
             />
           </FormGroup>
           <FormGroup label="Adres">
             <input
               v-model="formData.address"
-              class="w-full rounded-xl border border-gray-300 px-4 py-2 text-gray-900 transition focus:border-yellow-400 focus:outline-none"
+              class="w-full rounded-xl border border-gray-300 px-4 py-2 text-gray-900 transition focus:border-[#facc15] focus:outline-none"
               placeholder="Straat, Stad"
             />
           </FormGroup>
           <div class="flex gap-3">
             <button
               type="submit"
-              class="flex-1 rounded-full bg-yellow-400 px-6 py-3 text-sm font-semibold text-black transition hover:bg-yellow-500"
+              class="flex-1 rounded-full bg-[#facc15] px-6 py-3 text-sm font-semibold text-black cursor-pointer transition-colors duration-200 hover:bg-black hover:text-[#facc15]"
             >
               {{ editingId ? 'Bijwerken' : 'Toevoegen' }}
             </button>
@@ -82,7 +82,7 @@
         <article
           v-for="contact in filteredContacts"
           :key="contact.id"
-          class="rounded-2xl border border-gray-200 bg-white p-4 transition hover:border-yellow-400"
+          class="rounded-2xl border border-gray-200 bg-white p-4 transition hover:border-[#facc15]"
         >
           <div class="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
             <div>

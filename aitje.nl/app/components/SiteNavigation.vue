@@ -20,10 +20,10 @@
           {{ link.label }}
         </NuxtLink>
         <NuxtLink
-          to="/app"
-          class="rounded-full bg-yellow-400 px-6 py-2 text-sm font-semibold text-black transition hover:bg-yellow-500"
+          to="/contact"
+          class="rounded-full bg-[#facc15] px-6 py-2 text-sm font-semibold text-black cursor-pointer transition-colors duration-200 hover:bg-black hover:text-[#facc15]"
         >
-          AITJE App
+          Plan een demo
         </NuxtLink>
       </div>
 
@@ -59,11 +59,11 @@
           {{ link.label }}
         </NuxtLink>
         <NuxtLink
-          to="/app"
-          class="mt-2 rounded-full bg-yellow-400 px-6 py-2 text-center text-sm font-semibold text-black transition hover:bg-yellow-500"
+          to="/contact"
+          class="mt-2 rounded-full bg-[#facc15] px-6 py-2 text-center text-sm font-semibold text-black cursor-pointer transition-colors duration-200 hover:bg-black hover:text-[#facc15]"
           @click="isMenuOpen = false"
         >
-          AITJE App
+          Plan een demo
         </NuxtLink>
       </div>
     </div>
@@ -80,6 +80,10 @@ const isMenuOpen = ref(false);
 const links = [
   { label: 'Home', to: '/' },
   { label: 'Shop', to: '/shop' },
+  { label: 'Diensten', to: '/diensten' },
+  { label: 'Academy', to: '/academy' },
+  { label: 'Visie', to: '/visie' },
+  { label: 'FAQ', to: '/faq' },
   { label: 'Contact', to: '/contact' }
 ];
 

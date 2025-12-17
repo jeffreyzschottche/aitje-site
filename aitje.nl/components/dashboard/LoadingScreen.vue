@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-yellow-50 to-white">
+  <div class="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-[#212121] to-black">
     <div class="text-center space-y-8">
       <div class="relative inline-block">
         <img src="/images/aitje-logo.png" alt="AITJE loading" class="h-40 w-40 animate-pulse" style="animation-duration: 2s" />
@@ -48,7 +48,7 @@
         <div class="mx-auto w-80 space-y-2">
           <div class="h-4 w-full overflow-hidden rounded-full bg-gray-200">
             <div
-              class="h-4 rounded-full bg-gradient-to-r from-yellow-400 to-yellow-500 transition-all duration-300 ease-out"
+              class="h-4 rounded-full bg-gradient-to-r from-[#facc15] to-[#fde047] transition-all duration-300 ease-out"
               :style="{ width: `${progress}%` }"
             ></div>
           </div>

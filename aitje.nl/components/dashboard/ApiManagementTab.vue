@@ -10,7 +10,7 @@
         <div v-for="stat in statsCards" :key="stat.label" class="rounded-2xl border border-gray-200 bg-white p-6">
           <div class="mb-2 flex items-center justify-between text-sm text-gray-500">
             <span>{{ stat.label }}</span>
-            <component :is="stat.icon" class="h-5 w-5 text-yellow-400" />
+            <component :is="stat.icon" class="h-5 w-5 text-[#facc15]" />
           </div>
           <p class="text-3xl font-bold text-gray-900">{{ stat.value }}</p>
           <p class="text-sm" :class="stat.trendColor">{{ stat.trend }}</p>
@@ -20,7 +20,7 @@
       <section class="rounded-2xl border border-gray-200 bg-white p-6">
         <h3 class="text-xl font-semibold">API verkeer vandaag</h3>
         <div class="mt-6 h-72 w-full">
-          <svg viewBox="0 0 100 60" preserveAspectRatio="none" class="h-full w-full text-yellow-400">
+          <svg viewBox="0 0 100 60" preserveAspectRatio="none" class="h-full w-full text-[#facc15]">
             <polyline
               fill="none"
               stroke="currentColor"
@@ -33,7 +33,7 @@
               :cx="point.x"
               :cy="point.y"
               r="0.8"
-              class="fill-yellow-400"
+              class="fill-[#facc15]"
             />
           </svg>
           <div class="mt-4 flex justify-between text-xs text-gray-400">
@@ -45,7 +45,7 @@
       <section class="rounded-2xl border border-gray-200 bg-white p-6">
         <div class="mb-6 flex items-center justify-between">
           <h3 class="text-xl font-semibold">API Keys</h3>
-          <button class="rounded-full bg-yellow-400 px-4 py-2 text-sm font-semibold text-black transition hover:bg-yellow-500">
+          <button class="rounded-full bg-[#facc15] px-4 py-2 text-sm font-semibold text-black cursor-pointer transition-colors duration-200 hover:bg-black hover:text-[#facc15]">
             Nieuwe key aanmaken
           </button>
         </div>

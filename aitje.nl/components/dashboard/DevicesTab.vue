@@ -7,7 +7,7 @@
           <p class="text-sm text-gray-500">Beheer gebruikers en API toegang</p>
         </div>
         <button
-          class="inline-flex items-center gap-2 rounded-full bg-yellow-400 px-4 py-2 text-sm font-semibold text-black transition hover:bg-yellow-500"
+          class="inline-flex items-center gap-2 rounded-full bg-[#facc15] px-4 py-2 text-sm font-semibold text-black cursor-pointer transition-colors duration-200 hover:bg-black hover:text-[#facc15]"
           @click="toggleForm"
         >
           <Plus class="h-5 w-5" />
@@ -37,7 +37,7 @@
             <input
               v-model="formState.name"
               required
-              class="w-full rounded-xl border border-gray-300 px-4 py-2 transition focus:border-yellow-400 focus:outline-none"
+              class="w-full rounded-xl border border-gray-300 px-4 py-2 transition focus:border-[#facc15] focus:outline-none"
             />
           </FormField>
           <FormField label="Email *">
@@ -45,7 +45,7 @@
               v-model="formState.email"
               type="email"
               required
-              class="w-full rounded-xl border border-gray-300 px-4 py-2 transition focus:border-yellow-400 focus:outline-none"
+              class="w-full rounded-xl border border-gray-300 px-4 py-2 transition focus:border-[#facc15] focus:outline-none"
             />
           </FormField>
           <FormField v-if="!editingId" label="Wachtwoord *">
@@ -53,7 +53,7 @@
               v-model="formState.password"
               type="password"
               required
-              class="w-full rounded-xl border border-gray-300 px-4 py-2 transition focus:border-yellow-400 focus:outline-none"
+              class="w-full rounded-xl border border-gray-300 px-4 py-2 transition focus:border-[#facc15] focus:outline-none"
             />
           </FormField>
           <label class="flex items-center gap-3">
@@ -61,7 +61,7 @@
             <span class="text-sm text-gray-700">API toegang toestaan</span>
           </label>
           <div class="flex gap-3">
-            <button type="submit" class="flex-1 rounded-full bg-yellow-400 px-6 py-3 text-sm font-semibold text-black transition hover:bg-yellow-500">
+            <button type="submit" class="flex-1 rounded-full bg-[#facc15] px-6 py-3 text-sm font-semibold text-black cursor-pointer transition-colors duration-200 hover:bg-black hover:text-[#facc15]">
               {{ editingId ? 'Bijwerken' : 'Toevoegen' }}
             </button>
             <button type="button" class="flex-1 rounded-full bg-gray-200 px-6 py-3 text-sm font-semibold text-gray-900 transition hover:bg-gray-300" @click="cancelForm">
