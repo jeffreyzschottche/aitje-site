@@ -11,7 +11,7 @@
           Contact
         </p>
         <h1 class="mt-4 text-5xl font-black text-gray-900">
-          Praat met de bouwers van het gouden AITJE
+          Praat met de bouwers van AITJE
         </h1>
         <p class="mt-6 text-lg text-gray-600">
           We zijn onafhankelijk, natuurvriendelijk en houden jouw data bij jou.
@@ -181,7 +181,7 @@
             Neem contact op
           </p>
           <h2 class="text-4xl font-black leading-tight">
-            Praat met de bouwers van het gouden AITJE
+            Praat met de bouwers van AITJE
           </h2>
           <p class="text-lg text-gray-200">
             We zijn onafhankelijk, natuurvriendelijk en houden jouw data bij

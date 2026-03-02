@@ -5,8 +5,12 @@
         to="/"
         class="flex items-center gap-3 font-semibold text-gray-900 transition hover:opacity-80"
       >
-        <img src="/images/aitje-logo.png" alt="AITJE logo" class="h-10 w-10" />
-        <span class="text-2xl tracking-tight">AITJE</span>
+        <img
+          src="/images/aitje-logo.png"
+          alt="AITJE logo"
+          class="object-contain"
+          style="width: 100px; height: 80px"
+        />
       </NuxtLink>
 
       <div class="hidden items-center gap-8 md:flex">
