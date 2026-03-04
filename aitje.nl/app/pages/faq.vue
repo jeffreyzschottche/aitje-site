@@ -11,11 +11,10 @@
           FAQ
         </p>
         <h1 class="mt-4 text-5xl font-black text-gray-900">
-          Veelgestelde vragen over AITJE
+          Veelgestelde vragen
         </h1>
         <p class="mt-6 text-lg text-gray-600">
-          Gebaseerd op ons businessplan en gesprekken met organisaties, scholen,
-          bibliotheken en ZZP’ers.
+          Antwoorden op veelgestelde vragen over wat AITJE doet en aanbied.
         </p>
       </section>
 
@@ -57,6 +56,13 @@
                   {{ item.question }}
                 </summary>
                 <p class="mt-3 text-sm text-gray-600">{{ item.answer }}</p>
+                <NuxtLink
+                  v-if="item.linkTo"
+                  :to="item.linkTo"
+                  class="mt-3 inline-flex text-sm font-semibold text-[#d4a700] underline decoration-[#d4a700]/40 underline-offset-4 transition hover:text-black hover:decoration-black"
+                >
+                  {{ item.linkLabel || "Lees meer" }}
+                </NuxtLink>
               </details>
             </div>
           </article>
@@ -64,15 +70,53 @@
         <aside
           class="h-max rounded-3xl border border-gray-200 bg-white p-6 shadow-sm lg:sticky lg:top-24 lg:self-start"
         >
-          <h3 class="text-2xl font-semibold text-gray-900">Nog een vraag?</h3>
+          <h3 class="text-2xl font-semibold text-gray-900">
+            Staat je vraag er niet tussen?
+          </h3>
           <p class="mt-2 text-sm text-gray-600">
-            Plan een demo of stuur een bericht. We reageren persoonlijk.
+            Stuur ons gerust een bericht of neem contact op via de onderstaande
+            platformen.
           </p>
-          <ul class="mt-6 space-y-3 text-sm text-gray-700">
-            <li>• info@aitje.nl</li>
-            <li>• support@aitje.nl</li>
-            <li>• +31 20 123 4567</li>
-          </ul>
+          <div class="mt-6 flex items-center gap-4">
+            <a
+              href="/contact"
+              aria-label="AITJE op LinkedIn"
+              class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-[#fafafa] transition hover:border-[#facc15]"
+            >
+              <img
+                src="/images/social/linkedin.png"
+                alt=""
+                aria-hidden="true"
+                class="h-5 w-5 object-contain"
+              />
+            </a>
+            <a
+              href="https://wa.me/31201234567"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp met AITJE"
+              class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-[#fafafa] transition hover:border-[#facc15]"
+            >
+              <img
+                src="/images/social/whatsapp.png"
+                alt=""
+                aria-hidden="true"
+                class="h-5 w-5 object-contain"
+              />
+            </a>
+            <a
+              href="mailto:info@aitje.nl"
+              aria-label="Mail AITJE"
+              class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-[#fafafa] transition hover:border-[#facc15]"
+            >
+              <img
+                src="/images/social/gmail.png"
+                alt=""
+                aria-hidden="true"
+                class="h-5 w-5 object-contain"
+              />
+            </a>
+          </div>
           <NuxtLink
             to="/contact"
             class="mt-6 inline-flex w-full items-center justify-center rounded-full bg-black px-5 py-3 text-sm font-semibold text-white cursor-pointer transition-colors duration-200 hover:bg-black hover:text-[#facc15]"
@@ -81,12 +125,19 @@
           </NuxtLink>
           <div class="mt-6 rounded-3xl bg-[#facc15] p-4 text-[#212121]">
             <p class="text-xs font-semibold uppercase tracking-[0.4em]">
-              Academy tip
+              Kenniscentrum
             </p>
             <p class="mt-2 text-sm">
-              Onze e-learning (100,- p/j) bevat promptlessen, docs en checklists
-              die veel vragen al beantwoorden.
+              In het kenniscentrum schrijven we over termen en onderwerpen uit
+              de wereld van AI. Misschien staat het antwoord op jouw vraag daar
+              al tussen.
             </p>
+            <NuxtLink
+              to="/kenniscentrum"
+              class="mt-4 inline-flex text-sm font-semibold text-black underline decoration-black/30 underline-offset-4 transition hover:decoration-black"
+            >
+              Naar het kenniscentrum
+            </NuxtLink>
           </div>
         </aside>
       </section>
@@ -133,134 +184,266 @@ import {
 
 const faqGroups = [
   {
-    title: "Product & techniek",
-    badge: "Kastje & OS",
-    icon: PlugZap,
+    title: "Producten",
+    badge: "Hardware",
+    icon: Sparkles,
     items: [
       {
-        question: "Wat is AITJE precies?",
+        question: "Wat is AITJE Assistent precies?",
         answer:
-          "Een mini computer met eigen operating system, een lokaal LLM en een kennisbank die we op maat kunnen vullen. Je praat via chat, audio of API en alles draait offline.",
+          "AITJE Assistent is een mini computer die geoptimaliseerd is met ons eigen OS. Je krijgt een lokale LLM, een kennisbank om je documenten in de LLM te gebruiken, offline maps en een AI powered kennis systeem dat ook zonder internet bereikbaar blijft.",
       },
       {
-        question: "Wat heb ik nodig om te starten?",
+        question: "Wat is AITJE Notulist?",
         answer:
-          "Stroom, netwerk en optioneel een scherm/toetsenbord voor de eerste setup. Daarna kun je via je laptop, tablet of telefoon verbinden.",
+          "AITJE Notulist is zowel als hardware als software te bestellen. Het neemt gesprekken op en laat je instellen hoe je samenvattingen en output wilt ontvangen.",
       },
       {
-        question: "Ondersteunt AITJE API’s?",
+        question: "Doet AITJE ook aan custom build hardware?",
         answer:
-          "Ja. We gebruiken dezelfde structuur als de ChatGPT API, zodat je makkelijk kan omschakelen.",
+          "Ja. En als we je niet volledig kunnen helpen binnen jouw specifieke expertise, hebben we een stabiel netwerk van specialisten waarmee we het plan kunnen afronden.",
+      },
+      {
+        question: "Biedt AITJE nog meer hardware aan?",
+        answer:
+          "Op dit moment nog niet. Houd onze roadmappagina in de gaten voor nieuwe hardwareontwikkelingen.",
+        linkTo: "/roadmap",
+        linkLabel: "Bekijk roadmap",
       },
     ],
   },
   {
-    title: "Privacy & natuur",
-    badge: "Lokale soevereiniteit",
+    title: "Techniek",
+    badge: "Technische infrastructuur",
+    icon: PlugZap,
+    items: [
+      {
+        question: "Welke backend-talen gebruiken jullie voornamelijk?",
+        answer:
+          "Voor backend werken we vooral met Python, .NET, PHP, Laravel en Node.js.",
+      },
+      {
+        question: "Welke frameworks en tools gebruiken jullie?",
+        answer:
+          "Afhankelijk van de oplossing gebruiken we onder andere FastAPI, PySide, Nuxt 3, Laravel, Blazor en Qdrant.",
+      },
+      {
+        question: "Kunnen jullie koppelen met bestaande systemen?",
+        answer:
+          "Ja. We kunnen koppelen met veelgebruikte tools en CMS-omgevingen, zolang de integratie technisch en organisatorisch verantwoord is.",
+      },
+      {
+        question: "Is alles lokaal of ook hybride mogelijk?",
+        answer:
+          "Beide. We ontwerpen lokaal waar het kan en hybride waar het nodig is, met behoud van grip op data, kosten en continuiteit.",
+      },
+      {
+        question: "Hoe runnen jullie de LLM?",
+        answer:
+          "In de meeste gevallen gebruiken we Ollama. Als het nodig is, kunnen we ook andere inference engines inzetten, zoals vLLM.",
+      },
+      {
+        question: "Welke modellen gebruiken jullie?",
+        answer:
+          "We hebben geen vaste voorkeur: modellen kunnen worden aangepast op vraag en geüpdatet wanneer dat waarde toevoegt. We houden je daar actief van op de hoogte. Voor algemene use cases werken Gemma-modellen vaak sterk.",
+      },
+      {
+        question: "Waar draaien jullie servers?",
+        answer:
+          "Servers staan in Nederland of Duitsland, nooit buiten Europa. Op aanvraag kunnen we ook andere omgevingen inrichten als je een cloudoplossing wilt.",
+      },
+    ],
+  },
+  {
+    title: "Privacy",
+    badge: "Datacontrole",
     icon: Lock,
     items: [
       {
         question: "Waar blijft mijn data?",
         answer:
-          "In jouw kastje. We sturen niks naar Amerikaanse corporaties of cloudplatformen. Daarom kiest de publieke sector graag voor AITJE.",
+          "Data blijft in Nederland of Europa. In veel gevallen kunnen we zelfs een volledig lokale oplossing bouwen binnen je eigen omgeving.",
       },
       {
-        question: "Hoe helpt dit de natuur?",
+        question:
+          "Hoe embedden jullie data in de kennisbank voor AITJE Assistent?",
         answer:
-          "Elke prompt die lokaal draait, scheelt energie en liters koelwater die anders in gigantische datacenters worden gebruikt. In het businessplan benoemen we dit als groot klimaatvoordeel.",
+          "We verwerken en embedden data op de server en synchroniseren die naar een priv\u00e9 versiebeheeraccount voor jouw organisatie. Vanaf daar kun je op de Assistent syncen met de live omgeving. Als verkeerde data is toegevoegd, kunnen we via versiebeheer ook terugzetten en back-ups maken.",
       },
       {
-        question: "Kan AITJE offline doorwerken?",
+        question: "Kan AITJE Assistent lokaal doorwerken zonder internet?",
         answer:
-          "Ja. Alleen voor updates heb je soms internet nodig. Verder blijft alles draaien – handig bij storingen of audits.",
+          "Ja. Data wordt lokaal op je device opgeslagen zolang dat nodig is. Zodra vector embeddings en chunks beschikbaar zijn, kan de lokale of private LLM antwoorden en samenvattingen blijven leveren zonder internet.",
+      },
+      {
+        question: "Kan AITJE Notulist lokaal doorwerken zonder internet?",
+        answer:
+          "Ja. Opnames en verwerking kunnen lokaal plaatsvinden, waarna de samenvatting via de lokale of private omgeving wordt teruggegeven. Zo blijf je ook bij internetuitval werkbaar.",
       },
     ],
   },
   {
-    title: "Diensten & abonnementen",
+    title: "Milieu",
+    badge: "Impact",
+    icon: Leaf,
+    items: [
+      {
+        question: "Hoe helpt lokale AI het milieu?",
+        answer:
+          "AITJE Assistent & Notulist verwerken de gegevens lokaal, waardoor minder continue calls naar externe datacenters nodig zijn. Dat beperkt energiegebruik en koelwaterverbruik in grootschalige cloudinfrastructuur.",
+      },
+      {
+        question: "Is lokaal altijd duurzamer?",
+        answer: "Ja, dit is de focus van AITJE.",
+      },
+      {
+        question: "Wat is jullie uitgangspunt?",
+        answer:
+          "Lokaal waar het kan, extern waar het nodig is. Extern doen we alleen op veilige plekken met betrouwbare partners en zonder afhankelijk te zijn van 1 service.",
+      },
+    ],
+  },
+  {
+    title: "Diensten",
     badge: "Partnerschap",
     icon: Sparkles,
     items: [
       {
         question: "Welke diensten bied je aan?",
         answer:
-          "Installatie (2,5 uur + 50,- voorrijkosten), consults (eerste gratis, daarna 100,- p/u), kennisupdates (1.250,-), LLM upgrades (250,- per kwartaal) en SLA/e-learning volgens het businessplan.",
+          "We denken strategie met je uit om zo goedkoop en stabiel mogelijk te automatiseren met AI. We leveren zowel technische implementatie als doorlopende begeleiding.",
+        linkTo: "/diensten",
+        linkLabel: "Bekijk alle diensten",
       },
       {
-        question: "Wat kost e-learning?",
+        question: "Kunnen jullie AI-strategie met ons uitdenken?",
         answer:
-          "€ 100 per jaar. Je krijgt promptlessen, docs en cheatsheets via de AITJE Academy.",
+          "Ja. We helpen met keuzes in infrastructuur, tooling, processen en prioriteiten, zodat AI past bij je organisatie in plaats van andersom.",
+      },
+      {
+        question: "Kunnen jullie agents opzetten?",
+        answer:
+          "Ja. We bouwen en configureren agents voor terugkerende taken, interne workflows en procesautomatisering.",
+      },
+      {
+        question: "Kunnen jullie een RAG chat bouwen?",
+        answer:
+          "Ja. We kunnen een RAG-chat opzetten die werkt met jouw documenten en kennisbank, zodat antwoorden contextueel en bruikbaar zijn.",
+      },
+      {
+        question: "Kunnen jullie een model trainen?",
+        answer:
+          "Ja. Als jouw use case dat vraagt, kunnen we modellen trainen of fine-tunen en deze opnemen in een passende architectuur.",
+      },
+      {
+        question: "Bouwen jullie ook software-oplossingen op maat?",
+        answer:
+          "Ja. We bouwen maatwerk webapplicaties en mobiele applicaties, inclusief Android en iOS waar nodig.",
+      },
+      {
+        question: "Kunnen jullie een lokale LLM op ons netwerk installeren?",
+        answer:
+          "Ja. We installeren en configureren lokale LLM-oplossingen op je eigen netwerk, inclusief beheer, beveiliging en koppeling met je kennisbronnen.",
       },
       {
         question: "Wat houdt het SLA in?",
         answer:
-          "Voor € 250 per kwartaal reserveren we 4 uur support. Meerwerk rekenen we per uur door.",
+          "We spreken altijd een SLA af. Daarin staan de afspraken over onderhoud, ondersteuning en uitbreidingen.",
+      },
+    ],
+  },
+  {
+    title: "Software",
+    badge: "Integraties & workflows",
+    icon: PlugZap,
+    items: [
+      {
+        question: "Welke software heeft AITJE allemaal gemaakt?",
+        answer:
+          "Bekijk de pagina producten/software voor al onze algemene software-oplossingen.",
+        linkTo: "/producten/software",
+        linkLabel: "Naar producten/software",
       },
     ],
   },
   {
     title: "Doelgroep & gebruik",
-    badge: "Persona’s",
+    badge: "Doelgroep",
     icon: BookOpenCheck,
     items: [
       {
         question: "Voor wie is AITJE bedoeld?",
         answer:
-          "Voor ZZP’ers, MKB, gemeenten, scholen, bibliotheken en grotere organisaties die lokale AI willen zonder afhankelijkheid.",
-      },
-      {
-        question: "Welke pakketten zijn er?",
-        answer:
-          "AITJE (€ 2.399), AITJE Pro (€ 3.500 + € 1.200 p/j) en AITJE Custom (€ 5.000 + € 2.500-3.750 p/j).",
+          "MKB-bedrijven, gemeentes, scholen, bibliotheken en artsen. Organisaties die met gevoelige gegevens werken en dit liever niet delen in de cloud of met andere landen.",
       },
       {
         question: "Kan ik jullie inhuren zonder dienstenpakket?",
         answer:
-          "Voor particulieren leveren we vooral het product. Voor organisaties combineren we hardware met diensten vanaf de start.",
+          "Tuurlijk. We kunnen een maatwerk lokale edge AI-oplossing voor je creëren. We vinden het ook geen probleem om dit over te dragen aan je huidige webbouwer of applicatiebeheerder zodat die het kan onderhouden.",
+      },
+      {
+        question: "Waar beginnen jullie meestal mee?",
+        answer:
+          "We beginnen meestal met een goed gesprek om te kijken waar AI echt een verschil kan maken in jouw organisatie.",
       },
     ],
   },
   {
-    title: "Veiligheid & continuïteit",
+    title: "Veiligheid & onafhankelijkheid",
     badge: "Zekerheid",
     icon: Shield,
     items: [
       {
+        question: "Wat als er een internetstoring is bij AITJE Assistent?",
+        answer:
+          "AITJE Assistent merkt daar in de basis weinig van. Synchroniseren is dan tijdelijk lastiger, omdat gechunkte vector-embedding data uit versiebeheer wordt opgehaald. De lokale gegevens en lokale LLM-functionaliteit blijven wel beschikbaar.",
+      },
+      {
+        question:
+          "Kunnen meerdere mensen op het netwerk AITJE Assistent API gebruiken?",
+        answer:
+          "Ja. Je maakt accounts aan en installeert de mobiele of desktopapplicatie. Daarna kan die gebruiker via het netwerk gebruikmaken van de lokale LLM en API.",
+      },
+      {
+        question: "Hoe beperken jullie dat agents een eigen wil krijgen?",
+        answer:
+          "Dat doen we met constrained prompting, guardrailing en sandboxing. Guardrails zetten duidelijke grenzen op acties, toegestane tools, output en rechten. Sandboxing zorgt dat agents in een afgeschermde omgeving draaien met beperkte toegang tot systemen en data.",
+      },
+      {
         question: "Wat als er een storing is?",
         answer:
-          "Omdat alles lokaal draait, merk je weinig. Met een UPS houd je zelfs bij stroomuitval toegang. SLA-klanten krijgen direct support.",
+          "We bouwen cloudoplossingen met plan B en plan C, plus tijdige monitoring en meldingen. Onze systemen zijn ingericht voor stabiele inzet binnen organisaties, niet voor een wereldwijd publiek. Dat maakt ze beter schaalbaar en makkelijker in de lucht te houden.",
       },
       {
-        question: "Kun je meerdere gebruikers beheren?",
+        question: "Deelt AITJE Notulist de gesprekken?",
         answer:
-          "Ja. Je maakt accounts, API keys en rollen aan op het device. Zo blijft toegang controleerbaar.",
+          "AITJE Notulist neemt gesprekken op en deelt ze naar jouw eigen omgeving in de applicatie. Wat je er daarna mee doet, bepaal je zelf.",
       },
       {
-        question: "Hebben jullie een roadmap?",
+        question: "Hoe voorkomt AITJE afhankelijkheid van externe platformen?",
         answer:
-          "In het businessplan staat onze planning: MVP, hardware, eerste klanten en daarna doorontwikkeling. We delen updates via Academy en consults.",
+          "Door meerdere keuzes open te houden, geen single point of failure te bouwen en zoveel mogelijk lokaal af te handelen of op servers in beheer van AITJE of van jullie zelf. Zo beperk je externe invloeden maximaal.",
       },
     ],
   },
   {
-    title: "Academy & prompts",
-    badge: "Vliegles",
-    icon: Leaf,
+    title: "Leren met AITJE",
+    badge: "Kennis & prompts",
+    icon: BookOpenCheck,
     items: [
       {
-        question: "Wat leer ik in de Academy?",
+        question: "Waar leer ik meer over AI-termen en onderwerpen?",
         answer:
-          "Je krijgt promptlessen, sector-scenario’s en workflows voor eigen kennis. Denk aan een Udemy maar dan volledig gericht op AITJE.",
+          "In ons kenniscentrum vind je artikelen over termen, technieken en toepassingen. Denk aan LLM's, RAG, context en lokale AI.",
+        linkTo: "/kenniscentrum",
+        linkLabel: "Naar het kenniscentrum",
       },
       {
-        question: "Krijg ik templates?",
+        question: "Hebben jullie prompts & guides om meer uit LLM te halen?",
         answer:
-          "Ja. We leveren cheatsheets, documentatie en voorbeeldprompts die passen bij jouw sector en persona’s uit het businessplan.",
-      },
-      {
-        question: "Hoe vaak komen er nieuwe lessen?",
-        answer:
-          "Regelmatig. Zeker na een nieuwe LLM upgrade of kennisupdate delen we nieuwe modules.",
+          "Ja, die hebben we. Een onderdeel van AITJE is PromptPaleis: de Nederlandse marktplaats met pre-made prompts en guides om meer uit AI te halen.",
+        linkTo: "https://www.promptpaleis.nl",
+        linkLabel: "Naar PromptPaleis",
       },
     ],
   },
@@ -270,19 +453,18 @@ const facts = [
   {
     title: "Lokale verwerking",
     badge: "100% data van jou",
-    description: "Geen enkele prompt of kennisbank gaat naar de cloud.",
+    description: "We delen geen data met externe partijen.",
   },
   {
-    title: "Eénmalige kosten",
-    badge: "Voorspelbaar",
-    description:
-      "Je investeert in hardware en kiest daarna bewust voor diensten.",
+    title: "Voorspelbare kosten",
+    badge: "In eigen beheer",
+    description: "Je investeert in een houdbare lange termijn oplossing.",
   },
   {
     title: "Natuurvriendelijk",
     badge: "Klimaat",
     description:
-      "Minder serverwater, minder energie en dus een lichter voetafdruk.",
+      "Minder serverwater, minder energie en dus een lichtere voetafdruk.",
   },
 ];
 </script>

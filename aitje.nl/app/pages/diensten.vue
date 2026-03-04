@@ -85,7 +85,7 @@
             </p>
           </div>
             <NuxtLink
-            to="/shop"
+            to="/producten"
             class="inline-flex items-center justify-center rounded-full bg-[#facc15] px-6 py-3 text-sm font-semibold text-black cursor-pointer transition-colors duration-200 hover:bg-black hover:text-[#facc15]"
           >
             Combineer met een pakket

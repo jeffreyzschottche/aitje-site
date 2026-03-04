@@ -9,7 +9,46 @@
           style="width: 100px; height: 80px"
         />
       </div>
-      <p class="text-gray-400">Lokale AI, altijd dichtbai.</p>
+      <div class="flex items-center gap-4">
+        <a
+          href="/contact"
+          aria-label="AITJE op LinkedIn"
+          class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-gray-300 transition hover:border-[#facc15] hover:text-[#facc15]"
+        >
+          <img
+            src="/images/social/linkedin.png"
+            alt=""
+            aria-hidden="true"
+            class="h-5 w-5 object-contain"
+          />
+        </a>
+        <a
+          href="https://wa.me/31201234567"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="WhatsApp met AITJE"
+          class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-gray-300 transition hover:border-[#facc15] hover:text-[#facc15]"
+        >
+          <img
+            src="/images/social/whatsapp.png"
+            alt=""
+            aria-hidden="true"
+            class="h-5 w-5 object-contain"
+          />
+        </a>
+        <a
+          href="mailto:info@aitje.nl"
+          aria-label="Mail AITJE"
+          class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-gray-300 transition hover:border-[#facc15] hover:text-[#facc15]"
+        >
+          <img
+            src="/images/social/gmail.png"
+            alt=""
+            aria-hidden="true"
+            class="h-5 w-5 object-contain"
+          />
+        </a>
+      </div>
       <p class="text-xs text-gray-500">© {{ new Date().getFullYear() }} AITJE. Alle rechten voorbehouden.</p>
     </div>
   </footer>

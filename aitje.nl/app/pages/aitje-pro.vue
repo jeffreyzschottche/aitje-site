@@ -160,10 +160,10 @@
           </div>
           <div class="flex flex-col gap-3 sm:flex-row">
             <NuxtLink
-              to="/shop"
+              to="/producten"
               class="inline-flex items-center justify-center rounded-full border border-[#212121] px-6 py-3 text-sm font-semibold text-[#212121] transition hover:bg-[#212121] hover:text-[#facc15]"
             >
-              Terug naar shop
+              Terug naar producten
             </NuxtLink>
             <NuxtLink
               to="/contact"

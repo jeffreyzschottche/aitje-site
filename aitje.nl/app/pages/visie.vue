@@ -2,66 +2,68 @@
   <div class="bg-[#f5f5f5] text-gray-900">
     <SiteNavigation />
     <main class="px-6 pt-32">
-      <section class="mx-auto w-full px-4 py-12 text-center sm:max-w-5xl sm:px-8">
+      <section
+        class="mx-auto w-full px-4 py-12 text-center sm:max-w-5xl sm:px-8"
+      >
         <p
           class="text-sm font-semibold uppercase tracking-[0.5em] text-[#facc15]"
         >
           Visie
         </p>
         <h1 class="mt-4 text-5xl font-black text-gray-900">
-          Vogelvraie AI die natuur, mens en data beschermt
+          AI moet voor jouw organisatie werken, niet andersom
         </h1>
         <p class="mt-6 text-lg text-gray-600">
-          Onze visie: elke organisatie verdient een lokaal, goudkleurig AITJE
-          dat onafhankelijk draait van Amerikaanse corporaties, je data bij jou
-          houdt en minder druk zet op het klimaat. We bouwen het nest zelf –
-          hardware, software en diensten – zodat jij altijd dichtbai antwoorden
-          vindt.
+          AI is niet meer weg te denken. Agents, LLM's, beeldgeneratie en
+          videogeneratie gaan een steeds grotere rol spelen in hoe organisaties
+          werken. Onze visie is dat je die ontwikkeling beter op je eigen
+          systemen kunt voorbereiden, zonder volledige afhankelijkheid van het
+          buitenland, Big Tech of externe platformen.
         </p>
       </section>
 
       <section class="mx-auto mt-16 grid max-w-6xl gap-8 md:grid-cols-3">
         <article
-          v-for="goal in goals"
-          :key="goal.title"
+          v-for="principle in principles"
+          :key="principle.title"
           class="rounded-3xl border border-gray-200 bg-white p-6 text-center shadow"
         >
           <div
             class="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-[#212121] text-[#facc15]"
           >
-            <component :is="goal.icon" class="h-7 w-7" />
+            <component :is="principle.icon" class="h-7 w-7" />
           </div>
           <p
             class="mt-4 text-xs font-semibold uppercase tracking-[0.4em] text-gray-400"
           >
-            {{ goal.badge }}
+            {{ principle.badge }}
           </p>
           <h3 class="mt-2 text-2xl font-semibold text-gray-900">
-            {{ goal.title }}
+            {{ principle.title }}
           </h3>
-          <p class="mt-3 text-sm text-gray-600">{{ goal.description }}</p>
+          <p class="mt-3 text-sm text-gray-600">{{ principle.description }}</p>
         </article>
       </section>
 
       <section class="mx-auto mt-16 grid max-w-6xl gap-10 md:grid-cols-2">
         <article
-          v-for="founder in founders"
-          :key="founder.name"
+          v-for="point in visionPoints"
+          :key="point.title"
           class="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm"
         >
           <div class="flex items-center gap-4">
-            <component :is="founder.icon" class="h-10 w-10 text-[#facc15]" />
+            <component :is="point.icon" class="h-10 w-10 text-[#facc15]" />
             <div>
               <h2 class="text-2xl font-semibold text-gray-900">
-                {{ founder.name }}
+                {{ point.title }}
               </h2>
-              <p class="text-sm text-gray-500">{{ founder.role }}</p>
+              <p class="text-sm text-gray-500">{{ point.subtitle }}</p>
             </div>
           </div>
-          <p class="mt-4 text-gray-700">{{ founder.story }}</p>
+          <p class="mt-4 text-gray-700">{{ point.description }}</p>
           <ul class="mt-4 space-y-2 text-sm text-gray-600">
             <li
-              v-for="item in founder.highlights"
+              v-for="item in point.highlights"
               :key="item"
               class="flex items-center gap-2"
             >
@@ -78,7 +80,7 @@
         <p
           class="text-sm font-semibold uppercase tracking-[0.4em] text-[#facc15]"
         >
-          Missie & waarden
+          Waar we in geloven
         </p>
         <div class="mt-8 grid gap-6 md:grid-cols-2">
           <article
@@ -107,23 +109,30 @@
             Roadmap
           </p>
           <h2 class="mt-3 text-3xl font-black">
-            Ons plan uit het businessplan
+            We ontwikkelen en experimenteren volop
           </h2>
           <p class="mt-3 text-sm text-gray-200">
-            We werken gefaseerd: eerst de kernsoftware, daarna hardware, dan de
-            eerste klanten.
+            AI ontwikkelt snel. Daarom bouwen en testen we continu door op
+            hardware, software, agents, workflows en toepassingen die klanten
+            helpen om AI praktisch en veilig in te zetten.
           </p>
           <ul class="mt-6 space-y-4 text-sm text-gray-100">
-            <li v-for="phase in roadmap" :key="phase.title">
+            <li v-for="item in roadmapHighlights" :key="item.title">
               <p
                 class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
               >
-                {{ phase.period }}
+                {{ item.badge }}
               </p>
-              <p class="font-semibold">{{ phase.title }}</p>
-              <p class="text-gray-300">{{ phase.description }}</p>
+              <p class="font-semibold">{{ item.title }}</p>
+              <p class="text-gray-300">{{ item.description }}</p>
             </li>
           </ul>
+          <NuxtLink
+            to="/roadmap"
+            class="mt-8 inline-flex text-sm font-semibold text-[#facc15] transition hover:text-white"
+          >
+            Bekijk de volledige roadmap
+          </NuxtLink>
         </article>
         <article
           class="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm"
@@ -134,14 +143,14 @@
             Risico's & focus
           </p>
           <h2 class="mt-3 text-3xl font-black text-gray-900">
-            Zo houden we koers
+            Waarom dit nu belangrijk is
           </h2>
-        <div class="mt-6 space-y-4">
-          <div
-            v-for="risk in risks"
-            :key="risk.title"
-            class="rounded-2xl border border-gray-100 bg-[#fafafa] p-5"
-          >
+          <div class="mt-6 space-y-4">
+            <div
+              v-for="risk in risks"
+              :key="risk.title"
+              class="rounded-2xl border border-gray-100 bg-[#fafafa] p-5"
+            >
               <h3 class="text-xl font-semibold text-gray-900">
                 {{ risk.title }}
               </h3>
@@ -159,14 +168,14 @@
           <p
             class="text-sm font-semibold uppercase tracking-[0.4em] text-[#facc15]"
           >
-            Marketing & community
+            Samenwerking
           </p>
           <h2 class="mt-3 text-3xl font-black text-gray-900">
-            We brengen AITJE naar buiten met creatieve tactieken
+            We maken jouw organisatie AI-proof voor de toekomst
           </h2>
           <div class="mt-6 grid gap-6 md:grid-cols-2">
             <article
-              v-for="move in marketing"
+              v-for="move in collaborationPoints"
               :key="move.title"
               class="rounded-2xl border border-gray-100 bg-[#fafafa] p-5"
             >
@@ -188,178 +197,156 @@
 
 <script setup lang="ts">
 import {
-  Bird,
-  Feather,
+  Globe,
   HeartHandshake,
   Leaf,
   ShieldCheck,
   Sparkles,
 } from "lucide-vue-next";
 
-const goals = [
+const principles = [
   {
-    title: "Digitale soevereiniteit",
-    badge: "Data blijft van jou",
+    title: "Onafhankelijkheid",
+    badge: "Minder afhankelijk van Big Tech",
     description:
-      "AITJE draait lokaal zodat gemeenten, scholen en bedrijven niet afhankelijk zijn van Amerikaanse platformen.",
+      "Wie AI volledig bouwt op externe platformen, bouwt ook mee aan een afhankelijkheid van prijswijzigingen, voorwaarden en keuzes van grote buitenlandse partijen.",
     icon: ShieldCheck,
   },
   {
-    title: "Natuurvriendelijke infrastructuur",
-    badge: "Minder water & energie",
+    title: "Continuiteit",
+    badge: "Werken als internet of hosting faalt",
     description:
-      "Elke prompt op eigen hardware scheelt liters koelwater en CO₂ uit mega datacenters.",
-    icon: Leaf,
+      "Wanneer internet, cloudhosting of een extern platform uitvalt, wil je niet meteen stilvallen. Met lokale AI-oplossingen blijft kennis en documentatie bereikbaar.",
+    icon: Globe,
   },
   {
-    title: "Betaalbare plan B (en A)",
-    badge: "Voorspelbare kosten",
+    title: "Verantwoord groeien",
+    badge: "AI-proof en bewuster",
     description:
-      "Eenmalige hardware + diensten op maat voorkomt prijsstijgingen en storingen van externe AI’s.",
-    icon: Sparkles,
+      "We helpen organisaties moderniseren met AI, terwijl we verspilling beperken en bewust omgaan met infrastructuur, energie en langdurige afhankelijkheid.",
+    icon: Leaf,
   },
 ];
 
-const founders = [
+const visionPoints = [
   {
-    name: "Jeffrey Zschöttche",
-    role: "Co-founder · Product & strategie",
-    story:
-      "Jeffrey vertaalde het businessplan naar een strak product: hardware + OS + client. Hij bewaakt dat de AI altijd offline bereikbaar blijft.",
+    title: "Waarom lokaal belangrijker wordt",
+    subtitle: "De markt verandert snel",
+    description:
+      "AI wordt een vast onderdeel van moderne organisaties. Agents, LLM's, beeldgeneratie en videogeneratie gaan processen veranderen, maar de partijen die daar miljarden in investeren willen dat uiteindelijk ook terugverdienen.",
     highlights: [
-      "Gebouwde MVP-software",
-      "Praat dagelijks met klanten en partners",
-      "Verzamelt kennisdatabanken op locatie",
+      "Externe AI-kosten kunnen fors stijgen",
+      "Platformkeuzes van derden raken direct jouw operatie",
+      "Volledige afhankelijkheid maakt je kwetsbaar",
     ],
-    icon: Bird,
+    icon: Sparkles,
   },
   {
-    name: "Kees van Ruler",
-    role: "Co-founder · Technologie & diensten",
-    story:
-      "Kees zorgt voor de hardwarekeuze, installatieprocessen en de embedding backdoor. Hij brengt rust tijdens storingen en audits.",
+    title: "Waar AITJE voor bouwt",
+    subtitle: "Software, hardware en begeleiding",
+    description:
+      "AITJE biedt hardware en software om jouw organisatie toekomstbestendig met AI te laten werken. Niet als hype, maar als praktische infrastructuur waarmee jij grip houdt op data, kosten en continuiteit.",
     highlights: [
-      "Bedenker van de embedding workflow",
-      "Stuurt consults en SLA-teams aan",
-      "Combineert tech met natuurverhalen",
+      "Lokale toegang tot documenten en kennis via een LLM",
+      "Praktische inzet voor teams en bedrijfsprocessen",
+      "Ondersteuning bij integratie op een veilige manier",
     ],
-    icon: Feather,
+    icon: HeartHandshake,
   },
 ];
 
 const values = [
   {
-    title: "Lokale controle",
+    title: "AI moet in dienst staan van je organisatie",
     description:
-      "AITJE draait in jouw gebouw, met jouw accounts. We geloven in digitale soevereiniteit.",
+      "Je bedrijf moet niet om AI heen hoeven bouwen. Technologie hoort zich aan te passen aan jouw processen, mensen en verantwoordelijkheden.",
     icon: ShieldCheck,
   },
   {
-    title: "Natuurlijke eenvoud",
+    title: "Voorbereiden is beter dan verrast worden",
     description:
-      "We ontwerpen alsof we een nest bouwen: alles heeft een plek, iedereen voelt zich veilig.",
-    icon: Leaf,
+      "Wie nu bewust keuzes maakt in infrastructuur en data, voorkomt later dure migraties, lock-in en afhankelijkheid van platformen die hun prijsmodel veranderen.",
+    icon: Sparkles,
   },
   {
-    title: "Partnerschap",
+    title: "Lokaal waar het kan, extern waar het nodig is",
     description:
-      "We zijn geen anonieme vendor maar sparren persoonlijk met elke klant.",
-    icon: HeartHandshake,
+      "We zijn niet dogmatisch. We kijken per situatie wat lokaal moet blijven en waar koppelingen of cloud logisch zijn, zolang de regie maar bij jou blijft.",
+    icon: Globe,
   },
   {
-    title: "Open verhaal",
+    title: "Technologie mag ook beter zijn voor de planeet",
     description:
-      "We delen onze roadmap, uitdagingen en inspiratie zodat de community kan meedoen.",
+      "Door niet alles standaard via grote externe infrastructuur te laten lopen, werk je bewuster met rekenkracht, dataverkeer en de impact daarvan.",
     icon: Sparkles,
   },
 ];
 
-const roadmap = [
+const roadmapHighlights = [
   {
-    period: "Maand 1",
-    title: "Kick-off + research",
+    badge: "Nu",
+    title: "Experimenteren en ontwikkelen",
     description:
-      "Scope vastzetten, businessplan fine-tunen en alle interviews en deskresearch afronden.",
+      "We testen voortdurend nieuwe toepassingen, modellen, interfaces en integraties om te zien wat in de praktijk echt waarde toevoegt.",
   },
   {
-    period: "Maand 2",
-    title: "Kernsoftware bouwen",
+    badge: "Doorlopend",
+    title: "Bouwen aan praktische oplossingen",
     description:
-      "AITJE OS en client klaarzetten, lokale LLM’s testen en de basis van de kennisbank laden.",
+      "Onze focus ligt op producten en diensten die organisaties helpen om AI veilig, bruikbaar en toekomstbestendig te integreren.",
   },
   {
-    period: "Maand 3",
-    title: "Merk & content",
+    badge: "Meer weten?",
+    title: "Volg de roadmap",
     description:
-      "Website, branding en demo’s afleveren zodat iedereen het gouden kastje kan zien en voelen.",
-  },
-  {
-    period: "Maand 4",
-    title: "Hardware iteraties",
-    description:
-      "Productiepartners kiezen, onderdelen inkopen en de eerste serie behuizingen assembleren.",
-  },
-  {
-    period: "Maand 5",
-    title: "Eerste klanten onboarden",
-    description:
-      "LinkedIn, YouTube en outreach activeren, pilots draaien en supportprocessen schrijven.",
-  },
-  {
-    period: "Maand 6",
-    title: "Opschalen & leren",
-    description:
-      "Content maken zodra MVP draait: video’s, artikelen, demo’s en documentatie voor nieuwe sectoren.",
+      "Voor de actuele richting en concrete stappen verwijzen we naar de roadmap-pagina.",
   },
 ];
 
 const risks = [
   {
-    title: "Te lang hangen in techniek",
+    title: "Kosten worden niet vanzelf lager",
     description:
-      "We kennen de valkuil van eindeloos debuggen (zoals bij Debian).",
+      "Big Tech heeft enorm geïnvesteerd in AI en zal dat moeten terugverdienen. Wie volledig bouwt op externe AI-platformen, kan later geconfronteerd worden met hogere structurele kosten.",
     solution:
-      "Roadmap strak volgen, blokken reserveren en hulp vragen wanneer nodig.",
+      "Daarom geloven wij in een model waarin lokale infrastructuur en slimme keuzes je meer controle geven.",
   },
   {
-    title: "Feature drift",
-    description: "Altijd nieuwe ideeën voor functies geeft vertraging.",
-    solution: "Vast product voor versie 1, uitbreidingen pas na lancering.",
-  },
-  {
-    title: "Concurrentie beweegt sneller",
+    title: "Continuiteit is een bedrijfsrisico",
     description:
-      "Ook anderen bouwen lokale AI. We moeten gericht tempo houden.",
+      "Als een grote hostingpartij, internetverbinding of extern AI-platform uitvalt, kan je organisatie direct stilvallen wanneer alles daarop leunt.",
     solution:
-      "Focus op Nederlandse markt, directe klantgesprekken en snelle iteratie.",
+      "Met sommige oplossingen van AITJE kun je lokaal blijven werken met documenten en kennis via een LLM.",
   },
   {
-    title: "Te laat naar buiten treden",
-    description: "Als we wachten op perfectie, mist de doelgroep ons verhaal.",
-    solution: "Content maken zodra MVP draait: video’s, artikelen, demo’s.",
+    title: "Met wie deel je je gevoelige bedrijfsdata eigenlijk?",
+    description:
+      "Wie AI gebruikt via externe platformen, deelt vaak ongemerkt documenten, vragen, interne kennis en bedrijfscontext met partijen buiten de eigen organisatie. Veel bedrijven staan daar nog te weinig bij stil.",
+    solution:
+      "Daarom vinden wij het belangrijk dat je kritisch kijkt naar waar je data heen gaat en welke onderdelen je beter lokaal of binnen je eigen omgeving kunt organiseren.",
   },
 ];
 
-const marketing = [
+const collaborationPoints = [
   {
-    title: "LinkedIn + website + YouTube",
+    title: "Software en hardware die samen kloppen",
     description:
-      "Elke release delen we synchroon via socials en site voor maximale zichtbaarheid.",
+      "We leveren niet alleen losse tools, maar bouwen aan een combinatie van hardware, software en gebruik die praktisch werkt binnen jouw organisatie.",
   },
   {
-    title: "Lokale media en podcasts",
+    title: "Strategische samenwerking",
     description:
-      "Interviews met kranten, tech-magazines en ondernemersshows uit Nederland.",
+      "Ons doel is een langdurige relatie waarin jij kunt focussen op je business en wij helpen met het AI-aspect van je onderneming.",
   },
   {
-    title: "Guerilla acties",
+    title: "Veilige integratie in de praktijk",
     description:
-      "Aanwezig op markten, beurzen en meetups met het fysieke kastje om vertrouwen te winnen.",
+      "We kijken naar wat verantwoord kan, welke data lokaal moet blijven en hoe AI bruikbaar wordt zonder onnodig risico.",
   },
   {
-    title: "Automatische outreach",
+    title: "Praktisch, niet theoretisch",
     description:
-      "Cold mails, persoonlijke berichten en referenties om de eerste 10-50 klanten te bereiken.",
+      "Geen abstract toekomstverhaal, maar concrete oplossingen waarmee teams vandaag al beter kunnen werken en morgen sterker staan.",
   },
 ];
 </script>
