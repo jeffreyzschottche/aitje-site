@@ -248,7 +248,7 @@ const services = [
   },
   {
     title: "LLM upgrades",
-    badge: "€ 250 per kwartaal",
+    badge: "€ 250 per upgrade",
     description:
       "We monitoren modellen, leveren een rapport en installeren na akkoord.",
     details: [
@@ -295,7 +295,7 @@ const subscriptions = [
   },
   {
     title: "LLM upgrade service",
-    price: "€ 250 / kwartaal",
+    price: "€ 250 / upgrade",
     description: "Rapport + implementatie van nieuwe modellen.",
     items: ["Businesscase per upgrade", "Installatie", "Training"],
   },

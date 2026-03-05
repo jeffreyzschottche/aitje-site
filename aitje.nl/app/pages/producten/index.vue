@@ -311,7 +311,7 @@ const plans = [
     perks: [
       "Maatwerk hardware en optimalisaties",
       "Kennisupdates wanneer jij het nodig hebt (1250,- p/sessie)",
-      "LLM upgrades (250,- p kwartaal + rapport)",
+      "LLM upgrades (250,- p upgrade + rapport)",
       "Consults en roadmap sessies (100,- p uur)",
     ],
     service: "Toegewijde account + backdoor embedding + governance advies.",
@@ -362,7 +362,7 @@ const faqs = [
   {
     question: "Wat als ik extra diensten nodig heb?",
     answer:
-      "Je boekt diensten los: consults à €100 per uur, kennisupdates à €1.250, LLM upgrades à €250 per kwartaal en SLA/E-learning volgens de bedragen hierboven.",
+      "Je boekt diensten los: consults à €100 per uur, kennisupdates à €1.250, LLM upgrades à €250 per upgrade en SLA/E-learning volgens de bedragen hierboven.",
   },
   {
     question: "Helpt dit echt de natuur?",
