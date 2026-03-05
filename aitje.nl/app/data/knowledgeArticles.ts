@@ -18,7 +18,7 @@ export const knowledgeArticles: KnowledgeArticle[] = [
     slug: "wat-is-een-llm",
     title: "Wat is een LLM?",
     excerpt:
-      "Een LLM is een taalmodel dat tekst begrijpt en genereert op basis van enorme hoeveelheden voorbeelden.",
+      "Een LLM is een type taalmodel dat tekst voorspelt, begrijpt en genereert op basis van grote hoeveelheden voorbeelden.",
     thumbnail:
       "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
     readTime: "3 min",
@@ -27,17 +27,17 @@ export const knowledgeArticles: KnowledgeArticle[] = [
       {
         title: "In het kort",
         content:
-          "LLM staat voor Large Language Model. Het is een AI-model dat getraind is op grote hoeveelheden tekst en daardoor taal kan voorspellen, samenvatten, herschrijven en beantwoorden.",
+          "LLM staat voor Large Language Model. Het is een taalmodel dat getraind is op grote hoeveelheden tekst en daardoor taal kan voorspellen, samenvatten, herschrijven en beantwoorden.",
       },
       {
-        title: "Waarom is dit relevant?",
+        title: "Wat is het verschil met een taalmodel?",
         content:
-          "Veel moderne AI-toepassingen draaien op een LLM. Denk aan chatinterfaces, interne kennisassistenten, samenvattingen, notulisten en agents die tekst moeten begrijpen of produceren.",
+          "Taalmodel is de brede term. Een LLM is een groot taalmodel binnen die categorie. In de praktijk bedoelen mensen met LLM meestal moderne modellen die chats, samenvattingen, classificatie en assistent-taken ondersteunen.",
       },
       {
         title: "Wat moet je als organisatie weten?",
         content:
-          "Een LLM is slim in taal, maar niet automatisch betrouwbaar of veilig. De kwaliteit hangt af van het model, de context die je meegeeft en de manier waarop je het inzet binnen je eigen processen.",
+          "Een LLM is sterk in taal, maar niet automatisch betrouwbaar of veilig. Resultaten hangen af van modelkeuze, context, governance en waar het model draait (cloud of lokaal).",
       },
     ],
   },
@@ -45,7 +45,7 @@ export const knowledgeArticles: KnowledgeArticle[] = [
     slug: "wat-is-edge-ai",
     title: "Wat is edge AI?",
     excerpt:
-      "Edge AI betekent dat AI draait op een lokaal device of binnen je eigen omgeving, in plaats van volledig in de cloud.",
+      "Edge AI en lokale AI betekenen in de praktijk meestal hetzelfde: AI draait op een lokaal device of in je eigen omgeving in plaats van volledig in de cloud.",
     thumbnail:
       "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
     readTime: "3 min",
@@ -54,44 +54,17 @@ export const knowledgeArticles: KnowledgeArticle[] = [
       {
         title: "In het kort",
         content:
-          "Bij edge AI verwerk je data dicht bij de bron: op een apparaat, server of netwerk in je eigen omgeving. Je hoeft dan niet voor elke vraag afhankelijk te zijn van een externe cloudpartij.",
+          "Bij edge AI verwerk je data dicht bij de bron: op een apparaat, server of netwerk in je eigen omgeving. Daarom wordt edge AI vaak ook lokale AI genoemd.",
       },
       {
-        title: "Waarom kiezen organisaties hiervoor?",
+        title: "Waarom kiezen organisaties voor edge/lokale AI?",
         content:
           "Edge AI kan voordelen geven op het gebied van snelheid, privacy, continuiteit en kostenbeheersing. Zeker wanneer je werkt met gevoelige documenten of processen die moeten blijven draaien.",
       },
       {
-        title: "Waar moet je op letten?",
+        title: "Wat moet je in de praktijk regelen?",
         content:
-          "Lokale AI vraagt om goede hardware, beheer en duidelijke keuzes over wat lokaal blijft en wat eventueel nog extern draait. Het is dus geen trucje, maar een infrastructuurkeuze.",
-      },
-    ],
-  },
-  {
-    slug: "wat-betekent-lokale-ai",
-    title: "Wat betekent lokale AI?",
-    excerpt:
-      "Lokale AI betekent dat modellen, data of workflows binnen je eigen omgeving draaien in plaats van standaard via externe platformen.",
-    thumbnail:
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
-    readTime: "3 min",
-    category: "Infrastructuur",
-    sections: [
-      {
-        title: "Meer dan alleen offline",
-        content:
-          "Lokale AI betekent niet automatisch dat alles zonder internet werkt, maar wel dat je de regie meer naar jezelf toe haalt. Denk aan lokale modellen, eigen opslag en toegang via je eigen netwerk.",
-      },
-      {
-        title: "Waarom is dat belangrijk?",
-        content:
-          "Als je gevoelige kennis, documenten of audio verwerkt, wil je weten waar die informatie heen gaat. Lokale AI geeft je meer controle over data, toegangsrechten en afhankelijkheden.",
-      },
-      {
-        title: "Wat levert het op?",
-        content:
-          "Je kunt processen stabieler maken, minder afhankelijk worden van prijswijzigingen van derden en sommige toepassingen blijven gebruiken als internet of externe diensten uitvallen.",
+          "Lokale AI vraagt om goede hardware, beheer en duidelijke keuzes over wat lokaal blijft en wat eventueel nog extern draait. Het is geen trucje, maar een infrastructuurkeuze met beheerlast en verantwoordelijkheid.",
       },
     ],
   },
@@ -173,33 +146,6 @@ export const knowledgeArticles: KnowledgeArticle[] = [
         title: "Niet alles hoeft erin",
         content:
           "Een groter context window is handig, maar niet altijd de oplossing. Goede selectie van relevante context is vaak belangrijker dan simpelweg meer tekst toevoegen.",
-      },
-    ],
-  },
-  {
-    slug: "wat-is-een-taalmodel",
-    title: "Wat is een taalmodel?",
-    excerpt:
-      "Een taalmodel is software die leert om taal te voorspellen, te begrijpen en te genereren.",
-    thumbnail:
-      "https://images.unsplash.com/photo-1526378722484-bd91ca387e72?auto=format&fit=crop&w=1200&q=80",
-    readTime: "3 min",
-    category: "Basis",
-    sections: [
-      {
-        title: "Wat doet een taalmodel?",
-        content:
-          "Het voorspelt welk woord, welke zin of welke structuur waarschijnlijk het best past op basis van eerdere input. Daardoor kan het antwoorden formuleren, herschrijven en structureren.",
-      },
-      {
-        title: "Is elk taalmodel hetzelfde?",
-        content:
-          "Nee. Er zijn kleine en grote modellen, open en gesloten modellen, cloudmodellen en modellen die lokaal kunnen draaien. Elk model heeft andere sterke en zwakke punten.",
-      },
-      {
-        title: "Wat betekent dit voor AITJE?",
-        content:
-          "Bij AITJE kijken we niet alleen naar wat een model kan, maar ook naar waar het draait, wat het kost, hoe veilig het is en hoe goed het past bij jouw gebruik.",
       },
     ],
   },

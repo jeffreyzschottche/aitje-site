@@ -85,10 +85,30 @@
 import { computed } from "vue";
 import { knowledgeArticles } from "../../data/knowledgeArticles";
 
+const mergedSlugAliases: Record<string, string> = {
+  "wat-is-een-taalmodel": "wat-is-een-llm",
+  "wat-betekent-lokale-ai": "wat-is-edge-ai",
+};
+
 const route = useRoute();
 
+const currentSlug = computed(() => {
+  const slug = route.params.slug;
+  return Array.isArray(slug) ? slug[0] : slug;
+});
+
+const canonicalSlug = computed(
+  () => mergedSlugAliases[currentSlug.value] ?? currentSlug.value
+);
+
+if (currentSlug.value in mergedSlugAliases) {
+  await navigateTo(`/kenniscentrum/${canonicalSlug.value}`, {
+    redirectCode: 301,
+  });
+}
+
 const article = computed(() =>
-  knowledgeArticles.find((item) => item.slug === route.params.slug)
+  knowledgeArticles.find((item) => item.slug === canonicalSlug.value)
 );
 
 if (!article.value) {
