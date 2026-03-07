@@ -998,9 +998,9 @@ const reviews = [
   },
   {
     name: "Marieke van Dam",
-    role: "Bibliotheekcoordinator",
+    role: "Tweedehands boekenwinkel",
     quote:
-      "Voor onze bibliotheek is het vooral handig dat medewerkers snel informatie kunnen terugvinden zonder alles opnieuw op te zoeken. Dat scheelt tijd aan de balie en intern overleg.",
+      "Voor onze tweedehands boekenwinkel bouwde AITJE een maatwerk RAG-chat gekoppeld aan documenten en een ISBN-scanner. Zo vinden medewerkers ook nicheboeken snel terug en plaatsen we boekdata direct consistent in het systeem.",
   },
   {
     name: "Paul Vermeeren",

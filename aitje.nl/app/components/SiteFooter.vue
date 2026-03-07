@@ -16,7 +16,7 @@
           class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-gray-300 transition hover:border-[#facc15] hover:text-[#facc15]"
         >
           <img
-            src="/images/social/linkedin.png"
+            :src="linkedinIcon"
             alt=""
             aria-hidden="true"
             class="h-5 w-5 object-contain"
@@ -30,7 +30,7 @@
           class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-gray-300 transition hover:border-[#facc15] hover:text-[#facc15]"
         >
           <img
-            src="/images/social/whatsapp.png"
+            :src="whatsappIcon"
             alt=""
             aria-hidden="true"
             class="h-5 w-5 object-contain"
@@ -42,7 +42,7 @@
           class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-gray-300 transition hover:border-[#facc15] hover:text-[#facc15]"
         >
           <img
-            src="/images/social/gmail.png"
+            :src="gmailIcon"
             alt=""
             aria-hidden="true"
             class="h-5 w-5 object-contain"
@@ -53,3 +53,9 @@
     </div>
   </footer>
 </template>
+
+<script setup lang="ts">
+import linkedinIcon from "@/assets/images/social/linkedin.png";
+import whatsappIcon from "@/assets/images/social/whatsapp.png";
+import gmailIcon from "@/assets/images/social/gmail.png";
+</script>

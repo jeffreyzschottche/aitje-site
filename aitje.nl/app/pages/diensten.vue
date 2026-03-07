@@ -8,15 +8,17 @@
         <p
           class="text-sm font-semibold uppercase tracking-[0.5em] text-[#facc15]"
         >
-          Diensten & abonnementen
+          Diensten & Custom Solutions
         </p>
         <h1 class="mt-4 text-5xl font-black text-gray-900">
           We zijn jouw strategische AI-partner
         </h1>
         <p class="mt-6 text-lg text-gray-600">
-          AITJE is meer dan een kastje. We helpen je installeren, trainen je
-          team, beheren kennis en houden je modellen actueel – helemaal volgens
-          het businessplan.
+          AITJE is meer dan een hardware product of een applicatie. We helpen je
+          organisatie toekomstbestendig te maken op de juiste manier via de
+          manier die bij jou en je organisatie past. Wanneer een van onze vaste
+          solutions niet de solution voor jou is, ontwikkelen we graag een
+          maatwerk product dat dat wel is.
         </p>
       </section>
 
@@ -34,33 +36,50 @@
         </article>
       </section>
 
-      <section class="mx-auto mt-16 grid max-w-6xl gap-8 md:grid-cols-2">
+      <section class="mx-auto mt-16 max-w-6xl space-y-6">
         <article
           v-for="service in services"
           :key="service.title"
-          class="rounded-3xl border border-gray-200 bg-[#fafafa] p-8"
+          class="rounded-3xl border border-gray-200 bg-[#fafafa] p-8 md:p-10"
         >
-          <div class="flex items-center gap-4">
-            <div
-              class="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#212121] text-[#facc15]"
-            >
-              <component :is="service.icon" class="h-7 w-7" />
-            </div>
-            <div>
-              <p
-                class="text-xs font-semibold uppercase tracking-[0.4em] text-gray-400"
+          <div class="grid gap-6 md:grid-cols-[1fr_1.1fr] md:items-start">
+            <div class="flex gap-4">
+              <div
+                class="mt-1 flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#212121] text-[#facc15]"
               >
-                {{ service.badge }}
+                <component :is="service.icon" class="h-7 w-7" />
+              </div>
+              <div>
+                <p
+                  class="text-xs font-semibold uppercase tracking-[0.3em] text-gray-400"
+                >
+                  {{ service.focus }}
+                </p>
+                <h2 class="text-2xl font-semibold text-gray-900">
+                  {{ service.title }}
+                </h2>
+                <p class="mt-4 text-sm text-gray-600">
+                  {{ service.description }}
+                </p>
+                <p class="mt-3 text-sm text-gray-700">
+                  <span class="font-semibold text-gray-900">Resultaat:</span>
+                  {{ service.result }}
+                </p>
+              </div>
+            </div>
+            <div class="rounded-2xl border border-gray-200 bg-white p-5">
+              <p
+                class="text-xs font-semibold uppercase tracking-[0.3em] text-[#d4a700]"
+              >
+                Wat we opleveren
               </p>
-              <h2 class="text-2xl font-semibold text-gray-900">
-                {{ service.title }}
-              </h2>
+              <ul class="mt-3 space-y-2 text-sm text-gray-700">
+                <li v-for="item in service.details" :key="item">
+                  • {{ item }}
+                </li>
+              </ul>
             </div>
           </div>
-          <p class="mt-4 text-sm text-gray-600">{{ service.description }}</p>
-          <ul class="mt-4 space-y-2 text-sm text-gray-700">
-            <li v-for="item in service.details" :key="item">• {{ item }}</li>
-          </ul>
         </article>
       </section>
 
@@ -74,38 +93,24 @@
             <p
               class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
             >
-              Abonnementen
+              Investering & rendement
             </p>
             <h2 class="mt-3 text-3xl font-black">
               Voorspelbare jaarlijkse kosten
             </h2>
             <p class="mt-2 text-sm text-gray-300">
-              Weg uit de maandelijkse API-kermis. Onze abonnementen houden je
-              nest veilig en up-to-date.
+              We bouwen AI-oplossingen die je met een eenmalige investering
+              duurzaam in eigen regie brengt. Optimaliseren we je huidige stack,
+              dan verlagen we structureel kosten, verhogen we controle en
+              verminderen we afhankelijkheid.
             </p>
           </div>
-            <NuxtLink
-            to="/producten"
-            class="inline-flex items-center justify-center rounded-full bg-[#facc15] px-6 py-3 text-sm font-semibold text-black cursor-pointer transition-colors duration-200 hover:bg-black hover:text-[#facc15]"
+          <NuxtLink
+            to="/contact?onderwerp=offerte"
+            class="inline-flex shrink-0 whitespace-nowrap items-center justify-center rounded-full bg-[#facc15] px-6 py-3 text-sm font-semibold text-black cursor-pointer transition-colors duration-200 hover:bg-black hover:text-[#facc15]"
           >
-            Combineer met een pakket
+            Offerte aanvragen
           </NuxtLink>
-        </div>
-        <div class="mt-10 grid gap-6 md:grid-cols-3">
-          <article
-            v-for="sub in subscriptions"
-            :key="sub.title"
-            class="rounded-3xl border border-white/10 bg-white/5 p-5"
-          >
-            <h3 class="text-2xl font-semibold text-white">{{ sub.title }}</h3>
-            <p class="text-sm text-gray-300">{{ sub.description }}</p>
-            <p class="mt-4 text-lg font-semibold text-[#facc15]">
-              {{ sub.price }}
-            </p>
-            <ul class="mt-4 space-y-2 text-sm text-gray-200">
-              <li v-for="item in sub.items" :key="item">• {{ item }}</li>
-            </ul>
-          </article>
         </div>
       </section>
 
@@ -118,10 +123,10 @@
           <p
             class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
           >
-            Workflow
+            Strategisch partnerschap
           </p>
           <h2 class="mt-3 text-3xl font-black text-gray-900">
-            Van intake tot gouden nest
+            Van kennismaking tot het warme nest van AITJE
           </h2>
           <div class="mt-6 space-y-4">
             <div
@@ -147,25 +152,30 @@
           <p
             class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
           >
-            Waarom dit werkt
+            Waarom nu
           </p>
           <h2 class="mt-3 text-3xl font-black text-gray-900">
-            In lijn met ons businessplan
+            Wees problemen voor
           </h2>
           <p class="mt-3 text-sm text-gray-600">
-            Onze diensten zorgen ervoor dat je niet afhankelijk wordt van
-            buitenlandse platformen. AITJE draait lokaal, jij houdt regie.
+            De AI-wereld verandert razendsnel. Zonder partner riskeer je de
+            komende jaren hogere kosten, losse systemen en onnodige
+            datarisico's.
           </p>
           <ul class="mt-6 space-y-3 text-sm text-gray-700">
-            <li>• Minder stroom en water via lokale prompts.</li>
-            <li>• Privacy-proof voor gemeenten, scholen en bibliotheken.</li>
-            <li>• Strategische partner voor innovatieve organisaties.</li>
+            <li>• Voorkom dure ad-hoc keuzes en vendor lock-in.</li>
+            <li>
+              • Beperk datalekrisico's met een veilige, doordachte architectuur.
+            </li>
+            <li>
+              • Maak je organisatie toekomstbestendig en klaar voor innovatie.
+            </li>
           </ul>
           <NuxtLink
-            to="/contact"
+            to="/contact?onderwerp=demo"
             class="mt-8 inline-flex w-full items-center justify-center rounded-full bg-black px-6 py-3 text-sm font-semibold text-white cursor-pointer transition-colors duration-200 hover:bg-black hover:text-[#facc15]"
           >
-            Plan een traject
+            Plan een demo
           </NuxtLink>
         </article>
       </section>
@@ -182,7 +192,6 @@ import {
   BookOpenCheck,
   ClipboardPenLine,
   Cog,
-  GraduationCap,
   Leaf,
   PlugZap,
   ShieldCheck,
@@ -191,134 +200,161 @@ import {
 
 const heroValues = [
   {
-    title: "Installatie door de bouwers",
+    title: "Onafhankelijkheid",
     description:
-      "We koppelen hardware, testen het OS en laten je nest vliegen.",
+      "Niet afhankelijk van externe bronnen en het liefst ook niet afhankelijk van internet.",
     icon: PlugZap,
   },
   {
-    title: "Partnerschap",
+    title: "Strategisch partnerschap",
     description:
-      "Consults, kennisupdates en upgrades zorgen voor continuïteit.",
+      "We denken met je mee met een focus op een systeem dat voor jouw organisatie werkt.",
     icon: Sparkles,
   },
   {
     title: "Natuur & privacy",
     description:
-      "Lokale prompts besparen water en houden data in eigen beheer.",
+      "We bouwen zuinig: minder requests, groene of serverloze infrastructuur.",
     icon: Leaf,
   },
 ];
 
 const services = [
   {
-    title: "Installeren & voorbereiden",
-    badge: "2,5 uur + 50,- voorrijkosten",
-    description: "We zetten alles klaar: van kabels tot eerste accounts.",
+    title: "AI-strategie uitdenken",
+    focus: "Strategie",
+    description:
+      "We denken mee over waar AI nu de meeste waarde oplevert voor jouw organisatie en welke stappen logisch zijn om te zetten.",
+    result:
+      "Een duidelijk plan waarmee je direct kunt starten, zonder te verdwalen in alle AI-opties.",
     details: [
-      "Hardware check & plaatsing",
-      "OS configuratie",
-      "Gebruikerstraining",
+      "Waar AI nu direct meerwaarde geeft in je organisatie",
+      "Welke tools je vandaag al slim kunt inzetten",
+      "Roadmap met heldere prioriteiten en vervolgstappen",
+      "Praktische keuzes voor tooling en aanpak",
     ],
     icon: PlugZap,
   },
   {
-    title: "Consult & strategie",
-    badge: "Eerste kennismaking gratis",
+    title: "Consultancy: verbruik optimaliseren",
+    focus: "Kosten & stabiliteit",
     description:
-      "Digitale sessies (daarna 100,- p uur) waarin we meedenken over governance en use-cases.",
+      "We analyseren je huidige AI-gebruik en maken je stack goedkoper, stabieler en minder afhankelijk van 1 partij.",
+    result:
+      "Lagere kosten, betere performance en meer grip op je leveranciers.",
     details: [
-      "Roadmap en prioriteiten",
-      "Prompt coaching",
-      "Security en privacy",
+      "Analyse van tokenverbruik, kosten en latency",
+      "Slim routeren tussen meerdere modellen",
+      "Vendor-onafhankelijke opzet met meerdere aanbieders",
+      "API-architectuur en fallback-scenario's",
     ],
     icon: ClipboardPenLine,
   },
   {
-    title: "Eigen kennis updaten",
-    badge: "€ 1.250 per update",
+    title: "RAG-chat & maatwerkoplossingen",
+    focus: "Kennisgedreven AI",
     description:
-      "Upload documenten naar onze embedding omgeving, wij plaatsen de kennis lokaal.",
+      "Van AITJE-assistent tot maatwerk software: chat in, antwoord terug met gematchte context uit je eigen kennis.",
+    result:
+      "Direct bruikbare antwoorden op basis van je eigen documenten en bedrijfscontext.",
     details: [
-      "Drag & drop omgeving",
-      "Controle door ons team",
-      "Nazorg en test prompt",
+      "RAG-chat met documenten, beleid en interne kennis",
+      "Betrouwbare context-matching met broncontrole",
+      "Integratie in bestaande processen en teams",
+      "Onderhoud, monitoring en doorontwikkeling",
     ],
     icon: BookOpenCheck,
   },
   {
-    title: "LLM upgrades",
-    badge: "€ 250 per upgrade",
+    title: "Software-oplossingen op maat",
+    focus: "Maatwerk ontwikkeling",
     description:
-      "We monitoren modellen, leveren een rapport en installeren na akkoord.",
+      "We bouwen software en applicaties op maat die AI logisch onderdeel maken van je dagelijkse operatie.",
+    result:
+      "Tools die precies aansluiten op je workflow in plaats van generieke software eromheen.",
     details: [
-      "Rapport met advies",
-      "Installatie + validatie",
-      "Training voor je team",
+      "Web- en mobiele applicaties op maat",
+      "Interne tools voor teams en operationele processen",
+      "Generators voor content, rapportages en simpele acties",
+      "Koppelingen met CRM, MCP, ERP en interne API's",
     ],
-    icon: Cog,
+    icon: Sparkles,
   },
   {
-    title: "SLA & storing",
-    badge: "€ 250 per kwartaal (4 uur inbegrepen)",
+    title: "Lokale LLM-installatie",
+    focus: "Continuiteit & onafhankelijkheid",
     description:
-      "Voor calamiteiten en dringende ondersteuning. Meerwerk via uurtarief.",
+      "We installeren een lokale LLM op je eigen infrastructuur, zodat je bedrijf blijft draaien zonder afhankelijk te zijn van externe AI-platformen.",
+    result:
+      "AI-beschikbaarheid op je eigen omgeving, ook als externe diensten uitvallen.",
     details: [
-      "Monitoring & health checks",
-      "Incident response",
-      "Communicatiekanaal op maat",
+      "Lokale setup en beveiligde configuratie",
+      "Modelkeuze per use-case en hardwareprofiel",
+      "Fallback-architectuur en beheerafspraken",
+      "Je bedrijf zit niet zonder AI zolang je stroom hebt",
     ],
     icon: ShieldCheck,
   },
   {
-    title: "E-learning & Academy",
-    badge: "€ 100 per jaar",
+    title: "Maatwerk agents",
+    focus: "Agentic automation",
     description:
-      "Toegang tot docs, cheatsheets en promptlessen voor je hele team.",
-    details: ["Video’s & templates", "Live Q&A’s", "Community toegang"],
-    icon: GraduationCap,
-  },
-];
-
-const subscriptions = [
-  {
-    title: "E-learning",
-    price: "€ 100 / jaar",
-    description: "Alles over prompt engineering en workflows.",
-    items: ["Volledige bibliotheek", "Cheatsheets", "Nieuwe modules"],
+      "We bouwen een persoonlijke agent die past bij je processen, team en datastromen.",
+    result:
+      "Herhaalbaar werk wordt automatisch afgehandeld met duidelijke controle.",
+    details: [
+      "Agentontwerp per afdeling of rol",
+      "Koppeling met interne tools en databronnen",
+      "Veiligheden, rechten en auditability ingebouwd",
+      "Iteratief verbeteren op basis van gebruik",
+    ],
+    icon: Cog,
   },
   {
-    title: "SLA + Support",
-    price: "€ 250 / kwartaal",
-    description: "4 uur support, prioriteit en monitoring.",
-    items: ["Ticketdesk", "Standaard responstijden", "Optie op-site"],
-  },
-  {
-    title: "LLM upgrade service",
-    price: "€ 250 / upgrade",
-    description: "Rapport + implementatie van nieuwe modellen.",
-    items: ["Businesscase per upgrade", "Installatie", "Training"],
+    title: "AI-workflows met of zonder human-in-the-loop",
+    focus: "Workflow orchestration",
+    description:
+      "We automatiseren stappen waar het kan en voegen menselijke controle toe waar het moet.",
+    result:
+      "Snellere processen met de juiste balans tussen automatisering en menselijke regie.",
+    details: [
+      "Workflows met goedkeuringsstappen voor kritieke acties",
+      "Volledig geautomatiseerde flows voor routinetaken",
+      "Escalaties, fallback en kwaliteitscontroles",
+      "Meetbare SLA's en continue optimalisatie",
+    ],
+    icon: ShieldCheck,
   },
 ];
 
 const steps = [
   {
-    title: "Intake & demo",
-    description: "We analyseren je doelen, privacy eisen en impact op natuur.",
+    title: "Kennismaken",
+    description: "We verkennen je doelen, context en ambities met AI.",
   },
   {
-    title: "Installatie & configuratie",
-    description: "We plaatsen het kastje, richten accounts in en testen alles.",
-  },
-  {
-    title: "Academy & onboarding",
+    title: "Huidige organisatie leren kennen",
     description:
-      "Je team krijgt promptlessen, docs en toegang tot de embedding omgeving.",
+      "We kijken naar processen, systemen, teams en huidige AI-inzet.",
   },
   {
-    title: "Doorlopende verbeteringen",
+    title: "Knelpunten en wensen in kaart brengen",
     description:
-      "We plannen consults, kennisupdates en upgrades wanneer jij dat wilt.",
+      "We bepalen waar winst te halen is in kwaliteit, kosten en snelheid.",
+  },
+  {
+    title: "Eerste implementaties toepassen",
+    description:
+      "We zetten de eerste oplossingen live en borgen ze in je organisatie.",
+  },
+  {
+    title: "Monitoren, verbeteren, uitbreiden en optimaliseren",
+    description:
+      "Op basis van gebruiksdata verbeteren we continu je AI-landschap.",
+  },
+  {
+    title: "Lang partnerschap in AI",
+    description: "We blijven beschikbaar voor vragen, keuzes en nieuwe kansen.",
   },
 ];
 </script>

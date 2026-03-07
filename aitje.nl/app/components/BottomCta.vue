@@ -11,10 +11,10 @@
       </p>
       <div class="flex justify-center">
         <NuxtLink
-          to="/contact"
+          to="/contact?onderwerp=kennismaking"
           class="inline-flex items-center justify-center rounded-full bg-black px-8 py-3 text-base font-semibold text-white cursor-pointer transition-colors duration-200 hover:bg-black hover:text-[#facc15]"
         >
-          Contact
+          Plan een kennismaking
         </NuxtLink>
       </div>
     </div>

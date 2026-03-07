@@ -84,7 +84,7 @@
               class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-[#fafafa] transition hover:border-[#facc15]"
             >
               <img
-                src="/images/social/linkedin.png"
+                :src="linkedinIcon"
                 alt=""
                 aria-hidden="true"
                 class="h-5 w-5 object-contain"
@@ -98,7 +98,7 @@
               class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-[#fafafa] transition hover:border-[#facc15]"
             >
               <img
-                src="/images/social/whatsapp.png"
+                :src="whatsappIcon"
                 alt=""
                 aria-hidden="true"
                 class="h-5 w-5 object-contain"
@@ -110,7 +110,7 @@
               class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-[#fafafa] transition hover:border-[#facc15]"
             >
               <img
-                src="/images/social/gmail.png"
+                :src="gmailIcon"
                 alt=""
                 aria-hidden="true"
                 class="h-5 w-5 object-contain"
@@ -181,6 +181,9 @@ import {
   Shield,
   Sparkles,
 } from "lucide-vue-next";
+import linkedinIcon from "@/assets/images/social/linkedin.png";
+import whatsappIcon from "@/assets/images/social/whatsapp.png";
+import gmailIcon from "@/assets/images/social/gmail.png";
 
 const faqGroups = [
   {
@@ -321,9 +324,9 @@ const faqGroups = [
           "Ja. We helpen met keuzes in infrastructuur, tooling, processen en prioriteiten, zodat AI past bij je organisatie in plaats van andersom.",
       },
       {
-        question: "Kunnen jullie agents opzetten?",
+        question: "Kunnen jullie een maatwerk agent voor ons maken?",
         answer:
-          "Ja. We bouwen en configureren agents voor terugkerende taken, interne workflows en procesautomatisering.",
+          "Ja. We bouwen een persoonlijke agent op maat voor jouw processen, inclusief koppelingen met systemen, beveiliging en beheer.",
       },
       {
         question: "Kunnen jullie een RAG chat bouwen?",
@@ -331,9 +334,9 @@ const faqGroups = [
           "Ja. We kunnen een RAG-chat opzetten die werkt met jouw documenten en kennisbank, zodat antwoorden contextueel en bruikbaar zijn.",
       },
       {
-        question: "Kunnen jullie een model trainen?",
+        question: "Bouwen jullie AI-workflows met of zonder human-in-the-loop?",
         answer:
-          "Ja. Als jouw use case dat vraagt, kunnen we modellen trainen of fine-tunen en deze opnemen in een passende architectuur.",
+          "Ja. We ontwerpen zowel volledig geautomatiseerde workflows als varianten met menselijke controle en goedkeuringsstappen.",
       },
       {
         question: "Bouwen jullie ook software-oplossingen op maat?",

@@ -14,12 +14,9 @@
       </NuxtLink>
 
       <div class="hidden items-center gap-8 md:flex">
-        <template
-          v-for="link in links"
-        >
+        <template v-for="link in links" :key="`desktop-link-${link.to}`">
           <NuxtLink
             v-if="!link.children"
-            :key="link.to"
             :to="link.to"
             class="text-sm font-medium transition duration-150"
             :class="isActive(link.to) ? 'text-gray-900' : 'text-gray-500 hover:text-gray-900'"
@@ -28,8 +25,7 @@
           </NuxtLink>
 
           <div
-            v-else
-            :key="`desktop-${link.to}`"
+            v-else-if="link.to === '/producten'"
             class="relative"
             @mouseenter="openProductsMenu()"
             @mouseleave="queueCloseProductsMenu()"
@@ -113,9 +109,60 @@
               </div>
             </div>
           </div>
+
+          <div
+            v-else
+            class="relative"
+            @mouseenter="openServicesMenu()"
+            @mouseleave="queueCloseServicesMenu()"
+          >
+            <div class="flex items-center gap-1">
+              <NuxtLink
+                :to="link.to"
+                class="text-sm font-medium transition duration-150"
+                :class="isActive(link.to) ? 'text-gray-900' : 'text-gray-500 hover:text-gray-900'"
+              >
+                {{ link.label }}
+              </NuxtLink>
+              <button
+                class="inline-flex h-6 w-6 items-center justify-center rounded-full text-gray-500 transition hover:bg-gray-100 hover:text-gray-900"
+                @click.stop="toggleServicesMenu()"
+                aria-label="Toon dienstenmenu"
+              >
+                <svg
+                  class="h-4 w-4 transition"
+                  :class="{ 'rotate-180': isServicesOpen }"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </button>
+            </div>
+            <div
+              v-if="isServicesOpen"
+              class="absolute left-0 top-full z-50 mt-1 w-56 rounded-2xl border border-gray-200 bg-white p-2 shadow-lg"
+              @mouseenter="cancelCloseServicesMenu()"
+              @mouseleave="queueCloseServicesMenu()"
+            >
+              <NuxtLink
+                v-for="child in link.children"
+                :key="child.to"
+                :to="child.to"
+                class="block rounded-xl px-3 py-2 text-sm font-semibold text-gray-700 transition hover:bg-[#fafafa] hover:text-gray-900"
+                @click="isServicesOpen = false"
+              >
+                {{ child.label }}
+              </NuxtLink>
+            </div>
+          </div>
         </template>
         <NuxtLink
-          to="/contact"
+          to="/contact?onderwerp=demo"
           class="rounded-full bg-[#facc15] px-6 py-2 text-sm font-semibold text-black cursor-pointer transition-colors duration-200 hover:bg-black hover:text-[#facc15]"
         >
           Plan een demo
@@ -144,19 +191,16 @@
 
     <div v-if="isMenuOpen" class="border-t border-gray-200 bg-white md:hidden">
       <div class="flex flex-col px-6 py-4">
-        <template
-          v-for="link in links"
-        >
+        <template v-for="link in links" :key="`mobile-link-${link.to}`">
           <NuxtLink
             v-if="!link.children"
-            :key="`mobile-${link.to}`"
             :to="link.to"
             class="py-2 text-sm font-semibold text-gray-700 transition hover:text-gray-900"
             @click="isMenuOpen = false"
           >
             {{ link.label }}
           </NuxtLink>
-          <div v-else :key="`mobile-group-${link.to}`" class="py-1">
+          <div v-else class="py-1">
             <div class="flex items-center justify-between">
               <NuxtLink
                 :to="link.to"
@@ -167,12 +211,12 @@
               </NuxtLink>
               <button
                 class="inline-flex h-7 w-7 items-center justify-center rounded-full text-gray-500 transition hover:bg-gray-100"
-                @click="isMobileProductsOpen = !isMobileProductsOpen"
-                aria-label="Toon productsubpagina's"
+                @click="toggleMobileGroup(link.to)"
+                aria-label="Toon submenu"
               >
                 <svg
                   class="h-4 w-4 transition"
-                  :class="{ 'rotate-180': isMobileProductsOpen }"
+                  :class="{ 'rotate-180': mobileOpenGroup === link.to }"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -184,7 +228,7 @@
                 </svg>
               </button>
             </div>
-            <div v-if="isMobileProductsOpen" class="mt-1 flex flex-col border-l border-gray-200 pl-4">
+            <div v-if="mobileOpenGroup === link.to" class="mt-1 flex flex-col border-l border-gray-200 pl-4">
               <NuxtLink
                 v-for="child in link.children"
                 :key="`mobile-child-${child.to}`"
@@ -198,7 +242,7 @@
           </div>
         </template>
         <NuxtLink
-          to="/contact"
+          to="/contact?onderwerp=demo"
           class="mt-2 rounded-full bg-[#facc15] px-6 py-2 text-center text-sm font-semibold text-black cursor-pointer transition-colors duration-200 hover:bg-black hover:text-[#facc15]"
           @click="isMenuOpen = false"
         >
@@ -216,8 +260,9 @@ import { useRoute } from 'vue-router';
 const route = useRoute();
 const isMenuOpen = ref(false);
 const isProductsOpen = ref(false);
-const isMobileProductsOpen = ref(false);
-const activeProductsGroup = ref("Hardware");
+const isServicesOpen = ref(false);
+const mobileOpenGroup = ref<string | null>(null);
+const activeProductsGroup = ref('Hardware');
 
 const links = [
   { label: 'Home', to: '/' },
@@ -229,7 +274,11 @@ const links = [
       { label: 'Software', to: '/producten/software' },
     ],
   },
-  { label: 'Diensten', to: '/diensten' },
+  {
+    label: 'Diensten',
+    to: '/diensten',
+    children: [{ label: 'Cases', to: '/cases' }],
+  },
   { label: 'Kenniscentrum', to: '/kenniscentrum' },
   { label: 'Roadmap', to: '/roadmap' },
   { label: 'Visie', to: '/visie' },
@@ -239,32 +288,42 @@ const links = [
 
 const productGroups = [
   {
-    label: "Hardware",
-    to: "/producten/hardware",
+    label: 'Hardware',
+    to: '/producten/hardware',
     items: [
-      { label: "AITJE Assistent", to: "/producten/hardware/aitje-assistent" },
-      { label: "AITJE Notulist", to: "/producten/hardware/aitje-notulist" },
-      { label: "AITJE Custom", to: "/producten/hardware/aitje-custom" },
+      { label: 'AITJE Assistent', to: '/producten/hardware/aitje-assistent' },
+      { label: 'AITJE Notulist', to: '/producten/hardware/aitje-notulist' },
+      { label: 'AITJE Custom', to: '/producten/hardware/aitje-custom' },
     ],
   },
   {
-    label: "Software",
-    to: "/producten/software",
+    label: 'Software',
+    to: '/producten/software',
     items: [
-      { label: "AITJE Assistent OS", to: "/producten/software/aitje-assistent-os" },
-      { label: "AITJE Assistent Client", to: "/producten/software/aitje-assistent-client" },
-      { label: "AITJE Assistent Kennisbank", to: "/producten/software/aitje-assistent-kennisbank" },
-      { label: "AITJE Notulist Manager", to: "/producten/software/aitje-notulist-manager" },
-      { label: "WordPress AI Search Overview", to: "/producten/software/wordpress-ai-search-overview" },
-      { label: "WordPress AI Chat", to: "/producten/software/wordpress-ai-chat" },
-      { label: "WordPress Alt Tekst Generator", to: "/producten/software/wordpress-alt-tekst-generator" },
-      { label: "PromptPaleis", to: "/producten/software/promptpaleis" },
-      { label: "Raad van Bestuur", to: "/producten/software/raad-van-bestuur" },
+      { label: 'AITJE Assistent OS', to: '/producten/software/aitje-assistent-os' },
+      { label: 'AITJE Assistent Client', to: '/producten/software/aitje-assistent-client' },
+      { label: 'AITJE Assistent Kennisbank', to: '/producten/software/aitje-assistent-kennisbank' },
+      { label: 'AITJE Notulist Manager', to: '/producten/software/aitje-notulist-manager' },
+      { label: 'WordPress AI Search Overview', to: '/producten/software/wordpress-ai-search-overview' },
+      { label: 'WordPress AI Chat', to: '/producten/software/wordpress-ai-chat' },
+      { label: 'WordPress Alt Tekst Generator', to: '/producten/software/wordpress-alt-tekst-generator' },
+      { label: 'PromptPaleis', to: '/producten/software/promptpaleis' },
+      { label: 'Raad van Bestuur', to: '/producten/software/raad-van-bestuur' },
     ],
   },
 ];
 
-const isActive = (path: string) => route.path === path || route.path.startsWith(`${path}/`);
+const isActive = (path: string) => {
+  if (path === '/diensten') {
+    return (
+      route.path === '/diensten' ||
+      route.path.startsWith('/diensten/') ||
+      route.path === '/cases' ||
+      route.path.startsWith('/cases/')
+    );
+  }
+  return route.path === path || route.path.startsWith(`${path}/`);
+};
 
 const currentLabel = computed(() => {
   const match = links.find((link) => isActive(link.to));
@@ -282,10 +341,12 @@ const handleClickOutside = (event: MouseEvent) => {
   if (!target) return;
   if (!target.closest('nav')) {
     isProductsOpen.value = false;
+    isServicesOpen.value = false;
   }
 };
 
 let closeProductsTimer: ReturnType<typeof setTimeout> | null = null;
+let closeServicesTimer: ReturnType<typeof setTimeout> | null = null;
 
 const cancelCloseProductsMenu = () => {
   if (closeProductsTimer) {
@@ -314,12 +375,44 @@ const toggleProductsMenu = () => {
   openProductsMenu();
 };
 
+const cancelCloseServicesMenu = () => {
+  if (closeServicesTimer) {
+    clearTimeout(closeServicesTimer);
+    closeServicesTimer = null;
+  }
+};
+
+const openServicesMenu = () => {
+  cancelCloseServicesMenu();
+  isServicesOpen.value = true;
+};
+
+const queueCloseServicesMenu = () => {
+  cancelCloseServicesMenu();
+  closeServicesTimer = setTimeout(() => {
+    isServicesOpen.value = false;
+  }, 220);
+};
+
+const toggleServicesMenu = () => {
+  if (isServicesOpen.value) {
+    isServicesOpen.value = false;
+    return;
+  }
+  openServicesMenu();
+};
+
+const toggleMobileGroup = (group: string) => {
+  mobileOpenGroup.value = mobileOpenGroup.value === group ? null : group;
+};
+
 watch(
   () => route.path,
   () => {
     isProductsOpen.value = false;
+    isServicesOpen.value = false;
     isMenuOpen.value = false;
-    isMobileProductsOpen.value = false;
+    mobileOpenGroup.value = null;
     if (route.path.startsWith('/producten/software')) {
       activeProductsGroup.value = 'Software';
     } else {
@@ -335,5 +428,6 @@ onMounted(() => {
 onBeforeUnmount(() => {
   window.removeEventListener('click', handleClickOutside);
   cancelCloseProductsMenu();
+  cancelCloseServicesMenu();
 });
 </script>

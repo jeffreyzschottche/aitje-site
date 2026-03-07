@@ -18,7 +18,9 @@
         </p>
       </section>
 
-      <section class="mx-auto mt-14 grid w-full max-w-none gap-6 md:grid-cols-2 xl:grid-cols-4">
+      <section
+        class="mx-auto mt-14 grid w-full max-w-none gap-6 md:grid-cols-2 xl:grid-cols-4"
+      >
         <article
           v-for="year in roadmapByYear"
           :key="year.year"
@@ -39,7 +41,9 @@
               :key="`${year.year}-${point}`"
               class="flex items-start gap-2 text-sm text-gray-600"
             >
-              <span class="mt-1 inline-block h-1.5 w-1.5 flex-none shrink-0 rounded-full bg-[#facc15]"></span>
+              <span
+                class="mt-1 inline-block h-1.5 w-1.5 flex-none shrink-0 rounded-full bg-[#facc15]"
+              ></span>
               <span>{{ point }}</span>
             </li>
           </ul>
@@ -58,7 +62,9 @@
                   :key="`${quarter.label}-${point}`"
                   class="flex items-start gap-2 text-sm text-gray-600"
                 >
-                  <span class="mt-1 inline-block h-1.5 w-1.5 flex-none shrink-0 rounded-full bg-[#facc15]"></span>
+                  <span
+                    class="mt-1 inline-block h-1.5 w-1.5 flex-none shrink-0 rounded-full bg-[#facc15]"
+                  ></span>
                   <span>{{ point }}</span>
                 </li>
               </ul>
@@ -66,7 +72,6 @@
           </ul>
         </article>
       </section>
-
     </main>
 
     <BottomCta class="mt-20" />
@@ -125,7 +130,7 @@ const roadmapByYear = [
         title: "Softwarelanceringen einde jaar",
         points: [
           "Afronding van de WordPress-plugins",
-          "Notulist-traject doorontwikkeld richting productlancering",
+          "Notulist-traject doorontwikkeld",
           "Roadmap 2026 vastgesteld op basis van praktijkfeedback",
         ],
       },
@@ -141,7 +146,7 @@ const roadmapByYear = [
         title: "Lanceringsfase",
         points: [
           "AITJE OS gelanceerd",
-          "AITJE Notulist officieel gelanceerd",
+          "AITJE Notulist productie ready maken",
           "Bestaande infrastructuur herzien en opgeschaald",
         ],
       },
@@ -152,6 +157,7 @@ const roadmapByYear = [
           "PromptPaleis gelanceerd",
           "Prompt- en guidebibliotheek verder uitgebreid",
           "Praktische workflows voor teams toegevoegd",
+          "Aitje Notulist applicatie in de lucht schieten",
         ],
       },
       {
@@ -161,6 +167,7 @@ const roadmapByYear = [
           "Lokale agentarchitecturen worden verder uitgerold",
           "Raad van Bestuur wordt opgeleverd",
           "Nieuwe maatwerktrajecten worden toegevoegd voor organisaties",
+          "Aitje Notulist Device lanceren",
         ],
       },
       {
@@ -176,8 +183,7 @@ const roadmapByYear = [
   },
   {
     year: "2027",
-    summary:
-      "Europese uitbreiding, community-opbouw en doorlopende R&D.",
+    summary: "Europese uitbreiding, community-opbouw en doorlopende R&D.",
     quarters: [
       {
         label: "Q1",
@@ -218,5 +224,4 @@ const roadmapByYear = [
     ],
   },
 ];
-
 </script>
