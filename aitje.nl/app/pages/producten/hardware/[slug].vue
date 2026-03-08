@@ -496,13 +496,36 @@ const deviceOptions = [
     name: "Aitje Cube 1",
     image: "/images/aitje-assistent-cube-v1.png",
     offerLabel: "cube 1",
-    description: "Gebalanceerde uitvoering voor dagelijkse AI-taken en teams.",
+    description: "Compacte instapconfiguratie voor lokale AI-workflows en dagelijkse teams.",
     specs: [
-      { label: "CPU-profiel", value: "Balanced inference" },
-      { label: "Werkgeheugen", value: "Standaard productieprofiel" },
-      { label: "Opslag", value: "Lokale data + modelcache" },
-      { label: "Netwerk", value: "Lokaal LAN + API" },
-      { label: "Gebruik", value: "Algemene organisatieworkflows" },
+      {
+        label: "Processor",
+        value: "AMD Ryzen AI 9 HX370, Zen 5, 12 cores / 24 threads",
+      },
+      {
+        label: "GPU + AI",
+        value: "AMD Radeon 890M (16 cores) met XDNA 2 NPU, 50 TOPS en tot 80 TOPS totaal",
+      },
+      {
+        label: "Werkgeheugen",
+        value: "32GB LPDDR5X 7500MHz, onboard en niet vervangbaar",
+      },
+      {
+        label: "Opslag",
+        value: "2x PCIe 4.0 M.2 2280 SSD-slots, tot 8TB totaal",
+      },
+      {
+        label: "Netwerk",
+        value: "Intel I226-V LAN, Wi-Fi 6 en Bluetooth 5.2",
+      },
+      {
+        label: "Aansluitingen",
+        value: "4x USB 3.2 Gen 2, HDMI 2.1, DisplayPort 2.1 en OCuLink",
+      },
+      {
+        label: "Formaat",
+        value: "110,19 x 107,3 x 63,2 mm met 120W voeding",
+      },
     ],
   },
   {
@@ -510,13 +533,36 @@ const deviceOptions = [
     name: "Aitje Cube 2",
     image: "/images/aitje-assistent-cube-v2.jpg",
     offerLabel: "cube 2",
-    description: "Meer rekenruimte voor zwaardere modellen en grotere context.",
+    description: "Zwaardere configuratie voor grotere modellen, hogere context en multi-user gebruik.",
     specs: [
-      { label: "CPU/GPU-profiel", value: "Enhanced inference" },
-      { label: "Werkgeheugen", value: "Uitgebreid modelprofiel" },
-      { label: "Opslag", value: "Extra ruimte voor datasets en embeddings" },
-      { label: "Netwerk", value: "Lokaal LAN + API + hogere throughput" },
-      { label: "Gebruik", value: "Middelzware tot zware AI-workloads" },
+      {
+        label: "Processor",
+        value: "AMD Ryzen AI Max+ 395, 16 cores / 32 threads, tot 5.1 GHz",
+      },
+      {
+        label: "GPU + AI",
+        value: "Radeon 8060S (40-core RDNA 3.5) met XDNA 2 NPU, 50 TOPS en tot 126 TOPS totaal",
+      },
+      {
+        label: "Werkgeheugen",
+        value: "64GB LPDDR5X 8000MHz, onboard en niet upgradebaar",
+      },
+      {
+        label: "Opslag",
+        value: "1TB PCIe 4.0 SSD meegeleverd, dual M.2 2280 en uitbreidbaar tot 16TB totaal",
+      },
+      {
+        label: "Netwerk",
+        value: "Wi-Fi 7, 2.5G LAN en Bluetooth 5.4",
+      },
+      {
+        label: "Aansluitingen",
+        value: "USB4, HDMI 2.1, DisplayPort 1.4, USB-A, audio en SD-kaartlezer",
+      },
+      {
+        label: "Formaat",
+        value: "193 x 185,8 x 77 mm, circa 230W voeding, Windows 11 Pro",
+      },
     ],
   },
   {
@@ -524,13 +570,36 @@ const deviceOptions = [
     name: "Aitje Cube 3",
     image: "/images/aitje-assistent-cube-v2.jpg",
     offerLabel: "cube 3",
-    description: "Voor intensieve parallelle workflows en toekomstige opschaling.",
+    description: "Topconfiguratie voor intensieve parallelle workflows en verdere opschaling.",
     specs: [
-      { label: "CPU/GPU-profiel", value: "High-performance inference" },
-      { label: "Werkgeheugen", value: "Opschaalbaar enterprise-profiel" },
-      { label: "Opslag", value: "Hoge capaciteit voor lange termijn data" },
-      { label: "Netwerk", value: "Lokaal LAN + API voor multi-user belasting" },
-      { label: "Gebruik", value: "Intensieve en schaalbare AI-omgevingen" },
+      {
+        label: "Processor",
+        value: "AMD Ryzen AI Max+ 395, 16 cores / 32 threads, tot 5.1 GHz",
+      },
+      {
+        label: "GPU + AI",
+        value: "Radeon 8060S (40-core RDNA 3.5) met XDNA 2 NPU, 50 TOPS en tot 126 TOPS totaal",
+      },
+      {
+        label: "Werkgeheugen",
+        value: "128GB LPDDR5X 8000MHz, onboard en niet upgradebaar",
+      },
+      {
+        label: "Opslag",
+        value: "2TB PCIe 4.0 SSD meegeleverd, dual M.2 2280 en uitbreidbaar tot 16TB totaal",
+      },
+      {
+        label: "Netwerk",
+        value: "Wi-Fi 7, 2.5G LAN en Bluetooth 5.4",
+      },
+      {
+        label: "Aansluitingen",
+        value: "USB4, HDMI 2.1, DisplayPort 1.4, USB-A, audio en SD-kaartlezer",
+      },
+      {
+        label: "Formaat",
+        value: "193 x 185,8 x 77 mm, circa 230W voeding, Windows 11 Pro",
+      },
     ],
   },
 ];
