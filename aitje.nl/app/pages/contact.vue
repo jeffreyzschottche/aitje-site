@@ -267,7 +267,7 @@
       </section>
     </main>
 
-    <BottomCta class="mt-20" />
+    <BottomCta />
 
     <SiteFooter />
   </div>
@@ -311,6 +311,17 @@ const resolveSubjectFromQuery = () => {
   return "kennismaking";
 };
 
+const resolveMessageFromQuery = () => {
+  const messageParam = route.query.bericht;
+  const message = Array.isArray(messageParam) ? messageParam[0] : messageParam;
+
+  if (typeof message === "string" && message.trim().length > 0) {
+    return message;
+  }
+
+  return "";
+};
+
 const formatInputDate = (date: Date) => date.toISOString().slice(0, 10);
 const today = new Date();
 const maxBookingDate = new Date(today);
@@ -347,7 +358,7 @@ const formData = reactive({
   email: "",
   phone: "",
   subject: resolveSubjectFromQuery(),
-  message: "",
+  message: resolveMessageFromQuery(),
 });
 
 const messagePlaceholder = computed(() => {

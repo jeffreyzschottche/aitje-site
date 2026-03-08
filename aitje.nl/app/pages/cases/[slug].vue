@@ -17,20 +17,13 @@
         <p class="mt-4 text-lg text-gray-600">{{ currentCase.summary }}</p>
       </section>
 
-      <section class="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+      <section class="mx-auto grid max-w-6xl items-start gap-8 lg:grid-cols-[1.1fr_0.9fr]">
         <article class="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm">
           <img
             :src="currentCase.image"
             :alt="currentCase.title"
             class="h-72 w-full rounded-2xl object-cover"
           />
-
-          <p class="mt-6 text-sm font-semibold text-gray-500">{{ currentCase.rating }}</p>
-          <p class="mt-2 text-2xl font-semibold text-gray-900">"{{ currentCase.quote }}"</p>
-          <p class="mt-4 text-sm text-gray-600">
-            {{ currentCase.person }} · {{ currentCase.role }} · {{ currentCase.company }}
-          </p>
-
           <div class="mt-8">
             <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
               AITJE solution
@@ -48,7 +41,59 @@
             Wat is gebouwd
           </p>
           <ul class="mt-4 space-y-3 text-sm text-gray-700">
-            <li v-for="point in currentCase.details" :key="point">• {{ point }}</li>
+            <li v-for="(point, pointIdx) in currentCase.details" :key="point">
+              • {{ point }}
+              <div
+                v-if="currentCase.slug === 'rijschool-whatsapp-notulist' && pointIdx === 0"
+                class="mt-4"
+              >
+                <img
+                  src="/images/spraakmemowhatsapp.png"
+                  alt="Spraakmemo via WhatsApp"
+                  class="h-40 w-full rounded-xl object-cover"
+                />
+              </div>
+              <div
+                v-if="currentCase.slug === 'rijschool-whatsapp-notulist' && pointIdx === 1"
+                class="mt-4"
+              >
+                <img
+                  src="/images/summary-spraakemo.png"
+                  alt="Samenvatting van spraakmemo"
+                  class="h-40 w-full rounded-xl object-cover"
+                />
+              </div>
+              <div
+                v-if="currentCase.slug === 'boekenwinkel-rag-isbn' && pointIdx === 0"
+                class="mt-4"
+              >
+                <img
+                  src="/images/bieb-app-1.png"
+                  alt="Bieb app stap 1"
+                  class="h-auto w-full rounded-xl object-contain"
+                />
+              </div>
+              <div
+                v-if="currentCase.slug === 'boekenwinkel-rag-isbn' && pointIdx === 1"
+                class="mt-4"
+              >
+                <img
+                  src="/images/bieb-app-2.png"
+                  alt="Bieb app stap 2"
+                  class="h-auto w-full rounded-xl object-contain"
+                />
+              </div>
+              <div
+                v-if="currentCase.slug === 'boekenwinkel-rag-isbn' && pointIdx === 2"
+                class="mt-4"
+              >
+                <img
+                  src="/images/ollama.png"
+                  alt="Ollama output"
+                  class="h-40 w-full rounded-xl object-cover"
+                />
+              </div>
+            </li>
           </ul>
 
           <NuxtLink
@@ -80,4 +125,3 @@ if (!currentCase) {
   });
 }
 </script>
-

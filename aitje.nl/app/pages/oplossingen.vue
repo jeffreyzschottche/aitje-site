@@ -178,7 +178,7 @@
       </section>
     </main>
 
-    <BottomCta class="mt-20" />
+    <BottomCta />
 
     <SiteFooter />
   </div>

@@ -6,16 +6,25 @@
       <section
         class="mx-auto max-w-5xl rounded-[3rem] bg-[#212121] px-8 py-14 text-white"
       >
-        <p
-          class="text-sm font-semibold uppercase tracking-[0.4em] text-[#facc15]"
-        >
-          Roadmap
-        </p>
-        <h1 class="mt-4 text-5xl font-black">Waar AITJE aan bouwt</h1>
-        <p class="mt-6 max-w-3xl text-lg text-gray-300">
-          Deze roadmap laat zien waar we nu staan en welke onderdelen we verder
-          uitbouwen binnen AITJE.
-        </p>
+        <div class="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+          <div>
+            <p
+              class="text-sm font-semibold uppercase tracking-[0.4em] text-[#facc15]"
+            >
+              Roadmap
+            </p>
+            <h1 class="mt-4 text-5xl font-black">Waar AITJE aan bouwt</h1>
+            <p class="mt-6 max-w-3xl text-lg text-gray-300">
+              Deze roadmap laat zien waar we nu staan en welke onderdelen we verder
+              uitbouwen binnen AITJE.
+            </p>
+          </div>
+          <img
+            src="/images/chicken-build-road.png"
+            alt="Roadmap illustratie"
+            class="mx-auto w-full max-w-sm rounded-3xl object-cover"
+          />
+        </div>
       </section>
 
       <section
@@ -25,6 +34,7 @@
           v-for="year in roadmapByYear"
           :key="year.year"
           class="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm"
+          :class="year.year === '2024' ? 'self-start' : ''"
         >
           <p
             class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
@@ -74,7 +84,7 @@
       </section>
     </main>
 
-    <BottomCta class="mt-20" />
+    <BottomCta />
 
     <SiteFooter />
   </div>
@@ -174,6 +184,7 @@ const roadmapByYear = [
         label: "Q4",
         title: "Herinventarisatie infrastructuur",
         points: [
+          "Ontwikkeling van AITJE Assistent Vink v2 start",
           "De infrastructuur wordt opnieuw beoordeeld op hardware- en modelontwikkeling",
           "Nieuwe oplossingen worden geëvalueerd op stabiliteit en impact",
           "De roadmap voor 2027 wordt bijgewerkt op basis van technische versnelling",
@@ -207,6 +218,7 @@ const roadmapByYear = [
         label: "Q3",
         title: "R&D en marktvalidatie",
         points: [
+          "Start AITJE Manager (upgrade van AITJE Assistent)",
           "Doorlopende R&D op modellen, agentgedrag en workflows wordt voortgezet",
           "Marktontwikkelingen worden actief gemonitord en gevalideerd",
           "Klantsegmentatie wordt aangescherpt op impact en schaalbaarheid",

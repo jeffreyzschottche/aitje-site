@@ -6,8 +6,22 @@
       <section
         class="relative overflow-hidden rounded-[3rem] bg-[#212121] text-white"
       >
+        <div class="bird-flight" aria-hidden="true">
+          <div class="bird-container bird-container-one">
+            <div class="bird"></div>
+          </div>
+          <div class="bird-container bird-container-two">
+            <div class="bird"></div>
+          </div>
+          <div class="bird-container bird-container-three">
+            <div class="bird"></div>
+          </div>
+          <div class="bird-container bird-container-four">
+            <div class="bird"></div>
+          </div>
+        </div>
         <div
-          class="mx-auto grid max-w-7xl gap-12 px-6 pb-24 pt-32 md:grid-cols-[1.1fr_0.9fr]"
+          class="relative z-10 mx-auto grid max-w-7xl gap-12 px-6 pb-24 pt-32 md:grid-cols-[1.1fr_0.9fr]"
         >
           <div class="space-y-6">
             <p class="text-5xl font-black leading-tight text-white mt-5">
@@ -80,32 +94,73 @@
         </div>
       </section>
 
-      <section class="mt-10 px-6 pb-16">
-        <div class="mx-auto grid max-w-6xl gap-6 md:grid-cols-3">
-          <article
-            v-for="pillar in promisePillars"
-            :key="pillar.title"
-            class="rounded-3xl border border-gray-200 bg-white p-6 shadow-lg shadow-gray-200/60"
+      <section class="mt-10 pb-16">
+        <div class="relative w-full overflow-hidden">
+          <div
+            class="flex transition-transform duration-700 ease-out"
+            :style="{ transform: `translateX(-${currentPillar * 100}%)` }"
           >
-            <div class="flex items-center gap-3">
-              <div
-                class="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#212121] text-[#facc15]"
-              >
-                <component :is="pillar.icon" class="h-6 w-6" />
-              </div>
-              <div>
-                <p
-                  class="text-xs font-semibold uppercase tracking-[0.4em] text-gray-400"
+            <article
+              v-for="pillar in promisePillars"
+              :key="pillar.title"
+              class="relative min-h-[24rem] w-full shrink-0 bg-white bg-center bg-no-repeat md:min-h-[28rem]"
+              :style="{
+                backgroundImage: `url('${pillar.image}')`,
+                backgroundSize: 'contain',
+                backgroundPosition: 'center 64%',
+              }"
+            >
+              <div class="relative mx-auto h-full max-w-6xl px-6 py-8 md:py-10">
+                <div class="max-w-xl md:absolute md:left-8 md:top-10">
+                  <div class="flex items-center gap-3">
+                    <div
+                      class="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#212121] text-[#facc15]"
+                    >
+                      <component :is="pillar.icon" class="h-6 w-6" />
+                    </div>
+                    <div>
+                      <p
+                        class="text-xs font-semibold uppercase tracking-[0.4em] text-gray-500"
+                      >
+                        {{ pillar.highlight }}
+                      </p>
+                      <h3
+                        class="text-2xl font-semibold text-gray-900 md:text-3xl"
+                      >
+                        {{ pillar.title }}
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="mt-4 max-w-xl md:absolute md:right-8 md:top-10 md:mt-0 md:ml-auto"
                 >
-                  {{ pillar.highlight }}
-                </p>
-                <h3 class="text-xl font-semibold text-gray-900">
-                  {{ pillar.title }}
-                </h3>
+                  <p
+                    class="text-left text-base italic text-gray-800 md:text-right md:text-lg"
+                  >
+                    {{ pillar.description }}
+                  </p>
+                </div>
               </div>
-            </div>
-            <p class="mt-4 text-sm text-gray-600">{{ pillar.description }}</p>
-          </article>
+            </article>
+          </div>
+          <div
+            class="absolute bottom-5 left-1/2 z-10 flex -translate-x-1/2 items-center gap-2"
+          >
+            <button
+              v-for="(_, idx) in promisePillars"
+              :key="`pillar-dot-${idx}`"
+              type="button"
+              :aria-label="`Ga naar slide ${idx + 1}`"
+              class="h-2.5 w-2.5 rounded-full transition-all"
+              :class="
+                idx === currentPillar
+                  ? 'w-8 bg-[#facc15]'
+                  : 'bg-black/30 hover:bg-black/50'
+              "
+              @click="currentPillar = idx"
+            ></button>
+          </div>
         </div>
       </section>
 
@@ -158,6 +213,141 @@
               </div>
             </div>
           </article>
+        </div>
+      </section>
+
+      <section class="bg-[#fafafa] px-6 py-20">
+        <div
+          class="relative mx-auto max-w-6xl overflow-hidden rounded-[3rem] border border-gray-200 bg-white p-10 shadow-sm md:p-14"
+        >
+          <svg
+            class="pointer-events-none absolute right-12 top-10 h-24 w-24 text-[#facc15]/18"
+            viewBox="0 0 120 120"
+            fill="none"
+            aria-hidden="true"
+          >
+            <circle cx="60" cy="60" r="24" fill="currentColor" />
+            <path
+              d="M60 12v18M60 90v18M108 60H90M30 60H12M93 27 81 39M39 81 27 93M93 93 81 81M39 39 27 27"
+              stroke="currentColor"
+              stroke-width="6"
+              stroke-linecap="round"
+            />
+          </svg>
+          <svg
+            class="pointer-events-none absolute bottom-8 left-8 h-24 w-24 text-[#212121]/8"
+            viewBox="0 0 100 120"
+            fill="none"
+            aria-hidden="true"
+          >
+            <ellipse cx="50" cy="60" rx="28" ry="38" fill="currentColor" />
+            <path
+              d="M37 63c4-7 12-10 19-6 7 4 10 11 8 19"
+              stroke="white"
+              stroke-width="5"
+              stroke-linecap="round"
+            />
+          </svg>
+          <svg
+            class="pointer-events-none absolute left-1/2 top-10 h-20 w-32 -translate-x-1/2 text-[#212121]/6"
+            viewBox="0 0 160 80"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M38 58h62c13 0 24-9 24-21s-10-21-22-21c-4-11-15-18-28-18-17 0-31 12-33 28h-3C24 26 14 35 14 47s11 11 24 11Z"
+              fill="currentColor"
+            />
+          </svg>
+          <svg
+            class="pointer-events-none absolute bottom-16 right-20 hidden h-16 w-28 text-[#facc15]/10 md:block"
+            viewBox="0 0 160 80"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M38 58h62c13 0 24-9 24-21s-10-21-22-21c-4-11-15-18-28-18-17 0-31 12-33 28h-3C24 26 14 35 14 47s11 11 24 11Z"
+              fill="currentColor"
+            />
+          </svg>
+          <svg
+            class="pointer-events-none absolute left-20 top-24 h-14 w-24 text-[#facc15]/10"
+            viewBox="0 0 160 80"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M38 58h62c13 0 24-9 24-21s-10-21-22-21c-4-11-15-18-28-18-17 0-31 12-33 28h-3C24 26 14 35 14 47s11 11 24 11Z"
+              fill="currentColor"
+            />
+          </svg>
+          <svg
+            class="pointer-events-none absolute bottom-24 right-1/3 h-12 w-20 text-[#212121]/6"
+            viewBox="0 0 160 80"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M38 58h62c13 0 24-9 24-21s-10-21-22-21c-4-11-15-18-28-18-17 0-31 12-33 28h-3C24 26 14 35 14 47s11 11 24 11Z"
+              fill="currentColor"
+            />
+          </svg>
+          <svg
+            class="pointer-events-none absolute right-32 top-32 hidden h-12 w-20 text-[#212121]/5 md:block"
+            viewBox="0 0 160 80"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M38 58h62c13 0 24-9 24-21s-10-21-22-21c-4-11-15-18-28-18-17 0-31 12-33 28h-3C24 26 14 35 14 47s11 11 24 11Z"
+              fill="currentColor"
+            />
+          </svg>
+          <div class="relative z-10">
+            <p
+              class="text-sm font-semibold uppercase tracking-[0.4em] text-[#facc15]"
+            >
+              Onze missie
+            </p>
+            <div class="mt-6 max-w-5xl">
+              <p class="text-6xl font-black leading-none text-[#facc15]">"</p>
+              <blockquote
+                class="mt-4 text-2xl font-semibold leading-tight text-gray-900 md:text-4xl"
+              >
+                AI is niet meer weg te denken. Hoe meer mensen en bedrijven het
+                gebruiken, hoe afhankelijker we worden van Big Tech uit het
+                buitenland.
+              </blockquote>
+              <div
+                class="mt-8 space-y-4 text-base leading-7 text-gray-600 md:text-lg"
+              >
+                <p>
+                  Met AITJE blijft AI ook werken wanneer internet of externe
+                  platformen uitvallen. Op het device blijft informatie lokaal
+                  beschikbaar via je eigen omgeving.
+                </p>
+                <p>
+                  Terwijl prijzen van externe aanbieders kunnen stijgen, bouwen
+                  wij onze oplossingen zo dat kosten beheersbaar blijven en je
+                  minder afhankelijk bent van terugkerende platformkosten.
+                </p>
+                <p>
+                  Lokaal werken is daarnaast beter voor het milieu: minder
+                  eindeloze calls naar datacenters en efficienter gebruik van
+                  hardware. Gegevens blijven daarbij dichter bij de organisatie,
+                  in Europa en waar nodig volledig lokaal.
+                </p>
+              </div>
+            </div>
+            <div class="mt-10">
+              <NuxtLink
+                to="/visie"
+                class="inline-flex items-center justify-center rounded-full bg-black px-8 py-3 text-sm font-semibold text-white transition hover:bg-black hover:text-[#facc15]"
+              >
+                Lees meer over onze visie
+              </NuxtLink>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -450,141 +640,6 @@
         </div>
       </section>
 
-      <section class="bg-[#fafafa] px-6 py-20">
-        <div
-          class="relative mx-auto max-w-6xl overflow-hidden rounded-[3rem] border border-gray-200 bg-white p-10 shadow-sm md:p-14"
-        >
-          <svg
-            class="pointer-events-none absolute right-12 top-10 h-24 w-24 text-[#facc15]/18"
-            viewBox="0 0 120 120"
-            fill="none"
-            aria-hidden="true"
-          >
-            <circle cx="60" cy="60" r="24" fill="currentColor" />
-            <path
-              d="M60 12v18M60 90v18M108 60H90M30 60H12M93 27 81 39M39 81 27 93M93 93 81 81M39 39 27 27"
-              stroke="currentColor"
-              stroke-width="6"
-              stroke-linecap="round"
-            />
-          </svg>
-          <svg
-            class="pointer-events-none absolute bottom-8 left-8 h-24 w-24 text-[#212121]/8"
-            viewBox="0 0 100 120"
-            fill="none"
-            aria-hidden="true"
-          >
-            <ellipse cx="50" cy="60" rx="28" ry="38" fill="currentColor" />
-            <path
-              d="M37 63c4-7 12-10 19-6 7 4 10 11 8 19"
-              stroke="white"
-              stroke-width="5"
-              stroke-linecap="round"
-            />
-          </svg>
-          <svg
-            class="pointer-events-none absolute left-1/2 top-10 h-20 w-32 -translate-x-1/2 text-[#212121]/6"
-            viewBox="0 0 160 80"
-            fill="none"
-            aria-hidden="true"
-          >
-            <path
-              d="M38 58h62c13 0 24-9 24-21s-10-21-22-21c-4-11-15-18-28-18-17 0-31 12-33 28h-3C24 26 14 35 14 47s11 11 24 11Z"
-              fill="currentColor"
-            />
-          </svg>
-          <svg
-            class="pointer-events-none absolute bottom-16 right-20 hidden h-16 w-28 text-[#facc15]/10 md:block"
-            viewBox="0 0 160 80"
-            fill="none"
-            aria-hidden="true"
-          >
-            <path
-              d="M38 58h62c13 0 24-9 24-21s-10-21-22-21c-4-11-15-18-28-18-17 0-31 12-33 28h-3C24 26 14 35 14 47s11 11 24 11Z"
-              fill="currentColor"
-            />
-          </svg>
-          <svg
-            class="pointer-events-none absolute left-20 top-24 h-14 w-24 text-[#facc15]/10"
-            viewBox="0 0 160 80"
-            fill="none"
-            aria-hidden="true"
-          >
-            <path
-              d="M38 58h62c13 0 24-9 24-21s-10-21-22-21c-4-11-15-18-28-18-17 0-31 12-33 28h-3C24 26 14 35 14 47s11 11 24 11Z"
-              fill="currentColor"
-            />
-          </svg>
-          <svg
-            class="pointer-events-none absolute bottom-24 right-1/3 h-12 w-20 text-[#212121]/6"
-            viewBox="0 0 160 80"
-            fill="none"
-            aria-hidden="true"
-          >
-            <path
-              d="M38 58h62c13 0 24-9 24-21s-10-21-22-21c-4-11-15-18-28-18-17 0-31 12-33 28h-3C24 26 14 35 14 47s11 11 24 11Z"
-              fill="currentColor"
-            />
-          </svg>
-          <svg
-            class="pointer-events-none absolute right-32 top-32 hidden h-12 w-20 text-[#212121]/5 md:block"
-            viewBox="0 0 160 80"
-            fill="none"
-            aria-hidden="true"
-          >
-            <path
-              d="M38 58h62c13 0 24-9 24-21s-10-21-22-21c-4-11-15-18-28-18-17 0-31 12-33 28h-3C24 26 14 35 14 47s11 11 24 11Z"
-              fill="currentColor"
-            />
-          </svg>
-          <div class="relative z-10">
-            <p
-              class="text-sm font-semibold uppercase tracking-[0.4em] text-[#facc15]"
-            >
-              Onze missie
-            </p>
-            <div class="mt-6 max-w-5xl">
-              <p class="text-6xl font-black leading-none text-[#facc15]">"</p>
-              <blockquote
-                class="mt-4 text-2xl font-semibold leading-tight text-gray-900 md:text-4xl"
-              >
-                AI is niet meer weg te denken. Hoe meer mensen en bedrijven het
-                gebruiken, hoe afhankelijker we worden van Big Tech uit het
-                buitenland.
-              </blockquote>
-              <div
-                class="mt-8 space-y-4 text-base leading-7 text-gray-600 md:text-lg"
-              >
-                <p>
-                  Met AITJE blijft AI ook werken wanneer internet of externe
-                  platformen uitvallen. Op het device blijft informatie lokaal
-                  beschikbaar via je eigen omgeving.
-                </p>
-                <p>
-                  Terwijl prijzen van externe aanbieders kunnen stijgen, bouwen
-                  wij onze oplossingen zo dat kosten beheersbaar blijven en je
-                  minder afhankelijk bent van terugkerende platformkosten.
-                </p>
-                <p>
-                  Lokaal werken is daarnaast beter voor het milieu: minder
-                  eindeloze calls naar datacenters en efficienter gebruik van
-                  hardware. Gegevens blijven daarbij dichter bij de organisatie,
-                  in Europa en waar nodig volledig lokaal.
-                </p>
-              </div>
-            </div>
-            <div class="mt-10">
-              <NuxtLink
-                to="/visie"
-                class="inline-flex items-center justify-center rounded-full bg-black px-8 py-3 text-sm font-semibold text-white transition hover:bg-black hover:text-[#facc15]"
-              >
-                Lees meer over onze visie
-              </NuxtLink>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section class="px-6 py-20">
         <div
           class="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.8fr_1.2fr]"
@@ -655,44 +710,6 @@
                 >
                   {{ feature.cta }}
                 </NuxtLink>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="bg-white px-6 py-20">
-        <div class="mx-auto max-w-6xl">
-          <div class="max-w-3xl">
-            <p
-              class="text-sm font-semibold uppercase tracking-[0.4em] text-[#facc15]"
-            >
-              Reviews
-            </p>
-            <h2 class="mt-4 text-4xl font-black text-gray-900">
-              Wat vinden klanten van AITJE
-            </h2>
-            <p class="mt-3 text-gray-600">
-              Een selectie van ervaringen van klanten uit verschillende
-              werkvelden onderwijs, retail, zorg, dienstverlening en productie.
-            </p>
-          </div>
-
-          <div class="mt-10 flex gap-5 overflow-x-auto pb-2">
-            <article
-              v-for="review in reviews"
-              :key="`${review.name}-${review.role}`"
-              class="min-w-[320px] max-w-[360px] flex-1 rounded-[2rem] border border-gray-200 bg-[#fafafa] p-6 shadow-sm"
-            >
-              <div class="flex items-center gap-1 text-[#facc15]">
-                <span v-for="star in 5" :key="star">★</span>
-              </div>
-              <p class="mt-5 text-base leading-7 text-gray-700">
-                "{{ review.quote }}"
-              </p>
-              <div class="mt-6 border-t border-gray-200 pt-4">
-                <p class="font-semibold text-gray-900">{{ review.name }}</p>
-                <p class="text-sm text-gray-500">{{ review.role }}</p>
               </div>
             </article>
           </div>
@@ -799,7 +816,7 @@ import {
   Zap,
 } from "lucide-vue-next";
 
-const phrases = ["Edge AI & Cloud Solutions"];
+const phrases = ["Je partner in AI & Edge AI"];
 const heroStats = [
   { label: "Werkt zonder internet", value: "100% afhankelijk" },
   { label: "Goed voor het milieu", value: "Geen cloud calls" },
@@ -813,6 +830,8 @@ const promisePillars = [
     description:
       "We ontwikkelen AI-oplossingen in hardware en software, denken mee over implementatie en bouwen ook door voor specifieke behoeften binnen jouw organisatie.",
     icon: Handshake,
+    image: "/images/golden-egg.png",
+    imageAlt: "Gouden ei",
   },
   {
     title: "Eigen softwarestack",
@@ -820,6 +839,8 @@ const promisePillars = [
     description:
       "We hebben een eigen Operating System, app, agents en out-of-the-box workflows, zodat je direct kunt werken met oplossingen die op elkaar zijn afgestemd.",
     icon: CodeXml,
+    image: "/images/egg-loading-screen.png",
+    imageAlt: "Ei bij beeldscherm",
   },
   {
     title: "Onafhankelijk van internet",
@@ -827,6 +848,8 @@ const promisePillars = [
     description:
       "Onze hardware is ontwikkeld met focus op puur lokale edge AI, zodat je minder afhankelijk bent van API's, Big Tech en oplopende tokenkosten.",
     icon: Wrench,
+    image: "/images/ei-internet.png",
+    imageAlt: "Ei met internetthema",
   },
 ];
 
@@ -977,63 +1000,6 @@ const caseSlides = [
   },
 ];
 
-const reviews = [
-  {
-    name: "Linda Goor",
-    role: "Basisschooljuf",
-    quote:
-      "AITJE Notulist helpt mij enorm bij oudergesprekken. Ik neem het gesprek op en krijg daarna precies de samenvatting en documenten terug die ik nodig heb in Google Drive.",
-  },
-  {
-    name: "Stan de Waal",
-    role: "Eigenaar noodpakket-webshop",
-    quote:
-      "Ik raad AITJE Assistent vaak aan. De offline kennis en de manier waarop informatie lokaal vindbaar blijft, geven veel rust als je niet afhankelijk wilt zijn van internet of externe tools.",
-  },
-  {
-    name: "Younes A.",
-    role: "Rijschoolhouder",
-    quote:
-      "Het team van AITJE heeft voor mijn rijschool een slimme oplossing gebouwd. Leerlingen krijgen na elke les automatisch een heldere samenvatting van hun voortgang en verbeterpunten.",
-  },
-  {
-    name: "Marieke van Dam",
-    role: "Tweedehands boekenwinkel",
-    quote:
-      "Voor onze tweedehands boekenwinkel bouwde AITJE een maatwerk RAG-chat gekoppeld aan documenten en een ISBN-scanner. Zo vinden medewerkers ook nicheboeken snel terug en plaatsen we boekdata direct consistent in het systeem.",
-  },
-  {
-    name: "Paul Vermeeren",
-    role: "Brouwerij Oostende",
-    quote:
-      "Door AITJE kunnen we productie-informatie en interne processen veel strakker afhandelen. Minder zoeken, sneller schakelen en duidelijkere overdracht tussen mensen op de vloer.",
-  },
-  {
-    name: "Sanne Koster",
-    role: "HR-adviseur",
-    quote:
-      "Wij gebruiken AITJE voor notities, samenvattingen en interne kennis. Vooral fijn dat gevoelige informatie niet zomaar naar een buitenlands platform hoeft.",
-  },
-  {
-    name: "Dennis Mulder",
-    role: "IT-beheerder MKB",
-    quote:
-      "Voor ons was lokale AI de doorslag. AITJE is overzichtelijk, werkt goed binnen het eigen netwerk en geeft ons meer controle over data en gebruikskosten.",
-  },
-  {
-    name: "Nadia El Amrani",
-    role: "Operationeel manager zorgpraktijk",
-    quote:
-      "De combinatie van gesprekken opnemen, samenvatten en informatie gestructureerd terugkrijgen werkt hier erg goed. Het scheelt administratie en maakt overdrachten duidelijker.",
-  },
-  {
-    name: "Koen de Bruin",
-    role: "Eigenaar WordPress-bureau",
-    quote:
-      "Wat ik sterk vind is dat AITJE niet alleen een product levert, maar ook meedenkt over workflows en koppelingen. Daardoor konden we sneller iets inzetten dat echt past bij onze stack.",
-  },
-];
-
 const handyLinks = [
   {
     label: "Producten",
@@ -1098,4 +1064,179 @@ const homepageFaqs = [
 ];
 
 const currentPhrase = ref(0);
+const currentPillar = ref(0);
+let pillarTimer: ReturnType<typeof setInterval> | null = null;
+
+onMounted(() => {
+  pillarTimer = setInterval(() => {
+    currentPillar.value = (currentPillar.value + 1) % promisePillars.length;
+  }, 5000);
+});
+
+onBeforeUnmount(() => {
+  if (pillarTimer) clearInterval(pillarTimer);
+});
 </script>
+
+<style scoped>
+.bird-flight {
+  display: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bird-container {
+  position: absolute;
+  left: 0;
+  top: 30%;
+  transform: scale(0.35) translateX(-16vw);
+  will-change: transform;
+}
+
+.bird-container-one {
+  animation: fly-right-one 11s linear infinite;
+  animation-delay: 0s;
+}
+
+.bird-container-two {
+  animation: fly-right-two 12s linear infinite;
+  animation-delay: 2s;
+}
+
+.bird-container-three {
+  animation: fly-right-three 10.5s linear infinite;
+  animation-delay: 4.5s;
+}
+
+.bird-container-four {
+  animation: fly-right-four 11.5s linear infinite;
+  animation-delay: 6.5s;
+}
+
+.bird {
+  width: 88px;
+  height: 125px;
+  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/174479/bird-cells-new.svg");
+  background-size: auto 100%;
+  background-position: 0 0;
+  animation: flap 0.95s steps(10) infinite;
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+}
+
+@media (min-width: 1024px) {
+  .bird-flight {
+    display: block;
+  }
+}
+
+@keyframes flap {
+  100% {
+    background-position: -880px 0;
+  }
+}
+
+@keyframes fly-right-one {
+  0% {
+    transform: scale(0.35) translateX(-16vw) translateY(6vh);
+  }
+  20% {
+    transform: scale(0.4) translateX(20vw) translateY(1vh);
+  }
+  45% {
+    transform: scale(0.42) translateX(45vw) translateY(-4vh);
+  }
+  70% {
+    transform: scale(0.38) translateX(75vw) translateY(3vh);
+  }
+  100% {
+    transform: scale(0.35) translateX(116vw) translateY(8vh);
+  }
+}
+
+@keyframes fly-right-two {
+  0% {
+    transform: scale(0.3) translateX(-18vw) translateY(-5vh);
+  }
+  30% {
+    transform: scale(0.35) translateX(28vw) translateY(-10vh);
+  }
+  55% {
+    transform: scale(0.4) translateX(58vw) translateY(-6vh);
+  }
+  80% {
+    transform: scale(0.34) translateX(90vw) translateY(-12vh);
+  }
+  100% {
+    transform: scale(0.3) translateX(118vw) translateY(-7vh);
+  }
+}
+
+@keyframes fly-right-three {
+  0% {
+    transform: scale(0.28) translateX(-20vw) translateY(12vh);
+  }
+  35% {
+    transform: scale(0.32) translateX(35vw) translateY(5vh);
+  }
+  70% {
+    transform: scale(0.3) translateX(78vw) translateY(10vh);
+  }
+  100% {
+    transform: scale(0.26) translateX(118vw) translateY(14vh);
+  }
+}
+
+@keyframes fly-right-four {
+  0% {
+    transform: scale(0.24) translateX(-22vw) translateY(-14vh);
+  }
+  30% {
+    transform: scale(0.29) translateX(30vw) translateY(-18vh);
+  }
+  65% {
+    transform: scale(0.27) translateX(70vw) translateY(-12vh);
+  }
+  100% {
+    transform: scale(0.24) translateX(118vw) translateY(-16vh);
+  }
+}
+
+@media (max-width: 768px) {
+  .bird {
+    width: 66px;
+    height: 94px;
+    animation-duration: 1.1s;
+    opacity: 0.75;
+  }
+
+  .bird-container-one {
+    animation-duration: 9.5s;
+  }
+
+  .bird-container-two {
+    animation-duration: 10.5s;
+  }
+
+  .bird-container-three {
+    animation-duration: 9s;
+  }
+
+  .bird-container-four {
+    animation-duration: 10s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bird,
+  .bird-container {
+    animation: none !important;
+  }
+}
+</style>

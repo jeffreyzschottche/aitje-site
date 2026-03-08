@@ -14,25 +14,27 @@ export type CaseItem = {
 
 export const cases: CaseItem[] = [
   {
-    slug: "rijschool-whatsapp-notulist",
-    title: "Rijschool automatiseert lesverslagen via WhatsApp",
-    company: "Rijschool Younes",
-    person: "Younes A.",
-    role: "Rijschoolhouder",
+    slug: "thuiszorg-voice-rapportage",
+    title: "Thuiszorg vult rapportage via voice agent",
+    company: "Zorgpraktijk / thuiszorg",
+    person: "Nadia El Amrani",
+    role: "Operationeel manager zorgpraktijk",
     rating: "★★★★★",
     quote:
-      "Het team van AITJE heeft voor mijn rijschool een slimme oplossing gebouwd. Leerlingen krijgen na elke les automatisch een heldere samenvatting van hun voortgang en verbeterpunten.",
+      "De combinatie van gesprekken opnemen, samenvatten en informatie gestructureerd terugkrijgen werkt hier erg goed.",
     summary:
-      "De rijschoolhouder spreekt na een les korte voice memo's in via WhatsApp. AITJE Notulist verwerkt de audio en stuurt een duidelijke samenvatting terug.",
-    solutions: ["Software op maat", "AITJE Notulist"],
+      "Na elk bezoek starten zorgmedewerkers de rapportage via WhatsApp met een clientnummer en START RAPPORTAGE. Daarna belt de voice agent automatisch op en wordt het gesprek verwerkt in het interne systeem.",
+    solutions: ["Mobiele app op maat", "Voice agent", "Document-output flow"],
     details: [
-      "Spraakmemo via WhatsApp wordt automatisch verwerkt tot samenvatting",
-      "Bij een duimpje-omhoog vraagt de bot direct naar ontvanger",
-      "Samenvatting wordt daarna gedeeld via WhatsApp of direct naar 06-nummer",
-      "Minder handmatig werk en sneller duidelijke feedback naar leerlingen",
+      "Medewerker start via WhatsApp door een clientnummer en START RAPPORTAGE te sturen naar het vaste nummer",
+      "De voice agent belt daarna automatisch via WhatsApp en stelt exact de benodigde rapportagevragen in de juiste volgorde",
+      "De medewerker bepaalt zelf wanneer de agent naar de volgende vraag gaat",
+      "Gespreksdata en bestanden worden aangeleverd bij de door ons geimplementeerde API in het interne systeem",
+      "Een agent schrijft de gegevens weg in het lokale systeem en slaat alles direct op",
+      "De werknemer ontvangt via WhatsApp een link naar het document om te controleren en waar nodig aan te passen",
+      "Minder administratietijd en betere overdracht tussen zorgmomenten",
     ],
-    image:
-      "https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?auto=format&fit=crop&w=1400&q=80",
+    image: "/images/thuiszorg.png",
   },
   {
     slug: "boekenwinkel-rag-isbn",
@@ -42,18 +44,25 @@ export const cases: CaseItem[] = [
     role: "Winkelcoordinator",
     rating: "★★★★★",
     quote:
-      "Met de RAG-chat en ISBN scanner vinden we sneller de juiste metadata en kunnen medewerkers nicheboeken veel beter terugvinden.",
+      "Met de RAG-chat en de boekeninvoer-app vinden we sneller de juiste metadata en kunnen medewerkers nicheboeken veel beter terugvinden.",
     summary:
-      "Voor de boekenwinkel bouwden we een maatwerk RAG-chat gekoppeld aan documenten en een ISBN-scan flow voor snelle, consistente boekinvoer.",
-    solutions: ["RAG-chat op maat", "ISBN scanner", "Kennisbank-koppeling"],
-    details: [
-      "Elk boek wordt gescand en direct verrijkt met titel, genre en relevante metadata",
-      "Gecontroleerde output kan meteen naar het Excel-overzicht worden gezet",
-      "AI adviseert op basis van huidige indeling het beste schap en positie",
-      "Ook vage titels en nicheboeken blijven sneller vindbaar voor medewerkers",
+      "We maakten een app voor ISBN-verwerking. De app haalt boekgegevens op via een boeken-API, roept een webhook aan en stuurt via het lokale netwerk de data met prompt naar de lokale LLM-API (Ollama). De response wordt teruggeschreven in het systeem en de boekensecretaresse krijgt in de app een melding dat het document verwerkt is.",
+    solutions: [
+      "RAG-chat op maat",
+      "Boekeninvoer-app op maat",
+      "Lokale LLM via Ollama",
+      "Excel-koppeling",
     ],
-    image:
-      "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1400&q=80",
+    details: [
+      "De app haalt op basis van ISBN automatisch boekgegevens op via een boeken-API",
+      "Na het aanroepen van een webhook worden boekgegevens en prompt via het lokale netwerk doorgestuurd naar de lokale LLM-API",
+      "De lokale LLM (Ollama) geeft de output terug in een vaste format met schap, genre en plaatsing",
+      "De webhook verwerkt de response en schrijft alle gegevens direct terug in het systeem",
+      "De boekensecretaresse krijgt een melding van de app zodra het document volledig verwerkt is",
+      "De output wordt ook opgeslagen in een Excel-sheet zodat voorraad en indeling centraal beheerd blijven",
+      "De RAG-chatinterface gebruikt dezelfde kennisbasis om direct te zoeken waar een boek ligt of welke vergelijkbare genres beschikbaar zijn en in welk schap",
+    ],
+    image: "/images/boeken.png",
   },
   {
     slug: "it-beheer-lokale-coding-agents",
@@ -77,28 +86,26 @@ export const cases: CaseItem[] = [
       "Minder gevoelige data verlaat het netwerk, met meer controle voor IT",
       "Snellere output bij standaardtaken en betere consistentie in codewerk",
     ],
-    image:
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=80",
+    image: "/images/storing.png",
   },
   {
-    slug: "thuiszorg-voice-rapportage",
-    title: "Thuiszorg vult rapportage voice agent",
-    company: "Zorgpraktijk / thuiszorg",
-    person: "Nadia El Amrani",
-    role: "Operationeel manager zorgpraktijk",
+    slug: "rijschool-whatsapp-notulist",
+    title: "Rijschool automatiseert lesverslagen via WhatsApp",
+    company: "Rijschool Younes",
+    person: "Younes A.",
+    role: "Rijschoolhouder",
     rating: "★★★★★",
     quote:
-      "De combinatie van gesprekken opnemen, samenvatten en informatie gestructureerd terugkrijgen werkt hier erg goed.",
+      "Het team van AITJE heeft voor mijn rijschool een slimme oplossing gebouwd. Leerlingen krijgen na elke les automatisch een heldere samenvatting van hun voortgang en verbeterpunten.",
     summary:
-      "Na elk bezoek moeten zorgmedewerkers dezelfde rapportage invullen. Met een mobiele voice agent beantwoorden ze de vragen onderweg naar de volgende client.",
-    solutions: ["Mobiele app op maat", "Voice agent", "Document-output flow"],
+      "Na elke les start een voice agent via WhatsApp een gesprek en vraagt direct de belangrijkste punten uit. Een op maat gemaakte versie, vergelijkbaar met AITJE Notulist, verwerkt dit gesprek en maakt een duidelijke samenvatting klaar voor de student.",
+    solutions: ["Software op maat", "AITJE Notulist"],
     details: [
-      "Voice agent stelt exact de benodigde rapportagevragen in de juiste volgorde",
-      "Medewerker bepaalt zelf wanneer de agent naar de volgende vraag gaat",
-      "Volledig document wordt automatisch opgeleverd als bijlage voor het systeem",
-      "Minder administratietijd en betere overdracht tussen zorgmomenten",
+      "Spraakmemo via WhatsApp wordt automatisch verwerkt tot samenvatting met de al uitgevraagde ontvanger in de titel",
+      "Na een duimpje-omhoog wordt de samenvatting direct naar die ontvanger verstuurd",
+      "Verzending gaat automatisch via WhatsApp of direct naar een 06-nummer",
+      "Minder handmatig werk en sneller duidelijke feedback naar leerlingen",
     ],
-    image:
-      "https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=1400&q=80",
+    image: "/images/rijles.png",
   },
 ];

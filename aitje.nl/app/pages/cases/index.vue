@@ -20,36 +20,31 @@
         <article
           v-for="(item, idx) in cases"
           :key="item.slug"
-          class="overflow-hidden rounded-[2.5rem] md:h-[520px]"
-          :class="cardThemes[idx % cardThemes.length]"
+          class="overflow-hidden rounded-[2.5rem] md:h-[360px]"
+          :class="[cardThemes[idx % cardThemes.length]]"
         >
-          <div class="grid gap-0 md:h-full md:grid-cols-[1.1fr_0.9fr]">
-            <div class="p-8 md:h-full md:p-12" :class="idx % 2 === 1 ? 'md:order-2' : ''">
+          <div class="grid gap-0 md:grid-cols-2 md:items-stretch">
+            <div class="p-6 md:p-8" :class="idx % 2 === 1 ? 'md:order-2' : ''">
               <p class="text-xs font-semibold uppercase tracking-[0.4em]" :class="idx % 3 === 0 ? 'text-black/60' : 'text-white/60'">
                 Case {{ idx + 1 }}
               </p>
-              <h2 class="mt-3 text-4xl font-black leading-tight">
+              <h2 class="mt-3 text-3xl font-black leading-tight">
                 {{ item.title }}
               </h2>
-              <p class="mt-4 text-base opacity-90">{{ item.summary }}</p>
-              <p class="mt-6 text-sm font-semibold">{{ item.rating }}</p>
-              <p class="mt-2 text-lg italic">"{{ item.quote }}"</p>
-              <p class="mt-4 text-sm font-semibold">
-                {{ item.person }} · {{ item.role }}
-              </p>
+              <p class="mt-3 text-base opacity-90">{{ item.summary }}</p>
               <NuxtLink
                 :to="`/cases/${item.slug}`"
-                class="mt-8 inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition-colors duration-200"
+                class="mt-6 inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition-colors duration-200"
                 :class="idx % 3 === 1 ? 'bg-[#facc15] text-black hover:bg-white' : 'bg-black text-white hover:text-[#facc15]'"
               >
                 Bekijk case
               </NuxtLink>
             </div>
-            <div class="min-h-[260px] md:h-full" :class="idx % 2 === 1 ? 'md:order-1' : ''">
+            <div class="p-6 pt-0 md:h-full md:p-0" :class="idx % 2 === 1 ? 'md:order-1' : ''">
               <img
                 :src="item.image"
                 :alt="item.title"
-                class="h-full w-full object-cover"
+                class="h-[260px] w-full rounded-2xl object-cover md:h-full md:rounded-none"
               />
             </div>
           </div>

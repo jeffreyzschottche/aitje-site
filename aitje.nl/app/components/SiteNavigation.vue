@@ -292,7 +292,6 @@ const productGroups = [
     to: '/producten/hardware',
     items: [
       { label: 'AITJE Assistent', to: '/producten/hardware/aitje-assistent' },
-      { label: 'AITJE Notulist', to: '/producten/hardware/aitje-notulist' },
       { label: 'AITJE Custom', to: '/producten/hardware/aitje-custom' },
     ],
   },
@@ -300,15 +299,15 @@ const productGroups = [
     label: 'Software',
     to: '/producten/software',
     items: [
-      { label: 'AITJE Assistent OS', to: '/producten/software/aitje-assistent-os' },
-      { label: 'AITJE Assistent Client', to: '/producten/software/aitje-assistent-client' },
-      { label: 'AITJE Assistent Kennisbank', to: '/producten/software/aitje-assistent-kennisbank' },
-      { label: 'AITJE Notulist Manager', to: '/producten/software/aitje-notulist-manager' },
+      { label: 'AITJE Notulist', to: '/producten/software/aitje-notulist' },
       { label: 'WordPress AI Search Overview', to: '/producten/software/wordpress-ai-search-overview' },
       { label: 'WordPress AI Chat', to: '/producten/software/wordpress-ai-chat' },
       { label: 'WordPress Alt Tekst Generator', to: '/producten/software/wordpress-alt-tekst-generator' },
       { label: 'PromptPaleis', to: '/producten/software/promptpaleis' },
       { label: 'Raad van Bestuur', to: '/producten/software/raad-van-bestuur' },
+      { label: 'AITJE Assistent OS', to: '/producten/software/aitje-assistent-os' },
+      { label: 'AITJE Assistent Kennisbank', to: '/producten/software/aitje-assistent-kennisbank' },
+      { label: 'AITJE Assistent Client', to: '/producten/software/aitje-assistent-client' },
     ],
   },
 ];

@@ -181,7 +181,7 @@
       </section>
     </main>
 
-    <BottomCta class="mt-20" />
+    <BottomCta />
 
     <SiteFooter />
   </div>
@@ -228,8 +228,8 @@ const services = [
     result:
       "Een duidelijk plan waarmee je direct kunt starten, zonder te verdwalen in alle AI-opties.",
     details: [
-      "Waar AI nu direct meerwaarde geeft in je organisatie",
-      "Welke tools je vandaag al slim kunt inzetten",
+      "Een rapport waar AI nu direct meerwaarde geeft in je organisatie",
+      "Een plan voor welke tools je vandaag al kunt inzetten",
       "Roadmap met heldere prioriteiten en vervolgstappen",
       "Praktische keuzes voor tooling en aanpak",
     ],
@@ -324,6 +324,21 @@ const services = [
       "Meetbare SLA's en continue optimalisatie",
     ],
     icon: ShieldCheck,
+  },
+  {
+    title: "SLA agreement",
+    focus: "Service & ondersteuning",
+    description:
+      "Met een SLA houden we je AI-omgeving actief gezond met vaste ondersteuning, periodieke check-ins en snelle hulp bij storingen.",
+    result:
+      "Meer rust in operatie en duidelijke afspraken over support, opvolging en beschikbaarheid.",
+    details: [
+      "Maandelijkse check-up telefonisch of via e-mail om knelpunten te bespreken",
+      "Vaste service-uren per maand die je kunt inzetten voor support en verbetering",
+      "Ongebruikte service-uren schuiven door naar de volgende maand",
+      "Storingdienst met apart telefoonnummer en e-mailadres voor spoed incidenten met een AITJE-workflow of AITJE-device",
+    ],
+    icon: ClipboardPenLine,
   },
 ];
 

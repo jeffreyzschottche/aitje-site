@@ -77,12 +77,12 @@ export const softwareCatalog: SoftwareItem[] = [
     ],
   },
   {
-    slug: "aitje-notulist-manager",
-    title: "AITJE Notulist Manager",
+    slug: "aitje-notulist",
+    title: "AITJE Notulist",
     shortDescription:
       "Beheeromgeving voor opnames, samenvattingen en afleverflows van AITJE Notulist.",
     heroDescription:
-      "Met AITJE Notulist Manager stuur je opnameworkflows, outputinstellingen en distributie naar je eigen omgeving vanuit één centrale beheerlaag.",
+      "Met AITJE Notulist stuur je opnameworkflows, outputinstellingen en distributie naar je eigen omgeving vanuit één centrale beheerlaag.",
     image: "/images/aitje-product.png",
     sections: [
       {
