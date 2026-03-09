@@ -39,7 +39,7 @@
               en toepassingen.
             </p>
             <p class="text-sm uppercase tracking-[0.4em] text-gray-400">
-              · Edge & cloud · Veilige opslag · Europe based ·
+              · Edge & <span data-no-knowledge-links="true">cloud</span> · Veilige opslag · Europe based ·
             </p>
             <div class="flex flex-col gap-4 sm:flex-row">
               <NuxtLink

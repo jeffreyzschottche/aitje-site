@@ -51,6 +51,64 @@ const knowledgeLinkDefinitions: KnowledgeLinkDefinition[] = [
     slug: "wat-is-prompt-engineering",
     terms: ["prompt engineering", "prompting", "prompt", "prompts"],
   },
+  {
+    slug: "wat-is-een-api",
+    terms: [
+      "lokale API-services",
+      "API-architectuur",
+      "API-bereikbaarheid",
+      "API-koppelingen",
+      "API-prijzen",
+      "API-routes",
+      "API-toegang",
+      "boeken-API",
+      "LLM-API",
+      "lokale API",
+      "API-basis",
+      "API-lab",
+      "API key",
+      "API keys",
+      "API",
+      "API's",
+    ],
+  },
+  {
+    slug: "wat-is-een-webhook",
+    terms: ["webhooks", "webhook"],
+  },
+  {
+    slug: "wat-is-een-backend",
+    terms: ["backend-talen", "backend"],
+  },
+  {
+    slug: "wat-is-een-frontend",
+    terms: ["frontend"],
+  },
+  {
+    slug: "wat-is-cloud",
+    terms: [
+      "cloudoplossingen",
+      "cloudoplossing",
+      "cloudomgeving",
+      "cloudhosting",
+      "cloudverzoeken",
+      "cloudcapaciteit",
+      "cloud calls",
+      "de cloud",
+      "cloud",
+    ],
+  },
+  {
+    slug: "wat-is-een-workflow",
+    terms: [
+      "workflow-automatisering",
+      "AITJE-workflow",
+      "opnameworkflows",
+      "chatflows",
+      "workflow",
+      "workflows",
+    ],
+  },
 ];
 
 function escapeRegExp(value: string) {

@@ -14,8 +14,8 @@
           Begrippen en jargon, helder uitgelegd
         </h1>
         <p class="mt-6 text-lg text-gray-600">
-          Korte artikelen over termen die je vaak hoort rondom AI en ziet op
-          onze website.
+          Korte artikelen over AI-, software- en technische termen die je vaak
+          hoort rondom onze oplossingen en terugziet op de website.
         </p>
       </section>
 
