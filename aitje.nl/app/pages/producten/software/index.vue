@@ -39,7 +39,8 @@
           <img
             :src="item.image"
             :alt="item.title"
-            class="h-44 w-full rounded-2xl border border-gray-200 object-cover"
+            class="h-44 w-full rounded-2xl border border-gray-200"
+            :class="item.imageFit === 'contain' ? 'bg-white object-contain' : 'object-cover'"
           />
           <h2 class="text-2xl font-black text-gray-900">
             {{ item.title }}

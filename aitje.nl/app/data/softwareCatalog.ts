@@ -9,6 +9,8 @@ export type SoftwareItem = {
   shortDescription: string;
   heroDescription: string;
   image: string;
+  imageFit?: "cover" | "contain";
+  galleryImages?: string[];
   sections: SoftwareSection[];
 };
 
@@ -17,20 +19,31 @@ export const softwareCatalog: SoftwareItem[] = [
     slug: "aitje-assistent-os",
     title: "AITJE Assistent OS",
     shortDescription:
-      "Het besturingssysteem van AITJE Assistent voor lokale AI, beheer en stabiele inzet.",
+      "Centrale beheerlaag voor API, toegang, apparaten en lokale samenwerking binnen AITJE.",
     heroDescription:
-      "AITJE Assistent OS vormt de basislaag voor lokale AI-verwerking, accountbeheer, netwerkinstellingen en koppelingen binnen je organisatieomgeving.",
-    image: "/images/aitje-product.png",
+      "AITJE Assistent OS vormt het centrale besturingssysteem achter de AITJE-omgeving en brengt hardware, AI-functionaliteit en aangesloten apparaten samen in een beheersbare lokale basis.",
+    image: "/images/OS_Screenshot.jpeg",
+    imageFit: "contain",
     sections: [
       {
-        title: "Rol in de stack",
+        title: "Centrale regie",
         content:
-          "Het OS verzorgt de technische basis waarop lokale LLM's, kennisbankprocessen en API-koppelingen betrouwbaar kunnen draaien.",
+          "Met deze software beheer je de API, stel je toegang in en bepaal je welke apparaten verbinding mogen maken met de hardware waarop AITJE draait. Zo ontstaat er een centrale plek van waaruit communicatie, toegang en samenwerking tussen verschillende devices wordt geregeld.",
       },
       {
-        title: "Praktisch beheer",
+        title: "Lokale samenwerking",
         content:
-          "Gericht op organisaties die controle willen over updates, gebruikersrechten, netwerktoegang en operationele stabiliteit.",
+          "Binnen het lokale netwerk laat AITJE Assistent OS andere apparaten eenvoudig met de hardware communiceren. Denk aan laptops, tablets of andere systemen die via LAN gebruikmaken van dezelfde slimme assistent, data of functionaliteiten.",
+      },
+      {
+        title: "Beheer van de omgeving",
+        content:
+          "De software biedt beheermogelijkheden voor instellingen, apparaten, kennisbronnen en ondersteuning, zodat de hele omgeving niet alleen toegankelijk is, maar ook praktisch beheersbaar blijft.",
+      },
+      {
+        title: "Waarom dit belangrijk is",
+        content:
+          "Kort gezegd is AITJE Assistent OS de schakel tussen de hardware, de AI-functionaliteit en de apparaten eromheen: een stabiele en gebruiksvriendelijke basis die zorgt dat alles lokaal, gecontroleerd en soepel samenwerkt.",
       },
     ],
   },
@@ -38,20 +51,26 @@ export const softwareCatalog: SoftwareItem[] = [
     slug: "aitje-assistent-client",
     title: "AITJE Assistent Client",
     shortDescription:
-      "Client-interface voor medewerkers en teams om lokaal met AITJE Assistent te werken.",
+      "Clientlaag voor laptops, tablets en telefoons die lokaal met de AITJE-omgeving verbinden.",
     heroDescription:
-      "De AITJE Assistent Client biedt een praktische werklaag voor chat, kennisvragen en output binnen desktop- en netwerkcontexten.",
-    image: "/images/aitje-product.png",
+      "De AITJE Assistent Client maakt AITJE direct toegankelijk op meerdere apparaten binnen het lokale netwerk, terwijl gebruik, toegang en communicatie lokaal en gecontroleerd blijven.",
+    image: "/images/Client_Screenshot.jpeg",
+    imageFit: "contain",
     sections: [
       {
-        title: "Gebruikerservaring",
+        title: "Direct verbonden",
         content:
-          "De client is gemaakt voor dagelijks gebruik door teams die snel antwoorden, samenvattingen en contextuele output nodig hebben.",
+          "De AITJE Client verbindt laptops, tablets en telefoons binnen het lokale netwerk direct met de AITJE-omgeving. Gebruikers loggen in op het juiste device en kunnen meteen met de assistent aan de slag.",
       },
       {
-        title: "Integratie",
+        title: "Praktisch gebruik",
         content:
-          "In te richten op je workflow met passende rechten, koppelingen en outputformaten per rol of afdeling.",
+          "Via de lokale API kunnen gebruikers vragen stellen, documenten delen en werken met de assistent vanaf verschillende apparaten, zonder afhankelijk te zijn van een externe cloudomgeving.",
+      },
+      {
+        title: "Waarom dit werkt",
+        content:
+          "De client maakt AITJE toegankelijk op meerdere devices tegelijk, terwijl alles lokaal, overzichtelijk en gecontroleerd blijft. Zo combineer je gebruiksgemak met grip op toegang en infrastructuur.",
       },
     ],
   },
@@ -59,20 +78,31 @@ export const softwareCatalog: SoftwareItem[] = [
     slug: "aitje-assistent-kennisbank",
     title: "AITJE Assistent Kennisbank",
     shortDescription:
-      "Kennislaag voor documenten, context en zoekbaarheid binnen AITJE Assistent.",
+      "Kennisbank voor documenten, structuur, samenhang en gecontroleerde synchronisatie binnen AITJE.",
     heroDescription:
-      "De kennisbankmodule maakt het mogelijk om interne documenten en context veilig te structureren, embeden en ontsluiten voor relevante AI-antwoorden.",
-    image: "/images/aitje-product.png",
+      "De Kennisbank helpt organisaties om documenten en kennis slim te verwerken, logisch te ordenen en om te zetten in een goed doorzoekbare en bruikbare kennisbasis.",
+    image: "/images/Kennisbank_Screenshot_1.jpeg",
+    imageFit: "contain",
     sections: [
       {
-        title: "Kernfunctie",
+        title: "Van bestanden naar kennis",
         content:
-          "Documenten worden geordend en verwerkt in een zoekbare kennislaag, zodat antwoorden beter aansluiten op je eigen organisatiecontext.",
+          "In deze omgeving kunnen bestanden worden toegevoegd, geordend en verrijkt, zodat losse informatie verandert in een goed doorzoekbare en bruikbare kennisbasis. Daarmee wordt het eenvoudiger om content niet alleen op te slaan, maar ook logisch te structureren en later opnieuw in te zetten.",
       },
       {
-        title: "Beheer en versiecontrole",
+        title: "Meer dan documentbeheer",
         content:
-          "In combinatie met versiebeheer en syncflows kun je kennisupdates gecontroleerd uitrollen en bij fouten terugzetten.",
+          "De software brengt verbanden aan tussen documenten en onderdelen daarvan, biedt inzicht in structuur, prioriteit en samenhang, en maakt het mogelijk om kennis gecontroleerd te exporteren en te synchroniseren.",
+      },
+      {
+        title: "Praktische werkomgeving",
+        content:
+          "Zo ontstaat een omgeving waarin informatie beter beheerd, sneller teruggevonden en eenvoudiger gedeeld kan worden. Teams krijgen meer overzicht en kunnen met minder losse documenten werken.",
+      },
+      {
+        title: "Waarom dit belangrijk is",
+        content:
+          "Kort gezegd is de Kennisbank een slimme schakel tussen bronbestanden en een bruikbare digitale kennisomgeving: ontworpen om informatie meer waarde, meer context en meer samenhang te geven.",
       },
     ],
   },
