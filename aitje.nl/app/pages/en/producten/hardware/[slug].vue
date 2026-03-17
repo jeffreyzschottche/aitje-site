@@ -469,48 +469,52 @@ const selectedDevice = ref("");
 
 const deviceOptions = [
   {
-    id: "cube-v1",
-    name: "Aitje Cube 1",
+    id: "m6",
+    name: "AITJE Cube 1",
     image: "/images/aitje-assistent-cube-v1.png",
     offerLabel: "cube 1",
-    description: "Compact entry-level configuration for local AI workflows and daily teams.",
+    description:
+      "Compact AI mini PC for local workflows, day-to-day teams and fast multitasking.",
     specs: [
       {
         label: "Processor",
-        value: "AMD Ryzen AI 9 HX370, Zen 5, 12 cores / 24 threads",
+        value:
+          "AMD Ryzen AI 9 HX370, 12 cores / 24 threads, up to 5.1 GHz boost, 24MB L3 cache",
       },
       {
         label: "GPU + AI",
-        value: "AMD Radeon 890M (16 cores) with XDNA 2 NPU, 50 TOPS and up to 80 TOPS total",
+        value:
+          "Integrated Radeon 890M up to 2900MHz, 8K@60Hz output and support for four simultaneous displays",
       },
       {
         label: "Working Memory",
-        value: "32GB LPDDR5X 7500MHz, onboard and non-replaceable",
+        value: "32GB DDR5 5600MHz",
       },
       {
         label: "Storage",
-        value: "2x PCIe 4.0 M.2 2280 SSD slots, up to 8TB total",
+        value: "1TB PCIe 4.0 SSD",
       },
       {
         label: "Network",
-        value: "Intel I226-V LAN, Wi-Fi 6 and Bluetooth 5.2",
+        value: "Ethernet, audio jack and high-speed display/data output via USB4/USB-C",
       },
       {
         label: "Connections",
-        value: "4x USB 3.2 Gen 2, HDMI 2.1, DisplayPort 2.1 and OCuLink",
+        value: "HDMI 2.1, USB4, USB-C, DisplayPort 1.4 and USB-A",
       },
       {
         label: "Format",
-        value: "110.19 x 107.3 x 63.2 mm with 120W power supply",
+        value: "Compact mini PC design with configurable 45-65W TDP",
       },
     ],
   },
   {
-    id: "cube-v2",
-    name: "Aitje Cube 2",
+    id: "m5",
+    name: "AITJE Cube 2",
     image: "/images/aitje-assistent-cube-v2.jpg",
     offerLabel: "cube 2",
-    description: "Heavier configuration for larger models, higher context and multi-user use.",
+    description:
+      "Heavier AI configuration for larger models, higher context windows and multi-user use.",
     specs: [
       {
         label: "Processor",
@@ -518,64 +522,29 @@ const deviceOptions = [
       },
       {
         label: "GPU + AI",
-        value: "Radeon 8060S (40-core RDNA 3.5) with XDNA 2 NPU, 50 TOPS and up to 126 TOPS total",
+        value:
+          "Radeon 8060S with 40 compute units, a 50 TOPS XDNA 2 NPU and up to 126 TOPS total",
       },
       {
         label: "Working Memory",
-        value: "64GB LPDDR5X 8000MHz, onboard and non-upgradable",
+        value: "128GB LPDDR5X 8000MHz, shared dynamically with the GPU",
       },
       {
         label: "Storage",
-        value: "1TB PCIe 4.0 SSD included, dual M.2 2280 and expandable up to 16TB total",
+        value: "2TB PCIe 4.0 SSD with dual M.2 PCIe Gen 4 expansion",
       },
       {
         label: "Network",
-        value: "Wi-Fi 7, 2.5G LAN and Bluetooth 5.4",
+        value: "2.5Gbps LAN",
       },
       {
         label: "Connections",
-        value: "USB4, HDMI 2.1, DisplayPort 1.4, USB-A, audio and SD card reader",
+        value:
+          "2x USB4 Type-C, 3x USB 3.2 Gen 2, 2x USB 2.0 and a full-size SD 4.0 card reader",
       },
       {
         label: "Format",
-        value: "193 x 185.8 x 77 mm, approx. 230W power supply, Windows 11 Pro",
-      },
-    ],
-  },
-  {
-    id: "cube-v3",
-    name: "Aitje Cube 3",
-    image: "/images/aitje-assistent-cube-v2.jpg",
-    offerLabel: "cube 3",
-    description: "Top configuration for intensive parallel workflows and further scaling.",
-    specs: [
-      {
-        label: "Processor",
-        value: "AMD Ryzen AI Max+ 395, 16 cores / 32 threads, up to 5.1 GHz",
-      },
-      {
-        label: "GPU + AI",
-        value: "Radeon 8060S (40-core RDNA 3.5) with XDNA 2 NPU, 50 TOPS and up to 126 TOPS total",
-      },
-      {
-        label: "Working Memory",
-        value: "128GB LPDDR5X 8000MHz, onboard and non-upgradable",
-      },
-      {
-        label: "Storage",
-        value: "2TB PCIe 4.0 SSD included, dual M.2 2280 and expandable up to 16TB total",
-      },
-      {
-        label: "Network",
-        value: "Wi-Fi 7, 2.5G LAN and Bluetooth 5.4",
-      },
-      {
-        label: "Connections",
-        value: "USB4, HDMI 2.1, DisplayPort 1.4, USB-A, audio and SD card reader",
-      },
-      {
-        label: "Format",
-        value: "193 x 185.8 x 77 mm, approx. 230W power supply, Windows 11 Pro",
+        value: "Compact desktop format aimed at local LLMs and heavier AI workloads",
       },
     ],
   },
