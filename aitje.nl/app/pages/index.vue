@@ -68,14 +68,22 @@
           </div>
           <div class="relative">
             <div class="rounded-[2.5rem] p-8 backdrop-blur">
-              <video
-                src="/images/aitje-home-animated-egg-boomerang.mp4"
-                autoplay
-                loop
-                muted
-                playsinline
-                class="w-full rounded-3xl border border-white/10 bg-white/80 object-cover"
-              ></video>
+              <div
+                class="relative mx-auto flex aspect-square w-full max-w-[34rem] items-center justify-center overflow-hidden rounded-[2.5rem]"
+              >
+                <div
+                  aria-hidden="true"
+                  class="pointer-events-none absolute inset-x-[18%] inset-y-[8%] rounded-[50%] border-[14px] border-white/90 shadow-[0_0_0_1px_rgba(255,255,255,0.08)]"
+                ></div>
+                <video
+                  src="/images/aitje-home-animated-egg-boomerang.mp4"
+                  autoplay
+                  loop
+                  muted
+                  playsinline
+                  class="relative z-10 h-full w-full object-contain"
+                ></video>
+              </div>
               <div
                 class="mt-8 rounded-2xl border border-white/10 bg-white/5 p-4"
               >
@@ -370,6 +378,26 @@
               trots op is, van bestaande toepassingen tot de basis voor
               maatwerk.
             </p>
+            <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <NuxtLink
+                to="/producten"
+                class="inline-flex items-center justify-center rounded-full bg-[#facc15] px-6 py-3 text-sm font-semibold text-black transition hover:bg-white"
+              >
+                Bekijk alles op /producten
+              </NuxtLink>
+              <NuxtLink
+                to="/diensten"
+                class="inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:border-white"
+              >
+                Naar diensten
+              </NuxtLink>
+              <NuxtLink
+                to="/cases"
+                class="inline-flex items-center justify-center text-sm font-semibold text-[#facc15] transition hover:text-white"
+              >
+                Of bekijk cases
+              </NuxtLink>
+            </div>
           </div>
 
           <div
