@@ -1,0 +1,23 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" rx="48" fill="#F5F5F5"/>
+  <rect x="90" y="80" width="1420" height="740" rx="36" fill="white" stroke="#D1D5DB" stroke-width="4"/>
+  <rect x="90" y="80" width="1420" height="72" rx="36" fill="#F3F4F6"/>
+  <circle cx="146" cy="116" r="12" fill="#FF5F57"/>
+  <circle cx="184" cy="116" r="12" fill="#FEBC2E"/>
+  <circle cx="222" cy="116" r="12" fill="#28C840"/>
+  <rect x="290" y="98" width="210" height="36" rx="18" fill="white"/>
+  <text x="395" y="121" text-anchor="middle" fill="#9CA3AF" font-size="22" font-family="Arial, sans-serif">aitje-os.local</text>
+  <rect x="150" y="210" width="430" height="210" rx="28" fill="#111827"/>
+  <text x="190" y="280" fill="#FACC15" font-size="32" font-family="Arial, sans-serif" font-weight="700">Placeholder</text>
+  <text x="190" y="332" fill="white" font-size="56" font-family="Arial, sans-serif" font-weight="700">AITJE Assistent OS</text>
+  <text x="190" y="380" fill="#D1D5DB" font-size="26" font-family="Arial, sans-serif">Vervang deze afbeelding later met een echte screenshot.</text>
+  <rect x="640" y="210" width="810" height="140" rx="24" fill="#FFF8DC" stroke="#FACC15" stroke-width="4"/>
+  <text x="690" y="278" fill="#111827" font-size="34" font-family="Arial, sans-serif" font-weight="700">Lokale AI-infrastructuur</text>
+  <text x="690" y="320" fill="#4B5563" font-size="24" font-family="Arial, sans-serif">OS, beheer, modellen, rechten, netwerk en koppelingen</text>
+  <rect x="640" y="390" width="250" height="250" rx="24" fill="#F3F4F6"/>
+  <rect x="920" y="390" width="250" height="250" rx="24" fill="#F3F4F6"/>
+  <rect x="1200" y="390" width="250" height="250" rx="24" fill="#F3F4F6"/>
+  <text x="765" y="525" text-anchor="middle" fill="#6B7280" font-size="24" font-family="Arial, sans-serif">Beheer</text>
+  <text x="1045" y="525" text-anchor="middle" fill="#6B7280" font-size="24" font-family="Arial, sans-serif">Rechten</text>
+  <text x="1325" y="525" text-anchor="middle" fill="#6B7280" font-size="24" font-family="Arial, sans-serif">Koppelingen</text>
+</svg>

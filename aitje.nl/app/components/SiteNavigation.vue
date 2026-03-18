@@ -299,7 +299,6 @@ const productGroups = [
     label: 'Software',
     to: '/producten/software',
     items: [
-      { label: 'AITJE Notulist', to: '/producten/software/aitje-notulist' },
       { label: 'WordPress AI Search Overview', to: '/producten/software/wordpress-ai-search-overview' },
       { label: 'WordPress AI Chat', to: '/producten/software/wordpress-ai-chat' },
       { label: 'WordPress Alt Tekst Generator', to: '/producten/software/wordpress-alt-tekst-generator' },

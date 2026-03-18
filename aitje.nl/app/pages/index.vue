@@ -68,11 +68,14 @@
           </div>
           <div class="relative">
             <div class="rounded-[2.5rem] p-8 backdrop-blur">
-              <img
-                src="/images/aitje-product.png"
-                alt="AITJE systeem"
+              <video
+                src="/images/aitje-home-animated-egg-boomerang.mp4"
+                autoplay
+                loop
+                muted
+                playsinline
                 class="w-full rounded-3xl border border-white/10 bg-white/80 object-cover"
-              />
+              ></video>
               <div
                 class="mt-8 rounded-2xl border border-white/10 bg-white/5 p-4"
               >
@@ -382,16 +385,16 @@
                   1. AITJE Assistent
                 </p>
                 <h3 class="mt-3 text-3xl font-black">
-                  Lokale AI devices in meerdere vormen
+                  Hardware en lokale interfaces die al klaarstaan
                 </h3>
                 <p class="mt-3 max-w-3xl text-sm text-gray-300">
-                  Beschikbaar in verschillende tiers en uitvoeringen, van
-                  compacte setups tot persoonlijk gebouwde devices op ons eigen
-                  OS.
+                  Van de AITJE Cube zelf tot het zelfgemaakte OS, client,
+                  embedding of custom builds. Dit zijn de bestaande onderdelen
+                  waar je direct mee kunt starten en op kunt doorbouwen.
                 </p>
               </div>
               <NuxtLink
-                to="/producten"
+                to="/producten/hardware"
                 class="inline-flex items-center justify-center rounded-full bg-[#facc15] px-6 py-3 text-sm font-semibold text-black transition hover:bg-black hover:text-[#facc15]"
               >
                 Meer info
@@ -399,26 +402,31 @@
             </div>
             <div class="mt-8 grid gap-5 md:grid-cols-3">
               <article
-                v-for="variant in assistantVariants"
-                :key="variant.title"
+                v-for="item in hardwareShowcase"
+                :key="item.title"
                 class="overflow-hidden rounded-[1.75rem] border border-white/10 bg-black/30"
               >
-                <div
-                  class="aspect-[4/3] bg-gradient-to-br from-[#2a2a2a] to-[#111] p-5"
-                >
+                <div class="aspect-[4/3] bg-gradient-to-br from-[#2a2a2a] to-[#111] p-5">
                   <img
-                    src="/images/aitje-product.png"
-                    :alt="variant.title"
+                    :src="item.image"
+                    :alt="item.title"
                     class="h-full w-full rounded-2xl border border-white/10 bg-white/90 object-cover"
                   />
                 </div>
                 <div class="p-5">
-                  <h4 class="text-lg font-semibold text-white">
-                    {{ variant.title }}
-                  </h4>
-                  <p class="mt-2 text-sm text-gray-300">
-                    {{ variant.description }}
+                  <p class="text-xs font-semibold uppercase tracking-[0.3em] text-[#facc15]">
+                    {{ item.label }}
                   </p>
+                  <h4 class="mt-2 text-lg font-semibold text-white">{{ item.title }}</h4>
+                  <p class="mt-2 text-sm text-gray-300">
+                    {{ item.description }}
+                  </p>
+                  <NuxtLink
+                    :to="item.link"
+                    class="mt-4 inline-flex text-sm font-semibold text-[#facc15] transition hover:text-white"
+                  >
+                    Meer over {{ item.title }}
+                  </NuxtLink>
                 </div>
               </article>
             </div>
@@ -434,152 +442,56 @@
                 <p
                   class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
                 >
-                  2. AITJE Notulist
+                  2. Software
                 </p>
                 <h3 class="mt-3 text-3xl font-black">
-                  Van gesprek naar bruikbare output
+                  Out of the box solutions
                 </h3>
                 <p class="mt-3 max-w-3xl text-sm text-gray-300">
-                  Neem op, structureer informatie en lever output af als
-                  samenvatting, transcriptie of formulier, passend bij je
-                  proces.
+                  Onze oplossingen groeien continu. Als we al een modulaire
+                  oplossing hebben die voor jouw situatie out of the box te
+                  regelen valt, dan kun je die hier bekijken en direct
+                  doorklikken naar de juiste softwarepagina.
                 </p>
               </div>
               <NuxtLink
-                to="/producten"
+                to="/producten/software"
                 class="inline-flex items-center justify-center rounded-full bg-[#facc15] px-6 py-3 text-sm font-semibold text-black transition hover:bg-black hover:text-[#facc15]"
               >
                 Meer info
               </NuxtLink>
             </div>
-            <div class="mt-8 grid gap-5 lg:grid-cols-[0.95fr_1.05fr]">
-              <div
-                class="overflow-hidden rounded-[1.75rem] border border-white/10 bg-black/30 p-5"
-              >
-                <img
-                  src="/images/aitje-product.png"
-                  alt="AITJE Notulist"
-                  class="h-full w-full rounded-2xl border border-white/10 bg-white/90 object-cover"
-                />
-              </div>
-              <div
-                class="rounded-[1.75rem] border border-white/10 bg-[#161616] p-5"
-              >
-                <div
-                  class="rounded-[1.25rem] border border-white/10 bg-[#f7f1e3] p-4 text-black"
+            <div class="mt-8 overflow-hidden">
+              <div class="showcase-marquee flex w-max gap-5">
+                <article
+                  v-for="(item, idx) in softwareShowcaseMarquee"
+                  :key="`${item.link}-${idx}`"
+                  class="w-[280px] shrink-0 overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#161616]"
                 >
-                  <div class="flex items-center gap-2">
-                    <span class="h-3 w-3 rounded-full bg-[#ff6b6b]"></span>
-                    <span class="h-3 w-3 rounded-full bg-[#ffd166]"></span>
-                    <span class="h-3 w-3 rounded-full bg-[#06d6a0]"></span>
-                    <span
-                      class="ml-3 text-xs font-semibold uppercase tracking-[0.3em] text-gray-500"
-                    >
-                      Meeting Flow
-                    </span>
+                  <div class="aspect-[4/3] border-b border-white/10 bg-black/30 p-4">
+                    <img
+                      :src="item.image"
+                      :alt="item.title"
+                      class="h-full w-full rounded-2xl bg-white object-contain p-3"
+                    />
                   </div>
-                  <div class="mt-5 space-y-4">
-                    <div class="rounded-2xl bg-white p-4 shadow-sm">
-                      <p
-                        class="text-xs font-semibold uppercase tracking-[0.3em] text-gray-400"
-                      >
-                        Input
-                      </p>
-                      <p class="mt-2 text-sm text-gray-700">
-                        Gesprek, intake of overleg automatisch omzetten naar
-                        gestructureerde data.
-                      </p>
-                    </div>
-                    <div class="grid gap-3 md:grid-cols-3">
-                      <div class="rounded-2xl bg-white p-4 shadow-sm">
-                        <p
-                          class="text-xs font-semibold uppercase tracking-[0.3em] text-gray-400"
-                        >
-                          Samenvatting
-                        </p>
-                      </div>
-                      <div class="rounded-2xl bg-white p-4 shadow-sm">
-                        <p
-                          class="text-xs font-semibold uppercase tracking-[0.3em] text-gray-400"
-                        >
-                          Transcriptie
-                        </p>
-                      </div>
-                      <div class="rounded-2xl bg-white p-4 shadow-sm">
-                        <p
-                          class="text-xs font-semibold uppercase tracking-[0.3em] text-gray-400"
-                        >
-                          Formulier
-                        </p>
-                      </div>
-                    </div>
-                    <div
-                      class="rounded-2xl bg-[#212121] p-4 text-sm text-white"
-                    >
-                      Aflevering via mail, dashboard of interne workflow.
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="rounded-[2rem] border border-white/10 bg-white/5 p-6 md:p-8"
-          >
-            <div
-              class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between"
-            >
-              <div>
-                <p
-                  class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
-                >
-                  3. Software
-                </p>
-                <h3 class="mt-3 text-3xl font-black">
-                  Bestaande oplossingen en integraties
-                </h3>
-                <p class="mt-3 max-w-3xl text-sm text-gray-300">
-                  Een groeiende set software, koppelingen en workflows voor
-                  verschillende stacks en use cases.
-                </p>
-              </div>
-              <NuxtLink
-                to="/producten"
-                class="inline-flex items-center justify-center rounded-full bg-[#facc15] px-6 py-3 text-sm font-semibold text-black transition hover:bg-black hover:text-[#facc15]"
-              >
-                Meer info
-              </NuxtLink>
-            </div>
-            <div class="mt-8 flex gap-5 overflow-x-auto pb-2">
-              <article
-                v-for="item in softwareSlides"
-                :key="item.title"
-                class="min-w-[280px] flex-1 rounded-[1.75rem] border border-white/10 bg-[#161616] p-4"
-              >
-                <div
-                  class="rounded-[1.25rem] border border-white/10 bg-white text-black"
-                >
-                  <div
-                    class="flex items-center gap-2 border-b border-gray-100 px-4 py-3"
-                  >
-                    <span class="h-3 w-3 rounded-full bg-[#ff6b6b]"></span>
-                    <span class="h-3 w-3 rounded-full bg-[#ffd166]"></span>
-                    <span class="h-3 w-3 rounded-full bg-[#06d6a0]"></span>
-                    <span
-                      class="ml-3 text-xs font-semibold uppercase tracking-[0.3em] text-gray-500"
-                    >
-                      {{ item.stack }}
-                    </span>
-                  </div>
-                  <div class="p-4">
-                    <h4 class="text-lg font-semibold">{{ item.title }}</h4>
-                    <p class="mt-2 text-sm text-gray-600">
+                  <div class="p-5">
+                    <p class="text-xs font-semibold uppercase tracking-[0.3em] text-[#facc15]">
+                      {{ item.label }}
+                    </p>
+                    <h4 class="mt-2 text-lg font-semibold text-white">{{ item.title }}</h4>
+                    <p class="mt-2 text-sm text-gray-300">
                       {{ item.description }}
                     </p>
+                    <NuxtLink
+                      :to="item.link"
+                      class="mt-4 inline-flex text-sm font-semibold text-[#facc15] transition hover:text-white"
+                    >
+                      Open softwarepagina
+                    </NuxtLink>
                   </div>
-                </div>
-              </article>
+                </article>
+              </div>
             </div>
           </div>
 
@@ -593,14 +505,16 @@
                 <p
                   class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
                 >
-                  4. Cases
+                  3. Diensten
                 </p>
                 <h3 class="mt-3 text-3xl font-black">
-                  Voorbeelden van toepassingen
+                  Hoe we organisaties helpen met implementatie en maatwerk
                 </h3>
                 <p class="mt-3 max-w-3xl text-sm text-gray-300">
-                  Voorlopige voorbeelden van hoe AITJE ingezet kan worden in
-                  teams, processen en platformen.
+                  AITJE denkt strategisch met je mee over hoe AI echt waarde
+                  toevoegt binnen je organisatie. Bekijk onze diensten om snel
+                  te zien waar we inhoudelijk, technisch en operationeel op
+                  ondersteunen.
                 </p>
               </div>
               <NuxtLink
@@ -610,31 +524,63 @@
                 Bekijk diensten
               </NuxtLink>
             </div>
-            <div class="mt-8 flex gap-5 overflow-x-auto pb-2">
+            <div class="mt-8 space-y-5">
               <article
-                v-for="item in caseSlides"
-                :key="item.title"
-                class="min-w-[320px] flex-1 rounded-[1.75rem] border border-white/10 bg-[#161616] p-4"
+                class="rounded-[1.75rem] border border-white/10 bg-[#161616] p-4 md:p-6"
               >
-                <div
-                  class="rounded-[1.25rem] border border-white/10 bg-[#f7f1e3] p-5 text-black"
-                >
-                  <div class="flex items-center gap-2">
-                    <span class="h-3 w-3 rounded-full bg-[#ff6b6b]"></span>
-                    <span class="h-3 w-3 rounded-full bg-[#ffd166]"></span>
-                    <span class="h-3 w-3 rounded-full bg-[#06d6a0]"></span>
+                <div class="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
+                  <div class="rounded-[1.25rem] border border-white/10 bg-[#f7f1e3] p-6 text-black">
+                    <p class="text-xs font-semibold uppercase tracking-[0.3em] text-gray-500">
+                      {{ activeServiceSlide.focus }}
+                    </p>
+                    <h4 class="mt-3 text-2xl font-semibold">{{ activeServiceSlide.title }}</h4>
+                    <p class="mt-4 text-sm text-gray-700">
+                      {{ activeServiceSlide.description }}
+                    </p>
+                    <p class="mt-4 text-sm text-gray-800">
+                      <span class="font-semibold">Resultaat:</span>
+                      {{ activeServiceSlide.result }}
+                    </p>
+                    <NuxtLink
+                      to="/diensten"
+                      class="mt-5 inline-flex rounded-full bg-black px-5 py-3 text-sm font-semibold text-white transition hover:text-[#facc15]"
+                    >
+                      Meer over deze dienst
+                    </NuxtLink>
                   </div>
-                  <p
-                    class="mt-5 text-xs font-semibold uppercase tracking-[0.3em] text-gray-500"
-                  >
-                    {{ item.category }}
-                  </p>
-                  <h4 class="mt-2 text-lg font-semibold">{{ item.title }}</h4>
-                  <p class="mt-2 text-sm text-gray-700">
-                    {{ item.description }}
-                  </p>
+                  <div class="rounded-[1.25rem] border border-white/10 bg-black/30 p-6">
+                    <p class="text-xs font-semibold uppercase tracking-[0.3em] text-[#facc15]">
+                      Wat we opleveren
+                    </p>
+                    <div class="mt-4 grid gap-3">
+                      <div
+                        v-for="detail in activeServiceSlide.details"
+                        :key="detail"
+                        class="rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-gray-300"
+                      >
+                        {{ detail }}
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </article>
+
+              <div class="flex flex-wrap gap-3">
+                <button
+                  v-for="(service, idx) in serviceSlides"
+                  :key="service.title"
+                  type="button"
+                  class="rounded-full border px-4 py-2 text-sm font-semibold transition"
+                  :class="
+                    idx === currentServiceSlide
+                      ? 'border-[#facc15] bg-[#facc15] text-black'
+                      : 'border-white/15 bg-white/5 text-gray-200 hover:border-white/30'
+                  "
+                  @click="currentServiceSlide = idx"
+                >
+                  {{ service.title }}
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -798,7 +744,8 @@
 </template>
 
 <script setup lang="ts">
-import { onBeforeUnmount, onMounted, ref } from "vue";
+import { computed, onBeforeUnmount, onMounted, ref } from "vue";
+import { softwareCatalog } from "../data/softwareCatalog";
 import {
   AppWindow,
   BookOpen,
@@ -934,69 +881,146 @@ const features = [
   },
 ];
 
-const assistantVariants = [
+const hardwareShowcase = [
   {
-    title: "Compact tier",
+    label: "Hardware",
+    title: "AITJE Assistent",
+    image: "/images/aitje-cubes.png",
+    link: "/producten/hardware/aitje-assistent",
     description:
-      "Voor individuele werkplekken of kleine teams die lokaal willen starten.",
+      "De lokale AI-assistent op eigen hardware met kennisbank, offline bereikbaarheid en API-toegang.",
   },
   {
-    title: "Team setup",
+    label: "Hardware",
+    title: "AITJE Custom",
+    image: "/images/custom-suited.png",
+    link: "/producten/hardware/aitje-custom",
     description:
-      "Voor organisaties die meerdere gebruikers op hetzelfde netwerk willen laten werken.",
+      "Voor situaties waar standaardhardware niet precies past en je meer performance of specifieke integraties nodig hebt.",
   },
   {
-    title: "Custom build",
+    label: "Software",
+    title: "AITJE Assistent OS",
+    image: "/images/os-screenshots/chatassistent.jpeg",
+    link: "/producten/software/aitje-assistent-os",
     description:
-      "Persoonlijk gebouwde variant voor specifieke performance- of integratiebehoeftes.",
-  },
-];
-
-const softwareSlides = [
-  {
-    stack: "WordPress",
-    title: "Content Assistant",
-    description:
-      "Dummy oplossing voor redactie, samenvattingen en interne kennis in WordPress-omgevingen.",
-  },
-  {
-    stack: ".NET",
-    title: "Internal Agent",
-    description:
-      "Dummy workflow voor interne tooling, documentvragen en procesondersteuning binnen .NET stacks.",
-  },
-  {
-    stack: "API",
-    title: "Support Flow",
-    description:
-      "Dummy koppeling voor support, classificatie en automatische opvolging in bestaande systemen.",
-  },
-  {
-    stack: "Intranet",
-    title: "Knowledge Search",
-    description:
-      "Dummy interface voor zoeken, samenvatten en ontsluiten van interne documentatie.",
+      "De lokale cockpit op de cube waar chat, kennis, kaarten, apparaten en beheer samenkomen.",
   },
 ];
 
-const caseSlides = [
+const softwareLabelForSlug = (slug: string) => {
+  if (slug.startsWith("wordpress-")) return "WordPress";
+  if (slug.startsWith("aitje-assistent-")) return "AITJE";
+  if (slug === "promptpaleis") return "AI-platform";
+  if (slug === "raad-van-bestuur") return "Council";
+  return "Software";
+};
+
+const softwareShowcase = softwareCatalog.map((item) => ({
+  label: softwareLabelForSlug(item.slug),
+  title: item.title,
+  image: item.image,
+  link: `/producten/software/${item.slug}`,
+  description: item.shortDescription,
+}));
+
+const softwareShowcaseMarquee = [...softwareShowcase, ...softwareShowcase];
+
+const serviceSlides = [
   {
-    category: "Onderwijs",
-    title: "Interne kennisassistent",
+    focus: "Strategie",
+    title: "AI-strategie uitdenken",
     description:
-      "Dummy case voor teams die lesmateriaal, richtlijnen en interne kennis lokaal beschikbaar willen maken.",
+      "We denken mee over waar AI nu de meeste waarde oplevert voor jouw organisatie en welke stappen logisch zijn om te zetten.",
+    result:
+      "Een duidelijk plan waarmee je direct kunt starten, zonder te verdwalen in alle AI-opties.",
+    details: [
+      "Een rapport waar AI nu direct meerwaarde geeft in je organisatie",
+      "Een plan voor welke tools je vandaag al kunt inzetten",
+    ],
   },
   {
-    category: "Zorg",
-    title: "Notulen & intakeverwerking",
+    focus: "Kosten & stabiliteit",
+    title: "Consultancy: verbruik optimaliseren",
     description:
-      "Dummy case voor gesprekken, intakeformulieren en gestructureerde opvolging van informatie.",
+      "We analyseren je huidige AI-gebruik en maken je stack goedkoper, stabieler en minder afhankelijk van 1 partij.",
+    result: "Lagere kosten, betere performance en meer grip op je leveranciers.",
+    details: [
+      "Analyse van tokenverbruik, kosten en latency",
+      "Slim routeren tussen meerdere modellen",
+    ],
   },
   {
-    category: "MKB",
-    title: "Workflow automatisering",
+    focus: "Kennisgedreven AI",
+    title: "RAG-chat & maatwerkoplossingen",
     description:
-      "Dummy case voor terugkerende taken, agents en koppelingen met bestaande processen.",
+      "Van AITJE-assistent tot maatwerk software: chat in, antwoord terug met gematchte context uit je eigen kennis.",
+    result:
+      "Direct bruikbare antwoorden op basis van je eigen documenten en bedrijfscontext.",
+    details: [
+      "RAG-chat met documenten, beleid en interne kennis",
+      "Integratie in bestaande processen en teams",
+    ],
+  },
+  {
+    focus: "Maatwerk ontwikkeling",
+    title: "Software-oplossingen op maat",
+    description:
+      "We bouwen software en applicaties op maat die AI logisch onderdeel maken van je dagelijkse operatie.",
+    result:
+      "Tools die precies aansluiten op je workflow in plaats van generieke software eromheen.",
+    details: [
+      "Web- en mobiele applicaties op maat",
+      "Koppelingen met CRM, MCP, ERP en interne API's",
+    ],
+  },
+  {
+    focus: "Continuiteit & onafhankelijkheid",
+    title: "Lokale LLM-installatie",
+    description:
+      "We installeren een lokale LLM op je eigen infrastructuur, zodat je bedrijf blijft draaien zonder afhankelijk te zijn van externe AI-platformen.",
+    result:
+      "AI-beschikbaarheid op je eigen omgeving, ook als externe diensten uitvallen.",
+    details: [
+      "Lokale setup en beveiligde configuratie",
+      "Modelkeuze per use-case en hardwareprofiel",
+    ],
+  },
+  {
+    focus: "Agentic automation",
+    title: "Maatwerk agents",
+    description:
+      "We bouwen een persoonlijke agent die past bij je processen, team en datastromen.",
+    result:
+      "Herhaalbaar werk wordt automatisch afgehandeld met duidelijke controle.",
+    details: [
+      "Agentontwerp per afdeling of rol",
+      "Veiligheden, rechten en auditability ingebouwd",
+    ],
+  },
+  {
+    focus: "Workflow orchestration",
+    title: "AI-workflows met of zonder human-in-the-loop",
+    description:
+      "We automatiseren stappen waar het kan en voegen menselijke controle toe waar het moet.",
+    result:
+      "Snellere processen met de juiste balans tussen automatisering en menselijke regie.",
+    details: [
+      "Workflows met goedkeuringsstappen voor kritieke acties",
+      "Escalaties, fallback en kwaliteitscontroles",
+    ],
+  },
+  {
+    focus: "Service & ondersteuning",
+    title: "SLA agreement",
+    description:
+      "Met een SLA houden we je AI-omgeving actief gezond met vaste ondersteuning, periodieke check-ins en snelle hulp bij storingen.",
+    result:
+      "Meer rust in operatie en duidelijke afspraken over support, opvolging en beschikbaarheid.",
+    details: [
+      "Vaste service-uren per maand voor support en verbetering",
+      "Storingdienst voor spoedincidenten met een AITJE-workflow of AITJE-device",
+    ],
   },
 ];
 
@@ -1065,16 +1089,28 @@ const homepageFaqs = [
 
 const currentPhrase = ref(0);
 const currentPillar = ref(0);
+const currentServiceSlide = ref(0);
 let pillarTimer: ReturnType<typeof setInterval> | null = null;
+let serviceTimer: ReturnType<typeof setInterval> | null = null;
+
+const activeServiceSlide = computed(
+  () => serviceSlides[currentServiceSlide.value] ?? serviceSlides[0]
+);
 
 onMounted(() => {
   pillarTimer = setInterval(() => {
     currentPillar.value = (currentPillar.value + 1) % promisePillars.length;
   }, 5000);
+
+  serviceTimer = setInterval(() => {
+    currentServiceSlide.value =
+      (currentServiceSlide.value + 1) % serviceSlides.length;
+  }, 5500);
 });
 
 onBeforeUnmount(() => {
   if (pillarTimer) clearInterval(pillarTimer);
+  if (serviceTimer) clearInterval(serviceTimer);
 });
 </script>
 
@@ -1097,6 +1133,23 @@ onBeforeUnmount(() => {
   top: 30%;
   transform: scale(0.35) translateX(-16vw);
   will-change: transform;
+}
+
+.showcase-marquee {
+  animation: showcase-marquee 42s linear infinite;
+}
+
+.showcase-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes showcase-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50% - 0.625rem));
+  }
 }
 
 .bird-container-one {
