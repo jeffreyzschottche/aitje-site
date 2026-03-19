@@ -575,7 +575,7 @@ const assistantSections = [
     label: "Operating system",
     title: "What is the OS?",
     description:
-      "AITJE - Toekan OS was built by us and optimized for the device. Running on it are AI processes, local API services, account management and links to client and knowledge streams.",
+      "AITJE - Toucan OS was built by us and optimized for the device. Running on it are AI processes, local API services, account management and links to client and knowledge streams.",
     image: "/images/birds.png",
     alt: "AITJE OS version overview",
   },
