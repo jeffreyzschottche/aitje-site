@@ -16,7 +16,7 @@
           <img
             :src="
               isCustom
-                ? '/images/custom-suited.png'
+                ? '/images/birds.png'
                 : isAssistent
                   ? '/images/aitje-cubes.png'
                   : item.image
@@ -25,7 +25,7 @@
             class="h-72 w-full"
             :class="
               isCustom
-                ? 'object-cover object-[center_33%]'
+                ? 'object-cover object-center'
                 : isAssistent
                   ? 'bg-white object-contain'
                   : 'object-cover'
@@ -125,7 +125,7 @@
             Meestal genoeg
           </p>
           <h2 class="mt-3 text-3xl font-black text-gray-900">
-            AITJE Assistent
+            AITJE Cube
           </h2>
           <p class="mt-4 text-base leading-7 text-gray-600">
             In 95% van de use-cases is dit al een efficiente oplossing. Onze
@@ -138,7 +138,7 @@
             to="/producten/hardware/aitje-assistent"
             class="mt-6 inline-flex items-center justify-center rounded-full bg-black px-6 py-3 text-sm font-semibold text-white transition-colors duration-200 hover:text-[#facc15]"
           >
-            Bekijk AITJE Assistent
+            Bekijk AITJE Cube
           </NuxtLink>
         </article>
 
@@ -189,7 +189,7 @@
             Kies je systeem
           </p>
           <h2 class="mt-3 text-3xl font-black text-gray-900">
-            Onze operating systems voor AITJE Assistent
+            Onze operating systems voor AITJE Cube
           </h2>
           <p class="mt-3 max-w-4xl text-base text-gray-600">
             Onze operating systems zijn ontwikkeld voor de hardware. Ze zorgen
@@ -413,7 +413,7 @@
             Platform overzicht
           </p>
           <h2 class="mt-3 text-3xl font-black text-gray-900">
-            Wat je krijgt met AITJE Assistent
+            Wat je krijgt met AITJE Cube
           </h2>
           <p class="mt-3 max-w-4xl text-base text-gray-600">
             Een helder overzicht van de belangrijkste onderdelen: van OS en client tot
@@ -440,6 +440,13 @@
               <p class="mt-3 text-sm leading-6 text-gray-600">
                 {{ section.description }}
               </p>
+              <NuxtLink
+                v-if="section.infoLink"
+                :to="section.infoLink"
+                class="mt-4 inline-flex items-center justify-center rounded-full bg-black px-4 py-2 text-sm font-semibold text-white transition-colors duration-200 hover:text-[#facc15]"
+              >
+                Meer info
+              </NuxtLink>
               <ul v-if="section.points" class="mt-3 space-y-2 text-sm text-gray-600">
                 <li v-for="point in section.points" :key="point">• {{ point }}</li>
               </ul>
@@ -447,6 +454,8 @@
                 :src="section.image"
                 :alt="section.alt"
                 class="mt-4 h-44 w-full rounded-xl object-cover"
+                :class="section.imageClass"
+                :style="section.imageStyle"
               />
             </article>
           </div>
@@ -580,18 +589,20 @@ const selectedDeviceOption = computed(() =>
 const offerMessage = computed(() => {
   const label = selectedDeviceOption.value?.offerLabel;
   if (!label) return "";
-  return `ik neem contact op voor de aitje assistent, ${label} met toekan software.`;
+  return `ik neem contact op voor de aitje cube, ${label} met toekan software.`;
 });
 
 const assistantSections = [
   {
     number: "1",
     label: "Basis",
-    title: "Wat is AITJE Assistent?",
+    title: "Wat is AITJE Cube?",
     description:
-      "AITJE Assistent is een lokale AI-oplossing op hardware in je eigen omgeving. Je teams werken via het lokale netwerk met chat, kennis en workflows zonder continue afhankelijkheid van externe platformen.",
-    image: "/images/aitje-product.png",
-    alt: "Wat is AITJE Assistent",
+      "AITJE Cube is een lokale AI-oplossing op hardware in je eigen omgeving. Je teams werken via het lokale netwerk met chat, kennis en workflows zonder continue afhankelijkheid van externe platformen.",
+    image: "/images/aitje-cubes.png",
+    imageClass: "bg-white object-contain p-2",
+    imageStyle: "height: 18rem;",
+    alt: "Wat is AITJE Cube",
   },
   {
     number: "2",
@@ -599,7 +610,10 @@ const assistantSections = [
     title: "Wat is het OS?",
     description:
       "AITJE - Toekan OS is door ons gebouwd en geoptimaliseerd voor het device. Hierop draaien AI-processen, lokale API-services, accountbeheer en koppelingen met client en kennisstromen.",
-    image: "/images/birds.png",
+    infoLink: "/producten/software/aitje-assistent-os",
+    image: "/images/aitje-os-1.png",
+    imageClass: "bg-white object-contain p-2",
+    imageStyle: "height: 18rem;",
     alt: "AITJE OS versieoverzicht",
   },
   {
@@ -607,32 +621,36 @@ const assistantSections = [
     label: "Impact",
     title: "Welke problemen lost dit op?",
     description:
-      "AITJE Assistent verlaagt afhankelijkheden en maakt AI stabiel inzetbaar in de dagelijkse operatie.",
+      "AITJE Cube verlaagt afhankelijkheden en maakt AI stabiel inzetbaar in de dagelijkse operatie.",
     points: [
       "Minder afhankelijkheid van externe AI-platformen en API-prijzen",
       "Lokale beschikbaarheid, ook bij instabiel internet",
       "Meer grip op privacy, data en toegangsrechten",
       "Consistentere workflows voor kennisvragen en operationele taken",
     ],
-    image: "/images/ei-internet.png",
-    alt: "Problemen die AITJE Assistent oplost",
+    image: "/images/golden-egg.png",
+    alt: "Problemen die AITJE Cube oplost",
   },
   {
     number: "4",
     label: "Client",
-    title: "AITJE Assistent Client",
+    title: "AITJE Cube Client",
     description:
-      "De client-applicatie is de dagelijkse werklaag voor medewerkers. Vanuit de client krijg je toegang tot chat, output, kennisvragen en gekoppelde functionaliteiten binnen je eigen organisatieomgeving.",
-    image: "/images/aitje-product.png",
-    alt: "AITJE Assistent Client",
+      "De client-applicatie is de dagelijkse werklaag voor medewerkers. Vanuit de client krijg je toegang tot chat, output, kennisvragen en gekoppelde functionaliteiten binnen je eigen organisatieomgeving. iOS, Android en desktop beschikbaar.",
+    infoLink: "/producten/software/aitje-assistent-client",
+    image: "/images/aitje-client-screens.png",
+    imageClass: "bg-white object-contain p-2",
+    imageStyle: "height: 18rem;",
+    alt: "AITJE Cube Client",
   },
   {
     number: "5",
     label: "Kennislaag",
     title: "Embedding omgeving en versiebeheer",
     description:
-      "AITJE Assistent werkt met een externe embedding-omgeving voor documentcontext en zoekkwaliteit. Met versiebeheer en backups houd je grip op wijzigingen en kun je data- en kennislagen gecontroleerd terugzetten.",
-    image: "/images/golden-egg.png",
+      "AITJE Cube werkt met een externe embedding-omgeving voor documentcontext en zoekkwaliteit. Met versiebeheer en backups houd je grip op wijzigingen en kun je data- en kennislagen gecontroleerd terugzetten.",
+    infoLink: "/producten/software/aitje-assistent-kennisbank",
+    image: "/images/aitje-ombedding-visualized.png",
     alt: "Embedding en versiebeheer",
   },
   {
@@ -647,7 +665,9 @@ const assistantSections = [
       "Contacten en interne gegevens direct beschikbaar",
       "Offline maps en lokale bereikbaarheid",
     ],
-    image: "/images/chicken-build-road.png",
+    image: "/images/ragchat.png",
+    imageClass: "bg-white object-contain p-2",
+    imageStyle: "height: 18rem;",
     alt: "Samenwerking van modules",
   },
   {
@@ -655,8 +675,8 @@ const assistantSections = [
     label: "Toegang",
     title: "Accounts en privacy",
     description:
-      "AITJE Assistent werkt via het lokale netwerk. Accounts worden aangemaakt op het OS/device zelf. Werknemers die verbonden zijn met hetzelfde modem/router-netwerk kunnen met hun account inloggen via de client op laptop of computer. Zo beheer je toegang centraal en blijft data dichter bij de organisatie.",
-    image: "/images/egg-loading-screen.png",
+      "AITJE Cube werkt via het lokale netwerk. Accounts worden aangemaakt op het OS/device zelf. Werknemers die verbonden zijn met hetzelfde modem/router-netwerk kunnen met hun account inloggen via de client op laptop of computer. Zo beheer je toegang centraal en blijft data dichter bij de organisatie.",
+    image: "/images/ei-internet.png",
     alt: "Accounts en privacy op lokaal netwerk",
   },
 ];

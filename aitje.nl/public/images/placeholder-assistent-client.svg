@@ -1,0 +1,25 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" rx="48" fill="#F5F5F5"/>
+  <rect x="90" y="80" width="1420" height="740" rx="36" fill="white" stroke="#D1D5DB" stroke-width="4"/>
+  <rect x="90" y="80" width="1420" height="72" rx="36" fill="#F3F4F6"/>
+  <circle cx="146" cy="116" r="12" fill="#FF5F57"/>
+  <circle cx="184" cy="116" r="12" fill="#FEBC2E"/>
+  <circle cx="222" cy="116" r="12" fill="#28C840"/>
+  <rect x="290" y="98" width="250" height="36" rx="18" fill="white"/>
+  <text x="415" y="121" text-anchor="middle" fill="#9CA3AF" font-size="22" font-family="Arial, sans-serif">client.aitje.local</text>
+  <rect x="150" y="190" width="360" height="520" rx="32" fill="#111827"/>
+  <text x="195" y="270" fill="#FACC15" font-size="32" font-family="Arial, sans-serif" font-weight="700">Placeholder</text>
+  <text x="195" y="334" fill="white" font-size="54" font-family="Arial, sans-serif" font-weight="700">AITJE Assistent</text>
+  <text x="195" y="394" fill="white" font-size="54" font-family="Arial, sans-serif" font-weight="700">Client</text>
+  <text x="195" y="456" fill="#D1D5DB" font-size="24" font-family="Arial, sans-serif">Vervang later met een echte client-</text>
+  <text x="195" y="490" fill="#D1D5DB" font-size="24" font-family="Arial, sans-serif">interface of workflow screenshot.</text>
+  <rect x="580" y="190" width="830" height="110" rx="24" fill="#FFF8DC" stroke="#FACC15" stroke-width="4"/>
+  <text x="630" y="255" fill="#111827" font-size="34" font-family="Arial, sans-serif" font-weight="700">Werklaag voor vragen, output en acties</text>
+  <rect x="580" y="340" width="830" height="330" rx="28" fill="#F9FAFB" stroke="#E5E7EB" stroke-width="3"/>
+  <rect x="620" y="380" width="250" height="40" rx="20" fill="#E5E7EB"/>
+  <rect x="620" y="445" width="730" height="32" rx="16" fill="#E5E7EB"/>
+  <rect x="620" y="497" width="680" height="32" rx="16" fill="#E5E7EB"/>
+  <rect x="620" y="549" width="520" height="32" rx="16" fill="#E5E7EB"/>
+  <rect x="1150" y="603" width="200" height="34" rx="17" fill="#FACC15"/>
+  <text x="1250" y="626" text-anchor="middle" fill="#111827" font-size="20" font-family="Arial, sans-serif" font-weight="700">Actie uitvoeren</text>
+</svg>

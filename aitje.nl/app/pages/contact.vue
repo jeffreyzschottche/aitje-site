@@ -282,6 +282,7 @@ import gmailIcon from "@/assets/images/social/gmail.png";
 const route = useRoute();
 
 const subjectOptions = [
+  { value: "council", label: "Council" },
   { value: "demo", label: "Demo" },
   { value: "kennismaking", label: "Kennismaking" },
   { value: "vraag", label: "Vraag" },
@@ -363,6 +364,8 @@ const formData = reactive({
 
 const messagePlaceholder = computed(() => {
   switch (formData.subject) {
+    case "council":
+      return "Vertel ons wat voor council je wilt laten bouwen, welke teams of agents meedoen, welke acties wel of niet mogen en waar human-in-the-loop nodig is.";
     case "demo":
       return "Vertel ons waar je een demo van zou willen.";
     case "kennismaking":

@@ -140,7 +140,7 @@ const roadmapByYear = [
         title: "Softwarelanceringen einde jaar",
         points: [
           "Afronding van de WordPress-plugins",
-          "Notulist-traject doorontwikkeld",
+          "Roadmap 2026 vastgesteld, inclusief eerste verkenning voor AITJE Notulist vanaf Q2",
           "Roadmap 2026 vastgesteld op basis van praktijkfeedback",
         ],
       },
@@ -156,8 +156,8 @@ const roadmapByYear = [
         title: "Lanceringsfase",
         points: [
           "AITJE OS gelanceerd",
-          "AITJE Notulist productie ready maken",
           "Bestaande infrastructuur herzien en opgeschaald",
+          "Voorbereidingen getroffen om vanaf Q2 2026 aan AITJE Notulist te beginnen",
         ],
       },
       {
@@ -167,7 +167,7 @@ const roadmapByYear = [
           "PromptPaleis gelanceerd",
           "Prompt- en guidebibliotheek verder uitgebreid",
           "Praktische workflows voor teams toegevoegd",
-          "Aitje Notulist applicatie in de lucht schieten",
+          "Start gepland van het AITJE Notulist-traject",
         ],
       },
       {
@@ -177,7 +177,7 @@ const roadmapByYear = [
           "Lokale agentarchitecturen worden verder uitgerold",
           "Raad van Bestuur wordt opgeleverd",
           "Nieuwe maatwerktrajecten worden toegevoegd voor organisaties",
-          "Aitje Notulist Device lanceren",
+          "Concept en eerste richting voor AITJE Notulist verder uitgewerkt",
         ],
       },
       {
