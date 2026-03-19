@@ -5,24 +5,24 @@
     <main class="px-6 pt-32">
       <section class="mx-auto w-full px-4 py-12 text-center sm:max-w-5xl sm:px-8">
         <p class="text-sm font-semibold uppercase tracking-[0.5em] text-[#facc15]">
-          Producten / Software
+          Products / Software
         </p>
         <h1 class="mt-4 text-5xl font-black text-gray-900">
-          Software-oplossingen van AITJE
+          Software solutions from AITJE
         </h1>
         <p class="mt-6 text-lg text-gray-600">
-          Oplossingen, integraties en workflows voor CMS-systemen en andere digitale omgevingen.
+          Solutions, integrations and workflows for CMS systems and other digital environments.
         </p>
         <div class="mx-auto mt-8 max-w-xl rounded-2xl border border-gray-200 bg-white p-4 text-left shadow-sm">
           <label class="block text-xs font-semibold uppercase tracking-[0.3em] text-gray-500">
-            Snel naar softwarepagina
+            Fast forward to software page
           </label>
           <select
             v-model="selectedSlug"
             class="mt-3 w-full rounded-xl border border-gray-300 px-4 py-3 text-sm text-gray-900 focus:border-[#facc15] focus:outline-none"
             @change="goToSoftwarePage"
           >
-            <option value="">Kies een software-oplossing</option>
+            <option value="">Choose a software solution</option>
             <option v-for="item in softwareItems" :key="item.slug" :value="item.slug">
               {{ item.title }}
             </option>
@@ -49,10 +49,10 @@
             {{ item.shortDescription }}
           </p>
           <NuxtLink
-            :to="`/producten/software/${item.slug}`"
+            :to="localePath(`/producten/software/${item.slug}`)"
             class="mt-5 inline-flex items-center justify-center rounded-full bg-[#facc15] px-5 py-3 text-sm font-semibold text-black transition hover:bg-black hover:text-[#facc15]"
           >
-            Meer info
+            More info
           </NuxtLink>
         </article>
       </section>
@@ -65,12 +65,14 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import { softwareCatalog as softwareItems } from "../../../data/softwareCatalog";
+import { softwareCatalog as softwareItems } from "@/data/softwareCatalog.en";
+
+const { localePath } = useSiteLocale();
 
 const selectedSlug = ref("");
 
 const goToSoftwarePage = async () => {
   if (!selectedSlug.value) return;
-  await navigateTo(`/producten/software/${selectedSlug.value}`);
+  await navigateTo(`/en/producten/software/${selectedSlug.value}`);
 };
 </script>

@@ -230,4 +230,166 @@ export const knowledgeArticles: KnowledgeArticle[] = [
       },
     ],
   },
+  {
+    slug: "wat-is-een-api",
+    title: "Wat is een API?",
+    excerpt:
+      "Een API is een koppelvlak waarmee systemen veilig en gestructureerd gegevens of functies met elkaar uitwisselen.",
+    thumbnail:
+      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80",
+    readTime: "3 min",
+    category: "Techniek",
+    sections: [
+      {
+        title: "In het kort",
+        content:
+          "API staat voor Application Programming Interface. Het is een afgesproken manier waarop software met andere software praat zonder dat gebruikers alles handmatig hoeven over te zetten.",
+      },
+      {
+        title: "Wat doet een API in de praktijk?",
+        content:
+          "Via een API kan een app bijvoorbeeld klantgegevens ophalen, documenten versturen, een AI-model aanroepen of informatie terugschrijven naar een ander systeem. Het is dus de verbindingslaag tussen verschillende tools en processen.",
+      },
+      {
+        title: "Waarom is dit belangrijk voor organisaties?",
+        content:
+          "Met goede API's kun je systemen koppelen zonder alles opnieuw te bouwen. Dat maakt automatisering, integratie en schaalbaarheid een stuk praktischer, mits rechten, logging en foutafhandeling goed zijn geregeld.",
+      },
+    ],
+  },
+  {
+    slug: "wat-is-een-webhook",
+    title: "Wat is een webhook?",
+    excerpt:
+      "Een webhook is een automatisch seintje van het ene systeem naar het andere zodra er iets gebeurt.",
+    thumbnail:
+      "https://images.unsplash.com/photo-1516321310764-8d4de8c6b0bd?auto=format&fit=crop&w=1200&q=80",
+    readTime: "3 min",
+    category: "Techniek",
+    sections: [
+      {
+        title: "In gewone taal",
+        content:
+          "Een webhook stuurt direct een bericht naar een ander systeem wanneer een gebeurtenis plaatsvindt, zoals een nieuwe aanvraag, betaling of upload. Je hoeft dus niet steeds zelf te controleren of er iets is veranderd.",
+      },
+      {
+        title: "Wat is het verschil met een API?",
+        content:
+          "Bij een API vraag je meestal actief informatie op. Een webhook werkt andersom: een systeem meldt uit zichzelf dat er iets nieuws is gebeurd. Vaak gebruik je ze samen in dezelfde integratie.",
+      },
+      {
+        title: "Waarom is dit handig?",
+        content:
+          "Webhooks maken processen sneller en efficienter omdat opvolging direct kan starten. Denk aan notificaties, automatische documentverwerking of het starten van een workflow zodra data binnenkomt.",
+      },
+    ],
+  },
+  {
+    slug: "wat-is-een-backend",
+    title: "Wat is een backend?",
+    excerpt:
+      "De backend is het deel van software waar logica, dataverwerking en koppelingen draaien buiten beeld van de gebruiker.",
+    thumbnail:
+      "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80",
+    readTime: "3 min",
+    category: "Software",
+    sections: [
+      {
+        title: "Wat bedoelen developers hiermee?",
+        content:
+          "De backend is de laag achter een app of website. Daar worden aanvragen verwerkt, rechten gecontroleerd, data opgehaald en businesslogica uitgevoerd.",
+      },
+      {
+        title: "Wat hoort er vaak bij?",
+        content:
+          "Denk aan servers, API's, databases, authenticatie, logs en koppelingen met andere systemen. De gebruiker ziet die onderdelen meestal niet direct, maar ze bepalen wel hoe de software werkt.",
+      },
+      {
+        title: "Waarom moet je dit begrip kennen?",
+        content:
+          "In gesprekken over softwareontwikkeling gaat backend vaak over betrouwbaarheid, veiligheid en integraties. Als je weet wat ermee bedoeld wordt, kun je projecten en offertes beter beoordelen.",
+      },
+    ],
+  },
+  {
+    slug: "wat-is-een-frontend",
+    title: "Wat is een frontend?",
+    excerpt:
+      "De frontend is het deel van software dat gebruikers zien en waarmee ze direct werken.",
+    thumbnail:
+      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
+    readTime: "2 min",
+    category: "Software",
+    sections: [
+      {
+        title: "In het kort",
+        content:
+          "De frontend is de interface van een website, dashboard of app. Daar ziet een gebruiker schermen, formulieren, knoppen, meldingen en navigatie.",
+      },
+      {
+        title: "Hoe werkt frontend samen met backend?",
+        content:
+          "De frontend toont informatie en verzamelt invoer. De backend verwerkt die invoer, haalt gegevens op en stuurt resultaten terug. Samen vormen ze de gebruikerservaring en de technische werking erachter.",
+      },
+      {
+        title: "Waarom is dit relevant?",
+        content:
+          "Een goede oplossing is niet alleen technisch slim, maar ook duidelijk en prettig in gebruik. Frontend gaat daarom over begrijpelijkheid, snelheid en hoe goed software aansluit op dagelijkse taken.",
+      },
+    ],
+  },
+  {
+    slug: "wat-is-cloud",
+    title: "Wat is cloud?",
+    excerpt:
+      "Met cloud bedoelen organisaties meestal software, opslag of rekenkracht die via externe servers beschikbaar wordt gemaakt.",
+    thumbnail:
+      "https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=1200&q=80",
+    readTime: "3 min",
+    category: "Infrastructuur",
+    sections: [
+      {
+        title: "Wat betekent het precies?",
+        content:
+          "Cloud betekent dat software of data niet alleen op je eigen apparaat of server draait, maar via een externe infrastructuur beschikbaar is. Die infrastructuur wordt meestal beheerd door een leverancier of hostingpartij.",
+      },
+      {
+        title: "Waarom kiezen organisaties hiervoor?",
+        content:
+          "Cloud kan handig zijn voor schaalbaarheid, snelle uitrol en beheer op afstand. Tegelijk brengt het keuzes mee rond privacy, afhankelijkheid, locatie van data en terugkerende kosten.",
+      },
+      {
+        title: "Cloud of lokaal?",
+        content:
+          "Dat is geen religieuze keuze. Sommige processen kunnen prima in de cloud, terwijl andere juist lokaal moeten blijven vanwege continuiteit, veiligheid of controle. Het gaat om de juiste balans per situatie.",
+      },
+    ],
+  },
+  {
+    slug: "wat-is-een-workflow",
+    title: "Wat is een workflow?",
+    excerpt:
+      "Een workflow is de vaste volgorde van stappen waarin werk, data of taken door een proces bewegen.",
+    thumbnail:
+      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80",
+    readTime: "3 min",
+    category: "Werkwijze",
+    sections: [
+      {
+        title: "In het kort",
+        content:
+          "Een workflow beschrijft welke stappen elkaar opvolgen om een taak af te ronden. Denk aan invoer, controle, verwerking, goedkeuring en terugkoppeling.",
+      },
+      {
+        title: "Waarom hoor je dit zo vaak bij software?",
+        content:
+          "Software ondersteunt of automatiseert vaak bestaande workflows. Hoe duidelijker een workflow is, hoe beter je kunt bepalen waar AI, koppelingen of automatisering echt waarde toevoegen.",
+      },
+      {
+        title: "Wat levert een goede workflow op?",
+        content:
+          "Minder handmatig werk, minder fouten en meer voorspelbaarheid. Maar alleen als rollen, uitzonderingen en controlepunten ook goed zijn meegenomen in het ontwerp.",
+      },
+    ],
+  },
 ];

@@ -228,7 +228,7 @@ const faqGroups = [
       {
         question: "Welke frameworks en tools gebruiken jullie?",
         answer:
-          "Afhankelijk van de oplossing gebruiken we onder andere FastAPI, PySide, Nuxt 3, Laravel, Blazor en Qdrant.",
+          "Afhankelijk van de oplossing gebruiken we voor frontend en interfaces onder andere Nuxt 3, en voor backend en services bijvoorbeeld FastAPI, Laravel, Blazor, PySide en Qdrant.",
       },
       {
         question: "Kunnen jullie koppelen met bestaande systemen?",

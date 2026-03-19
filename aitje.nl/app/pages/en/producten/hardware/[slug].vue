@@ -5,10 +5,10 @@
     <main class="px-6 pt-32">
       <section class="mx-auto max-w-5xl">
         <NuxtLink
-          to="/producten/hardware"
+          :to="localePath('/producten/hardware')"
           class="text-sm font-semibold text-[#d4a700] transition hover:text-black"
         >
-          Terug naar hardware
+          Back to hardware
         </NuxtLink>
         <div
           class="mt-6 overflow-hidden rounded-[2rem] border border-gray-200 bg-white shadow-sm"
@@ -16,7 +16,7 @@
           <img
             :src="
               isCustom
-                ? '/images/birds.png'
+                ? '/images/custom-suited.png'
                 : isAssistent
                   ? '/images/aitje-cubes.png'
                   : item.image
@@ -25,7 +25,7 @@
             class="h-72 w-full"
             :class="
               isCustom
-                ? 'object-cover object-center'
+                ? 'object-cover object-[center_33%]'
                 : isAssistent
                   ? 'bg-white object-contain'
                   : 'object-cover'
@@ -35,7 +35,7 @@
             <p
               class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
             >
-              Producten / Hardware
+              Products / Hardware
             </p>
             <h1 class="mt-3 text-4xl font-black text-gray-900">
               {{ item.title }}
@@ -56,20 +56,13 @@
               <p
                 class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
               >
-                Wanneer kies je AITJE Custom
+                When to choose AITJE Custom
               </p>
               <h2 class="mt-3 text-3xl font-black leading-tight">
-                Voor organisaties met specifieke eisen buiten de
-                standaardoplossing
+                For organizations with specific requirements beyond the standard solution
               </h2>
               <p class="mt-4 text-base text-gray-200">
-                AITJE Custom is bedoeld voor situaties waarin een persoonlijke
-                AI-oplossing nodig is die ook hardware vereist. In dat traject
-                denken we mee over de beste route voor performance,
-                beschikbaarheid en implementatie in de praktijk. Denk aan een
-                oplossing met SCAN devices (barcodes, ISBN), documentverwerking,
-                visuele input uitlezen, een LLM die werkt met stroomuitval en AI
-                zonder internet.
+                AITJE Custom is designed for situations where a personal AI solution is needed that also requires hardware. In that path, we think with you about the best route for performance, availability and implementation in practice. Think of a solution with SCAN devices (barcodes, ISBN), document processing, visual input reading, an LLM that works with power outages and AI without internet.
               </p>
             </div>
             <div class="p-8 pt-0 md:p-0">
@@ -90,26 +83,22 @@
               <p
                 class="text-xs font-semibold uppercase tracking-[0.4em] text-black/60"
               >
-                Hardwarestrategie
+                Hardware Strategy
               </p>
               <h2 class="mt-3 text-3xl font-black leading-tight">
-                Zo efficient en prijsbewust als kan
+                As efficient and price conscious as can be
               </h2>
               <p class="mt-4 text-base text-black/80">
-                Eigen hardware bouwen blijkt in veel trajecten onpraktisch.
-                Daarom kijken we meestal naar een efficiente samenkoppeling van
-                meerdere hardwareproducten, of we zoeken in ons netwerk naar een
-                aanbieder met een exact of vergelijkbaar product.
+                Building your own hardware proves impractical in many projects. Therefore, we usually look for an efficient combination of several hardware products, or we search our network for a provider with an exact or comparable product.
               </p>
               <p class="mt-4 text-base text-black/80">
-                Als die route nodig is, ondersteunt AITJE je als AI-partner in
-                de technische en operationele afwegingen.
+                If that route is required, AITJE, as an AI partner, supports you in the technical and operational considerations.
               </p>
             </div>
             <div class="p-8 pt-0 md:order-1 md:p-0">
               <img
                 src="/images/wanneer-aitje.png"
-                alt="Maatwerkroute voor hardware en AI"
+                alt="Custom route for hardware and AI"
                 class="h-[260px] w-full rounded-2xl object-cover md:h-full md:rounded-none"
               />
             </div>
@@ -122,23 +111,19 @@
           <p
             class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
           >
-            Meestal genoeg
+            Usually enough
           </p>
           <h2 class="mt-3 text-3xl font-black text-gray-900">
-            AITJE Cube
+            AITJE Assistant
           </h2>
           <p class="mt-4 text-base leading-7 text-gray-600">
-            In 95% van de use-cases is dit al een efficiente oplossing. Onze
-            out-of-the-box oplossing combineert een door ons ontwikkeld
-            operating system, geoptimaliseerd voor de hardware, met een externe
-            embedding-omgeving, een client-applicatie en lokale
-            API-bereikbaarheid op het netwerk.
+            In 95% of use cases, this is already an efficient solution. Our out-of-the-box solution combines an operating system developed by us, optimized for the hardware, with a remote embedding environment, a client application and local API accessibility on the network.
           </p>
           <NuxtLink
-            to="/producten/hardware/aitje-assistent"
+            :to="localePath('/producten/hardware/aitje-assistent')"
             class="mt-6 inline-flex items-center justify-center rounded-full bg-black px-6 py-3 text-sm font-semibold text-white transition-colors duration-200 hover:text-[#facc15]"
           >
-            Bekijk AITJE Cube
+            View AITJE Assistant
           </NuxtLink>
         </article>
 
@@ -148,30 +133,28 @@
           <p
             class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
           >
-            Waar AITJE Custom voor is
+            What AITJE Custom Is For
           </p>
           <h2 class="mt-3 text-3xl font-black text-gray-900">
-            We kijken naar wat werkt voor jou
+            We look at what works for you
           </h2>
           <ul class="mt-5 space-y-3 text-base leading-7 text-gray-600">
-            <li>• Extra hardware-specificaties boven standaardprofielen</li>
+            <li>- Additional hardware specifications over standard profiles</li>
             <li>
-              • Applicaties of workflows die volledig offline moeten draaien
+              - Applications or workflows that need to run completely offline
             </li>
             <li>
-              • Verbeterde versie van een Aitje Assistent Cube V1 voor
-              specifieke behoeftes
+              - Improved version of an Aitje Assistant Cube V1 for specific needs
             </li>
             <li>
-              • Hardwarebehoeften waarvoor nog geen out-of-the-box oplossing
-              bestaat
+              - Hardware needs for which an out-of-the-box solution does not yet exist
             </li>
           </ul>
           <NuxtLink
-            to="/contact?onderwerp=kennismaking"
+            :to="localePath('/contact?onderwerp=kennismaking')"
             class="mt-8 inline-flex items-center justify-center rounded-full bg-[#facc15] px-6 py-3 text-sm font-semibold text-black transition-colors duration-200 hover:bg-black hover:text-[#facc15]"
           >
-            Bespreek AITJE Custom
+            Discuss AITJE Custom
           </NuxtLink>
         </article>
       </section>
@@ -186,15 +169,13 @@
           <p
             class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
           >
-            Kies je systeem
+            Choose your system
           </p>
           <h2 class="mt-3 text-3xl font-black text-gray-900">
-            Onze operating systems voor AITJE Cube
+            Our operating systems for AITJE Assistant
           </h2>
           <p class="mt-3 max-w-4xl text-base text-gray-600">
-            Onze operating systems zijn ontwikkeld voor de hardware. Ze zorgen
-            dat LLM inference stabiel draait en het meeste uit de hardware
-            haalt.
+            Our operating systems are designed for the hardware. They ensure that LLM inference runs stably and gets the most out of the hardware.
           </p>
           <div class="mt-6 grid gap-4 md:grid-cols-2">
             <button
@@ -210,7 +191,7 @@
               <div class="flex items-start justify-between gap-3">
                 <div>
                   <p class="text-xl font-black text-gray-900">
-                    AITJE - Toekan (v1)
+                    AITJE - Toucan (v1)
                   </p>
                   <p
                     class="mt-2 text-xs font-semibold uppercase tracking-[0.3em] text-gray-500"
@@ -230,8 +211,7 @@
                 </span>
               </div>
               <p class="mt-2 text-sm text-gray-600">
-                Een systeem dat zorgt dat LLM inference het meeste uit de
-                hardware haalt.
+                A system that ensures LLM inference gets the most out of hardware.
               </p>
             </button>
             <button
@@ -242,7 +222,7 @@
               <div class="flex items-start justify-between gap-3">
                 <div>
                   <p class="text-xl font-black text-gray-900">
-                    AITJE - Vink (v2)
+                    AITJE - Finch (v2)
                   </p>
                   <p
                     class="mt-2 text-xs font-semibold uppercase tracking-[0.3em] text-gray-500"
@@ -256,7 +236,7 @@
                   ✓
                 </span>
               </div>
-              <p class="mt-2 text-sm text-gray-600">Meer informatie volgt.</p>
+              <p class="mt-2 text-sm text-gray-600">More information to follow.</p>
             </button>
           </div>
         </article>
@@ -267,16 +247,13 @@
           <p
             class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
           >
-            Kies je device
+            Choose your device
           </p>
           <h2 class="mt-3 text-3xl font-black text-gray-900">
-            De markt evolueert, onze hardware ook
+            As the market evolves, so does our hardware
           </h2>
           <p class="mt-3 max-w-4xl text-base text-gray-600">
-            We proberen continu het gemiddeld beste product te kiezen wanneer
-            wij deze selecteren voor productie, omdat de markt snel verandert.
-            Uitbreiden is mogelijk en upgraden naar een beter device ook, via
-            AITJE Custom.
+            We constantly try to choose the average best product when we select it for production, because the market is changing rapidly. Expanding is possible and so is upgrading to a better device, through AITJE Custom.
           </p>
           <div class="mt-6 grid gap-4 md:grid-cols-2">
             <button
@@ -332,13 +309,12 @@
                       Custom Device Route
                     </p>
                     <p class="mt-2 text-sm text-gray-600">
-                      Voor afwijkende hardwarebehoeften ondersteunen we je via
-                      AITJE Custom.
+                      For different hardware needs, we support you through AITJE Custom.
                     </p>
                   </div>
                 </div>
                 <NuxtLink
-                  to="/producten/hardware/aitje-custom"
+                  :to="localePath('/producten/hardware/aitje-custom')"
                   class="mt-1 inline-flex h-6 min-w-6 items-center justify-center rounded-md border border-[#facc15] bg-[#facc15] px-2 text-xs font-black text-black transition hover:bg-black hover:text-[#facc15]"
                 >
                   →
@@ -387,16 +363,16 @@
           <p
             class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
           >
-            Configuratie gekozen
+            Configuration chosen
           </p>
-          <h2 class="mt-3 text-3xl font-black">Vraag een offerte aan</h2>
+          <h2 class="mt-3 text-3xl font-black">Request a quote</h2>
           <p class="mt-3 max-w-3xl text-sm text-gray-300">
-            Je hebt {{ selectedDeviceOption.name }} met AITJE - Toekan geselecteerd.
-            Vraag direct een offerte aan.
+            You selected {{ selectedDeviceOption.name }} with AITJE - Toucan.
+            Request a quote directly.
           </p>
           <NuxtLink
             :to="{
-              path: '/contact',
+              path: localePath('/contact'),
               query: {
                 onderwerp: 'offerte',
                 bericht: offerMessage,
@@ -404,20 +380,19 @@
             }"
             class="mt-6 inline-flex items-center justify-center rounded-full bg-[#facc15] px-6 py-3 text-sm font-semibold text-black transition hover:bg-black hover:text-[#facc15]"
           >
-            Vraag een offerte aan
+            Request a quote
           </NuxtLink>
         </article>
 
         <article class="rounded-[2rem] border border-gray-200 bg-white p-8 shadow-sm md:p-10">
           <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
-            Platform overzicht
+            Platform Overview
           </p>
           <h2 class="mt-3 text-3xl font-black text-gray-900">
-            Wat je krijgt met AITJE Cube
+            What you get with AITJE Assistant
           </h2>
           <p class="mt-3 max-w-4xl text-base text-gray-600">
-            Een helder overzicht van de belangrijkste onderdelen: van OS en client tot
-            privacy, samenwerking en operationele stabiliteit.
+            A clear overview of key components: from OS and client to privacy, collaboration and operational stability.
           </p>
 
           <div class="mt-8 grid gap-4 md:grid-cols-2">
@@ -440,13 +415,6 @@
               <p class="mt-3 text-sm leading-6 text-gray-600">
                 {{ section.description }}
               </p>
-              <NuxtLink
-                v-if="section.infoLink"
-                :to="section.infoLink"
-                class="mt-4 inline-flex items-center justify-center rounded-full bg-black px-4 py-2 text-sm font-semibold text-white transition-colors duration-200 hover:text-[#facc15]"
-              >
-                Meer info
-              </NuxtLink>
               <ul v-if="section.points" class="mt-3 space-y-2 text-sm text-gray-600">
                 <li v-for="point in section.points" :key="point">• {{ point }}</li>
               </ul>
@@ -454,8 +422,6 @@
                 :src="section.image"
                 :alt="section.alt"
                 class="mt-4 h-44 w-full rounded-xl object-cover"
-                :class="section.imageClass"
-                :style="section.imageStyle"
               />
             </article>
           </div>
@@ -486,7 +452,9 @@
 
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import { hardwareCatalog } from "../../../data/hardwareCatalog";
+import { hardwareCatalog } from "@/data/hardwareCatalog.en";
+
+const { localePath } = useSiteLocale();
 
 const route = useRoute();
 
@@ -506,37 +474,37 @@ const deviceOptions = [
     image: "/images/aitje-assistent-cube-v1.png",
     offerLabel: "cube 1",
     description:
-      "Compacte AI mini-pc voor lokale workflows, dagelijkse teams en snelle multitasking.",
+      "Compact AI mini PC for local workflows, day-to-day teams and fast multitasking.",
     specs: [
       {
         label: "Processor",
         value:
-          "AMD Ryzen AI 9 HX370, 12 cores / 24 threads, tot 5,1 GHz boost, 24MB L3-cache",
+          "AMD Ryzen AI 9 HX370, 12 cores / 24 threads, up to 5.1 GHz boost, 24MB L3 cache",
       },
       {
         label: "GPU + AI",
         value:
-          "Geïntegreerde Radeon 890M tot 2900MHz, 8K@60Hz output en ondersteuning voor vier schermen tegelijk",
+          "Integrated Radeon 890M up to 2900MHz, 8K@60Hz output and support for four simultaneous displays",
       },
       {
-        label: "Werkgeheugen",
+        label: "Working Memory",
         value: "32GB DDR5 5600MHz",
       },
       {
-        label: "Opslag",
+        label: "Storage",
         value: "1TB PCIe 4.0 SSD",
       },
       {
-        label: "Netwerk",
-        value: "Ethernet, audio jack en snelle video/data-uit via USB4/USB-C",
+        label: "Network",
+        value: "Ethernet, audio jack and high-speed display/data output via USB4/USB-C",
       },
       {
-        label: "Aansluitingen",
-        value: "HDMI 2.1, USB4, USB-C, DisplayPort 1.4 en USB-A",
+        label: "Connections",
+        value: "HDMI 2.1, USB4, USB-C, DisplayPort 1.4 and USB-A",
       },
       {
-        label: "Formaat",
-        value: "Compact mini-pc ontwerp met 45-65W configureerbare TDP",
+        label: "Format",
+        value: "Compact mini PC design with configurable 45-65W TDP",
       },
     ],
   },
@@ -546,37 +514,37 @@ const deviceOptions = [
     image: "/images/aitje-assistent-cube-v2.jpg",
     offerLabel: "cube 2",
     description:
-      "Zwaardere AI-configuratie voor grotere modellen, hogere context en multi-user gebruik.",
+      "Heavier AI configuration for larger models, higher context windows and multi-user use.",
     specs: [
       {
         label: "Processor",
-        value: "AMD Ryzen AI Max+ 395, 16 cores / 32 threads, tot 5.1 GHz",
+        value: "AMD Ryzen AI Max+ 395, 16 cores / 32 threads, up to 5.1 GHz",
       },
       {
         label: "GPU + AI",
         value:
-          "Radeon 8060S met 40 compute units, 50 TOPS XDNA 2 NPU en tot 126 TOPS totaal",
+          "Radeon 8060S with 40 compute units, a 50 TOPS XDNA 2 NPU and up to 126 TOPS total",
       },
       {
-        label: "Werkgeheugen",
-        value: "128GB LPDDR5X 8000MHz, gedeeld met de GPU",
+        label: "Working Memory",
+        value: "128GB LPDDR5X 8000MHz, shared dynamically with the GPU",
       },
       {
-        label: "Opslag",
-        value: "2TB PCIe 4.0 SSD, met dual M.2 PCIe Gen 4 uitbreiding",
+        label: "Storage",
+        value: "2TB PCIe 4.0 SSD with dual M.2 PCIe Gen 4 expansion",
       },
       {
-        label: "Netwerk",
+        label: "Network",
         value: "2.5Gbps LAN",
       },
       {
-        label: "Aansluitingen",
+        label: "Connections",
         value:
-          "2x USB4 Type-C, 3x USB 3.2 Gen 2, 2x USB 2.0 en full-size SD 4.0-kaartlezer",
+          "2x USB4 Type-C, 3x USB 3.2 Gen 2, 2x USB 2.0 and a full-size SD 4.0 card reader",
       },
       {
-        label: "Formaat",
-        value: "Compact desktopformaat, gericht op lokale LLM's en zware AI-workloads",
+        label: "Format",
+        value: "Compact desktop format aimed at local LLMs and heavier AI workloads",
       },
     ],
   },
@@ -589,102 +557,91 @@ const selectedDeviceOption = computed(() =>
 const offerMessage = computed(() => {
   const label = selectedDeviceOption.value?.offerLabel;
   if (!label) return "";
-  return `ik neem contact op voor de aitje cube, ${label} met toekan software.`;
+  return `I am getting in touch about the AITJE Assistant, ${label}, with Toucan software.`;
 });
 
 const assistantSections = [
   {
     number: "1",
-    label: "Basis",
-    title: "Wat is AITJE Cube?",
+    label: "Basic",
+    title: "What is AITJE Assistant?",
     description:
-      "AITJE Cube is een lokale AI-oplossing op hardware in je eigen omgeving. Je teams werken via het lokale netwerk met chat, kennis en workflows zonder continue afhankelijkheid van externe platformen.",
-    image: "/images/aitje-cubes.png",
-    imageClass: "bg-white object-contain p-2",
-    imageStyle: "height: 18rem;",
-    alt: "Wat is AITJE Cube",
+      "AITJE Assistant is a local AI solution on hardware in your own environment. Your teams work over the local network with chat, knowledge and workflows without continuous dependence on external platforms.",
+    image: "/images/aitje-product.png",
+    alt: "What is AITJE Assistant",
   },
   {
     number: "2",
     label: "Operating system",
-    title: "Wat is het OS?",
+    title: "What is the OS?",
     description:
-      "AITJE - Toekan OS is door ons gebouwd en geoptimaliseerd voor het device. Hierop draaien AI-processen, lokale API-services, accountbeheer en koppelingen met client en kennisstromen.",
-    infoLink: "/producten/software/aitje-assistent-os",
-    image: "/images/aitje-os-1.png",
-    imageClass: "bg-white object-contain p-2",
-    imageStyle: "height: 18rem;",
-    alt: "AITJE OS versieoverzicht",
+      "AITJE - Toekan OS was built by us and optimized for the device. Running on it are AI processes, local API services, account management and links to client and knowledge streams.",
+    image: "/images/birds.png",
+    alt: "AITJE OS version overview",
   },
   {
     number: "3",
     label: "Impact",
-    title: "Welke problemen lost dit op?",
+    title: "What problems does this solve?",
     description:
-      "AITJE Cube verlaagt afhankelijkheden en maakt AI stabiel inzetbaar in de dagelijkse operatie.",
+      "AITJE Assistant lowers dependencies and makes AI stably deployable in day-to-day operations.",
     points: [
-      "Minder afhankelijkheid van externe AI-platformen en API-prijzen",
-      "Lokale beschikbaarheid, ook bij instabiel internet",
-      "Meer grip op privacy, data en toegangsrechten",
-      "Consistentere workflows voor kennisvragen en operationele taken",
+      "Less dependence on external AI platforms and API prices",
+      "Local availability, even with unstable internet",
+      "More control over privacy, data and access rights",
+      "More consistent workflows for knowledge questions and operational tasks",
     ],
-    image: "/images/golden-egg.png",
-    alt: "Problemen die AITJE Cube oplost",
+    image: "/images/ei-internet.png",
+    alt: "Problems AITJE Assistant solves",
   },
   {
     number: "4",
     label: "Client",
-    title: "AITJE Cube Client",
+    title: "AITJE Assistant Client",
     description:
-      "De client-applicatie is de dagelijkse werklaag voor medewerkers. Vanuit de client krijg je toegang tot chat, output, kennisvragen en gekoppelde functionaliteiten binnen je eigen organisatieomgeving. iOS, Android en desktop beschikbaar.",
-    infoLink: "/producten/software/aitje-assistent-client",
-    image: "/images/aitje-client-screens.png",
-    imageClass: "bg-white object-contain p-2",
-    imageStyle: "height: 18rem;",
-    alt: "AITJE Cube Client",
+      "The client application is the daily working layer for employees. From the client you get access to chat, output, knowledge questions and linked functionalities within your own organizational environment.",
+    image: "/images/aitje-product.png",
+    alt: "AITJE Assistant Client",
   },
   {
     number: "5",
-    label: "Kennislaag",
-    title: "Embedding omgeving en versiebeheer",
+    label: "Knowledge layer",
+    title: "Embedding environment and version control",
     description:
-      "AITJE Cube werkt met een externe embedding-omgeving voor documentcontext en zoekkwaliteit. Met versiebeheer en backups houd je grip op wijzigingen en kun je data- en kennislagen gecontroleerd terugzetten.",
-    infoLink: "/producten/software/aitje-assistent-kennisbank",
-    image: "/images/aitje-ombedding-visualized.png",
-    alt: "Embedding en versiebeheer",
+      "AITJE Assistant works with an external embedding environment for document context and search quality. With version control and backups, you keep a grip on changes and can restore data and knowledge layers in a controlled manner.",
+    image: "/images/golden-egg.png",
+    alt: "Embedding and version control",
   },
   {
     number: "6",
-    label: "Samenwerking",
-    title: "Hoe werkt dit samen?",
+    label: "Collaboration",
+    title: "How does this work together?",
     description:
-      "Kennisbank-sync, RAG-chat, contacten en offline maps draaien als samenhangende keten. Nieuwe data uit je kennisbank wordt verwerkt, waarna teams via de client of API direct relevante context kunnen opvragen.",
+      "Knowledge base sync, RAG chat, contacts and offline maps run as a cohesive chain. New data from your knowledge base is processed, then teams can directly request relevant context via the client or API.",
     points: [
-      "Syncen vanaf kennisbank",
-      "RAG-chat op lokale context",
-      "Contacten en interne gegevens direct beschikbaar",
-      "Offline maps en lokale bereikbaarheid",
+      "Sync from the knowledge base",
+      "RAG chat on local context",
+      "Contacts and internal data available directly",
+      "Offline maps and local availability",
     ],
-    image: "/images/ragchat.png",
-    imageClass: "bg-white object-contain p-2",
-    imageStyle: "height: 18rem;",
-    alt: "Samenwerking van modules",
+    image: "/images/chicken-build-road.png",
+    alt: "How the modules work together",
   },
   {
     number: "7",
-    label: "Toegang",
-    title: "Accounts en privacy",
+    label: "Access",
+    title: "Accounts and privacy",
     description:
-      "AITJE Cube werkt via het lokale netwerk. Accounts worden aangemaakt op het OS/device zelf. Werknemers die verbonden zijn met hetzelfde modem/router-netwerk kunnen met hun account inloggen via de client op laptop of computer. Zo beheer je toegang centraal en blijft data dichter bij de organisatie.",
-    image: "/images/ei-internet.png",
-    alt: "Accounts en privacy op lokaal netwerk",
+      "AITJE Assistant works over the local network. Accounts are created on the OS/device itself. Employees connected to the same modem/router network can log in with their account through the client on laptop or computer. This way you manage access centrally and data stays closer to the organization.",
+    image: "/images/egg-loading-screen.png",
+    alt: "Accounts and privacy on the local network",
   },
 ];
 
 if (!item.value) {
   throw createError({
     statusCode: 404,
-    statusMessage: "Hardwarepagina niet gevonden",
+    statusMessage: "Hardware page not found",
   });
 }
 </script>

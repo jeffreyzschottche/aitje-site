@@ -31,28 +31,24 @@
               {{ phrases[currentPhrase] }}
             </p>
             <p class="text-lg text-gray-200">
-              AITJE ontwikkelt AI-oplossingen voor organisaties die grip willen
-              houden op privacy, data en API kosten. <br />
-              We bieden hardware en software aan met zowel lokale edge AI, als
-              met cloud oplossingen. Altijd Europese of Nederlandse hosting,
-              moderne LLM's, ruimte voor je eigen kennisbank, agents, workflows
-              en toepassingen.
+              AITJE develops AI solutions for organizations that want to control privacy, data and API costs. <br />
+              We offer hardware and software with both local edge AI, and cloud solutions. Always European or Dutch hosting, modern LLMs, space for your own knowledge base, agents, workflows and applications.
             </p>
             <p class="text-sm uppercase tracking-[0.4em] text-gray-400">
-              · Edge & <span data-no-knowledge-links="true">cloud</span> · Veilige opslag · Europe based ·
+              - Edge & <span data-no-knowledge-links="true">cloud</span> - Secure storage - Europe based -
             </p>
             <div class="flex flex-col gap-4 sm:flex-row">
               <NuxtLink
-                to="/producten"
+                :to="localePath('/producten')"
                 class="inline-flex items-center justify-center rounded-full bg-[#facc15] px-8 py-3 text-base font-semibold text-black cursor-pointer transition-colors duration-200 hover:bg-black hover:text-[#facc15]"
               >
-                Bekijk producten
+                View products
               </NuxtLink>
               <NuxtLink
-                to="/diensten"
+                :to="localePath('/diensten')"
                 class="inline-flex items-center justify-center rounded-full border border-white/30 px-8 py-3 text-base font-semibold text-white transition hover:border-white"
               >
-                Alle diensten
+                All services
               </NuxtLink>
             </div>
             <div class="grid gap-4 sm:grid-cols-3">
@@ -68,36 +64,25 @@
           </div>
           <div class="relative">
             <div class="rounded-[2.5rem] p-8 backdrop-blur">
-              <div
-                class="relative mx-auto flex aspect-square w-full max-w-[34rem] items-center justify-center overflow-hidden rounded-[2.5rem]"
-              >
-                <div
-                  aria-hidden="true"
-                  class="pointer-events-none absolute inset-x-[18%] inset-y-[8%] rounded-[50%] border-[14px] border-white/90 shadow-[0_0_0_1px_rgba(255,255,255,0.08)]"
-                ></div>
-                <video
-                  src="/images/aitje-home-animated-egg-boomerang.mp4"
-                  autoplay
-                  loop
-                  muted
-                  playsinline
-                  class="relative z-10 h-full w-full object-contain"
-                ></video>
-              </div>
+              <img
+                src="/images/aitje-product.png"
+                alt="AITJE system"
+                class="w-full rounded-3xl border border-white/10 bg-white/80 object-cover"
+              />
               <div
                 class="mt-8 rounded-2xl border border-white/10 bg-white/5 p-4"
               >
                 <p class="text-xs uppercase tracking-[0.4em] text-[#facc15]">
-                  Verdwaald in het jargon?
+                  Lost in the jargon?
                 </p>
                 <p class="mt-2 text-lg font-semibold">
-                  Voor uitleg van termen bekijk ons kennis centrum.
+                  For explanation of terms check out our knowledge center.
                 </p>
                 <NuxtLink
-                  to="/kenniscentrum"
+                  :to="localePath('/kenniscentrum')"
                   class="mt-3 inline-flex text-sm font-semibold text-[#facc15] transition hover:text-white"
                 >
-                  Naar het kenniscentrum
+                  To the knowledge center
                 </NuxtLink>
               </div>
             </div>
@@ -162,7 +147,7 @@
               v-for="(_, idx) in promisePillars"
               :key="`pillar-dot-${idx}`"
               type="button"
-              :aria-label="`Ga naar slide ${idx + 1}`"
+              :aria-label="`Go to slide ${idx + 1}`"
               class="h-2.5 w-2.5 rounded-full transition-all"
               :class="
                 idx === currentPillar
@@ -180,10 +165,10 @@
           <p
             class="text-sm font-semibold uppercase tracking-[0.5em] text-[#facc15]"
           >
-            Waarom AITJE
+            Why AITJE
           </p>
           <h2 class="mt-4 text-4xl font-black text-gray-900">
-            Redenen om voor Lokale Edge AI te kiezen
+            Reasons to choose Local Edge AI
           </h2>
         </div>
         <div class="mx-auto mt-12 grid max-w-6xl gap-8 md:grid-cols-2">
@@ -213,13 +198,13 @@
               <div
                 class="flex flex-1 flex-col rounded-2xl bg-[#fafafa] p-4 text-sm text-gray-600"
               >
-                <p class="font-semibold text-gray-900">Nu:</p>
+                <p class="font-semibold text-gray-900">Now:</p>
                 <p>{{ reason.problem }}</p>
               </div>
               <div
                 class="flex flex-1 flex-col rounded-2xl bg-[#facc15] p-4 text-sm text-[#212121]"
               >
-                <p class="font-semibold">Met AITJE:</p>
+                <p class="font-semibold">With AITJE:</p>
                 <p>{{ reason.solution }}</p>
               </div>
             </div>
@@ -318,44 +303,35 @@
             <p
               class="text-sm font-semibold uppercase tracking-[0.4em] text-[#facc15]"
             >
-              Onze missie
+              Our mission
             </p>
             <div class="mt-6 max-w-5xl">
               <p class="text-6xl font-black leading-none text-[#facc15]">"</p>
               <blockquote
                 class="mt-4 text-2xl font-semibold leading-tight text-gray-900 md:text-4xl"
               >
-                AI is niet meer weg te denken. Hoe meer mensen en bedrijven het
-                gebruiken, hoe afhankelijker we worden van Big Tech uit het
-                buitenland.
+                AI is here to stay. The more people and companies use it, the more dependent we become on Big Tech from abroad.
               </blockquote>
               <div
                 class="mt-8 space-y-4 text-base leading-7 text-gray-600 md:text-lg"
               >
                 <p>
-                  Met AITJE blijft AI ook werken wanneer internet of externe
-                  platformen uitvallen. Op het device blijft informatie lokaal
-                  beschikbaar via je eigen omgeving.
+                  With AITJE, AI continues to work even when the Internet or external platforms are down. On the device, information remains available locally through your own environment.
                 </p>
                 <p>
-                  Terwijl prijzen van externe aanbieders kunnen stijgen, bouwen
-                  wij onze oplossingen zo dat kosten beheersbaar blijven en je
-                  minder afhankelijk bent van terugkerende platformkosten.
+                  While prices from external providers may rise, we build our solutions so that costs remain manageable and you are less dependent on recurring platform costs.
                 </p>
                 <p>
-                  Lokaal werken is daarnaast beter voor het milieu: minder
-                  eindeloze calls naar datacenters en efficienter gebruik van
-                  hardware. Gegevens blijven daarbij dichter bij de organisatie,
-                  in Europa en waar nodig volledig lokaal.
+                  Working locally is also better for the environment: fewer endless calls to data centers and more efficient use of hardware. Data stays closer to the organization, in Europe and, where necessary, completely local.
                 </p>
               </div>
             </div>
             <div class="mt-10">
               <NuxtLink
-                to="/visie"
+                :to="localePath('/visie')"
                 class="inline-flex items-center justify-center rounded-full bg-black px-8 py-3 text-sm font-semibold text-white transition hover:bg-black hover:text-[#facc15]"
               >
-                Lees meer over onze visie
+                Read more about our vision
               </NuxtLink>
             </div>
           </div>
@@ -371,33 +347,11 @@
               Showcase
             </p>
             <h2 class="mt-4 text-4xl font-black">
-              Producten, software en toepassingen
+              Products, software and applications
             </h2>
             <p class="mt-3 max-w-3xl text-gray-300">
-              Een overzicht van devices, software en oplossingen waar AITJE
-              trots op is, van bestaande toepassingen tot de basis voor
-              maatwerk.
+              An overview of devices, software and solutions that AITJE is proud of, from existing applications to the basis for customization.
             </p>
-            <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <NuxtLink
-                to="/producten"
-                class="inline-flex items-center justify-center rounded-full bg-[#facc15] px-6 py-3 text-sm font-semibold text-black transition hover:bg-white"
-              >
-                Bekijk alles op /producten
-              </NuxtLink>
-              <NuxtLink
-                to="/diensten"
-                class="inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:border-white"
-              >
-                Naar diensten
-              </NuxtLink>
-              <NuxtLink
-                to="/cases"
-                class="inline-flex items-center justify-center text-sm font-semibold text-[#facc15] transition hover:text-white"
-              >
-                Of bekijk cases
-              </NuxtLink>
-            </div>
           </div>
 
           <div
@@ -410,51 +364,44 @@
                 <p
                   class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
                 >
-                  1. AITJE Assistent
+                  1. AITJE Assistant
                 </p>
                 <h3 class="mt-3 text-3xl font-black">
-                  Hardware en lokale interfaces die al klaarstaan
+                  Local AI devices in multiple forms
                 </h3>
                 <p class="mt-3 max-w-3xl text-sm text-gray-300">
-                  Van de AITJE Cube zelf tot het zelfgemaakte OS, client,
-                  embedding of custom builds. Dit zijn de bestaande onderdelen
-                  waar je direct mee kunt starten en op kunt doorbouwen.
+                  Available in various tiers and designs, from compact setups to personally built devices on our proprietary OS.
                 </p>
               </div>
               <NuxtLink
-                to="/producten/hardware"
+                :to="localePath('/producten')"
                 class="inline-flex items-center justify-center rounded-full bg-[#facc15] px-6 py-3 text-sm font-semibold text-black transition hover:bg-black hover:text-[#facc15]"
               >
-                Meer info
+                More info
               </NuxtLink>
             </div>
             <div class="mt-8 grid gap-5 md:grid-cols-3">
               <article
-                v-for="item in hardwareShowcase"
-                :key="item.title"
+                v-for="variant in assistantVariants"
+                :key="variant.title"
                 class="overflow-hidden rounded-[1.75rem] border border-white/10 bg-black/30"
               >
-                <div class="aspect-[4/3] bg-gradient-to-br from-[#2a2a2a] to-[#111] p-5">
+                <div
+                  class="aspect-[4/3] bg-gradient-to-br from-[#2a2a2a] to-[#111] p-5"
+                >
                   <img
-                    :src="item.image"
-                    :alt="item.title"
+                    src="/images/aitje-product.png"
+                    :alt="variant.title"
                     class="h-full w-full rounded-2xl border border-white/10 bg-white/90 object-cover"
                   />
                 </div>
                 <div class="p-5">
-                  <p class="text-xs font-semibold uppercase tracking-[0.3em] text-[#facc15]">
-                    {{ item.label }}
-                  </p>
-                  <h4 class="mt-2 text-lg font-semibold text-white">{{ item.title }}</h4>
+                  <h4 class="text-lg font-semibold text-white">
+                    {{ variant.title }}
+                  </h4>
                   <p class="mt-2 text-sm text-gray-300">
-                    {{ item.description }}
+                    {{ variant.description }}
                   </p>
-                  <NuxtLink
-                    :to="item.link"
-                    class="mt-4 inline-flex text-sm font-semibold text-[#facc15] transition hover:text-white"
-                  >
-                    Meer over {{ item.title }}
-                  </NuxtLink>
                 </div>
               </article>
             </div>
@@ -470,145 +417,202 @@
                 <p
                   class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
                 >
-                  2. Software
+                  2. AITJE Secretary
                 </p>
                 <h3 class="mt-3 text-3xl font-black">
-                  Out of the box solutions
+                  From conversation to actionable output
                 </h3>
                 <p class="mt-3 max-w-3xl text-sm text-gray-300">
-                  Onze oplossingen groeien continu. Als we al een modulaire
-                  oplossing hebben die voor jouw situatie out of the box te
-                  regelen valt, dan kun je die hier bekijken en direct
-                  doorklikken naar de juiste softwarepagina.
+                  Record, structure information and deliver output as a summary, transcript or form appropriate to your process.
                 </p>
               </div>
               <NuxtLink
-                to="/producten/software"
+                :to="localePath('/producten')"
                 class="inline-flex items-center justify-center rounded-full bg-[#facc15] px-6 py-3 text-sm font-semibold text-black transition hover:bg-black hover:text-[#facc15]"
               >
-                Meer info
+                More info
               </NuxtLink>
             </div>
-            <div class="mt-8 overflow-hidden">
-              <div class="showcase-marquee flex w-max gap-5">
-                <article
-                  v-for="(item, idx) in softwareShowcaseMarquee"
-                  :key="`${item.link}-${idx}`"
-                  class="w-[280px] shrink-0 overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#161616]"
-                >
-                  <div class="aspect-[4/3] border-b border-white/10 bg-black/30 p-4">
-                    <img
-                      :src="item.image"
-                      :alt="item.title"
-                      class="h-full w-full rounded-2xl bg-white object-contain p-3"
-                    />
-                  </div>
-                  <div class="p-5">
-                    <p class="text-xs font-semibold uppercase tracking-[0.3em] text-[#facc15]">
-                      {{ item.label }}
-                    </p>
-                    <h4 class="mt-2 text-lg font-semibold text-white">{{ item.title }}</h4>
-                    <p class="mt-2 text-sm text-gray-300">
-                      {{ item.description }}
-                    </p>
-                    <NuxtLink
-                      :to="item.link"
-                      class="mt-4 inline-flex text-sm font-semibold text-[#facc15] transition hover:text-white"
-                    >
-                      Open softwarepagina
-                    </NuxtLink>
-                  </div>
-                </article>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="rounded-[2rem] border border-white/10 bg-white/5 p-6 md:p-8"
-          >
-            <div
-              class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between"
-            >
-              <div>
-                <p
-                  class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
-                >
-                  3. Diensten
-                </p>
-                <h3 class="mt-3 text-3xl font-black">
-                  Hoe we organisaties helpen met implementatie en maatwerk
-                </h3>
-                <p class="mt-3 max-w-3xl text-sm text-gray-300">
-                  AITJE denkt strategisch met je mee over hoe AI echt waarde
-                  toevoegt binnen je organisatie. Bekijk onze diensten om snel
-                  te zien waar we inhoudelijk, technisch en operationeel op
-                  ondersteunen.
-                </p>
-              </div>
-              <NuxtLink
-                to="/diensten"
-                class="inline-flex items-center justify-center rounded-full bg-[#facc15] px-6 py-3 text-sm font-semibold text-black transition hover:bg-black hover:text-[#facc15]"
+            <div class="mt-8 grid gap-5 lg:grid-cols-[0.95fr_1.05fr]">
+              <div
+                class="overflow-hidden rounded-[1.75rem] border border-white/10 bg-black/30 p-5"
               >
-                Bekijk diensten
-              </NuxtLink>
-            </div>
-            <div class="mt-8 space-y-5">
-              <article
-                class="rounded-[1.75rem] border border-white/10 bg-[#161616] p-4 md:p-6"
+                <img
+                  src="/images/aitje-product.png"
+                  alt="AITJE Secretary"
+                  class="h-full w-full rounded-2xl border border-white/10 bg-white/90 object-cover"
+                />
+              </div>
+              <div
+                class="rounded-[1.75rem] border border-white/10 bg-[#161616] p-5"
               >
-                <div class="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
-                  <div class="rounded-[1.25rem] border border-white/10 bg-[#f7f1e3] p-6 text-black">
-                    <p class="text-xs font-semibold uppercase tracking-[0.3em] text-gray-500">
-                      {{ activeServiceSlide.focus }}
-                    </p>
-                    <h4 class="mt-3 text-2xl font-semibold">{{ activeServiceSlide.title }}</h4>
-                    <p class="mt-4 text-sm text-gray-700">
-                      {{ activeServiceSlide.description }}
-                    </p>
-                    <p class="mt-4 text-sm text-gray-800">
-                      <span class="font-semibold">Resultaat:</span>
-                      {{ activeServiceSlide.result }}
-                    </p>
-                    <NuxtLink
-                      to="/diensten"
-                      class="mt-5 inline-flex rounded-full bg-black px-5 py-3 text-sm font-semibold text-white transition hover:text-[#facc15]"
+                <div
+                  class="rounded-[1.25rem] border border-white/10 bg-[#f7f1e3] p-4 text-black"
+                >
+                  <div class="flex items-center gap-2">
+                    <span class="h-3 w-3 rounded-full bg-[#ff6b6b]"></span>
+                    <span class="h-3 w-3 rounded-full bg-[#ffd166]"></span>
+                    <span class="h-3 w-3 rounded-full bg-[#06d6a0]"></span>
+                    <span
+                      class="ml-3 text-xs font-semibold uppercase tracking-[0.3em] text-gray-500"
                     >
-                      Meer over deze dienst
-                    </NuxtLink>
+                      Meeting Flow
+                    </span>
                   </div>
-                  <div class="rounded-[1.25rem] border border-white/10 bg-black/30 p-6">
-                    <p class="text-xs font-semibold uppercase tracking-[0.3em] text-[#facc15]">
-                      Wat we opleveren
-                    </p>
-                    <div class="mt-4 grid gap-3">
-                      <div
-                        v-for="detail in activeServiceSlide.details"
-                        :key="detail"
-                        class="rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-gray-300"
+                  <div class="mt-5 space-y-4">
+                    <div class="rounded-2xl bg-white p-4 shadow-sm">
+                      <p
+                        class="text-xs font-semibold uppercase tracking-[0.3em] text-gray-400"
                       >
-                        {{ detail }}
+                        Input
+                      </p>
+                      <p class="mt-2 text-sm text-gray-700">
+                        Automatically convert conversation, intake or consultation to structured data.
+                      </p>
+                    </div>
+                    <div class="grid gap-3 md:grid-cols-3">
+                      <div class="rounded-2xl bg-white p-4 shadow-sm">
+                        <p
+                          class="text-xs font-semibold uppercase tracking-[0.3em] text-gray-400"
+                        >
+                          Summary
+                        </p>
                       </div>
+                      <div class="rounded-2xl bg-white p-4 shadow-sm">
+                        <p
+                          class="text-xs font-semibold uppercase tracking-[0.3em] text-gray-400"
+                        >
+                          Transcription
+                        </p>
+                      </div>
+                      <div class="rounded-2xl bg-white p-4 shadow-sm">
+                        <p
+                          class="text-xs font-semibold uppercase tracking-[0.3em] text-gray-400"
+                        >
+                          Form
+                        </p>
+                      </div>
+                    </div>
+                    <div
+                      class="rounded-2xl bg-[#212121] p-4 text-sm text-white"
+                    >
+                      Delivery via mail, dashboard or internal workflow.
                     </div>
                   </div>
                 </div>
-              </article>
-
-              <div class="flex flex-wrap gap-3">
-                <button
-                  v-for="(service, idx) in serviceSlides"
-                  :key="service.title"
-                  type="button"
-                  class="rounded-full border px-4 py-2 text-sm font-semibold transition"
-                  :class="
-                    idx === currentServiceSlide
-                      ? 'border-[#facc15] bg-[#facc15] text-black'
-                      : 'border-white/15 bg-white/5 text-gray-200 hover:border-white/30'
-                  "
-                  @click="currentServiceSlide = idx"
-                >
-                  {{ service.title }}
-                </button>
               </div>
+            </div>
+          </div>
+
+          <div
+            class="rounded-[2rem] border border-white/10 bg-white/5 p-6 md:p-8"
+          >
+            <div
+              class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between"
+            >
+              <div>
+                <p
+                  class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
+                >
+                  3. Software
+                </p>
+                <h3 class="mt-3 text-3xl font-black">
+                  Existing solutions and integrations
+                </h3>
+                <p class="mt-3 max-w-3xl text-sm text-gray-300">
+                  A growing set of software, interfaces and workflows for different stacks and use cases.
+                </p>
+              </div>
+              <NuxtLink
+                :to="localePath('/producten')"
+                class="inline-flex items-center justify-center rounded-full bg-[#facc15] px-6 py-3 text-sm font-semibold text-black transition hover:bg-black hover:text-[#facc15]"
+              >
+                More info
+              </NuxtLink>
+            </div>
+            <div class="mt-8 flex gap-5 overflow-x-auto pb-2">
+              <article
+                v-for="item in softwareSlides"
+                :key="item.title"
+                class="min-w-[280px] flex-1 rounded-[1.75rem] border border-white/10 bg-[#161616] p-4"
+              >
+                <div
+                  class="rounded-[1.25rem] border border-white/10 bg-white text-black"
+                >
+                  <div
+                    class="flex items-center gap-2 border-b border-gray-100 px-4 py-3"
+                  >
+                    <span class="h-3 w-3 rounded-full bg-[#ff6b6b]"></span>
+                    <span class="h-3 w-3 rounded-full bg-[#ffd166]"></span>
+                    <span class="h-3 w-3 rounded-full bg-[#06d6a0]"></span>
+                    <span
+                      class="ml-3 text-xs font-semibold uppercase tracking-[0.3em] text-gray-500"
+                    >
+                      {{ item.stack }}
+                    </span>
+                  </div>
+                  <div class="p-4">
+                    <h4 class="text-lg font-semibold">{{ item.title }}</h4>
+                    <p class="mt-2 text-sm text-gray-600">
+                      {{ item.description }}
+                    </p>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div
+            class="rounded-[2rem] border border-white/10 bg-white/5 p-6 md:p-8"
+          >
+            <div
+              class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between"
+            >
+              <div>
+                <p
+                  class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
+                >
+                  4. Cases
+                </p>
+                <h3 class="mt-3 text-3xl font-black">
+                  Examples of applications
+                </h3>
+                <p class="mt-3 max-w-3xl text-sm text-gray-300">
+                  Preliminary examples of how AITJE can be deployed across teams, processes and platforms.
+                </p>
+              </div>
+              <NuxtLink
+                :to="localePath('/diensten')"
+                class="inline-flex items-center justify-center rounded-full bg-[#facc15] px-6 py-3 text-sm font-semibold text-black transition hover:bg-black hover:text-[#facc15]"
+              >
+                View services
+              </NuxtLink>
+            </div>
+            <div class="mt-8 flex gap-5 overflow-x-auto pb-2">
+              <article
+                v-for="item in caseSlides"
+                :key="item.title"
+                class="min-w-[320px] flex-1 rounded-[1.75rem] border border-white/10 bg-[#161616] p-4"
+              >
+                <div
+                  class="rounded-[1.25rem] border border-white/10 bg-[#f7f1e3] p-5 text-black"
+                >
+                  <div class="flex items-center gap-2">
+                    <span class="h-3 w-3 rounded-full bg-[#ff6b6b]"></span>
+                    <span class="h-3 w-3 rounded-full bg-[#ffd166]"></span>
+                    <span class="h-3 w-3 rounded-full bg-[#06d6a0]"></span>
+                  </div>
+                  <p
+                    class="mt-5 text-xs font-semibold uppercase tracking-[0.3em] text-gray-500"
+                  >
+                    {{ item.category }}
+                  </p>
+                  <h4 class="mt-2 text-lg font-semibold">{{ item.title }}</h4>
+                  <p class="mt-2 text-sm text-gray-700">
+                    {{ item.description }}
+                  </p>
+                </div>
+              </article>
             </div>
           </div>
         </div>
@@ -624,18 +628,13 @@
             <p
               class="text-sm font-semibold uppercase tracking-[0.4em] text-[#facc15]"
             >
-              De infrastructuur van AITJE
+              AITJE's infrastructure
             </p>
             <h2 class="text-4xl font-black text-gray-900">
-              Van out of the box tot maatwerkoplossingen
+              From out of the box to custom solutions
             </h2>
             <p class="text-gray-700">
-              Als bedrijf bieden we lokale hardware voor edge AI, software die
-              daarop aansluit en oplossingen die kunnen verbinden met externe
-              platformen, zoals kennisbanken en documentverwerking. Daarnaast
-              denken we mee over de beste inzet van AI binnen je organisatie:
-              soms met een van onze bestaande producten, soms met een
-              maatwerkoplossing die we samen ontwikkelen.
+              As a company, we offer local hardware for edge AI, software that connects to it, and solutions that can connect to external platforms, such as knowledge bases and document processing. We also help think about the best use of AI within your organization: sometimes with one of our existing products, sometimes with a custom solution we develop together.
             </p>
             <ul class="space-y-4">
               <li
@@ -653,10 +652,10 @@
             </ul>
             <div class="flex flex-col gap-3 sm:flex-row">
               <NuxtLink
-                to="/roadmap"
+                :to="localePath('/roadmap')"
                 class="inline-flex items-center justify-center rounded-full bg-black px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#212121] hover:text-[#facc15]"
               >
-                Bekijk de roadmap
+                View the roadmap
               </NuxtLink>
             </div>
           </div>
@@ -696,14 +695,13 @@
             <p
               class="text-sm font-semibold uppercase tracking-[0.4em] text-[#facc15]"
             >
-              Handige links
+              Useful links
             </p>
             <h2 class="text-4xl font-black text-gray-900">
-              Snel naar de juiste pagina
+              Quickly get to the right page
             </h2>
             <p class="text-lg text-gray-700">
-              Bekijk onze belangrijkste pagina's voor producten, diensten,
-              toepassingen, kennis en contact.
+              Check out our main pages for products, services, applications, knowledge and contact.
             </p>
             <div
               class="rounded-3xl border border-gray-200 bg-[#fafafa] p-8 shadow-sm"
@@ -729,11 +727,10 @@
               FAQ
             </p>
             <h3 class="mt-3 text-3xl font-black text-gray-900">
-              Veelgestelde vragen
+              Frequently Asked Questions
             </h3>
             <p class="mt-3 text-sm text-gray-600">
-              Korte antwoorden op vragen over privacy, back-ups, maatwerk en hoe
-              AITJE in de praktijk werkt.
+              Brief answers to questions about privacy, backups, customization and how AITJE works in practice.
             </p>
             <div class="mt-6 space-y-4">
               <div
@@ -744,7 +741,7 @@
                 <p
                   class="text-xs font-semibold uppercase tracking-[0.4em] text-gray-400"
                 >
-                  Vraag
+                  Question
                 </p>
                 <h4 class="text-lg font-semibold text-gray-900">
                   {{ item.question }}
@@ -754,10 +751,10 @@
             </div>
             <div class="mt-6">
               <NuxtLink
-                to="/faq"
+                :to="localePath('/faq')"
                 class="text-sm font-semibold text-[#d4a700] transition hover:text-black"
               >
-                Bekijk alle veelgestelde vragen
+                View all frequently asked questions
               </NuxtLink>
             </div>
           </div>
@@ -772,8 +769,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onBeforeUnmount, onMounted, ref } from "vue";
-import { softwareCatalog } from "../data/softwareCatalog";
+import { onBeforeUnmount, onMounted, ref } from "vue";
 import {
   AppWindow,
   BookOpen,
@@ -791,354 +787,267 @@ import {
   Zap,
 } from "lucide-vue-next";
 
-const phrases = ["Je partner in AI & Edge AI"];
+const { localePath } = useSiteLocale();
+
+const phrases = ["Your partner in AI & Edge AI"];
 const heroStats = [
-  { label: "Werkt zonder internet", value: "100% afhankelijk" },
-  { label: "Goed voor het milieu", value: "Geen cloud calls" },
-  { label: "AITJE denkt met je mee", value: "Soevereiniteit in AI" },
+  { label: "Works without internet", value: "100% independent" },
+  { label: "Good for the environment", value: "No cloud calls" },
+  { label: "AITJE thinks with you", value: "Sovereignty in AI" },
 ];
 
 const promisePillars = [
   {
-    title: "AITJE, jouw partner in AI",
-    highlight: "Strategie",
+    title: "AITJE, your partner in AI",
+    highlight: "Strategy",
     description:
-      "We ontwikkelen AI-oplossingen in hardware en software, denken mee over implementatie en bouwen ook door voor specifieke behoeften binnen jouw organisatie.",
+      "We develop AI solutions in hardware and software, think about implementation and also build on for specific needs within your organization.",
     icon: Handshake,
     image: "/images/golden-egg.png",
-    imageAlt: "Gouden ei",
+    imageAlt: "Golden egg",
   },
   {
-    title: "Eigen softwarestack",
+    title: "Proprietary software stack",
     highlight: "Software",
     description:
-      "We hebben een eigen Operating System, app, agents en out-of-the-box workflows, zodat je direct kunt werken met oplossingen die op elkaar zijn afgestemd.",
+      "We have our own Operating System, app, agents and out-of-the-box workflows, so you can work directly with solutions that are aligned.",
     icon: CodeXml,
     image: "/images/egg-loading-screen.png",
-    imageAlt: "Ei bij beeldscherm",
+    imageAlt: "Egg by screen",
   },
   {
-    title: "Onafhankelijk van internet",
+    title: "Internet independent",
     highlight: "Hardware",
     description:
-      "Onze hardware is ontwikkeld met focus op puur lokale edge AI, zodat je minder afhankelijk bent van API's, Big Tech en oplopende tokenkosten.",
+      "Our hardware is designed with a focus on pure local edge AI, so you have less reliance on APIs, Big Tech and rising token costs.",
     icon: Wrench,
     image: "/images/ei-internet.png",
-    imageAlt: "Ei met internetthema",
+    imageAlt: "Egg with internet theme",
   },
 ];
 
 const reasons = [
   {
-    title: "Afhankelijkheid",
-    theme: "Bedrijfscontinuiteit",
+    title: "Dependency",
+    theme: "Business continuity",
     problem:
-      "Wanneer je een internetstoring ervaart of een extern AI-platform niet beschikbaar is, verlies je direct tijd en continuiteit.",
+      "When you experience an Internet outage or a remote AI platform is unavailable, you immediately lose time and continuity.",
     solution:
-      "AITJE-hardware blijft lokaal werken en is via je eigen netwerk toegankelijk, zodat teams onafhankelijk kunnen doorwerken.",
+      "AITJE hardware continues to work locally and is accessible through your own network, allowing teams to continue working independently.",
     icon: Server,
   },
   {
-    title: "Financieel",
-    theme: "Voorspelbare kosten",
+    title: "Financial",
+    theme: "Predictable costs",
     problem:
-      "Gebruikskosten van externe AI-platformen lopen op, terwijl je weinig grip hebt op abonnementen, prijswijzigingen en de keuzes van buitenlandse aanbieders.",
+      "Usage costs of third-party AI platforms add up, while you have little control over subscriptions, price changes and foreign provider choices.",
     solution:
-      "Met AITJE verlaag je structureel de afhankelijkheid van terugkerende AI-kosten en bepaal je zelf wanneer extra diensten, upgrades of cloudcapaciteit nodig zijn.",
+      "With AITJE, you structurally reduce reliance on recurring AI costs and determine when additional services, upgrades or cloud capacity are needed.",
     icon: Sparkles,
   },
   {
     title: "Privacy",
-    theme: "Controle op data",
+    theme: "Control of data",
     problem:
-      "Gevoelige informatie delen met andere landen of externe partijen brengt extra risico's mee, zeker in tijden van politieke spanningen, hacks en strengere privacy-eisen.",
+      "Sharing sensitive information with other countries or external parties carries additional risks, especially in times of political tension, hacks and stricter privacy requirements.",
     solution:
-      "Met AITJE houd je bedrijfsinformatie, persoonsgegevens en andere gevoelige data in eigen beheer, lokaal of binnen Europa, passend bij AVG-vereisten.",
+      "With AITJE, you keep corporate information, personal data and other sensitive data under your own control, locally or within Europe, appropriate to AVG requirements.",
     icon: Shield,
   },
   {
-    title: "Klimaat",
-    theme: "Bewuster gebruik",
+    title: "Climate",
+    theme: "More conscious use",
     problem:
-      "Grote aantallen cloudverzoeken vragen veel rekenkracht, energie en koeling in externe infrastructuur.",
+      "Large numbers of cloud requests require a lot of computing power, energy and cooling in external infrastructure.",
     solution:
-      "Door lokaal op het device te werken verminder je onnodig verkeer naar externe datacenters, en voor cloud oplossingen gebruiken we groene hosting.",
+      "Working locally on the device reduces unnecessary traffic to remote data centers, and for cloud solutions we use green hosting.",
     icon: Droplet,
   },
 ];
 
 const productHighlights = [
-  "Advies over waar AI binnen jouw organisatie het meeste effect heeft",
-  "Hardware voor lokale edge AI en eigen infrastructuur",
-  "Focus op werking zonder internet, data in Europa / Nederland",
-  "Agents, maatwerk applicaties en praktische workflows",
+  "Advice on where AI has the greatest impact within your organization",
+  "Hardware for local edge AI and your own infrastructure",
+  "Focus on operation without internet, with data in Europe / the Netherlands",
+  "Agents, custom applications and practical workflows",
 ];
 
 const features = [
   {
-    title: "AITJE Assistent",
+    title: "AITJE Assistant",
     description:
-      "Meerdere devices voor verschillende behoeftes, van vaste tiers tot persoonlijk gebouwde oplossingen, allemaal op ons eigen OS met lokale AI en API.",
+      "Multiple devices for different needs, from fixed tiers to personally built solutions, all on our own OS with local AI and API.",
     icon: Server,
-    link: "/aitje-pro",
-    cta: "Bekijk product",
+    link: localePath("/aitje-pro"),
+    cta: "View product",
   },
   {
-    title: "AITJE Notulist",
+    title: "AITJE Secretary",
     description:
-      "Neem gesprekken op en bepaal zelf welke informatie je wilt ontvangen: als samenvatting, transcriptie of ingevuld formulier, in het format en via het kanaal dat past.",
+      "Record conversations and decide what information you want to receive: as a summary, transcript or completed form, in the format and through the channel that suits.",
     icon: Mic,
-    link: "/producten",
-    cta: "Bekijk product",
+    link: localePath("/producten"),
+    cta: "View product",
   },
   {
     title: "AITJE Solutions",
     description:
-      "Oplossingen op maat, zoals agents, workflows, voice assistants en waar nodig eigen hardware voor jouw toepassing.",
+      "Custom solutions such as agents, workflows, voice assistants and, where necessary, proprietary hardware for your application.",
     icon: Cpu,
-    link: "/diensten",
-    cta: "Bekijk diensten",
+    link: localePath("/diensten"),
+    cta: "View services",
   },
   {
     title: "Software marketplace",
     description:
-      "Bestaande solutions en integraties voor CMS-systemen en andere veelgebruikte digitale omgevingen.",
+      "Existing solutions and integrations for CMS systems and other commonly used digital environments.",
     icon: AppWindow,
-    link: "/producten",
-    cta: "Bekijk product",
+    link: localePath("/producten"),
+    cta: "View product",
   },
 ];
 
-const hardwareShowcase = [
+const assistantVariants = [
   {
-    label: "Hardware",
-    title: "AITJE Assistent",
-    image: "/images/aitje-cubes.png",
-    link: "/producten/hardware/aitje-assistent",
+    title: "Compact tier",
     description:
-      "De lokale AI-assistent op eigen hardware met kennisbank, offline bereikbaarheid en API-toegang.",
+      "For individual workplaces or small teams that want to start locally.",
   },
   {
-    label: "Hardware",
-    title: "AITJE Custom",
-    image: "/images/custom-suited.png",
-    link: "/producten/hardware/aitje-custom",
+    title: "Team setup",
     description:
-      "Voor situaties waar standaardhardware niet precies past en je meer performance of specifieke integraties nodig hebt.",
+      "For organizations that want to have multiple users working on the same network.",
   },
   {
-    label: "Software",
-    title: "AITJE Assistent OS",
-    image: "/images/os-screenshots/chatassistent.jpeg",
-    link: "/producten/software/aitje-assistent-os",
+    title: "Custom build",
     description:
-      "De lokale cockpit op de cube waar chat, kennis, kaarten, apparaten en beheer samenkomen.",
+      "Personally built variant for specific performance or integration needs.",
   },
 ];
 
-const softwareLabelForSlug = (slug: string) => {
-  if (slug.startsWith("wordpress-")) return "WordPress";
-  if (slug.startsWith("aitje-assistent-")) return "AITJE";
-  if (slug === "promptpaleis") return "AI-platform";
-  if (slug === "raad-van-bestuur") return "Council";
-  return "Software";
-};
+const softwareSlides = [
+  {
+    stack: "WordPress",
+    title: "Content Assistant",
+    description:
+      "Dummy solution for editing, summaries and internal knowledge in WordPress environments.",
+  },
+  {
+    stack: ".NET",
+    title: "Internal Agent",
+    description:
+      "Dummy workflow for internal tooling, document queries and process support within .NET stacks.",
+  },
+  {
+    stack: "API",
+    title: "Support Flow",
+    description:
+      "Dummy link for support, classification and automatic follow-up in existing systems.",
+  },
+  {
+    stack: "Intranet",
+    title: "Knowledge Search",
+    description:
+      "Dummy interface for searching, summarizing and accessing internal documentation.",
+  },
+];
 
-const softwareShowcase = softwareCatalog.map((item) => ({
-  label: softwareLabelForSlug(item.slug),
-  title: item.title,
-  image: item.image,
-  link: `/producten/software/${item.slug}`,
-  description: item.shortDescription,
-}));
-
-const softwareShowcaseMarquee = [...softwareShowcase, ...softwareShowcase];
-
-const serviceSlides = [
+const caseSlides = [
   {
-    focus: "Strategie",
-    title: "AI-strategie uitdenken",
+    category: "Education",
+    title: "Internal knowledge assistant",
     description:
-      "We denken mee over waar AI nu de meeste waarde oplevert voor jouw organisatie en welke stappen logisch zijn om te zetten.",
-    result:
-      "Een duidelijk plan waarmee je direct kunt starten, zonder te verdwalen in alle AI-opties.",
-    details: [
-      "Een rapport waar AI nu direct meerwaarde geeft in je organisatie",
-      "Een plan voor welke tools je vandaag al kunt inzetten",
-    ],
+      "Dummy case for teams wanting to make learning materials, guidelines and internal knowledge available locally.",
   },
   {
-    focus: "Kosten & stabiliteit",
-    title: "Consultancy: verbruik optimaliseren",
+    category: "Care",
+    title: "Minutes & intake processing",
     description:
-      "We analyseren je huidige AI-gebruik en maken je stack goedkoper, stabieler en minder afhankelijk van 1 partij.",
-    result: "Lagere kosten, betere performance en meer grip op je leveranciers.",
-    details: [
-      "Analyse van tokenverbruik, kosten en latency",
-      "Slim routeren tussen meerdere modellen",
-    ],
+      "Dummy case for interviews, intake forms and structured follow-up information.",
   },
   {
-    focus: "Kennisgedreven AI",
-    title: "RAG-chat & maatwerkoplossingen",
+    category: "SME",
+    title: "Workflow automation",
     description:
-      "Van AITJE-assistent tot maatwerk software: chat in, antwoord terug met gematchte context uit je eigen kennis.",
-    result:
-      "Direct bruikbare antwoorden op basis van je eigen documenten en bedrijfscontext.",
-    details: [
-      "RAG-chat met documenten, beleid en interne kennis",
-      "Integratie in bestaande processen en teams",
-    ],
-  },
-  {
-    focus: "Maatwerk ontwikkeling",
-    title: "Software-oplossingen op maat",
-    description:
-      "We bouwen software en applicaties op maat die AI logisch onderdeel maken van je dagelijkse operatie.",
-    result:
-      "Tools die precies aansluiten op je workflow in plaats van generieke software eromheen.",
-    details: [
-      "Web- en mobiele applicaties op maat",
-      "Koppelingen met CRM, MCP, ERP en interne API's",
-    ],
-  },
-  {
-    focus: "Continuiteit & onafhankelijkheid",
-    title: "Lokale LLM-installatie",
-    description:
-      "We installeren een lokale LLM op je eigen infrastructuur, zodat je bedrijf blijft draaien zonder afhankelijk te zijn van externe AI-platformen.",
-    result:
-      "AI-beschikbaarheid op je eigen omgeving, ook als externe diensten uitvallen.",
-    details: [
-      "Lokale setup en beveiligde configuratie",
-      "Modelkeuze per use-case en hardwareprofiel",
-    ],
-  },
-  {
-    focus: "Agentic automation",
-    title: "Maatwerk agents",
-    description:
-      "We bouwen een persoonlijke agent die past bij je processen, team en datastromen.",
-    result:
-      "Herhaalbaar werk wordt automatisch afgehandeld met duidelijke controle.",
-    details: [
-      "Agentontwerp per afdeling of rol",
-      "Veiligheden, rechten en auditability ingebouwd",
-    ],
-  },
-  {
-    focus: "Workflow orchestration",
-    title: "AI-workflows met of zonder human-in-the-loop",
-    description:
-      "We automatiseren stappen waar het kan en voegen menselijke controle toe waar het moet.",
-    result:
-      "Snellere processen met de juiste balans tussen automatisering en menselijke regie.",
-    details: [
-      "Workflows met goedkeuringsstappen voor kritieke acties",
-      "Escalaties, fallback en kwaliteitscontroles",
-    ],
-  },
-  {
-    focus: "Service & ondersteuning",
-    title: "SLA agreement",
-    description:
-      "Met een SLA houden we je AI-omgeving actief gezond met vaste ondersteuning, periodieke check-ins en snelle hulp bij storingen.",
-    result:
-      "Meer rust in operatie en duidelijke afspraken over support, opvolging en beschikbaarheid.",
-    details: [
-      "Vaste service-uren per maand voor support en verbetering",
-      "Storingdienst voor spoedincidenten met een AITJE-workflow of AITJE-device",
-    ],
+      "Dummy case for recurring tasks, agents and links to existing processes.",
   },
 ];
 
 const handyLinks = [
   {
-    label: "Producten",
-    to: "/producten",
+    label: "Products",
+    to: localePath("/producten"),
   },
   {
-    label: "Diensten",
-    to: "/diensten",
+    label: "Services",
+    to: localePath("/diensten"),
   },
   {
-    label: "Oplossingen",
-    to: "/oplossingen",
+    label: "Solutions",
+    to: localePath("/oplossingen"),
   },
   {
-    label: "Kenniscentrum",
-    to: "/kenniscentrum",
+    label: "Knowledge Center",
+    to: localePath("/kenniscentrum"),
   },
   {
     label: "FAQ",
-    to: "/faq",
+    to: localePath("/faq"),
   },
   {
     label: "Roadmap",
-    to: "/roadmap",
+    to: localePath("/roadmap"),
   },
   {
-    label: "Visie",
-    to: "/visie",
+    label: "Vision",
+    to: localePath("/visie"),
   },
   {
     label: "Contact",
-    to: "/contact",
+    to: localePath("/contact"),
   },
 ];
 
 const homepageFaqs = [
   {
-    question: "Deelt AITJE mijn info?",
+    question: "Does AITJE share my info?",
     answer:
-      "Nee. AITJE is gebouwd om data lokaal en in eigen beheer te houden.",
+      "No. AITJE was built to keep data local and in-house.",
   },
   {
-    question: "Maakt AITJE back-ups?",
+    question: "Does AITJE make backups?",
     answer:
-      "Op aanvraag kunnen we dit voor je inrichten, bijvoorbeeld voor een kennisbank-back-up.",
+      "Upon request, we can set this up for you, such as for a knowledge base backup.",
   },
   {
-    question: "Maken jullie ook maatwerkoplossingen?",
+    question: "Do you also make custom solutions?",
     answer:
-      "Ja. We begeleiden je waar mogelijk in zowel hardware als software en bouwen ook maatwerk waar dat nodig is.",
+      "Yes. We guide you where possible in both hardware and software and also build custom solutions where needed.",
   },
   {
-    question: "Kan AITJE zonder internet werken?",
+    question: "Can AITJE work without the Internet?",
     answer:
-      "Ja. Lokale edge-opstellingen kunnen ook blijven werken als internet of externe platformen wegvallen.",
+      "Yes. Local edge setups can continue to work even if the Internet or external platforms go down.",
   },
   {
-    question: "Welke taal modellen ondersteunen jullie?",
+    question: "What language models do you support?",
     answer:
-      "Voor jouw specifieke behoefte kunnen we altijd een ander taalmodel kiezen en gebruiken.",
+      "For your specific need, we can always choose and use a different language model.",
   },
 ];
 
 const currentPhrase = ref(0);
 const currentPillar = ref(0);
-const currentServiceSlide = ref(0);
 let pillarTimer: ReturnType<typeof setInterval> | null = null;
-let serviceTimer: ReturnType<typeof setInterval> | null = null;
-
-const activeServiceSlide = computed(
-  () => serviceSlides[currentServiceSlide.value] ?? serviceSlides[0]
-);
 
 onMounted(() => {
   pillarTimer = setInterval(() => {
     currentPillar.value = (currentPillar.value + 1) % promisePillars.length;
   }, 5000);
-
-  serviceTimer = setInterval(() => {
-    currentServiceSlide.value =
-      (currentServiceSlide.value + 1) % serviceSlides.length;
-  }, 5500);
 });
 
 onBeforeUnmount(() => {
   if (pillarTimer) clearInterval(pillarTimer);
-  if (serviceTimer) clearInterval(serviceTimer);
 });
 </script>
 
@@ -1161,23 +1070,6 @@ onBeforeUnmount(() => {
   top: 30%;
   transform: scale(0.35) translateX(-16vw);
   will-change: transform;
-}
-
-.showcase-marquee {
-  animation: showcase-marquee 42s linear infinite;
-}
-
-.showcase-marquee:hover {
-  animation-play-state: paused;
-}
-
-@keyframes showcase-marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(calc(-50% - 0.625rem));
-  }
 }
 
 .bird-container-one {

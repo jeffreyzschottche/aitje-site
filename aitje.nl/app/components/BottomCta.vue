@@ -158,19 +158,17 @@
     </div>
     <div class="relative z-10 mx-auto max-w-4xl space-y-6 text-center">
       <h2 class="text-5xl font-black text-gray-900">
-        Klaar om onafhankelijk met AI te werken?
+        {{ copy.title }}
       </h2>
       <p class="text-lg text-gray-800">
-        Met AITJE werk je lokaal, houd je jouw data in eigen beheer en heb je
-        regie over je AI infrastructuur. We laten je graag zien wat dat in de
-        praktijk oplevert.
+        {{ copy.description }}
       </p>
       <div class="flex justify-center">
         <NuxtLink
-          to="/contact?onderwerp=kennismaking"
+          :to="localePath('/contact?onderwerp=kennismaking')"
           class="inline-flex items-center justify-center rounded-full bg-black px-8 py-3 text-base font-semibold text-white cursor-pointer transition-colors duration-200 hover:bg-black hover:text-[#facc15]"
         >
-          Plan een kennismaking
+          {{ copy.cta }}
         </NuxtLink>
       </div>
     </div>
@@ -178,10 +176,29 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from "vue";
+
 const route = useRoute();
+const { isEnglish, localePath } = useSiteLocale();
+
+const copy = computed(() =>
+  isEnglish.value
+    ? {
+        title: "Ready to work independently with AI?",
+        description:
+          "With AITJE you work locally, keep full control over your data, and stay in charge of your AI infrastructure. We would be glad to show what that means in practice.",
+        cta: "Book an introduction",
+      }
+    : {
+        title: "Klaar om onafhankelijk met AI te werken?",
+        description:
+          "Met AITJE werk je lokaal, houd je jouw data in eigen beheer en heb je regie over je AI infrastructuur. We laten je graag zien wat dat in de praktijk oplevert.",
+        cta: "Plan een kennismaking",
+      },
+);
 
 const owlStyle = computed(() => ({
-  "--bg-colour": route.path === "/" ? "#ffffff" : "#f5f5f5",
+  "--bg-colour": route.path === "/" || route.path === "/en" ? "#ffffff" : "#f5f5f5",
 }));
 </script>
 

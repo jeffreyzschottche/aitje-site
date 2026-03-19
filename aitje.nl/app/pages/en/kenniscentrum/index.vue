@@ -8,14 +8,13 @@
         <p
           class="text-sm font-semibold uppercase tracking-[0.5em] text-[#facc15]"
         >
-          Kenniscentrum
+          Knowledge Center
         </p>
         <h1 class="mt-4 text-5xl font-black text-gray-900">
-          Begrippen en jargon, helder uitgelegd
+          Concepts and jargon, clearly explained
         </h1>
         <p class="mt-6 text-lg text-gray-600">
-          Korte artikelen over AI-, software- en technische termen die je vaak
-          hoort rondom onze oplossingen en terugziet op de website.
+          Short articles about AI, software and technical terms you often hear around our solutions and see reflected on the website.
         </p>
       </section>
 
@@ -24,7 +23,7 @@
           <NuxtLink
             v-for="article in knowledgeArticles"
             :key="article.slug"
-            :to="`/kenniscentrum/${article.slug}`"
+            :to="localePath(`/kenniscentrum/${article.slug}`)"
             class="overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md"
           >
             <img
@@ -58,5 +57,7 @@
 </template>
 
 <script setup lang="ts">
-import { knowledgeArticles } from "../../data/knowledgeArticles";
+import { knowledgeArticles } from "@/data/knowledgeArticles.en";
+
+const { localePath } = useSiteLocale();
 </script>
