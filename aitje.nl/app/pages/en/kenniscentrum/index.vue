@@ -26,26 +26,32 @@
             :to="localePath(`/kenniscentrum/${article.slug}`)"
             class="group overflow-hidden rounded-[2rem] border border-gray-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md"
           >
-            <div
-              class="relative overflow-hidden border-b border-gray-200 bg-[radial-gradient(circle_at_top_left,_rgba(250,204,21,0.28),_transparent_48%),linear-gradient(135deg,_#fff9db_0%,_#ffffff_55%,_#f8fafc_100%)] p-6"
-            >
-              <div class="absolute right-4 top-4 h-20 w-20 rounded-full border border-white/60 bg-white/40 blur-2xl" />
-              <p
-                class="relative text-xs font-semibold uppercase tracking-[0.4em] text-[#b88a00]"
-              >
-                {{ article.category }} - {{ article.readTime }}
-              </p>
-              <div class="relative mt-8 flex items-end justify-between">
-                <div
-                  class="flex h-12 w-12 items-center justify-center rounded-2xl border border-black/10 bg-white text-sm font-black text-gray-900 shadow-sm"
+            <div class="relative overflow-hidden border-b border-gray-200 bg-gray-100">
+              <img
+                :src="article.thumbnail"
+                :alt="article.imageAlt"
+                class="h-52 w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent" />
+              <div class="absolute inset-x-0 bottom-0 p-6">
+                <p
+                  class="text-xs font-semibold uppercase tracking-[0.4em] text-[#f6d86b]"
                 >
-                  {{ String(index + 1).padStart(2, "0") }}
+                  {{ article.category }} - {{ article.readTime }}
+                </p>
+                <div class="mt-5 flex items-end justify-between">
+                  <div
+                    class="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/40 bg-white/90 text-sm font-black text-gray-900 shadow-sm"
+                  >
+                    {{ String(index + 1).padStart(2, "0") }}
+                  </div>
+                  <span
+                    class="rounded-full border border-white/30 bg-white/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.3em] text-white"
+                  >
+                    Article
+                  </span>
                 </div>
-                <span
-                  class="rounded-full border border-black/10 bg-white/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.3em] text-gray-500"
-                >
-                  Article
-                </span>
               </div>
             </div>
             <div class="p-6">

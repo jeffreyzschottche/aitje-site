@@ -1,3 +1,5 @@
+import { knowledgeArticleImages } from "./knowledgeArticleImages";
+
 export type KnowledgeArticleSection = {
   title: string;
   content: string;
@@ -8,6 +10,8 @@ export type KnowledgeArticle = {
   title: string;
   excerpt: string;
   thumbnail: string;
+  heroImage: string;
+  imageAlt: string;
   readTime: string;
   category: string;
   sections: KnowledgeArticleSection[];
@@ -19,8 +23,7 @@ export const knowledgeArticles: KnowledgeArticle[] = [
     title: "Wat is een LLM?",
     excerpt:
       "Een LLM is een groot taalmodel dat tekst kan begrijpen, voorspellen en genereren. Het voelt vaak slim aan, maar de kwaliteit van het resultaat hangt sterk af van context, modelkeuze en hoe je het inzet.",
-    thumbnail:
-      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
+    ...knowledgeArticleImages["wat-is-een-llm"],
     readTime: "5 min",
     category: "Basis",
     sections: [
@@ -56,8 +59,7 @@ export const knowledgeArticles: KnowledgeArticle[] = [
     title: "Wat is edge AI?",
     excerpt:
       "Edge AI betekent dat AI draait dicht bij de bron van de data, bijvoorbeeld op een device, server of lokaal netwerk. Daardoor kun je sneller werken en houd je vaak meer controle over privacy, continuiteit en kosten.",
-    thumbnail:
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
+    ...knowledgeArticleImages["wat-is-edge-ai"],
     readTime: "5 min",
     category: "Infrastructuur",
     sections: [
@@ -93,8 +95,7 @@ export const knowledgeArticles: KnowledgeArticle[] = [
     title: "Wat is RAG?",
     excerpt:
       "RAG is een manier om een taalmodel eerst relevante informatie uit documenten of een kennisbank op te laten halen voordat het antwoord geeft. Daardoor worden antwoorden vaak specifieker, beter onderbouwd en bruikbaarder voor je eigen organisatie.",
-    thumbnail:
-      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80",
+    ...knowledgeArticleImages["wat-is-rag"],
     readTime: "6 min",
     category: "Techniek",
     sections: [
@@ -130,8 +131,7 @@ export const knowledgeArticles: KnowledgeArticle[] = [
     title: "Wat is context in AI?",
     excerpt:
       "Context is alle extra informatie die je aan een model meegeeft zodat het beter begrijpt wat je bedoelt. Goede context maakt het verschil tussen een algemeen antwoord en iets dat echt past bij jouw taak, organisatie of document.",
-    thumbnail:
-      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80",
+    ...knowledgeArticleImages["wat-is-context"],
     readTime: "5 min",
     category: "Basis",
     sections: [
@@ -167,8 +167,7 @@ export const knowledgeArticles: KnowledgeArticle[] = [
     title: "Wat is een context window?",
     excerpt:
       "Het context window is de maximale hoeveelheid informatie die een model in een enkele interactie kan meenemen. Dat bepaalt hoeveel tekst, chatgeschiedenis of documentfragmenten tegelijk bruikbaar zijn.",
-    thumbnail:
-      "https://images.unsplash.com/photo-1484417894907-623942c8ee29?auto=format&fit=crop&w=1200&q=80",
+    ...knowledgeArticleImages["wat-is-een-context-window"],
     readTime: "5 min",
     category: "Techniek",
     sections: [
@@ -204,8 +203,7 @@ export const knowledgeArticles: KnowledgeArticle[] = [
     title: "Wat is een AI agent?",
     excerpt:
       "Een AI agent is een systeem dat niet alleen antwoord geeft, maar ook stappen kan zetten richting een doel. Denk aan informatie ophalen, keuzes maken, tools gebruiken en een taak deels automatisch uitvoeren.",
-    thumbnail:
-      "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1200&q=80",
+    ...knowledgeArticleImages["wat-is-een-ai-agent"],
     readTime: "6 min",
     category: "Toepassing",
     sections: [
@@ -241,8 +239,7 @@ export const knowledgeArticles: KnowledgeArticle[] = [
     title: "Wat zijn embeddings?",
     excerpt:
       "Embeddings zetten tekst om in vectoren zodat systemen inhoudelijk vergelijkbare stukken informatie kunnen herkennen. Ze vormen een belangrijke basislaag voor semantisch zoeken en veel RAG-toepassingen.",
-    thumbnail:
-      "https://images.unsplash.com/photo-1516321165247-4aa89a48be28?auto=format&fit=crop&w=1200&q=80",
+    ...knowledgeArticleImages["wat-zijn-embeddings"],
     readTime: "6 min",
     category: "Techniek",
     sections: [
@@ -278,8 +275,7 @@ export const knowledgeArticles: KnowledgeArticle[] = [
     title: "Wat is prompt engineering?",
     excerpt:
       "Prompt engineering is het bewust formuleren van instructies zodat een model bruikbare output geeft. Het draait niet om trucjes, maar om helderheid over doel, context, toon, randvoorwaarden en gewenst formaat.",
-    thumbnail:
-      "https://images.unsplash.com/photo-1516321310764-8d4de8c6b0bd?auto=format&fit=crop&w=1200&q=80",
+    ...knowledgeArticleImages["wat-is-prompt-engineering"],
     readTime: "5 min",
     category: "Werkwijze",
     sections: [
@@ -315,8 +311,7 @@ export const knowledgeArticles: KnowledgeArticle[] = [
     title: "Wat is een API?",
     excerpt:
       "Een API is een afgesproken manier waarop systemen gegevens of functies met elkaar uitwisselen. Het is de verbindingslaag waarmee software kan praten met andere software zonder handmatig kopieren en plakken.",
-    thumbnail:
-      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80",
+    ...knowledgeArticleImages["wat-is-een-api"],
     readTime: "5 min",
     category: "Techniek",
     sections: [
@@ -352,8 +347,7 @@ export const knowledgeArticles: KnowledgeArticle[] = [
     title: "Wat is een webhook?",
     excerpt:
       "Een webhook is een automatisch bericht van het ene systeem naar het andere zodra er iets gebeurt. Daarmee kun je processen direct laten starten zonder steeds actief te hoeven controleren of er nieuwe informatie is.",
-    thumbnail:
-      "https://images.unsplash.com/photo-1516321310764-8d4de8c6b0bd?auto=format&fit=crop&w=1200&q=80",
+    ...knowledgeArticleImages["wat-is-een-webhook"],
     readTime: "5 min",
     category: "Techniek",
     sections: [
@@ -389,8 +383,7 @@ export const knowledgeArticles: KnowledgeArticle[] = [
     title: "Wat is een backend?",
     excerpt:
       "De backend is het deel van software waar verwerking, logica, koppelingen en datastromen draaien buiten beeld van de gebruiker. Het is de technische laag die ervoor zorgt dat een app of website echt iets kan doen.",
-    thumbnail:
-      "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80",
+    ...knowledgeArticleImages["wat-is-een-backend"],
     readTime: "5 min",
     category: "Software",
     sections: [
@@ -426,8 +419,7 @@ export const knowledgeArticles: KnowledgeArticle[] = [
     title: "Wat is een frontend?",
     excerpt:
       "De frontend is het deel van software dat gebruikers direct zien en bedienen. Het gaat om schermen, formulieren, feedback en interactie, en dus om hoe prettig en duidelijk een systeem in de praktijk werkt.",
-    thumbnail:
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
+    ...knowledgeArticleImages["wat-is-een-frontend"],
     readTime: "4 min",
     category: "Software",
     sections: [
@@ -463,8 +455,7 @@ export const knowledgeArticles: KnowledgeArticle[] = [
     title: "Wat is cloud?",
     excerpt:
       "Met cloud bedoelen organisaties meestal software, opslag of rekenkracht die via externe infrastructuur beschikbaar wordt gemaakt. Dat geeft flexibiliteit, maar brengt ook keuzes mee rond data, afhankelijkheid en beheer.",
-    thumbnail:
-      "https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=1200&q=80",
+    ...knowledgeArticleImages["wat-is-cloud"],
     readTime: "5 min",
     category: "Infrastructuur",
     sections: [
@@ -500,8 +491,7 @@ export const knowledgeArticles: KnowledgeArticle[] = [
     title: "Wat is een workflow?",
     excerpt:
       "Een workflow is de vaste volgorde van stappen waarin werk, informatie en acties door een proces bewegen. Zodra je workflows helder hebt, kun je pas echt beoordelen waar software, automatisering of AI waarde toevoegt.",
-    thumbnail:
-      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80",
+    ...knowledgeArticleImages["wat-is-een-workflow"],
     readTime: "5 min",
     category: "Werkwijze",
     sections: [

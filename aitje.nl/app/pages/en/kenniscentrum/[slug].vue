@@ -11,21 +11,30 @@
           Back to knowledge center
         </NuxtLink>
         <div
-          class="relative mt-6 overflow-hidden rounded-[2rem] border border-gray-200 bg-[radial-gradient(circle_at_top_left,_rgba(250,204,21,0.24),_transparent_40%),linear-gradient(135deg,_#ffffff_0%,_#fff9db_48%,_#f8fafc_100%)] shadow-sm"
+          class="relative mt-6 overflow-hidden rounded-[2rem] border border-gray-200 bg-white shadow-sm"
         >
-          <div class="absolute -right-10 top-10 h-40 w-40 rounded-full bg-white/60 blur-3xl" />
-          <div class="absolute left-10 top-10 h-24 w-24 rounded-full border border-white/50 bg-white/40 blur-2xl" />
-          <div class="relative p-8 sm:p-10">
-            <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#b88a00]">
-              {{ article.category }} - {{ article.readTime }}
-            </p>
-            <h1 class="mt-4 max-w-3xl text-4xl font-black text-gray-900 sm:text-5xl">
-              {{ article.title }}
-            </h1>
-            <p class="mt-5 max-w-3xl text-lg leading-8 text-gray-600">
-              {{ article.excerpt }}
-            </p>
-            <div class="mt-8 flex flex-wrap gap-3 text-sm text-gray-600">
+          <div class="relative h-[260px] sm:h-[360px]">
+            <img
+              :src="article.heroImage"
+              :alt="article.imageAlt"
+              class="h-full w-full object-cover"
+              fetchpriority="high"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10" />
+            <div class="absolute inset-x-0 bottom-0 p-8 text-white sm:p-10">
+              <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#f6d86b]">
+                {{ article.category }} - {{ article.readTime }}
+              </p>
+              <h1 class="mt-4 max-w-3xl text-4xl font-black sm:text-5xl">
+                {{ article.title }}
+              </h1>
+              <p class="mt-5 max-w-3xl text-lg leading-8 text-white/85">
+                {{ article.excerpt }}
+              </p>
+            </div>
+          </div>
+          <div class="border-t border-gray-200 bg-[radial-gradient(circle_at_top_left,_rgba(250,204,21,0.18),_transparent_42%),linear-gradient(135deg,_#ffffff_0%,_#fff9db_48%,_#f8fafc_100%)] p-8 sm:p-10">
+            <div class="flex flex-wrap gap-3 text-sm text-gray-600">
               <span class="rounded-full border border-black/10 bg-white/80 px-4 py-2 font-medium">
                 {{ article.sections.length }} sections
               </span>
@@ -76,16 +85,21 @@
               :to="localePath(`/kenniscentrum/${related.slug}`)"
               class="group overflow-hidden rounded-2xl border border-gray-200 bg-[#fafafa] transition hover:-translate-y-1 hover:shadow-md"
             >
-              <div
-                class="border-b border-gray-200 bg-[linear-gradient(135deg,_#fff7cc_0%,_#ffffff_65%)] p-4"
-              >
-                <div class="flex items-center justify-between">
+              <div class="relative border-b border-gray-200">
+                <img
+                  :src="related.thumbnail"
+                  :alt="related.imageAlt"
+                  class="h-36 w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+                  loading="lazy"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent" />
+                <div class="absolute inset-x-0 bottom-0 flex items-center justify-between p-4">
                   <span
-                    class="rounded-full border border-black/10 bg-white px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.25em] text-[#9a6f00]"
+                    class="rounded-full border border-white/25 bg-white/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.25em] text-white"
                   >
                     Continue
                   </span>
-                  <span class="text-sm font-black text-gray-400">
+                  <span class="text-sm font-black text-white/70">
                     {{ String(index + 1).padStart(2, "0") }}
                   </span>
                 </div>

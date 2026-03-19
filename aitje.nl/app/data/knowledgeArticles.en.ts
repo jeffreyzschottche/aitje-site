@@ -1,3 +1,5 @@
+import { knowledgeArticleImages } from "./knowledgeArticleImages";
+
 export type KnowledgeArticleSection = {
   title: string;
   content: string;
@@ -8,6 +10,8 @@ export type KnowledgeArticle = {
   title: string;
   excerpt: string;
   thumbnail: string;
+  heroImage: string;
+  imageAlt: string;
   readTime: string;
   category: string;
   sections: KnowledgeArticleSection[];
@@ -19,8 +23,7 @@ export const knowledgeArticles: KnowledgeArticle[] = [
     title: "What is an LLM?",
     excerpt:
       "An LLM is a large language model that can understand, predict and generate text. It often feels smart, but the quality of the result still depends heavily on context, model choice and how you use it.",
-    thumbnail:
-      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
+    ...knowledgeArticleImages["wat-is-een-llm"],
     readTime: "5 min",
     category: "Basic",
     sections: [
@@ -56,8 +59,7 @@ export const knowledgeArticles: KnowledgeArticle[] = [
     title: "What is edge AI?",
     excerpt:
       "Edge AI means AI runs close to the source of the data, for example on a device, server or local network. This can improve speed and often gives more control over privacy, continuity and cost.",
-    thumbnail:
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
+    ...knowledgeArticleImages["wat-is-edge-ai"],
     readTime: "5 min",
     category: "Infrastructure",
     sections: [
@@ -93,8 +95,7 @@ export const knowledgeArticles: KnowledgeArticle[] = [
     title: "What is RAG?",
     excerpt:
       "RAG is a way to let a language model retrieve relevant information from documents or a knowledge base before it answers. That usually leads to answers that are more specific, grounded and useful for your own organization.",
-    thumbnail:
-      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80",
+    ...knowledgeArticleImages["wat-is-rag"],
     readTime: "6 min",
     category: "Technology",
     sections: [
@@ -130,8 +131,7 @@ export const knowledgeArticles: KnowledgeArticle[] = [
     title: "What is context in AI?",
     excerpt:
       "Context is all the extra information you give a model so it can better understand what you mean. Good context is often the difference between a generic answer and one that actually fits your task, organization or document.",
-    thumbnail:
-      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80",
+    ...knowledgeArticleImages["wat-is-context"],
     readTime: "5 min",
     category: "Basic",
     sections: [
@@ -167,8 +167,7 @@ export const knowledgeArticles: KnowledgeArticle[] = [
     title: "What is a context window?",
     excerpt:
       "The context window is the maximum amount of information a model can take into a single interaction. It determines how much text, chat history or how many document fragments can be meaningfully used at once.",
-    thumbnail:
-      "https://images.unsplash.com/photo-1484417894907-623942c8ee29?auto=format&fit=crop&w=1200&q=80",
+    ...knowledgeArticleImages["wat-is-een-context-window"],
     readTime: "5 min",
     category: "Technology",
     sections: [
@@ -204,8 +203,7 @@ export const knowledgeArticles: KnowledgeArticle[] = [
     title: "What is an AI agent?",
     excerpt:
       "An AI agent is a system that does not just respond with text, but can also take steps toward a goal. That can include retrieving information, making choices, using tools and carrying out part of a task automatically.",
-    thumbnail:
-      "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1200&q=80",
+    ...knowledgeArticleImages["wat-is-een-ai-agent"],
     readTime: "6 min",
     category: "Application",
     sections: [
@@ -241,8 +239,7 @@ export const knowledgeArticles: KnowledgeArticle[] = [
     title: "What are embeddings?",
     excerpt:
       "Embeddings turn text into vectors so systems can recognize which pieces of information are semantically similar. They are a key technical foundation for semantic search and many RAG-based systems.",
-    thumbnail:
-      "https://images.unsplash.com/photo-1516321165247-4aa89a48be28?auto=format&fit=crop&w=1200&q=80",
+    ...knowledgeArticleImages["wat-zijn-embeddings"],
     readTime: "6 min",
     category: "Technology",
     sections: [
@@ -278,8 +275,7 @@ export const knowledgeArticles: KnowledgeArticle[] = [
     title: "What is prompt engineering?",
     excerpt:
       "Prompt engineering is the deliberate way of writing instructions so a model produces useful output. It is not about magic phrases, but about clarity on purpose, context, tone, constraints and expected format.",
-    thumbnail:
-      "https://images.unsplash.com/photo-1516321310764-8d4de8c6b0bd?auto=format&fit=crop&w=1200&q=80",
+    ...knowledgeArticleImages["wat-is-prompt-engineering"],
     readTime: "5 min",
     category: "Methodology",
     sections: [
@@ -315,8 +311,7 @@ export const knowledgeArticles: KnowledgeArticle[] = [
     title: "What is an API?",
     excerpt:
       "An API is an agreed way for systems to exchange data or functions. It is the connection layer that allows software to talk to other software without people having to copy and paste information by hand.",
-    thumbnail:
-      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80",
+    ...knowledgeArticleImages["wat-is-een-api"],
     readTime: "5 min",
     category: "Technology",
     sections: [
@@ -352,8 +347,7 @@ export const knowledgeArticles: KnowledgeArticle[] = [
     title: "What is a webhook?",
     excerpt:
       "A webhook is an automatic message from one system to another as soon as something happens. It allows processes to start immediately without constantly checking whether new information is available.",
-    thumbnail:
-      "https://images.unsplash.com/photo-1516321310764-8d4de8c6b0bd?auto=format&fit=crop&w=1200&q=80",
+    ...knowledgeArticleImages["wat-is-een-webhook"],
     readTime: "5 min",
     category: "Technology",
     sections: [
@@ -389,8 +383,7 @@ export const knowledgeArticles: KnowledgeArticle[] = [
     title: "What is a backend?",
     excerpt:
       "The backend is the part of software where processing, logic, integrations and data flows run outside the user's view. It is the technical layer that makes an app or website actually do something useful.",
-    thumbnail:
-      "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80",
+    ...knowledgeArticleImages["wat-is-een-backend"],
     readTime: "5 min",
     category: "Software",
     sections: [
@@ -426,8 +419,7 @@ export const knowledgeArticles: KnowledgeArticle[] = [
     title: "What is a frontend?",
     excerpt:
       "The frontend is the part of software users directly see and interact with. It covers screens, forms, feedback and flow, and therefore has a major impact on how clear and usable a system feels in practice.",
-    thumbnail:
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
+    ...knowledgeArticleImages["wat-is-een-frontend"],
     readTime: "4 min",
     category: "Software",
     sections: [
@@ -463,8 +455,7 @@ export const knowledgeArticles: KnowledgeArticle[] = [
     title: "What is cloud?",
     excerpt:
       "In most organizations, cloud means software, storage or computing power delivered through external infrastructure. That can offer flexibility and speed, but it also introduces choices around data, dependency and operational control.",
-    thumbnail:
-      "https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=1200&q=80",
+    ...knowledgeArticleImages["wat-is-cloud"],
     readTime: "5 min",
     category: "Infrastructure",
     sections: [
@@ -500,8 +491,7 @@ export const knowledgeArticles: KnowledgeArticle[] = [
     title: "What is a workflow?",
     excerpt:
       "A workflow is the fixed sequence of steps through which work, information and actions move in a process. Once the workflow is clear, it becomes much easier to decide where software, automation or AI can add real value.",
-    thumbnail:
-      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80",
+    ...knowledgeArticleImages["wat-is-een-workflow"],
     readTime: "5 min",
     category: "Methodology",
     sections: [
