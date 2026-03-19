@@ -567,7 +567,7 @@ const assistantSections = [
     title: "What is AITJE Assistant?",
     description:
       "AITJE Assistant is a local AI solution on hardware in your own environment. Your teams work over the local network with chat, knowledge and workflows without continuous dependence on external platforms.",
-    image: "/images/aitje-product.png",
+    image: "/images/aitje-cubes.png",
     alt: "What is AITJE Assistant",
   },
   {
@@ -600,7 +600,7 @@ const assistantSections = [
     title: "AITJE Assistant Client",
     description:
       "The client application is the daily working layer for employees. From the client you get access to chat, output, knowledge questions and linked functionalities within your own organizational environment.",
-    image: "/images/aitje-product.png",
+    image: "/images/aitje-cubes.png",
     alt: "AITJE Assistant Client",
   },
   {

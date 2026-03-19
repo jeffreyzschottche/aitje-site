@@ -37,7 +37,7 @@
             </dl>
           </div>
           <img
-            src="/images/aitje-product.png"
+            src="/images/aitje-cubes.png"
             alt="AITJE Custom"
             class="w-full rounded-3xl border border-gray-100 object-cover shadow-lg"
           />

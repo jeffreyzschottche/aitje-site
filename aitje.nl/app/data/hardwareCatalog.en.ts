@@ -20,7 +20,7 @@ export const hardwareCatalog: HardwareItem[] = [
       "Local AI assistant on proprietary hardware with knowledge base, offline accessibility and API access.",
     heroDescription:
       "AITJE Assistant is a mini computer with our own Operating System, a local LLM and knowledge base functionality for organizations that want control over data, costs and continuity.",
-    image: "/images/aitje-product.png",
+    image: "/images/aitje-cubes.png",
     sections: [
       {
         title: "What do you use this product for?",
@@ -46,7 +46,7 @@ export const hardwareCatalog: HardwareItem[] = [
       "Personalized AI solution for situations where standard hardware does not exactly fit.",
     heroDescription:
       "For organizations that need just more specs or a specific offline workflow at the hardware level.",
-    image: "/images/aitje-product.png",
+    image: "/images/custom-suited.png",
     sections: [
       {
         title: "What makes this customization?",

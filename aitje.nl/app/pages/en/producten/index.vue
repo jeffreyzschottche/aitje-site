@@ -1,381 +1,373 @@
 <template>
   <div class="bg-[#f5f5f5] text-gray-900">
     <SiteNavigation />
-    <main class="px-6 pt-32">
-      <section
-        class="mx-auto w-full px-4 py-12 text-center sm:max-w-5xl sm:px-8"
-      >
-        <p
-          class="text-sm font-semibold uppercase tracking-[0.5em] text-[#facc15]"
-        >
+
+    <main class="px-6 pb-20 pt-32">
+      <section class="mx-auto max-w-6xl rounded-[3rem] bg-[#212121] px-8 py-12 text-white md:px-12 md:py-16">
+        <p class="text-sm font-semibold uppercase tracking-[0.5em] text-[#facc15]">
           Products
         </p>
-        <h1 class="mt-4 text-5xl font-black text-gray-900">
-          Choose your golden AITJE
+        <h1 class="mt-4 max-w-4xl text-5xl font-black leading-tight md:text-6xl">
+          Products, software and applications from AITJE
         </h1>
-        <p class="mt-6 text-lg text-gray-600">
-          Based on our business plan: three packages of hardware, services and subscriptions. All 100% local, nature-friendly and independent of US corporations.
+        <p class="mt-6 max-w-3xl text-lg text-gray-300">
+          From local AI hardware and our own software to applications that are
+          directly usable inside your organization. Here you can see what you
+          can start with, what you can combine and where custom work becomes the
+          logical next step.
         </p>
-      </section>
-
-      <section class="mx-auto mt-12 grid max-w-6xl gap-6 md:grid-cols-3">
-        <div
-          v-for="value in valueProps"
-          :key="value.title"
-          class="rounded-3xl border border-gray-200 bg-[#fafafa] p-5"
-        >
-          <div class="flex items-center gap-3 text-[#facc15]">
-            <component :is="value.icon" class="h-6 w-6" />
-            <h3 class="text-lg font-semibold text-gray-900">
-              {{ value.title }}
-            </h3>
-          </div>
-          <p class="mt-3 text-sm text-gray-600">{{ value.description }}</p>
+        <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+          <NuxtLink
+            :to="localePath('/diensten')"
+            class="inline-flex w-fit items-center justify-center self-start whitespace-nowrap rounded-full bg-[#facc15] px-6 py-2.5 text-sm font-semibold text-black transition hover:bg-white"
+          >
+            View services
+          </NuxtLink>
+          <NuxtLink
+            :to="localePath('/cases')"
+            class="inline-flex w-fit items-center justify-center self-start whitespace-nowrap rounded-full border border-white/20 px-6 py-2.5 text-sm font-semibold text-white transition hover:border-white"
+          >
+            View cases
+          </NuxtLink>
         </div>
       </section>
 
-      <section class="mx-auto mt-16 max-w-6xl grid gap-8 lg:grid-cols-3">
+      <section class="mx-auto mt-8 grid max-w-6xl gap-4 md:grid-cols-3">
         <article
-          v-for="plan in plans"
-          :key="plan.title"
-          class="flex flex-col rounded-3xl border-2 p-6 shadow-xl"
-          :class="
-            plan.featured
-              ? 'border-[#facc15] bg-[#facc15]'
-              : 'border-gray-200 bg-white'
-          "
+          v-for="stat in productStats"
+          :key="stat.label"
+          class="rounded-[2rem] border border-gray-200 bg-white p-6 shadow-sm"
         >
-          <img
-            :src="plan.image"
-            :alt="plan.title"
-            class="mb-6 w-full rounded-2xl border border-white/40 object-cover shadow"
-          />
-          <p
-            class="text-xs font-semibold uppercase tracking-[0.4em] text-gray-400"
-          >
-            {{ plan.tier }}
+          <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
+            {{ stat.label }}
           </p>
-          <h2 class="mt-2 text-3xl font-black text-gray-900">
-            {{ plan.title }}
-          </h2>
-          <p class="mt-2 text-sm text-gray-600">{{ plan.description }}</p>
-          <div
-            class="mt-6 rounded-2xl bg-white/80 p-4"
-            :class="plan.featured ? 'shadow-lg shadow-[#facc15]/50' : ''"
-          >
-            <div class="flex items-baseline gap-2">
-              <span class="text-4xl font-black text-gray-900">{{
-                plan.price
-              }}</span>
-              <span class="text-sm text-gray-500">one-time</span>
-            </div>
-            <p class="mt-4 text-sm text-gray-700">
-              <span class="font-semibold text-gray-900">Recurring:</span>
-              {{ plan.recurring }}
-            </p>
-          </div>
-          <ul class="mt-8 flex-1 space-y-3 text-sm text-gray-700">
-            <li
-              v-for="perk in plan.perks"
-              :key="perk"
-              class="flex items-start gap-3"
-            >
-              <Check class="mt-1 h-5 w-5 flex-shrink-0 text-[#facc15]" />
-              <span>{{ perk }}</span>
-            </li>
-          </ul>
-          <div class="mt-8 rounded-2xl bg-[#fafafa] p-4 text-sm text-gray-600">
-            <p class="font-semibold text-gray-900">Services:</p>
-            <p>{{ plan.service }}</p>
-          </div>
-          <div class="mt-6 grid gap-3 sm:grid-cols-2">
-            <button
-              class="w-full rounded-full px-6 py-3 text-sm font-semibold cursor-pointer transition-colors duration-200"
-            :class="
-              plan.featured
-                ? 'bg-black text-white hover:bg-black hover:text-[#facc15]'
-                : 'bg-[#facc15] text-black hover:bg-black hover:text-[#facc15]'
-            "
-            >
-              {{ plan.cta }}
-            </button>
-            <NuxtLink
-              :to="plan.moreInfoLink"
-              class="inline-flex items-center justify-center rounded-full border border-gray-900 px-6 py-3 text-sm font-semibold text-gray-900 transition hover:bg-gray-900 hover:text-white"
-            >
-              More info
-            </NuxtLink>
-          </div>
+          <p class="mt-3 text-2xl font-black text-gray-900">{{ stat.value }}</p>
+          <p class="mt-2 text-sm text-gray-600">{{ stat.description }}</p>
         </article>
       </section>
 
-      <section
-        class="mx-auto mt-20 grid max-w-6xl gap-10 lg:grid-cols-[0.9fr_1.1fr]"
-      >
-        <div
-          class="rounded-3xl border border-gray-200 bg-[#fafafa] p-8 lg:sticky lg:top-24 lg:self-start"
-        >
-          <p
-            class="text-sm font-semibold uppercase tracking-[0.4em] text-[#facc15]"
+      <section class="mx-auto mt-16 max-w-6xl rounded-[2.5rem] border border-gray-200 bg-white p-8 shadow-sm md:p-10">
+        <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
+              1. AITJE Assistant
+            </p>
+            <h2 class="mt-3 text-3xl font-black text-gray-900 md:text-4xl">
+              Hardware and local interfaces that are already ready to use
+            </h2>
+            <p class="mt-3 max-w-3xl text-base text-gray-600">
+              From the AITJE Cube itself to our self-built OS, client, embedding
+              environment or custom builds. These are the existing components
+              you can start with immediately and continue building on.
+            </p>
+          </div>
+          <NuxtLink
+            :to="localePath('/producten/hardware')"
+            class="inline-flex items-center justify-center rounded-full bg-black px-6 py-3 text-sm font-semibold text-white transition hover:text-[#facc15]"
           >
-            What comes standard
-          </p>
-          <h3 class="mt-3 text-3xl font-black text-gray-900">
-            Each AITJE comes with
-          </h3>
-          <ul class="mt-6 space-y-3 text-sm text-gray-700">
-            <li
-              v-for="item in standard"
-              :key="item"
-              class="flex items-start gap-3"
-            >
-              <Check class="mt-0.5 h-4 w-4 flex-shrink-0 text-[#facc15]" />
-              {{ item }}
-            </li>
-          </ul>
+            More info
+          </NuxtLink>
         </div>
-        <div class="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm">
-          <p
-            class="text-sm font-semibold uppercase tracking-[0.4em] text-[#facc15]"
+
+        <div class="mt-8 grid gap-5 md:grid-cols-3">
+          <article
+            v-for="item in hardwareShowcase"
+            :key="item.title"
+            class="overflow-hidden rounded-[2rem] border border-gray-200 bg-[#fafafa]"
           >
-            Subscriptions & services
-          </p>
-          <div class="mt-4 grid gap-4">
-            <article
-              v-for="service in services"
-              :key="service.title"
-              class="rounded-2xl border border-gray-100 p-4"
-            >
-              <div class="flex items-center gap-3">
-                <component :is="service.icon" class="h-8 w-8 text-[#facc15]" />
-                <div>
-                  <h4 class="text-lg font-semibold text-gray-900">
-                    {{ service.title }}
-                  </h4>
-                  <p class="text-xs uppercase tracking-[0.4em] text-gray-400">
-                    {{ service.badge }}
-                  </p>
-                </div>
-              </div>
-              <p class="mt-3 text-sm text-gray-600">
-                {{ service.description }}
+            <div class="aspect-[4/3] bg-gradient-to-br from-[#f7f7f7] to-white p-5">
+              <img
+                :src="item.image"
+                :alt="item.title"
+                class="h-full w-full rounded-[1.5rem] object-cover"
+              />
+            </div>
+            <div class="p-6">
+              <p class="text-xs font-semibold uppercase tracking-[0.35em] text-[#facc15]">
+                {{ item.label }}
               </p>
-            </article>
+              <h3 class="mt-2 text-2xl font-black text-gray-900">
+                {{ item.title }}
+              </h3>
+              <p class="mt-3 text-sm text-gray-600">{{ item.description }}</p>
+              <NuxtLink
+                :to="item.link"
+                class="mt-5 inline-flex text-sm font-semibold text-gray-900 transition hover:text-[#facc15]"
+              >
+                {{ item.cta }}
+              </NuxtLink>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="mx-auto mt-16 max-w-6xl rounded-[2.5rem] border border-gray-200 bg-[#212121] p-8 text-white shadow-sm md:p-10">
+        <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
+              2. Software
+            </p>
+            <h2 class="mt-3 text-3xl font-black md:text-4xl">
+              Out-of-the-box solutions
+            </h2>
+            <p class="mt-3 max-w-3xl text-base text-gray-300">
+              Our solutions keep growing. If we already have a modular solution
+              that fits your situation out of the box, you can view it here and
+              click through directly to the right software page.
+            </p>
+          </div>
+          <NuxtLink
+            :to="localePath('/producten/software')"
+            class="inline-flex items-center justify-center rounded-full bg-[#facc15] px-6 py-3 text-sm font-semibold text-black transition hover:bg-white"
+          >
+            More info
+          </NuxtLink>
+        </div>
+
+        <div class="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          <article
+            v-for="item in softwareShowcase"
+            :key="item.link"
+            class="overflow-hidden rounded-[2rem] border border-white/10 bg-[#161616]"
+          >
+            <div class="aspect-[4/3] border-b border-white/10 bg-black/20 p-4">
+              <img
+                :src="item.image"
+                :alt="item.title"
+                class="h-full w-full rounded-[1.5rem] bg-white object-contain p-3"
+              />
+            </div>
+            <div class="p-6">
+              <p class="text-xs font-semibold uppercase tracking-[0.35em] text-[#facc15]">
+                {{ item.label }}
+              </p>
+              <h3 class="mt-2 text-2xl font-black text-white">
+                {{ item.title }}
+              </h3>
+              <p class="mt-3 text-sm text-gray-300">{{ item.description }}</p>
+              <NuxtLink
+                :to="item.link"
+                class="mt-5 inline-flex text-sm font-semibold text-[#facc15] transition hover:text-white"
+              >
+                Open software page
+              </NuxtLink>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="mx-auto mt-16 max-w-6xl rounded-[2.5rem] border border-gray-200 bg-white p-8 shadow-sm md:p-10">
+        <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
+              3. Services
+            </p>
+            <h2 class="mt-3 text-3xl font-black text-gray-900 md:text-4xl">
+              How we help organizations with implementation and custom work
+            </h2>
+            <p class="mt-3 max-w-3xl text-base text-gray-600">
+              AITJE thinks strategically with you about how AI can add real
+              value inside your organization. View our services to quickly see
+              where we support you in content, technology and operations.
+            </p>
           </div>
           <NuxtLink
             :to="localePath('/diensten')"
-            class="mt-6 inline-flex w-full items-center justify-center rounded-full bg-black px-6 py-3 text-sm font-semibold text-white cursor-pointer transition-colors duration-200 hover:bg-black hover:text-[#facc15]"
+            class="inline-flex w-fit items-center justify-center self-start whitespace-nowrap rounded-full bg-[#facc15] px-5 py-2.5 text-sm font-semibold text-black transition hover:bg-black hover:text-[#facc15]"
           >
-            See all services
+            View services
           </NuxtLink>
+        </div>
+
+        <div class="mt-8 grid gap-5 lg:grid-cols-2">
+          <article
+            v-for="service in services"
+            :key="service.title"
+            class="rounded-[2rem] border border-gray-200 bg-[#fafafa] p-6"
+          >
+            <p class="text-xs font-semibold uppercase tracking-[0.35em] text-[#facc15]">
+              {{ service.focus }}
+            </p>
+            <h3 class="mt-3 text-2xl font-black text-gray-900">
+              {{ service.title }}
+            </h3>
+            <p class="mt-3 text-sm text-gray-600">{{ service.description }}</p>
+            <div class="mt-5 rounded-[1.5rem] bg-white p-4">
+              <p class="text-sm font-semibold text-gray-900">Result</p>
+              <p class="mt-2 text-sm text-gray-600">{{ service.result }}</p>
+            </div>
+            <ul class="mt-5 space-y-3 text-sm text-gray-700">
+              <li
+                v-for="detail in service.details"
+                :key="detail"
+                class="flex items-start gap-3"
+              >
+                <span class="mt-1 h-2.5 w-2.5 flex-shrink-0 rounded-full bg-[#facc15]"></span>
+                <span>{{ detail }}</span>
+              </li>
+            </ul>
+            <NuxtLink
+              :to="localePath('/diensten')"
+              class="mt-5 inline-flex text-sm font-semibold text-gray-900 transition hover:text-[#facc15]"
+            >
+              More about this service
+            </NuxtLink>
+          </article>
         </div>
       </section>
 
-      <section
-        class="mx-auto mt-20 max-w-5xl rounded-[3rem] bg-[#212121] p-10 text-white"
-      >
-        <div
-          class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between"
-        >
-          <div>
-            <p
-              class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
-            >
-              Why now
+      <section class="mx-auto mt-16 max-w-6xl rounded-[3rem] bg-[#212121] p-10 text-white">
+        <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+          <div class="max-w-3xl">
+            <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
+              Situational solutions
             </p>
-            <h3 class="mt-3 text-3xl font-black">
-              Protect yourself from price increases
-            </h3>
-            <p class="mt-3 text-sm text-gray-300">
-              In our business plan, we expect Big Tech to start raising rates once everyone is dependent. With AITJE, you choose fixed hardware + customized services. No surprises.
+            <h2 class="mt-3 text-3xl font-black md:text-4xl">
+              We also design specific solutions for a concrete situation
+            </h2>
+            <p class="mt-4 text-base text-gray-300">
+              Not every question fits standard hardware or an existing software
+              page. In our cases you can see how we tailor applications,
+              agents, workflows and implementations to real context.
             </p>
           </div>
           <NuxtLink
-            :to="localePath('/contact')"
-            class="inline-flex items-center justify-center rounded-full bg-[#facc15] px-6 py-3 text-sm font-semibold text-black cursor-pointer transition-colors duration-200 hover:bg-black hover:text-[#facc15]"
+            :to="localePath('/cases')"
+            class="inline-flex w-fit items-center justify-center self-start whitespace-nowrap rounded-full bg-[#facc15] px-6 py-2.5 text-sm font-semibold text-black transition hover:bg-white"
           >
-            Schedule a demo
+            View cases
           </NuxtLink>
-        </div>
-      </section>
-
-      <section class="mx-auto mt-20 max-w-5xl">
-        <h2 class="text-center text-4xl font-black text-gray-900">
-          Frequently Asked Questions
-        </h2>
-        <p class="mt-3 text-center text-sm text-gray-500">
-          Based on the business plan and conversations with customers.
-        </p>
-        <div class="mt-10 space-y-5">
-          <details
-            v-for="faq in faqs"
-            :key="faq.question"
-            class="rounded-3xl border border-gray-200 bg-[#fafafa] p-5"
-          >
-            <summary class="cursor-pointer text-lg font-semibold text-gray-900">
-              {{ faq.question }}
-            </summary>
-            <p class="mt-3 text-sm text-gray-600">{{ faq.answer }}</p>
-          </details>
         </div>
       </section>
     </main>
 
     <BottomCta />
-
     <SiteFooter />
   </div>
 </template>
 
 <script setup lang="ts">
-import {
-  Box,
-  Check,
-  Leaf,
-  Lock,
-  Package,
-  Shield,
-  Truck,
-} from "lucide-vue-next";
+import { softwareCatalog } from "@/data/softwareCatalog.en";
 
 const { localePath } = useSiteLocale();
 
-const valueProps = [
+const productStats = [
   {
-    title: "Nature-friendly AI",
+    label: "Overview",
+    value: "Hardware + software",
     description:
-      "Each local prompt saves water and energy in remote data centers.",
-    icon: Leaf,
+      "This page shows the combined AITJE line: devices, local interfaces, software and applications.",
   },
   {
-    title: "100% data ownership",
+    label: "Build further",
+    value: "From existing to custom",
     description:
-      "You don't share anything with American corporations. Everything stays in your own locker.",
-    icon: Lock,
+      "You can start with existing building blocks and scale from there to integrations, knowledge layers and custom trajectories.",
   },
   {
-    title: "Plug and play hardware",
+    label: "Next step",
+    value: "Services and cases",
     description:
-      "Inspired by our business plan: tested hardware, support and services.",
-    icon: Box,
+      "If your question does not fully fit an existing product, services and cases show how we extend it into your real-world situation.",
   },
 ];
 
-const plans = [
+const hardwareShowcase = [
   {
-    title: "AITJE",
-    tier: "Solo & freelancers",
-    price: "€ 3.999",
-    recurring: "EUR 0 per year",
-    description:
-      "The basic locker for individuals seeking security and autonomy.",
-    perks: [
-      "Plug and play hardware + OS",
-      "Chat + API + audio interface",
-      "Own accounts and API keys",
-      "Community support",
-    ],
-    service: "We provide manuals and an optional installation call.",
-    cta: "Order",
+    label: "Hardware",
+    title: "AITJE Assistant",
     image: "/images/aitje-cubes.png",
-    moreInfoLink: localePath("/aitje"),
-  },
-  {
-    title: "AITJE Pro",
-    tier: "SMEs / organizations",
-    price: "€ 5.499",
-    recurring: "EUR 1,200 per year (SLA + e-learning + consult)",
+    link: "/en/producten/hardware/aitje-assistent",
     description:
-      "For SMEs, schools and libraries from the business plan who want guidance.",
-    perks: [
-      "Installation + preparation (2.5 hours + 50 travel costs)",
-      "First consult (digital, about 1 hour free)",
-      "One custom knowledge update (embedding workflow)",
-      "Priority in support and tickets",
-    ],
-    service: "SLA + e-learning platform + annual health check.",
-    cta: "Order",
-    featured: true,
-    image: "/images/os-screenshots/chatassistent.jpeg",
-    moreInfoLink: localePath("/aitje-pro"),
+      "The local AI assistant on proprietary hardware with a knowledge base, offline accessibility and API access.",
+    cta: "More about AITJE Assistant",
   },
   {
+    label: "Hardware",
     title: "AITJE Custom",
-    tier: "Strategic partnership",
-    price: "€ 7.500+",
-    recurring: "EUR 2,500 - 3,750 per year",
-    description:
-      "For larger organizations that want to continue development with us.",
-    perks: [
-      "Custom hardware and optimizations",
-      "Knowledge updates whenever you need them (1,250 per session)",
-      "LLM upgrades (250 per upgrade + report)",
-      "Consults and roadmap sessions (100 per hour)",
-    ],
-    service: "Dedicated account + backdoor embedding + governance advice.",
-    cta: "Order",
     image: "/images/custom-suited.png",
-    moreInfoLink: localePath("/aitje-custom"),
+    link: "/en/producten/hardware/aitje-custom",
+    description:
+      "For situations where standard hardware is not the exact fit and you need more performance or specific integrations.",
+    cta: "More about AITJE Custom",
+  },
+  {
+    label: "Software",
+    title: "AITJE Assistant OS",
+    image: "/images/os-screenshots/chatassistent.jpeg",
+    link: "/en/producten/software/aitje-assistent-os",
+    description:
+      "The local cockpit on the cube where chat, knowledge, maps, devices and management come together.",
+    cta: "More about AITJE Assistant OS",
   },
 ];
 
-const standard = [
-  "AITJE unit + cables + documentation",
-  "Pre-installed local LLM and knowledge base",
-  "Management for users, API keys and logging",
-  "Support via email and ticketing",
-  "Access to our community updates",
-];
+const softwareLabelForSlug = (slug: string) => {
+  if (slug.startsWith("wordpress-")) return "WordPress";
+  if (slug.startsWith("aitje-assistent-")) return "AITJE";
+  if (slug === "promptpaleis") return "AI platform";
+  if (slug === "raad-van-bestuur") return "Council";
+  return "Software";
+};
+
+const softwareShowcase = softwareCatalog
+  .filter((item) => item.slug !== "aitje-notulist")
+  .map((item) => ({
+    label: softwareLabelForSlug(item.slug),
+    title: item.title,
+    image: item.image,
+    link: `/en/producten/software/${item.slug}`,
+    description: item.shortDescription,
+  }));
 
 const services = [
   {
-    title: "Installation & Preparation",
-    badge: "2.5 hours + 50,- call-out fee",
+    focus: "Costs & stability",
+    title: "Consulting: optimize usage",
     description:
-      "We set up the cabinet, connect monitor/mouse/keyboard and make sure everything is running perfectly.",
-    icon: Truck,
+      "We analyze your current AI usage and make your stack cheaper, more stable and less dependent on one party.",
+    result:
+      "Lower costs, better performance and more control over your vendors.",
+    details: [
+      "Analysis of token usage, costs and latency",
+      "Smart routing between multiple models",
+    ],
   },
   {
-    title: "Consults",
-    badge: "First call free",
+    focus: "Strategy",
+    title: "Design your AI strategy",
     description:
-      "Thereafter 100,- per hour. Together we look at governance, prompts or new applications.",
-    icon: Shield,
+      "We help think through where AI delivers the most value for your organization right now and which next steps make sense.",
+    result:
+      "A clear plan you can start with immediately, without getting lost in all the AI options.",
+    details: [
+      "A report showing where AI can add direct value in your organization",
+      "A plan for which tools you can already use today",
+    ],
   },
   {
-    title: "Updating your own knowledge",
-    badge: "€1,250 per update",
+    focus: "Knowledge-driven AI",
+    title: "RAG chat and custom solutions",
     description:
-      "Upload documents in our embedding environment, we will place the knowledge on your cabinet.",
-    icon: Package,
-  },
-];
-
-const faqs = [
-  {
-    question: "Why are there three packages?",
-    answer:
-      "In the business plan, we distinguish three personas: solo users, SMEs and larger organizations. Each package has the right mix of hardware, services and subscriptions for that persona.",
+      "From AITJE Assistant to custom software: question in, answer back with matched context from your own knowledge.",
+    result:
+      "Directly usable answers based on your own documents and business context.",
+    details: [
+      "RAG chat with documents, policies and internal knowledge",
+      "Integration into existing processes and teams",
+    ],
   },
   {
-    question: "What if I need additional services?",
-    answer:
-      "You book services separately: consults at €100 per hour, knowledge updates at €1,250, LLM upgrades at €250 per upgrade and SLA/E-learning according to the amounts above.",
-  },
-  {
-    question: "Does this really help nature?",
-    answer:
-      "Yes. Every prompt you process locally saves energy AND gallons of cooling water compared to giant server halls that have to be turned on for every demand.",
-  },
-  {
-    question: "Am I dependent on American corporations?",
-    answer:
-      "No. AITJE runs completely locally. Your data doesn't leave your network and you decide when to perform updates.",
-  },
-  {
-    question: "Can I upgrade later?",
-    answer:
-      "You can always switch to Pro or Custom, add additional services or upgrade hardware. We'll discuss the best path together.",
+    focus: "Implementation",
+    title: "Custom software solutions",
+    description:
+      "We build custom software and applications that make AI a logical part of your daily operation.",
+    result:
+      "Tools that match your workflow exactly instead of generic software wrapped around it.",
+    details: [
+      "Custom agents, dashboards and internal tools",
+      "Connection to existing processes, teams and systems",
+    ],
   },
 ];
 </script>

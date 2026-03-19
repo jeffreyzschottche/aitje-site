@@ -22,8 +22,17 @@ export const softwareCatalog: SoftwareItem[] = [
       "Central management layer for API, access, devices and local collaboration within AITJE.",
     heroDescription:
       "AITJE Assistant OS is the central operating system behind the AITJE environment, bringing together hardware, AI functionality and connected devices into a manageable local base.",
-    image: "/images/OS_Screenshot.jpeg",
+    image: "/images/os-screenshots/chatassistent.jpeg",
     imageFit: "contain",
+    galleryImages: [
+      "/images/os-screenshots/chatassistent.jpeg",
+      "/images/os-screenshots/contacten.jpeg",
+      "/images/os-screenshots/gebruikersbeheer.jpeg",
+      "/images/os-screenshots/instellingen.jpeg",
+      "/images/os-screenshots/kennisbankinzicht.jpeg",
+      "/images/os-screenshots/map.jpeg",
+      "/images/os-screenshots/netwerksettings.png",
+    ],
     sections: [
       {
         title: "Central direction",
@@ -54,8 +63,14 @@ export const softwareCatalog: SoftwareItem[] = [
       "Client layer for laptops, tablets and phones that connect locally to the AITJE environment.",
     heroDescription:
       "The AITJE Assistant Client makes AITJE directly accessible on multiple devices within the local network, while usage, access and communication remain local and controlled.",
-    image: "/images/Client_Screenshot.jpeg",
+    image: "/images/aitje-client-screens.png",
     imageFit: "contain",
+    galleryImages: [
+      "/images/aitje-client-screens.png",
+      "/images/client/connect-hardware.png",
+      "/images/client/login.png",
+      "/images/client/home-chat.png",
+    ],
     sections: [
       {
         title: "Directly connected",
@@ -81,8 +96,17 @@ export const softwareCatalog: SoftwareItem[] = [
       "Knowledge base for documents, structure, consistency and controlled synchronization within AITJE.",
     heroDescription:
       "The Knowledge Base helps organizations process documents and knowledge intelligently, organize them logically and convert them into a searchable and usable knowledge base.",
-    image: "/images/Kennisbank_Screenshot_1.jpeg",
+    image: "/images/embedding/home.png",
     imageFit: "contain",
+    galleryImages: [
+      "/images/embedding/home.png",
+      "/images/embedding/account-settings.png",
+      "/images/embedding/kennisbank-inzicht.png",
+      "/images/embedding/knowledgebase-bibliotheek.png",
+      "/images/embedding/prioriteitsmanager.png",
+      "/images/embedding/relatiemanager.png",
+      "/images/embedding/versiebeheer.png",
+    ],
     sections: [
       {
         title: "From files to knowledge",
@@ -113,7 +137,7 @@ export const softwareCatalog: SoftwareItem[] = [
       "Management environment for recordings, summaries and delivery flows of AITJE Notetaker.",
     heroDescription:
       "With AITJE Secretary, you control recording workflows, output settings and distribution to your own environment from one central management layer.",
-    image: "/images/aitje-product.png",
+    image: "/images/aitje-cubes.png",
     sections: [
       {
         title: "What are you managing here?",
@@ -134,8 +158,13 @@ export const softwareCatalog: SoftwareItem[] = [
       "Smart search layer for WordPress content with AI-assisted relevance and summary.",
     heroDescription:
       "This solution enables content in WordPress to be more quickly findable and usable with AI search functionality and contextual answers.",
-    image:
-      "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80",
+    image: "/images/aitje-search-overview-settings-example.png",
+    galleryImages: [
+      "/images/aitje-search-overview-settings-example.png",
+      "/images/aitje-search-overview-embedding-example.png",
+      "/images/aitje-search-overview-example-on-page.png",
+      "/images/aitje-search-overview-prompt-example.png",
+    ],
     sections: [
       {
         title: "What does it do?",
@@ -156,8 +185,12 @@ export const softwareCatalog: SoftwareItem[] = [
       "An AI chat layer on WordPress that answers questions based on your own content and knowledge.",
     heroDescription:
       "WordPress AI Chat brings a contextual assistant into your website or environment, providing visitors and teams with relevant answers instantly.",
-    image:
-      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80",
+    image: "/images/wp-rag-chat-example.png",
+    galleryImages: [
+      "/images/wp-rag-chat-example.png",
+      "/images/wp-chat-settings-example.png",
+      "/images/wp-chat-embedding-example.png",
+    ],
     sections: [
       {
         title: "What does it do?",
@@ -178,8 +211,14 @@ export const softwareCatalog: SoftwareItem[] = [
       "Automatic alt text generation for images in WordPress to improve accessibility and SEO.",
     heroDescription:
       "WordPress Alt Text Generator helps teams generate consistent, usable alt texts and reduce manual work.",
-    image:
-      "https://images.unsplash.com/photo-1484417894907-623942c8ee29?auto=format&fit=crop&w=1200&q=80",
+    image: "/images/alt-generator-header-and-settings.png",
+    galleryImages: [
+      "/images/alt-generator-header-and-settings.png",
+      "/images/alt-generator-execute-and-focus.png",
+      "/images/alt-generator-prompt-and-save.png",
+      "/images/alt-text-media-library-image-without-alt.png",
+      "/images/alt-generator-new-alt-text-example.png",
+    ],
     sections: [
       {
         title: "Why this is important",
@@ -200,8 +239,12 @@ export const softwareCatalog: SoftwareItem[] = [
       "Dutch marketplace for pre-made prompts and guides to get more out of AI.",
     heroDescription:
       "PromptPaleis offers practical prompts, examples and guides for teams who want to get value from LLMs faster.",
-    image:
-      "https://images.unsplash.com/photo-1516321310764-8d4de8c6b0bd?auto=format&fit=crop&w=1200&q=80",
+    image: "/images/promptpaleis-home-screen.png",
+    galleryImages: [
+      "/images/promptpaleis-home-screen.png",
+      "/images/promptpaleis-marketplace.png",
+      "/images/promptpaleis-verkoper.png",
+    ],
     sections: [
       {
         title: "What do you find there?",
@@ -222,8 +265,13 @@ export const softwareCatalog: SoftwareItem[] = [
       "Software solution for board-level overview, decision-making and knowledge support.",
     heroDescription:
       "Board of Directors is aimed at organizations that want to bring together governance information, documents and context faster for better decision-making.",
-    image:
-      "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80",
+    image: "/images/council-header.png",
+    galleryImages: [
+      "/images/council-header.png",
+      "/images/council1.png",
+      "/images/council2.png",
+      "/images/council3.png",
+    ],
     sections: [
       {
         title: "Target",

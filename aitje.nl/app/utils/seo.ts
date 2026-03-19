@@ -37,7 +37,7 @@ type ResolvedSeoEntry = {
 
 const SITE_NAME = "AITJE";
 const SITE_URL = "https://aitje.nl";
-const DEFAULT_IMAGE = "/images/aitje-product.png";
+const DEFAULT_IMAGE = "/images/aitje-cubes.png";
 const DEFAULT_NL_DESCRIPTION =
   "AITJE ontwikkelt lokale AI-oplossingen, software, hardware en maatwerk voor organisaties die grip willen houden op data, privacy en continuiteit.";
 const DEFAULT_EN_DESCRIPTION =
@@ -1205,4 +1205,3 @@ export function buildAlternateLinks(entry: ResolvedSeoEntry) {
     },
   ];
 }
-
