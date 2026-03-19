@@ -64,11 +64,22 @@
           </div>
           <div class="relative">
             <div class="rounded-[2.5rem] p-8 backdrop-blur">
-              <img
-                src="/images/aitje-product.png"
-                alt="AITJE system"
-                class="w-full rounded-3xl border border-white/10 bg-white/80 object-cover"
-              />
+              <div
+                class="relative mx-auto flex aspect-square w-full max-w-[34rem] items-center justify-center overflow-hidden rounded-[2.5rem]"
+              >
+                <div
+                  aria-hidden="true"
+                  class="pointer-events-none absolute inset-x-[18%] inset-y-[8%] rounded-[50%] border-[14px] border-white/90 shadow-[0_0_0_1px_rgba(255,255,255,0.08)]"
+                ></div>
+                <video
+                  src="/images/aitje-home-animated-egg-boomerang.mp4"
+                  autoplay
+                  loop
+                  muted
+                  playsinline
+                  class="relative z-10 h-full w-full object-contain"
+                ></video>
+              </div>
               <div
                 class="mt-8 rounded-2xl border border-white/10 bg-white/5 p-4"
               >
@@ -390,7 +401,7 @@
                   class="aspect-[4/3] bg-gradient-to-br from-[#2a2a2a] to-[#111] p-5"
                 >
                   <img
-                    src="/images/aitje-product.png"
+                    :src="variant.image"
                     :alt="variant.title"
                     class="h-full w-full rounded-2xl border border-white/10 bg-white/90 object-cover"
                   />
@@ -438,7 +449,7 @@
                 class="overflow-hidden rounded-[1.75rem] border border-white/10 bg-black/30 p-5"
               >
                 <img
-                  src="/images/aitje-product.png"
+                  src="/images/os-screenshots/chatassistent.jpeg"
                   alt="AITJE Secretary"
                   class="h-full w-full rounded-2xl border border-white/10 bg-white/90 object-cover"
                 />
@@ -912,16 +923,19 @@ const assistantVariants = [
     title: "Compact tier",
     description:
       "For individual workplaces or small teams that want to start locally.",
+    image: "/images/aitje-cubes.png",
   },
   {
     title: "Team setup",
     description:
       "For organizations that want to have multiple users working on the same network.",
+    image: "/images/os-screenshots/chatassistent.jpeg",
   },
   {
     title: "Custom build",
     description:
       "Personally built variant for specific performance or integration needs.",
+    image: "/images/custom-suited.png",
   },
 ];
 

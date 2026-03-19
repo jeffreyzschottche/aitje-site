@@ -173,10 +173,9 @@
             @click="switchLanguage(option.locale)"
           >
             <span
-              class="h-4 w-4 rounded-full border border-black/10"
-              :style="{ background: option.flag }"
+              class="inline-flex h-4 w-4 items-center justify-center text-sm leading-none"
               aria-hidden="true"
-            ></span>
+            >{{ option.flag }}</span>
             <span>{{ option.shortLabel }}</span>
           </button>
         </div>
@@ -201,10 +200,9 @@
             @click="switchLanguage(option.locale)"
           >
             <span
-              class="h-4 w-4 rounded-full border border-black/10"
-              :style="{ background: option.flag }"
+              class="inline-flex h-4 w-4 items-center justify-center text-sm leading-none"
               aria-hidden="true"
-            ></span>
+            >{{ option.flag }}</span>
           </button>
         </div>
 
@@ -361,13 +359,13 @@ const languageOptions = computed(() => [
     locale: "nl" as const,
     label: copy.value.dutch,
     shortLabel: "NL",
-    flag: "linear-gradient(180deg, #ae1c28 0 33.33%, #ffffff 33.33% 66.66%, #21468b 66.66% 100%)",
+    flag: "🇳🇱",
   },
   {
     locale: "en" as const,
     label: copy.value.english,
     shortLabel: "EN",
-    flag: "linear-gradient(135deg, #012169 0 42%, #ffffff 42% 47%, #c8102e 47% 53%, #ffffff 53% 58%, #012169 58% 100%)",
+    flag: "🇬🇧",
   },
 ]);
 

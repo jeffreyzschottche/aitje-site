@@ -277,7 +277,7 @@ const plans = [
     ],
     service: "We provide manuals and an optional installation call.",
     cta: "Order",
-    image: "/images/aitje-product.png",
+    image: "/images/aitje-cubes.png",
     moreInfoLink: localePath("/aitje"),
   },
   {
@@ -296,7 +296,7 @@ const plans = [
     service: "SLA + e-learning platform + annual health check.",
     cta: "Order",
     featured: true,
-    image: "/images/aitje-product.png",
+    image: "/images/os-screenshots/chatassistent.jpeg",
     moreInfoLink: localePath("/aitje-pro"),
   },
   {
@@ -314,7 +314,7 @@ const plans = [
     ],
     service: "Dedicated account + backdoor embedding + governance advice.",
     cta: "Order",
-    image: "/images/aitje-product.png",
+    image: "/images/custom-suited.png",
     moreInfoLink: localePath("/aitje-custom"),
   },
 ];
