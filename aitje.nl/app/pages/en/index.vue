@@ -1071,9 +1071,10 @@ onBeforeUnmount(() => {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 50%;
-  width: 100vw;
-  transform: translateX(-50%);
+  left: 0;
+  right: 0;
+  width: 100%;
+  overflow: clip;
   pointer-events: none;
   z-index: 0;
 }
