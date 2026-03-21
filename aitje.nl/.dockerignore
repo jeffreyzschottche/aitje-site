@@ -1,0 +1,11 @@
+.git
+.gitignore
+.DS_Store
+.env
+.nuxt
+.output
+dist
+node_modules
+npm-debug.log*
+README.md
+Business plan AITJE.pdf

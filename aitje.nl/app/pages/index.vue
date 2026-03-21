@@ -67,12 +67,20 @@
             </div>
           </div>
           <div class="relative">
-            <div class="rounded-[2.5rem] p-8 backdrop-blur">
-              <img
-                src="/images/aitje-home-animated-egg-boomerang.apng"
-                alt="Aitje animated egg"
+            <div
+              class="rounded-[2.5rem] p-8 backdrop-blur"
+              style="background-color: #212121;"
+            >
+              <video
+                autoplay
+                muted
+                loop
+                playsinline
                 class="mx-auto aspect-square w-full max-w-[34rem] object-contain"
-              />
+                aria-label="Aitje animated egg"
+              >
+                <source src="/images/aitje-home-animated-egg-boomerang-dark.mp4" type="video/mp4" />
+              </video>
             </div>
           </div>
         </div>
