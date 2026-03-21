@@ -64,44 +64,17 @@
           </div>
           <div class="relative">
             <div class="rounded-[2.5rem] p-8 backdrop-blur">
-              <div
-                class="relative mx-auto flex aspect-square w-full max-w-[34rem] items-center justify-center overflow-hidden rounded-[2.5rem]"
-              >
-                <div
-                  aria-hidden="true"
-                  class="pointer-events-none absolute inset-x-[18%] inset-y-[8%] rounded-[50%] border-[14px] border-white/90 shadow-[0_0_0_1px_rgba(255,255,255,0.08)]"
-                ></div>
-                <video
-                  src="/images/aitje-home-animated-egg-boomerang.mp4"
-                  autoplay
-                  loop
-                  muted
-                  playsinline
-                  class="relative z-10 h-full w-full object-contain"
-                ></video>
-              </div>
-              <div
-                class="mt-8 rounded-2xl border border-white/10 bg-white/5 p-4"
-              >
-                <p class="text-xs uppercase tracking-[0.4em] text-[#facc15]">
-                  Lost in the jargon?
-                </p>
-                <p class="mt-2 text-lg font-semibold">
-                  For explanation of terms check out our knowledge center.
-                </p>
-                <NuxtLink
-                  :to="localePath('/kenniscentrum')"
-                  class="mt-3 inline-flex text-sm font-semibold text-[#facc15] transition hover:text-white"
-                >
-                  To the knowledge center
-                </NuxtLink>
-              </div>
+              <img
+                src="/images/aitje-home-animated-egg-boomerang.apng"
+                alt="Aitje animated egg"
+                class="mx-auto aspect-square w-full max-w-[34rem] object-contain"
+              />
             </div>
           </div>
         </div>
       </section>
 
-      <section class="mt-10 pb-16">
+      <section class="relative mt-10 pb-20 md:pb-24">
         <div class="relative w-full overflow-hidden">
           <div
             class="flex transition-transform duration-700 ease-out"
@@ -169,9 +142,31 @@
             ></button>
           </div>
         </div>
+        <div
+          class="pointer-events-none absolute inset-x-6 bottom-0 z-20 translate-y-1/2"
+        >
+          <div class="mx-auto flex max-w-6xl justify-center md:justify-end">
+            <div
+              class="pointer-events-auto w-full max-w-xl rounded-[2rem] border border-white/10 bg-[#212121]/95 p-6 text-white shadow-[0_20px_60px_rgba(0,0,0,0.28)] backdrop-blur md:mr-6"
+            >
+              <p class="text-xs uppercase tracking-[0.4em] text-[#facc15]">
+                Lost in the jargon?
+              </p>
+              <p class="mt-2 text-lg font-semibold text-white">
+                For explanation of terms check out our knowledge center.
+              </p>
+              <NuxtLink
+                :to="localePath('/kenniscentrum')"
+                class="mt-3 inline-flex text-sm font-semibold text-[#facc15] transition hover:text-white"
+              >
+                To the knowledge center
+              </NuxtLink>
+            </div>
+          </div>
+        </div>
       </section>
 
-      <section class="bg-[#fafafa] px-6 py-20">
+      <section class="bg-[#fafafa] px-6 pb-20 pt-36 md:pt-44">
         <div class="mx-auto max-w-6xl text-center">
           <p
             class="text-sm font-semibold uppercase tracking-[0.5em] text-[#facc15]"
@@ -220,132 +215,6 @@
               </div>
             </div>
           </article>
-        </div>
-      </section>
-
-      <section class="bg-[#fafafa] px-6 py-20">
-        <div
-          class="relative mx-auto max-w-6xl overflow-hidden rounded-[3rem] border border-gray-200 bg-white p-10 shadow-sm md:p-14"
-        >
-          <svg
-            class="pointer-events-none absolute right-12 top-10 h-24 w-24 text-[#facc15]/18"
-            viewBox="0 0 120 120"
-            fill="none"
-            aria-hidden="true"
-          >
-            <circle cx="60" cy="60" r="24" fill="currentColor" />
-            <path
-              d="M60 12v18M60 90v18M108 60H90M30 60H12M93 27 81 39M39 81 27 93M93 93 81 81M39 39 27 27"
-              stroke="currentColor"
-              stroke-width="6"
-              stroke-linecap="round"
-            />
-          </svg>
-          <svg
-            class="pointer-events-none absolute bottom-8 left-8 h-24 w-24 text-[#212121]/8"
-            viewBox="0 0 100 120"
-            fill="none"
-            aria-hidden="true"
-          >
-            <ellipse cx="50" cy="60" rx="28" ry="38" fill="currentColor" />
-            <path
-              d="M37 63c4-7 12-10 19-6 7 4 10 11 8 19"
-              stroke="white"
-              stroke-width="5"
-              stroke-linecap="round"
-            />
-          </svg>
-          <svg
-            class="pointer-events-none absolute left-1/2 top-10 h-20 w-32 -translate-x-1/2 text-[#212121]/6"
-            viewBox="0 0 160 80"
-            fill="none"
-            aria-hidden="true"
-          >
-            <path
-              d="M38 58h62c13 0 24-9 24-21s-10-21-22-21c-4-11-15-18-28-18-17 0-31 12-33 28h-3C24 26 14 35 14 47s11 11 24 11Z"
-              fill="currentColor"
-            />
-          </svg>
-          <svg
-            class="pointer-events-none absolute bottom-16 right-20 hidden h-16 w-28 text-[#facc15]/10 md:block"
-            viewBox="0 0 160 80"
-            fill="none"
-            aria-hidden="true"
-          >
-            <path
-              d="M38 58h62c13 0 24-9 24-21s-10-21-22-21c-4-11-15-18-28-18-17 0-31 12-33 28h-3C24 26 14 35 14 47s11 11 24 11Z"
-              fill="currentColor"
-            />
-          </svg>
-          <svg
-            class="pointer-events-none absolute left-20 top-24 h-14 w-24 text-[#facc15]/10"
-            viewBox="0 0 160 80"
-            fill="none"
-            aria-hidden="true"
-          >
-            <path
-              d="M38 58h62c13 0 24-9 24-21s-10-21-22-21c-4-11-15-18-28-18-17 0-31 12-33 28h-3C24 26 14 35 14 47s11 11 24 11Z"
-              fill="currentColor"
-            />
-          </svg>
-          <svg
-            class="pointer-events-none absolute bottom-24 right-1/3 h-12 w-20 text-[#212121]/6"
-            viewBox="0 0 160 80"
-            fill="none"
-            aria-hidden="true"
-          >
-            <path
-              d="M38 58h62c13 0 24-9 24-21s-10-21-22-21c-4-11-15-18-28-18-17 0-31 12-33 28h-3C24 26 14 35 14 47s11 11 24 11Z"
-              fill="currentColor"
-            />
-          </svg>
-          <svg
-            class="pointer-events-none absolute right-32 top-32 hidden h-12 w-20 text-[#212121]/5 md:block"
-            viewBox="0 0 160 80"
-            fill="none"
-            aria-hidden="true"
-          >
-            <path
-              d="M38 58h62c13 0 24-9 24-21s-10-21-22-21c-4-11-15-18-28-18-17 0-31 12-33 28h-3C24 26 14 35 14 47s11 11 24 11Z"
-              fill="currentColor"
-            />
-          </svg>
-          <div class="relative z-10">
-            <p
-              class="text-sm font-semibold uppercase tracking-[0.4em] text-[#facc15]"
-            >
-              Our mission
-            </p>
-            <div class="mt-6 max-w-5xl">
-              <p class="text-6xl font-black leading-none text-[#facc15]">"</p>
-              <blockquote
-                class="mt-4 text-2xl font-semibold leading-tight text-gray-900 md:text-4xl"
-              >
-                AI is here to stay. The more people and companies use it, the more dependent we become on Big Tech from abroad.
-              </blockquote>
-              <div
-                class="mt-8 space-y-4 text-base leading-7 text-gray-600 md:text-lg"
-              >
-                <p>
-                  With AITJE, AI continues to work even when the Internet or external platforms are down. On the device, information remains available locally through your own environment.
-                </p>
-                <p>
-                  While prices from external providers may rise, we build our solutions so that costs remain manageable and you are less dependent on recurring platform costs.
-                </p>
-                <p>
-                  Working locally is also better for the environment: fewer endless calls to data centers and more efficient use of hardware. Data stays closer to the organization, in Europe and, where necessary, completely local.
-                </p>
-              </div>
-            </div>
-            <div class="mt-10">
-              <NuxtLink
-                :to="localePath('/visie')"
-                class="inline-flex items-center justify-center rounded-full bg-black px-8 py-3 text-sm font-semibold text-white transition hover:bg-black hover:text-[#facc15]"
-              >
-                Read more about our vision
-              </NuxtLink>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -428,7 +297,7 @@
                 <p
                   class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
                 >
-                  2. AITJE Secretary
+                  2. AITJE Assistant
                 </p>
                 <h3 class="mt-3 text-3xl font-black">
                   From conversation to actionable output
@@ -450,7 +319,7 @@
               >
                 <img
                   src="/images/os-screenshots/chatassistent.jpeg"
-                  alt="AITJE Secretary"
+                  alt="AITJE Assistant"
                   class="h-full w-full rounded-2xl border border-white/10 bg-white/90 object-cover"
                 />
               </div>
@@ -624,6 +493,132 @@
                   </p>
                 </div>
               </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-[#fafafa] px-6 py-20">
+        <div
+          class="relative mx-auto max-w-6xl overflow-hidden rounded-[3rem] border border-gray-200 bg-white p-10 shadow-sm md:p-14"
+        >
+          <svg
+            class="pointer-events-none absolute right-12 top-10 h-24 w-24 text-[#facc15]/18"
+            viewBox="0 0 120 120"
+            fill="none"
+            aria-hidden="true"
+          >
+            <circle cx="60" cy="60" r="24" fill="currentColor" />
+            <path
+              d="M60 12v18M60 90v18M108 60H90M30 60H12M93 27 81 39M39 81 27 93M93 93 81 81M39 39 27 27"
+              stroke="currentColor"
+              stroke-width="6"
+              stroke-linecap="round"
+            />
+          </svg>
+          <svg
+            class="pointer-events-none absolute bottom-8 left-8 h-24 w-24 text-[#212121]/8"
+            viewBox="0 0 100 120"
+            fill="none"
+            aria-hidden="true"
+          >
+            <ellipse cx="50" cy="60" rx="28" ry="38" fill="currentColor" />
+            <path
+              d="M37 63c4-7 12-10 19-6 7 4 10 11 8 19"
+              stroke="white"
+              stroke-width="5"
+              stroke-linecap="round"
+            />
+          </svg>
+          <svg
+            class="pointer-events-none absolute left-1/2 top-10 h-20 w-32 -translate-x-1/2 text-[#212121]/6"
+            viewBox="0 0 160 80"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M38 58h62c13 0 24-9 24-21s-10-21-22-21c-4-11-15-18-28-18-17 0-31 12-33 28h-3C24 26 14 35 14 47s11 11 24 11Z"
+              fill="currentColor"
+            />
+          </svg>
+          <svg
+            class="pointer-events-none absolute bottom-16 right-20 hidden h-16 w-28 text-[#facc15]/10 md:block"
+            viewBox="0 0 160 80"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M38 58h62c13 0 24-9 24-21s-10-21-22-21c-4-11-15-18-28-18-17 0-31 12-33 28h-3C24 26 14 35 14 47s11 11 24 11Z"
+              fill="currentColor"
+            />
+          </svg>
+          <svg
+            class="pointer-events-none absolute left-20 top-24 h-14 w-24 text-[#facc15]/10"
+            viewBox="0 0 160 80"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M38 58h62c13 0 24-9 24-21s-10-21-22-21c-4-11-15-18-28-18-17 0-31 12-33 28h-3C24 26 14 35 14 47s11 11 24 11Z"
+              fill="currentColor"
+            />
+          </svg>
+          <svg
+            class="pointer-events-none absolute bottom-24 right-1/3 h-12 w-20 text-[#212121]/6"
+            viewBox="0 0 160 80"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M38 58h62c13 0 24-9 24-21s-10-21-22-21c-4-11-15-18-28-18-17 0-31 12-33 28h-3C24 26 14 35 14 47s11 11 24 11Z"
+              fill="currentColor"
+            />
+          </svg>
+          <svg
+            class="pointer-events-none absolute right-32 top-32 hidden h-12 w-20 text-[#212121]/5 md:block"
+            viewBox="0 0 160 80"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M38 58h62c13 0 24-9 24-21s-10-21-22-21c-4-11-15-18-28-18-17 0-31 12-33 28h-3C24 26 14 35 14 47s11 11 24 11Z"
+              fill="currentColor"
+            />
+          </svg>
+          <div class="relative z-10">
+            <p
+              class="text-sm font-semibold uppercase tracking-[0.4em] text-[#facc15]"
+            >
+              Our mission
+            </p>
+            <div class="mt-6 max-w-5xl">
+              <p class="text-6xl font-black leading-none text-[#facc15]">"</p>
+              <blockquote
+                class="mt-4 text-2xl font-semibold leading-tight text-gray-900 md:text-4xl"
+              >
+                AI is here to stay. The more people and companies use it, the more dependent we become on Big Tech from abroad.
+              </blockquote>
+              <div
+                class="mt-8 space-y-4 text-base leading-7 text-gray-600 md:text-lg"
+              >
+                <p>
+                  With AITJE, AI continues to work even when the Internet or external platforms are down. On the device, information remains available locally through your own environment.
+                </p>
+                <p>
+                  While prices from external providers may rise, we build our solutions so that costs remain manageable and you are less dependent on recurring platform costs.
+                </p>
+                <p>
+                  Working locally is also better for the environment: fewer endless calls to data centers and more efficient use of hardware. Data stays closer to the organization, in Europe and, where necessary, completely local.
+                </p>
+              </div>
+            </div>
+            <div class="mt-10">
+              <NuxtLink
+                :to="localePath('/visie')"
+                class="inline-flex items-center justify-center rounded-full bg-black px-8 py-3 text-sm font-semibold text-white transition hover:bg-black hover:text-[#facc15]"
+              >
+                Read more about our vision
+              </NuxtLink>
             </div>
           </div>
         </div>
@@ -893,7 +888,7 @@ const features = [
     cta: "View product",
   },
   {
-    title: "AITJE Secretary",
+    title: "AITJE Assistant",
     description:
       "Record conversations and decide what information you want to receive: as a summary, transcript or completed form, in the format and through the channel that suits.",
     icon: Mic,

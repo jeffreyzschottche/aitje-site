@@ -155,7 +155,7 @@ const roadmapByYear = [
         title: "Launch phase",
         points: [
           "AITJE OS launched",
-          "Make AITJE Secretary production-ready",
+          "Make AITJE Assistant production-ready",
           "Existing infrastructure revised and scaled up",
         ],
       },

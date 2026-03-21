@@ -317,7 +317,7 @@ const copy = computed(() =>
           hardware: "Hardware",
           software: "Software",
           assistant: "AITJE Assistant",
-          secretary: "AITJE Secretary",
+          secretary: "AITJE Assistant",
           altTextGenerator: "WordPress Alt Text Generator",
           boardOfDirectors: "Board of Directors",
           assistantOs: "AITJE Assistant OS",
@@ -414,14 +414,46 @@ const productGroups = computed(() => [
     label: copy.value.software,
     to: localePath("/producten/software"),
     items: [
-      { label: 'WordPress AI Search Overview', to: '/producten/software/wordpress-ai-search-overview' },
-      { label: 'WordPress AI Chat', to: '/producten/software/wordpress-ai-chat' },
-      { label: copy.value.altTextGenerator, to: '/producten/software/wordpress-alt-tekst-generator' },
-      { label: 'PromptPaleis', to: '/producten/software/promptpaleis' },
-      { label: copy.value.boardOfDirectors, to: '/producten/software/raad-van-bestuur' },
-      { label: copy.value.assistantOs, to: '/producten/software/aitje-assistent-os' },
-      { label: copy.value.assistantKnowledgeBase, to: '/producten/software/aitje-assistent-kennisbank' },
-      { label: copy.value.assistantClient, to: '/producten/software/aitje-assistent-client' },
+      {
+        label: "WordPress AI Search Overview",
+        baseTo: "/producten/software/wordpress-ai-search-overview",
+        to: localePath("/producten/software/wordpress-ai-search-overview"),
+      },
+      {
+        label: "WordPress AI Chat",
+        baseTo: "/producten/software/wordpress-ai-chat",
+        to: localePath("/producten/software/wordpress-ai-chat"),
+      },
+      {
+        label: copy.value.altTextGenerator,
+        baseTo: "/producten/software/wordpress-alt-tekst-generator",
+        to: localePath("/producten/software/wordpress-alt-tekst-generator"),
+      },
+      {
+        label: "PromptPaleis",
+        baseTo: "/producten/software/promptpaleis",
+        to: localePath("/producten/software/promptpaleis"),
+      },
+      {
+        label: copy.value.boardOfDirectors,
+        baseTo: "/producten/software/raad-van-bestuur",
+        to: localePath("/producten/software/raad-van-bestuur"),
+      },
+      {
+        label: copy.value.assistantOs,
+        baseTo: "/producten/software/aitje-assistent-os",
+        to: localePath("/producten/software/aitje-assistent-os"),
+      },
+      {
+        label: copy.value.assistantKnowledgeBase,
+        baseTo: "/producten/software/aitje-assistent-kennisbank",
+        to: localePath("/producten/software/aitje-assistent-kennisbank"),
+      },
+      {
+        label: copy.value.assistantClient,
+        baseTo: "/producten/software/aitje-assistent-client",
+        to: localePath("/producten/software/aitje-assistent-client"),
+      },
     ],
   },
 ]);

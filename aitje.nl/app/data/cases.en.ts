@@ -99,7 +99,7 @@ export const cases: CaseItem[] = [
       "The team at AITJE built a smart solution for my driving school. Students automatically receive a clear summary of their progress and areas for improvement after each lesson.",
     summary:
       "After each lesson, a voice agent initiates a conversation via WhatsApp and immediately asks out the main points. A customized version, similar to AITJE Notetaker, processes this conversation and prepares a clear summary for the student.",
-    solutions: ["Custom software", "AITJE Secretary"],
+    solutions: ["Custom software", "AITJE Assistant"],
     details: [
       "A voice memo via WhatsApp is automatically processed into a summary with the requested recipient already included in the title",
       "After a thumbs-up, the summary is sent directly to that recipient",

@@ -67,7 +67,7 @@
             </div>
             <div class="p-8 pt-0 md:p-0">
               <img
-                src="/images/aitje-custom.png"
+                src="/images/custom-suited.png"
                 :alt="item.title"
                 class="h-[260px] w-full rounded-2xl object-cover md:h-full md:rounded-none"
               />

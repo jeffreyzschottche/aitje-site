@@ -79,7 +79,9 @@
           </p>
           <div class="mt-6 flex items-center gap-4">
             <a
-              href="/contact"
+              href="https://www.linkedin.com/in/aitje-bv-a095453b4/"
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="AITJE op LinkedIn"
               class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-[#fafafa] transition hover:border-[#facc15]"
             >
@@ -91,21 +93,22 @@
               />
             </a>
             <a
-              href="https://wa.me/31201234567"
+              href="https://www.tiktok.com/@aitje.bv"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="WhatsApp met AITJE"
+              aria-label="AITJE op TikTok"
               class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-[#fafafa] transition hover:border-[#facc15]"
             >
-              <img
-                :src="whatsappIcon"
-                alt=""
+              <svg
                 aria-hidden="true"
-                class="h-5 w-5 object-contain"
-              />
+                viewBox="0 0 24 24"
+                class="h-5 w-5 fill-current"
+              >
+                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.38V2h-3.13v12.38a2.67 2.67 0 1 1-2.67-2.67c.31 0 .61.05.9.15V8.67a5.8 5.8 0 0 0-.9-.07A5.8 5.8 0 1 0 15.82 14V7.73a7.9 7.9 0 0 0 4.77 1.6V6.2c-.34 0-.67-.03-1-.11Z" />
+              </svg>
             </a>
             <a
-              href="mailto:info@aitje.nl"
+              href="mailto:aitjebv@gmail.com"
               aria-label="Mail AITJE"
               class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-[#fafafa] transition hover:border-[#facc15]"
             >
@@ -182,7 +185,6 @@ import {
   Sparkles,
 } from "lucide-vue-next";
 import linkedinIcon from "@/assets/images/social/linkedin.png";
-import whatsappIcon from "@/assets/images/social/whatsapp.png";
 import gmailIcon from "@/assets/images/social/gmail.png";
 
 const faqGroups = [

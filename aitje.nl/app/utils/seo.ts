@@ -634,7 +634,7 @@ const faqEn = [
   {
     question: "Does AITJE Note-taker share the conversations?",
     answer:
-      "AITJE Secretary records conversations and shares them to your own environment in the application. What you do with them afterwards is up to you.",
+      "AITJE Assistant records conversations and shares them to your own environment in the application. What you do with them afterwards is up to you.",
   },
   {
     question: "How does AITJE avoid dependence on external platforms?",

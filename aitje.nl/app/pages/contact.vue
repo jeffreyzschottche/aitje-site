@@ -33,7 +33,9 @@
             </p>
             <div class="mt-6 flex items-center gap-4">
               <a
-                href="/contact"
+                href="https://www.linkedin.com/in/aitje-bv-a095453b4/"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="AITJE op LinkedIn"
                 class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-[#fafafa] transition hover:border-[#facc15]"
               >
@@ -45,21 +47,22 @@
                 />
               </a>
               <a
-                href="https://wa.me/31201234567"
+                href="https://www.tiktok.com/@aitje.bv"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="WhatsApp met AITJE"
+                aria-label="AITJE op TikTok"
                 class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-[#fafafa] transition hover:border-[#facc15]"
               >
-                <img
-                  :src="whatsappIcon"
-                  alt=""
+                <svg
                   aria-hidden="true"
-                  class="h-5 w-5 object-contain"
-                />
+                  viewBox="0 0 24 24"
+                  class="h-5 w-5 fill-current"
+                >
+                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.38V2h-3.13v12.38a2.67 2.67 0 1 1-2.67-2.67c.31 0 .61.05.9.15V8.67a5.8 5.8 0 0 0-.9-.07A5.8 5.8 0 1 0 15.82 14V7.73a7.9 7.9 0 0 0 4.77 1.6V6.2c-.34 0-.67-.03-1-.11Z" />
+                </svg>
               </a>
               <a
-                href="mailto:info@aitje.nl"
+                href="mailto:aitjebv@gmail.com"
                 aria-label="Mail AITJE"
                 class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-[#fafafa] transition hover:border-[#facc15]"
               >
@@ -178,6 +181,17 @@
             class="mt-6 flex flex-1 flex-col space-y-4"
             @submit.prevent="submitContact"
           >
+            <div
+              v-if="submitMessage"
+              :class="[
+                'rounded-2xl border px-4 py-3 text-sm',
+                submitState === 'success'
+                  ? 'border-green-200 bg-green-50 text-green-800'
+                  : 'border-red-200 bg-red-50 text-red-800',
+              ]"
+            >
+              {{ submitMessage }}
+            </div>
             <FormInput
               label="Naam *"
               v-model="formData.name"
@@ -231,9 +245,11 @@
               class="mt-8 w-full rounded-full bg-black px-6 py-3 text-base font-semibold text-white cursor-pointer transition-colors duration-200 hover:bg-black hover:text-[#facc15] disabled:cursor-not-allowed disabled:bg-gray-300 disabled:text-gray-600"
             >
               {{
-                formData.subject === "kennismaking"
-                  ? "Bevestig afspraak"
-                  : "Verstuur bericht"
+                isSubmitting
+                  ? "Bezig met versturen..."
+                  : formData.subject === "kennismaking"
+                    ? "Bevestig afspraak"
+                    : "Verstuur bericht"
               }}
             </button>
           </form>
@@ -276,7 +292,6 @@
 <script setup lang="ts">
 import { computed, defineComponent, h, reactive, ref } from "vue";
 import linkedinIcon from "@/assets/images/social/linkedin.png";
-import whatsappIcon from "@/assets/images/social/whatsapp.png";
 import gmailIcon from "@/assets/images/social/gmail.png";
 
 const route = useRoute();
@@ -354,6 +369,9 @@ const selectedDate = ref("");
 const selectedTime = ref("");
 const meetingPlatform = ref("");
 const verificationEmail = ref("");
+const isSubmitting = ref(false);
+const submitState = ref<"success" | "error" | "">("");
+const submitMessage = ref("");
 const formData = reactive({
   name: "",
   email: "",
@@ -390,7 +408,22 @@ const formatDate = (value: string) => {
   });
 };
 
-const submitContact = () => {
+const resetForm = () => {
+  formData.name = "";
+  formData.email = "";
+  formData.phone = "";
+  formData.subject = resolveSubjectFromQuery();
+  formData.message = "";
+  selectedDate.value = "";
+  selectedTime.value = "";
+  meetingPlatform.value = "";
+  verificationEmail.value = "";
+};
+
+const submitContact = async () => {
+  submitState.value = "";
+  submitMessage.value = "";
+
   if (
     formData.subject === "kennismaking" &&
     (!selectedDate.value ||
@@ -406,28 +439,49 @@ const submitContact = () => {
     return;
   }
 
-  if (typeof window !== "undefined") {
-    if (formData.subject === "kennismaking") {
-      window.alert(
-        `Kennismaking ingepland op ${formatDate(selectedDate.value)} om ${selectedTime.value} via ${meetingPlatform.value}. Bevestiging gaat naar ${verificationEmail.value}.`,
-      );
-    } else {
-      window.alert("Bedankt! We nemen zo snel mogelijk contact met je op.");
-    }
-  }
+  try {
+    isSubmitting.value = true;
 
-  formData.name = "";
-  formData.email = "";
-  formData.phone = "";
-  formData.subject = resolveSubjectFromQuery();
-  formData.message = "";
-  selectedDate.value = "";
-  selectedTime.value = "";
-  meetingPlatform.value = "";
-  verificationEmail.value = "";
+    await $fetch("/api/contact", {
+      method: "POST",
+      body: {
+        locale: "nl",
+        ...formData,
+        meetingDate: selectedDate.value,
+        meetingTime: selectedTime.value,
+        meetingPlatform: meetingPlatform.value,
+        verificationEmail: verificationEmail.value,
+      },
+    });
+
+    submitState.value = "success";
+    submitMessage.value =
+      formData.subject === "kennismaking"
+        ? `Kennismaking ingepland op ${formatDate(selectedDate.value)} om ${selectedTime.value} via ${meetingPlatform.value}. We antwoorden op ${verificationEmail.value}.`
+        : "Bedankt. Je bericht is verzonden en we nemen zo snel mogelijk contact met je op.";
+
+    resetForm();
+  } catch (error: unknown) {
+    const message =
+      typeof error === "object" &&
+      error !== null &&
+      "data" in error &&
+      typeof error.data === "object" &&
+      error.data !== null &&
+      "statusMessage" in error.data &&
+      typeof error.data.statusMessage === "string"
+        ? error.data.statusMessage
+        : "Versturen mislukt. Probeer het later opnieuw.";
+
+    submitState.value = "error";
+    submitMessage.value = message;
+  } finally {
+    isSubmitting.value = false;
+  }
 };
 
 const isSubmitDisabled = computed(() => {
+  if (isSubmitting.value) return true;
   if (formData.subject !== "kennismaking") return false;
   return (
     !selectedDate.value ||
