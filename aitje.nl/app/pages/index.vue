@@ -788,7 +788,7 @@ import {
 
 const phrases = ["Je partner in AI & Edge AI"];
 const heroStats = [
-  { label: "Werkt zonder internet", value: "100% afhankelijk" },
+  { label: "Werkt zonder internet", value: "100% onafhankelijk" },
   { label: "Goed voor het milieu", value: "Geen cloud calls" },
   { label: "AITJE denkt met je mee", value: "Soevereiniteit in AI" },
 ];

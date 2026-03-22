@@ -1140,7 +1140,7 @@ export const englishTextMap: Record<string, string> = {
   "Spraakmemo via WhatsApp": "Voice memo via WhatsApp",
   "Soevereiniteit in AI": "Sovereignty in AI",
   "Verstuur bericht": "Send message",
-  "100% afhankelijk": "100% independent",
+  "100% onafhankelijk": "100% independent",
   "Geen cloud calls": "No cloud calls",
   "Advies over waar AI binnen jouw organisatie het meeste effect heeft": "Advice on where AI has the greatest impact within your organization",
   "Hardware voor lokale edge AI en eigen infrastructuur": "Hardware for local edge AI and your own infrastructure",
