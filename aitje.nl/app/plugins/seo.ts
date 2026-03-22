@@ -2,17 +2,21 @@ import { buildAlternateLinks, buildSeoGraph, resolveSeoEntry } from "@/utils/seo
 
 export default defineNuxtPlugin(() => {
   const route = useRoute();
+  const {
+    public: { siteUrl },
+  } = useRuntimeConfig();
+  const normalizedSiteUrl = siteUrl.replace(/\/$/, "");
 
   useHead(() => {
-    const entry = resolveSeoEntry(route.path);
-    const graph = buildSeoGraph(entry);
+    const entry = resolveSeoEntry(route.path, normalizedSiteUrl);
+    const graph = buildSeoGraph(entry, normalizedSiteUrl);
 
     return {
       htmlAttrs: {
         lang: entry.localeKey === "en" ? "en" : "nl",
       },
       title: entry.title,
-      link: buildAlternateLinks(entry),
+      link: buildAlternateLinks(entry, normalizedSiteUrl),
       meta: [
         {
           name: "description",
@@ -48,7 +52,7 @@ export default defineNuxtPlugin(() => {
         },
         {
           property: "og:url",
-          content: `https://aitje.nl${entry.path === "/" ? "" : entry.path}`,
+          content: `${normalizedSiteUrl}${entry.path === "/" ? "" : entry.path}`,
         },
         {
           property: "og:image",

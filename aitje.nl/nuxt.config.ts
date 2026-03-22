@@ -23,6 +23,9 @@ export default defineNuxtConfig({
     resendApiKey: process.env.RESEND_API_KEY,
     resendFromEmail: process.env.RESEND_FROM_EMAIL || "AITJE Contact <onboarding@resend.dev>",
     contactToEmail: process.env.CONTACT_TO_EMAIL || "info@aitje.nl",
+    public: {
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || "https://aitje.com",
+    },
   },
   vite: {
     plugins: [tailwindcss()],

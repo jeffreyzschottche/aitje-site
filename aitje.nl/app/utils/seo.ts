@@ -36,7 +36,7 @@ type ResolvedSeoEntry = {
 };
 
 const SITE_NAME = "AITJE";
-const SITE_URL = "https://aitje.nl";
+const DEFAULT_SITE_URL = "https://aitje.com";
 const DEFAULT_IMAGE = "/images/aitje-cubes.png";
 const DEFAULT_NL_DESCRIPTION =
   "AITJE ontwikkelt lokale AI-oplossingen, software, hardware en maatwerk voor organisaties die grip willen houden op data, privacy en continuiteit.";
@@ -661,6 +661,11 @@ function normalizePath(path: string) {
   return path !== "/" && path.endsWith("/") ? path.slice(0, -1) : path;
 }
 
+function normalizeSiteUrl(siteUrl?: string) {
+  const resolved = siteUrl || DEFAULT_SITE_URL;
+  return resolved.endsWith("/") ? resolved.slice(0, -1) : resolved;
+}
+
 function getLocaleInfo(path: string) {
   if (isEnglishPath(path)) {
     return {
@@ -679,12 +684,13 @@ function getLocaleInfo(path: string) {
   };
 }
 
-function toAbsoluteUrl(value: string) {
+function toAbsoluteUrl(value: string, siteUrl?: string) {
   if (value.startsWith("http://") || value.startsWith("https://")) {
     return value;
   }
 
-  return `${SITE_URL}${value.startsWith("/") ? value : `/${value}`}`;
+  const baseUrl = normalizeSiteUrl(siteUrl);
+  return `${baseUrl}${value.startsWith("/") ? value : `/${value}`}`;
 }
 
 function stripEnPrefix(path: string) {
@@ -731,17 +737,18 @@ function createBreadcrumbs(path: string, localeKey: LocaleKey): BreadcrumbItem[]
   return breadcrumbs;
 }
 
-function createOrganizationSchema(locale: LocaleCode) {
+function createOrganizationSchema(locale: LocaleCode, siteUrl?: string) {
+  const baseUrl = normalizeSiteUrl(siteUrl);
   return {
     "@type": "Organization",
-    "@id": `${SITE_URL}/#organization`,
+    "@id": `${baseUrl}/#organization`,
     name: SITE_NAME,
-    url: SITE_URL,
+    url: baseUrl,
     email: "info@aitje.nl",
     telephone: "+31201234567",
     logo: {
       "@type": "ImageObject",
-      url: toAbsoluteUrl("/images/aitje-logo.png"),
+      url: toAbsoluteUrl("/images/aitje-logo.png", baseUrl),
     },
     areaServed: "NL",
     knowsAbout: [
@@ -756,39 +763,41 @@ function createOrganizationSchema(locale: LocaleCode) {
   };
 }
 
-function createWebsiteSchema(locale: LocaleCode) {
+function createWebsiteSchema(locale: LocaleCode, siteUrl?: string) {
+  const baseUrl = normalizeSiteUrl(siteUrl);
   return {
     "@type": "WebSite",
-    "@id": `${SITE_URL}/#website`,
-    url: SITE_URL,
+    "@id": `${baseUrl}/#website`,
+    url: baseUrl,
     name: SITE_NAME,
-    publisher: { "@id": `${SITE_URL}/#organization` },
+    publisher: { "@id": `${baseUrl}/#organization` },
     inLanguage: locale,
   };
 }
 
-function createBreadcrumbSchema(breadcrumbs: BreadcrumbItem[]) {
+function createBreadcrumbSchema(breadcrumbs: BreadcrumbItem[], siteUrl?: string) {
   return {
     "@type": "BreadcrumbList",
     itemListElement: breadcrumbs.map((item, index) => ({
       "@type": "ListItem",
       position: index + 1,
       name: item.name,
-      item: toAbsoluteUrl(item.path),
+      item: toAbsoluteUrl(item.path, siteUrl),
     })),
   };
 }
 
-function createWebPageSchema(entry: ResolvedSeoEntry) {
+function createWebPageSchema(entry: ResolvedSeoEntry, siteUrl?: string) {
+  const baseUrl = normalizeSiteUrl(siteUrl);
   return {
     "@type": entry.pageType,
-    "@id": `${toAbsoluteUrl(entry.path)}#webpage`,
-    url: toAbsoluteUrl(entry.path),
+    "@id": `${toAbsoluteUrl(entry.path, baseUrl)}#webpage`,
+    url: toAbsoluteUrl(entry.path, baseUrl),
     name: entry.title,
     description: entry.description,
     inLanguage: entry.locale,
-    isPartOf: { "@id": `${SITE_URL}/#website` },
-    about: { "@id": `${SITE_URL}/#organization` },
+    isPartOf: { "@id": `${baseUrl}/#website` },
+    about: { "@id": `${baseUrl}/#organization` },
     primaryImageOfPage: {
       "@type": "ImageObject",
       url: entry.image,
@@ -800,17 +809,18 @@ function createItemListSchema(
   entry: ResolvedSeoEntry,
   name: string,
   items: { title: string; path: string }[],
+  siteUrl?: string,
 ) {
   return {
     "@type": "ItemList",
     name,
-    url: toAbsoluteUrl(entry.path),
+    url: toAbsoluteUrl(entry.path, siteUrl),
     numberOfItems: items.length,
     itemListElement: items.map((item, index) => ({
       "@type": "ListItem",
       position: index + 1,
       name: item.title,
-      url: toAbsoluteUrl(item.path),
+      url: toAbsoluteUrl(item.path, siteUrl),
     })),
   };
 }
@@ -818,11 +828,12 @@ function createItemListSchema(
 function createFaqSchema(
   entry: ResolvedSeoEntry,
   items: { question: string; answer: string }[],
+  siteUrl?: string,
 ) {
   return {
     "@type": "FAQPage",
-    "@id": `${toAbsoluteUrl(entry.path)}#faq`,
-    url: toAbsoluteUrl(entry.path),
+    "@id": `${toAbsoluteUrl(entry.path, siteUrl)}#faq`,
+    url: toAbsoluteUrl(entry.path, siteUrl),
     mainEntity: items.map((item) => ({
       "@type": "Question",
       name: item.question,
@@ -834,16 +845,17 @@ function createFaqSchema(
   };
 }
 
-function createContactSchema(entry: ResolvedSeoEntry) {
+function createContactSchema(entry: ResolvedSeoEntry, siteUrl?: string) {
+  const baseUrl = normalizeSiteUrl(siteUrl);
   return {
     "@type": "ContactPage",
-    "@id": `${toAbsoluteUrl(entry.path)}#contact`,
-    url: toAbsoluteUrl(entry.path),
+    "@id": `${toAbsoluteUrl(entry.path, baseUrl)}#contact`,
+    url: toAbsoluteUrl(entry.path, baseUrl),
     name: entry.title,
     description: entry.description,
     mainEntity: {
       "@type": "Organization",
-      "@id": `${SITE_URL}/#organization`,
+      "@id": `${baseUrl}/#organization`,
       contactPoint: [
         {
           "@type": "ContactPoint",
@@ -857,18 +869,20 @@ function createContactSchema(entry: ResolvedSeoEntry) {
   };
 }
 
-function createServiceSchema(entry: ResolvedSeoEntry) {
+function createServiceSchema(entry: ResolvedSeoEntry, siteUrl?: string) {
+  const baseUrl = normalizeSiteUrl(siteUrl);
   return {
     "@type": "Service",
     name: entry.title,
     description: entry.description,
-    url: toAbsoluteUrl(entry.path),
-    provider: { "@id": `${SITE_URL}/#organization` },
+    url: toAbsoluteUrl(entry.path, baseUrl),
+    provider: { "@id": `${baseUrl}/#organization` },
     areaServed: "NL",
   };
 }
 
-function resolveStaticSchema(entry: ResolvedSeoEntry) {
+function resolveStaticSchema(entry: ResolvedSeoEntry, siteUrl?: string) {
+  const baseUrl = normalizeSiteUrl(siteUrl);
   const localeKey = entry.localeKey;
   const faqItems = localeKey === "en" ? faqEn : faqNl;
   const knowledge = localeKey === "en" ? knowledgeEn : knowledgeNl;
@@ -879,17 +893,17 @@ function resolveStaticSchema(entry: ResolvedSeoEntry) {
   switch (entry.path) {
     case "/faq":
     case "/en/faq":
-      return [createFaqSchema(entry, faqItems)];
+      return [createFaqSchema(entry, faqItems, baseUrl)];
     case "/contact":
     case "/en/contact":
-      return [createContactSchema(entry)];
+      return [createContactSchema(entry, baseUrl)];
     case "/diensten":
     case "/en/diensten":
     case "/aitje-custom":
     case "/en/aitje-custom":
     case "/aitje-pro":
     case "/en/aitje-pro":
-      return [createServiceSchema(entry)];
+      return [createServiceSchema(entry, baseUrl)];
     case "/producten":
     case "/en/producten":
       return [
@@ -906,7 +920,7 @@ function resolveStaticSchema(entry: ResolvedSeoEntry) {
             title: localeKey === "en" ? "Services" : "Diensten",
             path: localeKey === "en" ? "/en/diensten" : "/diensten",
           },
-        ]),
+        ], baseUrl),
       ];
     case "/producten/hardware":
     case "/en/producten/hardware":
@@ -921,6 +935,7 @@ function resolveStaticSchema(entry: ResolvedSeoEntry) {
                 ? `/en/producten/hardware/${item.slug}`
                 : `/producten/hardware/${item.slug}`,
           })),
+          baseUrl,
         ),
       ];
     case "/producten/software":
@@ -936,6 +951,7 @@ function resolveStaticSchema(entry: ResolvedSeoEntry) {
                 ? `/en/producten/software/${item.slug}`
                 : `/producten/software/${item.slug}`,
           })),
+          baseUrl,
         ),
       ];
     case "/kenniscentrum":
@@ -951,6 +967,7 @@ function resolveStaticSchema(entry: ResolvedSeoEntry) {
                 ? `/en/kenniscentrum/${item.slug}`
                 : `/kenniscentrum/${item.slug}`,
           })),
+          baseUrl,
         ),
       ];
     case "/cases":
@@ -963,6 +980,7 @@ function resolveStaticSchema(entry: ResolvedSeoEntry) {
             title: item.title,
             path: localeKey === "en" ? `/en/cases/${item.slug}` : `/cases/${item.slug}`,
           })),
+          baseUrl,
         ),
       ];
     default:
@@ -970,8 +988,9 @@ function resolveStaticSchema(entry: ResolvedSeoEntry) {
   }
 }
 
-function resolveDynamicSeo(path: string): ResolvedSeoEntry | null {
+function resolveDynamicSeo(path: string, siteUrl?: string): ResolvedSeoEntry | null {
   const normalized = normalizePath(path);
+  const baseUrl = normalizeSiteUrl(siteUrl);
   const localeInfo = getLocaleInfo(normalized);
   const localeKey = localeInfo.localeKey;
 
@@ -999,7 +1018,7 @@ function resolveDynamicSeo(path: string): ResolvedSeoEntry | null {
       path: normalized,
       locale: localeInfo.locale,
       localeKey,
-      image: toAbsoluteUrl(item.image || DEFAULT_IMAGE),
+      image: toAbsoluteUrl(item.image || DEFAULT_IMAGE, baseUrl),
       pageType: "WebPage",
       breadcrumbs: createBreadcrumbs(normalized, localeKey),
       alternatePath: createAlternatePath(normalized),
@@ -1010,9 +1029,9 @@ function resolveDynamicSeo(path: string): ResolvedSeoEntry | null {
           description: item.shortDescription,
           applicationCategory: "BusinessApplication",
           operatingSystem: "Web, Local Network, Edge Device",
-          url: toAbsoluteUrl(normalized),
-          image: toAbsoluteUrl(item.image || DEFAULT_IMAGE),
-          publisher: { "@id": `${SITE_URL}/#organization` },
+          url: toAbsoluteUrl(normalized, baseUrl),
+          image: toAbsoluteUrl(item.image || DEFAULT_IMAGE, baseUrl),
+          publisher: { "@id": `${baseUrl}/#organization` },
         },
       ],
     };
@@ -1036,7 +1055,7 @@ function resolveDynamicSeo(path: string): ResolvedSeoEntry | null {
       path: normalized,
       locale: localeInfo.locale,
       localeKey,
-      image: toAbsoluteUrl(item.image || DEFAULT_IMAGE),
+      image: toAbsoluteUrl(item.image || DEFAULT_IMAGE, baseUrl),
       pageType: "WebPage",
       breadcrumbs: createBreadcrumbs(normalized, localeKey),
       alternatePath: createAlternatePath(normalized),
@@ -1045,13 +1064,13 @@ function resolveDynamicSeo(path: string): ResolvedSeoEntry | null {
           "@type": "Product",
           name: item.title,
           description: item.shortDescription,
-          image: toAbsoluteUrl(item.image || DEFAULT_IMAGE),
+          image: toAbsoluteUrl(item.image || DEFAULT_IMAGE, baseUrl),
           brand: {
             "@type": "Brand",
             name: SITE_NAME,
           },
-          manufacturer: { "@id": `${SITE_URL}/#organization` },
-          url: toAbsoluteUrl(normalized),
+          manufacturer: { "@id": `${baseUrl}/#organization` },
+          url: toAbsoluteUrl(normalized, baseUrl),
           category: "AI Hardware",
         },
       ],
@@ -1076,7 +1095,7 @@ function resolveDynamicSeo(path: string): ResolvedSeoEntry | null {
       path: normalized,
       locale: localeInfo.locale,
       localeKey,
-      image: toAbsoluteUrl(item.thumbnail || DEFAULT_IMAGE),
+      image: toAbsoluteUrl(item.thumbnail || DEFAULT_IMAGE, baseUrl),
       pageType: "Article",
       breadcrumbs: createBreadcrumbs(normalized, localeKey),
       alternatePath: createAlternatePath(normalized),
@@ -1085,13 +1104,13 @@ function resolveDynamicSeo(path: string): ResolvedSeoEntry | null {
           "@type": "TechArticle",
           headline: item.title,
           description: item.excerpt,
-          image: toAbsoluteUrl(item.thumbnail || DEFAULT_IMAGE),
+          image: toAbsoluteUrl(item.thumbnail || DEFAULT_IMAGE, baseUrl),
           articleSection: item.category,
           timeRequired: item.readTime,
           inLanguage: localeInfo.locale,
-          author: { "@id": `${SITE_URL}/#organization` },
-          publisher: { "@id": `${SITE_URL}/#organization` },
-          url: toAbsoluteUrl(normalized),
+          author: { "@id": `${baseUrl}/#organization` },
+          publisher: { "@id": `${baseUrl}/#organization` },
+          url: toAbsoluteUrl(normalized, baseUrl),
         },
       ],
     };
@@ -1115,7 +1134,7 @@ function resolveDynamicSeo(path: string): ResolvedSeoEntry | null {
       path: normalized,
       locale: localeInfo.locale,
       localeKey,
-      image: toAbsoluteUrl(item.image || DEFAULT_IMAGE),
+      image: toAbsoluteUrl(item.image || DEFAULT_IMAGE, baseUrl),
       pageType: "Article",
       breadcrumbs: createBreadcrumbs(normalized, localeKey),
       alternatePath: createAlternatePath(normalized),
@@ -1124,11 +1143,11 @@ function resolveDynamicSeo(path: string): ResolvedSeoEntry | null {
           "@type": "Article",
           headline: item.title,
           description: item.summary,
-          image: toAbsoluteUrl(item.image || DEFAULT_IMAGE),
+          image: toAbsoluteUrl(item.image || DEFAULT_IMAGE, baseUrl),
           about: item.solutions,
-          author: { "@id": `${SITE_URL}/#organization` },
-          publisher: { "@id": `${SITE_URL}/#organization` },
-          url: toAbsoluteUrl(normalized),
+          author: { "@id": `${baseUrl}/#organization` },
+          publisher: { "@id": `${baseUrl}/#organization` },
+          url: toAbsoluteUrl(normalized, baseUrl),
         },
       ],
     };
@@ -1139,9 +1158,10 @@ function resolveDynamicSeo(path: string): ResolvedSeoEntry | null {
   return null;
 }
 
-export function resolveSeoEntry(path: string): ResolvedSeoEntry {
+export function resolveSeoEntry(path: string, siteUrl?: string): ResolvedSeoEntry {
   const normalized = normalizePath(path);
-  const dynamicEntry = resolveDynamicSeo(normalized);
+  const baseUrl = normalizeSiteUrl(siteUrl);
+  const dynamicEntry = resolveDynamicSeo(normalized, baseUrl);
 
   if (dynamicEntry) {
     return dynamicEntry;
@@ -1158,50 +1178,58 @@ export function resolveSeoEntry(path: string): ResolvedSeoEntry {
     path: normalized,
     locale: localeInfo.locale,
     localeKey: localeInfo.localeKey,
-    image: toAbsoluteUrl(fallback?.image ?? DEFAULT_IMAGE),
+    image: toAbsoluteUrl(fallback?.image ?? DEFAULT_IMAGE, baseUrl),
     pageType: fallback?.pageType ?? "WebPage",
     breadcrumbs: createBreadcrumbs(normalized, localeInfo.localeKey),
     alternatePath: createAlternatePath(normalized),
     schema: [],
   };
 
-  entry.schema = resolveStaticSchema(entry);
+  entry.schema = resolveStaticSchema(entry, baseUrl);
   return entry;
 }
 
-export function buildSeoGraph(entry: ResolvedSeoEntry) {
+export function buildSeoGraph(entry: ResolvedSeoEntry, siteUrl?: string) {
+  const baseUrl = normalizeSiteUrl(siteUrl);
   return {
     "@context": "https://schema.org",
     "@graph": [
-      createOrganizationSchema(entry.locale),
-      createWebsiteSchema(entry.locale),
-      createBreadcrumbSchema(entry.breadcrumbs),
-      createWebPageSchema(entry),
+      createOrganizationSchema(entry.locale, baseUrl),
+      createWebsiteSchema(entry.locale, baseUrl),
+      createBreadcrumbSchema(entry.breadcrumbs, baseUrl),
+      createWebPageSchema(entry, baseUrl),
       ...entry.schema,
     ],
   };
 }
 
-export function buildAlternateLinks(entry: ResolvedSeoEntry) {
+export function buildAlternateLinks(entry: ResolvedSeoEntry, siteUrl?: string) {
+  const baseUrl = normalizeSiteUrl(siteUrl);
   return [
     {
       rel: "canonical",
-      href: toAbsoluteUrl(entry.path),
+      href: toAbsoluteUrl(entry.path, baseUrl),
     },
     {
       rel: "alternate",
       hreflang: "nl-NL",
-      href: toAbsoluteUrl(isEnglishPath(entry.path) ? entry.alternatePath : entry.path),
+      href: toAbsoluteUrl(
+        isEnglishPath(entry.path) ? entry.alternatePath : entry.path,
+        baseUrl,
+      ),
     },
     {
       rel: "alternate",
       hreflang: "en-US",
-      href: toAbsoluteUrl(isEnglishPath(entry.path) ? entry.path : entry.alternatePath),
+      href: toAbsoluteUrl(
+        isEnglishPath(entry.path) ? entry.path : entry.alternatePath,
+        baseUrl,
+      ),
     },
     {
       rel: "alternate",
       hreflang: "x-default",
-      href: toAbsoluteUrl("/"),
+      href: toAbsoluteUrl("/", baseUrl),
     },
   ];
 }
