@@ -33,6 +33,22 @@ const escapeHtml = (value: string) =>
     .replaceAll("'", "&#39;");
 
 const clean = (value?: string) => value?.trim() || "";
+const cleanConfigValue = (value: unknown) => {
+  if (typeof value !== "string") {
+    return "";
+  }
+
+  const trimmed = value.trim();
+
+  if (
+    (trimmed.startsWith('"') && trimmed.endsWith('"')) ||
+    (trimmed.startsWith("'") && trimmed.endsWith("'"))
+  ) {
+    return trimmed.slice(1, -1).trim();
+  }
+
+  return trimmed;
+};
 const extractResendErrorMessage = (error: unknown) => {
   if (typeof error === "string" && error.trim()) {
     return error;
@@ -55,6 +71,9 @@ const extractResendErrorMessage = (error: unknown) => {
 
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig(event);
+  const resendApiKey = cleanConfigValue(config.resendApiKey);
+  const resendFromEmail = cleanConfigValue(config.resendFromEmail);
+  const contactToEmail = cleanConfigValue(config.contactToEmail);
   const body = await readBody<ContactRequestBody>(event);
 
   const locale = body.locale === "en" ? "en" : "nl";
@@ -110,14 +129,21 @@ export default defineEventHandler(async (event) => {
     }
   }
 
-  if (!config.resendApiKey) {
+  if (!resendApiKey) {
     throw createError({
       statusCode: 500,
       statusMessage: "RESEND_API_KEY is not configured.",
     });
   }
 
-  const resend = new Resend(config.resendApiKey);
+  if (!resendFromEmail || !contactToEmail) {
+    throw createError({
+      statusCode: 500,
+      statusMessage: "Resend email settings are incomplete.",
+    });
+  }
+
+  const resend = new Resend(resendApiKey);
   const subjectLabel =
     subjectLabels[subject]?.[locale] || (locale === "en" ? "Contact request" : "Contactaanvraag");
   const mailSubject =
@@ -169,8 +195,8 @@ export default defineEventHandler(async (event) => {
   }
 
   const { error } = await resend.emails.send({
-    from: config.resendFromEmail,
-    to: [config.contactToEmail],
+    from: resendFromEmail,
+    to: [contactToEmail],
     replyTo: subject === "kennismaking" ? [verificationEmail || email] : [email],
     subject: mailSubject,
     html,
@@ -182,8 +208,8 @@ export default defineEventHandler(async (event) => {
 
     console.error("Resend send failure", {
       error,
-      from: config.resendFromEmail,
-      to: config.contactToEmail,
+      from: resendFromEmail,
+      to: contactToEmail,
       replyTo: subject === "kennismaking" ? verificationEmail || email : email,
     });
 
