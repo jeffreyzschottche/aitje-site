@@ -1,375 +1,354 @@
 <template>
   <div class="bg-[#f5f5f5] text-gray-900">
     <SiteNavigation />
-    <main class="px-6 pt-32">
+    <main class="px-6 pb-20 pt-32">
       <section
         class="mx-auto w-full px-4 py-12 text-center sm:max-w-5xl sm:px-8"
       >
         <p
           class="text-sm font-semibold uppercase tracking-[0.5em] text-[#facc15]"
         >
-          Diensten & Custom Solutions
+          Diensten
         </p>
         <h1 class="mt-4 text-5xl font-black text-gray-900">
-          We zijn jouw strategische AI-partner
+          Praktische begeleiding naast de producten van AITJE
         </h1>
         <p class="mt-6 text-lg text-gray-600">
-          AITJE is meer dan een hardware product of een applicatie. We helpen je
-          organisatie toekomstbestendig te maken op de juiste manier via de
-          manier die bij jou en je organisatie past. Wanneer een van onze vaste
-          solutions niet de solution voor jou is, ontwikkelen we graag een
-          maatwerk product dat dat wel is.
+          Simpel gehouden: geen breed dienstenmenu, maar gerichte begeleiding
+          die logisch aansluit op de productlijn.
         </p>
       </section>
 
-      <section class="mx-auto mt-12 grid max-w-6xl gap-6 md:grid-cols-3">
+      <section class="mx-auto mt-6 max-w-6xl">
         <article
-          v-for="value in heroValues"
-          :key="value.title"
-          class="rounded-3xl border border-gray-200 bg-[#fafafa] p-5 text-left"
+          class="overflow-hidden rounded-[2.5rem] border border-gray-200 bg-white shadow-sm"
         >
-          <component :is="value.icon" class="h-8 w-8 text-[#facc15]" />
-          <h3 class="mt-4 text-lg font-semibold text-gray-900">
-            {{ value.title }}
-          </h3>
-          <p class="mt-2 text-sm text-gray-600">{{ value.description }}</p>
-        </article>
-      </section>
-
-      <section class="mx-auto mt-16 max-w-6xl space-y-6">
-        <article
-          v-for="service in services"
-          :key="service.title"
-          class="rounded-3xl border border-gray-200 bg-[#fafafa] p-8 md:p-10"
-        >
-          <div class="grid gap-6 md:grid-cols-[1fr_1.1fr] md:items-start">
-            <div class="flex gap-4">
-              <div
-                class="mt-1 flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#212121] text-[#facc15]"
-              >
-                <component :is="service.icon" class="h-7 w-7" />
-              </div>
-              <div>
-                <p
-                  class="text-xs font-semibold uppercase tracking-[0.3em] text-gray-400"
-                >
-                  {{ service.focus }}
-                </p>
-                <h2 class="text-2xl font-semibold text-gray-900">
-                  {{ service.title }}
-                </h2>
-                <p class="mt-4 text-sm text-gray-600">
-                  {{ service.description }}
-                </p>
-                <p class="mt-3 text-sm text-gray-700">
-                  <span class="font-semibold text-gray-900">Resultaat:</span>
-                  {{ service.result }}
-                </p>
-              </div>
+          <div class="grid gap-0 md:grid-cols-[0.72fr_1.28fr]">
+            <div class="border-b border-gray-200 bg-[#faf7ea] md:border-b-0 md:border-r">
+              <img
+                src="/images/custom-suited.png"
+                alt="AITJE dienstverlening"
+                class="h-full min-h-[18rem] w-full object-cover"
+              />
             </div>
-            <div class="rounded-2xl border border-gray-200 bg-white p-5">
-              <p
-                class="text-xs font-semibold uppercase tracking-[0.3em] text-[#d4a700]"
-              >
-                Wat we opleveren
+
+            <div class="p-8 md:p-10">
+              <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
+                Opzet
               </p>
-              <ul class="mt-3 space-y-2 text-sm text-gray-700">
-                <li v-for="item in service.details" :key="item">
-                  • {{ item }}
-                </li>
-              </ul>
+              <h2 class="mt-3 text-3xl font-black text-gray-900">
+                Kleiner, duidelijker en direct bruikbaar
+              </h2>
+              <div class="mt-5 space-y-4 text-base leading-8 text-gray-600">
+                <p>
+                  Geen breed agency-menu meer. De diensten van AITJE zijn bewust
+                  teruggebracht naar vier routes die logisch aansluiten op de
+                  productlijn: AI-strategie, consultancy, custom en SLA.
+                </p>
+                <p>
+                  We denken mee over richting, inzet en implementatie zonder er
+                  een wollig consultancyverhaal van te maken.
+                </p>
+              </div>
             </div>
           </div>
         </article>
       </section>
 
-      <section
-        class="mx-auto mt-16 max-w-6xl rounded-[3rem] bg-[#212121] p-10 text-white"
-      >
-        <div
-          class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between"
-        >
-          <div>
-            <p
-              class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
-            >
-              Investering & rendement
-            </p>
-            <h2 class="mt-3 text-3xl font-black">
-              Voorspelbare jaarlijkse kosten
-            </h2>
-            <p class="mt-2 text-sm text-gray-300">
-              We bouwen AI-oplossingen die je met een eenmalige investering
-              duurzaam in eigen regie brengt. Optimaliseren we je huidige stack,
-              dan verlagen we structureel kosten, verhogen we controle en
-              verminderen we afhankelijkheid.
-            </p>
-          </div>
-          <NuxtLink
-            to="/contact?onderwerp=offerte"
-            class="inline-flex shrink-0 whitespace-nowrap items-center justify-center rounded-full bg-[#facc15] px-6 py-3 text-sm font-semibold text-black cursor-pointer transition-colors duration-200 hover:bg-black hover:text-[#facc15]"
+      <section class="mx-auto mt-8 max-w-6xl">
+        <div class="grid gap-6 md:grid-cols-3">
+          <article
+            v-for="card in introCards"
+            :key="card.title"
+            class="rounded-[2rem] border border-gray-200 bg-white p-6 shadow-sm"
           >
-            Offerte aanvragen
-          </NuxtLink>
+            <div
+              class="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#212121] text-[#facc15]"
+            >
+              <component :is="card.icon" class="h-6 w-6" />
+            </div>
+            <p class="mt-5 text-xs font-semibold uppercase tracking-[0.35em] text-[#facc15]">
+              {{ card.badge }}
+            </p>
+            <h2 class="mt-2 text-2xl font-black text-gray-900">
+              {{ card.title }}
+            </h2>
+            <p class="mt-3 text-sm leading-7 text-gray-600">
+              {{ card.description }}
+            </p>
+          </article>
         </div>
       </section>
 
-      <section
-        class="mx-auto mt-16 grid max-w-6xl gap-10 lg:grid-cols-[1.1fr_0.9fr]"
-      >
-        <article
-          class="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm"
-        >
-          <p
-            class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
-          >
-            Strategisch partnerschap
-          </p>
-          <h2 class="mt-3 text-3xl font-black text-gray-900">
-            Van kennismaking tot het warme nest van AITJE
-          </h2>
-          <div class="mt-6 space-y-4">
-            <div
-              v-for="(step, idx) in steps"
-              :key="step.title"
-              class="rounded-3xl border border-gray-100 p-5"
-            >
-              <p
-                class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
+      <section class="mx-auto mt-16 max-w-7xl">
+        <div class="grid gap-6 lg:grid-cols-[0.34fr_0.66fr]">
+          <aside class="rounded-[2.5rem] border border-gray-200 bg-white p-6 shadow-sm">
+            <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
+              Diensten
+            </p>
+            <div class="mt-5 space-y-3">
+              <button
+                v-for="service in servicePanels"
+                :key="service.key"
+                type="button"
+                class="w-full rounded-[1.5rem] border px-5 py-4 text-left transition"
+                :class="selectedServiceKey === service.key
+                  ? 'border-[#facc15] bg-[#212121] text-white'
+                  : 'border-gray-200 bg-[#fafafa] text-gray-900 hover:border-[#facc15]'"
+                @click="selectedServiceKey = service.key"
               >
-                Stap {{ idx + 1 }}
-              </p>
-              <h3 class="mt-2 text-xl font-semibold text-gray-900">
-                {{ step.title }}
-              </h3>
-              <p class="mt-2 text-sm text-gray-600">{{ step.description }}</p>
+                <p
+                  class="text-xs font-semibold uppercase tracking-[0.32em]"
+                  :class="selectedServiceKey === service.key ? 'text-[#facc15]' : 'text-gray-400'"
+                >
+                  {{ service.sidebarLabel }}
+                </p>
+                <h2 class="mt-2 text-lg font-semibold">
+                  {{ service.title }}
+                </h2>
+              </button>
             </div>
-          </div>
-        </article>
-        <article
-          class="rounded-3xl border border-gray-200 bg-[#fafafa] p-8 lg:sticky lg:top-24 lg:self-start"
-        >
-          <p
-            class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
-          >
-            Waarom nu
-          </p>
-          <h2 class="mt-3 text-3xl font-black text-gray-900">
-            Wees problemen voor
-          </h2>
-          <p class="mt-3 text-sm text-gray-600">
-            De AI-wereld verandert razendsnel. Zonder partner riskeer je de
-            komende jaren hogere kosten, losse systemen en onnodige
-            datarisico's.
-          </p>
-          <ul class="mt-6 space-y-3 text-sm text-gray-700">
-            <li>• Voorkom dure ad-hoc keuzes en vendor lock-in.</li>
-            <li>
-              • Beperk datalekrisico's met een veilige, doordachte architectuur.
-            </li>
-            <li>
-              • Maak je organisatie toekomstbestendig en klaar voor innovatie.
-            </li>
-          </ul>
-          <NuxtLink
-            to="/contact?onderwerp=demo"
-            class="mt-8 inline-flex w-full items-center justify-center rounded-full bg-black px-6 py-3 text-sm font-semibold text-white cursor-pointer transition-colors duration-200 hover:bg-black hover:text-[#facc15]"
-          >
-            Plan een demo
-          </NuxtLink>
-        </article>
+          </aside>
+
+          <article class="rounded-[2.5rem] border border-gray-200 bg-white p-8 shadow-sm lg:p-10">
+            <p class="text-xs font-semibold uppercase tracking-[0.35em] text-[#facc15]">
+              {{ activeService.focus }}
+            </p>
+            <h2 class="mt-3 text-4xl font-black text-gray-900">
+              {{ activeService.title }}
+            </h2>
+            <p class="mt-5 max-w-3xl text-base leading-8 text-gray-600">
+              {{ activeService.description }}
+            </p>
+
+            <div class="mt-8 rounded-[1.75rem] bg-[#fafafa] p-5">
+              <p class="text-xs font-semibold uppercase tracking-[0.35em] text-gray-500">
+                Resultaat
+              </p>
+              <p class="mt-2 text-sm leading-7 text-gray-700">
+                {{ activeService.result }}
+              </p>
+            </div>
+
+            <div class="mt-8 grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
+              <div class="rounded-[1.75rem] border border-gray-100 p-5">
+                <p class="text-xs font-semibold uppercase tracking-[0.35em] text-gray-500">
+                  Wat we opleveren
+                </p>
+                <ul class="mt-4 space-y-3 text-sm text-gray-700">
+                  <li
+                    v-for="item in activeService.details"
+                    :key="item"
+                    class="flex items-start gap-3"
+                  >
+                    <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"></span>
+                    <span>{{ item }}</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="rounded-[1.75rem] bg-[#212121] p-5 text-white">
+                <p class="text-xs font-semibold uppercase tracking-[0.35em] text-[#facc15]">
+                  Past bij
+                </p>
+                <p class="mt-3 text-sm leading-7 text-gray-300">
+                  {{ activeService.fit }}
+                </p>
+                <NuxtLink
+                  :to="activeService.link"
+                  class="mt-6 inline-flex rounded-full bg-[#facc15] px-5 py-3 text-sm font-semibold text-black transition hover:bg-white"
+                >
+                  {{ activeService.cta }}
+                </NuxtLink>
+              </div>
+            </div>
+          </article>
+        </div>
       </section>
+
+      <section class="mx-auto mt-16 max-w-7xl">
+        <div class="grid items-center gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+          <article class="rounded-[2.5rem] bg-[#212121] px-8 py-10 text-white lg:px-10">
+            <div class="mx-auto flex max-w-2xl flex-col justify-center">
+              <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
+                Prijs & volgende stap
+              </p>
+              <h2 class="mt-3 text-4xl font-black">
+                Vraag een prijslijst of offerte aan
+              </h2>
+              <p class="mt-4 text-sm leading-7 text-gray-300">
+                Producten, diensten en SLA zijn bewust niet uitgewerkt als losse
+                prijsblokjes op de pagina. We houden de site helder en sturen door
+                naar een prijslijst, offerte of kennismaking zodra de vraag concreet is.
+              </p>
+              <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+                <NuxtLink
+                  to="/contact?onderwerp=prijslijst"
+                  class="inline-flex items-center justify-center rounded-full bg-[#facc15] px-6 py-3 text-sm font-semibold text-black transition hover:bg-white"
+                >
+                  Prijslijst aanvragen
+                </NuxtLink>
+                <NuxtLink
+                  to="/contact?onderwerp=offerte"
+                  class="inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:border-white"
+                >
+                  Offerte aanvragen
+                </NuxtLink>
+              </div>
+            </div>
+          </article>
+
+          <article class="overflow-hidden rounded-[2.5rem] border border-gray-200 bg-white shadow-sm">
+            <img
+              src="/images/aitje-product.png"
+              alt="AITJE producten en diensten"
+              class="h-56 w-full object-cover"
+            />
+            <div class="p-8">
+              <p class="text-xs font-semibold uppercase tracking-[0.35em] text-[#facc15]">
+                Waarom dit smaller is
+              </p>
+              <h2 class="mt-3 text-3xl font-black text-gray-900">
+                Minder grootspraak, meer focus
+              </h2>
+              <ul class="mt-6 space-y-3 text-sm text-gray-700">
+                <li class="flex items-start gap-3">
+                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"></span>
+                  <span>Duidelijker onderscheid tussen product, dienst en custom route.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"></span>
+                  <span>Betere aansluiting op organisaties die geen vaag maatwerkverhaal zoeken.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"></span>
+                  <span>Een geloofwaardiger site waarin begeleiding de productlijn versterkt.</span>
+                </li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
     </main>
 
     <BottomCta />
-
     <SiteFooter />
   </div>
 </template>
 
 <script setup lang="ts">
 import {
-  BookOpenCheck,
   ClipboardPenLine,
-  Cog,
   Leaf,
   PlugZap,
   ShieldCheck,
   Sparkles,
 } from "lucide-vue-next";
+import { serviceCatalog } from "../data/serviceCatalog";
 
-const heroValues = [
+const introCards = [
   {
-    title: "Onafhankelijkheid",
+    badge: "Strategie",
+    title: "Niet alles tegelijk",
     description:
-      "Niet afhankelijk van externe bronnen en het liefst ook niet afhankelijk van internet.",
+      "We helpen eerst bepalen wat logisch is, voordat er gebouwd of uitgebreid wordt.",
     icon: PlugZap,
   },
   {
-    title: "Strategisch partnerschap",
+    badge: "Custom",
+    title: "Alleen als standaard niet past",
     description:
-      "We denken met je mee met een focus op een systeem dat voor jouw organisatie werkt.",
+      "AITJE Custom blijft bestaan, maar als gerichte route in plaats van een breed maatwerklabel. Kleiner en duidelijker.",
     icon: Sparkles,
   },
   {
-    title: "Natuur & privacy",
+    badge: "Continuiteit",
+    title: "Regie en continuiteit",
     description:
-      "We bouwen zuinig: minder requests, groene of serverloze infrastructuur.",
+      "De focus ligt op meer grip op AI-gebruik, minder afhankelijkheid en keuzes die op lange termijn houdbaar zijn.",
     icon: Leaf,
   },
 ];
 
+const servicePanels = serviceCatalog;
+
+const selectedServiceKey = ref<(typeof servicePanels)[number]["key"]>("installation");
+
+const activeService = computed(
+  () =>
+    servicePanels.find((service) => service.key === selectedServiceKey.value)
+    ?? servicePanels[0],
+);
+
 const services = [
   {
-    title: "AI-strategie uitdenken",
+    title: "AI-strategie",
     focus: "Strategie",
     description:
-      "We denken mee over waar AI nu de meeste waarde oplevert voor jouw organisatie en welke stappen logisch zijn om te zetten.",
+      "We helpen bepalen waar AI nu de meeste waarde oplevert, wat Edge AI wel en niet logisch maakt en welke eerste stappen realistisch zijn.",
     result:
-      "Een duidelijk plan waarmee je direct kunt starten, zonder te verdwalen in alle AI-opties.",
+      "Een concreet plan waarmee je verder kunt zonder te verdwalen in alle AI-opties.",
     details: [
-      "Een rapport waar AI nu direct meerwaarde geeft in je organisatie",
-      "Een plan voor welke tools je vandaag al kunt inzetten",
-      "Roadmap met heldere prioriteiten en vervolgstappen",
-      "Praktische keuzes voor tooling en aanpak",
+      "Waar AI nu direct waarde kan toevoegen",
+      "Welke inzet logisch is voor jouw organisatie",
+      "Heldere eerste keuzes in plaats van losse ideeën",
     ],
+    fit: "Voor organisaties die eerst helderheid willen over richting, kansen en de rol van lokale Edge AI.",
+    image: "/images/golden-egg.png",
     icon: PlugZap,
+    link: "/diensten/ai-strategie",
   },
   {
-    title: "Consultancy: verbruik optimaliseren",
+    title: "Consultancy: huidig gebruik optimaliseren",
     focus: "Kosten & stabiliteit",
     description:
-      "We analyseren je huidige AI-gebruik en maken je stack goedkoper, stabieler en minder afhankelijk van 1 partij.",
+      "We analyseren huidig AI-gebruik en kijken waar kosten, stabiliteit en afhankelijkheid verbeterd kunnen worden.",
     result:
-      "Lagere kosten, betere performance en meer grip op je leveranciers.",
+      "Meer grip op verbruik, leveranciers en praktische inzet van AI.",
     details: [
-      "Analyse van tokenverbruik, kosten en latency",
-      "Slim routeren tussen meerdere modellen",
-      "Vendor-onafhankelijke opzet met meerdere aanbieders",
-      "API-architectuur en fallback-scenario's",
+      "Analyse van huidige AI-stack en verbruik",
+      "Lagere afhankelijkheid van externe platformen waar logisch",
+      "Advies over lokale software of Edge AI in de workflow",
     ],
+    fit: "Voor teams die al AI gebruiken, maar onvoldoende overzicht hebben op kosten, risico en continuiteit.",
+    image: "/images/aitje-client-screens.png",
     icon: ClipboardPenLine,
+    link: "/diensten/consultancy",
   },
   {
-    title: "RAG-chat & maatwerkoplossingen",
-    focus: "Kennisgedreven AI",
+    title: "AITJE Custom",
+    focus: "Custom route",
     description:
-      "Van AITJE-assistent tot maatwerk software: chat in, antwoord terug met gematchte context uit je eigen kennis.",
+      "Voor organisaties waar de vaste oplossingen niet goed passen en waar AITJE mee moet denken over hardware, workflows of agentic inzet.",
     result:
-      "Direct bruikbare antwoorden op basis van je eigen documenten en bedrijfscontext.",
+      "Een route die beter aansluit op de echte situatie van de organisatie.",
     details: [
-      "RAG-chat met documenten, beleid en interne kennis",
-      "Betrouwbare context-matching met broncontrole",
-      "Integratie in bestaande processen en teams",
-      "Onderhoud, monitoring en doorontwikkeling",
+      "Strategisch meedenken over Edge AI",
+      "Alternatieve hardware wanneer standaard niet past",
+      "Praktische vertaalslag van idee naar aanpak",
     ],
-    icon: BookOpenCheck,
-  },
-  {
-    title: "Software-oplossingen op maat",
-    focus: "Maatwerk ontwikkeling",
-    description:
-      "We bouwen software en applicaties op maat die AI logisch onderdeel maken van je dagelijkse operatie.",
-    result:
-      "Tools die precies aansluiten op je workflow in plaats van generieke software eromheen.",
-    details: [
-      "Web- en mobiele applicaties op maat",
-      "Interne tools voor teams en operationele processen",
-      "Generators voor content, rapportages en simpele acties",
-      "Koppelingen met CRM, MCP, ERP en interne API's",
-    ],
+    fit: "Voor organisaties met afwijkende eisen, specifieke hardwarewensen of complexere processen dan de vaste lijn ondersteunt.",
+    image: "/images/custom-suited.png",
     icon: Sparkles,
+    link: "/diensten/aitje-custom",
   },
   {
-    title: "Lokale LLM-installatie",
-    focus: "Continuiteit & onafhankelijkheid",
+    title: "SLA",
+    focus: "Maandelijkse samenwerking",
     description:
-      "We installeren een lokale LLM op je eigen infrastructuur, zodat je bedrijf blijft draaien zonder afhankelijk te zijn van externe AI-platformen.",
+      "Een maandelijkse samenwerking voor support, updates, gereserveerde tijd, installatiehulp en advies rond producten en Edge AI-implementaties.",
     result:
-      "AI-beschikbaarheid op je eigen omgeving, ook als externe diensten uitvallen.",
+      "Doorlopende ondersteuning zonder alles ad hoc te hoeven oplossen.",
     details: [
-      "Lokale setup en beveiligde configuratie",
-      "Modelkeuze per use-case en hardwareprofiel",
-      "Fallback-architectuur en beheerafspraken",
-      "Je bedrijf zit niet zonder AI zolang je stroom hebt",
+      "Vaste tijd en ondersteuning per maand",
+      "Updates van modellen en software wanneer nodig",
+      "5 euro PromptPaleis tegoed per maand voor klanten met SLA",
     ],
+    fit: "Voor organisaties die continuiteit willen, zonder steeds per incident opnieuw te hoeven schakelen.",
+    image: "/images/promptpaleis-home-screen.png",
     icon: ShieldCheck,
-  },
-  {
-    title: "Maatwerk agents",
-    focus: "Agentic automation",
-    description:
-      "We bouwen een persoonlijke agent die past bij je processen, team en datastromen.",
-    result:
-      "Herhaalbaar werk wordt automatisch afgehandeld met duidelijke controle.",
-    details: [
-      "Agentontwerp per afdeling of rol",
-      "Koppeling met interne tools en databronnen",
-      "Veiligheden, rechten en auditability ingebouwd",
-      "Iteratief verbeteren op basis van gebruik",
-    ],
-    icon: Cog,
-  },
-  {
-    title: "AI-workflows met of zonder human-in-the-loop",
-    focus: "Workflow orchestration",
-    description:
-      "We automatiseren stappen waar het kan en voegen menselijke controle toe waar het moet.",
-    result:
-      "Snellere processen met de juiste balans tussen automatisering en menselijke regie.",
-    details: [
-      "Workflows met goedkeuringsstappen voor kritieke acties",
-      "Volledig geautomatiseerde flows voor routinetaken",
-      "Escalaties, fallback en kwaliteitscontroles",
-      "Meetbare SLA's en continue optimalisatie",
-    ],
-    icon: ShieldCheck,
-  },
-  {
-    title: "SLA agreement",
-    focus: "Service & ondersteuning",
-    description:
-      "Met een SLA houden we je AI-omgeving actief gezond met vaste ondersteuning, periodieke check-ins en snelle hulp bij storingen.",
-    result:
-      "Meer rust in operatie en duidelijke afspraken over support, opvolging en beschikbaarheid.",
-    details: [
-      "Maandelijkse check-up telefonisch of via e-mail om knelpunten te bespreken",
-      "Vaste service-uren per maand die je kunt inzetten voor support en verbetering",
-      "Ongebruikte service-uren schuiven door naar de volgende maand",
-      "Storingdienst met apart telefoonnummer en e-mailadres voor spoed incidenten met een AITJE-workflow of AITJE-device",
-    ],
-    icon: ClipboardPenLine,
+    link: "/diensten/sla",
   },
 ];
 
-const steps = [
-  {
-    title: "Kennismaken",
-    description: "We verkennen je doelen, context en ambities met AI.",
-  },
-  {
-    title: "Huidige organisatie leren kennen",
-    description:
-      "We kijken naar processen, systemen, teams en huidige AI-inzet.",
-  },
-  {
-    title: "Knelpunten en wensen in kaart brengen",
-    description:
-      "We bepalen waar winst te halen is in kwaliteit, kosten en snelheid.",
-  },
-  {
-    title: "Eerste implementaties toepassen",
-    description:
-      "We zetten de eerste oplossingen live en borgen ze in je organisatie.",
-  },
-  {
-    title: "Monitoren, verbeteren, uitbreiden en optimaliseren",
-    description:
-      "Op basis van gebruiksdata verbeteren we continu je AI-landschap.",
-  },
-  {
-    title: "Lang partnerschap in AI",
-    description: "We blijven beschikbaar voor vragen, keuzes en nieuwe kansen.",
-  },
-];
 </script>

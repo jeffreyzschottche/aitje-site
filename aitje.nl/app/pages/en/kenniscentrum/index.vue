@@ -21,7 +21,7 @@
       <section class="mx-auto mt-12 max-w-6xl">
         <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           <NuxtLink
-            v-for="(article, index) in knowledgeArticles"
+            v-for="article in knowledgeArticles"
             :key="article.slug"
             :to="localePath(`/kenniscentrum/${article.slug}`)"
             class="group overflow-hidden rounded-[2rem] border border-gray-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md"
@@ -36,16 +36,11 @@
               <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent" />
               <div class="absolute inset-x-0 bottom-0 p-6">
                 <p
-                  class="text-xs font-semibold uppercase tracking-[0.4em] text-[#f6d86b]"
+                  class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
                 >
                   {{ article.category }} - {{ article.readTime }}
                 </p>
-                <div class="mt-5 flex items-end justify-between">
-                  <div
-                    class="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/40 bg-white/90 text-sm font-black text-gray-900 shadow-sm"
-                  >
-                    {{ String(index + 1).padStart(2, "0") }}
-                  </div>
+                <div class="mt-5 flex items-end justify-end">
                   <span
                     class="rounded-full border border-white/30 bg-white/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.3em] text-white"
                   >
@@ -56,7 +51,7 @@
             </div>
             <div class="p-6">
               <h2
-                class="text-2xl font-black text-gray-900 transition group-hover:text-[#9a6f00]"
+                class="text-2xl font-black text-gray-900 transition group-hover:text-[#facc15]"
               >
                 {{ article.title }}
               </h2>
@@ -64,9 +59,9 @@
                 {{ article.excerpt }}
               </p>
               <div class="mt-5 flex items-center justify-between text-sm">
-                <span class="font-semibold text-[#b88a00]">Read article</span>
+                <span class="font-semibold text-[#facc15]">Read article</span>
                 <span
-                  class="rounded-full border border-gray-200 px-3 py-1 text-xs font-medium text-gray-500 transition group-hover:border-[#facc15] group-hover:text-gray-700"
+                  class="rounded-full border border-gray-200 px-3 py-1 text-xs font-medium text-gray-500 transition group-hover:border-[#facc15] group-hover:text-[#facc15]"
                 >
                   Knowledge
                 </span>

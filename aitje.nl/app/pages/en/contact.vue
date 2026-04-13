@@ -294,7 +294,7 @@ const subjectOptions = [
   { value: "demo", label: "Demo" },
   { value: "kennismaking", label: "Introduction" },
   { value: "vraag", label: "Question" },
-  { value: "partnerschap", label: "Partnership" },
+  { value: "prijslijst", label: "Price list" },
   { value: "offerte", label: "Quote" },
 ];
 
@@ -379,10 +379,10 @@ const messagePlaceholder = computed(() => {
       return "Tell us what you would like to see in a demo.";
     case "kennismaking":
       return "Tell us why you want to schedule an introduction.";
+    case "prijslijst":
+      return "Tell us for which product or service you would like to receive a price list.";
     case "vraag":
       return "Tell us what question you have.";
-    case "partnerschap":
-      return "Tell us why you would like to work with AITJE and what opportunity you see.";
     case "offerte":
       return "Tell us for which service, case, or product you would like to receive a quote.";
     default:

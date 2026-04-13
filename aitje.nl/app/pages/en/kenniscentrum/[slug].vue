@@ -22,7 +22,7 @@
             />
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10" />
             <div class="absolute inset-x-0 bottom-0 p-8 text-white sm:p-10">
-              <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#f6d86b]">
+              <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
                 {{ article.category }} - {{ article.readTime }}
               </p>
               <h1 class="mt-4 max-w-3xl text-4xl font-black sm:text-5xl">
@@ -33,15 +33,15 @@
               </p>
             </div>
           </div>
-          <div class="border-t border-gray-200 bg-[radial-gradient(circle_at_top_left,_rgba(250,204,21,0.18),_transparent_42%),linear-gradient(135deg,_#ffffff_0%,_#fff9db_48%,_#f8fafc_100%)] p-8 sm:p-10">
-            <div class="flex flex-wrap gap-3 text-sm text-gray-600">
-              <span class="rounded-full border border-black/10 bg-white/80 px-4 py-2 font-medium">
+          <div class="border-t border-gray-200 bg-[#212121] p-8 sm:p-10">
+            <div class="flex flex-wrap gap-3 text-sm text-white">
+              <span class="rounded-full border border-[#facc15] bg-[#facc15] px-4 py-2 font-semibold text-black">
                 {{ article.sections.length }} sections
               </span>
-              <span class="rounded-full border border-black/10 bg-white/80 px-4 py-2 font-medium">
+              <span class="rounded-full border border-[#facc15] bg-[#facc15] px-4 py-2 font-semibold text-black">
                 Practical explanation
               </span>
-              <span class="rounded-full border border-black/10 bg-white/80 px-4 py-2 font-medium">
+              <span class="rounded-full border border-[#facc15] bg-[#facc15] px-4 py-2 font-semibold text-black">
                 For teams and organizations
               </span>
             </div>
@@ -57,7 +57,7 @@
         >
           <div class="flex items-start gap-4">
             <div
-              class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#fff4bf] text-sm font-black text-[#9a6f00]"
+              class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#facc15] text-sm font-black text-black"
             >
               {{ String(index + 1).padStart(2, "0") }}
             </div>
@@ -111,7 +111,7 @@
                 <p class="mt-2 text-sm text-gray-600">
                   {{ related.excerpt }}
                 </p>
-                <p class="mt-4 text-sm font-semibold text-[#b88a00]">
+                <p class="mt-4 text-sm font-semibold text-[#facc15]">
                   Open article
                 </p>
               </div>

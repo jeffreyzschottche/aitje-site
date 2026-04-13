@@ -1,3 +1,3 @@
 <script setup lang="ts">
-await navigateTo("/en/producten/hardware/aitje-assistent", { redirectCode: 302 });
+await navigateTo("/en/producten/aitje-assistent", { redirectCode: 301 });
 </script>

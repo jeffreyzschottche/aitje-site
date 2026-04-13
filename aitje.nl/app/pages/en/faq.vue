@@ -2,41 +2,65 @@
   <div class="bg-[#f5f5f5] text-gray-900">
     <SiteNavigation />
     <main class="px-6 pt-32">
-      <section
-        class="mx-auto w-full px-4 py-12 text-center sm:max-w-5xl sm:px-8"
-      >
-        <p
-          class="text-sm font-semibold uppercase tracking-[0.5em] text-[#facc15]"
-        >
-          FAQ
-        </p>
-        <h1 class="mt-4 text-5xl font-black text-gray-900">
-          Frequently Asked Questions
-        </h1>
+      <section class="mx-auto w-full px-4 py-12 text-center sm:max-w-5xl sm:px-8">
+        <p class="text-sm font-semibold uppercase tracking-[0.5em] text-[#facc15]">FAQ</p>
+        <h1 class="mt-4 text-5xl font-black text-gray-900">Frequently Asked Questions</h1>
         <p class="mt-6 text-lg text-gray-600">
           Answers to frequently asked questions about what AITJE does and offers.
         </p>
       </section>
 
-      <section
-        class="mx-auto mt-16 grid max-w-6xl gap-8 lg:grid-cols-[0.65fr_0.35fr]"
-      >
+      <section class="mx-auto mt-16 grid max-w-6xl gap-8 lg:grid-cols-[0.65fr_0.35fr]">
         <div class="space-y-6">
+          <article class="rounded-3xl border border-gray-200 bg-white p-6">
+            <div class="flex items-center gap-3">
+              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#212121] text-[#facc15]">
+                <Search class="h-6 w-6" />
+              </div>
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-[0.4em] text-gray-400">Search</p>
+                <h2 class="text-2xl font-semibold text-gray-900">Filter your questions</h2>
+              </div>
+            </div>
+            <div class="mt-6 space-y-4">
+              <label class="block">
+                <span class="sr-only">Search frequently asked questions</span>
+                <div class="flex items-center gap-3 rounded-2xl bg-[#fafafa] px-4 py-3">
+                  <Search class="h-5 w-5 text-gray-400" />
+                  <input
+                    v-model="searchQuery"
+                    type="search"
+                    placeholder="Search for RAG, environment, privacy, agent or strategy"
+                    class="w-full bg-transparent text-sm text-gray-900 outline-none placeholder:text-gray-400"
+                  />
+                </div>
+              </label>
+              <div class="flex flex-wrap gap-2">
+                <button
+                  v-for="group in faqGroups"
+                  :key="`filter-${group.title}`"
+                  type="button"
+                  class="rounded-full border border-gray-200 bg-[#fafafa] px-3 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-gray-600 transition hover:border-[#facc15] hover:text-gray-900"
+                  @click="searchQuery = group.title"
+                >
+                  {{ group.title }}
+                </button>
+              </div>
+              <p class="text-sm text-gray-600">{{ resultCount }} results</p>
+            </div>
+          </article>
+
           <article
-            v-for="group in faqGroups"
+            v-for="group in filteredGroups"
             :key="group.title"
             class="rounded-3xl border border-gray-200 bg-white p-6"
           >
             <div class="flex items-center gap-3">
-              <div
-                class="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#212121] text-[#facc15]"
-              >
+              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#212121] text-[#facc15]">
                 <component :is="group.icon" class="h-6 w-6" />
               </div>
               <div>
-                <p
-                  class="text-xs font-semibold uppercase tracking-[0.4em] text-gray-400"
-                >
+                <p class="text-xs font-semibold uppercase tracking-[0.4em] text-gray-400">
                   {{ group.badge }}
                 </p>
                 <h2 class="text-2xl font-semibold text-gray-900">
@@ -50,26 +74,36 @@
                 :key="item.question"
                 class="rounded-2xl bg-[#fafafa] p-4"
               >
-                <summary
-                  class="cursor-pointer text-base font-semibold text-gray-900"
-                >
+                <summary class="cursor-pointer text-base font-semibold text-gray-900">
                   {{ item.question }}
                 </summary>
                 <p class="mt-3 text-sm text-gray-600">{{ item.answer }}</p>
-                <NuxtLink
+                <component
+                  :is="item.external ? 'a' : NuxtLink"
                   v-if="item.linkTo"
-                  :to="localizeLink(item.linkTo)"
+                  :href="item.external ? item.linkTo : undefined"
+                  :to="!item.external ? localizeLink(item.linkTo) : undefined"
+                  :target="item.external ? '_blank' : undefined"
+                  :rel="item.external ? 'noopener noreferrer' : undefined"
                   class="mt-3 inline-flex text-sm font-semibold text-[#d4a700] underline decoration-[#d4a700]/40 underline-offset-4 transition hover:text-black hover:decoration-black"
                 >
                   {{ item.linkLabel || "Read more" }}
-                </NuxtLink>
+                </component>
               </details>
             </div>
           </article>
+
+          <article
+            v-if="filteredGroups.length === 0"
+            class="rounded-3xl border border-dashed border-gray-300 bg-white p-6 text-center"
+          >
+            <p class="text-xs font-semibold uppercase tracking-[0.4em] text-gray-400">No results</p>
+            <h2 class="mt-3 text-2xl font-semibold text-gray-900">No questions found</h2>
+            <p class="mt-3 text-sm text-gray-600">Try a broader term such as environment, services, privacy or RAG.</p>
+          </article>
         </div>
-        <aside
-          class="h-max rounded-3xl border border-gray-200 bg-white p-6 shadow-sm lg:sticky lg:top-24 lg:self-start"
-        >
+
+        <aside class="h-max rounded-3xl border border-gray-200 bg-white p-6 shadow-sm lg:sticky lg:top-24 lg:self-start">
           <h3 class="text-2xl font-semibold text-gray-900">
             Is your question not listed?
           </h3>
@@ -84,12 +118,7 @@
               aria-label="AITJE on LinkedIn"
               class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-[#fafafa] transition hover:border-[#facc15]"
             >
-              <img
-                :src="linkedinIcon"
-                alt=""
-                aria-hidden="true"
-                class="h-5 w-5 object-contain"
-              />
+              <img :src="linkedinIcon" alt="" aria-hidden="true" class="h-5 w-5 object-contain" />
             </a>
             <a
               href="https://www.tiktok.com/@aitje.bv"
@@ -98,11 +127,7 @@
               aria-label="AITJE on TikTok"
               class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-[#fafafa] transition hover:border-[#facc15]"
             >
-              <svg
-                aria-hidden="true"
-                viewBox="0 0 24 24"
-                class="h-5 w-5 fill-current"
-              >
+              <svg aria-hidden="true" viewBox="0 0 24 24" class="h-5 w-5 fill-current">
                 <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.38V2h-3.13v12.38a2.67 2.67 0 1 1-2.67-2.67c.31 0 .61.05.9.15V8.67a5.8 5.8 0 0 0-.9-.07A5.8 5.8 0 1 0 15.82 14V7.73a7.9 7.9 0 0 0 4.77 1.6V6.2c-.34 0-.67-.03-1-.11Z" />
               </svg>
             </a>
@@ -111,12 +136,7 @@
               aria-label="Mail AITJE"
               class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-[#fafafa] transition hover:border-[#facc15]"
             >
-              <img
-                :src="gmailIcon"
-                alt=""
-                aria-hidden="true"
-                class="h-5 w-5 object-contain"
-              />
+              <img :src="gmailIcon" alt="" aria-hidden="true" class="h-5 w-5 object-contain" />
             </a>
           </div>
           <NuxtLink
@@ -126,9 +146,7 @@
             Get in touch
           </NuxtLink>
           <div class="mt-6 rounded-3xl bg-[#facc15] p-4 text-[#212121]">
-            <p class="text-xs font-semibold uppercase tracking-[0.4em]">
-              Knowledge Center
-            </p>
+            <p class="text-xs font-semibold uppercase tracking-[0.4em]">Knowledge Center</p>
             <p class="mt-2 text-sm">
               In the knowledge center, we write about terms and topics from the world of AI. Perhaps the answer to your question is already among them.
             </p>
@@ -142,9 +160,7 @@
         </aside>
       </section>
 
-      <section
-        class="mx-auto mt-16 max-w-5xl rounded-[3rem] bg-[#212121] p-10 text-white"
-      >
+      <section class="mx-auto mt-16 max-w-5xl rounded-[3rem] bg-[#212121] p-10 text-white">
         <h2 class="text-3xl font-black">Quick Facts</h2>
         <div class="mt-6 grid gap-6 md:grid-cols-3">
           <article
@@ -152,9 +168,7 @@
             :key="fact.title"
             class="rounded-3xl border border-white/10 bg-white/5 p-5"
           >
-            <p
-              class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
-            >
+            <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
               {{ fact.badge }}
             </p>
             <h3 class="mt-2 text-xl font-semibold text-white">
@@ -167,27 +181,29 @@
     </main>
 
     <BottomCta />
-
     <SiteFooter />
   </div>
 </template>
 
 <script setup lang="ts">
-import {
-  BookOpenCheck,
-  Leaf,
-  Lock,
-  PlugZap,
-  Shield,
-  Sparkles,
-} from "lucide-vue-next";
+import { computed, ref } from "vue";
+import { BookOpenCheck, Leaf, Lock, PlugZap, Search, Shield, Sparkles } from "lucide-vue-next";
 import linkedinIcon from "@/assets/images/social/linkedin.png";
 import gmailIcon from "@/assets/images/social/gmail.png";
 
 const { localePath } = useSiteLocale();
 
-const localizeLink = (path: string) =>
-  path.startsWith("/") ? localePath(path) : path;
+const localizeLink = (path?: string) => (path?.startsWith("/") ? localePath(path) : path);
+
+type FaqItem = {
+  question: string;
+  answer: string;
+  linkTo?: string;
+  linkLabel?: string;
+  external?: boolean;
+};
+
+const searchQuery = ref("");
 
 const faqGroups = [
   {
@@ -226,8 +242,7 @@ const faqGroups = [
     items: [
       {
         question: "What backend languages do you primarily use?",
-        answer:
-          "For backend, we work mainly with Python, .NET, PHP, Laravel and Node.js.",
+        answer: "For backend, we work mainly with Python, .NET, PHP, Laravel and Node.js.",
       },
       {
         question: "What frameworks and tools do you use?",
@@ -246,8 +261,7 @@ const faqGroups = [
       },
       {
         question: "How do you run the LLM?",
-        answer:
-          "In most cases, we use Ollama. If necessary, we can also use other inference engines, such as vLLM.",
+        answer: "In most cases, we use Ollama. If necessary, we can also use other inference engines, such as vLLM.",
       },
       {
         question: "What models do you guys use?",
@@ -272,8 +286,7 @@ const faqGroups = [
           "Data stays in the Netherlands or Europe. In many cases, we can even build a completely local solution within your own environment.",
       },
       {
-        question:
-          "How do you embed data in the knowledge base for AITJE Assistant?",
+        question: "How do you embed data in the knowledge base for AITJE Assistant?",
         answer:
           "We process and embed data on the server and sync it to a private version control account for your organization. From there, you can sync to the live environment on the Assistant. If wrong data is added, we can also restore and backup via version control.",
       },
@@ -297,7 +310,7 @@ const faqGroups = [
       {
         question: "How is local AI helping the environment?",
         answer:
-          "AITJE Assistant & Notetaker process data locally, requiring fewer continuous calls to remote data centers. This reduces energy use and cooling water consumption in large-scale cloud infrastructure.",
+          "AITJE Assistant and Notetaker process data locally, requiring fewer continuous calls to remote data centers. This reduces energy use and cooling water consumption in large-scale cloud infrastructure.",
       },
       {
         question: "Is local always more sustainable?",
@@ -406,8 +419,7 @@ const faqGroups = [
           "AITJE Assistant does not notice much of this in basic terms. Synchronization is then temporarily more difficult, as chunked vector-embedding data is retrieved from version control. However, local data and local LLM functionality remain available.",
       },
       {
-        question:
-          "Can multiple people on the network use AITJE Assistant API?",
+        question: "Can multiple people on the network use AITJE Assistant API?",
         answer:
           "Yes. You create accounts and install the mobile or desktop application. Then that user can use the local LLM and API over the network.",
       },
@@ -451,10 +463,27 @@ const faqGroups = [
           "Yes, we have. Part of AITJE is PromptPaleis: the Dutch marketplace of pre-made prompts and guides to get more out of AI.",
         linkTo: "https://www.promptpaleis.nl",
         linkLabel: "To PromptPaleis",
+        external: true,
       },
     ],
   },
 ];
+
+const filteredGroups = computed(() => {
+  const query = searchQuery.value.toLowerCase().trim();
+  if (!query) return faqGroups;
+
+  return faqGroups
+    .map((group) => ({
+      ...group,
+      items: group.items.filter((item) =>
+        `${group.title} ${group.badge} ${item.question} ${item.answer}`.toLowerCase().includes(query),
+      ),
+    }))
+    .filter((group) => group.items.length > 0);
+});
+
+const resultCount = computed(() => filteredGroups.value.reduce((sum, group) => sum + group.items.length, 0));
 
 const facts = [
   {
@@ -470,8 +499,7 @@ const facts = [
   {
     title: "Nature-friendly",
     badge: "Climate",
-    description:
-      "Less server water, less energy and therefore a lighter footprint.",
+    description: "Less server water, less energy and therefore a lighter footprint.",
   },
 ];
 </script>

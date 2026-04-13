@@ -297,11 +297,10 @@ import gmailIcon from "@/assets/images/social/gmail.png";
 const route = useRoute();
 
 const subjectOptions = [
-  { value: "council", label: "Council" },
   { value: "demo", label: "Demo" },
   { value: "kennismaking", label: "Kennismaking" },
   { value: "vraag", label: "Vraag" },
-  { value: "partnerschap", label: "Partnerschap" },
+  { value: "prijslijst", label: "Prijslijst" },
   { value: "offerte", label: "Offerte" },
 ];
 
@@ -382,16 +381,14 @@ const formData = reactive({
 
 const messagePlaceholder = computed(() => {
   switch (formData.subject) {
-    case "council":
-      return "Vertel ons wat voor council je wilt laten bouwen, welke teams of agents meedoen, welke acties wel of niet mogen en waar human-in-the-loop nodig is.";
     case "demo":
       return "Vertel ons waar je een demo van zou willen.";
     case "kennismaking":
       return "Vertel ons waarom je een kennismaking wilt inplannen.";
+    case "prijslijst":
+      return "Vertel ons voor welk product of welke dienst je een prijslijst wilt ontvangen.";
     case "vraag":
       return "Vertel ons welke vraag je hebt.";
-    case "partnerschap":
-      return "Vertel ons waarom je graag met AITJE wilt samenwerken en welke kans je ziet.";
     case "offerte":
       return "Vertel ons voor welke dienst, case of product je een offerte wilt ontvangen.";
     default:

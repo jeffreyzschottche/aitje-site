@@ -8,14 +8,12 @@
       >
         <div class="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
           <div>
-            <p
-              class="text-sm font-semibold uppercase tracking-[0.4em] text-[#facc15]"
-            >
+            <p class="text-sm font-semibold uppercase tracking-[0.4em] text-[#facc15]">
               Roadmap
             </p>
             <h1 class="mt-4 text-5xl font-black">What AITJE is building</h1>
             <p class="mt-6 max-w-3xl text-lg text-gray-300">
-              This roadmap shows where we are now and what parts we are building on within AITJE.
+              This roadmap only shows real product status: what already exists, what is in development and what is planned. No broad innovation claims, just concrete direction.
             </p>
           </div>
           <img
@@ -33,11 +31,8 @@
           v-for="year in roadmapByYear"
           :key="year.year"
           class="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm"
-          :class="year.year === '2024' ? 'self-start' : ''"
         >
-          <p
-            class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
-          >
+          <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
             Year
           </p>
           <h2 class="mt-3 text-2xl font-black text-gray-900">
@@ -50,9 +45,7 @@
               :key="`${year.year}-${point}`"
               class="flex items-start gap-2 text-sm text-gray-600"
             >
-              <span
-                class="mt-1 inline-block h-1.5 w-1.5 flex-none shrink-0 rounded-full bg-[#facc15]"
-              ></span>
+              <span class="mt-1 inline-block h-1.5 w-1.5 flex-none shrink-0 rounded-full bg-[#facc15]"></span>
               <span>{{ point }}</span>
             </li>
           </ul>
@@ -71,9 +64,7 @@
                   :key="`${quarter.label}-${point}`"
                   class="flex items-start gap-2 text-sm text-gray-600"
                 >
-                  <span
-                    class="mt-1 inline-block h-1.5 w-1.5 flex-none shrink-0 rounded-full bg-[#facc15]"
-                  ></span>
+                  <span class="mt-1 inline-block h-1.5 w-1.5 flex-none shrink-0 rounded-full bg-[#facc15]"></span>
                   <span>{{ point }}</span>
                 </li>
               </ul>
@@ -84,7 +75,6 @@
     </main>
 
     <BottomCta />
-
     <SiteFooter />
   </div>
 </template>
@@ -92,144 +82,91 @@
 <script setup lang="ts">
 const roadmapByYear = [
   {
-    year: "2024",
-    summary: "Research and construction year for the technical foundation of AITJE.",
-    points: [
-      "Deepening AI workflow integrations via n8n",
-      "Research into RAG systems and different platforms",
-      "APIs tested for reliability, scalability and management",
-      "Token costs and energy consumption quickly proved to be a major risk",
-      "First Ollama tests set up as a basis for local deployment",
-    ],
-  },
-  {
     year: "2025",
-    summary:
-      "From research to product versions, customer work and targeted launches.",
-    quarters: [
-      {
-        label: "Q1",
-        title: "Model stack and API base",
-        points: [
-          "vLLM and Ollama tested and configured side by side",
-          "First proprietary API routes for internal production-ready workflows",
-          "Foundation laid for production-ready workflow automation",
-        ],
-      },
-      {
-        label: "Q2",
-        title: "First demos and client work",
-        points: [
-          "First demo version of AITJE Assistant launched",
-          "Active work for first customers on implementation and customization",
-          "Preparation for agent-driven workflows",
-        ],
-      },
-      {
-        label: "Q3",
-        title: "Security and data breach focus",
-        points: [
-          "Increased focus on data leak risks around AI usage with local edge solutions",
-          "Further tightened guardrails, access and logging",
-          "Ideation started for Board of Directors",
-        ],
-      },
-      {
-        label: "Q4",
-        title: "Software launches end of year",
-        points: [
-          "Completion of the WordPress plugins",
-          "Notetaker track further developed",
-          "Roadmap 2026 finalized based on practical feedback",
-        ],
-      },
+    summary: "From first demos and practical feedback to a clearer product direction.",
+    points: [
+      "First AITJE Assistent demos tested in practice",
+      "Direction sharpened around local Edge AI for organizations",
+      "Practical feedback used to refine product and positioning",
     ],
   },
   {
     year: "2026",
-    summary:
-      "Product launches and redesign based on rapid market development.",
+    summary: "The year in which the product line becomes more concrete and new directions become visible.",
     quarters: [
       {
         label: "Q1",
-        title: "Launch phase",
+        title: "AITJE Assistent is in place",
         points: [
-          "AITJE OS launched",
-          "Make AITJE Assistant production-ready",
-          "Existing infrastructure revised and scaled up",
+          "AITJE Assistent exists as the core product",
+          "AITJE Assistent+ is available as a faster variant with better specs",
+          "The product structure is reduced to one clearer main route",
         ],
       },
       {
         label: "Q2",
-        title: "PromptPaleis",
+        title: "Sharper foundation",
         points: [
-          "PromptPaleis launched",
-          "Prompt and guide library further expanded",
-          "Practical workflows for teams added",
-          "Launch AITJE Notetaker application",
+          "PromptPaleis exists as a side project on promptpaleis.nl",
+          "Focus stays on a smaller, more credible product line",
+          "Preparation for the next product phases continues",
         ],
       },
       {
         label: "Q3",
-        title: "Local agents and Board of Directors",
+        title: "In development",
         points: [
-          "Local agent architectures rolled out further",
-          "Board of Directors delivered",
-          "New customization tracks added for organizations",
-          "Launch AITJE Notetaker Device",
+          "AITJE Notulist is aimed at Q3 2026",
+          "AITJE Prepper enters the test phase",
+          "Interest is gathered around the new product directions",
         ],
       },
       {
         label: "Q4",
-        title: "Re-inventory infrastructure",
+        title: "From test to live",
         points: [
-          "Development of AITJE Assistant Finch v2 starts",
-          "Infrastructure reassessed based on hardware and model development",
-          "New solutions evaluated for stability and impact",
-          "The roadmap for 2027 is updated based on technical acceleration",
+          "AITJE Prepper is planned to go live in Q4 2026",
+          "AITJE Notulist is refined further based on practical use and product goals",
+          "The 2027 product line becomes more concrete",
         ],
       },
     ],
   },
   {
     year: "2027",
-    summary: "European expansion, community-building and ongoing R&D.",
+    summary: "From separate products to a broader local Edge AI line with management and coordination.",
     quarters: [
       {
         label: "Q1",
-        title: "Community and network",
+        title: "Further development",
         points: [
-          "The first AITJE Community Meeting is scheduled",
-          "Customer feedback is translated directly into product iterations",
-          "The support and partner network is further expanded",
+          "Existing products continue to be refined",
+          "Usability and practical deployment remain central",
         ],
       },
       {
         label: "Q2",
-        title: "Europe and server locations",
+        title: "AITJE Manager",
         points: [
-          "Expansion into multiple European markets begins",
-          "More server locations are added with an emphasis on the Netherlands and Germany",
-          "European compliance and management frameworks are tightened",
+          "AITJE Manager is planned for Q2 2027",
+          "The focus is on installing and managing agents more easily",
+          "Local coordination between assistants and agents becomes more central",
         ],
       },
       {
         label: "Q3",
-        title: "R&D and market validation",
+        title: "Expansion",
         points: [
-          "Start AITJE Manager (upgrade of AITJE Assistant)",
-          "Continuous R&D on models, agent behavior and workflows continues",
-          "Market developments are actively monitored and validated",
-          "Customer segmentation is sharpened for impact and scalability",
+          "Further building on local agentic workflows",
+          "Practical management scenarios for organizations are developed further",
         ],
       },
       {
         label: "Q4",
-        title: "International positioning",
+        title: "Defining the next phase",
         points: [
-          "The AI Summit in Geneva is planned for positioning and partnerships",
-          "The next multi-year roadmap is prepared based on market and customer data",
-          "The expansion strategy for 2028 is finalized",
+          "New priorities are set based on product use and practical feedback",
+          "The roadmap stays product-focused and concrete",
         ],
       },
     ],

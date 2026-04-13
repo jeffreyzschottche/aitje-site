@@ -13,204 +13,309 @@
         />
       </NuxtLink>
 
-      <div class="hidden items-center gap-6 md:flex">
-        <template v-for="link in links" :key="`desktop-link-${link.baseTo}`">
-          <NuxtLink
-            v-if="!link.children"
-            :to="link.to"
-            class="text-sm font-medium transition duration-150"
-            :class="isActive(link.baseTo) ? 'text-gray-900' : 'text-gray-500 hover:text-gray-900'"
-          >
-            {{ link.label }}
-          </NuxtLink>
+      <div class="hidden flex-1 items-center justify-center px-8 md:flex">
+        <div class="flex items-center gap-6">
+        <NuxtLink
+          v-for="link in desktopLeadingLinks"
+          :key="link.baseTo"
+          :to="link.to"
+          class="inline-flex items-center text-sm font-medium transition duration-150"
+          :class="isActive(link.baseTo) ? 'text-gray-900' : 'text-gray-500 hover:text-gray-900'"
+        >
+          {{ link.label }}
+        </NuxtLink>
 
-          <div
-            v-else-if="link.baseTo === '/producten'"
-            class="relative"
-            @mouseenter="openProductsMenu()"
-            @mouseleave="queueCloseProductsMenu()"
-          >
-            <div class="flex items-center gap-1">
-              <NuxtLink
-                :to="link.to"
-                class="text-sm font-medium transition duration-150"
-                :class="isActive(link.baseTo) ? 'text-gray-900' : 'text-gray-500 hover:text-gray-900'"
-              >
-                {{ link.label }}
-              </NuxtLink>
-              <button
-                class="inline-flex h-6 w-6 items-center justify-center rounded-full text-gray-500 transition hover:bg-gray-100 hover:text-gray-900"
-                :aria-label="copy.showProductMenu"
-                @click.stop="toggleProductsMenu()"
-              >
-                <svg
-                  class="h-4 w-4 transition"
-                  :class="{ 'rotate-180': isProductsOpen }"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="M6 9l6 6 6-6" />
-                </svg>
-              </button>
-            </div>
-            <div
-              v-if="isProductsOpen"
-              class="absolute left-0 top-full z-50 mt-1 w-[34rem] rounded-2xl border border-gray-200 bg-white p-4 shadow-lg"
-              @mouseenter="cancelCloseProductsMenu()"
-              @mouseleave="queueCloseProductsMenu()"
+        <div
+          class="relative"
+          @mouseenter="isProductsOpen = true"
+          @mouseleave="isProductsOpen = false"
+        >
+          <div class="flex items-center gap-1">
+            <NuxtLink
+              :to="localePath('/producten')"
+              class="inline-flex items-center text-sm font-medium transition duration-150"
+              :class="isActive('/producten') ? 'text-gray-900' : 'text-gray-500 hover:text-gray-900'"
+              @click.prevent="toggleDesktopMenu('products')"
             >
-              <div class="grid gap-4 md:grid-cols-[0.42fr_0.58fr]">
-                <div class="rounded-xl border border-gray-200 bg-[#fafafa] p-2">
-                  <div
-                    v-for="group in productGroups"
-                    :key="group.id"
-                    class="mb-1 rounded-lg"
-                    @mouseenter="activeProductsGroup = group.id"
-                    @mousemove="activeProductsGroup = group.id"
-                  >
-                    <NuxtLink
-                      :to="group.to"
-                      class="flex items-center justify-between rounded-lg px-3 py-2 text-sm font-semibold transition"
-                      :class="activeProductsGroup === group.id ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-600 hover:bg-white hover:text-gray-900'"
-                      @focus="activeProductsGroup = group.id"
-                      @click="isProductsOpen = false"
-                    >
-                      <span>{{ group.label }}</span>
-                      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M9 6l6 6-6 6" />
-                      </svg>
-                    </NuxtLink>
-                  </div>
-                </div>
-                <div class="rounded-xl border border-gray-200 bg-[#fafafa] p-3">
-                  <NuxtLink
-                    :to="currentProductsGroup.to"
-                    class="inline-flex text-sm font-semibold text-gray-900 transition hover:text-black"
-                    @click="isProductsOpen = false"
-                  >
-                    {{ currentProductsGroup.label }}
-                  </NuxtLink>
-                  <div class="mt-2 flex flex-col">
-                    <NuxtLink
-                      v-for="item in currentProductsGroup.items"
-                      :key="item.baseTo"
-                      :to="item.to"
-                      class="rounded-lg px-2 py-1 text-sm text-gray-600 transition hover:bg-white hover:text-gray-900"
-                      @click="isProductsOpen = false"
-                    >
-                      {{ item.label }}
-                    </NuxtLink>
-                  </div>
-                </div>
-              </div>
-            </div>
+              {{ copy.products }}
+            </NuxtLink>
+            <button
+              class="inline-flex h-6 w-6 items-center justify-center rounded-full text-gray-500 transition hover:bg-gray-100 hover:text-gray-900"
+              :aria-label="copy.showProductMenu"
+              @click.stop="toggleDesktopMenu('products')"
+            >
+              <svg
+                class="h-4 w-4 transition"
+                :class="{ 'rotate-180': isProductsOpen }"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </button>
           </div>
 
           <div
-            v-else
-            class="relative"
-            @mouseenter="openServicesMenu()"
-            @mouseleave="queueCloseServicesMenu()"
+            v-if="isProductsOpen"
+            class="absolute left-0 top-full z-50 w-80 pt-2"
           >
-            <div class="flex items-center gap-1">
-              <NuxtLink
-                :to="link.to"
-                class="text-sm font-medium transition duration-150"
-                :class="isActive(link.baseTo) ? 'text-gray-900' : 'text-gray-500 hover:text-gray-900'"
-              >
-                {{ link.label }}
-              </NuxtLink>
-              <button
-                class="inline-flex h-6 w-6 items-center justify-center rounded-full text-gray-500 transition hover:bg-gray-100 hover:text-gray-900"
-                :aria-label="copy.showServicesMenu"
-                @click.stop="toggleServicesMenu()"
-              >
-                <svg
-                  class="h-4 w-4 transition"
-                  :class="{ 'rotate-180': isServicesOpen }"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+            <div class="rounded-2xl border border-gray-200 bg-white p-3 shadow-lg">
+              <template v-for="item in productLinks" :key="item.baseTo">
+                <div
+                  v-if="item.disabled"
+                  class="block cursor-not-allowed rounded-xl bg-gray-50 px-3 py-3 opacity-60"
                 >
-                  <path d="M6 9l6 6 6-6" />
-                </svg>
-              </button>
+                  <p class="text-sm font-semibold text-gray-400">
+                    {{ item.label }}
+                  </p>
+                  <p class="mt-1 text-xs text-gray-400">
+                    {{ item.description }}
+                  </p>
+                </div>
+
+                <NuxtLink
+                  v-else
+                  :to="item.to"
+                  class="block rounded-xl px-3 py-3 transition hover:bg-[#fafafa]"
+                  @click="isProductsOpen = false"
+                >
+                  <p class="text-sm font-semibold text-gray-900">
+                    {{ item.label }}
+                  </p>
+                  <p class="mt-1 text-xs text-gray-500">
+                    {{ item.description }}
+                  </p>
+                </NuxtLink>
+              </template>
             </div>
-            <div
-              v-if="isServicesOpen"
-              class="absolute left-0 top-full z-50 mt-1 w-56 rounded-2xl border border-gray-200 bg-white p-2 shadow-lg"
-              @mouseenter="cancelCloseServicesMenu()"
-              @mouseleave="queueCloseServicesMenu()"
+          </div>
+        </div>
+
+        <div
+          class="relative"
+          @mouseenter="isServicesOpen = true"
+          @mouseleave="isServicesOpen = false"
+        >
+          <div class="flex items-center gap-1">
+            <NuxtLink
+              :to="localePath('/diensten')"
+              class="inline-flex items-center text-sm font-medium transition duration-150"
+              :class="isActive('/diensten') || isActive('/use-cases') ? 'text-gray-900' : 'text-gray-500 hover:text-gray-900'"
+              @click.prevent="toggleDesktopMenu('services')"
             >
+              {{ copy.services }}
+            </NuxtLink>
+            <button
+              class="inline-flex h-6 w-6 items-center justify-center rounded-full text-gray-500 transition hover:bg-gray-100 hover:text-gray-900"
+              :aria-label="copy.showServicesMenu"
+              @click.stop="toggleDesktopMenu('services')"
+            >
+              <svg
+                class="h-4 w-4 transition"
+                :class="{ 'rotate-180': isServicesOpen }"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </button>
+          </div>
+
+          <div
+            v-if="isServicesOpen"
+            class="absolute left-0 top-full z-50 w-80 pt-2"
+          >
+            <div class="rounded-2xl border border-gray-200 bg-white p-3 shadow-lg">
               <NuxtLink
-                v-for="child in link.children"
-                :key="child.baseTo"
-                :to="child.to"
-                class="block rounded-xl px-3 py-2 text-sm font-semibold text-gray-700 transition hover:bg-[#fafafa] hover:text-gray-900"
+                v-for="item in serviceLinks"
+                :key="item.baseTo"
+                :to="item.to"
+                class="block rounded-xl px-3 py-3 transition hover:bg-[#fafafa]"
                 @click="isServicesOpen = false"
               >
-                {{ child.label }}
+                <p class="text-sm font-semibold text-gray-900">{{ item.label }}</p>
+                <p class="mt-1 text-xs text-gray-500">{{ item.description }}</p>
               </NuxtLink>
             </div>
           </div>
-        </template>
-
-        <div class="flex items-center gap-2 rounded-full border border-gray-200 bg-white p-1">
-          <button
-            v-for="option in languageOptions"
-            :key="option.locale"
-            type="button"
-            class="inline-flex items-center gap-2 rounded-full px-3 py-2 text-xs font-semibold transition"
-            :class="locale === option.locale ? 'bg-[#212121] text-white' : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'"
-            :aria-label="option.label"
-            @click="switchLanguage(option.locale)"
-          >
-            <span
-              class="inline-flex h-4 w-4 items-center justify-center text-sm leading-none"
-              aria-hidden="true"
-            >{{ option.flag }}</span>
-            <span>{{ option.shortLabel }}</span>
-          </button>
         </div>
 
         <NuxtLink
-          :to="localePath('/contact?onderwerp=demo')"
-          class="rounded-full bg-[#facc15] px-6 py-2 text-sm font-semibold text-black cursor-pointer transition-colors duration-200 hover:bg-black hover:text-[#facc15]"
+          v-for="link in desktopTrailingLinks"
+          :key="`trailing-${link.baseTo}`"
+          :to="link.to"
+          class="inline-flex items-center text-sm font-medium transition duration-150"
+          :class="isActive(link.baseTo) ? 'text-gray-900' : 'text-gray-500 hover:text-gray-900'"
         >
-          {{ copy.planDemo }}
+          {{ link.label }}
+        </NuxtLink>
+
+        <div
+          class="relative"
+          @mouseenter="isAboutOpen = true"
+          @mouseleave="isAboutOpen = false"
+        >
+          <div class="flex items-center gap-1">
+            <NuxtLink
+              :to="localePath('/over-aitje')"
+              class="inline-flex items-center text-sm font-medium transition duration-150"
+              :class="isActive('/over-aitje') || isActive('/roadmap') ? 'text-gray-900' : 'text-gray-500 hover:text-gray-900'"
+              @click.prevent="toggleDesktopMenu('about')"
+            >
+              {{ copy.about }}
+            </NuxtLink>
+            <button
+              class="inline-flex h-6 w-6 items-center justify-center rounded-full text-gray-500 transition hover:bg-gray-100 hover:text-gray-900"
+              :aria-label="copy.showAboutMenu"
+              @click.stop="toggleDesktopMenu('about')"
+            >
+              <svg
+                class="h-4 w-4 transition"
+                :class="{ 'rotate-180': isAboutOpen }"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </button>
+          </div>
+
+          <div
+            v-if="isAboutOpen"
+            class="absolute left-0 top-full z-50 w-80 pt-2"
+          >
+            <div class="rounded-2xl border border-gray-200 bg-white p-3 shadow-lg">
+              <NuxtLink
+                v-for="item in aboutLinks"
+                :key="item.baseTo"
+                :to="item.to"
+                class="block rounded-xl px-3 py-3 transition hover:bg-[#fafafa]"
+                @click="isAboutOpen = false"
+              >
+                <p class="text-sm font-semibold text-gray-900">{{ item.label }}</p>
+                <p class="mt-1 text-xs text-gray-500">{{ item.description }}</p>
+              </NuxtLink>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+
+      <div class="hidden items-center gap-6 md:flex">
+        <div class="relative">
+          <button
+            type="button"
+            class="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-semibold text-gray-700 transition hover:bg-gray-50"
+            :aria-label="copy.languageMenu"
+            @click="isLanguageOpen = !isLanguageOpen"
+          >
+            <span class="inline-flex h-4 w-4 items-center justify-center text-sm leading-none" aria-hidden="true">
+              {{ activeLanguage.flag }}
+            </span>
+            <span>{{ activeLanguage.shortLabel }}</span>
+            <svg
+              class="h-4 w-4 transition"
+              :class="{ 'rotate-180': isLanguageOpen }"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </button>
+
+          <div
+            v-if="isLanguageOpen"
+            class="absolute right-1/2 top-full z-50 mt-2 w-32 translate-x-1/2 rounded-2xl border border-gray-200 bg-white p-2 shadow-lg"
+          >
+            <button
+              v-for="option in languageOptions"
+              :key="option.locale"
+              type="button"
+              class="flex w-full items-center gap-2 rounded-xl px-3 py-2 text-sm font-semibold transition"
+              :class="locale === option.locale ? 'bg-[#212121] text-white' : 'text-gray-700 hover:bg-[#fafafa] hover:text-gray-900'"
+              :aria-label="option.label"
+              @click="switchLanguage(option.locale)"
+            >
+              <span class="inline-flex h-4 w-4 items-center justify-center text-sm leading-none" aria-hidden="true">{{ option.flag }}</span>
+              <span>{{ option.shortLabel }}</span>
+            </button>
+          </div>
+        </div>
+
+        <NuxtLink
+          :to="localePath('/contact')"
+          class="inline-flex items-center justify-center rounded-full bg-[#facc15] px-6 py-2 text-center text-sm font-semibold text-black transition-colors duration-200 hover:bg-black hover:text-[#facc15]"
+        >
+          {{ copy.cta }}
         </NuxtLink>
       </div>
 
       <div class="flex items-center gap-3 md:hidden">
-        <div class="flex items-center gap-1 rounded-full border border-gray-200 bg-white p-1">
+        <div class="relative">
           <button
-            v-for="option in languageOptions"
-            :key="`mobile-${option.locale}`"
             type="button"
-            class="inline-flex h-9 w-9 items-center justify-center rounded-full transition"
-            :class="locale === option.locale ? 'bg-[#212121]' : 'hover:bg-gray-100'"
-            :aria-label="option.label"
-            @click="switchLanguage(option.locale)"
+            class="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-semibold text-gray-700 transition hover:bg-gray-50"
+            :aria-label="copy.languageMenu"
+            @click="isLanguageOpen = !isLanguageOpen"
           >
-            <span
-              class="inline-flex h-4 w-4 items-center justify-center text-sm leading-none"
-              aria-hidden="true"
-            >{{ option.flag }}</span>
+            <span class="inline-flex h-4 w-4 items-center justify-center text-sm leading-none" aria-hidden="true">
+              {{ activeLanguage.flag }}
+            </span>
+            <span>{{ activeLanguage.shortLabel }}</span>
+            <svg
+              class="h-4 w-4 transition"
+              :class="{ 'rotate-180': isLanguageOpen }"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M6 9l6 6 6-6" />
+            </svg>
           </button>
+
+          <div
+            v-if="isLanguageOpen"
+            class="absolute right-1/2 top-full z-50 mt-2 w-32 translate-x-1/2 rounded-2xl border border-gray-200 bg-white p-2 shadow-lg"
+          >
+            <button
+              v-for="option in languageOptions"
+              :key="`mobile-${option.locale}`"
+              type="button"
+              class="flex w-full items-center gap-2 rounded-xl px-3 py-2 text-sm font-semibold transition"
+              :class="locale === option.locale ? 'bg-[#212121] text-white' : 'text-gray-700 hover:bg-[#fafafa] hover:text-gray-900'"
+              :aria-label="option.label"
+              @click="switchLanguage(option.locale)"
+            >
+              <span class="inline-flex h-4 w-4 items-center justify-center text-sm leading-none" aria-hidden="true">{{ option.flag }}</span>
+              <span>{{ option.shortLabel }}</span>
+            </button>
+          </div>
         </div>
 
         <button
           class="inline-flex items-center gap-2 rounded-full border border-gray-200 px-4 py-2 text-sm font-semibold text-gray-700 transition hover:bg-gray-50"
           @click="isMenuOpen = !isMenuOpen"
         >
-          <span>{{ currentLabel }}</span>
+          <span>{{ copy.menu }}</span>
           <svg
             class="h-4 w-4 transition"
             :class="{ 'rotate-180': isMenuOpen }"
@@ -229,62 +334,32 @@
 
     <div v-if="isMenuOpen" class="border-t border-gray-200 bg-white md:hidden">
       <div class="flex flex-col px-6 py-4">
-        <template v-for="link in links" :key="`mobile-link-${link.baseTo}`">
+        <template v-for="link in mobileLinks" :key="`mobile-${link.baseTo}`">
+          <div
+            v-if="link.disabled"
+            class="cursor-not-allowed py-2 text-sm font-semibold text-gray-400"
+            :class="link.isIndented ? 'pl-5' : ''"
+          >
+            {{ link.label }}
+          </div>
+
           <NuxtLink
-            v-if="!link.children"
+            v-else
             :to="link.to"
             class="py-2 text-sm font-semibold text-gray-700 transition hover:text-gray-900"
+            :class="link.isIndented ? 'pl-5 text-gray-600' : ''"
             @click="isMenuOpen = false"
           >
             {{ link.label }}
           </NuxtLink>
-          <div v-else class="py-1">
-            <div class="flex items-center justify-between">
-              <NuxtLink
-                :to="link.to"
-                class="py-2 text-sm font-semibold text-gray-700 transition hover:text-gray-900"
-                @click="isMenuOpen = false"
-              >
-                {{ link.label }}
-              </NuxtLink>
-              <button
-                class="inline-flex h-7 w-7 items-center justify-center rounded-full text-gray-500 transition hover:bg-gray-100"
-                :aria-label="copy.showSubmenu"
-                @click="toggleMobileGroup(link.baseTo)"
-              >
-                <svg
-                  class="h-4 w-4 transition"
-                  :class="{ 'rotate-180': mobileOpenGroup === link.baseTo }"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="M6 9l6 6 6-6" />
-                </svg>
-              </button>
-            </div>
-            <div v-if="mobileOpenGroup === link.baseTo" class="mt-1 flex flex-col border-l border-gray-200 pl-4">
-              <NuxtLink
-                v-for="child in link.children"
-                :key="`mobile-child-${child.baseTo}`"
-                :to="child.to"
-                class="py-2 text-sm font-semibold text-gray-600 transition hover:text-gray-900"
-                @click="isMenuOpen = false"
-              >
-                {{ child.label }}
-              </NuxtLink>
-            </div>
-          </div>
         </template>
+
         <NuxtLink
-          :to="localePath('/contact?onderwerp=demo')"
-          class="mt-2 rounded-full bg-[#facc15] px-6 py-2 text-center text-sm font-semibold text-black cursor-pointer transition-colors duration-200 hover:bg-black hover:text-[#facc15]"
+          :to="localePath('/contact')"
+          class="mt-3 inline-flex items-center justify-center rounded-full bg-[#facc15] px-6 py-2 text-center text-sm font-semibold text-black transition-colors duration-200 hover:bg-black hover:text-[#facc15]"
           @click="isMenuOpen = false"
         >
-          {{ copy.planDemo }}
+          {{ copy.cta }}
         </NuxtLink>
       </div>
     </div>
@@ -292,42 +367,37 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onBeforeUnmount, onMounted, ref, watch } from "vue";
+import { computed, onBeforeUnmount, onMounted, ref } from "vue";
 
 const { basePath, locale, localePath, switchLocalePath } = useSiteLocale();
 
 const isMenuOpen = ref(false);
 const isProductsOpen = ref(false);
 const isServicesOpen = ref(false);
-const mobileOpenGroup = ref<string | null>(null);
-const activeProductsGroup = ref<"hardware" | "software">("hardware");
+const isAboutOpen = ref(false);
+const isLanguageOpen = ref(false);
 
 const copy = computed(() =>
   locale.value === "en"
-      ? {
-          home: "Home",
-          products: "Products",
-          services: "Services",
-          cases: "Cases",
+    ? {
+        home: "Home",
+        products: "Products",
+        services: "Services",
+        useCases: "Use Cases",
         knowledgeCenter: "Knowledge Center",
         roadmap: "Roadmap",
-        vision: "Vision",
-       faq: "FAQ",
-          contact: "Contact",
-          hardware: "Hardware",
-          software: "Software",
-          assistant: "AITJE Assistant",
-          secretary: "AITJE Assistant",
-          altTextGenerator: "WordPress Alt Text Generator",
-          boardOfDirectors: "Board of Directors",
-          assistantOs: "AITJE Assistant OS",
-          assistantKnowledgeBase: "AITJE Assistant Knowledge Base",
-          assistantClient: "AITJE Assistant Client",
-          menu: "Menu",
-          planDemo: "Book a demo",
-          showProductMenu: "Show product menu",
-          showServicesMenu: "Show services menu",
-          showSubmenu: "Show submenu",
+        about: "About AITJE",
+        faq: "FAQ",
+        contact: "Contact",
+        menu: "Menu",
+        cta: "Contact",
+        languageMenu: "Show language menu",
+        showProductMenu: "Show product menu",
+        showServicesMenu: "Show services menu",
+        showAboutMenu: "Show about menu",
+        productMenuLabel: "Products",
+        servicesMenuLabel: "Services",
+        aboutMenuLabel: "About AITJE",
         dutch: "Switch to Dutch",
         english: "Switch to English",
       }
@@ -335,157 +405,197 @@ const copy = computed(() =>
         home: "Home",
         products: "Producten",
         services: "Diensten",
-        cases: "Cases",
+        useCases: "Use Cases",
         knowledgeCenter: "Kenniscentrum",
         roadmap: "Roadmap",
-        vision: "Visie",
+        about: "Over AITJE",
         faq: "FAQ",
         contact: "Contact",
-        hardware: "Hardware",
-        software: "Software",
-        assistant: "AITJE Assistent",
-        secretary: "AITJE Notulist",
-        altTextGenerator: "WordPress Alt Tekst Generator",
-        boardOfDirectors: "Raad van Bestuur",
-        assistantOs: "AITJE Assistent OS",
-        assistantKnowledgeBase: "AITJE Assistent Kennisbank",
-        assistantClient: "AITJE Assistent Client",
         menu: "Menu",
-        planDemo: "Plan een demo",
+        cta: "Contact",
+        languageMenu: "Toon taalmenu",
         showProductMenu: "Toon productmenu",
         showServicesMenu: "Toon dienstenmenu",
-        showSubmenu: "Toon submenu",
+        showAboutMenu: "Toon over AITJE-menu",
+        productMenuLabel: "Producten",
+        servicesMenuLabel: "Diensten",
+        aboutMenuLabel: "Over AITJE",
         dutch: "Schakel naar Nederlands",
         english: "Schakel naar Engels",
       },
 );
 
-const languageOptions = computed(() => [
-  {
-    locale: "nl" as const,
-    label: copy.value.dutch,
-    shortLabel: "NL",
-    flag: "🇳🇱",
-  },
-  {
-    locale: "en" as const,
-    label: copy.value.english,
-    shortLabel: "EN",
-    flag: "🇬🇧",
-  },
-]);
-
 const links = computed(() => [
   { label: copy.value.home, baseTo: "/", to: localePath("/") },
-  {
-    label: copy.value.products,
-    baseTo: "/producten",
-    to: localePath("/producten"),
-    children: [
-      { label: copy.value.hardware, baseTo: "/producten/hardware", to: localePath("/producten/hardware") },
-      { label: copy.value.software, baseTo: "/producten/software", to: localePath("/producten/software") },
-    ],
-  },
+  { label: copy.value.products, baseTo: "/producten", to: localePath("/producten") },
+  { label: copy.value.knowledgeCenter, baseTo: "/kenniscentrum", to: localePath("/kenniscentrum") },
+  { label: copy.value.faq, baseTo: "/faq", to: localePath("/faq") },
+]);
+
+const desktopLeadingLinks = computed(() =>
+  links.value.filter((link) => link.baseTo === "/"),
+);
+
+const desktopTrailingLinks = computed(() =>
+  links.value.filter((link) => link.baseTo !== "/" && link.baseTo !== "/producten"),
+);
+
+const mobileLinks = computed(() => {
+  const [home, products, ...rest] = links.value;
+  return home && products
+    ? [
+        home,
+        { label: copy.value.products, baseTo: "/producten", to: localePath("/producten") },
+        ...productLinks.value
+          .filter((link) => link.baseTo !== "/producten")
+          .map((link) => ({ ...link, isIndented: true })),
+        { label: copy.value.services, baseTo: "/diensten", to: localePath("/diensten") },
+        { label: copy.value.useCases, baseTo: "/use-cases", to: localePath("/use-cases") },
+        ...rest,
+        { label: copy.value.about, baseTo: "/over-aitje", to: localePath("/over-aitje") },
+        { label: copy.value.roadmap, baseTo: "/roadmap", to: localePath("/roadmap") },
+      ]
+    : links.value;
+});
+
+const serviceLinks = computed(() => [
   {
     label: copy.value.services,
     baseTo: "/diensten",
     to: localePath("/diensten"),
-    children: [{ label: copy.value.cases, baseTo: "/cases", to: localePath("/cases") }],
+    description:
+      locale.value === "en"
+        ? "Overview of services and custom solutions."
+        : "Overzicht van diensten en maatwerkoplossingen.",
   },
-  { label: copy.value.knowledgeCenter, baseTo: "/kenniscentrum", to: localePath("/kenniscentrum") },
-  { label: copy.value.roadmap, baseTo: "/roadmap", to: localePath("/roadmap") },
-  { label: copy.value.vision, baseTo: "/visie", to: localePath("/visie") },
-  { label: copy.value.faq, baseTo: "/faq", to: localePath("/faq") },
-  { label: copy.value.contact, baseTo: "/contact", to: localePath("/contact") },
+  {
+    label: copy.value.useCases,
+    baseTo: "/use-cases",
+    to: localePath("/use-cases"),
+    description:
+      locale.value === "en"
+        ? "Practical examples of where AITJE creates value."
+        : "Praktische voorbeelden van waar AITJE waarde levert.",
+  },
 ]);
 
-const productGroups = computed(() => [
+const productLinks = computed(() => [
   {
-    id: "hardware" as const,
-    label: copy.value.hardware,
-    to: localePath("/producten/hardware"),
-    items: [
-      { label: copy.value.assistant, baseTo: "/producten/hardware/aitje-assistent", to: localePath("/producten/hardware/aitje-assistent") },
-      { label: "AITJE Custom", baseTo: "/producten/hardware/aitje-custom", to: localePath("/producten/hardware/aitje-custom") },
-    ],
+    label: locale.value === "en" ? "All products" : "Alle producten",
+    baseTo: "/producten",
+    to: localePath("/producten"),
+    description:
+      locale.value === "en"
+        ? "See the full product overview."
+        : "Bekijk het complete productoverzicht.",
   },
   {
-    id: "software" as const,
-    label: copy.value.software,
-    to: localePath("/producten/software"),
-    items: [
-      {
-        label: "WordPress AI Search Overview",
-        baseTo: "/producten/software/wordpress-ai-search-overview",
-        to: localePath("/producten/software/wordpress-ai-search-overview"),
-      },
-      {
-        label: "WordPress AI Chat",
-        baseTo: "/producten/software/wordpress-ai-chat",
-        to: localePath("/producten/software/wordpress-ai-chat"),
-      },
-      {
-        label: copy.value.altTextGenerator,
-        baseTo: "/producten/software/wordpress-alt-tekst-generator",
-        to: localePath("/producten/software/wordpress-alt-tekst-generator"),
-      },
-      {
-        label: "PromptPaleis",
-        baseTo: "/producten/software/promptpaleis",
-        to: localePath("/producten/software/promptpaleis"),
-      },
-      {
-        label: copy.value.boardOfDirectors,
-        baseTo: "/producten/software/raad-van-bestuur",
-        to: localePath("/producten/software/raad-van-bestuur"),
-      },
-      {
-        label: copy.value.assistantOs,
-        baseTo: "/producten/software/aitje-assistent-os",
-        to: localePath("/producten/software/aitje-assistent-os"),
-      },
-      {
-        label: copy.value.assistantKnowledgeBase,
-        baseTo: "/producten/software/aitje-assistent-kennisbank",
-        to: localePath("/producten/software/aitje-assistent-kennisbank"),
-      },
-      {
-        label: copy.value.assistantClient,
-        baseTo: "/producten/software/aitje-assistent-client",
-        to: localePath("/producten/software/aitje-assistent-client"),
-      },
-    ],
+    label: "AITJE Assistent",
+    baseTo: "/producten/aitje-assistent",
+    to: localePath("/producten/aitje-assistent"),
+    description:
+      locale.value === "en"
+        ? "Core product for local Edge AI."
+        : "Kernproduct voor lokale Edge AI.",
+  },
+  {
+    label: "AITJE Custom",
+    baseTo: "/producten/aitje-custom",
+    to: localePath("/producten/aitje-custom"),
+    description:
+      locale.value === "en"
+        ? "For organizations where standard is not enough."
+        : "Voor organisaties waar standaard niet genoeg is.",
+  },
+  {
+    label: "AITJE Notulist",
+    baseTo: "/producten/aitje-notulist",
+    to: localePath("/producten/aitje-notulist"),
+    disabled: true,
+    description:
+      locale.value === "en"
+        ? "In development for recording and structured output."
+        : "In ontwikkeling voor opname en gestructureerde output.",
+  },
+  {
+    label: "AITJE Prepper",
+    baseTo: "/producten/aitje-prepper",
+    to: localePath("/producten/aitje-prepper"),
+    disabled: true,
+    description:
+      locale.value === "en"
+        ? "Offline knowledge and local LLM chat."
+        : "Offline kennis en lokale LLM-chat.",
+  },
+  {
+    label: "AITJE Manager",
+    baseTo: "/producten/aitje-manager",
+    to: localePath("/producten/aitje-manager"),
+    disabled: true,
+    description:
+      locale.value === "en"
+        ? "Planned for local agent management."
+        : "Gepland voor lokaal agentbeheer.",
   },
 ]);
+
+const aboutLinks = computed(() => [
+  {
+    label: copy.value.about,
+    baseTo: "/over-aitje",
+    to: localePath("/over-aitje"),
+    description:
+      locale.value === "en"
+        ? "Background, direction and positioning of AITJE."
+        : "Achtergrond, richting en positionering van AITJE.",
+  },
+  {
+    label: copy.value.roadmap,
+    baseTo: "/roadmap",
+    to: localePath("/roadmap"),
+    description:
+      locale.value === "en"
+        ? "See what is planned and what is in development."
+        : "Bekijk wat gepland staat en in ontwikkeling is.",
+  },
+]);
+
+const languageOptions = computed(() => [
+  { locale: "nl" as const, label: copy.value.dutch, shortLabel: "NL", flag: "🇳🇱" },
+  { locale: "en" as const, label: copy.value.english, shortLabel: "EN", flag: "🇬🇧" },
+]);
+
+const activeLanguage = computed(
+  () => languageOptions.value.find((option) => option.locale === locale.value) ?? languageOptions.value[0],
+);
+
+const closeDesktopMenus = () => {
+  isProductsOpen.value = false;
+  isServicesOpen.value = false;
+  isAboutOpen.value = false;
+};
+
+const toggleDesktopMenu = (menu: "products" | "services" | "about") => {
+  const nextState = {
+    products: menu === "products" ? !isProductsOpen.value : false,
+    services: menu === "services" ? !isServicesOpen.value : false,
+    about: menu === "about" ? !isAboutOpen.value : false,
+  };
+
+  isProductsOpen.value = nextState.products;
+  isServicesOpen.value = nextState.services;
+  isAboutOpen.value = nextState.about;
+};
 
 const isActive = (path: string) => {
   const currentPath = basePath.value;
-
-  if (path === "/diensten") {
-    return (
-      currentPath === "/diensten" ||
-      currentPath.startsWith("/diensten/") ||
-      currentPath === "/cases" ||
-      currentPath.startsWith("/cases/")
-    );
-  }
-
   return currentPath === path || currentPath.startsWith(`${path}/`);
 };
 
-const currentLabel = computed(() => {
-  const match = links.value.find((link) => isActive(link.baseTo));
-  return match ? match.label : copy.value.menu;
-});
-
-const currentProductsGroup = computed(
-  () =>
-    productGroups.value.find((group) => group.id === activeProductsGroup.value) ??
-    productGroups.value[0],
-);
-
 const switchLanguage = async (targetLocale: "nl" | "en") => {
   if (targetLocale === locale.value) return;
+  closeDesktopMenus();
+  isLanguageOpen.value = false;
   await navigateTo(switchLocalePath.value);
 };
 
@@ -493,93 +603,16 @@ const handleClickOutside = (event: MouseEvent) => {
   const target = event.target as HTMLElement | null;
   if (!target) return;
   if (!target.closest("nav")) {
-    isProductsOpen.value = false;
-    isServicesOpen.value = false;
+    closeDesktopMenus();
+    isLanguageOpen.value = false;
   }
 };
-
-let closeProductsTimer: ReturnType<typeof setTimeout> | null = null;
-let closeServicesTimer: ReturnType<typeof setTimeout> | null = null;
-
-const cancelCloseProductsMenu = () => {
-  if (closeProductsTimer) {
-    clearTimeout(closeProductsTimer);
-    closeProductsTimer = null;
-  }
-};
-
-const openProductsMenu = () => {
-  cancelCloseProductsMenu();
-  isProductsOpen.value = true;
-};
-
-const queueCloseProductsMenu = () => {
-  cancelCloseProductsMenu();
-  closeProductsTimer = setTimeout(() => {
-    isProductsOpen.value = false;
-  }, 220);
-};
-
-const toggleProductsMenu = () => {
-  if (isProductsOpen.value) {
-    isProductsOpen.value = false;
-    return;
-  }
-  openProductsMenu();
-};
-
-const cancelCloseServicesMenu = () => {
-  if (closeServicesTimer) {
-    clearTimeout(closeServicesTimer);
-    closeServicesTimer = null;
-  }
-};
-
-const openServicesMenu = () => {
-  cancelCloseServicesMenu();
-  isServicesOpen.value = true;
-};
-
-const queueCloseServicesMenu = () => {
-  cancelCloseServicesMenu();
-  closeServicesTimer = setTimeout(() => {
-    isServicesOpen.value = false;
-  }, 220);
-};
-
-const toggleServicesMenu = () => {
-  if (isServicesOpen.value) {
-    isServicesOpen.value = false;
-    return;
-  }
-  openServicesMenu();
-};
-
-const toggleMobileGroup = (group: string) => {
-  mobileOpenGroup.value = mobileOpenGroup.value === group ? null : group;
-};
-
-watch(
-  () => basePath.value,
-  () => {
-    isProductsOpen.value = false;
-    isServicesOpen.value = false;
-    isMenuOpen.value = false;
-    mobileOpenGroup.value = null;
-    activeProductsGroup.value = basePath.value.startsWith("/producten/software")
-      ? "software"
-      : "hardware";
-  },
-  { immediate: true },
-);
 
 onMounted(() => {
-  window.addEventListener("click", handleClickOutside);
+  document.addEventListener("click", handleClickOutside);
 });
 
 onBeforeUnmount(() => {
-  window.removeEventListener("click", handleClickOutside);
-  cancelCloseProductsMenu();
-  cancelCloseServicesMenu();
+  document.removeEventListener("click", handleClickOutside);
 });
 </script>

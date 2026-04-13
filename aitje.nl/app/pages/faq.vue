@@ -2,41 +2,53 @@
   <div class="bg-[#f5f5f5] text-gray-900">
     <SiteNavigation />
     <main class="px-6 pt-32">
-      <section
-        class="mx-auto w-full px-4 py-12 text-center sm:max-w-5xl sm:px-8"
-      >
-        <p
-          class="text-sm font-semibold uppercase tracking-[0.5em] text-[#facc15]"
-        >
-          FAQ
-        </p>
-        <h1 class="mt-4 text-5xl font-black text-gray-900">
-          Veelgestelde vragen
-        </h1>
+      <section class="mx-auto w-full px-4 py-12 text-center sm:max-w-5xl sm:px-8">
+        <p class="text-sm font-semibold uppercase tracking-[0.5em] text-[#facc15]">FAQ</p>
+        <h1 class="mt-4 text-5xl font-black text-gray-900">Veelgestelde vragen</h1>
         <p class="mt-6 text-lg text-gray-600">
           Antwoorden op veelgestelde vragen over wat AITJE doet en aanbied.
         </p>
       </section>
 
-      <section
-        class="mx-auto mt-16 grid max-w-6xl gap-8 lg:grid-cols-[0.65fr_0.35fr]"
-      >
+      <section class="mx-auto mt-16 grid max-w-6xl gap-8 lg:grid-cols-[0.65fr_0.35fr]">
         <div class="space-y-6">
+          <article class="rounded-3xl border border-gray-200 bg-white p-6">
+            <div class="flex items-center gap-3">
+              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#212121] text-[#facc15]">
+                <Search class="h-6 w-6" />
+              </div>
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-[0.4em] text-gray-400">Zoeken</p>
+                <h2 class="text-2xl font-semibold text-gray-900">Filter je vragen</h2>
+              </div>
+            </div>
+            <div class="mt-6 space-y-4">
+              <label class="block">
+                <span class="sr-only">Zoek in veelgestelde vragen</span>
+                <div class="flex items-center gap-3 rounded-2xl bg-[#fafafa] px-4 py-3">
+                  <Search class="h-5 w-5 text-gray-400" />
+                  <input
+                    v-model="searchQuery"
+                    type="search"
+                    placeholder="Typ hier je vraag..."
+                    class="w-full bg-transparent text-sm text-gray-900 outline-none placeholder:text-gray-400"
+                  />
+                </div>
+              </label>
+            </div>
+          </article>
+
           <article
-            v-for="group in faqGroups"
+            v-for="group in filteredGroups"
             :key="group.title"
             class="rounded-3xl border border-gray-200 bg-white p-6"
           >
             <div class="flex items-center gap-3">
-              <div
-                class="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#212121] text-[#facc15]"
-              >
+              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#212121] text-[#facc15]">
                 <component :is="group.icon" class="h-6 w-6" />
               </div>
               <div>
-                <p
-                  class="text-xs font-semibold uppercase tracking-[0.4em] text-gray-400"
-                >
+                <p class="text-xs font-semibold uppercase tracking-[0.4em] text-gray-400">
                   {{ group.badge }}
                 </p>
                 <h2 class="text-2xl font-semibold text-gray-900">
@@ -50,26 +62,36 @@
                 :key="item.question"
                 class="rounded-2xl bg-[#fafafa] p-4"
               >
-                <summary
-                  class="cursor-pointer text-base font-semibold text-gray-900"
-                >
+                <summary class="cursor-pointer text-base font-semibold text-gray-900">
                   {{ item.question }}
                 </summary>
                 <p class="mt-3 text-sm text-gray-600">{{ item.answer }}</p>
-                <NuxtLink
+                <component
+                  :is="item.external ? 'a' : NuxtLink"
                   v-if="item.linkTo"
-                  :to="item.linkTo"
+                  :href="item.external ? item.linkTo : undefined"
+                  :to="!item.external ? item.linkTo : undefined"
+                  :target="item.external ? '_blank' : undefined"
+                  :rel="item.external ? 'noopener noreferrer' : undefined"
                   class="mt-3 inline-flex text-sm font-semibold text-[#d4a700] underline decoration-[#d4a700]/40 underline-offset-4 transition hover:text-black hover:decoration-black"
                 >
                   {{ item.linkLabel || "Lees meer" }}
-                </NuxtLink>
+                </component>
               </details>
             </div>
           </article>
+
+          <article
+            v-if="filteredGroups.length === 0"
+            class="rounded-3xl border border-dashed border-gray-300 bg-white p-6 text-center"
+          >
+            <p class="text-xs font-semibold uppercase tracking-[0.4em] text-gray-400">Geen resultaten</p>
+            <h2 class="mt-3 text-2xl font-semibold text-gray-900">Geen vragen gevonden</h2>
+            <p class="mt-3 text-sm text-gray-600">Probeer een bredere term zoals milieu, diensten, privacy of RAG.</p>
+          </article>
         </div>
-        <aside
-          class="h-max rounded-3xl border border-gray-200 bg-white p-6 shadow-sm lg:sticky lg:top-24 lg:self-start"
-        >
+
+        <aside class="h-max rounded-3xl border border-gray-200 bg-white p-6 shadow-sm lg:sticky lg:top-24 lg:self-start">
           <h3 class="text-2xl font-semibold text-gray-900">
             Staat je vraag er niet tussen?
           </h3>
@@ -85,12 +107,7 @@
               aria-label="AITJE op LinkedIn"
               class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-[#fafafa] transition hover:border-[#facc15]"
             >
-              <img
-                :src="linkedinIcon"
-                alt=""
-                aria-hidden="true"
-                class="h-5 w-5 object-contain"
-              />
+              <img :src="linkedinIcon" alt="" aria-hidden="true" class="h-5 w-5 object-contain" />
             </a>
             <a
               href="https://www.tiktok.com/@aitje.bv"
@@ -99,11 +116,7 @@
               aria-label="AITJE op TikTok"
               class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-[#fafafa] transition hover:border-[#facc15]"
             >
-              <svg
-                aria-hidden="true"
-                viewBox="0 0 24 24"
-                class="h-5 w-5 fill-current"
-              >
+              <svg aria-hidden="true" viewBox="0 0 24 24" class="h-5 w-5 fill-current">
                 <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.38V2h-3.13v12.38a2.67 2.67 0 1 1-2.67-2.67c.31 0 .61.05.9.15V8.67a5.8 5.8 0 0 0-.9-.07A5.8 5.8 0 1 0 15.82 14V7.73a7.9 7.9 0 0 0 4.77 1.6V6.2c-.34 0-.67-.03-1-.11Z" />
               </svg>
             </a>
@@ -112,12 +125,7 @@
               aria-label="Mail AITJE"
               class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-[#fafafa] transition hover:border-[#facc15]"
             >
-              <img
-                :src="gmailIcon"
-                alt=""
-                aria-hidden="true"
-                class="h-5 w-5 object-contain"
-              />
+              <img :src="gmailIcon" alt="" aria-hidden="true" class="h-5 w-5 object-contain" />
             </a>
           </div>
           <NuxtLink
@@ -127,13 +135,9 @@
             Neem contact op
           </NuxtLink>
           <div class="mt-6 rounded-3xl bg-[#facc15] p-4 text-[#212121]">
-            <p class="text-xs font-semibold uppercase tracking-[0.4em]">
-              Kenniscentrum
-            </p>
+            <p class="text-xs font-semibold uppercase tracking-[0.4em]">Kenniscentrum</p>
             <p class="mt-2 text-sm">
-              In het kenniscentrum schrijven we over termen en onderwerpen uit
-              de wereld van AI. Misschien staat het antwoord op jouw vraag daar
-              al tussen.
+              In het kenniscentrum schrijven we over termen en onderwerpen uit de wereld van AI. Misschien staat het antwoord op jouw vraag daar al tussen.
             </p>
             <NuxtLink
               to="/kenniscentrum"
@@ -145,9 +149,7 @@
         </aside>
       </section>
 
-      <section
-        class="mx-auto mt-16 max-w-5xl rounded-[3rem] bg-[#212121] p-10 text-white"
-      >
+      <section class="mx-auto mt-16 max-w-5xl rounded-[3rem] bg-[#212121] p-10 text-white">
         <h2 class="text-3xl font-black">Snelle feiten</h2>
         <div class="mt-6 grid gap-6 md:grid-cols-3">
           <article
@@ -155,9 +157,7 @@
             :key="fact.title"
             class="rounded-3xl border border-white/10 bg-white/5 p-5"
           >
-            <p
-              class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
-            >
+            <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
               {{ fact.badge }}
             </p>
             <h3 class="mt-2 text-xl font-semibold text-white">
@@ -170,22 +170,25 @@
     </main>
 
     <BottomCta />
-
     <SiteFooter />
   </div>
 </template>
 
 <script setup lang="ts">
-import {
-  BookOpenCheck,
-  Leaf,
-  Lock,
-  PlugZap,
-  Shield,
-  Sparkles,
-} from "lucide-vue-next";
+import { computed, ref } from "vue";
+import { BookOpenCheck, Leaf, Lock, PlugZap, Search, Shield, Sparkles } from "lucide-vue-next";
 import linkedinIcon from "@/assets/images/social/linkedin.png";
 import gmailIcon from "@/assets/images/social/gmail.png";
+
+type FaqItem = {
+  question: string;
+  answer: string;
+  linkTo?: string;
+  linkLabel?: string;
+  external?: boolean;
+};
+
+const searchQuery = ref("");
 
 const faqGroups = [
   {
@@ -224,8 +227,7 @@ const faqGroups = [
     items: [
       {
         question: "Welke backend-talen gebruiken jullie voornamelijk?",
-        answer:
-          "Voor backend werken we vooral met Python, .NET, PHP, Laravel en Node.js.",
+        answer: "Voor backend werken we vooral met Python, .NET, PHP, Laravel en Node.js.",
       },
       {
         question: "Welke frameworks en tools gebruiken jullie?",
@@ -244,8 +246,7 @@ const faqGroups = [
       },
       {
         question: "Hoe runnen jullie de LLM?",
-        answer:
-          "In de meeste gevallen gebruiken we Ollama. Als het nodig is, kunnen we ook andere inference engines inzetten, zoals vLLM.",
+        answer: "In de meeste gevallen gebruiken we Ollama. Als het nodig is, kunnen we ook andere inference engines inzetten, zoals vLLM.",
       },
       {
         question: "Welke modellen gebruiken jullie?",
@@ -270,10 +271,9 @@ const faqGroups = [
           "Data blijft in Nederland of Europa. In veel gevallen kunnen we zelfs een volledig lokale oplossing bouwen binnen je eigen omgeving.",
       },
       {
-        question:
-          "Hoe embedden jullie data in de kennisbank voor AITJE Assistent?",
+        question: "Hoe embedden jullie data in de kennisbank voor AITJE Assistent?",
         answer:
-          "We verwerken en embedden data op de server en synchroniseren die naar een priv\u00e9 versiebeheeraccount voor jouw organisatie. Vanaf daar kun je op de Assistent syncen met de live omgeving. Als verkeerde data is toegevoegd, kunnen we via versiebeheer ook terugzetten en back-ups maken.",
+          "We verwerken en embedden data op de server en synchroniseren die naar een prive versiebeheeraccount voor jouw organisatie. Vanaf daar kun je op de Assistent syncen met de live omgeving. Als verkeerde data is toegevoegd, kunnen we via versiebeheer ook terugzetten en back-ups maken.",
       },
       {
         question: "Kan AITJE Assistent lokaal doorwerken zonder internet?",
@@ -295,7 +295,7 @@ const faqGroups = [
       {
         question: "Hoe helpt lokale AI het milieu?",
         answer:
-          "AITJE Assistent & Notulist verwerken de gegevens lokaal, waardoor minder continue calls naar externe datacenters nodig zijn. Dat beperkt energiegebruik en koelwaterverbruik in grootschalige cloudinfrastructuur.",
+          "AITJE Assistent en Notulist verwerken de gegevens lokaal, waardoor minder continue calls naar externe datacenters nodig zijn. Dat beperkt energiegebruik en koelwaterverbruik in grootschalige cloudinfrastructuur.",
       },
       {
         question: "Is lokaal altijd duurzamer?",
@@ -404,8 +404,7 @@ const faqGroups = [
           "AITJE Assistent merkt daar in de basis weinig van. Synchroniseren is dan tijdelijk lastiger, omdat gechunkte vector-embedding data uit versiebeheer wordt opgehaald. De lokale gegevens en lokale LLM-functionaliteit blijven wel beschikbaar.",
       },
       {
-        question:
-          "Kunnen meerdere mensen op het netwerk AITJE Assistent API gebruiken?",
+        question: "Kunnen meerdere mensen op het netwerk AITJE Assistent API gebruiken?",
         answer:
           "Ja. Je maakt accounts aan en installeert de mobiele of desktopapplicatie. Daarna kan die gebruiker via het netwerk gebruikmaken van de lokale LLM en API.",
       },
@@ -449,10 +448,27 @@ const faqGroups = [
           "Ja, die hebben we. Een onderdeel van AITJE is PromptPaleis: de Nederlandse marktplaats met pre-made prompts en guides om meer uit AI te halen.",
         linkTo: "https://www.promptpaleis.nl",
         linkLabel: "Naar PromptPaleis",
+        external: true,
       },
     ],
   },
 ];
+
+const filteredGroups = computed(() => {
+  const query = searchQuery.value.toLowerCase().trim();
+  if (!query) return faqGroups;
+
+  return faqGroups
+    .map((group) => ({
+      ...group,
+      items: group.items.filter((item) =>
+        `${group.title} ${group.badge} ${item.question} ${item.answer}`.toLowerCase().includes(query),
+      ),
+    }))
+    .filter((group) => group.items.length > 0);
+});
+
+const resultCount = computed(() => filteredGroups.value.reduce((sum, group) => sum + group.items.length, 0));
 
 const facts = [
   {
@@ -468,8 +484,7 @@ const facts = [
   {
     title: "Natuurvriendelijk",
     badge: "Klimaat",
-    description:
-      "Minder serverwater, minder energie en dus een lichtere voetafdruk.",
+    description: "Minder serverwater, minder energie en dus een lichtere voetafdruk.",
   },
 ];
 </script>
