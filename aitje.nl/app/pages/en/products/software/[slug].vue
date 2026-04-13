@@ -1,5 +1,5 @@
 <script setup lang="ts">
 const route = useRoute();
 const slug = Array.isArray(route.params.slug) ? route.params.slug[0] : route.params.slug;
-await navigateTo(`/en/products/${slug}`, { redirectCode: 301 });
+await navigateTo(`/en/producten/software/${slug}`, { redirectCode: 301 });
 </script>

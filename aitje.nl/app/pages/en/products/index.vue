@@ -7,15 +7,15 @@
         class="mx-auto w-full px-4 py-12 text-center sm:max-w-5xl sm:px-8"
       >
         <p class="text-sm font-semibold uppercase tracking-[0.5em] text-[#facc15]">
-          Producten
+          Products
         </p>
         <h1 class="mt-4 text-5xl font-black text-gray-900">
-          De productlijn van AITJE
+          The AITJE product line
         </h1>
         <p class="mt-6 text-lg text-gray-600">
-          Geen losse hardware- en softwarepagina&apos;s meer, maar een kleinere en
-          duidelijkere lijn met een kernproduct, een custom route en een paar
-          logische vervolgstappen.
+          No more separate hardware and software pages, but a smaller and
+          clearer line with a core product, a custom route and a few logical
+          next steps.
         </p>
       </section>
 
@@ -48,7 +48,7 @@
             <div class="border-b border-gray-200 bg-[#faf7ea] md:border-b-0 md:border-r">
               <img
                 src="/images/aitje-cubes.png"
-                alt="AITJE productlijn"
+                alt="AITJE product line"
                 class="h-full min-h-[18rem] w-full object-cover"
               />
             </div>
@@ -76,21 +76,21 @@
       <section class="mx-auto mt-12 max-w-6xl">
         <div class="mb-8 max-w-3xl">
           <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
-            Overzicht
+            Overview
           </p>
           <h2 class="mt-3 text-4xl font-black text-gray-900">
-            Producten die logisch op elkaar aansluiten
+            Products that connect logically
           </h2>
           <p class="mt-4 text-base leading-8 text-gray-600">
-            Hieronder zie je de huidige productlijn van AITJE. Niet als winkel,
-            maar als snelle manier om te zien welk product nu bestaat, wat in
-            ontwikkeling is en welke richting daarna volgt binnen
+            Below you can see the current AITJE product line. Not as a store,
+            but as a quick way to see which product already exists, what is in
+            development and which direction follows next within
             <a
-              href="/kenniscentrum/wat-is-edge-ai"
+              :href="localePath('/kenniscentrum/wat-is-edge-ai')"
               class="knowledge-link"
               data-knowledge-link="true"
             >
-              lokale AI
+              local AI
             </a>
             .
           </p>
@@ -135,16 +135,15 @@
                     </span>
                   </div>
 
-                    <h3 class="mt-4 text-3xl font-black text-[#facc15] md:text-[2.6rem] md:leading-[1.05]">
-                      {{ product.title }}
-                    </h3>
-                    <p class="mt-4 max-w-2xl text-base leading-8 text-white/78">
-                      {{ product.summary }}
-                    </p>
-                    <p class="mt-4 max-w-2xl text-base leading-8 text-white/70">
-                      {{ product.extra }}
-                    </p>
-
+                  <h3 class="mt-4 text-3xl font-black text-[#facc15] md:text-[2.6rem] md:leading-[1.05]">
+                    {{ product.title }}
+                  </h3>
+                  <p class="mt-4 max-w-2xl text-base leading-8 text-white/78">
+                    {{ product.summary }}
+                  </p>
+                  <p class="mt-4 max-w-2xl text-base leading-8 text-white/70">
+                    {{ product.extra }}
+                  </p>
                 </div>
 
                 <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
@@ -161,7 +160,7 @@
                     class="inline-flex min-w-[12.5rem] items-center justify-center rounded-full bg-[#facc15] px-9 py-4 text-sm font-semibold whitespace-nowrap text-[#212121] transition hover:bg-white hover:text-black"
                     @click.stop="openWaitlistModal(product)"
                   >
-                    Houd me op de hoogte
+                    Keep me updated
                   </button>
 
                   <NuxtLink
@@ -169,7 +168,7 @@
                     :to="product.link"
                     class="inline-flex min-w-[9.5rem] items-center justify-center rounded-full bg-[#facc15] px-7 py-3 text-sm font-semibold whitespace-nowrap text-[#212121] transition hover:bg-white hover:text-black"
                   >
-                    Meer info
+                    More info
                   </NuxtLink>
                 </div>
               </div>
@@ -191,21 +190,22 @@
         <div class="flex items-start justify-between gap-4">
           <div>
             <p class="text-xs font-semibold uppercase tracking-[0.35em] text-[#facc15]">
-              Momenteel in ontwikkeling
+              Currently in development
             </p>
             <h2 class="mt-3 text-3xl font-black text-gray-900">
               {{ selectedWaitlistProduct?.title }}
             </h2>
             <p class="mt-4 text-base leading-8 text-gray-600">
-              Dit product is nog niet live. Vul je e-mailadres in, dan zetten we
-              je op de mailinglist en updaten we je zodra dit product beschikbaar is.
+              This product is not live yet. Enter your email address and we will
+              add you to the mailing list and update you once this product
+              becomes available.
             </p>
           </div>
 
           <button
             type="button"
             class="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-500 transition hover:border-gray-300 hover:text-gray-900"
-            aria-label="Sluiten"
+            aria-label="Close"
             @click="closeWaitlistModal"
           >
             <span class="absolute left-1/2 top-1/2 text-2xl leading-none -translate-x-1/2 -translate-y-1/2">×</span>
@@ -215,7 +215,7 @@
         <form class="mt-8 space-y-4" @submit.prevent="submitWaitlist">
           <div>
             <label class="text-sm font-semibold text-gray-900" for="waitlist-email">
-              E-mailadres
+              Email address
             </label>
             <input
               id="waitlist-email"
@@ -223,7 +223,7 @@
               type="email"
               inputmode="email"
               autocomplete="email"
-              placeholder="je@email.nl"
+              placeholder="you@email.com"
               class="mt-2 w-full rounded-2xl border border-gray-200 bg-[#faf7ea] px-4 py-3 text-base text-gray-900 outline-none transition focus:border-[#facc15]"
             />
           </div>
@@ -245,7 +245,7 @@
               :disabled="waitlistSubmitting"
               class="inline-flex min-w-[12rem] items-center justify-center rounded-full bg-[#facc15] px-7 py-3 text-sm font-semibold text-[#212121] transition hover:bg-[#212121] hover:text-[#facc15] disabled:cursor-not-allowed disabled:opacity-60"
             >
-              {{ waitlistSubmitting ? "Opslaan..." : "Schrijf me in" }}
+              {{ waitlistSubmitting ? "Saving..." : "Join the list" }}
             </button>
           </div>
         </form>
@@ -263,43 +263,45 @@ import { Cpu, Layers3, Shield } from "lucide-vue-next";
 
 import { productCatalogV2, productStatusLabel } from "@/data/productCatalogV2";
 
-const products = productCatalogV2.nl.products;
-const statusLabels = productStatusLabel.nl;
+const { localePath } = useSiteLocale();
+
+const products = productCatalogV2.en.products;
+const statusLabels = productStatusLabel.en;
 
 const valueProps = [
   {
-    badge: "Structuur",
-    title: "Eén productlijn",
+    badge: "Structure",
+    title: "One product line",
     description:
-      "De route is nu helder: een kernproduct, een custom route en drie duidelijke vervolgproducten.",
+      "The route is now clear: a core product, a custom route and three clear follow-up products.",
     icon: Layers3,
   },
   {
-    badge: "Lokaal",
-    title: "Lokale Edge AI",
+    badge: "Local",
+    title: "Local Edge AI",
     description:
-      "De focus ligt op producten die organisaties meer regie geven over gebruik, privacy en lange termijnkosten.",
+      "The focus is on products that give organizations more control over usage, privacy and long-term costs.",
     icon: Shield,
   },
   {
-    badge: "Praktisch",
-    title: "Praktisch inzetbaar",
+    badge: "Practical",
+    title: "Practical in use",
     description:
-      "De productlijn blijft kleiner en concreter, zodat gewone organisaties sneller begrijpen wat bij hen past.",
+      "The product line stays smaller and more concrete, so regular organizations can understand faster what fits them.",
     icon: Cpu,
   },
 ];
 
 const productSnapshots = [
   {
-    badge: "Bestaat nu",
+    badge: "Exists now",
     title: "AITJE Assistent",
-    description: "Het kernproduct voor kennis, documenten en dagelijkse AI-taken op een eigen device.",
+    description: "The core product for knowledge, documents and daily AI tasks on a dedicated device.",
   },
   {
-    badge: "Route ernaast",
+    badge: "Parallel route",
     title: "AITJE Custom",
-    description: "Voor organisaties waar de vaste lijn niet goed genoeg past of waar hardware en workflow afwijken.",
+    description: "For organizations where the fixed line is not a good enough fit or where hardware and workflow differ.",
   },
 ];
 
@@ -312,24 +314,24 @@ const productBannerImages: Record<string, string> = {
 };
 
 const productBannerKickers: Record<string, string> = {
-  "aitje-assistent": "Kernproduct",
-  "aitje-custom": "Custom Route",
-  "aitje-notulist": "Gesprek naar output",
-  "aitje-prepper": "Offline en mobiel",
-  "aitje-manager": "Lokale agentregie",
+  "aitje-assistent": "Core product",
+  "aitje-custom": "Custom route",
+  "aitje-notulist": "Conversation to output",
+  "aitje-prepper": "Offline and mobile",
+  "aitje-manager": "Local agent control",
 };
 
 const productBannerExtras: Record<string, string> = {
   "aitje-assistent":
-    "De basis voor organisaties die AI praktisch willen inzetten op een eigen device, met OS, Client en Kennisbank als onderdelen van dezelfde lijn.",
+    "The foundation for organizations that want to use AI practically on their own device, with OS, Client and Knowledge Base as parts of the same line.",
   "aitje-custom":
-    "De route voor organisaties die niet uitkomen met een standaardopzet en een concretere vertaling nodig hebben van idee naar werkbare hardware of workflow.",
+    "The route for organizations that do not get far enough with a standard setup and need a more concrete translation from idea to workable hardware or workflow.",
   "aitje-notulist":
-    "Gericht op gesprekken, meetings en intakeprocessen die snel moeten landen als transcript, samenvatting of gestructureerde output.",
+    "Focused on conversations, meetings and intake processes that need to land quickly as transcript, summary or structured output.",
   "aitje-prepper":
-    "Voor situaties waar bereik niet vanzelfsprekend is en kennis, bestanden en assistentie lokaal beschikbaar moeten blijven.",
+    "For situations where connectivity is not guaranteed and knowledge, files and assistance need to remain available locally.",
   "aitje-manager":
-    "De volgende productfase voor organisaties die meerdere lokale agents gecontroleerd willen installeren, beheren en samen laten werken.",
+    "The next product phase for organizations that want to install, manage and coordinate multiple local agents in a controlled way.",
 };
 
 const productBannerPanelClasses: Record<string, string> = {
@@ -362,7 +364,7 @@ const productBanners = products.map((product) => ({
   imagePanelClass: productBannerPanelClasses[product.slug] ?? "bg-[#faf7ea]",
   cardClass: "border-[#facc15]/55 bg-[#050505] text-white",
   isUnavailable: product.status !== "available",
-  link: `/producten/${product.slug}`,
+  link: localePath(`/producten/${product.slug}`),
 }));
 
 const openWaitlistModal = (product: { slug: string; title: string }) => {
@@ -389,12 +391,12 @@ const submitWaitlist = async () => {
   waitlistSuccess.value = "";
 
   if (!selectedProduct) {
-    waitlistError.value = "Er is geen product geselecteerd.";
+    waitlistError.value = "No product selected.";
     return;
   }
 
   if (!email) {
-    waitlistError.value = "Vul een e-mailadres in.";
+    waitlistError.value = "Enter an email address.";
     return;
   }
 
@@ -405,24 +407,23 @@ const submitWaitlist = async () => {
       method: "POST",
       body: {
         email,
-        locale: "nl",
+        locale: "en",
         productSlug: selectedProduct.slug,
         productTitle: selectedProduct.title,
       },
     });
 
     waitlistSuccess.value = response.alreadyExists
-      ? "Je stond al op de mailinglist. We houden je op de hoogte."
-      : "Je staat op de mailinglist. We laten het weten zodra dit product live is.";
+      ? "You were already on the mailing list. We will keep you updated."
+      : "You are on the mailing list. We will let you know once this product goes live.";
     waitlistEmail.value = "";
   } catch (error) {
     waitlistError.value =
       error instanceof Error && error.message
         ? error.message
-        : "Opslaan mislukt. Probeer het later opnieuw.";
+        : "Saving failed. Try again later.";
   } finally {
     waitlistSubmitting.value = false;
   }
 };
-
 </script>

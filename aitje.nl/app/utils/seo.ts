@@ -25,6 +25,38 @@ type ResolvedSeoEntry = {
 };
 
 const DEFAULT_IMAGE = "/images/aitje-cubes.png";
+const EN_ROUTE_MAP: Record<string, string> = {
+  "/producten": "/products",
+  "/diensten": "/services",
+  "/kenniscentrum": "/knowledgecenter",
+  "/over-aitje": "/about-aitje",
+};
+
+const toEnglishPath = (path: string) => {
+  if (path === "/") return "/en";
+
+  for (const [nlPath, enPath] of Object.entries(EN_ROUTE_MAP)) {
+    if (path === nlPath || path.startsWith(`${nlPath}/`)) {
+      return `/en${enPath}${path.slice(nlPath.length)}`;
+    }
+  }
+
+  return `/en${path}`;
+};
+
+const toDutchPath = (path: string) => {
+  if (path === "/en") return "/";
+
+  const withoutPrefix = path.replace(/^\/en/, "") || "/";
+
+  for (const [nlPath, enPath] of Object.entries(EN_ROUTE_MAP)) {
+    if (withoutPrefix === enPath || withoutPrefix.startsWith(`${enPath}/`)) {
+      return `${nlPath}${withoutPrefix.slice(enPath.length)}`;
+    }
+  }
+
+  return withoutPrefix;
+};
 
 const staticEntries: Record<string, { title: string; description: string; pageType?: string }> = {
   "/": {
@@ -73,11 +105,11 @@ const staticEntries: Record<string, { title: string; description: string; pageTy
     description:
       "Local Edge AI for organizations that want lower long-term costs and more independence without losing productivity.",
   },
-  "/en/producten": {
+  "/en/products": {
     title: "Products | AITJE",
     description: "The five AITJE product directions: AITJE Assistent, AITJE Custom, AITJE Notulist, AITJE Prepper and AITJE Manager.",
   },
-  "/en/diensten": {
+  "/en/services": {
     title: "Services | AITJE",
     description: "AITJE helps with AI strategy, optimization consultancy, AITJE Custom and SLA.",
     pageType: "Service",
@@ -86,7 +118,7 @@ const staticEntries: Record<string, { title: string; description: string; pageTy
     title: "Use Cases | AITJE",
     description: "Recognizable situations where local Edge AI and AITJE products can make sense for an organization.",
   },
-  "/en/kenniscentrum": {
+  "/en/knowledgecenter": {
     title: "Knowledge Center | AITJE",
     description: "Terms and jargon explained clearly for organizations that want to understand AITJE and local Edge AI better.",
   },
@@ -94,7 +126,7 @@ const staticEntries: Record<string, { title: string; description: string; pageTy
     title: "Roadmap | AITJE",
     description: "What exists, what is in development and what is planned across the AITJE product line.",
   },
-  "/en/over-aitje": {
+  "/en/about-aitje": {
     title: "About AITJE | AITJE",
     description: "About AITJE as an accessible Dutch company for local Edge AI, practical guidance and more control for organizations.",
     pageType: "AboutPage",
@@ -119,11 +151,11 @@ const makeCrumbs = (localeKey: LocaleKey, path: string): BreadcrumbItem[] => {
 };
 
 const resolveDynamic = (path: string, localeKey: LocaleKey) => {
-  const productsPrefix = localeKey === "en" ? "/en/producten/" : "/producten/";
+  const productsPrefix = localeKey === "en" ? "/en/products/" : "/producten/";
   const useCasesPrefix = localeKey === "en" ? "/en/use-cases/" : "/use-cases/";
-  const knowledgePrefix = localeKey === "en" ? "/en/kenniscentrum/" : "/kenniscentrum/";
+  const knowledgePrefix = localeKey === "en" ? "/en/knowledgecenter/" : "/kenniscentrum/";
   const assistantModulePrefix =
-    localeKey === "en" ? "/en/producten/aitje-assistent/" : "/producten/aitje-assistent/";
+    localeKey === "en" ? "/en/products/aitje-assistent/" : "/producten/aitje-assistent/";
 
   if (path.startsWith(assistantModulePrefix)) {
     const slug = path.slice(assistantModulePrefix.length);
@@ -182,12 +214,8 @@ export const resolveSeoEntry = (path: string, siteUrl: string): ResolvedSeoEntry
   const normalizedPath = path.length > 1 && path.endsWith("/") ? path.slice(0, -1) : path;
   const alternatePath =
     localeKey === "en"
-      ? normalizedPath === "/en"
-        ? "/"
-        : normalizedPath.replace(/^\/en/, "") || "/"
-      : normalizedPath === "/"
-        ? "/en"
-        : `/en${normalizedPath}`;
+      ? toDutchPath(normalizedPath)
+      : toEnglishPath(normalizedPath);
 
   const entry = staticEntries[normalizedPath] ?? resolveDynamic(normalizedPath, localeKey) ?? staticEntries[localeKey === "en" ? "/en" : "/"]!;
 

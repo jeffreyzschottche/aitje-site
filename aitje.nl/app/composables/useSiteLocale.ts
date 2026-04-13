@@ -3,6 +3,32 @@ import { computed } from "vue";
 type SiteLocale = "nl" | "en";
 
 const EN_PREFIX = "/en";
+const EN_ROUTE_MAP: Record<string, string> = {
+  "/producten": "/products",
+  "/diensten": "/services",
+  "/kenniscentrum": "/knowledgecenter",
+  "/over-aitje": "/about-aitje",
+};
+
+const toEnglishRoute = (path: string) => {
+  for (const [nlPath, enPath] of Object.entries(EN_ROUTE_MAP)) {
+    if (path === nlPath || path.startsWith(`${nlPath}/`)) {
+      return `${enPath}${path.slice(nlPath.length)}`;
+    }
+  }
+
+  return path;
+};
+
+const fromEnglishRoute = (path: string) => {
+  for (const [nlPath, enPath] of Object.entries(EN_ROUTE_MAP)) {
+    if (path === enPath || path.startsWith(`${enPath}/`)) {
+      return `${nlPath}${path.slice(enPath.length)}`;
+    }
+  }
+
+  return path;
+};
 
 const splitPathSuffix = (path: string) => {
   const match = path.match(/^([^?#]*)(.*)$/);
@@ -27,7 +53,7 @@ const stripEnglishPrefix = (path: string) => {
 
   if (pathname === EN_PREFIX) return `/${suffix}`;
   if (pathname.startsWith(`${EN_PREFIX}/`)) {
-    return `${pathname.slice(EN_PREFIX.length) || "/"}${suffix}`;
+    return `${fromEnglishRoute(pathname.slice(EN_PREFIX.length) || "/")}${suffix}`;
   }
 
   return normalized;
@@ -42,7 +68,7 @@ const addLocalePrefix = (path: string, locale: SiteLocale) => {
   }
 
   if (pathname === "/") return `${EN_PREFIX}${suffix}`;
-  return `${EN_PREFIX}${stripEnglishPrefix(normalized)}`;
+  return `${EN_PREFIX}${toEnglishRoute(stripEnglishPrefix(normalized))}`;
 };
 
 export const useSiteLocale = () => {
