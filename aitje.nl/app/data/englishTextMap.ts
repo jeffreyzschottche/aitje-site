@@ -1,6 +1,5 @@
 export const englishTextMap: Record<string, string> = {
-  "· Edge &": "- Edge &",
-  "· Veilige opslag · Europe based ·": "- Secure storage - Europe based -",
+  "· Edge AI · Veilige opslag · Europe based ·": "- Edge AI - Secure storage - Europe based -",
   "• Applicaties of workflows die volledig offline moeten draaien": "- Applications or workflows that need to run completely offline",
   "• Beperk datalekrisico's met een veilige, doordachte architectuur.": "- Mitigate data breach risks with secure, thoughtful architecture.",
   "• Extra hardware-specificaties boven standaardprofielen": "- Additional hardware specifications over standard profiles",
@@ -983,7 +982,7 @@ export const englishTextMap: Record<string, string> = {
   "We beginnen meestal met een goed gesprek om te kijken waar AI echt een verschil kan maken in jouw organisatie.": "We usually start with a good conversation to see where AI can really make a difference in your organization.",
   "We bepalen waar winst te halen is in kwaliteit, kosten en snelheid.": "We determine where gains can be made in quality, cost and speed.",
   "We bespreken jouw scenario’s en bepalen welke kennis en toegangsniveaus nodig zijn.": "We discuss your scenarios and determine what knowledge and access levels are needed.",
-  "We bieden hardware en software aan met zowel lokale edge AI, als met cloud oplossingen. Altijd Europese of Nederlandse hosting, moderne LLM's, ruimte voor je eigen kennisbank, agents, workflows en toepassingen.": "We offer hardware and software with both local edge AI, and cloud solutions. Always European or Dutch hosting, modern LLMs, space for your own knowledge base, agents, workflows and applications.",
+  "We bieden hardware en software aan met lokale edge AI. Altijd Europese of Nederlandse hosting, moderne LLM's, ruimte voor je eigen kennisbank, agents, workflows en toepassingen.": "We offer hardware and software with local edge AI. Always European or Dutch hosting, modern LLMs, space for your own knowledge base, agents, workflows and applications.",
   "We blijven beschikbaar voor vragen, keuzes en nieuwe kansen.": "We remain available for questions, choices and new opportunities.",
   "We bouwen AI-oplossingen die je met een eenmalige investering duurzaam in eigen regie brengt. Optimaliseren we je huidige stack, dan verlagen we structureel kosten, verhogen we controle en verminderen we afhankelijkheid.": "We build AI solutions that put you in sustainable control with a one-time investment. If we optimize your current stack, we structurally reduce costs, increase control and reduce dependency.",
   "We bouwen cloudoplossingen met plan B en plan C, plus tijdige monitoring en meldingen. Onze systemen zijn ingericht voor stabiele inzet binnen organisaties, niet voor een wereldwijd publiek. Dat maakt ze beter schaalbaar en makkelijker in de lucht te houden.": "We build cloud solutions with plan B and plan C, plus timely monitoring and notifications. Our systems are set up for stable deployment within organizations, not for a global audience. That makes them more scalable and easier to keep in the air.",

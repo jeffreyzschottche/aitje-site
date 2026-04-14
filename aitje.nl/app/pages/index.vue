@@ -120,16 +120,14 @@
               houden op privacy, data en API kosten.<br
                 class="hidden md:block"
               />
-              We bieden hardware en software aan met zowel lokale edge AI, als
-              met cloud oplossingen. Altijd Europese of Nederlandse hosting,
-              moderne LLM&apos;s, ruimte voor je eigen kennisbank, agents,
-              workflows en toepassingen.
+              We bieden hardware en software aan met lokale edge AI. Altijd
+              Europese of Nederlandse hosting, moderne LLM&apos;s, ruimte voor
+              je eigen kennisbank, agents, workflows en toepassingen.
             </p>
             <p
               class="mt-6 text-xs uppercase tracking-[0.45em] text-gray-400 sm:text-sm"
             >
-              · Edge & <span data-no-knowledge-links="true">cloud</span> ·
-              Veilige opslag · Europe based ·
+              · Edge AI · Veilige opslag · Europe based ·
             </p>
             <div class="mt-8 flex flex-col gap-4 sm:flex-row">
               <NuxtLink

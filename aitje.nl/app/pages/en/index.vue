@@ -120,15 +120,14 @@
               control of privacy, data and API costs.<br
                 class="hidden md:block"
               />
-              We offer hardware and software with both local edge AI and cloud
-              solutions. Always European or Dutch hosting, modern LLMs, room
-              for your own knowledge base, agents, workflows and applications.
+              We offer hardware and software with local edge AI. Always European
+              or Dutch hosting, modern LLMs, room for your own knowledge base,
+              agents, workflows and applications.
             </p>
             <p
               class="mt-6 text-xs uppercase tracking-[0.45em] text-gray-400 sm:text-sm"
             >
-              · Edge & <span data-no-knowledge-links="true">cloud</span> ·
-              Secure storage · Europe based ·
+              · Edge AI · Secure storage · Europe based ·
             </p>
             <div class="mt-8 flex flex-col gap-4 sm:flex-row">
               <NuxtLink
