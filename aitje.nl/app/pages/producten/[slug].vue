@@ -210,7 +210,7 @@
             </p>
 
             <div class="mt-8 overflow-x-auto rounded-[2rem] border border-gray-200 bg-white shadow-sm">
-              <table class="min-w-full border-collapse text-left">
+              <table class="w-full min-w-[600px] border-collapse text-left">
                 <thead class="bg-[#fafafa]">
                   <tr>
                     <th class="border-b border-gray-200 px-5 py-4 text-base font-black text-gray-900">Onderdeel</th>
@@ -245,7 +245,7 @@
             </p>
 
             <div class="mt-8 overflow-x-auto rounded-[2rem] border border-gray-200 bg-white shadow-sm">
-              <table class="min-w-full border-collapse text-left">
+              <table class="w-full min-w-[600px] border-collapse text-left">
                 <thead class="bg-[#fafafa]">
                   <tr>
                     <th class="border-b border-gray-200 px-5 py-4 text-base font-black text-gray-900">Laag</th>
@@ -280,7 +280,7 @@
             </p>
 
             <div class="mt-8 overflow-x-auto rounded-[2rem] border border-gray-200 bg-white shadow-sm">
-              <table class="min-w-full border-collapse text-left">
+              <table class="w-full min-w-[600px] border-collapse text-left">
                 <thead class="bg-[#fafafa]">
                   <tr>
                     <th class="border-b border-gray-200 px-5 py-4 text-base font-black text-gray-900">Model type</th>

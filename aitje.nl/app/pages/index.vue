@@ -394,15 +394,15 @@
           class="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.8fr_1.2fr]"
         >
           <div
-            class="space-y-6 rounded-3xl border border-gray-200 bg-[#fafafa] p-10"
+            class="space-y-6 rounded-3xl border border-gray-200 bg-[#fafafa] p-6 md:p-10"
           >
             <p
               class="text-sm font-semibold uppercase tracking-[0.4em] text-[#facc15]"
             >
               De infrastructuur van AITJE
             </p>
-            <h2 class="text-4xl font-black text-gray-900">
-              Van out of the box tot maatwerkoplossingen
+            <h2 class="text-3xl font-black text-gray-900 md:text-4xl">
+              Van out of the box tot maatwerk&shy;oplossingen
             </h2>
             <p class="text-gray-700">
               Als bedrijf bieden we lokale hardware voor edge AI, software die
