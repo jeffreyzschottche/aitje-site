@@ -240,7 +240,7 @@
           </div>
 
           <div
-            class="rounded-[2rem] border border-white/10 bg-white/5 p-6 md:p-8"
+            class="overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-6 md:p-8"
           >
             <div
               class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between"
@@ -267,7 +267,7 @@
                 Bekijk producten
               </NuxtLink>
             </div>
-            <div class="mt-8 overflow-hidden">
+            <div class="relative mt-8 overflow-hidden">
               <div class="showcase-marquee flex w-max gap-5">
                 <article
                   v-for="(item, idx) in productShowcaseMarquee"

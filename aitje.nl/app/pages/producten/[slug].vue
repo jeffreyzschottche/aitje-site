@@ -116,7 +116,7 @@
         </div>
       </section>
 
-      <section class="relative left-1/2 right-1/2 mt-16 w-screen -translate-x-1/2 bg-black py-14">
+      <section class="mt-16 bg-black py-14">
         <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
           <article class="flex h-full flex-col justify-center rounded-[2rem] border border-white/10 bg-white/5 p-7 text-white shadow-[0_24px_70px_rgba(0,0,0,0.28)]">
             <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
@@ -209,7 +209,7 @@
               {{ specsIntro }}
             </p>
 
-            <div class="mt-8 overflow-hidden rounded-[2rem] border border-gray-200 bg-white shadow-sm">
+            <div class="mt-8 overflow-x-auto rounded-[2rem] border border-gray-200 bg-white shadow-sm">
               <table class="min-w-full border-collapse text-left">
                 <thead class="bg-[#fafafa]">
                   <tr>
@@ -244,7 +244,7 @@
               {{ osIntro }}
             </p>
 
-            <div class="mt-8 overflow-hidden rounded-[2rem] border border-gray-200 bg-white shadow-sm">
+            <div class="mt-8 overflow-x-auto rounded-[2rem] border border-gray-200 bg-white shadow-sm">
               <table class="min-w-full border-collapse text-left">
                 <thead class="bg-[#fafafa]">
                   <tr>
@@ -279,7 +279,7 @@
               {{ modelsIntro }}
             </p>
 
-            <div class="mt-8 overflow-hidden rounded-[2rem] border border-gray-200 bg-white shadow-sm">
+            <div class="mt-8 overflow-x-auto rounded-[2rem] border border-gray-200 bg-white shadow-sm">
               <table class="min-w-full border-collapse text-left">
                 <thead class="bg-[#fafafa]">
                   <tr>
