@@ -156,12 +156,6 @@
             </div>
 
             <div id="allergieid-widget"></div>
-            <script
-              src="https://allergieid.nl/widget.js"
-              data-container="allergieid-widget"
-              data-width="100%"
-              data-height="600px"
-            ><\/script>
           </div>
         </div>
       </section>
@@ -692,7 +686,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import { serviceCatalog } from "../data/serviceCatalog";
 import {
   AppWindow,
@@ -714,6 +708,19 @@ const heroStats = [
   { label: "Goed voor het milieu", value: "Geen cloud calls" },
   { label: "AITJE denkt met je mee", value: "Soevereiniteit in AI" },
 ];
+
+onMounted(() => {
+  if (document.querySelector('script[src="https://allergieid.nl/widget.js"]')) {
+    return;
+  }
+
+  const script = document.createElement("script");
+  script.src = "https://allergieid.nl/widget.js";
+  script.dataset.container = "allergieid-widget";
+  script.dataset.width = "100%";
+  script.dataset.height = "600px";
+  document.body.appendChild(script);
+});
 
 const reasons = [
   {
