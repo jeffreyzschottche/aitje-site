@@ -154,6 +154,14 @@
                 <p class="text-xl font-semibold text-white">{{ stat.value }}</p>
               </div>
             </div>
+
+            <div id="allergieid-widget"></div>
+            <script
+              src="https://allergieid.nl/widget.js"
+              data-container="allergieid-widget"
+              data-width="100%"
+              data-height="600px"
+            ><\/script>
           </div>
         </div>
       </section>
