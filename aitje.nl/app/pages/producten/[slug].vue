@@ -553,12 +553,14 @@ const heroImage = computed(() => {
     "aitje-notulist": "/images/spraakmemowhatsapp.png",
     "aitje-prepper": "/images/ei-internet.png",
     "aitje-manager": "/images/aitje-os-1.png",
+    "aitje-coder": "/images/aitje-product.png",
   };
   return mapping[slug.value] ?? "/images/aitje-product.png";
 });
 const primaryCta = computed(() => {
   if (slug.value === "aitje-custom") return "/contact?onderwerp=offerte";
   if (slug.value === "aitje-manager") return "/contact?onderwerp=kennismaking";
+  if (slug.value === "aitje-coder") return "/contact?onderwerp=interesse-aitje-coder";
   return "/contact?onderwerp=demo";
 });
 const useCasesRoute = "/use-cases";

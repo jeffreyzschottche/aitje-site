@@ -381,9 +381,6 @@
                 <p class="mt-4 text-sm leading-7 text-gray-300">
                   {{ service.result }}
                 </p>
-                <p class="mt-5 text-sm leading-7 text-gray-400">
-                  {{ service.fit }}
-                </p>
               </article>
             </div>
           </div>
@@ -547,59 +544,96 @@
 
       <section class="bg-[#fafafa] px-6 py-20">
         <div
-          class="mx-auto max-w-5xl rounded-[2.5rem] border border-gray-200 bg-white p-8 shadow-sm md:p-10"
+          ref="missionSectionRef"
+          class="mx-auto max-w-6xl rounded-[2.5rem] border border-gray-200 bg-white p-8 shadow-sm md:p-10"
         >
-          <div class="mx-auto max-w-4xl text-center">
-            <div class="overflow-hidden rounded-[2rem] bg-[#f5f5f5]">
-              <img
-                src="/images/wanneer-aitje.png"
-                alt="Onze missie"
-                class="h-[16rem] w-full object-cover md:h-[22rem]"
-              />
+          <div class="grid gap-10 lg:grid-cols-2 lg:items-start">
+            <div>
+              <div class="overflow-hidden rounded-[2rem] bg-[#f5f5f5]">
+                <img
+                  src="/images/wanneer-aitje.png"
+                  alt="Onze missie"
+                  class="h-[16rem] w-full object-cover md:h-[22rem]"
+                />
+              </div>
+
+              <p
+                class="mt-8 text-sm font-semibold uppercase tracking-[0.4em] text-[#facc15]"
+              >
+                Onze missie
+              </p>
+              <p class="mt-4 text-5xl font-black leading-none text-[#facc15]">
+                "
+              </p>
+              <blockquote
+                class="mt-4 max-w-2xl text-2xl font-semibold leading-tight text-gray-900 md:text-3xl"
+              >
+                AI is niet meer weg te denken. Hoe meer mensen en bedrijven het
+                gebruiken, hoe afhankelijker we worden van Big Tech uit het
+                buitenland.
+              </blockquote>
+              <div class="mt-8 max-w-2xl space-y-4 text-base leading-7 text-gray-600">
+                <p>
+                  AITJE verkoopt niet alleen AI, maar vooral meer controle over
+                  continuiteit, kosten en data. Dat is commercieel vaak
+                  waardevoller dan nog een snellere cloudtool.
+                </p>
+                <p>
+                  Als externe platformen duurder, drukker of instabieler
+                  worden, wil je een partner die AI dichter op je eigen
+                  organisatie zet en niet verder ervan af.
+                </p>
+              </div>
+              <div class="mt-10">
+                <NuxtLink
+                  to="/visie"
+                  class="inline-flex items-center justify-center rounded-full bg-black px-8 py-3 text-sm font-semibold text-white transition hover:bg-black hover:text-[#facc15]"
+                >
+                  Lees meer over onze visie
+                </NuxtLink>
+              </div>
             </div>
 
-            <p
-              class="mt-8 text-sm font-semibold uppercase tracking-[0.4em] text-[#facc15]"
-            >
-              Onze missie
-            </p>
-            <p class="mt-4 text-5xl font-black leading-none text-[#facc15]">
-              "
-            </p>
-            <blockquote
-              class="mx-auto mt-4 max-w-3xl text-2xl font-semibold leading-tight text-gray-900 md:text-3xl"
-            >
-              AI is niet meer weg te denken. Hoe meer mensen en bedrijven het
-              gebruiken, hoe afhankelijker we worden van Big Tech uit het
-              buitenland.
-            </blockquote>
-            <div
-              class="mx-auto mt-8 max-w-3xl space-y-4 text-base leading-7 text-gray-600"
-            >
-              <p>
-                Met AITJE blijft AI ook werken wanneer internet of externe
-                platformen uitvallen. Op het device blijft informatie lokaal
-                beschikbaar via je eigen omgeving.
+            <div class="rounded-[2rem] bg-[#111111] p-6 text-white shadow-[0_24px_70px_rgba(0,0,0,0.14)] md:p-8">
+              <p class="text-xs font-semibold uppercase tracking-[0.35em] text-[#facc15]">
+                Waarom dit telt
               </p>
-              <p>
-                Terwijl prijzen van externe aanbieders kunnen stijgen, bouwen
-                wij onze oplossingen zo dat kosten beheersbaar blijven en je
-                minder afhankelijk bent van terugkerende platformkosten.
+              <h3 class="mt-4 max-w-lg text-3xl font-black leading-tight">
+                Edge AI wordt interessant zodra risico en kosten harder groeien dan gemak.
+              </h3>
+              <p class="mt-4 max-w-xl text-sm leading-7 text-white/72">
+                Deze cijfers trekken mensen over de streep omdat ze direct raken aan
+                uptime, maandlasten, security en bestuurlijke rust. Dat is precies
+                waar een Edge AI-partnerschap met AITJE waarde levert.
               </p>
-              <p>
-                Lokaal werken is daarnaast beter voor het milieu: minder
-                eindeloze calls naar datacenters en efficienter gebruik van
-                hardware. Gegevens blijven daarbij dichter bij de organisatie,
-                in Europa en waar nodig volledig lokaal.
-              </p>
-            </div>
-            <div class="mt-10">
-              <NuxtLink
-                to="/visie"
-                class="inline-flex items-center justify-center rounded-full bg-black px-8 py-3 text-sm font-semibold text-white transition hover:bg-black hover:text-[#facc15]"
-              >
-                Lees meer over onze visie
-              </NuxtLink>
+
+              <div class="mt-8 space-y-4">
+                <article
+                  v-for="item in missionMetrics"
+                  :key="item.label"
+                  class="rounded-[1.5rem] border border-white/10 bg-white/5 p-5"
+                >
+                  <div class="flex items-start justify-between gap-4">
+                    <div>
+                      <p class="text-xs font-semibold uppercase tracking-[0.32em] text-[#facc15]">
+                        {{ item.label }}
+                      </p>
+                      <p class="mt-3 text-4xl font-black leading-none text-white md:text-5xl">
+                        {{ formatMissionMetric(item) }}
+                      </p>
+                    </div>
+                    <span class="rounded-full border border-white/10 bg-white/8 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.24em] text-white/60">
+                      {{ item.badge }}
+                    </span>
+                  </div>
+                  <p class="mt-4 text-sm leading-7 text-white/72">
+                    {{ item.description }}
+                  </p>
+                  <p class="mt-3 text-sm font-medium leading-6 text-[#facc15]">
+                    {{ item.commercial }}
+                  </p>
+                </article>
+              </div>
             </div>
           </div>
         </div>
@@ -685,7 +719,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { onBeforeUnmount, onMounted, ref } from "vue";
 import { serviceCatalog } from "../data/serviceCatalog";
 import {
   AppWindow,
@@ -707,6 +741,118 @@ const heroStats = [
   { label: "Goed voor het milieu", value: "Geen cloud calls" },
   { label: "AITJE denkt met je mee", value: "Soevereiniteit in AI" },
 ];
+
+const missionSectionRef = ref<HTMLElement | null>(null);
+const missionCounterStarted = ref(false);
+const missionAnimationFrame = ref<number | null>(null);
+const missionObserver = ref<IntersectionObserver | null>(null);
+
+const missionMetrics = ref([
+  {
+    label: "AI-incidenten",
+    badge: "Security",
+    target: 223,
+    suffix: " / mnd",
+    decimals: 0,
+    value: 0,
+    description:
+      "Gemiddeld worden organisaties geconfronteerd met honderden AI-gerelateerde policy- en datalekincidenten per maand.",
+    commercial:
+      "Meer lokale regie betekent minder blootstelling, minder escalatie en minder herstelkosten.",
+  },
+  {
+    label: "Bureaukosten",
+    badge: "Kosten",
+    target: 10000,
+    prefix: "€",
+    suffix: " / mnd",
+    decimals: 0,
+    value: 0,
+    description:
+      "Bij middelgrote teams kunnen AI-tools en API-gebruik oplopen tot duizenden euro's per maand, vaak met groeiende usage.",
+    commercial:
+      "AITJE maakt AI-kosten voorspelbaarder en verlaagt afhankelijkheid van steeds oplopende platformlasten.",
+  },
+  {
+    label: "Waterverbruik",
+    badge: "Impact",
+    target: 765,
+    suffix: " mld l/jaar",
+    decimals: 0,
+    value: 0,
+    description:
+      "AI-infrastructuur verbruikt op wereldschaal enorme hoeveelheden water via datacenters, koeling en energieproductie.",
+    commercial:
+      "Lokaler draaien is niet alleen technisch slimmer, maar ook een sterker verhaal richting beleid, ESG en aanbestedingen.",
+  },
+]);
+
+const easeOutCubic = (t: number) => 1 - (1 - t) ** 3;
+
+const formatMissionMetric = (item: {
+  value: number;
+  prefix?: string;
+  suffix?: string;
+  decimals?: number;
+}) => {
+  const formattedValue =
+    item.decimals && item.decimals > 0
+      ? item.value.toFixed(item.decimals)
+      : Math.round(item.value).toLocaleString("nl-NL");
+
+  return `${item.prefix ?? ""}${formattedValue}${item.suffix ?? ""}`;
+};
+
+const startMissionCounters = () => {
+  if (missionCounterStarted.value || typeof window === "undefined") {
+    return;
+  }
+
+  missionCounterStarted.value = true;
+  const duration = 1800;
+  const start = window.performance.now();
+
+  const tick = (now: number) => {
+    const progress = Math.min((now - start) / duration, 1);
+    const eased = easeOutCubic(progress);
+
+    missionMetrics.value = missionMetrics.value.map((item) => ({
+      ...item,
+      value: item.target * eased,
+    }));
+
+    if (progress < 1) {
+      missionAnimationFrame.value = window.requestAnimationFrame(tick);
+    }
+  };
+
+  missionAnimationFrame.value = window.requestAnimationFrame(tick);
+};
+
+onMounted(() => {
+  if (typeof window === "undefined" || !missionSectionRef.value) {
+    return;
+  }
+
+  missionObserver.value = new IntersectionObserver(
+    (entries) => {
+      const [entry] = entries;
+      if (!entry?.isIntersecting) return;
+      startMissionCounters();
+      missionObserver.value?.disconnect();
+    },
+    { threshold: 0.35 },
+  );
+
+  missionObserver.value.observe(missionSectionRef.value);
+});
+
+onBeforeUnmount(() => {
+  missionObserver.value?.disconnect();
+  if (typeof window !== "undefined" && missionAnimationFrame.value) {
+    window.cancelAnimationFrame(missionAnimationFrame.value);
+  }
+});
 
 const reasons = [
   {

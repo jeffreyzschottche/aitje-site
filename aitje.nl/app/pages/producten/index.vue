@@ -309,6 +309,7 @@ const productBannerImages: Record<string, string> = {
   "aitje-notulist": "/images/spraakmemowhatsapp.png",
   "aitje-prepper": "/images/ei-internet.png",
   "aitje-manager": "/images/aitje-os-1.png",
+  "aitje-coder": "/images/aitje-product.png",
 };
 
 const productBannerKickers: Record<string, string> = {
@@ -317,6 +318,7 @@ const productBannerKickers: Record<string, string> = {
   "aitje-notulist": "Gesprek naar output",
   "aitje-prepper": "Offline en mobiel",
   "aitje-manager": "Lokale agentregie",
+  "aitje-coder": "Ontwikkelen met AI",
 };
 
 const productBannerExtras: Record<string, string> = {
@@ -330,6 +332,8 @@ const productBannerExtras: Record<string, string> = {
     "Voor situaties waar bereik niet vanzelfsprekend is en kennis, bestanden en assistentie lokaal beschikbaar moeten blijven.",
   "aitje-manager":
     "De volgende productfase voor organisaties die meerdere lokale agents gecontroleerd willen installeren, beheren en samen laten werken.",
+  "aitje-coder":
+    "Voor teams die AI willen inzetten bij coderen, technische wijzigingen en interne tooling, met meer grip op context, omgeving en ontwikkelproces.",
 };
 
 const productBannerPanelClasses: Record<string, string> = {
@@ -338,6 +342,7 @@ const productBannerPanelClasses: Record<string, string> = {
   "aitje-notulist": "bg-[#efece5]",
   "aitje-prepper": "bg-[#f3edd8]",
   "aitje-manager": "bg-[#ece8de]",
+  "aitje-coder": "bg-[#efe9de]",
 };
 
 const waitlistModalOpen = ref(false);

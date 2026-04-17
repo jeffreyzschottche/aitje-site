@@ -559,6 +559,7 @@ const heroImage = computed(() => {
     "aitje-notulist": "/images/spraakmemowhatsapp.png",
     "aitje-prepper": "/images/ei-internet.png",
     "aitje-manager": "/images/aitje-os-1.png",
+    "aitje-coder": "/images/aitje-product.png",
   };
   return mapping[slug.value] ?? "/images/aitje-product.png";
 });
@@ -566,6 +567,7 @@ const heroImage = computed(() => {
 const primaryCta = computed(() => {
   if (slug.value === "aitje-custom") return localePath("/contact?onderwerp=offerte");
   if (slug.value === "aitje-manager") return localePath("/contact?onderwerp=kennismaking");
+  if (slug.value === "aitje-coder") return localePath("/contact?onderwerp=interesse-aitje-coder");
   return localePath("/contact?onderwerp=demo");
 });
 

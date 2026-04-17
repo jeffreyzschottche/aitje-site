@@ -404,10 +404,11 @@ const roadmapYears = [
         label: "Q4",
         title: "From test to live",
         summary:
-          "The second half of the year is about making the next live step concrete.",
+          "The second half of the year is about making the next live step concrete and starting a new development line.",
         points: [
           "AITJE Prepper is planned to go live in Q4 2026.",
           "AITJE Notetaker is refined further based on practical use and product goals.",
+          "AITJE Coder enters the development phase in Q4 2026.",
         ],
       },
     ],

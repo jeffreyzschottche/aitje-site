@@ -202,6 +202,28 @@ export const productCatalogV2: Record<"nl" | "en", LocaleContent> = {
           "Meer beheer zonder enterprise-complexiteit",
         ],
       },
+      {
+        slug: "aitje-coder",
+        title: "AITJE Coder",
+        status: "in-development",
+        summary:
+          "In ontwikkeling als coder-product voor organisaties die lokaal en gecontroleerd willen bouwen, aanpassen en doorontwikkelen met AI-ondersteuning.",
+        audience:
+          "Voor organisaties en teams die softwareontwikkeling, technische wijzigingen of interne tools sneller willen uitvoeren zonder volledige afhankelijkheid van externe AI-platformen.",
+        highlights: [
+          "Gericht op coderen, aanpassen en technisch uitwerken",
+          "Lokale of gecontroleerde inzet binnen eigen omgeving",
+          "Bedoeld voor ontwikkelwerk, scripts, tooling en iteratie",
+        ],
+        cta: "Meld je interesse",
+        intro:
+          "AITJE Coder is in ontwikkeling voor teams die AI willen inzetten bij softwareontwikkeling, technische taken en interne tooling, maar wel met duidelijke regie over omgeving, data en werkwijze.",
+        useCases: [
+          "Code aanpassen en nieuwe features sneller uitwerken",
+          "Interne scripts, tools en technische workflows opzetten",
+          "Lokaler ontwikkelen met meer grip op context en toegang",
+        ],
+      },
     ],
     assistantModules: {
       "aitje-os": {
@@ -383,6 +405,28 @@ export const productCatalogV2: Record<"nl" | "en", LocaleContent> = {
           "Letting agents work together with assistants",
           "Combining local automation with controlled internet actions",
           "More control without enterprise complexity",
+        ],
+      },
+      {
+        slug: "aitje-coder",
+        title: "AITJE Coder",
+        status: "in-development",
+        summary:
+          "In development as a coder-focused product for organizations that want to build, adapt and iterate with AI support in a local or controlled setup.",
+        audience:
+          "For organizations and teams that want to move faster in software development, technical changes or internal tooling without full dependence on external AI platforms.",
+        highlights: [
+          "Focused on coding, adapting and technical implementation",
+          "Local or controlled use inside your own environment",
+          "Built for development work, scripts, tooling and iteration",
+        ],
+        cta: "Register your interest",
+        intro:
+          "AITJE Coder is in development for teams that want to use AI in software development, technical tasks and internal tooling while keeping clear control over environment, data and workflow.",
+        useCases: [
+          "Adjusting code and shipping new features faster",
+          "Building internal scripts, tools and technical workflows",
+          "Developing more locally with better control over context and access",
         ],
       },
     ],

@@ -404,10 +404,11 @@ const roadmapYears = [
         label: "Q4",
         title: "Van test naar live",
         summary:
-          "De tweede helft van het jaar draait om het concretiseren van de volgende live stap.",
+          "De tweede helft van het jaar draait om het concretiseren van de volgende live stap en het starten van een nieuwe ontwikkellijn.",
         points: [
           "AITJE Prepper staat gepland om live te gaan in Q4 2026.",
           "AITJE Notulist wordt verder aangescherpt op basis van praktijk en productdoel.",
+          "AITJE Coder gaat in Q4 2026 de ontwikkelfase in.",
         ],
       },
     ],
