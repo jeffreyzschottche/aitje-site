@@ -110,19 +110,19 @@
               alt="AITJE"
               class="h-16 w-auto md:h-20"
             />
-            <p class="mt-4 text-4xl font-black text-[#facc15] md:text-5xl">
+            <h1 class="mt-4 text-4xl font-black text-[#facc15] md:text-5xl">
               {{ phrases[currentPhrase] }}
-            </p>
+            </h1>
             <p
               class="mt-8 max-w-4xl text-lg leading-8 text-gray-200 md:text-xl"
             >
-              AITJE ontwikkelt AI-oplossingen voor organisaties die grip willen
-              houden op privacy, data en API kosten.<br
-                class="hidden md:block"
-              />
-              We bieden hardware en software aan met lokale edge AI. Altijd
-              Europese of Nederlandse hosting, moderne LLM&apos;s, ruimte voor
-              je eigen kennisbank, agents, workflows en toepassingen.
+              AITJE is een Nederlands edge-AI-bedrijf dat lokale
+              AI-oplossingen ontwikkelt voor het MKB. Onze mini-PCs draaien
+              LLM&apos;s on-premise, zodat organisaties grip houden op
+              privacy, data en kosten.<br class="hidden md:block" />
+              Altijd Europese of Nederlandse hosting, ruimte voor je eigen
+              kennisbank, agents, workflows en toepassingen &mdash; zonder
+              afhankelijkheid van externe cloudplatformen.
             </p>
             <p
               class="mt-6 text-xs uppercase tracking-[0.45em] text-gray-400 sm:text-sm"
@@ -700,7 +700,7 @@ import {
   Zap,
 } from "lucide-vue-next";
 
-const phrases = ["Je partner in AI & Edge AI"];
+const phrases = ["On-premise AI voor het Nederlandse MKB"];
 const heroStats = [
   { label: "Werkt zonder internet", value: "100% onafhankelijk" },
   { label: "Goed voor het milieu", value: "Geen cloud calls" },
@@ -948,6 +948,27 @@ const homepageFaqs = [
 ];
 
 const currentPhrase = ref(0);
+
+useHead({
+  script: [
+    {
+      type: "application/ld+json",
+      key: "homepage-faq-structured-data",
+      innerHTML: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: homepageFaqs.map((item) => ({
+          "@type": "Question",
+          name: item.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: item.answer,
+          },
+        })),
+      }),
+    },
+  ],
+});
 </script>
 
 <style scoped>

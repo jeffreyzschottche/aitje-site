@@ -1,2 +1,36 @@
+# Alle crawlers welkom
 User-Agent: *
 Disallow:
+
+# AI-crawlers expliciet toestaan
+User-Agent: GPTBot
+Allow: /
+
+User-Agent: ChatGPT-User
+Allow: /
+
+User-Agent: ClaudeBot
+Allow: /
+
+User-Agent: Claude-Web
+Allow: /
+
+User-Agent: PerplexityBot
+Allow: /
+
+User-Agent: Google-Extended
+Allow: /
+
+User-Agent: Applebot-Extended
+Allow: /
+
+User-Agent: Bytespider
+Allow: /
+
+User-Agent: CCBot
+Allow: /
+
+User-Agent: cohere-ai
+Allow: /
+
+Sitemap: https://aitje.com/sitemap.xml

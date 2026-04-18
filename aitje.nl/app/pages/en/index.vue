@@ -110,19 +110,20 @@
               alt="AITJE"
               class="h-16 w-auto md:h-20"
             />
-            <p class="mt-4 text-4xl font-black text-[#facc15] md:text-5xl">
+            <h1 class="mt-4 text-4xl font-black text-[#facc15] md:text-5xl">
               {{ phrases[currentPhrase] }}
-            </p>
+            </h1>
             <p
               class="mt-8 max-w-4xl text-lg leading-8 text-gray-200 md:text-xl"
             >
-              AITJE develops AI solutions for organizations that want to stay in
-              control of privacy, data and API costs.<br
+              AITJE is a Dutch edge-AI company that builds local
+              AI solutions for SMEs. Our mini-PCs run LLMs on-premise, so
+              organizations stay in control of privacy, data and costs.<br
                 class="hidden md:block"
               />
-              We offer hardware and software with local edge AI. Always European
-              or Dutch hosting, modern LLMs, room for your own knowledge base,
-              agents, workflows and applications.
+              Always European or Dutch hosting, room for your own knowledge
+              base, agents, workflows and applications &mdash; without
+              dependence on external cloud platforms.
             </p>
             <p
               class="mt-6 text-xs uppercase tracking-[0.45em] text-gray-400 sm:text-sm"
@@ -696,7 +697,7 @@ import {
 
 const { localePath } = useSiteLocale();
 
-const phrases = ["Your partner in AI & Edge AI"];
+const phrases = ["On-premise AI for Dutch SMEs"];
 const heroStats = [
   { label: "Works without internet", value: "100% independent" },
   { label: "Better for the environment", value: "No cloud calls" },

@@ -471,6 +471,29 @@ const filteredGroups = computed(() => {
     .filter((group) => group.items.length > 0);
 });
 
+const allFaqItems = faqGroups.flatMap((group) => group.items);
+
+useHead({
+  script: [
+    {
+      type: "application/ld+json",
+      key: "faq-structured-data",
+      innerHTML: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: allFaqItems.map((item) => ({
+          "@type": "Question",
+          name: item.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: item.answer,
+          },
+        })),
+      }),
+    },
+  ],
+});
+
 const facts = [
   {
     title: "Local processing",

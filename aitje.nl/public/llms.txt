@@ -1,0 +1,39 @@
+# AITJE
+
+> AITJE is een Nederlands bedrijf dat on-premise edge-AI-oplossingen ontwikkelt voor het MKB. We bieden hardware (mini-PCs) en software waarmee organisaties lokaal met AI werken, zonder data naar externe cloudplatformen te sturen. Focus op GDPR-compliance, data-soevereiniteit en voorspelbare kosten. Gevestigd in Beverwijk, Nederland.
+
+## Producten
+
+- [AITJE Assistent](https://aitje.com/producten/aitje-assistent): Lokale Edge AI op eigen hardware met kennisbank, offline bereikbaarheid en API-toegang voor organisaties.
+- [AITJE Custom](https://aitje.com/producten/aitje-custom): Maatwerkoplossingen voor organisaties waar standaardhardware niet past.
+- [Alle producten](https://aitje.com/producten): Overzicht van de vijf productrichtingen: Assistent, Custom, Notulist, Prepper en Manager.
+
+## Diensten
+
+- [Diensten overzicht](https://aitje.com/diensten): Implementatie, uitbreiding, consultancy, AI-strategie en SLA.
+- [AI-strategie](https://aitje.com/diensten/ai-strategie): Bepalen waar AI nu echt waarde toevoegt binnen je organisatie.
+- [Consultancy](https://aitje.com/diensten/consultancy): Huidig AI-gebruik goedkoper en stabieler maken.
+- [SLA](https://aitje.com/diensten/sla): Maandelijkse samenwerking voor support en doorontwikkeling.
+
+## Use Cases
+
+- [Use Cases](https://aitje.com/use-cases): Herkenbare situaties waarin lokale Edge AI en AITJE relevant kunnen zijn.
+
+## Kenniscentrum
+
+- [Kenniscentrum](https://aitje.com/kenniscentrum): Artikelen over AI-termen, technieken en toepassingen helder uitgelegd.
+
+## Over AITJE
+
+- [Over AITJE](https://aitje.com/over-aitje): Achtergrond, visie en positionering van AITJE als Nederlands edge-AI-bedrijf.
+- [Roadmap](https://aitje.com/roadmap): Wat bestaat, wat in ontwikkeling is en wat gepland staat.
+
+## FAQ
+
+- [Veelgestelde vragen](https://aitje.com/faq): Antwoorden over producten, privacy, techniek, diensten en doelgroep.
+
+## Contact
+
+- [Contact](https://aitje.com/contact): Neem contact op voor een demo, offerte of kennismaking.
+- E-mail: aitjebv@gmail.com
+- LinkedIn: https://www.linkedin.com/in/aitje-bv-a095453b4/
