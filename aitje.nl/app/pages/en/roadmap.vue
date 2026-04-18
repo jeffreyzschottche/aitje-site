@@ -3,7 +3,7 @@
     <SiteNavigation />
 
     <main class="px-6 pb-20 pt-32">
-      <section class="mx-auto max-w-7xl overflow-hidden rounded-[3rem] bg-[#212121] text-white">
+      <section class="mx-auto max-w-7xl overflow-hidden rounded-[3rem] bg-[#f5f5f5] text-gray-900">
         <div class="grid gap-10 px-8 py-12 lg:grid-cols-[1.05fr_0.95fr] lg:px-12 lg:py-14">
           <div class="space-y-6">
             <p class="text-sm font-semibold uppercase tracking-[0.45em] text-[#facc15]">
@@ -12,11 +12,11 @@
             <h1 class="text-5xl font-black leading-tight">
               What AITJE is building
             </h1>
-            <p class="max-w-3xl text-lg text-gray-300">
+            <p class="max-w-3xl text-lg text-gray-700">
               This roadmap shows where we are now and which parts we are
               continuing to build within AITJE.
             </p>
-            <p class="max-w-3xl text-base leading-8 text-gray-400">
+            <p class="max-w-3xl text-base leading-8 text-gray-600">
               AITJE is continuously working on development, research and
               tracking changes in the market. We try not to move too fast, but
               also not to become too slow. We keep looking for the right
@@ -350,7 +350,7 @@ const roadmapYears = [
           "By the end of 2025, the foundation was in place for a product line with clear status: what exists, what is underway and what comes later.",
         points: [
           "The 2026 roadmap was defined based on practical experience and positioning.",
-          "The direction for Assistant, Notetaker, Prepper and Manager became more concrete.",
+          "The direction for Assistant, Notetaker, Off-Grid and Manager became more concrete.",
         ],
       },
     ],
@@ -394,7 +394,7 @@ const roadmapYears = [
           "From Q3 onward, attention shifts to the next expansions of the product line.",
         points: [
           "AITJE Notetaker is aimed at Q3 2026.",
-          "AITJE Prepper enters the test phase in Q3 2026.",
+          "AITJE Off-Grid enters the test phase in Q3 2026.",
         ],
       },
       {
@@ -406,7 +406,7 @@ const roadmapYears = [
         summary:
           "The second half of the year is about making the next live step concrete and starting a new development line.",
         points: [
-          "AITJE Prepper is planned to go live in Q4 2026.",
+          "AITJE Off-Grid is planned to go live in Q4 2026.",
           "AITJE Notetaker is refined further based on practical use and product goals.",
           "AITJE Coder enters the development phase in Q4 2026.",
         ],

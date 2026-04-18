@@ -518,7 +518,7 @@ const productLinks = computed(() => [
         : "In ontwikkeling voor opname en gestructureerde output.",
   },
   {
-    label: "AITJE Prepper",
+    label: "AITJE Off-Grid",
     baseTo: "/producten/aitje-prepper",
     to: localePath("/producten/aitje-prepper"),
     disabled: true,
@@ -536,6 +536,16 @@ const productLinks = computed(() => [
       locale.value === "en"
         ? "Planned for local agent management."
         : "Gepland voor lokaal agentbeheer.",
+  },
+  {
+    label: "AITJE Coder",
+    baseTo: "/producten/aitje-coder",
+    to: localePath("/producten/aitje-coder"),
+    disabled: true,
+    description:
+      locale.value === "en"
+        ? "In development for controlled AI-assisted coding."
+        : "In ontwikkeling voor gecontroleerd coderen met AI.",
   },
 ]);
 

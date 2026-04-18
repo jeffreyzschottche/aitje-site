@@ -385,6 +385,13 @@
         </div>
       </section>
 
+      <ProductSoftwareShowcase
+        :hero-image="heroImage"
+        locale="nl"
+        :product-slug="slug"
+        :product-title="product.title"
+      />
+
       <section class="mx-auto max-w-7xl px-4 pb-14 pt-14 sm:px-6">
         <div>
           <div class="grid gap-6 lg:grid-cols-[0.9fr_1.15fr_0.9fr] lg:items-center">
@@ -417,16 +424,15 @@
               </h3>
               <div class="mt-5 space-y-4 text-base leading-8 text-gray-700">
                 <p>
-                  AI is niet meer weg te denken. Agents, LLM&apos;s, beeldgeneratie en videogeneratie
-                  gaan een steeds grotere rol spelen in hoe organisaties werken.
+                  AI wordt snel een vast onderdeel van hoe organisaties werken.
                 </p>
                 <p>
-                  Onze visie is dat je die ontwikkeling beter op je eigen systemen kunt voorbereiden,
-                  zonder volledige afhankelijkheid van het buitenland, Big Tech of externe platformen.
+                  Daarom geloven wij in voorbereiding op je eigen systemen, met
+                  meer grip op data, gebruik en afhankelijkheden.
                 </p>
                 <p>
-                  Daarom kijken we niet alleen naar wat technisch mogelijk is, maar vooral naar wat
-                  bruikbaar, verantwoord en werkbaar blijft. De nieuwste tool is niet automatisch de juiste tool.
+                  Niet alles wat nieuw is, is ook logisch. Wij kiezen liever
+                  voor wat bruikbaar, verantwoord en houdbaar blijft.
                 </p>
               </div>
             </article>

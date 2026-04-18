@@ -57,7 +57,7 @@ export const serviceCatalog = [
     key: "consultancy",
     sidebarLabel: "Consultancy",
     title: "Consultancy",
-    focus: "Kosten & stabiliteit",
+    focus: "Optimalisatie",
     description:
       "We analyseren huidig AI-gebruik en kijken waar kosten, stabiliteit en afhankelijkheid verbeterd kunnen worden.",
     result:
@@ -93,7 +93,7 @@ export const serviceCatalog = [
     key: "sla",
     sidebarLabel: "SLA",
     title: "SLA",
-    focus: "Maandelijkse samenwerking",
+    focus: "Samenwerking",
     description:
       "Een maandelijkse samenwerking voor support, updates, gereserveerde tijd, installatiehulp en advies rond producten en Edge AI-implementaties.",
     result:

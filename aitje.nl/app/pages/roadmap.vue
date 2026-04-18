@@ -3,7 +3,7 @@
     <SiteNavigation />
 
     <main class="px-6 pb-20 pt-32">
-      <section class="mx-auto max-w-7xl overflow-hidden rounded-[3rem] bg-[#212121] text-white">
+      <section class="mx-auto max-w-7xl overflow-hidden rounded-[3rem] bg-[#f5f5f5] text-gray-900">
         <div class="grid gap-10 px-8 py-12 lg:grid-cols-[1.05fr_0.95fr] lg:px-12 lg:py-14">
           <div class="space-y-6">
             <p class="text-sm font-semibold uppercase tracking-[0.45em] text-[#facc15]">
@@ -12,11 +12,11 @@
             <h1 class="text-5xl font-black leading-tight">
               Waar AITJE aan bouwt
             </h1>
-            <p class="max-w-3xl text-lg text-gray-300">
+            <p class="max-w-3xl text-lg text-gray-700">
               Deze roadmap laat zien waar we nu staan en welke onderdelen we
               verder uitbouwen binnen AITJE.
             </p>
-            <p class="max-w-3xl text-base leading-8 text-gray-400">
+            <p class="max-w-3xl text-base leading-8 text-gray-600">
               AITJE is continu bezig met ontwikkeling, research en het volgen
               van veranderingen in de markt. Daarbij proberen we niet te snel te
               schakelen, maar ook niet te sloom te worden. We zoeken steeds naar
@@ -350,7 +350,7 @@ const roadmapYears = [
           "Eind 2025 lag de basis voor een productlijn met duidelijke status: wat bestaat, wat loopt en wat later komt.",
         points: [
           "Roadmap 2026 opgesteld op basis van praktijk en positionering.",
-          "De lijn richting Assistent, Notulist, Prepper en Manager concreter gemaakt.",
+          "De lijn richting Assistent, Notulist, Off-Grid en Manager concreter gemaakt.",
         ],
       },
     ],
@@ -394,7 +394,7 @@ const roadmapYears = [
           "Vanaf Q3 verschuift de aandacht naar de eerstvolgende uitbreidingen van de productlijn.",
         points: [
           "AITJE Notulist richt zich op Q3 2026.",
-          "AITJE Prepper gaat in Q3 2026 de testfase in.",
+          "AITJE Off-Grid gaat in Q3 2026 de testfase in.",
         ],
       },
       {
@@ -406,7 +406,7 @@ const roadmapYears = [
         summary:
           "De tweede helft van het jaar draait om het concretiseren van de volgende live stap en het starten van een nieuwe ontwikkellijn.",
         points: [
-          "AITJE Prepper staat gepland om live te gaan in Q4 2026.",
+          "AITJE Off-Grid staat gepland om live te gaan in Q4 2026.",
           "AITJE Notulist wordt verder aangescherpt op basis van praktijk en productdoel.",
           "AITJE Coder gaat in Q4 2026 de ontwikkelfase in.",
         ],

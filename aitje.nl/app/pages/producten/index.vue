@@ -113,11 +113,17 @@
                 class="relative border-b border-gray-200 md:border-b-0 md:border-r"
                 :class="product.imagePanelClass"
               >
-                <div class="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/30" />
+                <div
+                  class="absolute inset-0"
+                  :class="product.isUnavailable
+                    ? 'bg-gradient-to-br from-white/8 via-[#1f1f1f]/18 to-[#090909]/52'
+                    : 'bg-gradient-to-br from-white/10 via-transparent to-black/30'"
+                />
                 <img
                   :src="product.image"
                   :alt="product.title"
-                  class="relative h-full min-h-[20rem] w-full object-cover"
+                  class="relative h-full min-h-[20rem] w-full object-cover transition"
+                  :class="product.isUnavailable ? 'scale-[1.02] blur-sm saturate-[0.75] brightness-[0.72]' : ''"
                   loading="lazy"
                 />
               </div>
@@ -365,7 +371,9 @@ const productBanners = products.map((product) => ({
   extra: productBannerExtras[product.slug] ?? product.intro,
   image: productBannerImages[product.slug] ?? "/images/aitje-product.png",
   imagePanelClass: productBannerPanelClasses[product.slug] ?? "bg-[#faf7ea]",
-  cardClass: "border-[#facc15]/55 bg-[#050505] text-white",
+  cardClass: product.status !== "available"
+    ? "border-white/12 bg-[#2a2a2a] text-white"
+    : "border-[#facc15]/55 bg-[#050505] text-white",
   isUnavailable: product.status !== "available",
   link: `/producten/${product.slug}`,
 }));

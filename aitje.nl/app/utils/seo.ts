@@ -66,7 +66,7 @@ const staticEntries: Record<string, { title: string; description: string; pageTy
   },
   "/producten": {
     title: "Producten | AITJE",
-    description: "De vijf productrichtingen van AITJE: AITJE Assistent, AITJE Custom, AITJE Notulist, AITJE Prepper en AITJE Manager.",
+    description: "De vijf productrichtingen van AITJE: AITJE Assistent, AITJE Custom, AITJE Notulist, AITJE Off-Grid en AITJE Manager.",
   },
   "/diensten": {
     title: "Diensten | AITJE",
@@ -107,7 +107,7 @@ const staticEntries: Record<string, { title: string; description: string; pageTy
   },
   "/en/products": {
     title: "Products | AITJE",
-    description: "The five AITJE product directions: AITJE Assistent, AITJE Custom, AITJE Notulist, AITJE Prepper and AITJE Manager.",
+    description: "The five AITJE product directions: AITJE Assistent, AITJE Custom, AITJE Notulist, AITJE Off-Grid and AITJE Manager.",
   },
   "/en/services": {
     title: "Services | AITJE",

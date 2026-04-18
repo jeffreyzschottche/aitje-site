@@ -160,7 +160,7 @@ export const productCatalogV2: Record<"nl" | "en", LocaleContent> = {
       },
       {
         slug: "aitje-prepper",
-        title: "AITJE Prepper",
+        title: "AITJE Off-Grid",
         status: "in-development",
         summary:
           "Een mobiel device met offline kennis, lokale LLM-chat en bestanden voor situaties waarin je niet op internet wilt vertrouwen.",
@@ -173,7 +173,7 @@ export const productCatalogV2: Record<"nl" | "en", LocaleContent> = {
         ],
         cta: "Blijf op de hoogte",
         intro:
-          "AITJE Prepper is een product in ontwikkeling voor mobiel, zelfstandig werken met lokale kennis en bestanden.",
+          "AITJE Off-Grid is een product in ontwikkeling voor mobiel, zelfstandig werken met lokale kennis en bestanden.",
         useCases: [
           "Werken op locatie zonder stabiel internet",
           "Offline toegang tot cursussen, kaarten en documentatie",
@@ -365,7 +365,7 @@ export const productCatalogV2: Record<"nl" | "en", LocaleContent> = {
       },
       {
         slug: "aitje-prepper",
-        title: "AITJE Prepper",
+        title: "AITJE Off-Grid",
         status: "in-development",
         summary:
           "A mobile device with offline knowledge, local LLM chat and files for situations where internet should not be a requirement.",
@@ -378,7 +378,7 @@ export const productCatalogV2: Record<"nl" | "en", LocaleContent> = {
         ],
         cta: "Stay informed",
         intro:
-          "AITJE Prepper is an in-development product for mobile, self-reliant work with local knowledge and files.",
+          "AITJE Off-Grid is an in-development product for mobile, self-reliant work with local knowledge and files.",
         useCases: [
           "Working on location without stable internet",
           "Offline access to courses, maps and documentation",

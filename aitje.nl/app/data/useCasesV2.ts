@@ -50,7 +50,7 @@ export const useCasesV2: Record<"nl" | "en", UseCaseV2[]> = {
       problem:
         "Op locatie of onderweg is cloudsoftware niet altijd praktisch of wenselijk, terwijl kennis wel beschikbaar moet blijven.",
       outcome:
-        "AITJE Prepper richt zich op mobiel gebruik met offline kennis, bestanden en lokale LLM-chat.",
+        "AITJE Off-Grid richt zich op mobiel gebruik met offline kennis, bestanden en lokale LLM-chat.",
       bullets: [
         "Voor mobiel of tijdelijk offline gebruik",
         "Lokale kennis en bestanden blijven beschikbaar",
@@ -180,7 +180,7 @@ export const useCasesV2: Record<"nl" | "en", UseCaseV2[]> = {
       problem:
         "Cloud software is not always practical or desirable on location, while knowledge still needs to remain available.",
       outcome:
-        "AITJE Prepper focuses on mobile use with offline knowledge, files and local LLM chat.",
+        "AITJE Off-Grid focuses on mobile use with offline knowledge, files and local LLM chat.",
       bullets: [
         "For mobile or temporarily offline use",
         "Local knowledge and files stay available",

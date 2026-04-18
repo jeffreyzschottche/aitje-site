@@ -831,7 +831,7 @@ const productShowcase = [
   },
   {
     label: "Product",
-    title: "AITJE Prepper",
+    title: "AITJE Off-Grid",
     image: "/images/birds.png",
     description:
       "A mobile direction for independent work with local knowledge, files and AI on the go.",
@@ -844,6 +844,15 @@ const productShowcase = [
     image: "/images/birds.png",
     description:
       "The next step for organizing local agents, installations and collaboration inside your environment.",
+    status: "In development",
+    cta: "Not launched yet",
+  },
+  {
+    label: "Product",
+    title: "AITJE Coder",
+    image: "/images/birds.png",
+    description:
+      "For organizations and teams that want to code, adapt and build faster with AI in a controlled environment.",
     status: "In development",
     cta: "Not launched yet",
   },

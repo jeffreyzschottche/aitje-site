@@ -386,6 +386,13 @@
         </div>
       </section>
 
+      <ProductSoftwareShowcase
+        :hero-image="heroImage"
+        locale="en"
+        :product-slug="slug"
+        :product-title="product.title"
+      />
+
       <section class="mx-auto max-w-7xl px-4 pb-14 pt-14 sm:px-6">
         <div>
           <div class="grid gap-6 lg:grid-cols-[0.9fr_1.15fr_0.9fr] lg:items-center">
@@ -418,18 +425,15 @@
               </h3>
               <div class="mt-5 space-y-4 text-base leading-8 text-gray-700">
                 <p>
-                  AI is here to stay. Agents, LLMs, image generation and video generation
-                  will play an increasingly large role in how organizations work.
+                  AI is quickly becoming a fixed part of how organizations work.
                 </p>
                 <p>
-                  Our view is that it is better to prepare for that development on
-                  your own systems, without full dependence on foreign parties, Big
-                  Tech or external platforms.
+                  That is why we believe in preparing on your own systems, with
+                  more control over data, usage and dependencies.
                 </p>
                 <p>
-                  That is why we do not only look at what is technically possible,
-                  but especially at what stays usable, responsible and workable.
-                  The newest tool is not automatically the right tool.
+                  Not everything new is automatically useful. We prefer what
+                  stays practical, responsible and sustainable.
                 </p>
               </div>
             </article>

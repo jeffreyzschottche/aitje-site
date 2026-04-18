@@ -18,7 +18,13 @@
               fill="none"
             >
               <defs>
-                <filter id="hero-network-glow" x="-20%" y="-20%" width="140%" height="140%">
+                <filter
+                  id="hero-network-glow"
+                  x="-20%"
+                  y="-20%"
+                  width="140%"
+                  height="140%"
+                >
                   <feGaussianBlur stdDeviation="10" result="blur" />
                   <feMerge>
                     <feMergeNode in="blur" />
@@ -28,9 +34,15 @@
               </defs>
 
               <g class="hero-network-lines">
-                <path d="M40 240L180 170L320 245L465 165L615 230L770 175L930 240L1085 170L1240 235L1390 160" />
-                <path d="M10 470L150 395L280 470L430 390L595 450L740 375L900 445L1050 385L1205 455L1380 390" />
-                <path d="M85 690L235 610L385 675L535 600L690 665L860 590L1015 650L1170 590L1330 660" />
+                <path
+                  d="M40 240L180 170L320 245L465 165L615 230L770 175L930 240L1085 170L1240 235L1390 160"
+                />
+                <path
+                  d="M10 470L150 395L280 470L430 390L595 450L740 375L900 445L1050 385L1205 455L1380 390"
+                />
+                <path
+                  d="M85 690L235 610L385 675L535 600L690 665L860 590L1015 650L1170 590L1330 660"
+                />
                 <path d="M180 170L150 395L235 610" />
                 <path d="M320 245L280 470L385 675" />
                 <path d="M465 165L430 390L535 600" />
@@ -46,34 +58,164 @@
 
               <g class="hero-network-points">
                 <circle cx="40" cy="240" r="4" style="animation-delay: -1.2s" />
-                <circle cx="180" cy="170" r="5" style="animation-delay: -2.8s" />
-                <circle cx="320" cy="245" r="4" style="animation-delay: -0.8s" />
-                <circle cx="465" cy="165" r="4" style="animation-delay: -3.6s" />
-                <circle cx="615" cy="230" r="5" style="animation-delay: -1.9s" />
-                <circle cx="770" cy="175" r="4" style="animation-delay: -4.2s" />
-                <circle cx="930" cy="240" r="5" style="animation-delay: -2.1s" />
-                <circle cx="1085" cy="170" r="4" style="animation-delay: -5.1s" />
-                <circle cx="1240" cy="235" r="5" style="animation-delay: -2.7s" />
-                <circle cx="1390" cy="160" r="4" style="animation-delay: -0.5s" />
+                <circle
+                  cx="180"
+                  cy="170"
+                  r="5"
+                  style="animation-delay: -2.8s"
+                />
+                <circle
+                  cx="320"
+                  cy="245"
+                  r="4"
+                  style="animation-delay: -0.8s"
+                />
+                <circle
+                  cx="465"
+                  cy="165"
+                  r="4"
+                  style="animation-delay: -3.6s"
+                />
+                <circle
+                  cx="615"
+                  cy="230"
+                  r="5"
+                  style="animation-delay: -1.9s"
+                />
+                <circle
+                  cx="770"
+                  cy="175"
+                  r="4"
+                  style="animation-delay: -4.2s"
+                />
+                <circle
+                  cx="930"
+                  cy="240"
+                  r="5"
+                  style="animation-delay: -2.1s"
+                />
+                <circle
+                  cx="1085"
+                  cy="170"
+                  r="4"
+                  style="animation-delay: -5.1s"
+                />
+                <circle
+                  cx="1240"
+                  cy="235"
+                  r="5"
+                  style="animation-delay: -2.7s"
+                />
+                <circle
+                  cx="1390"
+                  cy="160"
+                  r="4"
+                  style="animation-delay: -0.5s"
+                />
                 <circle cx="10" cy="470" r="4" style="animation-delay: -4.6s" />
-                <circle cx="150" cy="395" r="5" style="animation-delay: -1.1s" />
-                <circle cx="280" cy="470" r="4" style="animation-delay: -3.9s" />
-                <circle cx="430" cy="390" r="5" style="animation-delay: -2.4s" />
-                <circle cx="595" cy="450" r="4" style="animation-delay: -5.5s" />
-                <circle cx="740" cy="375" r="5" style="animation-delay: -1.7s" />
-                <circle cx="900" cy="445" r="4" style="animation-delay: -4.9s" />
-                <circle cx="1050" cy="385" r="5" style="animation-delay: -2.9s" />
-                <circle cx="1205" cy="455" r="4" style="animation-delay: -0.9s" />
-                <circle cx="1380" cy="390" r="5" style="animation-delay: -3.1s" />
+                <circle
+                  cx="150"
+                  cy="395"
+                  r="5"
+                  style="animation-delay: -1.1s"
+                />
+                <circle
+                  cx="280"
+                  cy="470"
+                  r="4"
+                  style="animation-delay: -3.9s"
+                />
+                <circle
+                  cx="430"
+                  cy="390"
+                  r="5"
+                  style="animation-delay: -2.4s"
+                />
+                <circle
+                  cx="595"
+                  cy="450"
+                  r="4"
+                  style="animation-delay: -5.5s"
+                />
+                <circle
+                  cx="740"
+                  cy="375"
+                  r="5"
+                  style="animation-delay: -1.7s"
+                />
+                <circle
+                  cx="900"
+                  cy="445"
+                  r="4"
+                  style="animation-delay: -4.9s"
+                />
+                <circle
+                  cx="1050"
+                  cy="385"
+                  r="5"
+                  style="animation-delay: -2.9s"
+                />
+                <circle
+                  cx="1205"
+                  cy="455"
+                  r="4"
+                  style="animation-delay: -0.9s"
+                />
+                <circle
+                  cx="1380"
+                  cy="390"
+                  r="5"
+                  style="animation-delay: -3.1s"
+                />
                 <circle cx="85" cy="690" r="4" style="animation-delay: -2.2s" />
-                <circle cx="235" cy="610" r="5" style="animation-delay: -4.4s" />
-                <circle cx="385" cy="675" r="4" style="animation-delay: -1.4s" />
-                <circle cx="535" cy="600" r="5" style="animation-delay: -5.2s" />
-                <circle cx="690" cy="665" r="4" style="animation-delay: -2.6s" />
-                <circle cx="860" cy="590" r="5" style="animation-delay: -3.4s" />
-                <circle cx="1015" cy="650" r="4" style="animation-delay: -0.7s" />
-                <circle cx="1170" cy="590" r="5" style="animation-delay: -4.8s" />
-                <circle cx="1330" cy="660" r="4" style="animation-delay: -1.6s" />
+                <circle
+                  cx="235"
+                  cy="610"
+                  r="5"
+                  style="animation-delay: -4.4s"
+                />
+                <circle
+                  cx="385"
+                  cy="675"
+                  r="4"
+                  style="animation-delay: -1.4s"
+                />
+                <circle
+                  cx="535"
+                  cy="600"
+                  r="5"
+                  style="animation-delay: -5.2s"
+                />
+                <circle
+                  cx="690"
+                  cy="665"
+                  r="4"
+                  style="animation-delay: -2.6s"
+                />
+                <circle
+                  cx="860"
+                  cy="590"
+                  r="5"
+                  style="animation-delay: -3.4s"
+                />
+                <circle
+                  cx="1015"
+                  cy="650"
+                  r="4"
+                  style="animation-delay: -0.7s"
+                />
+                <circle
+                  cx="1170"
+                  cy="590"
+                  r="5"
+                  style="animation-delay: -4.8s"
+                />
+                <circle
+                  cx="1330"
+                  cy="660"
+                  r="4"
+                  style="animation-delay: -1.6s"
+                />
               </g>
 
               <g class="hero-network-glow" filter="url(#hero-network-glow)">
@@ -86,7 +228,9 @@
           </div>
           <div
             class="absolute inset-0 z-0 bg-cover bg-center"
-            style="background-image: url(&quot;/images/home-header-test.png&quot;)"
+            style="
+              background-image: url(&quot;/images/home-header-test.png&quot;);
+            "
             aria-hidden="true"
           ></div>
           <div
@@ -154,7 +298,6 @@
                 <p class="text-xl font-semibold text-white">{{ stat.value }}</p>
               </div>
             </div>
-
           </div>
         </div>
       </section>
@@ -250,7 +393,7 @@
                 <p
                   class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
                 >
-                  1. Producten
+                  Producten
                 </p>
                 <h3 class="mt-3 text-3xl font-black">
                   Direct zicht op onze productlijn
@@ -333,7 +476,7 @@
                 <p
                   class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
                 >
-                  2. Diensten
+                  Diensten
                 </p>
                 <h3 class="mt-3 text-3xl font-black">
                   Hoe we organisaties helpen met implementatie en maatwerk
@@ -356,7 +499,7 @@
               <article
                 v-for="service in homeServices"
                 :key="service.key"
-                class="flex h-full min-h-[26rem] flex-col rounded-[1.75rem] border border-white/10 bg-[#161616] p-6"
+                class="flex flex-col rounded-[1.75rem] border border-white/10 bg-[#161616] p-6"
               >
                 <div class="flex items-start justify-between gap-4">
                   <div>
@@ -365,7 +508,9 @@
                     >
                       {{ service.focus }}
                     </p>
-                    <h4 class="mt-3 text-2xl font-semibold text-white">
+                    <h4
+                      class="mt-3 text-2xl font-semibold text-white md:whitespace-nowrap"
+                    >
                       {{ service.title }}
                     </h4>
                   </div>
@@ -382,6 +527,136 @@
                   {{ service.result }}
                 </p>
               </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-[#fafafa] px-6 py-20">
+        <div
+          ref="missionSectionRef"
+          class="mx-auto max-w-6xl rounded-[2.5rem] border border-gray-200 bg-white p-8 shadow-sm md:p-10"
+        >
+          <div class="grid gap-10 lg:grid-cols-2 lg:items-start">
+            <div>
+              <div class="overflow-hidden rounded-[2rem] bg-[#f5f5f5]">
+                <img
+                  src="/images/wanneer-aitje.png"
+                  alt="Onze missie"
+                  class="h-[16rem] w-full object-cover md:h-[22rem]"
+                />
+              </div>
+
+              <p
+                class="mt-8 text-sm font-semibold uppercase tracking-[0.4em] text-[#facc15]"
+              >
+                Onze missie
+              </p>
+              <p class="mt-4 text-5xl font-black leading-none text-[#facc15]">
+                "
+              </p>
+              <blockquote
+                class="mt-4 max-w-2xl text-2xl font-semibold leading-tight text-gray-900 md:text-3xl"
+              >
+                AI is niet meer weg te denken. Hoe meer mensen en bedrijven het
+                gebruiken, hoe afhankelijker we worden van Big Tech uit het
+                buitenland.
+              </blockquote>
+              <div
+                class="mt-8 max-w-2xl space-y-4 text-base leading-7 text-gray-600"
+              >
+                <p>
+                  AITJE verkoopt niet alleen AI, maar vooral meer controle over
+                  continuiteit, kosten en data. Dat is commercieel vaak
+                  waardevoller dan nog een snellere cloudtool.
+                </p>
+                <p>
+                  Als externe platformen duurder, drukker of instabieler worden,
+                  wil je een partner die AI dichter op je eigen organisatie zet
+                  en niet verder ervan af.
+                </p>
+              </div>
+              <div class="mt-10">
+                <NuxtLink
+                  to="/visie"
+                  class="inline-flex items-center justify-center rounded-full bg-black px-8 py-3 text-sm font-semibold text-white transition hover:bg-black hover:text-[#facc15]"
+                >
+                  Lees meer over onze visie
+                </NuxtLink>
+              </div>
+            </div>
+
+            <div
+              class="rounded-[2rem] bg-[#111111] p-6 text-white shadow-[0_24px_70px_rgba(0,0,0,0.14)] md:p-8"
+            >
+              <p
+                class="text-xs font-semibold uppercase tracking-[0.35em] text-[#facc15]"
+              >
+                Waarom dit telt
+              </p>
+              <h3 class="mt-4 max-w-lg text-3xl font-black leading-tight">
+                Edge AI wordt logisch zodra risico, kosten en afhankelijkheid
+                oplopen.
+              </h3>
+              <p class="mt-4 max-w-xl text-sm leading-7 text-white/72">
+                Dit raakt direct aan continuiteit, maandlasten, security en
+                regie. Daar maakt lokale AI voor organisaties een praktisch
+                verschil.
+              </p>
+
+              <div class="mt-8">
+                <p
+                  class="text-xs font-semibold uppercase tracking-[0.32em] text-white/50"
+                >
+                  Zonder Edge AI
+                </p>
+                <div class="mt-4 space-y-3">
+                  <article
+                    v-for="item in missionRiskMetrics"
+                    :key="item.label"
+                    class="rounded-[1.35rem] border border-white/10 bg-white/5 px-4 py-4"
+                  >
+                    <div class="flex items-baseline justify-between gap-4">
+                      <p
+                        class="text-sm font-semibold text-white/88 md:text-base"
+                      >
+                        {{ item.label }}
+                      </p>
+                      <p
+                        class="text-xl font-black leading-none text-[#facc15] md:text-2xl"
+                      >
+                        {{ formatMissionMetric(item) }}
+                      </p>
+                    </div>
+                  </article>
+                </div>
+
+                <p
+                  class="mt-6 text-xs font-semibold uppercase tracking-[0.32em] text-white/50"
+                >
+                  Met Edge AI
+                </p>
+                <div class="mt-4 space-y-3">
+                  <article
+                    v-for="item in missionEdgeMetrics"
+                    :key="item.label"
+                    class="rounded-[1.35rem] border border-[#facc15]/20 bg-[#facc15]/6 px-4 py-4"
+                  >
+                    <div class="flex items-baseline justify-between gap-4">
+                      <p
+                        class="text-sm font-semibold text-white/88 md:text-base"
+                      >
+                        {{ item.label }}
+                      </p>
+                      <p
+                        class="text-xl font-black leading-none text-[#facc15] md:text-2xl"
+                      >
+                        {{ formatMissionMetric(item) }}
+                      </p>
+                    </div>
+                  </article>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -542,102 +817,6 @@
         </div>
       </section>
 
-      <section class="bg-[#fafafa] px-6 py-20">
-        <div
-          ref="missionSectionRef"
-          class="mx-auto max-w-6xl rounded-[2.5rem] border border-gray-200 bg-white p-8 shadow-sm md:p-10"
-        >
-          <div class="grid gap-10 lg:grid-cols-2 lg:items-start">
-            <div>
-              <div class="overflow-hidden rounded-[2rem] bg-[#f5f5f5]">
-                <img
-                  src="/images/wanneer-aitje.png"
-                  alt="Onze missie"
-                  class="h-[16rem] w-full object-cover md:h-[22rem]"
-                />
-              </div>
-
-              <p
-                class="mt-8 text-sm font-semibold uppercase tracking-[0.4em] text-[#facc15]"
-              >
-                Onze missie
-              </p>
-              <p class="mt-4 text-5xl font-black leading-none text-[#facc15]">
-                "
-              </p>
-              <blockquote
-                class="mt-4 max-w-2xl text-2xl font-semibold leading-tight text-gray-900 md:text-3xl"
-              >
-                AI is niet meer weg te denken. Hoe meer mensen en bedrijven het
-                gebruiken, hoe afhankelijker we worden van Big Tech uit het
-                buitenland.
-              </blockquote>
-              <div class="mt-8 max-w-2xl space-y-4 text-base leading-7 text-gray-600">
-                <p>
-                  AITJE verkoopt niet alleen AI, maar vooral meer controle over
-                  continuiteit, kosten en data. Dat is commercieel vaak
-                  waardevoller dan nog een snellere cloudtool.
-                </p>
-                <p>
-                  Als externe platformen duurder, drukker of instabieler
-                  worden, wil je een partner die AI dichter op je eigen
-                  organisatie zet en niet verder ervan af.
-                </p>
-              </div>
-              <div class="mt-10">
-                <NuxtLink
-                  to="/visie"
-                  class="inline-flex items-center justify-center rounded-full bg-black px-8 py-3 text-sm font-semibold text-white transition hover:bg-black hover:text-[#facc15]"
-                >
-                  Lees meer over onze visie
-                </NuxtLink>
-              </div>
-            </div>
-
-            <div class="rounded-[2rem] bg-[#111111] p-6 text-white shadow-[0_24px_70px_rgba(0,0,0,0.14)] md:p-8">
-              <p class="text-xs font-semibold uppercase tracking-[0.35em] text-[#facc15]">
-                Waarom dit telt
-              </p>
-              <h3 class="mt-4 max-w-lg text-3xl font-black leading-tight">
-                Edge AI wordt interessant zodra risico en kosten harder groeien dan gemak.
-              </h3>
-              <p class="mt-4 max-w-xl text-sm leading-7 text-white/72">
-                Deze cijfers trekken mensen over de streep omdat ze direct raken aan
-                uptime, maandlasten, security en bestuurlijke rust. Dat is precies
-                waar een Edge AI-partnerschap met AITJE waarde levert.
-              </p>
-
-              <div class="mt-8 space-y-4">
-                <article
-                  v-for="item in missionMetrics"
-                  :key="item.label"
-                  class="rounded-[1.5rem] border border-white/10 bg-white/5 p-5"
-                >
-                  <div class="flex items-start justify-between gap-4">
-                    <div>
-                      <p class="text-xs font-semibold uppercase tracking-[0.32em] text-[#facc15]">
-                        {{ item.label }}
-                      </p>
-                      <p class="mt-3 text-4xl font-black leading-none text-white md:text-5xl">
-                        {{ formatMissionMetric(item) }}
-                      </p>
-                    </div>
-                    <span class="rounded-full border border-white/10 bg-white/8 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.24em] text-white/60">
-                      {{ item.badge }}
-                    </span>
-                  </div>
-                  <p class="mt-4 text-sm leading-7 text-white/72">
-                    {{ item.description }}
-                  </p>
-                  <p class="mt-3 text-sm font-medium leading-6 text-[#facc15]">
-                    {{ item.commercial }}
-                  </p>
-                </article>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
       <section class="bg-[#fafafa] px-6 pt-28 pb-20">
         <div class="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.1fr_0.9fr]">
           <div class="space-y-6">
@@ -747,43 +926,71 @@ const missionCounterStarted = ref(false);
 const missionAnimationFrame = ref<number | null>(null);
 const missionObserver = ref<IntersectionObserver | null>(null);
 
-const missionMetrics = ref([
+const missionRiskMetrics = ref([
   {
     label: "AI-incidenten",
-    badge: "Security",
     target: 223,
     suffix: " / mnd",
     decimals: 0,
     value: 0,
-    description:
-      "Gemiddeld worden organisaties geconfronteerd met honderden AI-gerelateerde policy- en datalekincidenten per maand.",
-    commercial:
-      "Meer lokale regie betekent minder blootstelling, minder escalatie en minder herstelkosten.",
   },
   {
     label: "Bureaukosten",
-    badge: "Kosten",
-    target: 10000,
+    target: 4300,
     prefix: "€",
     suffix: " / mnd",
     decimals: 0,
     value: 0,
-    description:
-      "Bij middelgrote teams kunnen AI-tools en API-gebruik oplopen tot duizenden euro's per maand, vaak met groeiende usage.",
-    commercial:
-      "AITJE maakt AI-kosten voorspelbaarder en verlaagt afhankelijkheid van steeds oplopende platformlasten.",
   },
   {
     label: "Waterverbruik",
-    badge: "Impact",
     target: 765,
     suffix: " mld l/jaar",
     decimals: 0,
     value: 0,
-    description:
-      "AI-infrastructuur verbruikt op wereldschaal enorme hoeveelheden water via datacenters, koeling en energieproductie.",
-    commercial:
-      "Lokaler draaien is niet alleen technisch slimmer, maar ook een sterker verhaal richting beleid, ESG en aanbestedingen.",
+  },
+  {
+    label: "Outages per jaar",
+    target: 20,
+    suffix: "+",
+    decimals: 0,
+    value: 0,
+  },
+  {
+    label: "Records gelekt",
+    target: 195,
+    suffix: " mln",
+    decimals: 0,
+    value: 0,
+  },
+]);
+
+const missionEdgeMetrics = ref([
+  {
+    label: "Cloud dependency",
+    target: 0,
+    decimals: 0,
+    value: 0,
+  },
+  {
+    label: "Vaste omgeving",
+    target: 1,
+    decimals: 0,
+    value: 0,
+  },
+  {
+    label: "Beschikbaar intern",
+    target: 24,
+    suffix: "/7",
+    decimals: 0,
+    value: 0,
+  },
+  {
+    label: "Extra per prompt lokaal",
+    target: 0,
+    prefix: "€",
+    decimals: 0,
+    value: 0,
   },
 ]);
 
@@ -816,7 +1023,12 @@ const startMissionCounters = () => {
     const progress = Math.min((now - start) / duration, 1);
     const eased = easeOutCubic(progress);
 
-    missionMetrics.value = missionMetrics.value.map((item) => ({
+    missionRiskMetrics.value = missionRiskMetrics.value.map((item) => ({
+      ...item,
+      value: item.target * eased,
+    }));
+
+    missionEdgeMetrics.value = missionEdgeMetrics.value.map((item) => ({
       ...item,
       value: item.target * eased,
     }));
@@ -841,7 +1053,10 @@ onMounted(() => {
       startMissionCounters();
       missionObserver.value?.disconnect();
     },
-    { threshold: 0.35 },
+    {
+      threshold: [0.2],
+      rootMargin: "0px 0px -20% 0px",
+    },
   );
 
   missionObserver.value.observe(missionSectionRef.value);
@@ -1009,7 +1224,7 @@ const productShowcase = [
   },
   {
     label: "Product",
-    title: "AITJE Prepper",
+    title: "AITJE Off-Grid",
     image: "/images/birds.png",
     description:
       "Een mobiele richting voor zelfstandig werken met lokale kennis, bestanden en AI onderweg.",
@@ -1022,6 +1237,15 @@ const productShowcase = [
     image: "/images/birds.png",
     description:
       "De volgende stap voor het organiseren van lokale agents, installaties en samenwerking binnen je omgeving.",
+    status: "In ontwikkeling",
+    cta: "Nog niet gelanceerd",
+  },
+  {
+    label: "Product",
+    title: "AITJE Coder",
+    image: "/images/birds.png",
+    description:
+      "Voor organisaties en teams die sneller willen coderen, aanpassen en bouwen met AI in een gecontroleerde omgeving.",
     status: "In ontwikkeling",
     cta: "Nog niet gelanceerd",
   },
