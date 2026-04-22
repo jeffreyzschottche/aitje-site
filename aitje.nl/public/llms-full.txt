@@ -1,0 +1,257 @@
+# AITJE
+
+> AITJE is een Nederlands bedrijf dat on-premise edge-AI-oplossingen ontwikkelt voor het MKB. We bieden hardware (mini-PCs) en software waarmee organisaties lokaal met AI werken, zonder data naar externe cloudplatformen te sturen. Focus op GDPR-compliance, data-soevereiniteit en voorspelbare kosten. Gevestigd in Beverwijk, Nederland. AITJE is momenteel in pre-launch fase.
+
+---
+
+## Homepage
+
+AITJE ontwikkelt AI-oplossingen voor organisaties die grip willen houden op privacy, data en API-kosten. We bieden hardware en software aan met lokale edge AI. Altijd Europese of Nederlandse hosting, moderne LLM's, ruimte voor je eigen kennisbank, agents, workflows en toepassingen.
+
+### Kernwaarden
+
+- **Edge AI**: Lokale verwerking op eigen hardware, zonder afhankelijkheid van externe cloudplatformen.
+- **Veilige opslag**: Data blijft in Nederland of Europa, passend bij AVG-vereisten.
+- **Europe based**: Servers in Nederland of Duitsland, nooit buiten Europa.
+
+### Waarom lokale Edge AI?
+
+- **Bedrijfscontinuïteit**: AITJE-hardware blijft lokaal werken bij internetstoring of platformuitval.
+- **Voorspelbare kosten**: Minder afhankelijk van terugkerende AI-platformkosten en prijswijzigingen.
+- **Privacy & controle**: Bedrijfsinformatie en persoonsgegevens in eigen beheer, lokaal of binnen Europa.
+- **Klimaat**: Minder cloudverzoeken betekent minder energieverbruik en koeling in externe datacenters.
+
+---
+
+## Producten
+
+AITJE heeft vijf productrichtingen:
+
+### AITJE Assistent (Beschikbaar)
+
+AITJE Assistent is het kernproduct van AITJE. Een mini-PC (cube) met eigen OS voor lokale Edge AI. Organisaties gebruiken het als lokale assistent voor kennis, vragen, documentwerk en praktische AI-taken.
+
+- Lokale LLM op eigen hardware
+- Kennisbank voor eigen documenten en bronnen (RAG)
+- Offline bereikbaar via eigen netwerk
+- API-toegang voor medewerkers op desktop en mobiel
+- Werkt met AITJE OS, AITJE Client en AITJE Kennisbank
+
+**Varianten**: AITJE Assistent (standaard) en AITJE Assistent+ (snellere variant met betere specs voor zwaardere modellen).
+
+**Modules**:
+- **AITJE OS**: De basislaag waarop AITJE Assistent draait. Brengt beheer, gebruik en lokale AI samen.
+- **AITJE Client**: Toegankelijke omgeving voor medewerkers op desktop en mobiel.
+- **AITJE Kennisbank**: Koppeling tussen eigen bronnen, sync en slimme context. Embedding en versiebeheer.
+
+### AITJE Custom (Beschikbaar)
+
+Voor organisaties waar standaardhardware niet goed past. AITJE denkt mee over inzet, hardware, workflows en vervolgstappen.
+
+- Strategisch meedenken over Edge AI
+- Alternatieve hardware mogelijk
+- Gericht op passende oplossing in plaats van standaardverhaal
+
+### AITJE Notulist (In ontwikkeling)
+
+Neemt gesprekken op en geeft gestructureerde output terug: samenvattingen, transcripties of ingevulde formulieren.
+
+- Opnemen en transcriberen
+- Output als samenvatting, transcript of template
+- Koppeling naar app, site of endpoint
+
+### AITJE Prepper (In ontwikkeling)
+
+Mobiel device met offline kennis, lokale LLM-chat en bestanden voor situaties zonder internet.
+
+- Offline kennis en bestanden
+- Lokale LLM-chat
+- Mobiel inzetbaar
+
+### AITJE Manager (Gepland)
+
+Uitbreiding op AITJE Assistent voor het beheren van meerdere lokale Edge AI agents.
+
+- Agents lokaal installeren en beheren
+- Samenwerking tussen agents en assistenten
+- Meer beheer zonder enterprise-complexiteit
+
+---
+
+## Diensten
+
+### Product Installatie
+
+Hulp bij installatie, rechten, kennisbanksync en technische inrichting zodat AITJE-producten direct werkbaar in de omgeving landen.
+
+### Product Uitbreiding
+
+Bestaande AITJE-opstellingen uitbreiden: meer gebruikers, extra modules, koppelingen of aanvullende inrichting.
+
+### AITJE Custom (dienst)
+
+Voor organisaties waar vaste oplossingen niet passen. AITJE denkt mee over hardware, workflows en agentic inzet.
+
+### Consultancy
+
+Analyse van huidig AI-gebruik. Kosten, stabiliteit en afhankelijkheid verbeteren. Advies over lokale software of Edge AI.
+
+### AI-strategie
+
+Bepalen waar AI nu de meeste waarde oplevert, wat Edge AI logisch maakt en welke eerste stappen realistisch zijn.
+
+### SLA
+
+Maandelijkse samenwerking voor support, updates, gereserveerde tijd, installatiehulp en advies.
+
+---
+
+## Use Cases
+
+### Interne kennis en beleid sneller terugvinden
+Voor organisaties met veel documenten die te veel tijd verliezen aan zoeken. AITJE Assistent maakt interne kennis sneller vindbaar via RAG.
+
+### Vergaderingen en gesprekken omzetten naar bruikbare output
+AITJE Notulist richt zich op opname, transcriptie en gestructureerde output na meetings en intakegesprekken.
+
+### Werken op locatie of offline
+AITJE Prepper voor mobiel gebruik met offline kennis, bestanden en lokale LLM-chat.
+
+### Maatwerk en agentic workflows
+AITJE Custom kijkt mee naar passende aanpak rond Edge AI, hardware en workflows.
+
+### Dagelijkse vragen en intern gebruik
+AITJE Assistent biedt een vaste lokale omgeving voor vragen, documentwerk en dagelijkse AI-taken.
+
+### Lokale AI binnen eigen infrastructuur
+Met AITJE Cube en AITJE OS ontstaat een werkbare lokale basis voor AI-gebruik op eigen hardware.
+
+### Meerdere agents beheren
+AITJE Manager is bedoeld om agents, installaties en samenwerking overzichtelijker lokaal te organiseren.
+
+### Gesprekken en klantvragen structureren
+Met AITJE Notulist wordt opvolging na contactmomenten sneller gestructureerd.
+
+---
+
+## Over AITJE
+
+AITJE is een Nederlands bedrijf dat organisaties helpt om AI slimmer, zelfstandiger en toekomstbestendiger in te zetten. Niet als vaag AI-label, maar als partner met duidelijke producten, heldere keuzes en praktische begeleiding.
+
+### Visie
+
+AI is niet meer weg te denken. Agents, LLM's, beeldgeneratie en videogeneratie gaan een steeds grotere rol spelen. Onze visie is dat je die ontwikkeling beter op je eigen systemen kunt voorbereiden, zonder volledige afhankelijkheid van het buitenland, Big Tech of externe platformen.
+
+### Kernovertuigingen
+
+- **Lokaal waar het kan**: Data en verwerking zo dicht mogelijk bij de organisatie.
+- **Onafhankelijkheid**: Minder leunen op externe platformen voor bedrijfscritische AI.
+- **Praktisch boven theoretisch**: Bruikbare oplossingen in plaats van abstracte visiedocumenten.
+- **Duurzaamheid**: Minder cloudverzoeken, minder energieverbruik.
+
+### Team
+
+AITJE is een klein team met een duidelijke overtuiging: AI moet helder, verantwoord en praktisch inzetbaar zijn voor organisaties. Gevestigd in Beverwijk, Nederland.
+
+---
+
+## Technische details
+
+- **LLM runtime**: Voornamelijk Ollama, optioneel vLLM
+- **Modellen**: Geen vaste voorkeur; Gemma-modellen werken goed voor algemene use cases. Modellen kunnen worden aangepast en geüpdatet.
+- **Backend**: Python, .NET, PHP, Laravel, Node.js
+- **Frontend**: Nuxt 3, Vue
+- **AI frameworks**: FastAPI, Qdrant (vector database)
+- **Servers**: Nederland of Duitsland, nooit buiten Europa
+- **Lokaal/hybride**: Lokaal waar het kan, hybride waar het nodig is
+
+---
+
+## FAQ
+
+### Producten
+
+**Wat is AITJE Assistent precies?**
+AITJE Assistent is een mini-computer geoptimaliseerd met eigen OS. Je krijgt een lokale LLM, kennisbank voor documenten, offline maps en een AI-powered kennissysteem dat ook zonder internet bereikbaar blijft.
+
+**Wat is AITJE Notulist?**
+Zowel als hardware als software te bestellen. Neemt gesprekken op en laat je instellen hoe je samenvattingen en output wilt ontvangen.
+
+**Doet AITJE ook aan custom build hardware?**
+Ja. En als we je niet volledig kunnen helpen, hebben we een netwerk van specialisten.
+
+### Techniek
+
+**Welke backend-talen gebruiken jullie?**
+Python, .NET, PHP, Laravel en Node.js.
+
+**Welke frameworks en tools?**
+Nuxt 3, FastAPI, Laravel, Blazor, PySide en Qdrant.
+
+**Hoe runnen jullie de LLM?**
+Voornamelijk Ollama. Als het nodig is ook vLLM.
+
+**Welke modellen?**
+Geen vaste voorkeur. Gemma-modellen werken goed voor algemene use cases. Modellen kunnen worden aangepast.
+
+**Waar draaien jullie servers?**
+Nederland of Duitsland, nooit buiten Europa.
+
+**Is alles lokaal of ook hybride mogelijk?**
+Beide. Lokaal waar het kan, hybride waar het nodig is.
+
+### Privacy
+
+**Waar blijft mijn data?**
+In Nederland of Europa. In veel gevallen volledig lokaal binnen je eigen omgeving.
+
+**Kan AITJE Assistent zonder internet werken?**
+Ja. Lokale data en LLM-functionaliteit blijven beschikbaar. Synchroniseren is tijdelijk lastiger.
+
+**Kan AITJE Notulist zonder internet werken?**
+Ja. Opnames en verwerking kunnen lokaal plaatsvinden.
+
+### Milieu
+
+**Hoe helpt lokale AI het milieu?**
+Minder continue calls naar externe datacenters. Dat beperkt energiegebruik en koelwaterverbruik.
+
+### Diensten
+
+**Welke diensten bied je aan?**
+Strategie, optimalisatieconsultancy, technische implementatie en doorlopende begeleiding.
+
+**Kunnen jullie AI-strategie uitdenken?**
+Ja. Hulp bij keuzes in infrastructuur, tooling, processen en prioriteiten.
+
+**Kunnen jullie een maatwerk agent maken?**
+Ja. Persoonlijke agent op maat inclusief koppelingen, beveiliging en beheer.
+
+**Kunnen jullie een RAG chat bouwen?**
+Ja. RAG-chat met jouw documenten en kennisbank.
+
+### Doelgroep
+
+**Voor wie is AITJE bedoeld?**
+MKB-bedrijven, gemeentes, scholen, bibliotheken en artsen. Organisaties die met gevoelige gegevens werken.
+
+**Waar beginnen jullie meestal mee?**
+Een goed gesprek om te kijken waar AI een verschil kan maken.
+
+### Veiligheid
+
+**Wat als er een internetstoring is?**
+AITJE Assistent merkt daar weinig van. Lokale gegevens en LLM-functionaliteit blijven beschikbaar.
+
+**Hoe beperken jullie dat agents een eigen wil krijgen?**
+Met constrained prompting, guardrailing en sandboxing.
+
+---
+
+## Contact
+
+- **E-mail**: aitjebv@gmail.com
+- **LinkedIn**: https://www.linkedin.com/in/aitje-bv-a095453b4/
+- **TikTok**: https://www.tiktok.com/@aitje.bv
+- **Locatie**: Beverwijk, Nederland
+- **Website**: https://aitje.com

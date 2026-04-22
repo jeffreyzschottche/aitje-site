@@ -100,6 +100,25 @@ const staticEntries: Record<string, { title: string; description: string; pageTy
     description: "Neem contact op voor een demo, prijslijst, offerte of kennismaking met AITJE.",
     pageType: "ContactPage",
   },
+  "/diensten/ai-strategie": {
+    title: "AI-strategie | AITJE",
+    description: "AITJE helpt bepalen waar AI nu echt waarde toevoegt binnen je organisatie. Praktisch advies over infrastructuur, tooling en prioriteiten.",
+    pageType: "Service",
+  },
+  "/diensten/consultancy": {
+    title: "Optimalisatieconsultancy | AITJE",
+    description: "Huidig AI-gebruik goedkoper en stabieler maken. AITJE analyseert je huidige inzet en optimaliseert kosten, snelheid en betrouwbaarheid.",
+    pageType: "Service",
+  },
+  "/diensten/sla": {
+    title: "SLA & doorlopende samenwerking | AITJE",
+    description: "Maandelijkse samenwerking voor support, onderhoud en doorontwikkeling van je AI-oplossingen met AITJE.",
+    pageType: "Service",
+  },
+  "/cases": {
+    title: "Cases | AITJE",
+    description: "Praktijkvoorbeelden van hoe AITJE organisaties helpt met lokale edge AI, maatwerk en strategisch advies.",
+  },
   "/en": {
     title: "AITJE | Local Edge AI for organizations",
     description:
@@ -140,6 +159,25 @@ const staticEntries: Record<string, { title: string; description: string; pageTy
     title: "Contact | AITJE",
     description: "Contact AITJE for a demo, price list, quote or introduction.",
     pageType: "ContactPage",
+  },
+  "/en/services/ai-strategie": {
+    title: "AI Strategy | AITJE",
+    description: "AITJE helps determine where AI actually adds value within your organization. Practical advice on infrastructure, tooling and priorities.",
+    pageType: "Service",
+  },
+  "/en/services/consultancy": {
+    title: "Optimization Consultancy | AITJE",
+    description: "Make current AI usage cheaper and more stable. AITJE analyzes your current setup and optimizes cost, speed and reliability.",
+    pageType: "Service",
+  },
+  "/en/services/sla": {
+    title: "SLA & Ongoing Collaboration | AITJE",
+    description: "Monthly collaboration for support, maintenance and continuous improvement of your AI solutions with AITJE.",
+    pageType: "Service",
+  },
+  "/en/cases": {
+    title: "Cases | AITJE",
+    description: "Real-world examples of how AITJE helps organizations with local edge AI, custom solutions and strategic advice.",
   },
 };
 
@@ -258,6 +296,23 @@ export const buildSeoGraph = (entry: ResolvedSeoEntry, siteUrl: string) => ({
       name: "AITJE",
       url: siteUrl,
       logo: `${siteUrl}/images/aitje-logo.png`,
+      description:
+        "AITJE is een Nederlands bedrijf dat on-premise edge-AI-oplossingen ontwikkelt voor het MKB. Hardware en software voor lokale AI, met focus op GDPR-compliance en data-soevereiniteit.",
+      sameAs: [
+        "https://www.linkedin.com/in/aitje-bv-a095453b4/",
+        "https://www.tiktok.com/@aitje.bv",
+      ],
+      contactPoint: {
+        "@type": "ContactPoint",
+        email: "aitjebv@gmail.com",
+        contactType: "customer service",
+        availableLanguage: ["Dutch", "English"],
+      },
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Beverwijk",
+        addressCountry: "NL",
+      },
     },
     {
       "@type": entry.pageType,
