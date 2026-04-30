@@ -116,6 +116,53 @@
         </div>
       </section>
 
+      <section v-if="slug === 'aitje-assistent'" class="mx-auto mt-16 max-w-6xl px-4 sm:px-6">
+        <div class="text-center">
+          <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
+            Vergelijking
+          </p>
+          <h2 class="mt-3 text-4xl font-black text-gray-900">
+            Lokaal werken versus een online chatdienst
+          </h2>
+          <p class="mx-auto mt-5 max-w-3xl text-base leading-8 text-gray-700">
+            Veel organisaties gebruiken al een online AI-chat. Het verschil zit in waar je data staat, hoe je kosten lopen en hoe goed het aansluit op je eigen kennis.
+          </p>
+        </div>
+
+        <div class="mt-10 overflow-x-auto rounded-[2rem] border border-gray-200 bg-white shadow-sm">
+          <table class="w-full min-w-[640px] border-collapse text-left">
+            <thead class="bg-[#fafafa]">
+              <tr>
+                <th class="border-b border-gray-200 px-5 py-4 text-base font-black text-gray-900"></th>
+                <th class="border-b border-gray-200 px-5 py-4 text-base font-black text-gray-900">
+                  AITJE Assistent
+                </th>
+                <th class="border-b border-gray-200 px-5 py-4 text-base font-black text-gray-700">
+                  Online chatdienst
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                v-for="row in cloudComparisonRows"
+                :key="row.label"
+                class="odd:bg-[#f7f7f7]"
+              >
+                <td class="px-5 py-4 text-base font-medium text-gray-800">
+                  {{ row.label }}
+                </td>
+                <td class="px-5 py-4 text-base text-gray-800">
+                  {{ row.local }}
+                </td>
+                <td class="px-5 py-4 text-base text-gray-600">
+                  {{ row.cloud }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
       <section class="mt-16 bg-black py-14">
         <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
           <article class="flex h-full flex-col justify-center rounded-[2rem] border border-white/10 bg-white/5 p-7 text-white shadow-[0_24px_70px_rgba(0,0,0,0.28)]">
@@ -527,7 +574,7 @@
 
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import { Leaf, PlugZap, Sparkles } from "lucide-vue-next";
+import { FileSearch, Leaf, PlugZap, ShieldCheck, Sparkles, Users } from "lucide-vue-next";
 import { productCatalogV2, productStatusLabel } from "@/data/productCatalogV2";
 
 const route = useRoute();
@@ -721,7 +768,31 @@ const installationPoints = computed(() => [
   "Overdracht en begeleiding zodat het product ook echt gebruikt wordt",
 ]);
 
-const introCards = [
+const assistentIntroCards = [
+  {
+    badge: "Eigen kennis",
+    title: "Werkt op je eigen documenten",
+    description:
+      "Koppel beleid, handboeken en projectmappen. De assistent geeft antwoorden met de bron erbij, in plaats van algemene tekst van het internet.",
+    icon: FileSearch,
+  },
+  {
+    badge: "Privacy",
+    title: "Data blijft op het apparaat",
+    description:
+      "Geen uploads naar externe servers en geen training op jullie input. Vragen, documenten en antwoorden blijven binnen jullie eigen netwerk.",
+    icon: ShieldCheck,
+  },
+  {
+    badge: "Team",
+    title: "Eén apparaat, het hele team",
+    description:
+      "Geen losse abonnementen per gebruiker. Een vaste investering in plaats van maandelijkse kosten die meeschalen met het aantal medewerkers.",
+    icon: Users,
+  },
+];
+
+const defaultIntroCards = [
   {
     badge: "Strategie",
     title: "Niet alles tegelijk",
@@ -742,6 +813,43 @@ const introCards = [
     description:
       "De focus ligt op meer grip op AI-gebruik, minder afhankelijkheid en keuzes die op lange termijn houdbaar zijn.",
     icon: Leaf,
+  },
+];
+
+const introCards = computed(() =>
+  slug.value === "aitje-assistent" ? assistentIntroCards : defaultIntroCards,
+);
+
+const cloudComparisonRows = [
+  {
+    label: "Waar staat je data?",
+    local: "Op het apparaat in jullie netwerk",
+    cloud: "Op servers van een externe partij",
+  },
+  {
+    label: "Toegang tot eigen documenten",
+    local: "Direct, via gekoppelde kennisbank",
+    cloud: "Per gesprek uploaden of via een plug-in",
+  },
+  {
+    label: "Kostenmodel",
+    local: "Eenmalige aanschaf en onderhoud",
+    cloud: "Per gebruiker per maand",
+  },
+  {
+    label: "Internet nodig om te werken?",
+    local: "Nee",
+    cloud: "Ja, continu",
+  },
+  {
+    label: "Wordt input gebruikt voor training?",
+    local: "Nee",
+    cloud: "Afhankelijk van plan en instellingen",
+  },
+  {
+    label: "Werkt op een afgesloten netwerk?",
+    local: "Ja",
+    cloud: "Nee",
   },
 ];
 

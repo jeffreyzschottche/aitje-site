@@ -116,6 +116,53 @@
         </div>
       </section>
 
+      <section v-if="slug === 'aitje-assistent'" class="mx-auto mt-16 max-w-6xl px-4 sm:px-6">
+        <div class="text-center">
+          <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
+            Comparison
+          </p>
+          <h2 class="mt-3 text-4xl font-black text-gray-900">
+            Local AI versus an online chat service
+          </h2>
+          <p class="mx-auto mt-5 max-w-3xl text-base leading-8 text-gray-700">
+            Many organizations already use an online AI chat. The difference is where your data lives, how your costs scale and how well it connects to your own knowledge.
+          </p>
+        </div>
+
+        <div class="mt-10 overflow-x-auto rounded-[2rem] border border-gray-200 bg-white shadow-sm">
+          <table class="w-full min-w-[640px] border-collapse text-left">
+            <thead class="bg-[#fafafa]">
+              <tr>
+                <th class="border-b border-gray-200 px-5 py-4 text-base font-black text-gray-900"></th>
+                <th class="border-b border-gray-200 px-5 py-4 text-base font-black text-gray-900">
+                  AITJE Assistent
+                </th>
+                <th class="border-b border-gray-200 px-5 py-4 text-base font-black text-gray-700">
+                  Online chat service
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                v-for="row in cloudComparisonRows"
+                :key="row.label"
+                class="odd:bg-[#f7f7f7]"
+              >
+                <td class="px-5 py-4 text-base font-medium text-gray-800">
+                  {{ row.label }}
+                </td>
+                <td class="px-5 py-4 text-base text-gray-800">
+                  {{ row.local }}
+                </td>
+                <td class="px-5 py-4 text-base text-gray-600">
+                  {{ row.cloud }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
       <section class="mt-16 bg-black py-14">
         <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
           <article class="flex h-full flex-col justify-center rounded-[2rem] border border-white/10 bg-white/5 p-7 text-white shadow-[0_24px_70px_rgba(0,0,0,0.28)]">
@@ -528,7 +575,7 @@
 
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import { Leaf, PlugZap, Sparkles } from "lucide-vue-next";
+import { FileSearch, Leaf, PlugZap, ShieldCheck, Sparkles, Users } from "lucide-vue-next";
 import { productCatalogV2, productStatusLabel } from "@/data/productCatalogV2";
 
 const { localePath } = useSiteLocale();
@@ -727,7 +774,31 @@ const installationPoints = computed(() => [
   "Handover and guidance so the product is actually used",
 ]);
 
-const introCards = [
+const assistentIntroCards = [
+  {
+    badge: "Own knowledge",
+    title: "Works on your own documents",
+    description:
+      "Connect policies, handbooks and project folders. The assistant answers with the source attached, instead of generic text from the internet.",
+    icon: FileSearch,
+  },
+  {
+    badge: "Privacy",
+    title: "Data stays on the device",
+    description:
+      "No uploads to external servers and no training on your input. Questions, documents and answers stay inside your own network.",
+    icon: ShieldCheck,
+  },
+  {
+    badge: "Team",
+    title: "One device, the whole team",
+    description:
+      "No separate per-user subscriptions. A fixed investment instead of monthly costs that scale with the number of employees.",
+    icon: Users,
+  },
+];
+
+const defaultIntroCards = [
   {
     badge: "Strategy",
     title: "Not everything at once",
@@ -748,6 +819,43 @@ const introCards = [
     description:
       "The focus is on more control over AI use, less dependence and choices that remain sustainable over time.",
     icon: Leaf,
+  },
+];
+
+const introCards = computed(() =>
+  slug.value === "aitje-assistent" ? assistentIntroCards : defaultIntroCards,
+);
+
+const cloudComparisonRows = [
+  {
+    label: "Where does your data live?",
+    local: "On the device inside your own network",
+    cloud: "On servers of a third-party provider",
+  },
+  {
+    label: "Access to your own documents",
+    local: "Direct, through a connected knowledge base",
+    cloud: "Per chat upload or via a plug-in",
+  },
+  {
+    label: "Cost model",
+    local: "One-off purchase plus maintenance",
+    cloud: "Per user, per month",
+  },
+  {
+    label: "Internet required to use it?",
+    local: "No",
+    cloud: "Yes, continuously",
+  },
+  {
+    label: "Is input used to train models?",
+    local: "No",
+    cloud: "Depends on plan and settings",
+  },
+  {
+    label: "Works on a closed network?",
+    local: "Yes",
+    cloud: "No",
   },
 ];
 
