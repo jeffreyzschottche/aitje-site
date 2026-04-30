@@ -60,7 +60,7 @@ export const productCatalogV2: Record<"nl" | "en", LocaleContent> = {
         title: "AITJE Assistent",
         status: "available",
         summary:
-          "Lokale Edge AI op een eigen device voor organisaties die met kennis, documenten en dagelijkse vragen willen werken zonder alles naar externe platformen te sturen.",
+          "Een fysiek AI-apparaat dat op je eigen netwerk draait. Je team stelt vragen over interne documenten en kennis, en de antwoorden komen lokaal terug. Je data verlaat de organisatie niet.",
         audience:
           "Voor organisaties die meer regie willen over AI-gebruik, privacy en lange termijnkosten.",
         highlights: [
@@ -265,7 +265,7 @@ export const productCatalogV2: Record<"nl" | "en", LocaleContent> = {
         title: "AITJE Assistent",
         status: "available",
         summary:
-          "Local Edge AI on its own device for organizations that want to work with knowledge, documents and daily questions without sending everything to external platforms.",
+          "A physical AI device that runs on your own network. Your team asks questions about internal documents and knowledge, and the answers come back locally. Your data never leaves the organization.",
         audience:
           "For organizations that want more control over AI usage, privacy and long-term costs.",
         highlights: [
