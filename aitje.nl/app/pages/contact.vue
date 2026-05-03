@@ -102,8 +102,13 @@
                 Digitale kennismaking
               </p>
               <h3 class="mt-2 text-2xl font-semibold text-gray-900">
-                Plan een afspraak
+                Geef je voorkeur door
               </h3>
+              <p class="mt-3 text-sm leading-6 text-gray-600">
+                Deze datum en tijd zijn een voorkeur, geen definitieve afspraak.
+                We nemen je verzoek mee in onze planning en mailen je daarna
+                welke momenten beschikbaar zijn.
+              </p>
             </div>
             <div class="mt-6 grid gap-4 md:grid-cols-2">
               <div class="space-y-2">
@@ -172,6 +177,24 @@
               </div>
             </div>
           </section>
+          <section
+            v-if="formData.subject === 'belverzoek'"
+            class="rounded-[2rem] border border-gray-200 bg-white p-6 shadow-sm"
+          >
+            <p
+              class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
+            >
+              Belverzoek
+            </p>
+            <h3 class="mt-2 text-2xl font-semibold text-gray-900">
+              Laat weten wanneer we kunnen bellen
+            </h3>
+            <p class="mt-3 text-sm leading-6 text-gray-600">
+              We delen ons telefoonnummer niet meer openbaar door de toename
+              van spam calls. Vul je telefoonnummer en bereikbaarheid in, dan
+              nemen we contact met je op zodra het past.
+            </p>
+          </section>
         </section>
         <section
           class="flex flex-col rounded-3xl border border-gray-200 bg-[#fafafa] p-8"
@@ -206,27 +229,37 @@
               placeholder="je@email.nl"
             />
             <FormInput
-              label="Telefoon"
+              :label="phoneInputLabel"
               v-model="formData.phone"
+              :required="formData.subject === 'belverzoek'"
               placeholder="+31 6 12345678"
             />
             <div>
               <label class="block text-sm font-semibold text-gray-700"
                 >Onderwerp *</label
               >
-              <select
-                v-model="formData.subject"
-                required
-                class="mt-2 w-full rounded-xl border border-gray-300 px-4 py-3 text-gray-900 transition focus:border-[#facc15] focus:outline-none"
+              <div
+                class="mt-2 grid gap-2 sm:grid-cols-2"
+                role="tablist"
+                aria-label="Onderwerp"
               >
-                <option
+                <button
                   v-for="option in subjectOptions"
                   :key="option.value"
-                  :value="option.value"
+                  type="button"
+                  role="tab"
+                  :aria-selected="formData.subject === option.value"
+                  :class="[
+                    'rounded-xl border px-4 py-3 text-left text-sm font-semibold transition',
+                    formData.subject === option.value
+                      ? 'border-black bg-black text-white'
+                      : 'border-gray-300 bg-white text-gray-700 hover:border-[#facc15]',
+                  ]"
+                  @click="setSubject(option.value)"
                 >
                   {{ option.label }}
-                </option>
-              </select>
+                </button>
+              </div>
             </div>
             <div class="flex-1">
               <label class="block text-sm font-semibold text-gray-700"
@@ -248,8 +281,10 @@
                 isSubmitting
                   ? "Bezig met versturen..."
                   : formData.subject === "kennismaking"
-                    ? "Bevestig afspraak"
-                    : "Verstuur bericht"
+                    ? "Verstuur voorkeursmoment"
+                    : formData.subject === "belverzoek"
+                      ? "Verstuur belverzoek"
+                      : "Verstuur bericht"
               }}
             </button>
           </form>
@@ -290,7 +325,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, defineComponent, h, reactive, ref } from "vue";
+import { computed, defineComponent, h, reactive, ref, watch } from "vue";
 import linkedinIcon from "@/assets/images/social/linkedin.png";
 import gmailIcon from "@/assets/images/social/gmail.png";
 
@@ -299,6 +334,7 @@ const route = useRoute();
 const subjectOptions = [
   { value: "demo", label: "Demo" },
   { value: "kennismaking", label: "Kennismaking" },
+  { value: "belverzoek", label: "Belverzoek" },
   { value: "vraag", label: "Vraag" },
   { value: "prijslijst", label: "Prijslijst" },
   { value: "offerte", label: "Offerte" },
@@ -379,12 +415,39 @@ const formData = reactive({
   message: resolveMessageFromQuery(),
 });
 
+const setSubject = (subject: string) => {
+  formData.subject = subject;
+  submitState.value = "";
+  submitMessage.value = "";
+
+  if (subject !== "kennismaking") {
+    selectedDate.value = "";
+    selectedTime.value = "";
+    meetingPlatform.value = "";
+    verificationEmail.value = "";
+  }
+};
+
+watch(
+  () => route.fullPath,
+  () => {
+    setSubject(resolveSubjectFromQuery());
+    formData.message = resolveMessageFromQuery();
+  },
+);
+
+const phoneInputLabel = computed(() =>
+  formData.subject === "belverzoek" ? "Telefoon *" : "Telefoon",
+);
+
 const messagePlaceholder = computed(() => {
   switch (formData.subject) {
     case "demo":
       return "Vertel ons waar je een demo van zou willen.";
     case "kennismaking":
-      return "Vertel ons waarom je een kennismaking wilt inplannen.";
+      return "Vertel kort waarom je een digitale kennismaking wilt en welke vragen je alvast hebt.";
+    case "belverzoek":
+      return "Geef aan waarover je wilt bellen en op welke dagen of dagdelen je goed bereikbaar bent.";
     case "prijslijst":
       return "Vertel ons voor welk product of welke dienst je een prijslijst wilt ontvangen.";
     case "vraag":
@@ -436,6 +499,13 @@ const submitContact = async () => {
     return;
   }
 
+  if (formData.subject === "belverzoek" && !formData.phone.trim()) {
+    if (typeof window !== "undefined") {
+      window.alert("Vul je telefoonnummer in voor een belverzoek.");
+    }
+    return;
+  }
+
   try {
     isSubmitting.value = true;
 
@@ -454,8 +524,10 @@ const submitContact = async () => {
     submitState.value = "success";
     submitMessage.value =
       formData.subject === "kennismaking"
-        ? `Kennismaking ingepland op ${formatDate(selectedDate.value)} om ${selectedTime.value} via ${meetingPlatform.value}. We antwoorden op ${verificationEmail.value}.`
-        : "Bedankt. Je bericht is verzonden en we nemen zo snel mogelijk contact met je op.";
+        ? `Je voorkeursmoment is ontvangen: ${formatDate(selectedDate.value)} om ${selectedTime.value} via ${meetingPlatform.value}. Dit is nog geen definitieve afspraak; we mailen beschikbare momenten naar ${verificationEmail.value}.`
+        : formData.subject === "belverzoek"
+          ? "Bedankt. Je belverzoek is verzonden en we nemen contact met je op zodra het past."
+          : "Bedankt. Je bericht is verzonden en we nemen zo snel mogelijk contact met je op.";
 
     resetForm();
   } catch (error: unknown) {
@@ -479,6 +551,7 @@ const submitContact = async () => {
 
 const isSubmitDisabled = computed(() => {
   if (isSubmitting.value) return true;
+  if (formData.subject === "belverzoek") return !formData.phone.trim();
   if (formData.subject !== "kennismaking") return false;
   return (
     !selectedDate.value ||

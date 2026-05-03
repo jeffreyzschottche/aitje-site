@@ -19,8 +19,10 @@ const subjectLabels: Record<string, { nl: string; en: string }> = {
   council: { nl: "Council", en: "Council" },
   demo: { nl: "Demo", en: "Demo" },
   kennismaking: { nl: "Kennismaking", en: "Introduction" },
+  belverzoek: { nl: "Belverzoek", en: "Call request" },
   vraag: { nl: "Vraag", en: "Question" },
   partnerschap: { nl: "Partnerschap", en: "Partnership" },
+  prijslijst: { nl: "Prijslijst", en: "Price list" },
   offerte: { nl: "Offerte", en: "Quote" },
 };
 
@@ -127,6 +129,16 @@ export default defineEventHandler(async (event) => {
             : "Vul een geldig verificatie e-mailadres in.",
       });
     }
+  }
+
+  if (subject === "belverzoek" && !phone) {
+    throw createError({
+      statusCode: 400,
+      statusMessage:
+        locale === "en"
+          ? "Enter your phone number for a call request."
+          : "Vul je telefoonnummer in voor een belverzoek.",
+    });
   }
 
   if (!resendApiKey) {

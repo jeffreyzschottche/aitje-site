@@ -98,8 +98,13 @@
                 Digital introduction
               </p>
               <h3 class="mt-2 text-2xl font-semibold text-gray-900">
-                Schedule an appointment
+                Share your preferred moment
               </h3>
+              <p class="mt-3 text-sm leading-6 text-gray-600">
+                This date and time are a preference, not a confirmed meeting.
+                We will take your request into account and email the available
+                moments afterward.
+              </p>
             </div>
             <div class="mt-6 grid gap-4 md:grid-cols-2">
               <div class="space-y-2">
@@ -168,6 +173,24 @@
               </div>
             </div>
           </section>
+          <section
+            v-if="formData.subject === 'belverzoek'"
+            class="rounded-[2rem] border border-gray-200 bg-white p-6 shadow-sm"
+          >
+            <p
+              class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
+            >
+              Call request
+            </p>
+            <h3 class="mt-2 text-2xl font-semibold text-gray-900">
+              Tell us when we can call
+            </h3>
+            <p class="mt-3 text-sm leading-6 text-gray-600">
+              We no longer publish our phone number because of the increase in
+              spam calls. Leave your phone number and availability, and we will
+              contact you when it fits.
+            </p>
+          </section>
         </section>
         <section
           class="flex flex-col rounded-3xl border border-gray-200 bg-[#fafafa] p-8"
@@ -202,27 +225,37 @@
               placeholder="your@email.com"
             />
             <FormInput
-              label="Phone"
+              :label="phoneInputLabel"
               v-model="formData.phone"
+              :required="formData.subject === 'belverzoek'"
               placeholder="+31 6 12345678"
             />
             <div>
               <label class="block text-sm font-semibold text-gray-700"
                 >Subject *</label
               >
-              <select
-                v-model="formData.subject"
-                required
-                class="mt-2 w-full rounded-xl border border-gray-300 px-4 py-3 text-gray-900 transition focus:border-[#facc15] focus:outline-none"
+              <div
+                class="mt-2 grid gap-2 sm:grid-cols-2"
+                role="tablist"
+                aria-label="Subject"
               >
-                <option
+                <button
                   v-for="option in subjectOptions"
                   :key="option.value"
-                  :value="option.value"
+                  type="button"
+                  role="tab"
+                  :aria-selected="formData.subject === option.value"
+                  :class="[
+                    'rounded-xl border px-4 py-3 text-left text-sm font-semibold transition',
+                    formData.subject === option.value
+                      ? 'border-black bg-black text-white'
+                      : 'border-gray-300 bg-white text-gray-700 hover:border-[#facc15]',
+                  ]"
+                  @click="setSubject(option.value)"
                 >
                   {{ option.label }}
-                </option>
-              </select>
+                </button>
+              </div>
             </div>
             <div class="flex-1">
               <label class="block text-sm font-semibold text-gray-700"
@@ -244,8 +277,10 @@
                 isSubmitting
                   ? "Sending..."
                   : formData.subject === "kennismaking"
-                    ? "Confirm appointment"
-                    : "Send message"
+                    ? "Send preferred moment"
+                    : formData.subject === "belverzoek"
+                      ? "Send call request"
+                      : "Send message"
               }}
             </button>
           </form>
@@ -283,7 +318,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, defineComponent, h, reactive, ref } from "vue";
+import { computed, defineComponent, h, reactive, ref, watch } from "vue";
 import linkedinIcon from "@/assets/images/social/linkedin.png";
 import gmailIcon from "@/assets/images/social/gmail.png";
 
@@ -293,6 +328,7 @@ const route = useRoute();
 const subjectOptions = [
   { value: "demo", label: "Demo" },
   { value: "kennismaking", label: "Introduction" },
+  { value: "belverzoek", label: "Call request" },
   { value: "vraag", label: "Question" },
   { value: "prijslijst", label: "Price list" },
   { value: "offerte", label: "Quote" },
@@ -373,12 +409,39 @@ const formData = reactive({
   message: resolveMessageFromQuery(),
 });
 
+const setSubject = (subject: string) => {
+  formData.subject = subject;
+  submitState.value = "";
+  submitMessage.value = "";
+
+  if (subject !== "kennismaking") {
+    selectedDate.value = "";
+    selectedTime.value = "";
+    meetingPlatform.value = "";
+    verificationEmail.value = "";
+  }
+};
+
+watch(
+  () => route.fullPath,
+  () => {
+    setSubject(resolveSubjectFromQuery());
+    formData.message = resolveMessageFromQuery();
+  },
+);
+
+const phoneInputLabel = computed(() =>
+  formData.subject === "belverzoek" ? "Phone *" : "Phone",
+);
+
 const messagePlaceholder = computed(() => {
   switch (formData.subject) {
     case "demo":
       return "Tell us what you would like to see in a demo.";
     case "kennismaking":
-      return "Tell us why you want to schedule an introduction.";
+      return "Briefly explain why you want a digital introduction and which questions you already have.";
+    case "belverzoek":
+      return "Tell us what you want to discuss and on which days or parts of the day you are easy to reach.";
     case "prijslijst":
       return "Tell us for which product or service you would like to receive a price list.";
     case "vraag":
@@ -430,6 +493,13 @@ const submitContact = async () => {
     return;
   }
 
+  if (formData.subject === "belverzoek" && !formData.phone.trim()) {
+    if (typeof window !== "undefined") {
+      window.alert("Enter your phone number for a call request.");
+    }
+    return;
+  }
+
   try {
     isSubmitting.value = true;
 
@@ -448,8 +518,10 @@ const submitContact = async () => {
     submitState.value = "success";
     submitMessage.value =
       formData.subject === "kennismaking"
-        ? `Introduction scheduled for ${formatDate(selectedDate.value)} at ${selectedTime.value} via ${meetingPlatform.value}. We will reply to ${verificationEmail.value}.`
-        : "Thanks. Your message has been sent and we will get back to you as soon as possible.";
+        ? `Your preferred moment has been received: ${formatDate(selectedDate.value)} at ${selectedTime.value} via ${meetingPlatform.value}. This is not a confirmed meeting yet; we will email available moments to ${verificationEmail.value}.`
+        : formData.subject === "belverzoek"
+          ? "Thanks. Your call request has been sent and we will contact you when it fits."
+          : "Thanks. Your message has been sent and we will get back to you as soon as possible.";
 
     resetForm();
   } catch (error: unknown) {
@@ -473,6 +545,7 @@ const submitContact = async () => {
 
 const isSubmitDisabled = computed(() => {
   if (isSubmitting.value) return true;
+  if (formData.subject === "belverzoek") return !formData.phone.trim();
   if (formData.subject !== "kennismaking") return false;
   return (
     !selectedDate.value ||
