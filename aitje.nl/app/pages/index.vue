@@ -17,22 +17,6 @@
               preserveAspectRatio="xMidYMid slice"
               fill="none"
             >
-              <defs>
-                <filter
-                  id="hero-network-glow"
-                  x="-20%"
-                  y="-20%"
-                  width="140%"
-                  height="140%"
-                >
-                  <feGaussianBlur stdDeviation="10" result="blur" />
-                  <feMerge>
-                    <feMergeNode in="blur" />
-                    <feMergeNode in="SourceGraphic" />
-                  </feMerge>
-                </filter>
-              </defs>
-
               <g class="hero-network-lines">
                 <path
                   d="M40 240L180 170L320 245L465 165L615 230L770 175L930 240L1085 170L1240 235L1390 160"
@@ -218,7 +202,7 @@
                 />
               </g>
 
-              <g class="hero-network-glow" filter="url(#hero-network-glow)">
+              <g class="hero-network-glow">
                 <circle cx="280" cy="470" r="52" />
                 <circle cx="690" cy="665" r="72" />
                 <circle cx="1205" cy="455" r="64" />
@@ -1351,7 +1335,6 @@ useHead({
   stroke: rgba(250, 204, 21, 0.2);
   stroke-width: 1.4;
   stroke-dasharray: 4 8;
-  animation: hero-network-drift 18s linear infinite;
 }
 
 .hero-network-points {
@@ -1360,54 +1343,11 @@ useHead({
 
 .hero-network-points circle {
   transform-origin: center;
-  animation: hero-network-twinkle 6.5s ease-in-out infinite;
 }
 
 .hero-network-glow {
-  fill: rgba(250, 204, 21, 0.18);
-  animation: hero-network-pulse 8s ease-in-out infinite alternate;
+  fill: rgba(250, 204, 21, 0.1);
   transform-origin: center;
-}
-
-@keyframes hero-network-drift {
-  0% {
-    stroke-dashoffset: 0;
-    transform: translate3d(0, 0, 0);
-  }
-  50% {
-    stroke-dashoffset: -28;
-    transform: translate3d(8px, -6px, 0);
-  }
-  100% {
-    stroke-dashoffset: -56;
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-@keyframes hero-network-twinkle {
-  0% {
-    opacity: 0.35;
-    transform: scale(0.88);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.18);
-  }
-  100% {
-    opacity: 0.45;
-    transform: scale(0.92);
-  }
-}
-
-@keyframes hero-network-pulse {
-  0% {
-    opacity: 0.45;
-    transform: scale(0.98);
-  }
-  100% {
-    opacity: 0.85;
-    transform: scale(1.04);
-  }
 }
 
 .bird-flight {
