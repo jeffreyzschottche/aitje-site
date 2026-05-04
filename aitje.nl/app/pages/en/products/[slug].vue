@@ -535,7 +535,7 @@ const { localePath } = useSiteLocale();
 
 const route = useRoute();
 const slug = computed(() => String(route.params.slug));
-const unavailableSlugs = new Set(["aitje-notulist", "aitje-prepper", "aitje-manager"]);
+const unavailableSlugs = new Set(["aitje-coder"]);
 
 if (unavailableSlugs.has(slug.value)) {
   await navigateTo("/en/products", { redirectCode: 302 });
@@ -560,9 +560,6 @@ const heroImage = computed(() => {
   const mapping: Record<string, string> = {
     "aitje-assistent": "/images/aitje-cubes.png",
     "aitje-custom": "/images/custom-suited.png",
-    "aitje-notulist": "/images/spraakmemowhatsapp.png",
-    "aitje-prepper": "/images/ei-internet.png",
-    "aitje-manager": "/images/aitje-os-1.png",
     "aitje-coder": "/images/aitje-product.png",
   };
   return mapping[slug.value] ?? "/images/aitje-product.png";
@@ -570,7 +567,6 @@ const heroImage = computed(() => {
 
 const primaryCta = computed(() => {
   if (slug.value === "aitje-custom") return localePath("/contact?onderwerp=offerte");
-  if (slug.value === "aitje-manager") return localePath("/contact?onderwerp=kennismaking");
   if (slug.value === "aitje-coder") return localePath("/contact?onderwerp=interesse-aitje-coder");
   return localePath("/contact?onderwerp=demo");
 });

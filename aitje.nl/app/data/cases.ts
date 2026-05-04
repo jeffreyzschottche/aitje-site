@@ -98,8 +98,8 @@ export const cases: CaseItem[] = [
     quote:
       "Het team van AITJE heeft voor mijn rijschool een slimme oplossing gebouwd. Leerlingen krijgen na elke les automatisch een heldere samenvatting van hun voortgang en verbeterpunten.",
     summary:
-      "Na elke les start een voice agent via WhatsApp een gesprek en vraagt direct de belangrijkste punten uit. Een op maat gemaakte versie, vergelijkbaar met AITJE Notulist, verwerkt dit gesprek en maakt een duidelijke samenvatting klaar voor de student.",
-    solutions: ["Software op maat", "AITJE Notulist"],
+      "Na elke les start een voice agent via WhatsApp een gesprek en vraagt direct de belangrijkste punten uit. Maatwerksoftware verwerkt dit gesprek en maakt een duidelijke samenvatting klaar voor de student.",
+    solutions: ["Software op maat", "Workflowautomatisering"],
     details: [
       "Spraakmemo via WhatsApp wordt automatisch verwerkt tot samenvatting met de al uitgevraagde ontvanger in de titel",
       "Na een duimpje-omhoog wordt de samenvatting direct naar die ontvanger verstuurd",

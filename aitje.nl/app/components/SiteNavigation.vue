@@ -508,36 +508,6 @@ const productLinks = computed(() => [
         : "Voor organisaties waar standaard niet genoeg is.",
   },
   {
-    label: "AITJE Notulist",
-    baseTo: "/producten/aitje-notulist",
-    to: localePath("/producten/aitje-notulist"),
-    disabled: true,
-    description:
-      locale.value === "en"
-        ? "In development for recording and structured output."
-        : "In ontwikkeling voor opname en gestructureerde output.",
-  },
-  {
-    label: "AITJE Off-Grid",
-    baseTo: "/producten/aitje-prepper",
-    to: localePath("/producten/aitje-prepper"),
-    disabled: true,
-    description:
-      locale.value === "en"
-        ? "Offline knowledge and local LLM chat."
-        : "Offline kennis en lokale LLM-chat.",
-  },
-  {
-    label: "AITJE Manager",
-    baseTo: "/producten/aitje-manager",
-    to: localePath("/producten/aitje-manager"),
-    disabled: true,
-    description:
-      locale.value === "en"
-        ? "Planned for local agent management."
-        : "Gepland voor lokaal agentbeheer.",
-  },
-  {
     label: "AITJE Coder",
     baseTo: "/producten/aitje-coder",
     to: localePath("/producten/aitje-coder"),

@@ -205,11 +205,6 @@ const faqGroups = [
           "AITJE Assistant is a mini computer optimized with our own OS. You get a local LLM, a knowledge base that lets you use your documents inside the LLM, offline maps and an AI-powered knowledge system that remains accessible even without internet.",
       },
       {
-        question: "What is AITJE Notetaker?",
-        answer:
-          "AITJE Notetaker can be ordered as both hardware and software. It records conversations and lets you configure how you want to receive summaries and output.",
-      },
-      {
         question: "Does AITJE also do custom-built hardware?",
         answer:
           "Yes. And if we cannot fully help you within your specific area of expertise, we have a stable network of specialists with whom we can complete the plan.",
@@ -283,11 +278,6 @@ const faqGroups = [
         answer:
           "Yes. Data is stored locally on your device for as long as needed. Once vector embeddings and chunks are available, the local or private LLM can continue providing answers and summaries without internet.",
       },
-      {
-        question: "Can AITJE Notetaker keep working locally without internet?",
-        answer:
-          "Yes. Recording and processing can happen locally, after which the summary is returned through the local or private environment. That way you can keep working even during an internet outage.",
-      },
     ],
   },
   {
@@ -298,7 +288,7 @@ const faqGroups = [
       {
         question: "How does local AI help the environment?",
         answer:
-          "AITJE Assistant and Notetaker process data locally, which means fewer continuous calls to external data centers are needed. That reduces energy use and cooling water consumption in large-scale cloud infrastructure.",
+          "AITJE Assistant processes data locally, which means fewer continuous calls to external data centers are needed. That reduces energy use and cooling water consumption in large-scale cloud infrastructure.",
       },
       {
         question: "Is local always more sustainable?",
@@ -420,11 +410,6 @@ const faqGroups = [
         question: "What happens if there is a disruption?",
         answer:
           "We build cloud solutions with plan B and plan C, plus timely monitoring and alerts. Our systems are designed for stable deployment within organizations, not for a global audience. That makes them easier to scale and easier to keep running.",
-      },
-      {
-        question: "Does AITJE Notetaker share the conversations?",
-        answer:
-          "AITJE Notetaker records conversations and shares them to your own environment in the application. What you do with them after that is up to you.",
       },
       {
         question: "How does AITJE prevent dependency on external platforms?",

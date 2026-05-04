@@ -173,21 +173,22 @@
           <div
             class="overflow-hidden rounded-[2.5rem] border border-gray-200 bg-white shadow-sm"
           >
-            <div
-              class="flex aspect-video items-center justify-center px-8 text-center"
-            >
-              <div>
-                <p
-                  class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
-                >
-                  YouTube video
-                </p>
-                <p class="mt-3 text-base text-gray-600">
-                  Send over the YouTube link and we can place the embed here
-                  directly.
-                </p>
-              </div>
-            </div>
+            <iframe
+              src="https://www.youtube.com/embed/3ZJgaJGeRS4?start=70"
+              title="AITJE video"
+              class="aspect-video w-full"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            />
           </div>
         </div>
       </section>
@@ -679,7 +680,6 @@ import {
   AppWindow,
   Cpu,
   Droplet,
-  Mic,
   Server,
   Shield,
   Sparkles,
@@ -758,14 +758,6 @@ const features = [
     cta: "View product",
   },
   {
-    title: "AITJE Notetaker",
-    description:
-      "Record conversations and decide which information you want back: as a summary, transcript or completed form, in the format and through the channel that fits.",
-    icon: Mic,
-    link: localePath("/producten"),
-    cta: "View product",
-  },
-  {
     title: "AITJE Solutions",
     description:
       "Custom solutions such as agents, workflows, voice assistants and where needed your own hardware for the application.",
@@ -810,33 +802,6 @@ const productShowcase = [
     description:
       "For situations where standard hardware is not an exact fit and you need more performance or specific integrations.",
     cta: "View product",
-  },
-  {
-    label: "Product",
-    title: "AITJE Notetaker",
-    image: "/images/birds.png",
-    description:
-      "For recording, transcription and structured output that connects directly to your workflow.",
-    status: "In development",
-    cta: "Not launched yet",
-  },
-  {
-    label: "Product",
-    title: "AITJE Off-Grid",
-    image: "/images/birds.png",
-    description:
-      "A mobile direction for independent work with local knowledge, files and AI on the go.",
-    status: "In development",
-    cta: "Not launched yet",
-  },
-  {
-    label: "Product",
-    title: "AITJE Manager",
-    image: "/images/birds.png",
-    description:
-      "The next step for organizing local agents, installations and collaboration inside your environment.",
-    status: "In development",
-    cta: "Not launched yet",
   },
   {
     label: "Product",

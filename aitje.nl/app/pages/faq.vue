@@ -202,11 +202,6 @@ const faqGroups = [
           "AITJE Assistent is een mini computer die geoptimaliseerd is met ons eigen OS. Je krijgt een lokale LLM, een kennisbank om je documenten in de LLM te gebruiken, offline maps en een AI powered kennis systeem dat ook zonder internet bereikbaar blijft.",
       },
       {
-        question: "Wat is AITJE Notulist?",
-        answer:
-          "AITJE Notulist is zowel als hardware als software te bestellen. Het neemt gesprekken op en laat je instellen hoe je samenvattingen en output wilt ontvangen.",
-      },
-      {
         question: "Doet AITJE ook aan custom build hardware?",
         answer:
           "Ja. En als we je niet volledig kunnen helpen binnen jouw specifieke expertise, hebben we een stabiel netwerk van specialisten waarmee we het plan kunnen afronden.",
@@ -280,11 +275,6 @@ const faqGroups = [
         answer:
           "Ja. Data wordt lokaal op je device opgeslagen zolang dat nodig is. Zodra vector embeddings en chunks beschikbaar zijn, kan de lokale of private LLM antwoorden en samenvattingen blijven leveren zonder internet.",
       },
-      {
-        question: "Kan AITJE Notulist lokaal doorwerken zonder internet?",
-        answer:
-          "Ja. Opnames en verwerking kunnen lokaal plaatsvinden, waarna de samenvatting via de lokale of private omgeving wordt teruggegeven. Zo blijf je ook bij internetuitval werkbaar.",
-      },
     ],
   },
   {
@@ -295,7 +285,7 @@ const faqGroups = [
       {
         question: "Hoe helpt lokale AI het milieu?",
         answer:
-          "AITJE Assistent en Notulist verwerken de gegevens lokaal, waardoor minder continue calls naar externe datacenters nodig zijn. Dat beperkt energiegebruik en koelwaterverbruik in grootschalige cloudinfrastructuur.",
+          "AITJE Assistent verwerkt gegevens lokaal, waardoor minder continue calls naar externe datacenters nodig zijn. Dat beperkt energiegebruik en koelwaterverbruik in grootschalige cloudinfrastructuur.",
       },
       {
         question: "Is lokaal altijd duurzamer?",
@@ -417,11 +407,6 @@ const faqGroups = [
         question: "Wat als er een storing is?",
         answer:
           "We bouwen cloudoplossingen met plan B en plan C, plus tijdige monitoring en meldingen. Onze systemen zijn ingericht voor stabiele inzet binnen organisaties, niet voor een wereldwijd publiek. Dat maakt ze beter schaalbaar en makkelijker in de lucht te houden.",
-      },
-      {
-        question: "Deelt AITJE Notulist de gesprekken?",
-        answer:
-          "AITJE Notulist neemt gesprekken op en deelt ze naar jouw eigen omgeving in de applicatie. Wat je er daarna mee doet, bepaal je zelf.",
       },
       {
         question: "Hoe voorkomt AITJE afhankelijkheid van externe platformen?",

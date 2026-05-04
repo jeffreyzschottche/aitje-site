@@ -277,7 +277,7 @@ const valueProps = [
     badge: "Structuur",
     title: "Eén productlijn",
     description:
-      "De route is nu helder: een kernproduct, een custom route en drie duidelijke vervolgproducten.",
+      "De route is nu helder: een kernproduct, een custom route en Coder als vervolgproduct in ontwikkeling.",
     icon: Layers3,
   },
   {
@@ -312,18 +312,12 @@ const productSnapshots = [
 const productBannerImages: Record<string, string> = {
   "aitje-assistent": "/images/aitje-cubes.png",
   "aitje-custom": "/images/custom-suited.png",
-  "aitje-notulist": "/images/spraakmemowhatsapp.png",
-  "aitje-prepper": "/images/ei-internet.png",
-  "aitje-manager": "/images/aitje-os-1.png",
   "aitje-coder": "/images/aitje-product.png",
 };
 
 const productBannerKickers: Record<string, string> = {
   "aitje-assistent": "Kernproduct",
   "aitje-custom": "Custom Route",
-  "aitje-notulist": "Gesprek naar output",
-  "aitje-prepper": "Offline en mobiel",
-  "aitje-manager": "Lokale agentregie",
   "aitje-coder": "Ontwikkelen met AI",
 };
 
@@ -332,12 +326,6 @@ const productBannerExtras: Record<string, string> = {
     "De basis voor organisaties die AI praktisch willen inzetten op een eigen device, met OS, Client en Kennisbank als onderdelen van dezelfde lijn.",
   "aitje-custom":
     "De route voor organisaties die niet uitkomen met een standaardopzet en een concretere vertaling nodig hebben van idee naar werkbare hardware of workflow.",
-  "aitje-notulist":
-    "Gericht op gesprekken, meetings en intakeprocessen die snel moeten landen als transcript, samenvatting of gestructureerde output.",
-  "aitje-prepper":
-    "Voor situaties waar bereik niet vanzelfsprekend is en kennis, bestanden en assistentie lokaal beschikbaar moeten blijven.",
-  "aitje-manager":
-    "De volgende productfase voor organisaties die meerdere lokale agents gecontroleerd willen installeren, beheren en samen laten werken.",
   "aitje-coder":
     "Voor teams die AI willen inzetten bij coderen, technische wijzigingen en interne tooling, met meer grip op context, omgeving en ontwikkelproces.",
 };
@@ -345,9 +333,6 @@ const productBannerExtras: Record<string, string> = {
 const productBannerPanelClasses: Record<string, string> = {
   "aitje-assistent": "bg-[#f6f0dc]",
   "aitje-custom": "bg-[#f5ede2]",
-  "aitje-notulist": "bg-[#efece5]",
-  "aitje-prepper": "bg-[#f3edd8]",
-  "aitje-manager": "bg-[#ece8de]",
   "aitje-coder": "bg-[#efe9de]",
 };
 

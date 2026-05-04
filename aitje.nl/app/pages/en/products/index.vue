@@ -279,7 +279,7 @@ const valueProps = [
     badge: "Structure",
     title: "One product line",
     description:
-      "The route is now clear: a core product, a custom route and three clear follow-up products.",
+      "The route is now clear: a core product, a custom route and Coder as an in-development follow-up product.",
     icon: Layers3,
   },
   {
@@ -314,18 +314,12 @@ const productSnapshots = [
 const productBannerImages: Record<string, string> = {
   "aitje-assistent": "/images/aitje-cubes.png",
   "aitje-custom": "/images/custom-suited.png",
-  "aitje-notulist": "/images/spraakmemowhatsapp.png",
-  "aitje-prepper": "/images/ei-internet.png",
-  "aitje-manager": "/images/aitje-os-1.png",
   "aitje-coder": "/images/aitje-product.png",
 };
 
 const productBannerKickers: Record<string, string> = {
   "aitje-assistent": "Core product",
   "aitje-custom": "Custom route",
-  "aitje-notulist": "Conversation to output",
-  "aitje-prepper": "Offline and mobile",
-  "aitje-manager": "Local agent control",
   "aitje-coder": "Build with AI",
 };
 
@@ -334,12 +328,6 @@ const productBannerExtras: Record<string, string> = {
     "The foundation for organizations that want to use AI practically on their own device, with OS, Client and Knowledge Base as parts of the same line.",
   "aitje-custom":
     "The route for organizations that do not get far enough with a standard setup and need a more concrete translation from idea to workable hardware or workflow.",
-  "aitje-notulist":
-    "Focused on conversations, meetings and intake processes that need to land quickly as transcript, summary or structured output.",
-  "aitje-prepper":
-    "For situations where connectivity is not guaranteed and knowledge, files and assistance need to remain available locally.",
-  "aitje-manager":
-    "The next product phase for organizations that want to install, manage and coordinate multiple local agents in a controlled way.",
   "aitje-coder":
     "For teams that want to use AI for coding, technical changes and internal tooling, with more control over context, environment and development flow.",
 };
@@ -347,9 +335,6 @@ const productBannerExtras: Record<string, string> = {
 const productBannerPanelClasses: Record<string, string> = {
   "aitje-assistent": "bg-[#f6f0dc]",
   "aitje-custom": "bg-[#f5ede2]",
-  "aitje-notulist": "bg-[#efece5]",
-  "aitje-prepper": "bg-[#f3edd8]",
-  "aitje-manager": "bg-[#ece8de]",
   "aitje-coder": "bg-[#efe9de]",
 };
 

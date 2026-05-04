@@ -52,29 +52,13 @@ Voor organisaties waar standaardhardware niet goed past. AITJE denkt mee over in
 - Alternatieve hardware mogelijk
 - Gericht op passende oplossing in plaats van standaardverhaal
 
-### AITJE Notulist (In ontwikkeling)
+### AITJE Coder (In ontwikkeling)
 
-Neemt gesprekken op en geeft gestructureerde output terug: samenvattingen, transcripties of ingevulde formulieren.
+Productrichting voor gecontroleerd coderen en technische workflows met AI.
 
-- Opnemen en transcriberen
-- Output als samenvatting, transcript of template
-- Koppeling naar app, site of endpoint
-
-### AITJE Prepper (In ontwikkeling)
-
-Mobiel device met offline kennis, lokale LLM-chat en bestanden voor situaties zonder internet.
-
-- Offline kennis en bestanden
-- Lokale LLM-chat
-- Mobiel inzetbaar
-
-### AITJE Manager (Gepland)
-
-Uitbreiding op AITJE Assistent voor het beheren van meerdere lokale Edge AI agents.
-
-- Agents lokaal installeren en beheren
-- Samenwerking tussen agents en assistenten
-- Meer beheer zonder enterprise-complexiteit
+- Gericht op coderen, scripts en interne tooling
+- Lokale of gecontroleerde inzet
+- Nog niet beschikbaar als live product
 
 ---
 
@@ -111,12 +95,6 @@ Maandelijkse samenwerking voor support, updates, gereserveerde tijd, installatie
 ### Interne kennis en beleid sneller terugvinden
 Voor organisaties met veel documenten die te veel tijd verliezen aan zoeken. AITJE Assistent maakt interne kennis sneller vindbaar via RAG.
 
-### Vergaderingen en gesprekken omzetten naar bruikbare output
-AITJE Notulist richt zich op opname, transcriptie en gestructureerde output na meetings en intakegesprekken.
-
-### Werken op locatie of offline
-AITJE Prepper voor mobiel gebruik met offline kennis, bestanden en lokale LLM-chat.
-
 ### Maatwerk en agentic workflows
 AITJE Custom kijkt mee naar passende aanpak rond Edge AI, hardware en workflows.
 
@@ -125,12 +103,6 @@ AITJE Assistent biedt een vaste lokale omgeving voor vragen, documentwerk en dag
 
 ### Lokale AI binnen eigen infrastructuur
 Met AITJE Cube en AITJE OS ontstaat een werkbare lokale basis voor AI-gebruik op eigen hardware.
-
-### Meerdere agents beheren
-AITJE Manager is bedoeld om agents, installaties en samenwerking overzichtelijker lokaal te organiseren.
-
-### Gesprekken en klantvragen structureren
-Met AITJE Notulist wordt opvolging na contactmomenten sneller gestructureerd.
 
 ---
 
@@ -174,9 +146,6 @@ AITJE is een klein team met een duidelijke overtuiging: AI moet helder, verantwo
 **Wat is AITJE Assistent precies?**
 AITJE Assistent is een mini-computer geoptimaliseerd met eigen OS. Je krijgt een lokale LLM, kennisbank voor documenten, offline maps en een AI-powered kennissysteem dat ook zonder internet bereikbaar blijft.
 
-**Wat is AITJE Notulist?**
-Zowel als hardware als software te bestellen. Neemt gesprekken op en laat je instellen hoe je samenvattingen en output wilt ontvangen.
-
 **Doet AITJE ook aan custom build hardware?**
 Ja. En als we je niet volledig kunnen helpen, hebben we een netwerk van specialisten.
 
@@ -207,9 +176,6 @@ In Nederland of Europa. In veel gevallen volledig lokaal binnen je eigen omgevin
 
 **Kan AITJE Assistent zonder internet werken?**
 Ja. Lokale data en LLM-functionaliteit blijven beschikbaar. Synchroniseren is tijdelijk lastiger.
-
-**Kan AITJE Notulist zonder internet werken?**
-Ja. Opnames en verwerking kunnen lokaal plaatsvinden.
 
 ### Milieu
 

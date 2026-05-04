@@ -6,7 +6,7 @@
 
 - [AITJE Assistent](https://aitje.com/producten/aitje-assistent): Lokale Edge AI op eigen hardware met kennisbank, offline bereikbaarheid en API-toegang voor organisaties.
 - [AITJE Custom](https://aitje.com/producten/aitje-custom): Maatwerkoplossingen voor organisaties waar standaardhardware niet past.
-- [Alle producten](https://aitje.com/producten): Overzicht van de vijf productrichtingen: Assistent, Custom, Notulist, Prepper en Manager.
+- [Alle producten](https://aitje.com/producten): Overzicht van de productlijn: Assistent, Custom en Coder.
 
 ## Diensten
 

@@ -167,7 +167,7 @@
                 well. That creates a route organizations can actually follow.
               </p>
               <p>
-                We build products such as AITJE Assistant and Notetaker for
+                We build products such as AITJE Assistant, AITJE Custom and Coder for
                 organizations that want to use AI locally, clearly and in a
                 manageable way. In addition, we help organizations with AI
                 strategy, consultancy, implementation and choices around
@@ -276,7 +276,7 @@
 <script setup lang="ts">
 const { localePath } = useSiteLocale();
 
-const youtubeEmbedUrl = "";
+const youtubeEmbedUrl = "https://www.youtube.com/embed/3ZJgaJGeRS4";
 
 const visionCards = [
   {

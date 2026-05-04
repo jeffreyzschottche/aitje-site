@@ -350,7 +350,7 @@ const roadmapYears = [
           "Eind 2025 lag de basis voor een productlijn met duidelijke status: wat bestaat, wat loopt en wat later komt.",
         points: [
           "Roadmap 2026 opgesteld op basis van praktijk en positionering.",
-          "De lijn richting Assistent, Notulist, Off-Grid en Manager concreter gemaakt.",
+          "De lijn richting Assistent, Custom en Coder concreter gemaakt.",
         ],
       },
     ],
@@ -391,10 +391,10 @@ const roadmapYears = [
         label: "Q3",
         title: "Nieuwe richtingen in ontwikkeling",
         summary:
-          "Vanaf Q3 verschuift de aandacht naar de eerstvolgende uitbreidingen van de productlijn.",
+          "Vanaf Q3 verschuift de aandacht naar de eerstvolgende uitbreiding van de productlijn.",
         points: [
-          "AITJE Notulist richt zich op Q3 2026.",
-          "AITJE Off-Grid gaat in Q3 2026 de testfase in.",
+          "AITJE Coder wordt inhoudelijk verder voorbereid.",
+          "De bestaande lijn blijft bewust compact: Assistent, Custom en Coder.",
         ],
       },
       {
@@ -404,11 +404,10 @@ const roadmapYears = [
         label: "Q4",
         title: "Van test naar live",
         summary:
-          "De tweede helft van het jaar draait om het concretiseren van de volgende live stap en het starten van een nieuwe ontwikkellijn.",
+          "De tweede helft van het jaar draait om het starten van een nieuwe ontwikkellijn.",
         points: [
-          "AITJE Off-Grid staat gepland om live te gaan in Q4 2026.",
-          "AITJE Notulist wordt verder aangescherpt op basis van praktijk en productdoel.",
           "AITJE Coder gaat in Q4 2026 de ontwikkelfase in.",
+          "Coder blijft voorlopig nog niet beschikbaar als live product.",
         ],
       },
     ],
@@ -434,12 +433,12 @@ const roadmapYears = [
         quarterEnd: 2,
         short: "Q2",
         label: "Q2",
-        title: "AITJE Manager",
+        title: "AITJE Coder",
         summary:
-          "De volgende grote stap is een beheerslaag bovenop de productlijn.",
+          "De volgende stap is het verder uitwerken van Coder binnen de compacte productlijn.",
         points: [
-          "AITJE Manager staat gepland voor Q2 2027.",
-          "Focus ligt op agents sneller installeren, beheren en laten samenwerken.",
+          "AITJE Coder blijft in ontwikkeling.",
+          "Focus ligt op gecontroleerd coderen en technische workflows met AI.",
         ],
       },
       {
@@ -449,7 +448,7 @@ const roadmapYears = [
         label: "Q3",
         title: "Uitbouw",
         summary:
-          "Na de Manager-fase verschuift de aandacht naar verdere verbreding van de praktische inzet.",
+          "Na de Coder-fase verschuift de aandacht naar verdere verdieping van de praktische inzet.",
         points: [
           "Doorbouwen op lokale agentic workflows binnen organisaties.",
           "Praktische beheerscenario's verder uitwerken.",

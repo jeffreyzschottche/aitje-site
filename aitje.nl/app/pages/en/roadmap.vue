@@ -350,7 +350,7 @@ const roadmapYears = [
           "By the end of 2025, the foundation was in place for a product line with clear status: what exists, what is underway and what comes later.",
         points: [
           "The 2026 roadmap was defined based on practical experience and positioning.",
-          "The direction for Assistant, Notetaker, Off-Grid and Manager became more concrete.",
+          "The direction for Assistant, Custom and Coder became more concrete.",
         ],
       },
     ],
@@ -391,10 +391,10 @@ const roadmapYears = [
         label: "Q3",
         title: "New directions in development",
         summary:
-          "From Q3 onward, attention shifts to the next expansions of the product line.",
+          "From Q3 onward, attention shifts to the next expansion of the product line.",
         points: [
-          "AITJE Notetaker is aimed at Q3 2026.",
-          "AITJE Off-Grid enters the test phase in Q3 2026.",
+          "AITJE Coder is prepared further in substance.",
+          "The product line intentionally stays compact: Assistant, Custom and Coder.",
         ],
       },
       {
@@ -404,11 +404,10 @@ const roadmapYears = [
         label: "Q4",
         title: "From test to live",
         summary:
-          "The second half of the year is about making the next live step concrete and starting a new development line.",
+          "The second half of the year is about starting a new development line.",
         points: [
-          "AITJE Off-Grid is planned to go live in Q4 2026.",
-          "AITJE Notetaker is refined further based on practical use and product goals.",
           "AITJE Coder enters the development phase in Q4 2026.",
+          "Coder remains unavailable as a live product for now.",
         ],
       },
     ],
@@ -434,12 +433,12 @@ const roadmapYears = [
         quarterEnd: 2,
         short: "Q2",
         label: "Q2",
-        title: "AITJE Manager",
+        title: "AITJE Coder",
         summary:
-          "The next major step is a management layer on top of the product line.",
+          "The next step is developing Coder further within the compact product line.",
         points: [
-          "AITJE Manager is planned for Q2 2027.",
-          "The focus is on installing, managing and coordinating agents faster.",
+          "AITJE Coder remains in development.",
+          "The focus is on controlled coding and technical AI workflows.",
         ],
       },
       {
@@ -449,7 +448,7 @@ const roadmapYears = [
         label: "Q3",
         title: "Expansion",
         summary:
-          "After the Manager phase, attention shifts toward broadening practical deployment further.",
+          "After the Coder phase, attention shifts toward deepening practical deployment further.",
         points: [
           "Continue building local agentic workflows within organizations.",
           "Develop practical management scenarios further.",

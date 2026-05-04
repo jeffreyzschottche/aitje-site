@@ -310,21 +310,22 @@
           <div
             class="overflow-hidden rounded-[2.5rem] border border-gray-200 bg-white shadow-sm"
           >
-            <div
-              class="flex aspect-video items-center justify-center px-8 text-center"
-            >
-              <div>
-                <p
-                  class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
-                >
-                  YouTube video
-                </p>
-                <p class="mt-3 text-base text-gray-600">
-                  Stuur de YouTube-link even door, dan zet ik de embed hier
-                  direct goed in.
-                </p>
-              </div>
-            </div>
+            <iframe
+              src="https://www.youtube.com/embed/3ZJgaJGeRS4?start=70"
+              title="AITJE video"
+              class="aspect-video w-full"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            />
           </div>
         </div>
       </section>
@@ -506,9 +507,6 @@
                 </div>
                 <p class="mt-4 text-sm leading-7 text-gray-300">
                   {{ service.description }}
-                </p>
-                <p class="mt-4 text-sm leading-7 text-gray-300">
-                  {{ service.result }}
                 </p>
               </article>
             </div>
@@ -891,7 +889,6 @@ import {
   Droplet,
   Globe,
   Lock,
-  Mic,
   Server,
   Shield,
   Sparkles,
@@ -1117,14 +1114,6 @@ const features = [
     cta: "Bekijk product",
   },
   {
-    title: "AITJE Notulist",
-    description:
-      "Neem gesprekken op en bepaal zelf welke informatie je wilt ontvangen: als samenvatting, transcriptie of ingevuld formulier, in het format en via het kanaal dat past.",
-    icon: Mic,
-    link: "/producten",
-    cta: "Bekijk product",
-  },
-  {
     title: "AITJE Solutions",
     description:
       "Oplossingen op maat, zoals agents, workflows, voice assistants en waar nodig eigen hardware voor jouw toepassing.",
@@ -1196,33 +1185,6 @@ const productShowcase = [
     description:
       "Voor situaties waar standaardhardware niet precies past en je meer performance of specifieke integraties nodig hebt.",
     cta: "Bekijk product",
-  },
-  {
-    label: "Product",
-    title: "AITJE Notulist",
-    image: "/images/birds.png",
-    description:
-      "Voor opname, transcriptie en gestructureerde output die direct aansluit op je workflow.",
-    status: "In ontwikkeling",
-    cta: "Nog niet gelanceerd",
-  },
-  {
-    label: "Product",
-    title: "AITJE Off-Grid",
-    image: "/images/birds.png",
-    description:
-      "Een mobiele richting voor zelfstandig werken met lokale kennis, bestanden en AI onderweg.",
-    status: "In ontwikkeling",
-    cta: "Nog niet gelanceerd",
-  },
-  {
-    label: "Product",
-    title: "AITJE Manager",
-    image: "/images/birds.png",
-    description:
-      "De volgende stap voor het organiseren van lokale agents, installaties en samenwerking binnen je omgeving.",
-    status: "In ontwikkeling",
-    cta: "Nog niet gelanceerd",
   },
   {
     label: "Product",

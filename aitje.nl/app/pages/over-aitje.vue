@@ -164,7 +164,7 @@
               Zo ontstaat een route die organisaties echt kunnen volgen.
               </p>
               <p>
-                We bouwen aan producten zoals AITJE Assistent en Notulist voor
+                We bouwen aan producten zoals AITJE Assistent, AITJE Custom en Coder voor
                 organisaties die AI lokaal, duidelijk en beheersbaar willen
                 inzetten. Daarnaast helpen we organisaties met AI-strategie,
                 consultancy, implementatie en keuzes rond infrastructuur,
@@ -271,7 +271,7 @@
 </template>
 
 <script setup lang="ts">
-const youtubeEmbedUrl = "";
+const youtubeEmbedUrl = "https://www.youtube.com/embed/3ZJgaJGeRS4";
 
 const visionCards = [
   {
@@ -296,7 +296,7 @@ const whatWeDo = [
   {
     badge: "Producten",
     title: "Duidelijke productlijn",
-    text: "We bouwen aan producten zoals AITJE Assistent en Notulist voor organisaties die AI lokaal, duidelijk en beheersbaar willen inzetten.",
+    text: "We bouwen aan producten zoals AITJE Assistent, AITJE Custom en Coder voor organisaties die AI lokaal, duidelijk en beheersbaar willen inzetten.",
   },
   {
     badge: "Diensten",

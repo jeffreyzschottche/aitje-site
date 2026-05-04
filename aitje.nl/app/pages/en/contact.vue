@@ -71,6 +71,14 @@
                   class="h-5 w-5 object-contain"
                 />
               </a>
+              <button
+                type="button"
+                aria-label="Request a call"
+                class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-[#fafafa] text-gray-900 transition hover:border-[#facc15]"
+                @click="setSubject('belverzoek')"
+              >
+                <PhoneCall aria-hidden="true" class="h-5 w-5" />
+              </button>
             </div>
           </div>
           <div class="rounded-3xl bg-[#facc15] p-6 text-[#212121]">
@@ -319,6 +327,7 @@
 
 <script setup lang="ts">
 import { computed, defineComponent, h, reactive, ref, watch } from "vue";
+import { PhoneCall } from "lucide-vue-next";
 import linkedinIcon from "@/assets/images/social/linkedin.png";
 import gmailIcon from "@/assets/images/social/gmail.png";
 
