@@ -18,9 +18,15 @@
               fill="none"
             >
               <g class="hero-network-lines">
-                <path d="M40 240L180 170L320 245L465 165L615 230L770 175L930 240L1085 170L1240 235L1390 160" />
-                <path d="M10 470L150 395L280 470L430 390L595 450L740 375L900 445L1050 385L1205 455L1380 390" />
-                <path d="M85 690L235 610L385 675L535 600L690 665L860 590L1015 650L1170 590L1330 660" />
+                <path
+                  d="M40 240L180 170L320 245L465 165L615 230L770 175L930 240L1085 170L1240 235L1390 160"
+                />
+                <path
+                  d="M10 470L150 395L280 470L430 390L595 450L740 375L900 445L1050 385L1205 455L1380 390"
+                />
+                <path
+                  d="M85 690L235 610L385 675L535 600L690 665L860 590L1015 650L1170 590L1330 660"
+                />
                 <path d="M180 170L150 395L235 610" />
                 <path d="M320 245L280 470L385 675" />
                 <path d="M465 165L430 390L535 600" />
@@ -36,34 +42,164 @@
 
               <g class="hero-network-points">
                 <circle cx="40" cy="240" r="4" style="animation-delay: -1.2s" />
-                <circle cx="180" cy="170" r="5" style="animation-delay: -2.8s" />
-                <circle cx="320" cy="245" r="4" style="animation-delay: -0.8s" />
-                <circle cx="465" cy="165" r="4" style="animation-delay: -3.6s" />
-                <circle cx="615" cy="230" r="5" style="animation-delay: -1.9s" />
-                <circle cx="770" cy="175" r="4" style="animation-delay: -4.2s" />
-                <circle cx="930" cy="240" r="5" style="animation-delay: -2.1s" />
-                <circle cx="1085" cy="170" r="4" style="animation-delay: -5.1s" />
-                <circle cx="1240" cy="235" r="5" style="animation-delay: -2.7s" />
-                <circle cx="1390" cy="160" r="4" style="animation-delay: -0.5s" />
+                <circle
+                  cx="180"
+                  cy="170"
+                  r="5"
+                  style="animation-delay: -2.8s"
+                />
+                <circle
+                  cx="320"
+                  cy="245"
+                  r="4"
+                  style="animation-delay: -0.8s"
+                />
+                <circle
+                  cx="465"
+                  cy="165"
+                  r="4"
+                  style="animation-delay: -3.6s"
+                />
+                <circle
+                  cx="615"
+                  cy="230"
+                  r="5"
+                  style="animation-delay: -1.9s"
+                />
+                <circle
+                  cx="770"
+                  cy="175"
+                  r="4"
+                  style="animation-delay: -4.2s"
+                />
+                <circle
+                  cx="930"
+                  cy="240"
+                  r="5"
+                  style="animation-delay: -2.1s"
+                />
+                <circle
+                  cx="1085"
+                  cy="170"
+                  r="4"
+                  style="animation-delay: -5.1s"
+                />
+                <circle
+                  cx="1240"
+                  cy="235"
+                  r="5"
+                  style="animation-delay: -2.7s"
+                />
+                <circle
+                  cx="1390"
+                  cy="160"
+                  r="4"
+                  style="animation-delay: -0.5s"
+                />
                 <circle cx="10" cy="470" r="4" style="animation-delay: -4.6s" />
-                <circle cx="150" cy="395" r="5" style="animation-delay: -1.1s" />
-                <circle cx="280" cy="470" r="4" style="animation-delay: -3.9s" />
-                <circle cx="430" cy="390" r="5" style="animation-delay: -2.4s" />
-                <circle cx="595" cy="450" r="4" style="animation-delay: -5.5s" />
-                <circle cx="740" cy="375" r="5" style="animation-delay: -1.7s" />
-                <circle cx="900" cy="445" r="4" style="animation-delay: -4.9s" />
-                <circle cx="1050" cy="385" r="5" style="animation-delay: -2.9s" />
-                <circle cx="1205" cy="455" r="4" style="animation-delay: -0.9s" />
-                <circle cx="1380" cy="390" r="5" style="animation-delay: -3.1s" />
+                <circle
+                  cx="150"
+                  cy="395"
+                  r="5"
+                  style="animation-delay: -1.1s"
+                />
+                <circle
+                  cx="280"
+                  cy="470"
+                  r="4"
+                  style="animation-delay: -3.9s"
+                />
+                <circle
+                  cx="430"
+                  cy="390"
+                  r="5"
+                  style="animation-delay: -2.4s"
+                />
+                <circle
+                  cx="595"
+                  cy="450"
+                  r="4"
+                  style="animation-delay: -5.5s"
+                />
+                <circle
+                  cx="740"
+                  cy="375"
+                  r="5"
+                  style="animation-delay: -1.7s"
+                />
+                <circle
+                  cx="900"
+                  cy="445"
+                  r="4"
+                  style="animation-delay: -4.9s"
+                />
+                <circle
+                  cx="1050"
+                  cy="385"
+                  r="5"
+                  style="animation-delay: -2.9s"
+                />
+                <circle
+                  cx="1205"
+                  cy="455"
+                  r="4"
+                  style="animation-delay: -0.9s"
+                />
+                <circle
+                  cx="1380"
+                  cy="390"
+                  r="5"
+                  style="animation-delay: -3.1s"
+                />
                 <circle cx="85" cy="690" r="4" style="animation-delay: -2.2s" />
-                <circle cx="235" cy="610" r="5" style="animation-delay: -4.4s" />
-                <circle cx="385" cy="675" r="4" style="animation-delay: -1.4s" />
-                <circle cx="535" cy="600" r="5" style="animation-delay: -5.2s" />
-                <circle cx="690" cy="665" r="4" style="animation-delay: -2.6s" />
-                <circle cx="860" cy="590" r="5" style="animation-delay: -3.4s" />
-                <circle cx="1015" cy="650" r="4" style="animation-delay: -0.7s" />
-                <circle cx="1170" cy="590" r="5" style="animation-delay: -4.8s" />
-                <circle cx="1330" cy="660" r="4" style="animation-delay: -1.6s" />
+                <circle
+                  cx="235"
+                  cy="610"
+                  r="5"
+                  style="animation-delay: -4.4s"
+                />
+                <circle
+                  cx="385"
+                  cy="675"
+                  r="4"
+                  style="animation-delay: -1.4s"
+                />
+                <circle
+                  cx="535"
+                  cy="600"
+                  r="5"
+                  style="animation-delay: -5.2s"
+                />
+                <circle
+                  cx="690"
+                  cy="665"
+                  r="4"
+                  style="animation-delay: -2.6s"
+                />
+                <circle
+                  cx="860"
+                  cy="590"
+                  r="5"
+                  style="animation-delay: -3.4s"
+                />
+                <circle
+                  cx="1015"
+                  cy="650"
+                  r="4"
+                  style="animation-delay: -0.7s"
+                />
+                <circle
+                  cx="1170"
+                  cy="590"
+                  r="5"
+                  style="animation-delay: -4.8s"
+                />
+                <circle
+                  cx="1330"
+                  cy="660"
+                  r="4"
+                  style="animation-delay: -1.6s"
+                />
               </g>
 
               <g class="hero-network-glow">
@@ -76,7 +212,9 @@
           </div>
           <div
             class="absolute inset-0 z-0 bg-cover bg-center"
-            style="background-image: url(&quot;/images/home-header-test.png&quot;)"
+            style="
+              background-image: url(&quot;/images/home-header-test.png&quot;);
+            "
             aria-hidden="true"
           ></div>
           <div
@@ -106,19 +244,16 @@
             <p
               class="mt-8 max-w-4xl text-lg leading-8 text-gray-200 md:text-xl"
             >
-              AITJE is a Dutch edge-AI company that builds local
-              AI solutions for SMEs. Our mini-PCs run LLMs on-premise, so
-              organizations stay in control of privacy, data and costs.<br
-                class="hidden md:block"
-              />
-              Always European or Dutch hosting, room for your own knowledge
-              base, agents, workflows and applications &mdash; without
-              dependence on external cloud platforms.
+              AITJE is a Dutch-rooted organization that offers pre-made
+              solutions on white-labeled hardware, optimized with custom
+              software. Our solutions focus on managing knowledge, answering
+              questions, keeping administration up to date, programming, meeting
+              notes and more.
             </p>
             <p
-              class="mt-6 text-xs uppercase tracking-[0.45em] text-gray-400 sm:text-sm"
+              class="mt-6 text-xs font-extrabold uppercase tracking-[0.45em] text-gray-400 sm:text-sm"
             >
-              · Edge AI · Secure storage · Europe based ·
+              · Edge AI · Secure data storage · No API costs ·
             </p>
             <div class="mt-8 flex flex-col gap-4 sm:flex-row">
               <NuxtLink
@@ -137,12 +272,47 @@
 
             <div class="mt-12 grid w-full max-w-4xl gap-4 sm:grid-cols-3">
               <div
-                v-for="stat in heroStats"
+                v-for="(stat, index) in heroStats"
                 :key="stat.label"
-                class="rounded-2xl border border-white/10 bg-black/30 p-4 text-left backdrop-blur-sm"
+                class="group relative min-h-[7.25rem] overflow-hidden rounded-2xl border p-5 text-left backdrop-blur-md transition duration-300 hover:-translate-y-1"
+                :class="
+                  index === 1
+                    ? 'border-[#facc15] bg-[#facc15] text-black shadow-[0_18px_45px_rgba(250,204,21,0.28)]'
+                    : 'border-white/18 bg-black/45 text-white shadow-[0_18px_45px_rgba(0,0,0,0.22)] hover:border-[#facc15]/55 hover:bg-black/60'
+                "
               >
-                <p class="text-sm text-gray-300">{{ stat.label }}</p>
-                <p class="text-xl font-semibold text-white">{{ stat.value }}</p>
+                <span
+                  class="absolute inset-x-5 top-0 h-1 rounded-b-full"
+                  :class="index === 1 ? 'bg-black/18' : 'bg-[#facc15]'"
+                  aria-hidden="true"
+                ></span>
+                <div class="flex items-start justify-between gap-4">
+                  <div>
+                    <p
+                      class="text-sm font-medium"
+                      :class="index === 1 ? 'text-black/78' : 'text-gray-300'"
+                    >
+                      {{ stat.label }}
+                    </p>
+                    <p
+                      class="mt-2 text-2xl font-black leading-tight"
+                      :class="index === 1 ? 'text-black' : 'text-white'"
+                    >
+                      {{ stat.value }}
+                    </p>
+                  </div>
+                  <span
+                    class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full"
+                    :class="
+                      index === 1
+                        ? 'bg-black/10 text-black'
+                        : 'bg-[#facc15]/12 text-[#facc15] ring-1 ring-[#facc15]/25'
+                    "
+                    aria-hidden="true"
+                  >
+                    <component :is="stat.icon" class="h-5 w-5" />
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -159,15 +329,27 @@
             >
               About AITJE
             </p>
-            <h2 class="mt-4 text-4xl font-black text-gray-900">
-              A look at who we are, what we do and what we stand for
-            </h2>
-            <p class="mt-6 text-lg leading-8 text-gray-600">
-              AITJE is a Dutch company that helps organizations use AI in a
-              smarter, more independent and future-ready way. Not as a vague AI
-              label, but as a partner with clear products, clear choices and
-              practical guidance.
-            </p>
+            <h2 class="mt-4 text-4xl font-black text-gray-900">Who we are</h2>
+            <div class="mt-6 space-y-5 text-lg leading-8 text-gray-600">
+              <p>
+                <strong
+                  >Always nearby. Always available. Fully under your own
+                  control.</strong
+                >
+                With local AI solutions, you stay independent from internet,
+                external providers and platform outages. Your data stays within
+                your organization and you avoid unnecessary subscription costs.
+              </p>
+              <p>
+                <i
+                  >We help you use AI in a smarter, safer and more cost-effective
+                  way:</i
+                >
+                <br />
+                with clear products, expansion options and personal guidance.
+              </p>
+              <p>The power of AI, without giving up control.</p>
+            </div>
           </div>
 
           <div
@@ -193,214 +375,28 @@
         </div>
       </section>
 
-      <section class="bg-[#212121] px-6 py-20 text-white">
-        <div class="mx-auto max-w-6xl space-y-14">
-          <div>
-            <p
-              class="text-sm font-semibold uppercase tracking-[0.4em] text-[#facc15]"
-            >
-              Showcase
-            </p>
-            <h2 class="mt-4 text-4xl font-black">
-              Products, software and applications
-            </h2>
-            <p class="mt-3 max-w-3xl text-gray-300">
-              An overview of devices, software and solutions AITJE is proud of,
-              from existing applications to the foundation for custom work.
-            </p>
-            <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <NuxtLink
-                :to="localePath('/producten')"
-                class="inline-flex items-center justify-center rounded-full bg-[#facc15] px-6 py-3 text-sm font-semibold text-black transition hover:bg-white"
-              >
-                View all products
-              </NuxtLink>
-              <NuxtLink
-                :to="localePath('/diensten')"
-                class="inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:border-white"
-              >
-                Go to services
-              </NuxtLink>
-              <NuxtLink
-                :to="localePath('/cases')"
-                class="inline-flex items-center justify-center text-sm font-semibold text-[#facc15] transition hover:text-white"
-              >
-                Or view cases
-              </NuxtLink>
-            </div>
-          </div>
-
-          <div
-            class="overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-6 md:p-8"
-          >
-            <div
-              class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between"
-            >
-              <div>
-                <p
-                  class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
-                >
-                  1. Products
-                </p>
-                <h3 class="mt-3 text-3xl font-black">
-                  Direct view of our product line
-                </h3>
-                <p class="mt-3 max-w-3xl text-sm text-gray-300">
-                  See which AITJE products already exist and where we are
-                  building next. From AITJE Assistant and AITJE Assistant+ to
-                  AITJE Custom and new products still in development.
-                </p>
-              </div>
-              <NuxtLink
-                :to="localePath('/producten')"
-                class="inline-flex items-center justify-center rounded-full bg-[#facc15] px-6 py-3 text-sm font-semibold text-black transition hover:bg-black hover:text-[#facc15]"
-              >
-                View products
-              </NuxtLink>
-            </div>
-            <div class="relative mt-8 overflow-hidden">
-              <div class="showcase-marquee flex w-max gap-5">
-                <article
-                  v-for="(item, idx) in productShowcaseMarquee"
-                  :key="`${item.title}-${idx}`"
-                  class="w-[280px] shrink-0 overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#161616]"
-                >
-                  <div
-                    class="aspect-[4/3] border-b border-white/10 bg-black/30 p-4"
-                  >
-                    <img
-                      :src="item.image"
-                      :alt="item.title"
-                      class="h-full w-full rounded-2xl bg-white object-contain p-3"
-                    />
-                  </div>
-                  <div class="p-5">
-                    <div class="flex items-center justify-between gap-3">
-                      <p
-                        class="text-xs font-semibold uppercase tracking-[0.3em] text-[#facc15]"
-                      >
-                        {{ item.label }}
-                      </p>
-                      <span
-                        v-if="item.status"
-                        class="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.25em] text-gray-300"
-                      >
-                        {{ item.status }}
-                      </span>
-                    </div>
-                    <h4 class="mt-2 text-lg font-semibold text-white">
-                      {{ item.title }}
-                    </h4>
-                    <p class="mt-2 text-sm text-gray-300">
-                      {{ item.description }}
-                    </p>
-                    <NuxtLink
-                      v-if="item.link"
-                      :to="item.link"
-                      class="mt-4 inline-flex text-sm font-semibold text-[#facc15] transition hover:text-white"
-                    >
-                      {{ item.cta }}
-                    </NuxtLink>
-                    <span
-                      v-else
-                      class="mt-4 inline-flex text-sm font-semibold text-gray-400"
-                    >
-                      {{ item.cta }}
-                    </span>
-                  </div>
-                </article>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="rounded-[2rem] border border-white/10 bg-white/5 p-6 md:p-8"
-          >
-            <div
-              class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between"
-            >
-              <div>
-                <p
-                  class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
-                >
-                  2. Services
-                </p>
-                <h3 class="mt-3 text-3xl font-black">
-                  How we help organizations with implementation and custom work
-                </h3>
-                <p class="mt-3 max-w-3xl text-sm text-gray-300">
-                  AITJE thinks strategically with you about how AI really adds
-                  value inside your organization. View our services to quickly
-                  see where we support on content, technology and operations.
-                </p>
-              </div>
-              <NuxtLink
-                :to="localePath('/diensten')"
-                class="inline-flex items-center justify-center rounded-full bg-[#facc15] px-6 py-3 text-sm font-semibold text-black transition hover:bg-black hover:text-[#facc15]"
-              >
-                View services
-              </NuxtLink>
-            </div>
-            <div class="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-              <article
-                v-for="service in homeServices"
-                :key="service.key"
-                class="flex h-full min-h-[26rem] flex-col rounded-[1.75rem] border border-white/10 bg-[#161616] p-6"
-              >
-                <div class="flex items-start justify-between gap-4">
-                  <div>
-                    <p
-                      class="text-xs font-semibold uppercase tracking-[0.3em] text-[#facc15]"
-                    >
-                      {{ service.focus }}
-                    </p>
-                    <h4 class="mt-3 text-2xl font-semibold text-white">
-                      {{ service.title }}
-                    </h4>
-                  </div>
-                  <span
-                    class="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.24em] text-gray-300"
-                  >
-                    Service
-                  </span>
-                </div>
-                <p class="mt-4 text-sm leading-7 text-gray-300">
-                  {{ service.description }}
-                </p>
-                <p class="mt-4 text-sm leading-7 text-gray-300">
-                  {{ service.result }}
-                </p>
-                <p class="mt-5 text-sm leading-7 text-gray-400">
-                  {{ service.fit }}
-                </p>
-              </article>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section class="px-6 py-20">
         <div
           class="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.8fr_1.2fr]"
         >
           <div
-            class="space-y-6 rounded-3xl border border-gray-200 bg-[#fafafa] p-10"
+            class="space-y-6 rounded-3xl border border-gray-200 bg-[#fafafa] p-6 md:p-10"
           >
             <p
               class="text-sm font-semibold uppercase tracking-[0.4em] text-[#facc15]"
             >
-              AITJE infrastructure
+              AITJE's infrastructure
             </p>
-            <h2 class="text-4xl font-black text-gray-900">
-              From out of the box to custom solutions
+            <h2 class="text-3xl font-black text-gray-900 md:text-4xl">
+              From out-of-the-box to custom solutions
             </h2>
             <p class="text-gray-700">
-              As a company, we offer local hardware for edge AI, software that
-              connects to it and solutions that can connect with external
+              We provide local hardware for edge AI, software that connects to
+              it and solutions that can integrate with AITJE-built external
               platforms, such as knowledge bases and document processing. We
-              also think along about the best use of AI within your
-              organization: sometimes with one of our existing products,
-              sometimes with a custom solution we develop together.
+              also help determine the best use of AI within your organization:
+              sometimes with one of our existing products, sometimes with a
+              custom extension.
             </p>
             <ul class="space-y-4">
               <li
@@ -451,6 +447,314 @@
                 </NuxtLink>
               </div>
             </article>
+            <article
+              ref="edgeMetricsSectionRef"
+              class="relative overflow-hidden rounded-3xl bg-[#111111] p-6 text-white shadow-[0_24px_70px_rgba(0,0,0,0.14)] md:col-span-2"
+            >
+              <CloudBackground />
+              <div class="relative z-10">
+                <p
+                  class="text-xs font-semibold uppercase tracking-[0.35em] text-[#facc15]"
+                >
+                  Why this matters
+                </p>
+                <h3 class="mt-3 max-w-2xl text-2xl font-black leading-tight">
+                  The future of AI is not only in the cloud, but also close to
+                  home.
+                </h3>
+                <div class="mt-3 max-w-2xl text-sm leading-7 text-white/85">
+                  <p>
+                    When AI usage costs rise, platforms go down or data leaves
+                    the organization, you become vulnerable. Edge AI brings the
+                    power of AI into your own environment: always available and
+                    safer for your organization.
+                  </p>
+                </div>
+              </div>
+
+              <div class="relative z-10 mt-6 grid gap-4 lg:grid-cols-2">
+                <div
+                  class="rounded-[1.5rem] border border-white/15 bg-[#111111]/72 p-4 shadow-[0_18px_45px_rgba(0,0,0,0.16)] backdrop-blur-md"
+                >
+                  <p
+                    class="text-xs font-semibold uppercase tracking-[0.3em] text-white/60"
+                  >
+                    Without Edge AI
+                  </p>
+                  <div class="mt-4 grid gap-3 sm:grid-cols-2">
+                    <div
+                      v-for="item in missionRiskMetrics"
+                      :key="item.label"
+                      class="rounded-2xl border border-red-400/15 bg-red-500/8 px-3 py-3"
+                    >
+                      <p class="text-xs font-semibold text-white/70">
+                        {{ item.label }}
+                      </p>
+                      <p class="mt-1 text-lg font-black text-red-200">
+                        {{ formatMissionMetric(item) }}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  class="rounded-[1.5rem] border border-[#facc15]/35 bg-[#111111]/68 p-4 shadow-[0_18px_45px_rgba(0,0,0,0.16)] backdrop-blur-md"
+                >
+                  <p
+                    class="text-xs font-semibold uppercase tracking-[0.3em] text-[#facc15]"
+                  >
+                    With Edge AI
+                  </p>
+                  <div class="mt-4 grid gap-3 sm:grid-cols-2">
+                    <div
+                      v-for="item in missionEdgeMetrics"
+                      :key="item.label"
+                      class="rounded-2xl border border-[#facc15]/20 bg-[#facc15]/8 px-3 py-3"
+                    >
+                      <p class="text-xs font-semibold text-white/78">
+                        {{ item.label }}
+                      </p>
+                      <p class="mt-1 text-lg font-black text-[#facc15]">
+                        {{ formatMissionMetric(item) }}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-[#212121] px-6 py-20 text-white">
+        <div class="mx-auto max-w-6xl space-y-14">
+          <div>
+            <p
+              class="text-sm font-semibold uppercase tracking-[0.4em] text-[#facc15]"
+            >
+              Showcase
+            </p>
+            <h2 class="mt-4 text-4xl font-black">What we do</h2>
+            <p class="mt-3 max-w-3xl text-gray-300">
+              Ready-to-use AI solutions from the AITJE suite, developed for
+              privacy, control and scalability.
+            </p>
+            <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <NuxtLink
+                :to="localePath('/producten')"
+                class="inline-flex items-center justify-center rounded-full bg-[#facc15] px-6 py-3 text-sm font-semibold text-black transition hover:bg-white"
+              >
+                View all products
+              </NuxtLink>
+              <NuxtLink
+                :to="localePath('/diensten')"
+                class="inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:border-white"
+              >
+                Go to services
+              </NuxtLink>
+              <NuxtLink
+                :to="localePath('/cases')"
+                class="inline-flex items-center justify-center text-sm font-semibold text-[#facc15] transition hover:text-white"
+              >
+                Or view cases
+              </NuxtLink>
+            </div>
+          </div>
+
+          <div
+            class="overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-6 md:p-8"
+          >
+            <div
+              class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between"
+            >
+              <div>
+                <p
+                  class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
+                >
+                  Products
+                </p>
+                <h3 class="mt-3 text-3xl font-black">
+                  Choose the AI solution that fits your organization
+                </h3>
+                <p class="mt-3 max-w-3xl text-sm text-gray-300">
+                  Our products run on white-labeled hardware with our own OS,
+                  supported by AITJE software that keeps everything working
+                  together.
+                </p>
+              </div>
+              <NuxtLink
+                :to="localePath('/producten')"
+                class="inline-flex items-center justify-center rounded-full bg-[#facc15] px-6 py-3 text-sm font-semibold text-black transition hover:bg-black hover:text-[#facc15]"
+              >
+                View products
+              </NuxtLink>
+            </div>
+            <div class="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+              <article
+                v-for="item in productShowcase"
+                :key="item.title"
+                class="group flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#161616] transition hover:-translate-y-1 hover:border-[#facc15]/70 hover:shadow-[0_24px_60px_rgba(250,204,21,0.08)]"
+              >
+                <div class="aspect-[4/3] border-b border-white/10 bg-black/30 p-4">
+                  <img
+                    :src="item.image"
+                    :alt="item.title"
+                    class="h-full w-full rounded-2xl bg-white object-contain p-3"
+                    :class="item.status ? 'blur-sm grayscale opacity-70' : ''"
+                  />
+                </div>
+                <div class="flex flex-1 flex-col p-5">
+                  <div class="flex items-center justify-between gap-3">
+                    <p
+                      v-if="!item.status"
+                      class="text-xs font-semibold uppercase tracking-[0.3em] text-[#facc15]"
+                    >
+                      {{ item.label }}
+                    </p>
+                    <span
+                      v-if="item.status"
+                      class="whitespace-nowrap rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-gray-300"
+                    >
+                      {{ item.status }}
+                    </span>
+                  </div>
+                  <h4 class="mt-3 text-xl font-semibold text-white">
+                    {{ item.title }}
+                  </h4>
+                  <p class="mt-3 text-sm leading-7 text-gray-300">
+                    {{ item.description }}
+                  </p>
+                  <div class="mt-auto pt-5">
+                    <NuxtLink
+                      v-if="item.link"
+                      :to="item.link"
+                      class="inline-flex text-sm font-semibold text-[#facc15] transition hover:text-white"
+                    >
+                      {{ item.cta }}
+                    </NuxtLink>
+                    <span
+                      v-else
+                      class="inline-flex text-sm font-semibold text-gray-400"
+                    >
+                      {{ item.cta }}
+                    </span>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div
+            class="rounded-[2rem] border border-white/10 bg-white/5 p-6 md:p-8"
+          >
+            <div
+              class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between"
+            >
+              <div>
+                <p
+                  class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
+                >
+                  Services
+                </p>
+                <h3 class="mt-3 text-3xl font-black">
+                  How we help organizations with implementation and custom work
+                </h3>
+                <p class="mt-3 max-w-3xl text-sm text-gray-300">
+                  AITJE thinks strategically with you about how AI can add real
+                  value inside your organization. View our services to quickly
+                  see where we support you in content, technology and operations.
+                </p>
+              </div>
+              <NuxtLink
+                :to="localePath('/diensten')"
+                class="inline-flex items-center justify-center rounded-full bg-[#facc15] px-6 py-3 text-sm font-semibold text-black transition hover:bg-black hover:text-[#facc15]"
+              >
+                View services
+              </NuxtLink>
+            </div>
+            <div class="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+              <NuxtLink
+                v-for="service in homeServices"
+                :key="service.key"
+                :to="`${localePath('/diensten')}#${service.key}`"
+                class="flex flex-col rounded-[1.75rem] border border-white/10 bg-[#161616] p-6 transition hover:-translate-y-1 hover:border-[#facc15]/70 hover:shadow-[0_24px_60px_rgba(250,204,21,0.08)]"
+              >
+                <div class="flex items-start justify-between gap-4">
+                  <div>
+                    <p
+                      class="text-xs font-semibold uppercase tracking-[0.3em] text-[#facc15]"
+                    >
+                      {{ service.focus }}
+                    </p>
+                    <h4
+                      class="mt-3 text-2xl font-semibold text-white md:whitespace-nowrap"
+                    >
+                      {{ service.title }}
+                    </h4>
+                  </div>
+                  <span
+                    class="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.24em] text-gray-300"
+                  >
+                    Service
+                  </span>
+                </div>
+                <p class="mt-4 text-sm leading-7 text-gray-300">
+                  {{ servicePreview(service.description, service.key) }}
+                  <span class="font-semibold text-[#facc15]">... more info</span>
+                </p>
+              </NuxtLink>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-[#fafafa] px-6 py-20">
+        <div
+          ref="missionSectionRef"
+          class="mx-auto max-w-5xl rounded-[2.5rem] border border-gray-200 bg-white p-8 shadow-sm md:p-10"
+        >
+          <div class="mx-auto max-w-4xl text-center">
+            <div class="overflow-hidden rounded-[2rem] bg-[#f5f5f5]">
+              <img
+                src="/images/our-vision.png"
+                alt="Our mission"
+                class="h-[16rem] w-full object-cover md:h-[22rem]"
+              />
+            </div>
+
+            <p
+              class="mt-8 text-sm font-semibold uppercase tracking-[0.4em] text-[#facc15]"
+            >
+              Our mission
+            </p>
+            <p class="mt-4 text-5xl font-black leading-none text-[#facc15]">
+              "
+            </p>
+            <blockquote
+              class="mx-auto mt-4 max-w-3xl text-2xl font-semibold leading-tight text-gray-900 md:text-3xl"
+            >
+              AI is here to stay. The more people and companies use it, the more
+              dependent we become on Big Tech from abroad.
+            </blockquote>
+            <div
+              class="mx-auto mt-8 max-w-3xl space-y-4 text-base leading-7 text-gray-600"
+            >
+              <p>
+                At the same time, the dependence on external platforms, rising costs, and systems that organizations have no control over is growing.
+              </p>
+              <p>
+                We believe that AI should be closer to the organization — local, secure, and self-managed.<br />
+                So that you keep control over your data, your costs remain predictable, and you are not dependent on parties outside your own environment.
+              </p>
+            </div>
+            <div class="mt-10">
+              <NuxtLink
+                :to="localePath('/visie')"
+                class="inline-flex items-center justify-center rounded-full bg-black px-8 py-3 text-sm font-semibold text-white transition hover:bg-black hover:text-[#facc15]"
+              >
+                Read more about our vision
+              </NuxtLink>
+            </div>
           </div>
         </div>
       </section>
@@ -468,8 +772,8 @@
             </h2>
             <p class="mx-auto mt-5 max-w-3xl text-base leading-8 text-gray-300">
               For organizations, it is not only about what AI can do today, but
-              also whether it stays stable, affordable and manageable once it
-              really becomes part of daily operations.
+              also whether it remains stable, affordable and manageable once it
+              becomes part of daily operations.
             </p>
           </div>
 
@@ -488,7 +792,7 @@
               </div>
               <div class="p-4 md:p-5">
                 <img
-                  src="/images/aitje-client-screens.png"
+                  src="/images/aitje-workplace.png"
                   alt="AITJE interface"
                   class="h-[24rem] w-full rounded-[1.6rem] border border-white/8 object-cover md:h-[31rem]"
                 />
@@ -517,6 +821,7 @@
                       {{ reason.title }}
                     </h3>
                     <p
+                      v-if="reason.theme"
                       class="mt-1 text-[0.62rem] font-semibold uppercase tracking-[0.28em] text-[#facc15]"
                     >
                       {{ reason.theme }}
@@ -534,65 +839,6 @@
         </div>
       </section>
 
-      <section class="bg-[#fafafa] px-6 py-20">
-        <div
-          class="mx-auto max-w-5xl rounded-[2.5rem] border border-gray-200 bg-white p-8 shadow-sm md:p-10"
-        >
-          <div class="mx-auto max-w-4xl text-center">
-            <div class="overflow-hidden rounded-[2rem] bg-[#f5f5f5]">
-              <img
-                src="/images/wanneer-aitje.png"
-                alt="Our mission"
-                class="h-[16rem] w-full object-cover md:h-[22rem]"
-              />
-            </div>
-
-            <p
-              class="mt-8 text-sm font-semibold uppercase tracking-[0.4em] text-[#facc15]"
-            >
-              Our mission
-            </p>
-            <p class="mt-4 text-5xl font-black leading-none text-[#facc15]">
-              "
-            </p>
-            <blockquote
-              class="mx-auto mt-4 max-w-3xl text-2xl font-semibold leading-tight text-gray-900 md:text-3xl"
-            >
-              AI is here to stay. The more people and companies use it, the
-              more dependent we become on Big Tech from abroad.
-            </blockquote>
-            <div
-              class="mx-auto mt-8 max-w-3xl space-y-4 text-base leading-7 text-gray-600"
-            >
-              <p>
-                With AITJE, AI keeps working even when the internet or external
-                platforms fail. On the device, information remains available
-                locally through your own environment.
-              </p>
-              <p>
-                While prices of external providers may rise, we build our
-                solutions so that costs remain manageable and you become less
-                dependent on recurring platform costs.
-              </p>
-              <p>
-                Working locally is also better for the environment: fewer
-                endless calls to data centers and more efficient use of
-                hardware. Data stays closer to the organization, in Europe and
-                where needed fully local.
-              </p>
-            </div>
-            <div class="mt-10">
-              <NuxtLink
-                :to="localePath('/visie')"
-                class="inline-flex items-center justify-center rounded-full bg-black px-8 py-3 text-sm font-semibold text-white transition hover:bg-black hover:text-[#facc15]"
-              >
-                Read more about our vision
-              </NuxtLink>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section class="bg-[#fafafa] px-6 pt-28 pb-20">
         <div class="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.1fr_0.9fr]">
           <div class="space-y-6">
@@ -605,8 +851,7 @@
               Quickly get to the right page
             </h2>
             <p class="text-lg text-gray-700">
-              Check out our main pages for products, services, applications,
-              knowledge and contact.
+              Check out our main pages for products, services, applications, knowledge and contact.
             </p>
             <div
               class="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm"
@@ -622,6 +867,11 @@
                 </li>
               </ul>
             </div>
+            <img
+              src="/images/last-image-home.png"
+              alt="AITJE local AI solution"
+              class="w-full rounded-3xl border border-gray-200 bg-white object-cover shadow-sm"
+            />
           </div>
           <div
             class="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm"
@@ -632,11 +882,10 @@
               FAQ
             </p>
             <h3 class="mt-3 text-3xl font-black text-gray-900">
-              Frequently asked questions
+              Frequently Asked Questions
             </h3>
             <p class="mt-3 text-sm text-gray-600">
-              Short answers to questions about privacy, backups, custom work
-              and how AITJE works in practice.
+              Brief answers to questions about privacy, backups, customization and how AITJE works in practice.
             </p>
             <div class="mt-6 space-y-4">
               <div
@@ -674,36 +923,199 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { onBeforeUnmount, onMounted, ref } from "vue";
 import { serviceCatalog } from "@/data/serviceCatalog";
 import {
-  AppWindow,
-  Cpu,
+  Blocks,
+  BookOpen,
+  Bot,
   Droplet,
+  Globe,
+  Lock,
   Server,
   Shield,
   Sparkles,
+  Zap,
 } from "lucide-vue-next";
 
 const { localePath } = useSiteLocale();
 
-const phrases = ["On-premise AI for Dutch SMEs"];
+const phrases = ["Your partner in Edge & On-premise AI"];
 const heroStats = [
-  { label: "Works without internet", value: "100% independent" },
-  { label: "Better for the environment", value: "No cloud calls" },
-  { label: "AITJE thinks along", value: "Sovereignty in AI" },
+  { label: "Works without internet", value: "100% independent", icon: Zap },
+  { label: "Better for the environment", value: "No data center", icon: Droplet },
+  {
+    label: "AITJE thinks with you",
+    value: "Strategic partnership",
+    icon: Shield,
+  },
 ];
+
+const missionSectionRef = ref<HTMLElement | null>(null);
+const edgeMetricsSectionRef = ref<HTMLElement | null>(null);
+const missionCounterStarted = ref(false);
+const missionAnimationFrame = ref<number | null>(null);
+const missionObserver = ref<IntersectionObserver | null>(null);
+
+const missionRiskMetrics = ref([
+  {
+    label: "Price per 1K tokens",
+    target: 0.01,
+    prefix: "€",
+    decimals: 2,
+    value: 0,
+  },
+  {
+    label: "Liters water p/y",
+    target: 765,
+    suffix: " mld l",
+    decimals: 0,
+    value: 0,
+  },
+  {
+    label: "Outages per year",
+    target: 20,
+    suffix: "+",
+    decimals: 0,
+    value: 0,
+  },
+  {
+    label: "Records leaked",
+    target: 195,
+    suffix: " mln",
+    decimals: 0,
+    value: 0,
+  },
+]);
+
+const missionEdgeMetrics = ref([
+  {
+    label: "Dependencies",
+    target: 0,
+    decimals: 0,
+    value: 0,
+  },
+  {
+    label: "Available internally",
+    target: 24,
+    suffix: "/7",
+    decimals: 0,
+    value: 0,
+  },
+  {
+    label: "Local storage",
+    target: 100,
+    suffix: "%",
+    decimals: 0,
+    value: 0,
+  },
+  {
+    label: "Per prompt",
+    target: 0,
+    prefix: "€",
+    decimals: 0,
+    value: 0,
+  },
+]);
+
+const easeOutCubic = (t: number) => 1 - (1 - t) ** 3;
+
+const formatMissionMetric = (item: {
+  value: number;
+  prefix?: string;
+  suffix?: string;
+  decimals?: number;
+}) => {
+  const formattedValue =
+    item.decimals && item.decimals > 0
+      ? item.value.toLocaleString("en-US", {
+          minimumFractionDigits: item.decimals,
+          maximumFractionDigits: item.decimals,
+        })
+      : Math.round(item.value).toLocaleString("en-US");
+
+  return `${item.prefix ?? ""}${formattedValue}${item.suffix ?? ""}`;
+};
+
+const startMissionCounters = () => {
+  if (missionCounterStarted.value || typeof window === "undefined") {
+    return;
+  }
+
+  missionCounterStarted.value = true;
+  const duration = 1800;
+  const start = window.performance.now();
+
+  const tick = (now: number) => {
+    const progress = Math.min((now - start) / duration, 1);
+    const eased = easeOutCubic(progress);
+
+    missionRiskMetrics.value = missionRiskMetrics.value.map((item) => ({
+      ...item,
+      value: item.target * eased,
+    }));
+
+    missionEdgeMetrics.value = missionEdgeMetrics.value.map((item) => ({
+      ...item,
+      value: item.target * eased,
+    }));
+
+    if (progress < 1) {
+      missionAnimationFrame.value = window.requestAnimationFrame(tick);
+    }
+  };
+
+  missionAnimationFrame.value = window.requestAnimationFrame(tick);
+};
+
+onMounted(() => {
+  if (typeof window === "undefined") {
+    return;
+  }
+
+  const observedSections = [
+    edgeMetricsSectionRef.value,
+    missionSectionRef.value,
+  ].filter(Boolean) as HTMLElement[];
+
+  if (!observedSections.length) {
+    return;
+  }
+
+  missionObserver.value = new IntersectionObserver(
+    (entries) => {
+      if (!entries.some((entry) => entry.isIntersecting)) return;
+      startMissionCounters();
+      missionObserver.value?.disconnect();
+    },
+    {
+      threshold: [0.2],
+      rootMargin: "0px 0px -20% 0px",
+    },
+  );
+
+  observedSections.forEach((section) => {
+    missionObserver.value?.observe(section);
+  });
+});
+
+onBeforeUnmount(() => {
+  missionObserver.value?.disconnect();
+  if (typeof window !== "undefined" && missionAnimationFrame.value) {
+    window.cancelAnimationFrame(missionAnimationFrame.value);
+  }
+});
 
 const reasons = [
   {
     title: "Dependency",
     theme: "Business continuity",
     problem:
-      "When you experience an internet outage or an external AI platform becomes unavailable, you immediately lose time and continuity.",
+      "When you experience an internet outage or an external AI platform is unavailable, you immediately lose time and continuity.",
     solution:
-      "AITJE hardware keeps working locally and remains accessible through your own network, so teams can continue working independently.",
+      "AITJE hardware keeps working locally and remains accessible through your own network, so teams can continue independently.",
     summary:
-      "When you experience an internet outage or an external AI platform becomes unavailable, you immediately lose time and continuity. AITJE hardware keeps working locally and remains accessible through your own network, so teams can continue working independently.",
+      "When you experience an internet outage or an external AI platform is unavailable, you immediately lose time and continuity. AITJE hardware keeps working locally and remains accessible through your own network, so teams can continue independently.",
     icon: Server,
   },
   {
@@ -712,93 +1124,112 @@ const reasons = [
     problem:
       "Usage costs of external AI platforms add up, while you have little control over subscriptions, price changes and the choices of foreign providers.",
     solution:
-      "With AITJE, you structurally reduce dependence on recurring AI costs and decide yourself when extra services, upgrades or cloud capacity are needed.",
+      "With AITJE, you structurally reduce dependence on recurring AI costs.",
     summary:
-      "Usage costs of external AI platforms add up, while you have little control over subscriptions, price changes and the choices of foreign providers. With AITJE, you structurally reduce dependence on recurring AI costs and decide yourself when extra services, upgrades or cloud capacity are needed.",
+      "Usage costs of external AI platforms add up, while you have little control over subscriptions, price changes and the choices of foreign providers. With AITJE, you structurally reduce dependence on recurring AI costs.",
     icon: Sparkles,
   },
   {
     title: "Privacy",
-    theme: "Control over data",
+    theme: "",
     problem:
-      "Sharing sensitive information with other countries or external parties brings extra risks, especially during political tension, hacks and stricter privacy requirements.",
+      "Sharing sensitive information with other countries or external parties brings extra risk, especially during political tension, hacks and stricter privacy requirements.",
     solution:
-      "With AITJE, you keep company information, personal data and other sensitive data under your own control, locally or within Europe, in line with GDPR requirements.",
+      "With AITJE, you keep company information, personal data and other sensitive data under your own control.",
     summary:
-      "Sharing sensitive information with other countries or external parties brings extra risks, especially during political tension, hacks and stricter privacy requirements. With AITJE, you keep company information, personal data and other sensitive data under your own control, locally or within Europe, in line with GDPR requirements.",
+      "Sharing sensitive information with other countries or external parties brings extra risk, especially during political tension, hacks and stricter privacy requirements. With AITJE, you keep company information, personal data and other sensitive data under your own control.",
     icon: Shield,
   },
   {
     title: "Climate",
     theme: "More conscious use",
     problem:
-      "Large numbers of cloud requests require a lot of compute power, energy and cooling in external infrastructure.",
+      "Large AI tech companies process enormous volumes of requests in data centers that require major compute power, energy, water and cooling.",
     solution:
-      "By working locally on the device, you reduce unnecessary traffic to external data centers, and for cloud solutions we use green hosting.",
+      "With AITJE, you work locally on your own device, reducing dependence on external AI data centers and limiting unnecessary cloud traffic.",
     summary:
-      "Large numbers of cloud requests require a lot of compute power, energy and cooling in external infrastructure. By working locally on the device, you reduce unnecessary traffic to external data centers, and for cloud solutions we use green hosting.",
+      "Large AI tech companies process enormous volumes of requests in data centers that require major compute power, energy, water and cooling. With AITJE, you work locally on your own device, reducing dependence on external AI data centers and limiting unnecessary cloud traffic.",
     icon: Droplet,
   },
 ];
 
 const productHighlights = [
-  "Advice on where AI has the most impact within your organization",
+  "Advice on where AI has the most impact inside your organization",
   "Hardware for local edge AI and your own infrastructure",
-  "Focus on working without internet, with data in Europe / the Netherlands",
-  "Agents, custom applications and practical workflows",
+  "Focus on working without internet",
+  "Extensions for existing products",
 ];
 
 const features = [
   {
-    title: "AITJE Assistant",
+    title: "Products",
     description:
-      "Multiple devices for different needs, from fixed tiers to personally built solutions, all on our own OS with local AI and API.",
-    icon: Server,
-    link: localePath("/aitje-pro"),
-    cta: "View product",
+      "Different hardware for different needs: out-of-the-box solutions with fixed tiers, our own OS, Edge AI and a local API.",
+    icon: Bot,
+    link: localePath("/producten"),
+    cta: "View products",
   },
   {
-    title: "AITJE Solutions",
+    title: "Services",
     description:
-      "Custom solutions such as agents, workflows, voice assistants and where needed your own hardware for the application.",
-    icon: Cpu,
+      "Help with installation, expansion, consultancy, AI strategy and SLA support for organizations that want to work with AI locally.",
+    icon: Blocks,
     link: localePath("/diensten"),
     cta: "View services",
   },
+];
+
+const hardwareShowcase = [
   {
-    title: "Software marketplace",
+    label: "Hardware",
+    title: "AITJE Assistent",
+    image: "/images/aitje-cubes.png",
+    link: localePath("/producten/hardware/aitje-assistent"),
     description:
-      "Existing solutions and integrations for CMS systems and other commonly used digital environments.",
-    icon: AppWindow,
-    link: localePath("/producten"),
-    cta: "View product",
+      "The local AI assistant with external knowledge base, API access through your network, web search and language models of your choice.",
+  },
+  {
+    label: "Hardware",
+    title: "AITJE Custom",
+    image: "/images/custom-suited.png",
+    link: localePath("/producten/hardware/aitje-custom"),
+    description:
+      "For situations where standard hardware is not an exact fit and you need more performance or specific integrations.",
+  },
+  {
+    label: "Software",
+    title: "AITJE Assistent OS",
+    image: "/images/os-screenshots/chatassistent.jpeg",
+    link: localePath("/producten/software/aitje-assistent-os"),
+    description:
+      "The local cockpit on the cube where chat, knowledge, maps, devices and management come together.",
   },
 ];
 
 const productShowcase = [
   {
     label: "Product",
-    title: "AITJE Assistant",
+    title: "AITJE Assistent",
     image: "/images/aitje-cubes.png",
-    link: localePath("/producten/aitje-assistent"),
+    link: localePath("/producten/hardware/aitje-assistent"),
     description:
-      "The local AI assistant on its own hardware with knowledge base, offline availability and API access.",
+      "The local AI assistant with external knowledge base, API access through your network, web search and language models of your choice.",
     cta: "View product",
   },
   {
     label: "Product",
-    title: "AITJE Assistant+",
+    title: "AITJE Assistent+",
     image: "/images/aitje-cubes.png",
-    link: localePath("/producten/aitje-assistent"),
+    link: localePath("/producten/hardware/aitje-assistent"),
     description:
-      "The expanded variant of AITJE Assistant for organizations that want more power, room and growth.",
+      "The expanded variant of AITJE Assistent for organizations that want more power, intelligence and room to grow.",
     cta: "View product",
   },
   {
     label: "Product",
     title: "AITJE Custom",
     image: "/images/custom-suited.png",
-    link: localePath("/producten/aitje-custom"),
+    link: localePath("/producten/hardware/aitje-custom"),
     description:
       "For situations where standard hardware is not an exact fit and you need more performance or specific integrations.",
     cta: "View product",
@@ -808,31 +1239,38 @@ const productShowcase = [
     title: "AITJE Coder",
     image: "/images/birds.png",
     description:
-      "For organizations and teams that want to code, adapt and build faster with AI in a controlled environment.",
+      "For organizations and teams that want a subscription-independent coding agent available through the local network.",
     status: "In development",
     cta: "Not launched yet",
   },
 ];
 
-const productShowcaseMarquee = [...productShowcase, ...productShowcase];
-
 const homeServices = serviceCatalog.map((service) => ({
   ...service,
-  sidebarLabel: service.sidebarLabel,
   title:
-    service.key === "installation" ? "Product installation" :
-    service.key === "expansion" ? "Product expansion" :
-    service.key === "custom" ? "AITJE Custom" :
-    service.key === "consultancy" ? "Consultancy" :
-    service.key === "strategy" ? "AI strategy" :
-    "SLA",
+    service.key === "installation"
+      ? "Product installation"
+      : service.key === "expansion"
+        ? "Product expansion"
+        : service.key === "custom"
+          ? "AITJE Custom"
+          : service.key === "consultancy"
+            ? "Consultancy"
+            : service.key === "strategy"
+              ? "AI strategy"
+              : "SLA",
   focus:
-    service.key === "installation" ? "Implementation" :
-    service.key === "expansion" ? "Further development" :
-    service.key === "custom" ? "Custom route" :
-    service.key === "consultancy" ? "Cost & stability" :
-    service.key === "strategy" ? "Strategy" :
-    "Monthly collaboration",
+    service.key === "installation"
+      ? "Implementation"
+      : service.key === "expansion"
+        ? "Further development"
+        : service.key === "custom"
+          ? "Custom route"
+          : service.key === "consultancy"
+            ? "Cost & stability"
+            : service.key === "strategy"
+              ? "Strategy"
+              : "Monthly collaboration",
   description:
     service.key === "installation"
       ? "We help with installation, permissions, knowledge base sync and technical setup so AITJE products land in your environment ready to use."
@@ -843,33 +1281,15 @@ const homeServices = serviceCatalog.map((service) => ({
           : service.key === "consultancy"
             ? "We analyze current AI use and look at where cost, stability and dependency can be improved."
             : service.key === "strategy"
-              ? "We help determine where AI adds the most value now, what Edge AI does and does not make sense for and which first steps are realistic."
+              ? "We help determine where AI adds the most value now, where Edge AI does and does not make sense and which first steps are realistic."
               : "A monthly collaboration for support, updates, reserved time, installation help and advice around products and Edge AI implementations.",
-  result:
-    service.key === "installation"
-      ? "A stable start without loose technical ends or unclear handover."
-      : service.key === "expansion"
-        ? "A next step that connects logically to what is already there, without starting over."
-        : service.key === "custom"
-          ? "A route that better matches the real situation of the organization."
-          : service.key === "consultancy"
-            ? "More control over usage, vendors and practical AI deployment."
-            : service.key === "strategy"
-              ? "A concrete plan that lets you move forward without getting lost in all the AI options."
-              : "Ongoing support without having to solve everything ad hoc.",
-  fit:
-    service.key === "installation"
-      ? "For organizations choosing a product and wanting the go-live to be right from the start."
-      : service.key === "expansion"
-        ? "For organizations already working with AITJE and wanting to scale or broaden in a controlled way."
-        : service.key === "custom"
-          ? "For organizations with unusual requirements, specific hardware wishes or more complex processes than the fixed line supports."
-          : service.key === "consultancy"
-            ? "For teams already using AI but lacking enough overview of cost, risk and continuity."
-            : service.key === "strategy"
-              ? "For organizations that first want clarity on direction, opportunities and the role of local Edge AI."
-              : "For organizations that want continuity without having to switch per incident every time.",
 }));
+
+const servicePreview = (description: string, key?: string) =>
+  description
+    .split(/\s+/)
+    .slice(0, key === "sla" ? 7 : 8)
+    .join(" ");
 
 const handyLinks = [
   {
@@ -915,7 +1335,7 @@ const homepageFaqs = [
   {
     question: "Does AITJE make backups?",
     answer:
-      "On request we can set this up for you, for example for a knowledge base backup.",
+      "On request, we can set this up for you, for example for a knowledge base backup.",
   },
   {
     question: "Do you also build custom solutions?",
@@ -935,6 +1355,27 @@ const homepageFaqs = [
 ];
 
 const currentPhrase = ref(0);
+
+useHead({
+  script: [
+    {
+      type: "application/ld+json",
+      key: "homepage-faq-structured-data",
+      innerHTML: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: homepageFaqs.map((item) => ({
+          "@type": "Question",
+          name: item.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: item.answer,
+          },
+        })),
+      }),
+    },
+  ],
+});
 </script>
 
 <style scoped>
@@ -961,20 +1402,165 @@ const currentPhrase = ref(0);
   transform-origin: center;
 }
 
-.showcase-marquee {
-  animation: showcase-marquee 42s linear infinite;
+.bird-flight {
+  display: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  overflow: clip;
+  pointer-events: none;
+  z-index: 0;
 }
 
-.showcase-marquee:hover {
-  animation-play-state: paused;
+.bird-container {
+  position: absolute;
+  left: 0;
+  top: 30%;
+  transform: scale(0.35) translateX(-16vw);
+  will-change: transform;
 }
 
-@keyframes showcase-marquee {
-  from {
-    transform: translateX(0);
+.bird-container-one {
+  animation: fly-right-one 11s linear infinite;
+  animation-delay: 0s;
+}
+
+.bird-container-two {
+  animation: fly-right-two 12s linear infinite;
+  animation-delay: 2s;
+}
+
+.bird-container-three {
+  animation: fly-right-three 10.5s linear infinite;
+  animation-delay: 4.5s;
+}
+
+.bird-container-four {
+  animation: fly-right-four 11.5s linear infinite;
+  animation-delay: 6.5s;
+}
+
+.bird {
+  width: 88px;
+  height: 125px;
+  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/174479/bird-cells-new.svg");
+  background-size: auto 100%;
+  background-position: 0 0;
+  animation: flap 0.95s steps(10) infinite;
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+}
+
+@media (min-width: 1024px) {
+  .bird-flight {
+    display: block;
   }
-  to {
-    transform: translateX(calc(-50% - 0.625rem));
+}
+
+@keyframes flap {
+  100% {
+    background-position: -880px 0;
+  }
+}
+
+@keyframes fly-right-one {
+  0% {
+    transform: scale(0.35) translateX(-16vw) translateY(6vh);
+  }
+  20% {
+    transform: scale(0.4) translateX(20vw) translateY(1vh);
+  }
+  45% {
+    transform: scale(0.42) translateX(45vw) translateY(-4vh);
+  }
+  70% {
+    transform: scale(0.38) translateX(75vw) translateY(3vh);
+  }
+  100% {
+    transform: scale(0.35) translateX(116vw) translateY(8vh);
+  }
+}
+
+@keyframes fly-right-two {
+  0% {
+    transform: scale(0.3) translateX(-18vw) translateY(-5vh);
+  }
+  30% {
+    transform: scale(0.35) translateX(28vw) translateY(-10vh);
+  }
+  55% {
+    transform: scale(0.4) translateX(58vw) translateY(-6vh);
+  }
+  80% {
+    transform: scale(0.34) translateX(90vw) translateY(-12vh);
+  }
+  100% {
+    transform: scale(0.3) translateX(118vw) translateY(-7vh);
+  }
+}
+
+@keyframes fly-right-three {
+  0% {
+    transform: scale(0.28) translateX(-20vw) translateY(12vh);
+  }
+  35% {
+    transform: scale(0.32) translateX(35vw) translateY(5vh);
+  }
+  70% {
+    transform: scale(0.3) translateX(78vw) translateY(10vh);
+  }
+  100% {
+    transform: scale(0.26) translateX(118vw) translateY(14vh);
+  }
+}
+
+@keyframes fly-right-four {
+  0% {
+    transform: scale(0.24) translateX(-22vw) translateY(-14vh);
+  }
+  30% {
+    transform: scale(0.29) translateX(30vw) translateY(-18vh);
+  }
+  65% {
+    transform: scale(0.27) translateX(70vw) translateY(-12vh);
+  }
+  100% {
+    transform: scale(0.24) translateX(118vw) translateY(-16vh);
+  }
+}
+
+@media (max-width: 768px) {
+  .bird {
+    width: 66px;
+    height: 94px;
+    animation-duration: 1.1s;
+    opacity: 0.75;
+  }
+
+  .bird-container-one {
+    animation-duration: 9.5s;
+  }
+
+  .bird-container-two {
+    animation-duration: 10.5s;
+  }
+
+  .bird-container-three {
+    animation-duration: 9s;
+  }
+
+  .bird-container-four {
+    animation-duration: 10s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bird,
+  .bird-container {
+    animation: none !important;
   }
 }
 </style>

@@ -274,6 +274,18 @@ const servicePanels = serviceCatalog;
 
 const selectedServiceKey = ref<(typeof servicePanels)[number]["key"]>("installation");
 
+const route = useRoute();
+
+const selectServiceFromHash = (hash: string) => {
+  const key = hash.replace("#", "");
+  if (servicePanels.some((service) => service.key === key)) {
+    selectedServiceKey.value = key as (typeof servicePanels)[number]["key"];
+  }
+};
+
+onMounted(() => selectServiceFromHash(route.hash));
+watch(() => route.hash, selectServiceFromHash);
+
 const activeService = computed(
   () =>
     servicePanels.find((service) => service.key === selectedServiceKey.value)
