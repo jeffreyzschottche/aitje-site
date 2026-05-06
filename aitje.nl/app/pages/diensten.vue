@@ -11,11 +11,14 @@
           Diensten
         </p>
         <h1 class="mt-4 text-5xl font-black text-gray-900">
-          Praktische begeleiding naast de producten van AITJE
+          Strategisch AI-partnerschap
         </h1>
         <p class="mt-6 text-lg text-gray-600">
-          Simpel gehouden: geen breed dienstenmenu, maar gerichte begeleiding
-          die logisch aansluit op de productlijn.
+          AITJE begeleidt organisaties bij het inzetten van on-premise en edge
+          AI. We helpen met strategie, inrichting, maatwerk en doorontwikkeling,
+          als losse diensten of als concrete afspraken binnen een SLA. Zo
+          sluiten onze oplossingen en toekomstige uitbreidingen aan op je
+          organisatie, in plaats van andersom.
         </p>
       </section>
 
@@ -24,32 +27,58 @@
           class="overflow-hidden rounded-[2.5rem] border border-gray-200 bg-white shadow-sm"
         >
           <div class="grid gap-0 md:grid-cols-[0.72fr_1.28fr]">
-            <div class="border-b border-gray-200 bg-[#faf7ea] md:border-b-0 md:border-r">
+            <div
+              class="overflow-hidden border-b border-gray-200 md:border-b-0 md:border-r"
+            >
               <img
-                src="/images/custom-suited.png"
+                src="/images/aitje-nature-pic.png"
                 alt="AITJE dienstverlening"
                 class="h-full min-h-[18rem] w-full object-cover"
+                style="object-position: center 58%"
               />
             </div>
 
             <div class="p-8 md:p-10">
-              <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
-                Opzet
+              <p
+                class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
+              >
+                Aanpak
               </p>
               <h2 class="mt-3 text-3xl font-black text-gray-900">
-                Kleiner, duidelijker en direct bruikbaar
+                Praktisch, nuchter, efficiënt
               </h2>
-              <div class="mt-5 space-y-4 text-base leading-8 text-gray-600">
-                <p>
-                  Geen breed agency-menu meer. De diensten van AITJE zijn bewust
-                  teruggebracht naar vier routes die logisch aansluiten op de
-                  productlijn: AI-strategie, consultancy, custom en SLA.
-                </p>
-                <p>
-                  We denken mee over richting, inzet en implementatie zonder er
-                  een wollig consultancyverhaal van te maken.
-                </p>
-              </div>
+              <ul class="mt-5 space-y-3 text-base leading-8 text-gray-600">
+                <li class="flex gap-3">
+                  <span
+                    class="mt-3 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"
+                  ></span>
+                  <span
+                    >Losse diensten beschikbaar voor een vast uurtarief zonder
+                    partnerschap.</span
+                  >
+                </li>
+                <li class="flex gap-3">
+                  <span
+                    class="mt-3 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"
+                  ></span>
+                  <span>Concrete afspraken binnen onze SLA.</span>
+                </li>
+                <li class="flex gap-3">
+                  <span
+                    class="mt-3 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"
+                  ></span>
+                  <span>Mogelijkheid voor storingslijn en ticket support.</span>
+                </li>
+                <li class="flex gap-3">
+                  <span
+                    class="mt-3 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"
+                  ></span>
+                  <span
+                    >Producten zo gemaakt dat we op afstand kunnen meekijken,
+                    alleen met toestemming.</span
+                  >
+                </li>
+              </ul>
             </div>
           </div>
         </article>
@@ -67,7 +96,9 @@
             >
               <component :is="card.icon" class="h-6 w-6" />
             </div>
-            <p class="mt-5 text-xs font-semibold uppercase tracking-[0.35em] text-[#facc15]">
+            <p
+              class="mt-5 text-xs font-semibold uppercase tracking-[0.35em] text-[#facc15]"
+            >
               {{ card.badge }}
             </p>
             <h2 class="mt-2 text-2xl font-black text-gray-900">
@@ -82,8 +113,12 @@
 
       <section class="mx-auto mt-16 max-w-7xl">
         <div class="grid gap-6 lg:grid-cols-[0.34fr_0.66fr]">
-          <aside class="rounded-[2.5rem] border border-gray-200 bg-white p-6 shadow-sm">
-            <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
+          <aside
+            class="rounded-[2.5rem] border border-gray-200 bg-white p-6 shadow-sm"
+          >
+            <p
+              class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
+            >
               Diensten
             </p>
             <div class="mt-5 space-y-3">
@@ -92,14 +127,20 @@
                 :key="service.key"
                 type="button"
                 class="w-full rounded-[1.5rem] border px-5 py-4 text-left transition"
-                :class="selectedServiceKey === service.key
-                  ? 'border-[#facc15] bg-[#212121] text-white'
-                  : 'border-gray-200 bg-[#fafafa] text-gray-900 hover:border-[#facc15]'"
+                :class="
+                  selectedServiceKey === service.key
+                    ? 'border-[#facc15] bg-[#212121] text-white'
+                    : 'border-gray-200 bg-[#fafafa] text-gray-900 hover:border-[#facc15]'
+                "
                 @click="selectedServiceKey = service.key"
               >
                 <p
                   class="text-xs font-semibold uppercase tracking-[0.32em]"
-                  :class="selectedServiceKey === service.key ? 'text-[#facc15]' : 'text-gray-400'"
+                  :class="
+                    selectedServiceKey === service.key
+                      ? 'text-[#facc15]'
+                      : 'text-gray-400'
+                  "
                 >
                   {{ service.sidebarLabel }}
                 </p>
@@ -110,8 +151,12 @@
             </div>
           </aside>
 
-          <article class="rounded-[2.5rem] border border-gray-200 bg-white p-8 shadow-sm lg:p-10">
-            <p class="text-xs font-semibold uppercase tracking-[0.35em] text-[#facc15]">
+          <article
+            class="rounded-[2.5rem] border border-gray-200 bg-white p-8 shadow-sm lg:p-10"
+          >
+            <p
+              class="text-xs font-semibold uppercase tracking-[0.35em] text-[#facc15]"
+            >
               {{ activeService.focus }}
             </p>
             <h2 class="mt-3 text-4xl font-black text-gray-900">
@@ -122,7 +167,9 @@
             </p>
 
             <div class="mt-8 rounded-[1.75rem] bg-[#fafafa] p-5">
-              <p class="text-xs font-semibold uppercase tracking-[0.35em] text-gray-500">
+              <p
+                class="text-xs font-semibold uppercase tracking-[0.35em] text-gray-500"
+              >
                 Resultaat
               </p>
               <p class="mt-2 text-sm leading-7 text-gray-700">
@@ -132,7 +179,9 @@
 
             <div class="mt-8 grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
               <div class="rounded-[1.75rem] border border-gray-100 p-5">
-                <p class="text-xs font-semibold uppercase tracking-[0.35em] text-gray-500">
+                <p
+                  class="text-xs font-semibold uppercase tracking-[0.35em] text-gray-500"
+                >
                   Wat we opleveren
                 </p>
                 <ul class="mt-4 space-y-3 text-sm text-gray-700">
@@ -141,13 +190,17 @@
                     :key="item"
                     class="flex items-start gap-3"
                   >
-                    <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"></span>
+                    <span
+                      class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"
+                    ></span>
                     <span>{{ item }}</span>
                   </li>
                 </ul>
               </div>
               <div class="rounded-[1.75rem] bg-[#212121] p-5 text-white">
-                <p class="text-xs font-semibold uppercase tracking-[0.35em] text-[#facc15]">
+                <p
+                  class="text-xs font-semibold uppercase tracking-[0.35em] text-[#facc15]"
+                >
                   Past bij
                 </p>
                 <p class="mt-3 text-sm leading-7 text-gray-300">
@@ -167,19 +220,53 @@
 
       <section class="mx-auto mt-16 max-w-7xl">
         <div class="grid items-center gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-          <article class="rounded-[2.5rem] bg-[#212121] px-8 py-10 text-white lg:px-10">
+          <article
+            class="rounded-[2.5rem] bg-[#212121] px-8 py-10 text-white lg:px-10"
+          >
             <div class="mx-auto flex max-w-2xl flex-col justify-center">
-              <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
+              <p
+                class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
+              >
                 Prijs & volgende stap
               </p>
               <h2 class="mt-3 text-4xl font-black">
                 Vraag een prijslijst of offerte aan
               </h2>
               <p class="mt-4 text-sm leading-7 text-gray-300">
-                Producten, diensten en SLA zijn bewust niet uitgewerkt als losse
-                prijsblokjes op de pagina. We houden de site helder en sturen door
-                naar een prijslijst, offerte of kennismaking zodra de vraag concreet is.
+                We houden de website bewust gefocust op wat onze producten en
+                diensten voor je kunnen betekenen. Daarom tonen we niet overal
+                losse prijsblokken of standaardpakketten.
               </p>
+              <p class="mt-4 text-sm leading-7 text-gray-300">
+                Heb je interesse? Dan denken we graag met je mee. Je kunt altijd
+                contact opnemen voor:
+              </p>
+              <ul class="mt-4 space-y-2 text-sm leading-7 text-gray-300">
+                <li class="flex gap-3">
+                  <span
+                    class="mt-3 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"
+                  ></span>
+                  <span>ons uurtarief</span>
+                </li>
+                <li class="flex gap-3">
+                  <span
+                    class="mt-3 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"
+                  ></span>
+                  <span>een actuele prijslijst</span>
+                </li>
+                <li class="flex gap-3">
+                  <span
+                    class="mt-3 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"
+                  ></span>
+                  <span>een offerte op maat</span>
+                </li>
+                <li class="flex gap-3">
+                  <span
+                    class="mt-3 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"
+                  ></span>
+                  <span>een vrijblijvende kennismaking</span>
+                </li>
+              </ul>
               <div class="mt-8 flex flex-col gap-3 sm:flex-row">
                 <NuxtLink
                   to="/contact?onderwerp=prijslijst"
@@ -197,14 +284,18 @@
             </div>
           </article>
 
-          <article class="overflow-hidden rounded-[2.5rem] border border-gray-200 bg-white shadow-sm">
+          <article
+            class="overflow-hidden rounded-[2.5rem] border border-gray-200 bg-white shadow-sm"
+          >
             <img
               src="/images/aitje-product.png"
               alt="AITJE producten en diensten"
               class="h-56 w-full object-cover"
             />
             <div class="p-8">
-              <p class="text-xs font-semibold uppercase tracking-[0.35em] text-[#facc15]">
+              <p
+                class="text-xs font-semibold uppercase tracking-[0.35em] text-[#facc15]"
+              >
                 Waarom dit smaller is
               </p>
               <h2 class="mt-3 text-3xl font-black text-gray-900">
@@ -212,23 +303,37 @@
               </h2>
               <ul class="mt-6 space-y-3 text-sm text-gray-700">
                 <li class="flex items-start gap-3">
-                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"></span>
-                  <span>Duidelijker onderscheid tussen product, dienst en custom route.</span>
+                  <span
+                    class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"
+                  ></span>
+                  <span
+                    >Duidelijker onderscheid tussen product, dienst en custom
+                    route.</span
+                  >
                 </li>
                 <li class="flex items-start gap-3">
-                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"></span>
-                  <span>Betere aansluiting op organisaties die geen vaag maatwerkverhaal zoeken.</span>
+                  <span
+                    class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"
+                  ></span>
+                  <span
+                    >Betere aansluiting op organisaties die geen vaag
+                    maatwerkverhaal zoeken.</span
+                  >
                 </li>
                 <li class="flex items-start gap-3">
-                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"></span>
-                  <span>Een geloofwaardiger site waarin begeleiding de productlijn versterkt.</span>
+                  <span
+                    class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"
+                  ></span>
+                  <span
+                    >Een geloofwaardiger site waarin begeleiding de productlijn
+                    versterkt.</span
+                  >
                 </li>
               </ul>
             </div>
           </article>
         </div>
       </section>
-
     </main>
 
     <BottomCta />
@@ -256,23 +361,24 @@ const introCards = [
   },
   {
     badge: "Custom",
-    title: "Alleen als standaard niet past",
+    title: "Waar nodig",
     description:
       "AITJE Custom blijft bestaan, maar als gerichte route in plaats van een breed maatwerklabel. Kleiner en duidelijker.",
     icon: Sparkles,
   },
   {
     badge: "Continuiteit",
-    title: "Regie en continuiteit",
+    title: "Ultieme vrijheid",
     description:
-      "De focus ligt op meer grip op AI-gebruik, minder afhankelijkheid en keuzes die op lange termijn houdbaar zijn.",
+      "Kies zelf: losse producten, diensten erbij of een periodiek opzegbare SLA. Jij houdt regie, wij staan naast je.",
     icon: Leaf,
   },
 ];
 
 const servicePanels = serviceCatalog;
 
-const selectedServiceKey = ref<(typeof servicePanels)[number]["key"]>("installation");
+const selectedServiceKey =
+  ref<(typeof servicePanels)[number]["key"]>("installation");
 
 const route = useRoute();
 
@@ -288,8 +394,8 @@ watch(() => route.hash, selectServiceFromHash);
 
 const activeService = computed(
   () =>
-    servicePanels.find((service) => service.key === selectedServiceKey.value)
-    ?? servicePanels[0],
+    servicePanels.find((service) => service.key === selectedServiceKey.value) ??
+    servicePanels[0],
 );
 
 const services = [
@@ -315,8 +421,7 @@ const services = [
     focus: "Kosten & stabiliteit",
     description:
       "We analyseren huidig AI-gebruik en kijken waar kosten, stabiliteit en afhankelijkheid verbeterd kunnen worden.",
-    result:
-      "Meer grip op verbruik, leveranciers en praktische inzet van AI.",
+    result: "Meer grip op verbruik, leveranciers en praktische inzet van AI.",
     details: [
       "Analyse van huidige AI-stack en verbruik",
       "Lagere afhankelijkheid van externe platformen waar logisch",
@@ -349,8 +454,7 @@ const services = [
     focus: "Maandelijkse samenwerking",
     description:
       "Een maandelijkse samenwerking voor support, updates, gereserveerde tijd, installatiehulp en advies rond producten en Edge AI-implementaties.",
-    result:
-      "Doorlopende ondersteuning zonder alles ad hoc te hoeven oplossen.",
+    result: "Doorlopende ondersteuning zonder alles ad hoc te hoeven oplossen.",
     details: [
       "Vaste tijd en ondersteuning per maand",
       "Updates van modellen en software wanneer nodig",
@@ -362,5 +466,4 @@ const services = [
     link: "/diensten/sla",
   },
 ];
-
 </script>

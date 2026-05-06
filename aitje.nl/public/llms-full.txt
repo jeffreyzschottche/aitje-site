@@ -129,11 +129,11 @@ AITJE is een klein team met een duidelijke overtuiging: AI moet helder, verantwo
 
 ## Technische details
 
-- **LLM runtime**: Voornamelijk Ollama, optioneel vLLM
-- **Modellen**: Geen vaste voorkeur; Gemma-modellen werken goed voor algemene use cases. Modellen kunnen worden aangepast en geüpdatet.
+- **LLM/internet**: AITJE-producten kunnen AI gebruiken zolang er internet beschikbaar is op het wifi- of lokale netwerk.
+- **Modellen**: Geen vaste voorkeur; Gemma, Qwen en DeepSeek-modellen werken vaak sterk voor algemene use cases. Modellen kunnen worden aangepast en geüpdatet.
 - **Backend**: Python, .NET, PHP, Laravel, Node.js
-- **Frontend**: Nuxt 3, Vue
-- **AI frameworks**: FastAPI, Qdrant (vector database)
+- **Frontend**: Nuxt, Vue
+- **AI frameworks en tools**: FastAPI, Qdrant, Internal Lemonade Server, SearXNG
 - **Servers**: Nederland of Duitsland, nooit buiten Europa
 - **Lokaal/hybride**: Lokaal waar het kan, hybride waar het nodig is
 
@@ -144,10 +144,16 @@ AITJE is een klein team met een duidelijke overtuiging: AI moet helder, verantwo
 ### Producten
 
 **Wat is AITJE Assistent precies?**
-AITJE Assistent is een mini-computer geoptimaliseerd met eigen OS. Je krijgt een lokale LLM, kennisbank voor documenten, offline maps en een AI-powered kennissysteem dat ook zonder internet bereikbaar blijft.
+AITJE Assistent is een mini computer die geoptimaliseerd is met onze eigen software. Je krijgt een lokale LLM, een door AITJE gemaakte kennisbank om je documenten te verwerken zodat ze in de LLM gebruikt kunnen worden en een AI powered kennis systeem dat ook zonder internet bereikbaar blijft.
 
 **Doet AITJE ook aan custom build hardware?**
-Ja. En als we je niet volledig kunnen helpen, hebben we een netwerk van specialisten.
+Ja. En als we je niet volledig kunnen helpen binnen jouw specifieke expertise, hebben we een stabiel netwerk van specialisten waarmee we je wens kunnen realiseren.
+
+**Wat is AITJE Coder?**
+AITJE Coder is een manier om te programmeren zonder Claude Code, Codex of Gemini. Je hebt een coding agent beschikbaar via ons hardware device. Geen abonnementen, geen storingen. Een coding partner die bereikbaar is zolang je internet hebt.
+
+**Hoeveel kosten jullie producten?**
+Vraag een prijslijst of offerte aan via /contact?onderwerp=offerte.
 
 ### Techniek
 
@@ -155,13 +161,16 @@ Ja. En als we je niet volledig kunnen helpen, hebben we een netwerk van speciali
 Python, .NET, PHP, Laravel en Node.js.
 
 **Welke frameworks en tools?**
-Nuxt 3, FastAPI, Laravel, Blazor, PySide en Qdrant.
+Afhankelijk van de oplossing gebruiken we voor frontend en interfaces onder andere Nuxt, en voor backend en services bijvoorbeeld FastAPI, Laravel, Blazor, PySide, Qdrant, Internal Lemonade Server en SearXNG.
 
-**Hoe runnen jullie de LLM?**
-Voornamelijk Ollama. Als het nodig is ook vLLM.
+**Kunnen jullie koppelen met bestaande systemen?**
+Ja. We kunnen koppelen met externe platformen en andere systemen waar dit nodig is. Dit is custom of uitbreiding van een bestaand product. Onze producten doen dit niet out of the box, alleen met door ons zelf ontwikkelde externe applicaties.
+
+**Kan jullie LLM op internet zoeken?**
+Ja. Zolang er een internetverbinding beschikbaar is op het wifi- of lokale netwerk, kunnen AITJE-producten ook gebruikmaken van AI.
 
 **Welke modellen?**
-Geen vaste voorkeur. Gemma-modellen werken goed voor algemene use cases. Modellen kunnen worden aangepast.
+Geen vaste voorkeur. Modellen kunnen worden aangepast op vraag en geüpdatet wanneer dat waarde toevoegt. Voor algemene use cases werken Gemma, Qwen en DeepSeek-modellen vaak sterk.
 
 **Waar draaien jullie servers?**
 Nederland of Duitsland, nooit buiten Europa.
@@ -172,34 +181,46 @@ Beide. Lokaal waar het kan, hybride waar het nodig is.
 ### Privacy
 
 **Waar blijft mijn data?**
-In Nederland of Europa. In veel gevallen volledig lokaal binnen je eigen omgeving.
+Data blijft in Nederland of Europa, of verlaat het systeem helemaal niet. In veel gevallen kunnen we zelfs een volledig lokale oplossing bouwen binnen je eigen omgeving.
 
 **Kan AITJE Assistent zonder internet werken?**
 Ja. Lokale data en LLM-functionaliteit blijven beschikbaar. Synchroniseren is tijdelijk lastiger.
 
 ### Milieu
 
-**Hoe helpt lokale AI het milieu?**
-Minder continue calls naar externe datacenters. Dat beperkt energiegebruik en koelwaterverbruik.
+**Hoe helpt AITJE het milieu?**
+AITJE Assistent verwerkt gegevens lokaal, waardoor minder continue calls naar externe datacenters nodig zijn. Dat beperkt energiegebruik en koelwaterverbruik in grootschalige cloudinfrastructuur.
+
+**Is lokaal altijd duurzamer?**
+Ja. Dat is de focus van alle producten van AITJE: minimaal stroomverbruik, zo weinig mogelijk externe API-calls en geen onnodige afhankelijkheid van cloudplatformen.
 
 ### Diensten
 
 **Welke diensten bied je aan?**
-Strategie, optimalisatieconsultancy, technische implementatie en doorlopende begeleiding.
+Voor een overzicht van alle diensten kun je terecht op /diensten.
 
 **Kunnen jullie AI-strategie uitdenken?**
-Ja. Hulp bij keuzes in infrastructuur, tooling, processen en prioriteiten.
+Ja. We helpen mee met keuzes rond interne AI-infrastructuur, tooling, processen en prioriteiten, zodat onze on-premise Edge AI past binnen je organisatie in plaats van dat je organisatie zich moet aanpassen aan onze oplossingen.
 
 **Kunnen jullie een maatwerk agent maken?**
-Ja. Persoonlijke agent op maat inclusief koppelingen, beveiliging en beheer.
+Omdat de vraag naar lokale maatwerk agents groeit, hebben we het AITJE Custom-traject opgezet. Bekijk /producten/aitje-custom.
 
 **Kunnen jullie een RAG chat bouwen?**
-Ja. RAG-chat met jouw documenten en kennisbank.
+Ja. Hier zijn AITJE Assistent en AITJE Assistent+ voor gemaakt: je eigen assistent die beschikt over alle data die jij gekozen hebt om te delen. Die kennis wordt lokaal in het geheugen opgeslagen, zodat de LLM daar steeds toegang toe heeft.
+
+**Kunnen jullie je producten uitbreiden of tweaken voor specifieke behoeftes?**
+Dat kan zeker. Dit doen we wel alleen in partnerschap.
+
+**Wat houdt het SLA in?**
+De visie van AITJE is: je partner in edge en on-premise AI. We mikken dus op een langdurig strategisch partnerschap. Daarbij hoort een SLA met concrete afspraken over onderhoud, ondersteuning en uitbreidingen.
 
 ### Doelgroep
 
 **Voor wie is AITJE bedoeld?**
 MKB-bedrijven, gemeentes, scholen, bibliotheken en artsen. Organisaties die met gevoelige gegevens werken.
+
+**Kan ik jullie inhuren zonder dienstenpakket?**
+Tuurlijk. We kunnen een maatwerk lokale edge AI-oplossing voor je creëren. We vinden het ook geen probleem om dit over te dragen aan je huidige webbouwer of applicatiebeheerder zodat die het kan onderhouden. Let wel: bij overdracht vervalt onze garantie en monitoren we de oplossing niet meer. We voeren dan ook geen up-to-date verbeteringen door en bieden geen uitbreidingen aan.
 
 **Waar beginnen jullie meestal mee?**
 Een goed gesprek om te kijken waar AI een verschil kan maken.
@@ -209,8 +230,25 @@ Een goed gesprek om te kijken waar AI een verschil kan maken.
 **Wat als er een internetstoring is?**
 AITJE Assistent merkt daar weinig van. Lokale gegevens en LLM-functionaliteit blijven beschikbaar.
 
+**Kunnen meerdere mensen op het netwerk AITJE Assistent API gebruiken?**
+Ja. Je maakt accounts aan en installeert de mobiele of desktopapplicatie. Daarna kan die gebruiker via het netwerk en via de AITJE Client-applicatie gebruikmaken van de lokale LLM en API.
+
 **Hoe beperken jullie dat agents een eigen wil krijgen?**
 Met constrained prompting, guardrailing en sandboxing.
+
+**Wat als er een storing is?**
+We kunnen op afstand meekijken. Neem contact op met AITJE of schiet een ticket in als je een SLA hebt, dan kijken we op afstand met je mee.
+
+**Hoe voorkomt AITJE afhankelijkheid van externe platformen?**
+Door meerdere keuzes open te houden, geen single point of failure te bouwen en zoveel mogelijk lokaal af te handelen of op servers in beheer van AITJE. Zo beperk je externe invloeden maximaal.
+
+### Leren met AITJE
+
+**Waar leer ik meer over AI-termen en onderwerpen?**
+In ons kenniscentrum vind je artikelen over termen, technieken en toepassingen. Denk aan LLM's, RAG, context en lokale AI.
+
+**Helpen jullie organisaties ook om betere prompts te schrijven en meer uit LLM te halen?**
+Ja. Het is mogelijk om een training van AITJE te ontvangen. Dit heeft meestal de focus om het meeste uit AITJE-producten te halen, maar de theorie is vaak ook toepasbaar op andere AI-platformen.
 
 ---
 

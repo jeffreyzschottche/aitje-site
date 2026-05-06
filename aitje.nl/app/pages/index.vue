@@ -246,7 +246,7 @@
             >
               AITJE is een Nederlands gewortelde organisatie dat pre-made
               oplossingen biedt op white-labeled hardware, geoptimaliseerd met
-              op maat gemaakte software. Onze oplossingen zijn gericht het
+              op maat gemaakte software. Onze oplossingen zijn gericht op het
               beheren van kennis, vragen beantwoorden, administratie bijhouden,
               programmeren, meetings notuleren en meer.
             </p>
@@ -597,7 +597,9 @@
                 :key="item.title"
                 class="group flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#161616] transition hover:-translate-y-1 hover:border-[#facc15]/70 hover:shadow-[0_24px_60px_rgba(250,204,21,0.08)]"
               >
-                <div class="aspect-[4/3] border-b border-white/10 bg-black/30 p-4">
+                <div
+                  class="aspect-[4/3] border-b border-white/10 bg-black/30 p-4"
+                >
                   <img
                     :src="item.image"
                     :alt="item.title"
@@ -703,7 +705,9 @@
                 </div>
                 <p class="mt-4 text-sm leading-7 text-gray-300">
                   {{ servicePreview(service.description, service.key) }}
-                  <span class="font-semibold text-[#facc15]">... meer info</span>
+                  <span class="font-semibold text-[#facc15]"
+                    >... meer info</span
+                  >
                 </p>
               </NuxtLink>
             </div>
@@ -744,11 +748,16 @@
               class="mx-auto mt-8 max-w-3xl space-y-4 text-base leading-7 text-gray-600"
             >
               <p>
-                Tegelijkertijd groeit de afhankelijkheid van externe platformen, stijgende kosten en systemen waar organisaties geen controle over hebben.
+                Tegelijkertijd groeit de afhankelijkheid van externe platformen,
+                stijgende kosten en systemen waar organisaties geen controle
+                over hebben.
               </p>
               <p>
-                Wij geloven dat AI dichter bij de organisatie moet staan — lokaal, veilig en in eigen beheer.<br />
-                Zodat je controle houdt over je data, je kosten voorspelbaar blijven en je niet afhankelijk bent van partijen buiten je eigen omgeving.
+                Wij geloven dat AI dichter bij de organisatie moet staan —
+                lokaal, veilig en in eigen beheer.<br />
+                Zodat je controle houdt over je data, je kosten voorspelbaar
+                blijven en je niet afhankelijk bent van partijen buiten je eigen
+                omgeving.
               </p>
             </div>
             <div class="mt-10">

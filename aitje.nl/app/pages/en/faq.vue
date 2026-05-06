@@ -126,6 +126,14 @@
             >
               <img :src="gmailIcon" alt="" aria-hidden="true" class="h-5 w-5 object-contain" />
             </a>
+            <button
+              type="button"
+              aria-label="Request a call from AITJE"
+              class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-[#fafafa] text-gray-900 transition hover:border-[#facc15] hover:text-[#d4a700]"
+              @click="showPhoneNotice = true"
+            >
+              <PhoneCall aria-hidden="true" class="h-5 w-5" />
+            </button>
           </div>
           <NuxtLink
             :to="localePath('/contact')"
@@ -168,6 +176,57 @@
       </section>
     </main>
 
+    <Teleport to="body">
+      <div
+        v-if="showPhoneNotice"
+        class="fixed inset-0 z-50 flex items-center justify-center bg-black/75 px-6"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="faq-phone-notice-title"
+        @click.self="showPhoneNotice = false"
+      >
+        <div class="w-full max-w-md rounded-3xl border border-white/10 bg-[#111] p-6 text-white shadow-2xl">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-[0.35em] text-[#facc15]">
+                Phone contact
+              </p>
+              <h2 id="faq-phone-notice-title" class="mt-3 text-2xl font-semibold">
+                Request a call
+              </h2>
+            </div>
+            <button
+              type="button"
+              aria-label="Close"
+              class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 text-gray-300 transition hover:border-[#facc15] hover:text-[#facc15]"
+              @click="showPhoneNotice = false"
+            >
+              <X aria-hidden="true" class="h-5 w-5" />
+            </button>
+          </div>
+          <p class="mt-4 text-sm leading-6 text-gray-300">
+            We no longer publish our phone number because of the increase in spam calls. Leave a call request through the contact form and we will get back to you.
+          </p>
+          <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+            <NuxtLink
+              :to="phoneContactPath"
+              class="inline-flex flex-1 items-center justify-center rounded-full bg-[#facc15] px-5 py-3 text-sm font-semibold text-black transition hover:bg-white"
+              @click="showPhoneNotice = false"
+            >
+              Request a call
+            </NuxtLink>
+            <NuxtLink
+              :to="introContactPath"
+              class="inline-flex flex-1 items-center justify-center rounded-full border border-white/15 px-5 py-3 text-sm font-semibold text-white transition hover:border-[#facc15] hover:text-[#facc15]"
+              @click="showPhoneNotice = false"
+            >
+              Digital introduction
+            </NuxtLink>
+          </div>
+        </div>
+      </div>
+    </Teleport>
+
     <BottomCta />
     <SiteFooter />
   </div>
@@ -175,11 +234,14 @@
 
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import { BookOpenCheck, Leaf, Lock, PlugZap, Search, Shield, Sparkles } from "lucide-vue-next";
+import { BookOpenCheck, Leaf, Lock, PhoneCall, PlugZap, Search, Shield, Sparkles, X } from "lucide-vue-next";
 import linkedinIcon from "@/assets/images/social/linkedin.png";
 import gmailIcon from "@/assets/images/social/gmail.png";
 
 const { localePath } = useSiteLocale();
+const showPhoneNotice = ref(false);
+const phoneContactPath = computed(() => localePath("/contact?onderwerp=belverzoek"));
+const introContactPath = computed(() => localePath("/contact?onderwerp=kennismaking"));
 
 const localizeLink = (path?: string) => (path?.startsWith("/") ? localePath(path) : path);
 
@@ -202,19 +264,23 @@ const faqGroups = [
       {
         question: "What exactly is AITJE Assistant?",
         answer:
-          "AITJE Assistant is a mini computer optimized with our own OS. You get a local LLM, a knowledge base that lets you use your documents inside the LLM, offline maps and an AI-powered knowledge system that remains accessible even without internet.",
+          "AITJE Assistant is a mini computer optimized with our own software. You get a local LLM, a knowledge base built by AITJE to process your documents so they can be used inside the LLM, and an AI-powered knowledge system that remains accessible even without internet.",
       },
       {
         question: "Does AITJE also do custom-built hardware?",
         answer:
-          "Yes. And if we cannot fully help you within your specific area of expertise, we have a stable network of specialists with whom we can complete the plan.",
+          "Yes. And if we cannot fully help you within your specific area of expertise, we have a stable network of specialists with whom we can realize your request.",
       },
       {
-        question: "Does AITJE offer more hardware?",
+        question: "What is AITJE Coder?",
         answer:
-          "Not at the moment. Keep an eye on our roadmap page for new hardware developments.",
-        linkTo: "/roadmap",
-        linkLabel: "View roadmap",
+          "AITJE Coder is a way to program without Claude Code, Codex or Gemini. You get a coding agent through our hardware device. No subscriptions, no outages. A coding partner that stays available as long as you have internet.",
+      },
+      {
+        question: "How much do your products cost?",
+        answer: "Request a price list or quote through our contact page.",
+        linkTo: "/contact?onderwerp=offerte",
+        linkLabel: "Request a quote",
       },
     ],
   },
@@ -230,12 +296,12 @@ const faqGroups = [
       {
         question: "Which frameworks and tools do you use?",
         answer:
-          "Depending on the solution, we use Nuxt 3 for frontend and interfaces, among others, and for backend and services for example FastAPI, Laravel, Blazor, PySide and Qdrant.",
+          "Depending on the solution, we use Nuxt for frontend and interfaces, and for backend and services for example FastAPI, Laravel, Blazor, PySide, Qdrant, Internal Lemonade Server and SearXNG.",
       },
       {
         question: "Can you connect to existing systems?",
         answer:
-          "Yes. We can connect to widely used tools and CMS environments, as long as the integration is technically and organizationally responsible.",
+          "Yes. We can connect to external platforms and other systems where needed. This is custom work or an extension of an existing product. Our products do not do this out of the box, only through external applications developed by us.",
       },
       {
         question: "Is everything local or is hybrid also possible?",
@@ -243,13 +309,14 @@ const faqGroups = [
           "Both. We design local where possible and hybrid where needed, while keeping control over data, costs and continuity.",
       },
       {
-        question: "How do you run the LLM?",
-        answer: "In most cases we use Ollama. If needed, we can also use other inference engines, such as vLLM.",
+        question: "Can your LLM search the internet?",
+        answer:
+          "Yes. As long as an internet connection is available on the Wi-Fi or local network, AITJE products can also use AI.",
       },
       {
         question: "Which models do you use?",
         answer:
-          "We do not have a fixed preference: models can be adjusted based on the question and updated when that adds value. We keep you actively informed about that. For general use cases, Gemma models often perform strongly.",
+          "We do not have a fixed preference: models can be adjusted based on the request and updated when that adds value. We keep you actively informed about that. For general use cases, Gemma, Qwen and DeepSeek models often perform strongly.",
       },
       {
         question: "Where do your servers run?",
@@ -266,7 +333,7 @@ const faqGroups = [
       {
         question: "Where does my data stay?",
         answer:
-          "Data stays in the Netherlands or Europe. In many cases, we can even build a fully local solution within your own environment.",
+          "Data stays in the Netherlands or Europe, or does not leave the system at all. In many cases, we can even build a fully local solution within your own environment.",
       },
       {
         question: "How do you embed data into the knowledge base for AITJE Assistant?",
@@ -286,18 +353,14 @@ const faqGroups = [
     icon: Leaf,
     items: [
       {
-        question: "How does local AI help the environment?",
+        question: "How does AITJE help the environment?",
         answer:
           "AITJE Assistant processes data locally, which means fewer continuous calls to external data centers are needed. That reduces energy use and cooling water consumption in large-scale cloud infrastructure.",
       },
       {
         question: "Is local always more sustainable?",
-        answer: "Yes, that is the focus of AITJE.",
-      },
-      {
-        question: "What is your starting point?",
         answer:
-          "Local where possible, external where necessary. We only do external work in safe environments with reliable partners and without depending on a single service.",
+          "Yes. That is the focus of all AITJE products: minimal power usage, as few external API calls as possible and no unnecessary dependency on cloud platforms.",
       },
     ],
   },
@@ -308,25 +371,26 @@ const faqGroups = [
     items: [
       {
         question: "Which services do you offer?",
-        answer:
-          "We work out strategy with you to automate with AI as cost-effectively and stably as possible. We provide both technical implementation and ongoing guidance.",
+        answer: "For an overview of all services, take a look at our services page.",
         linkTo: "/diensten",
-        linkLabel: "View all services",
+        linkLabel: "View services",
       },
       {
         question: "Can you help us shape AI strategy?",
         answer:
-          "Yes. We help with choices in infrastructure, tooling, processes and priorities, so AI fits your organization instead of the other way around.",
+          "Yes. We help with choices around internal AI infrastructure, tooling, processes and priorities, so our on-premise Edge AI fits your organization instead of your organization having to adapt to our solutions.",
       },
       {
         question: "Can you build a custom agent for us?",
         answer:
-          "Yes. We build a personal custom agent for your processes, including system integrations, security and management.",
+          "Because demand for local custom agents is growing, we created the AITJE Custom track.",
+        linkTo: "/producten/aitje-custom",
+        linkLabel: "View AITJE Custom",
       },
       {
         question: "Can you build a RAG chat?",
         answer:
-          "Yes. We can set up a RAG chat that works with your documents and knowledge base, so answers are contextual and usable.",
+          "Yes. This is what AITJE Assistant and AITJE Assistant+ are made for: your own assistant with access to all the data you have chosen to share. That knowledge is stored locally in memory, so the LLM can keep accessing it.",
       },
       {
         question: "Do you build AI workflows with or without human-in-the-loop?",
@@ -334,33 +398,13 @@ const faqGroups = [
           "Yes. We design both fully automated workflows and variants with human control and approval steps.",
       },
       {
-        question: "Do you also build custom software solutions?",
-        answer:
-          "Yes. We build custom web applications and mobile applications, including Android and iOS where needed.",
-      },
-      {
-        question: "Can you install a local LLM on our network?",
-        answer:
-          "Yes. We install and configure local LLM solutions on your own network, including management, security and connection to your knowledge sources.",
+        question: "Can you extend or tweak your products for specific needs?",
+        answer: "Yes, absolutely. We only do this in partnership.",
       },
       {
         question: "What does the SLA include?",
         answer:
-          "We always agree on an SLA. It contains the agreements about maintenance, support and future extensions.",
-      },
-    ],
-  },
-  {
-    title: "Software",
-    badge: "Integrations & workflows",
-    icon: PlugZap,
-    items: [
-      {
-        question: "What software has AITJE built?",
-        answer:
-          "See the products/software page for all our general software solutions.",
-        linkTo: "/producten/software",
-        linkLabel: "Go to products/software",
+          "AITJE's vision is to be your partner in edge and on-premise AI. That means we aim for a long-term strategic partnership. An SLA is part of that: concrete agreements about maintenance, support and extensions.",
       },
     ],
   },
@@ -377,7 +421,7 @@ const faqGroups = [
       {
         question: "Can I hire you without a service package?",
         answer:
-          "Absolutely. We can create a custom local Edge AI solution for you. We also do not mind handing it over to your current web builder or application administrator so they can maintain it.",
+          "Absolutely. We can create a custom local Edge AI solution for you. We also do not mind handing it over to your current web builder or application administrator so they can maintain it. Please note: after handover, our warranty expires and we no longer monitor the solution. We also do not apply up-to-date improvements or offer extensions.",
       },
       {
         question: "What do you usually start with?",
@@ -399,7 +443,7 @@ const faqGroups = [
       {
         question: "Can multiple people on the network use the AITJE Assistant API?",
         answer:
-          "Yes. You create accounts and install the mobile or desktop application. After that, the user can use the local LLM and API over the network.",
+          "Yes. You create accounts and install the mobile or desktop application. After that, the user can use the local LLM and API over the network and through the AITJE Client application.",
       },
       {
         question: "How do you prevent agents from developing a will of their own?",
@@ -409,12 +453,12 @@ const faqGroups = [
       {
         question: "What happens if there is a disruption?",
         answer:
-          "We build cloud solutions with plan B and plan C, plus timely monitoring and alerts. Our systems are designed for stable deployment within organizations, not for a global audience. That makes them easier to scale and easier to keep running.",
+          "We can look along remotely. Contact AITJE or submit a ticket if you have an SLA, and we will look along with you remotely.",
       },
       {
         question: "How does AITJE prevent dependency on external platforms?",
         answer:
-          "By keeping multiple choices open, avoiding a single point of failure and handling as much as possible locally or on servers managed by AITJE or by your own organization. That limits external influence as much as possible.",
+          "By keeping multiple choices open, avoiding a single point of failure and handling as much as possible locally or on servers managed by AITJE. That limits external influence as much as possible.",
       },
     ],
   },
@@ -431,12 +475,9 @@ const faqGroups = [
         linkLabel: "Go to the knowledge center",
       },
       {
-        question: "Do you have prompts and guides to get more out of LLMs?",
+        question: "Do you also help organizations write better prompts and get more out of LLMs?",
         answer:
-          "Yes, we do. Part of AITJE is PromptPaleis: the Dutch marketplace with pre-made prompts and guides to get more out of AI.",
-        linkTo: "https://www.promptpaleis.nl",
-        linkLabel: "Go to PromptPaleis",
-        external: true,
+          "Yes. It is possible to receive training from AITJE. This usually focuses on getting the most out of AITJE products, but the theory is often also applicable to other AI platforms.",
       },
     ],
   },

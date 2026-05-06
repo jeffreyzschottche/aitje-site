@@ -11,11 +11,14 @@
           Services
         </p>
         <h1 class="mt-4 text-5xl font-black text-gray-900">
-          Practical guidance alongside AITJE products
+          Strategic AI partnership
         </h1>
         <p class="mt-6 text-lg text-gray-600">
-          Kept simple: not a broad services menu, but focused guidance that
-          connects logically to the product line.
+          AITJE guides organizations in using on-premise and edge AI. We help
+          with strategy, setup, custom work and ongoing development, either as
+          separate services or as concrete agreements within an SLA. This keeps
+          our solutions and future expansions aligned with your organization,
+          instead of the other way around.
         </p>
       </section>
 
@@ -24,33 +27,58 @@
           class="overflow-hidden rounded-[2.5rem] border border-gray-200 bg-white shadow-sm"
         >
           <div class="grid gap-0 md:grid-cols-[0.72fr_1.28fr]">
-            <div class="border-b border-gray-200 bg-[#faf7ea] md:border-b-0 md:border-r">
+            <div
+              class="overflow-hidden border-b border-gray-200 md:border-b-0 md:border-r"
+            >
               <img
-                src="/images/custom-suited.png"
+                src="/images/aitje-nature-pic.png"
                 alt="AITJE services"
                 class="h-full min-h-[18rem] w-full object-cover"
+                style="object-position: center 58%"
               />
             </div>
 
             <div class="p-8 md:p-10">
-              <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
-                Setup
+              <p
+                class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
+              >
+                Approach
               </p>
               <h2 class="mt-3 text-3xl font-black text-gray-900">
-                Smaller, clearer and directly usable
+                Practical, grounded, efficient
               </h2>
-              <div class="mt-5 space-y-4 text-base leading-8 text-gray-600">
-                <p>
-                  No broad agency menu anymore. AITJE services are deliberately
-                  reduced to focused routes that logically connect to the
-                  product line: product installation, product expansion, custom,
-                  consultancy, AI strategy and SLA.
-                </p>
-                <p>
-                  We think along about direction, deployment and implementation
-                  without turning it into vague consultancy language.
-                </p>
-              </div>
+              <ul class="mt-5 space-y-3 text-base leading-8 text-gray-600">
+                <li class="flex gap-3">
+                  <span
+                    class="mt-3 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"
+                  ></span>
+                  <span
+                    >Separate services available at a fixed hourly rate without
+                    a partnership.</span
+                  >
+                </li>
+                <li class="flex gap-3">
+                  <span
+                    class="mt-3 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"
+                  ></span>
+                  <span>Concrete agreements within our SLA.</span>
+                </li>
+                <li class="flex gap-3">
+                  <span
+                    class="mt-3 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"
+                  ></span>
+                  <span>Option for an outage line and ticket support.</span>
+                </li>
+                <li class="flex gap-3">
+                  <span
+                    class="mt-3 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"
+                  ></span>
+                  <span
+                    >Products built so we can look along remotely, only with
+                    permission.</span
+                  >
+                </li>
+              </ul>
             </div>
           </div>
         </article>
@@ -68,7 +96,9 @@
             >
               <component :is="card.icon" class="h-6 w-6" />
             </div>
-            <p class="mt-5 text-xs font-semibold uppercase tracking-[0.35em] text-[#facc15]">
+            <p
+              class="mt-5 text-xs font-semibold uppercase tracking-[0.35em] text-[#facc15]"
+            >
               {{ card.badge }}
             </p>
             <h2 class="mt-2 text-2xl font-black text-gray-900">
@@ -83,8 +113,12 @@
 
       <section class="mx-auto mt-16 max-w-7xl">
         <div class="grid gap-6 lg:grid-cols-[0.34fr_0.66fr]">
-          <aside class="rounded-[2.5rem] border border-gray-200 bg-white p-6 shadow-sm">
-            <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
+          <aside
+            class="rounded-[2.5rem] border border-gray-200 bg-white p-6 shadow-sm"
+          >
+            <p
+              class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
+            >
               Services
             </p>
             <div class="mt-5 space-y-3">
@@ -93,14 +127,20 @@
                 :key="service.key"
                 type="button"
                 class="w-full rounded-[1.5rem] border px-5 py-4 text-left transition"
-                :class="selectedServiceKey === service.key
-                  ? 'border-[#facc15] bg-[#212121] text-white'
-                  : 'border-gray-200 bg-[#fafafa] text-gray-900 hover:border-[#facc15]'"
+                :class="
+                  selectedServiceKey === service.key
+                    ? 'border-[#facc15] bg-[#212121] text-white'
+                    : 'border-gray-200 bg-[#fafafa] text-gray-900 hover:border-[#facc15]'
+                "
                 @click="selectedServiceKey = service.key"
               >
                 <p
                   class="text-xs font-semibold uppercase tracking-[0.32em]"
-                  :class="selectedServiceKey === service.key ? 'text-[#facc15]' : 'text-gray-400'"
+                  :class="
+                    selectedServiceKey === service.key
+                      ? 'text-[#facc15]'
+                      : 'text-gray-400'
+                  "
                 >
                   {{ service.sidebarLabel }}
                 </p>
@@ -111,8 +151,12 @@
             </div>
           </aside>
 
-          <article class="rounded-[2.5rem] border border-gray-200 bg-white p-8 shadow-sm lg:p-10">
-            <p class="text-xs font-semibold uppercase tracking-[0.35em] text-[#facc15]">
+          <article
+            class="rounded-[2.5rem] border border-gray-200 bg-white p-8 shadow-sm lg:p-10"
+          >
+            <p
+              class="text-xs font-semibold uppercase tracking-[0.35em] text-[#facc15]"
+            >
               {{ activeService.focus }}
             </p>
             <h2 class="mt-3 text-4xl font-black text-gray-900">
@@ -123,7 +167,9 @@
             </p>
 
             <div class="mt-8 rounded-[1.75rem] bg-[#fafafa] p-5">
-              <p class="text-xs font-semibold uppercase tracking-[0.35em] text-gray-500">
+              <p
+                class="text-xs font-semibold uppercase tracking-[0.35em] text-gray-500"
+              >
                 Outcome
               </p>
               <p class="mt-2 text-sm leading-7 text-gray-700">
@@ -133,7 +179,9 @@
 
             <div class="mt-8 grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
               <div class="rounded-[1.75rem] border border-gray-100 p-5">
-                <p class="text-xs font-semibold uppercase tracking-[0.35em] text-gray-500">
+                <p
+                  class="text-xs font-semibold uppercase tracking-[0.35em] text-gray-500"
+                >
                   What we deliver
                 </p>
                 <ul class="mt-4 space-y-3 text-sm text-gray-700">
@@ -142,13 +190,17 @@
                     :key="item"
                     class="flex items-start gap-3"
                   >
-                    <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"></span>
+                    <span
+                      class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"
+                    ></span>
                     <span>{{ item }}</span>
                   </li>
                 </ul>
               </div>
               <div class="rounded-[1.75rem] bg-[#212121] p-5 text-white">
-                <p class="text-xs font-semibold uppercase tracking-[0.35em] text-[#facc15]">
+                <p
+                  class="text-xs font-semibold uppercase tracking-[0.35em] text-[#facc15]"
+                >
                   Best fit for
                 </p>
                 <p class="mt-3 text-sm leading-7 text-gray-300">
@@ -168,20 +220,53 @@
 
       <section class="mx-auto mt-16 max-w-7xl">
         <div class="grid items-center gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-          <article class="rounded-[2.5rem] bg-[#212121] px-8 py-10 text-white lg:px-10">
+          <article
+            class="rounded-[2.5rem] bg-[#212121] px-8 py-10 text-white lg:px-10"
+          >
             <div class="mx-auto flex max-w-2xl flex-col justify-center">
-              <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
+              <p
+                class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
+              >
                 Pricing & next step
               </p>
               <h2 class="mt-3 text-4xl font-black">
                 Request a price list or quote
               </h2>
               <p class="mt-4 text-sm leading-7 text-gray-300">
-                Products, services and SLA are intentionally not presented as
-                separate price boxes on the page. We keep the site clear and
-                move to a price list, quote or introduction once the question is
-                concrete.
+                We intentionally keep our website focused on what our products
+                and services can do for your business, rather than filling pages
+                with fixed pricing blocks or standard packages.
               </p>
+              <p class="mt-4 text-sm leading-7 text-gray-300">
+                If you're interested, we're happy to discuss the best fit for
+                your needs. You can always contact us for:
+              </p>
+              <ul class="mt-4 space-y-2 text-sm leading-7 text-gray-300">
+                <li class="flex gap-3">
+                  <span
+                    class="mt-3 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"
+                  ></span>
+                  <span>our hourly rates</span>
+                </li>
+                <li class="flex gap-3">
+                  <span
+                    class="mt-3 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"
+                  ></span>
+                  <span>an up-to-date price list</span>
+                </li>
+                <li class="flex gap-3">
+                  <span
+                    class="mt-3 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"
+                  ></span>
+                  <span>a custom quote</span>
+                </li>
+                <li class="flex gap-3">
+                  <span
+                    class="mt-3 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"
+                  ></span>
+                  <span>an introductory meeting</span>
+                </li>
+              </ul>
               <div class="mt-8 flex flex-col gap-3 sm:flex-row">
                 <NuxtLink
                   :to="localePath('/contact?onderwerp=prijslijst')"
@@ -199,14 +284,18 @@
             </div>
           </article>
 
-          <article class="overflow-hidden rounded-[2.5rem] border border-gray-200 bg-white shadow-sm">
+          <article
+            class="overflow-hidden rounded-[2.5rem] border border-gray-200 bg-white shadow-sm"
+          >
             <img
               src="/images/aitje-product.png"
               alt="AITJE products and services"
               class="h-56 w-full object-cover"
             />
             <div class="p-8">
-              <p class="text-xs font-semibold uppercase tracking-[0.35em] text-[#facc15]">
+              <p
+                class="text-xs font-semibold uppercase tracking-[0.35em] text-[#facc15]"
+              >
                 Why this is narrower
               </p>
               <h2 class="mt-3 text-3xl font-black text-gray-900">
@@ -214,23 +303,37 @@
               </h2>
               <ul class="mt-6 space-y-3 text-sm text-gray-700">
                 <li class="flex items-start gap-3">
-                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"></span>
-                  <span>Clearer distinction between product, service and custom route.</span>
+                  <span
+                    class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"
+                  ></span>
+                  <span
+                    >Clearer distinction between product, service and custom
+                    route.</span
+                  >
                 </li>
                 <li class="flex items-start gap-3">
-                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"></span>
-                  <span>Better fit for organizations that do not want a vague custom-work story.</span>
+                  <span
+                    class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"
+                  ></span>
+                  <span
+                    >Better fit for organizations that do not want a vague
+                    custom-work story.</span
+                  >
                 </li>
                 <li class="flex items-start gap-3">
-                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"></span>
-                  <span>A more credible site where guidance strengthens the product line.</span>
+                  <span
+                    class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"
+                  ></span>
+                  <span
+                    >A more credible site where guidance strengthens the product
+                    line.</span
+                  >
                 </li>
               </ul>
             </div>
           </article>
         </div>
       </section>
-
     </main>
 
     <BottomCta />
@@ -259,16 +362,16 @@ const introCards = [
   },
   {
     badge: "Custom",
-    title: "Only when standard does not fit",
+    title: "Where needed",
     description:
       "AITJE Custom remains available, but as a focused route instead of a broad custom-work label. Smaller and clearer.",
     icon: Sparkles,
   },
   {
     badge: "Continuity",
-    title: "Control and continuity",
+    title: "Ultimate freedom",
     description:
-      "The focus is on more control over AI usage, less dependence and choices that stay sustainable over time.",
+      "Choose what fits: products only, extra services or a periodically cancellable SLA. You stay in control, we stand beside you.",
     icon: Leaf,
   },
 ];
@@ -281,8 +384,7 @@ const servicePanels = [
     focus: "Implementation",
     description:
       "We help with installation, permissions, knowledge base sync and technical setup so AITJE products land in your environment ready to use.",
-    result:
-      "A stable start without loose technical ends or unclear handover.",
+    result: "A stable start without loose technical ends or unclear handover.",
     details: [
       "Installation and basic setup of AITJE products",
       "Alignment of permissions, access and knowledge base sync",
@@ -335,8 +437,7 @@ const servicePanels = [
     focus: "Cost & stability",
     description:
       "We analyze current AI usage and look at where cost, stability and dependency can be improved.",
-    result:
-      "More control over usage, vendors and practical AI deployment.",
+    result: "More control over usage, vendors and practical AI deployment.",
     details: [
       "Analysis of the current AI stack and usage",
       "Lower dependence on external platforms where logical",
@@ -371,8 +472,7 @@ const servicePanels = [
     focus: "Monthly collaboration",
     description:
       "A monthly collaboration for support, updates, reserved time, installation help and advice around products and Edge AI implementations.",
-    result:
-      "Ongoing support without having to solve everything ad hoc.",
+    result: "Ongoing support without having to solve everything ad hoc.",
     details: [
       "Fixed time and support per month",
       "Updates to models and software when needed",
@@ -384,7 +484,8 @@ const servicePanels = [
   },
 ] as const;
 
-const selectedServiceKey = ref<(typeof servicePanels)[number]["key"]>("installation");
+const selectedServiceKey =
+  ref<(typeof servicePanels)[number]["key"]>("installation");
 
 const route = useRoute();
 
@@ -400,7 +501,7 @@ watch(() => route.hash, selectServiceFromHash);
 
 const activeService = computed(
   () =>
-    servicePanels.find((service) => service.key === selectedServiceKey.value)
-    ?? servicePanels[0],
+    servicePanels.find((service) => service.key === selectedServiceKey.value) ??
+    servicePanels[0],
 );
 </script>
