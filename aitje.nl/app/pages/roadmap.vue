@@ -337,7 +337,7 @@ const roadmapYears = [
           "De roadmap werd teruggebracht van losse ideeën naar een kleiner en helderder geheel.",
         points: [
           "Minder losse zijpaden, meer focus op de kern van AITJE.",
-          "De productstructuur voorbereid op een eenvoudiger verhaal en navigatie.",
+          "De productstructuur voorbereid op een eenvoudiger verhaal en navigatie richting de lancering van AITJE.",
         ],
       },
       {
@@ -350,7 +350,7 @@ const roadmapYears = [
           "Eind 2025 lag de basis voor een productlijn met duidelijke status: wat bestaat, wat loopt en wat later komt.",
         points: [
           "Roadmap 2026 opgesteld op basis van praktijk en positionering.",
-          "De lijn richting Assistent, Custom en Coder concreter gemaakt.",
+          "De lijn richting AITJE Assistent en AITJE Coder scherper gemaakt.",
         ],
       },
     ],
@@ -365,10 +365,11 @@ const roadmapYears = [
         label: "Q1",
         title: "Assistent staat er",
         summary:
-          "Het kernproduct van AITJE is nu concreet zichtbaar in de markt.",
+          "AITJE Assistent is gelanceerd als kernproduct van AITJE.",
         points: [
-          "AITJE Assistent bestaat als kernproduct.",
-          "AITJE Assistent+ bestaat als variant met betere specs en andere kleur.",
+          "AITJE Assistent is beschikbaar voor organisaties die AI lokaal en beheersbaar willen inzetten.",
+          "AITJE Assistent+ bestaat als variant met betere specs en meer intelligentie voor zwaardere toepassingen.",
+          "Door meerdere aanvragen voor verschillende doeleinden werd duidelijk dat een aparte maatwerkroute logisch is.",
         ],
       },
       {
@@ -378,10 +379,10 @@ const roadmapYears = [
         label: "Q2",
         title: "Heldere basis",
         summary:
-          "Niet alles hoeft hoofdproduct te zijn. Juist daardoor wordt de lijn sterker.",
+          "De basis wordt verder aangescherpt terwijl lopende producten in de praktijk worden gevolgd.",
         points: [
-          "PromptPaleis bestaat al op promptpaleis.nl als apart platform.",
-          "De productlijn blijft bewust kleiner en productgerichter.",
+          "AITJE Coder afronden en optimaliseren richting een stabieler product.",
+          "AITJE Assistent monitoren op gebruik, betrouwbaarheid en praktische inzetbaarheid.",
         ],
       },
       {
@@ -394,7 +395,7 @@ const roadmapYears = [
           "Vanaf Q3 verschuift de aandacht naar de eerstvolgende uitbreiding van de productlijn.",
         points: [
           "AITJE Coder wordt inhoudelijk verder voorbereid.",
-          "De bestaande lijn blijft bewust compact: Assistent, Custom en Coder.",
+          "De bestaande lijn blijft bewust compact en gericht op producten met duidelijke status.",
         ],
       },
       {
@@ -404,10 +405,10 @@ const roadmapYears = [
         label: "Q4",
         title: "Van test naar live",
         summary:
-          "De tweede helft van het jaar draait om het starten van een nieuwe ontwikkellijn.",
+          "De tweede helft van het jaar draait om het live brengen van de volgende ontwikkellijn.",
         points: [
-          "AITJE Coder gaat in Q4 2026 de ontwikkelfase in.",
-          "Coder blijft voorlopig nog niet beschikbaar als live product.",
+          "AITJE Coder wordt in Q4 2026 gelanceerd.",
+          "De eerste livefase staat in het teken van gecontroleerd gebruik en technische workflows met AI.",
         ],
       },
     ],
@@ -426,6 +427,7 @@ const roadmapYears = [
         points: [
           "Bestaande producten worden inhoudelijk verder aangescherpt.",
           "Gebruikservaring en praktische inzetbaarheid blijven leidend.",
+          "De productlijn wordt uitgebreid op basis van patronen uit herhaalde maatwerktrajecten.",
         ],
       },
       {
@@ -433,12 +435,12 @@ const roadmapYears = [
         quarterEnd: 2,
         short: "Q2",
         label: "Q2",
-        title: "AITJE Coder",
+        title: "Notulist en Off-Grid",
         summary:
-          "De volgende stap is het verder uitwerken van Coder binnen de compacte productlijn.",
+          "De aandacht verschuift naar producten die terugkerende vragen uit de praktijk oplossen.",
         points: [
-          "AITJE Coder blijft in ontwikkeling.",
-          "Focus ligt op gecontroleerd coderen en technische workflows met AI.",
+          "Focus op AITJE Notulist voor verslaglegging, samenvatting en kennisborging.",
+          "Focus op AITJE Off-Grid voor AI-gebruik in situaties waar internet of stroom niet vanzelfsprekend is.",
         ],
       },
       {
@@ -446,12 +448,12 @@ const roadmapYears = [
         quarterEnd: 3,
         short: "Q3",
         label: "Q3",
-        title: "Uitbouw",
+        title: "Monitoren en landen",
         summary:
-          "Na de Coder-fase verschuift de aandacht naar verdere verdieping van de praktische inzet.",
+          "Q3 draait om meten, leren en bepalen hoe de productlijn zich in de praktijk houdt.",
         points: [
-          "Doorbouwen op lokale agentic workflows binnen organisaties.",
-          "Praktische beheerscenario's verder uitwerken.",
+          "Informatie ophalen over Coder en Assistent op basis van gebruik en feedback.",
+          "De ontwikkeling van AITJE Off-Grid en AITJE Notulist monitoren en bijsturen.",
         ],
       },
       {
@@ -465,6 +467,7 @@ const roadmapYears = [
         points: [
           "Nieuwe prioriteiten bepalen op basis van productgebruik en feedback.",
           "De roadmap gekoppeld houden aan echte status en concrete vraag.",
+          "De tech- en hardwarestack opnieuw evalueren, omdat ontwikkelingen in AI snel blijven gaan.",
         ],
       },
     ],

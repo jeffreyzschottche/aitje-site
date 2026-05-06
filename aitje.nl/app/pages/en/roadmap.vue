@@ -337,7 +337,7 @@ const roadmapYears = [
           "The roadmap was reduced from loose ideas to a smaller and clearer whole.",
         points: [
           "Fewer side paths, more focus on the core of AITJE.",
-          "The product structure was prepared for a simpler story and navigation.",
+          "The product structure was prepared for a simpler story and navigation toward the launch of AITJE.",
         ],
       },
       {
@@ -350,7 +350,7 @@ const roadmapYears = [
           "By the end of 2025, the foundation was in place for a product line with clear status: what exists, what is underway and what comes later.",
         points: [
           "The 2026 roadmap was defined based on practical experience and positioning.",
-          "The direction for Assistant, Custom and Coder became more concrete.",
+          "The direction for AITJE Assistant and AITJE Coder became sharper.",
         ],
       },
     ],
@@ -365,10 +365,11 @@ const roadmapYears = [
         label: "Q1",
         title: "Assistant is in place",
         summary:
-          "AITJE's core product is now clearly visible in the market.",
+          "AITJE Assistant has launched as AITJE's core product.",
         points: [
-          "AITJE Assistant exists as the core product.",
-          "AITJE Assistant+ exists as a variant with better specs and a different color.",
+          "AITJE Assistant is available for organizations that want to use AI locally and manageably.",
+          "AITJE Assistant+ exists as a variant with better specs and more intelligence for heavier use cases.",
+          "Multiple requests for different purposes made it clear that a separate custom route is a logical part of the offering.",
         ],
       },
       {
@@ -378,10 +379,10 @@ const roadmapYears = [
         label: "Q2",
         title: "Clear foundation",
         summary:
-          "Not everything needs to be a main product. That is exactly what makes the line stronger.",
+          "The foundation is sharpened further while active products are monitored in practice.",
         points: [
-          "PromptPaleis already exists on promptpaleis.nl as a separate platform.",
-          "The product line intentionally stays smaller and more product-focused.",
+          "Finalize and optimize AITJE Coder toward a more stable product.",
+          "Monitor AITJE Assistant for usage, reliability and practical deployment.",
         ],
       },
       {
@@ -394,7 +395,7 @@ const roadmapYears = [
           "From Q3 onward, attention shifts to the next expansion of the product line.",
         points: [
           "AITJE Coder is prepared further in substance.",
-          "The product line intentionally stays compact: Assistant, Custom and Coder.",
+          "The existing line intentionally stays compact and focused on products with clear status.",
         ],
       },
       {
@@ -404,10 +405,10 @@ const roadmapYears = [
         label: "Q4",
         title: "From test to live",
         summary:
-          "The second half of the year is about starting a new development line.",
+          "The second half of the year is about bringing the next development line live.",
         points: [
-          "AITJE Coder enters the development phase in Q4 2026.",
-          "Coder remains unavailable as a live product for now.",
+          "AITJE Coder launches in Q4 2026.",
+          "The first live phase focuses on controlled use and technical AI workflows.",
         ],
       },
     ],
@@ -426,6 +427,7 @@ const roadmapYears = [
         points: [
           "Existing products are refined further in substance and usability.",
           "User experience and practical deployment remain leading.",
+          "The product line expands based on patterns from repeated custom projects.",
         ],
       },
       {
@@ -433,12 +435,12 @@ const roadmapYears = [
         quarterEnd: 2,
         short: "Q2",
         label: "Q2",
-        title: "AITJE Coder",
+        title: "Notulist and Off-Grid",
         summary:
-          "The next step is developing Coder further within the compact product line.",
+          "Attention shifts to products that solve recurring questions from practice.",
         points: [
-          "AITJE Coder remains in development.",
-          "The focus is on controlled coding and technical AI workflows.",
+          "Focus on AITJE Notulist for minutes, summaries and knowledge retention.",
+          "Focus on AITJE Off-Grid for AI use in situations where internet or power is not a given.",
         ],
       },
       {
@@ -446,12 +448,12 @@ const roadmapYears = [
         quarterEnd: 3,
         short: "Q3",
         label: "Q3",
-        title: "Expansion",
+        title: "Monitoring and landing",
         summary:
-          "After the Coder phase, attention shifts toward deepening practical deployment further.",
+          "Q3 is about measuring, learning and seeing how the product line holds up in practice.",
         points: [
-          "Continue building local agentic workflows within organizations.",
-          "Develop practical management scenarios further.",
+          "Gather information about Coder and Assistant based on usage and feedback.",
+          "Monitor and adjust the development of AITJE Off-Grid and AITJE Notulist.",
         ],
       },
       {
@@ -465,6 +467,7 @@ const roadmapYears = [
         points: [
           "Set new priorities based on product usage and feedback.",
           "Keep the roadmap tied to real status and concrete demand.",
+          "Re-evaluate the tech and hardware stack, because AI developments continue to move quickly.",
         ],
       },
     ],

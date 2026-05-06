@@ -167,11 +167,11 @@
                 well. That creates a route organizations can actually follow.
               </p>
               <p>
-                We build products such as AITJE Assistant, AITJE Custom and Coder for
-                organizations that want to use AI locally, clearly and in a
-                manageable way. In addition, we help organizations with AI
-                strategy, consultancy, implementation and choices around
-                infrastructure, processes and deployment.
+                We build products that solve concrete problems and needs inside
+                your organization and make AI usable locally, clearly and under
+                your own control. In addition, we help with AI strategy,
+                consultancy, implementation and choices around infrastructure,
+                processes and day-to-day use.
               </p>
             </div>
           </div>
@@ -180,7 +180,7 @@
             class="overflow-hidden rounded-[2.5rem] border border-black/10 bg-white/70 shadow-sm"
           >
             <img
-              src="/images/aitje-client-screens.png"
+              src="/images/no-costs.png"
               alt="AITJE product visual"
               class="h-full min-h-[22rem] w-full object-cover"
             />
@@ -191,17 +191,17 @@
       <section class="mx-auto mt-16 max-w-7xl">
         <div class="text-center">
           <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
-            Vision
+            Approach
           </p>
           <h2 class="mt-3 text-4xl font-black text-gray-900">
-            AI should work for your organization, not the other way around
+            From AI idea to something that actually fits your organization
           </h2>
           <p class="mx-auto mt-5 max-w-4xl text-base leading-8 text-gray-700">
-            AI is here to stay. Agents, LLMs, image generation and video
-            generation will play an increasingly large role in how organizations
-            work. Our view is that it is better to prepare for that development
-            on your own systems, without full dependence on foreign parties, Big
-            Tech or external platforms.
+            Many organizations know they need to do something with AI, but not
+            where to start or what is sensible to manage themselves. AITJE makes
+            that step smaller: from first question and feasible use case to a
+            solution that fits your data, people, infrastructure and way of
+            working.
           </p>
         </div>
       </section>
@@ -209,7 +209,7 @@
       <section class="mx-auto mt-12 max-w-7xl">
         <div class="rounded-[3rem] border border-gray-200 bg-white p-8 shadow-sm lg:p-10">
           <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
-            What we believe in
+            How we make that concrete
           </p>
           <div class="mt-8 grid gap-4 md:grid-cols-2">
             <article
@@ -231,7 +231,7 @@
       <section class="mx-auto mt-16 max-w-7xl">
         <div class="grid gap-6 lg:grid-cols-[0.92fr_1.08fr]">
           <article
-            class="h-max rounded-[2.5rem] bg-[#212121] p-8 text-white shadow-sm lg:self-start lg:p-10"
+            class="h-full rounded-[2.5rem] bg-[#212121] p-8 text-white shadow-sm lg:p-10"
           >
             <p
               class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
@@ -245,6 +245,12 @@
               like to think along about your situation and look together at what
               fits logically.
             </p>
+            <p class="mt-4 max-w-2xl text-base leading-8 text-gray-300">
+              <i>
+                PS: this is not us. Want to see our bright minds in real life?
+                Plan an introduction!
+              </i>
+            </p>
             <NuxtLink
               :to="localePath('/contact')"
               class="mt-8 inline-flex items-center justify-center rounded-full bg-[#facc15] px-6 py-3 text-sm font-semibold text-black transition hover:bg-white hover:text-black"
@@ -255,12 +261,12 @@
 
           <div class="grid gap-6">
             <article
-              class="overflow-hidden rounded-[2.25rem] border border-gray-200 bg-white shadow-sm"
+              class="h-full overflow-hidden rounded-[2.25rem] border border-gray-200 bg-white shadow-sm"
             >
               <img
-                src="/images/aitje-cubes.png"
+                src="/images/aitje-home-footer.png"
                 alt="AITJE product visual"
-                class="h-64 w-full object-cover"
+                class="h-80 w-full object-cover lg:h-full"
               />
             </article>
           </div>
@@ -280,20 +286,20 @@ const youtubeEmbedUrl = "https://www.youtube.com/embed/3ZJgaJGeRS4";
 
 const visionCards = [
   {
-    title: "The market changes fast",
-    text: "AI is becoming a fixed part of modern organizations. Agents, LLMs, image generation and video generation will change processes, while the parties behind them will eventually want to earn back their investments.",
+    title: "Start with the problem",
+    text: "We do not start with a model or tool, but with the question of where your organization loses time, carries risk or wants to use knowledge better.",
   },
   {
-    title: "Dependence creates vulnerability",
-    text: "External AI costs can rise sharply, platform decisions by third parties directly affect your operation and full dependence makes organizations vulnerable over time.",
+    title: "Workable for teams",
+    text: "A solution has to fit existing processes, roles and responsibilities. Otherwise AI remains a loose demo instead of a useful part of the work.",
   },
   {
-    title: "Software, hardware and guidance",
-    text: "AITJE offers hardware and software to let your organization work with AI in a future-ready way. Not as hype, but as practical infrastructure with which you keep control over data, costs and continuity.",
+    title: "Local where it adds value",
+    text: "We deliberately look at which knowledge, data and functions are better kept close to the organization, so usage, access and dependencies stay manageable.",
   },
   {
-    title: "Practical inside the organization",
-    text: "Local access to documents and knowledge through an LLM, practical use for teams and business processes, and support with secure integration.",
+    title: "Managed after delivery",
+    text: "AI also needs to remain understandable after the first implementation. That is why we think along about maintenance, access, document flows, costs and further development.",
   },
 ];
 

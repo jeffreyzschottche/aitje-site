@@ -164,11 +164,11 @@
               Zo ontstaat een route die organisaties echt kunnen volgen.
               </p>
               <p>
-                We bouwen aan producten zoals AITJE Assistent, AITJE Custom en Coder voor
-                organisaties die AI lokaal, duidelijk en beheersbaar willen
-                inzetten. Daarnaast helpen we organisaties met AI-strategie,
-                consultancy, implementatie en keuzes rond infrastructuur,
-                processen en inzet.
+                We bouwen producten die concrete problemen en behoeftes binnen
+                je organisatie oplossen en zorgen dat AI lokaal, duidelijk en in
+                eigen beheer inzetbaar wordt. Daarnaast helpen we met
+                AI-strategie, consultancy, implementatie en keuzes rond
+                infrastructuur, processen en dagelijks gebruik.
               </p>
             </div>
           </div>
@@ -177,7 +177,7 @@
             class="overflow-hidden rounded-[2.5rem] border border-black/10 bg-white/70 shadow-sm"
           >
             <img
-              src="/images/aitje-client-screens.png"
+              src="/images/no-costs.png"
               alt="AITJE productbeeld"
               class="h-full min-h-[22rem] w-full object-cover"
             />
@@ -188,17 +188,17 @@
       <section class="mx-auto mt-16 max-w-7xl">
         <div class="text-center">
           <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
-            Visie
+            Aanpak
           </p>
           <h2 class="mt-3 text-4xl font-black text-gray-900">
-            AI moet voor jouw organisatie werken, niet andersom
+            Van AI-idee naar iets dat echt in je organisatie past
           </h2>
           <p class="mx-auto mt-5 max-w-4xl text-base leading-8 text-gray-700">
-            AI is niet meer weg te denken. Agents, LLM&apos;s, beeldgeneratie en
-            videogeneratie gaan een steeds grotere rol spelen in hoe organisaties werken.
-            Onze visie is dat je die ontwikkeling beter op je eigen systemen kunt
-            voorbereiden, zonder volledige afhankelijkheid van het buitenland, Big Tech
-            of externe platformen.
+            Veel organisaties weten dat ze iets met AI moeten, maar niet waar ze
+            moeten beginnen of wat verstandig is om zelf te beheren. AITJE helpt
+            die stap kleiner te maken: van eerste vraag en haalbare toepassing
+            naar een oplossing die past bij je data, mensen, infrastructuur en
+            manier van werken.
           </p>
         </div>
       </section>
@@ -206,7 +206,7 @@
       <section class="mx-auto mt-12 max-w-7xl">
         <div class="rounded-[3rem] border border-gray-200 bg-white p-8 shadow-sm lg:p-10">
           <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
-            Waar we in geloven
+            Hoe we dat concreet maken
           </p>
           <div class="mt-8 grid gap-4 md:grid-cols-2">
             <article
@@ -228,7 +228,7 @@
       <section class="mx-auto mt-16 max-w-7xl">
         <div class="grid gap-6 lg:grid-cols-[0.92fr_1.08fr]">
           <article
-            class="h-max rounded-[2.5rem] bg-[#212121] p-8 text-white shadow-sm lg:self-start lg:p-10"
+            class="h-full rounded-[2.5rem] bg-[#212121] p-8 text-white shadow-sm lg:p-10"
           >
             <p
               class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
@@ -242,6 +242,12 @@
               We denken graag mee over jouw situatie en kijken samen wat logisch
               past.
             </p>
+            <p class="mt-4 max-w-2xl text-base leading-8 text-gray-300">
+              <i>
+                PS: dit zijn wij niet, wil je ons knappe koppen in het echt
+                zien? Plan een kennismaking in!
+              </i>
+            </p>
             <NuxtLink
               to="/contact"
               class="mt-8 inline-flex items-center justify-center rounded-full bg-[#facc15] px-6 py-3 text-sm font-semibold text-black transition hover:bg-white hover:text-black"
@@ -252,12 +258,12 @@
 
           <div class="grid gap-6">
             <article
-              class="overflow-hidden rounded-[2.25rem] border border-gray-200 bg-white shadow-sm"
+              class="h-full overflow-hidden rounded-[2.25rem] border border-gray-200 bg-white shadow-sm"
             >
               <img
-                src="/images/aitje-cubes.png"
+                src="/images/aitje-home-footer.png"
                 alt="AITJE productbeeld"
-                class="h-64 w-full object-cover"
+                class="h-80 w-full object-cover lg:h-full"
               />
             </article>
           </div>
@@ -275,20 +281,20 @@ const youtubeEmbedUrl = "https://www.youtube.com/embed/3ZJgaJGeRS4";
 
 const visionCards = [
   {
-    title: "De markt verandert snel",
-    text: "AI wordt een vast onderdeel van moderne organisaties. Agents, LLM's, beeldgeneratie en videogeneratie gaan processen veranderen, terwijl de partijen daarachter hun investeringen uiteindelijk willen terugverdienen.",
+    title: "Beginnen bij het probleem",
+    text: "We starten niet bij een model of tool, maar bij de vraag waar je organisatie tijd verliest, risico loopt of kennis beter wil benutten.",
   },
   {
-    title: "Afhankelijkheid maakt kwetsbaar",
-    text: "Externe AI-kosten kunnen fors stijgen, platformkeuzes van derden raken direct jouw operatie en volledige afhankelijkheid maakt organisaties op termijn kwetsbaar.",
+    title: "Werkbaar voor teams",
+    text: "Een oplossing moet aansluiten op bestaande processen, rollen en verantwoordelijkheden. Anders blijft AI een losse demo in plaats van een bruikbaar onderdeel van het werk.",
   },
   {
-    title: "Software, hardware en begeleiding",
-    text: "AITJE biedt hardware en software om jouw organisatie toekomstbestendig met AI te laten werken. Niet als hype, maar als praktische infrastructuur waarmee jij grip houdt op data, kosten en continuiteit.",
+    title: "Lokaal waar dat waarde heeft",
+    text: "We kijken bewust welke kennis, data en functies beter dichtbij de organisatie kunnen draaien, zodat gebruik, toegang en afhankelijkheden beheersbaar blijven.",
   },
   {
-    title: "Praktisch inzetbaar in de organisatie",
-    text: "Lokale toegang tot documenten en kennis via een LLM, praktische inzet voor teams en bedrijfsprocessen en ondersteuning bij integratie op een veilige manier.",
+    title: "Beheer na oplevering",
+    text: "AI moet ook na de eerste implementatie begrijpelijk blijven. Daarom denken we mee over onderhoud, toegang, documentstromen, kosten en doorontwikkeling.",
   },
 ];
 
@@ -296,7 +302,7 @@ const whatWeDo = [
   {
     badge: "Producten",
     title: "Duidelijke productlijn",
-    text: "We bouwen aan producten zoals AITJE Assistent, AITJE Custom en Coder voor organisaties die AI lokaal, duidelijk en beheersbaar willen inzetten.",
+    text: "We bouwen producten die concrete problemen en behoeftes binnen je organisatie oplossen en lokaal, duidelijk en in eigen beheer inzetbaar zijn.",
   },
   {
     badge: "Diensten",
