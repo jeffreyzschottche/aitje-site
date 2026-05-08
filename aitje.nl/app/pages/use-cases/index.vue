@@ -34,12 +34,16 @@
                 Aanpak
               </p>
               <h2 class="mt-3 text-3xl font-black text-gray-900">
-                Duidelijke afspraken en een partner die ondersteunt
+                Hoe wij werken
               </h2>
               <div class="mt-5 space-y-4 text-base leading-8 text-gray-600">
                 <p>
-                  De use cases zijn gemaakt om je een beeld te geven van de
-                  situaties en problemen waarvoor onze oplossingen werken.
+                  De use cases zijn realistische situaties en problemen waarvoor
+                  onze oplossingen werken. Heb je een specifiekere behoefte of
+                  is er extra ondersteuning nodig, dan denken we mee over een
+                  passende route. AITJE is je strategische partner in edge AI:
+                  praktisch, technisch en betrokken bij wat jouw organisatie
+                  nodig heeft.
                 </p>
               </div>
             </div>

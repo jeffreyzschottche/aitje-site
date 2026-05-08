@@ -46,7 +46,7 @@ export const hardwareCatalog: HardwareItem[] = [
       "Maatwerkroute voor edge- en on-premise AI waar nog geen standaardproduct voor bestaat.",
     heroDescription:
       "Voor organisaties met een concrete lokale AI-vraag waarvoor software, workflow en hardware specifiek moeten worden samengesteld.",
-    image: "/images/custom-suited.png",
+    image: "/images/aitje-custom.png",
     sections: [
       {
         title: "Wat maakt dit maatwerk?",

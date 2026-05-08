@@ -46,7 +46,7 @@ export const hardwareCatalog: HardwareItem[] = [
       "Personalized AI solution for situations where standard hardware does not exactly fit.",
     heroDescription:
       "For organizations that need just more specs or a specific offline workflow at the hardware level.",
-    image: "/images/custom-suited.png",
+    image: "/images/aitje-custom.png",
     sections: [
       {
         title: "What makes this customization?",

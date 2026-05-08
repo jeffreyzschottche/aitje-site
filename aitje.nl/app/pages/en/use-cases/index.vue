@@ -34,12 +34,16 @@
                 Approach
               </p>
               <h2 class="mt-3 text-3xl font-black text-gray-900">
-                Clear agreements and a partner that supports you
+                How we work
               </h2>
               <div class="mt-5 space-y-4 text-base leading-8 text-gray-600">
                 <p>
-                  These use cases are made to give you a clear picture of the
-                  situations and problems our solutions are designed for.
+                  These use cases are realistic situations and problems our
+                  solutions are built for. If your organization has a more
+                  specific need or requires extra support, we help shape the
+                  right path. AITJE is your strategic partner in edge AI:
+                  practical, technical and involved in what your organization
+                  needs.
                 </p>
               </div>
             </div>
