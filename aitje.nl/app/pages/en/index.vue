@@ -1250,6 +1250,8 @@ const homeServices = serviceCatalog.map((service) => ({
   title:
     service.key === "installation"
       ? "Product installation"
+      : service.key === "knowledgebase-management"
+        ? "Knowledge base management"
       : service.key === "expansion"
         ? "Product expansion"
         : service.key === "custom"
@@ -1262,6 +1264,8 @@ const homeServices = serviceCatalog.map((service) => ({
   focus:
     service.key === "installation"
       ? "Implementation"
+      : service.key === "knowledgebase-management"
+        ? "Knowledge setup"
       : service.key === "expansion"
         ? "Further development"
         : service.key === "custom"
@@ -1274,6 +1278,8 @@ const homeServices = serviceCatalog.map((service) => ({
   description:
     service.key === "installation"
       ? "We help with installation, permissions, knowledge base sync and technical setup so AITJE products land in your environment ready to use."
+      : service.key === "knowledgebase-management"
+        ? "We prepare your knowledge base and help decide how documents, sources and updates should be added for useful AI answers."
       : service.key === "expansion"
         ? "We expand existing AITJE setups in a focused way when more users, extra modules, integrations or additional setup are needed."
         : service.key === "custom"

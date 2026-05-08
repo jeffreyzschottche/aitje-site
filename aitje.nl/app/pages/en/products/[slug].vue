@@ -559,7 +559,7 @@ const statusLabel = computed(() => {
 const heroImage = computed(() => {
   const mapping: Record<string, string> = {
     "aitje-assistent": "/images/aitje-cubes.png",
-    "aitje-custom": "/images/custom-suited.png",
+    "aitje-custom": "/images/aitje-custom.png",
     "aitje-coder": "/images/aitje-product.png",
   };
   return mapping[slug.value] ?? "/images/aitje-product.png";

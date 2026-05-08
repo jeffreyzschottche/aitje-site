@@ -22,6 +22,28 @@ export const serviceCatalog = [
     cta: "Contact opnemen",
   },
   {
+    key: "knowledgebase-management",
+    sidebarLabel: "Kennisbank Managen",
+    title: "Kennisbank Managen",
+    focus: "Kennisinrichting",
+    description:
+      "We zetten je kennisbank klaar en helpen bepalen hoe je documenten, bronnen en updates het beste invoert voor bruikbare AI-antwoorden.",
+    body: [
+      "Een goede kennisbank begint niet bij zoveel mogelijk bestanden uploaden, maar bij structuur. We helpen met het ordenen van bronnen, het bepalen wat wel en niet in de kennisbank hoort en het klaarzetten van de omgeving zodat AITJE Assistent met betrouwbare context kan werken.",
+      "Daarna leggen we uit hoe je nieuwe informatie het beste toevoegt. Denk aan naamgeving, versies, bronkwaliteit, prioriteiten en afspraken over wie wijzigingen beheert. Zo blijft de kennisbank bruikbaar wanneer documenten veranderen of teams nieuwe informatie willen toevoegen.",
+    ],
+    result:
+      "Een ingerichte kennisbank met duidelijke afspraken over invoer, beheer en verdere verbetering.",
+    details: [
+      "Kennisbank klaarzetten met een logische bronstructuur",
+      "Advies over welke documenten en informatie je het beste invoert",
+      "Uitleg over beheer, updates, versiebeheer en kwaliteit van bronnen",
+    ],
+    fit: "Voor organisaties die AITJE Assistent willen gebruiken met eigen kennis, maar hulp willen bij de juiste inrichting en werkwijze.",
+    link: "/contact?onderwerp=kennisbank-managen",
+    cta: "Contact opnemen",
+  },
+  {
     key: "expansion",
     sidebarLabel: "Product uitbreiding",
     title: "Product uitbreiding",
