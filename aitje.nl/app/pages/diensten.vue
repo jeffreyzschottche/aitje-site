@@ -15,10 +15,9 @@
         </h1>
         <p class="mt-6 text-lg text-gray-600">
           AITJE begeleidt organisaties bij het inzetten van on-premise en edge
-          AI. We helpen met strategie, inrichting, maatwerk en doorontwikkeling,
-          als losse diensten of als concrete afspraken binnen een SLA. Zo
-          sluiten onze oplossingen en toekomstige uitbreidingen aan op je
-          organisatie, in plaats van andersom.
+          AI. Onze producten zijn gemaakt om direct bruikbaar te zijn, maar als
+          kennis, tijd of capaciteit ontbreekt helpen we met inrichting,
+          consultancy, maatwerk en doorlopende samenwerking binnen een SLA.
         </p>
       </section>
 
@@ -53,15 +52,15 @@
                     class="mt-3 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"
                   ></span>
                   <span
-                    >Losse diensten beschikbaar voor een vast uurtarief zonder
-                    partnerschap.</span
+                    >Losse installatiehulp, consultancy en maatwerk beschikbaar
+                    tegen uurtarief.</span
                   >
                 </li>
                 <li class="flex gap-3">
                   <span
                     class="mt-3 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"
                   ></span>
-                  <span>Concrete afspraken binnen onze SLA.</span>
+                  <span>Structurele afspraken binnen onze SLA als strategisch partnerschap.</span>
                 </li>
                 <li class="flex gap-3">
                   <span
@@ -74,8 +73,8 @@
                     class="mt-3 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"
                   ></span>
                   <span
-                    >Producten zo gemaakt dat we op afstand kunnen meekijken,
-                    alleen met toestemming.</span
+                    >Producten werken out of the box; inrichting door AITJE is
+                    optioneel.</span
                   >
                 </li>
               </ul>
@@ -165,6 +164,14 @@
             <p class="mt-5 max-w-3xl text-base leading-8 text-gray-600">
               {{ activeService.description }}
             </p>
+            <div
+              v-if="activeService.body?.length"
+              class="mt-6 max-w-4xl space-y-4 text-sm leading-7 text-gray-600"
+            >
+              <p v-for="paragraph in activeService.body" :key="paragraph">
+                {{ paragraph }}
+              </p>
+            </div>
 
             <div class="mt-8 rounded-[1.75rem] bg-[#fafafa] p-5">
               <p
@@ -288,7 +295,7 @@
             class="overflow-hidden rounded-[2.5rem] border border-gray-200 bg-white shadow-sm"
           >
             <img
-              src="/images/aitje-product.png"
+              src="/images/wanneer-aitje.png"
               alt="AITJE producten en diensten"
               class="h-56 w-full object-cover"
             />
@@ -296,10 +303,10 @@
               <p
                 class="text-xs font-semibold uppercase tracking-[0.35em] text-[#facc15]"
               >
-                Waarom dit smaller is
+                Effectieve samenwerking
               </p>
               <h2 class="mt-3 text-3xl font-black text-gray-900">
-                Minder grootspraak, meer focus
+                Partnerschap met heldere afspraken
               </h2>
               <ul class="mt-6 space-y-3 text-sm text-gray-700">
                 <li class="flex items-start gap-3">
@@ -307,8 +314,8 @@
                     class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"
                   ></span>
                   <span
-                    >Duidelijker onderscheid tussen product, dienst en custom
-                    route.</span
+                    >Heldere afspraken over doel, planning, verantwoordelijkheden
+                    en resultaat.</span
                   >
                 </li>
                 <li class="flex items-start gap-3">
@@ -316,8 +323,8 @@
                     class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"
                   ></span>
                   <span
-                    >Betere aansluiting op organisaties die geen vaag
-                    maatwerkverhaal zoeken.</span
+                    >Voor organisaties die ondersteuning willen bij vaste
+                    producten en praktische AI-toepassingen.</span
                   >
                 </li>
                 <li class="flex items-start gap-3">
@@ -325,8 +332,8 @@
                     class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"
                   ></span>
                   <span
-                    >Een geloofwaardiger site waarin begeleiding de productlijn
-                    versterkt.</span
+                    >Begeleiding die helpt bij keuze, inrichting en gebruik,
+                    zonder onnodig groot traject.</span
                   >
                 </li>
               </ul>
@@ -353,10 +360,10 @@ import { serviceCatalog } from "../data/serviceCatalog";
 
 const introCards = [
   {
-    badge: "Strategie",
-    title: "Niet alles tegelijk",
+    badge: "Producten",
+    title: "Out of the box",
     description:
-      "We helpen eerst bepalen wat logisch is, voordat er gebouwd of uitgebreid wordt.",
+      "Onze producten zijn direct bruikbaar. We richten ze alleen voor je in wanneer dat praktisch nodig is.",
     icon: PlugZap,
   },
   {
@@ -368,9 +375,9 @@ const introCards = [
   },
   {
     badge: "Continuiteit",
-    title: "Ultieme vrijheid",
+    title: "Strategisch partnerschap",
     description:
-      "Kies zelf: losse producten, diensten erbij of een periodiek opzegbare SLA. Jij houdt regie, wij staan naast je.",
+      "Binnen een SLA helpen we met support, kennisbank, advies en doorontwikkeling.",
     icon: Leaf,
   },
 ];
@@ -400,34 +407,17 @@ const activeService = computed(
 
 const services = [
   {
-    title: "AI-strategie",
-    focus: "Strategie",
+    title: "Consultancy",
+    focus: "Nut & optimalisatie",
     description:
-      "We helpen bepalen waar AI nu de meeste waarde oplevert, wat Edge AI wel en niet logisch maakt en welke eerste stappen realistisch zijn.",
-    result:
-      "Een concreet plan waarmee je verder kunt zonder te verdwalen in alle AI-opties.",
+      "We denken mee over waar edge AI praktisch nut kan hebben in je organisatie en hoe bestaand AI-gebruik slimmer, goedkoper of stabieler kan.",
+    result: "Meer grip op waar lokale AI echt waarde toevoegt.",
     details: [
-      "Waar AI nu direct waarde kan toevoegen",
-      "Welke inzet logisch is voor jouw organisatie",
-      "Heldere eerste keuzes in plaats van losse ideeën",
+      "Analyse van huidig AI-gebruik, kosten en afhankelijkheden",
+      "Advies over waar edge AI wel of niet logisch is",
+      "Concrete aanbevelingen voor producten, inrichting of vervolgstappen",
     ],
-    fit: "Voor organisaties die eerst helderheid willen over richting, kansen en de rol van lokale Edge AI.",
-    image: "/images/golden-egg.png",
-    icon: PlugZap,
-    link: "/diensten/ai-strategie",
-  },
-  {
-    title: "Consultancy: huidig gebruik optimaliseren",
-    focus: "Kosten & stabiliteit",
-    description:
-      "We analyseren huidig AI-gebruik en kijken waar kosten, stabiliteit en afhankelijkheid verbeterd kunnen worden.",
-    result: "Meer grip op verbruik, leveranciers en praktische inzet van AI.",
-    details: [
-      "Analyse van huidige AI-stack en verbruik",
-      "Lagere afhankelijkheid van externe platformen waar logisch",
-      "Advies over lokale software of Edge AI in de workflow",
-    ],
-    fit: "Voor teams die al AI gebruiken, maar onvoldoende overzicht hebben op kosten, risico en continuiteit.",
+    fit: "Voor organisaties die willen weten hoe edge AI nuttig kan zijn voordat ze kopen, bouwen of uitbreiden.",
     image: "/images/aitje-client-screens.png",
     icon: ClipboardPenLine,
     link: "/diensten/consultancy",
@@ -436,31 +426,31 @@ const services = [
     title: "AITJE Custom",
     focus: "Custom route",
     description:
-      "Voor organisaties waar de vaste oplossingen niet goed passen en waar AITJE mee moet denken over hardware, workflows of agentic inzet.",
+      "Voor organisaties die een edge- of on-premise AI-oplossing nodig hebben waar nu nog geen passend AITJE-product voor bestaat.",
     result:
-      "Een route die beter aansluit op de echte situatie van de organisatie.",
+      "Een maatwerkroute tegen uurtarief, inclusief de benodigde hardwarekosten.",
     details: [
-      "Strategisch meedenken over Edge AI",
-      "Alternatieve hardware wanneer standaard niet past",
-      "Praktische vertaalslag van idee naar aanpak",
+      "Ontwikkeling van specifieke edge- of on-premise AI-functionaliteit",
+      "Selectie en inrichting van passende hardware",
+      "Oplevering rond een workflow waarvoor nog geen standaardoplossing bestaat",
     ],
-    fit: "Voor organisaties met afwijkende eisen, specifieke hardwarewensen of complexere processen dan de vaste lijn ondersteunt.",
+    fit: "Voor organisaties met een concreet probleem waarvoor onze bestaande producten nog niet voldoende zijn.",
     image: "/images/custom-suited.png",
     icon: Sparkles,
     link: "/diensten/aitje-custom",
   },
   {
     title: "SLA",
-    focus: "Maandelijkse samenwerking",
+    focus: "Strategisch partnerschap",
     description:
-      "Een maandelijkse samenwerking voor support, updates, gereserveerde tijd, installatiehulp en advies rond producten en Edge AI-implementaties.",
-    result: "Doorlopende ondersteuning zonder alles ad hoc te hoeven oplossen.",
+      "Een doorlopende samenwerking voor organisaties die AITJE als strategische partner willen voor support, kennisbankbeheer, advies en doorontwikkeling.",
+    result: "Een vaste samenwerking waarin techniek, kennisbank en AI-richting niet ad hoc blijven liggen.",
     details: [
-      "Vaste tijd en ondersteuning per maand",
-      "Updates van modellen en software wanneer nodig",
-      "5 euro PromptPaleis tegoed per maand voor klanten met SLA",
+      "Kennisbank opzetten, inrichten, bijhouden of uitleg geven hoe je dat zelf doet",
+      "Support, updates, troubleshooting en gereserveerde tijd",
+      "Strategisch meedenken over AI-inzet, continuiteit en vervolgstappen",
     ],
-    fit: "Voor organisaties die continuiteit willen, zonder steeds per incident opnieuw te hoeven schakelen.",
+    fit: "Voor organisaties die AITJE structureel naast zich willen hebben in plaats van alleen losse hulp per incident.",
     image: "/images/promptpaleis-home-screen.png",
     icon: ShieldCheck,
     link: "/diensten/sla",

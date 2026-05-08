@@ -66,7 +66,7 @@ Productrichting voor gecontroleerd coderen en technische workflows met AI.
 
 ### Product Installatie
 
-Hulp bij installatie, rechten, kennisbanksync en technische inrichting zodat AITJE-producten direct werkbaar in de omgeving landen.
+AITJE-producten werken standaard out of the box. Als kennis, tijd of capaciteit ontbreekt, kan AITJE op afstand of fysiek helpen met installatie, rechten, toegang, technische inrichting en het aansluiten of structureren van een bestaande kennisbank.
 
 ### Product Uitbreiding
 
@@ -74,19 +74,15 @@ Bestaande AITJE-opstellingen uitbreiden: meer gebruikers, extra modules, koppeli
 
 ### AITJE Custom (dienst)
 
-Voor organisaties waar vaste oplossingen niet passen. AITJE denkt mee over hardware, workflows en agentic inzet.
+Voor organisaties die een edge- of on-premise AI-oplossing nodig hebben waar nog geen passend AITJE-product voor bestaat. Ontwikkeling gebeurt tegen uurtarief; benodigde hardwarekosten komen daar apart bij.
 
 ### Consultancy
 
-Analyse van huidig AI-gebruik. Kosten, stabiliteit en afhankelijkheid verbeteren. Advies over lokale software of Edge AI.
-
-### AI-strategie
-
-Bepalen waar AI nu de meeste waarde oplevert, wat Edge AI logisch maakt en welke eerste stappen realistisch zijn.
+Meedenken over waar edge AI praktisch nut kan hebben in de organisatie en hoe bestaand AI-gebruik slimmer, goedkoper of stabieler kan.
 
 ### SLA
 
-Maandelijkse samenwerking voor support, updates, gereserveerde tijd, installatiehulp en advies.
+Doorlopende samenwerking en strategisch partnerschap voor support, updates, gereserveerde tijd, kennisbank opzetten, kennisbank inrichten, kennisbank bijhouden of uitleg geven hoe de organisatie dat zelf goed doet.
 
 ---
 

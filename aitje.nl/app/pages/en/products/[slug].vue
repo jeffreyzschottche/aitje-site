@@ -490,29 +490,29 @@
 
           <article class="overflow-hidden rounded-[2.5rem] border border-gray-200 bg-white shadow-sm">
             <img
-              src="/images/aitje-product.png"
+              src="/images/wanneer-aitje.png"
               alt="AITJE products and services"
               class="h-56 w-full object-cover"
             />
             <div class="p-8">
               <p class="text-xs font-semibold uppercase tracking-[0.35em] text-[#facc15]">
-                Why this is narrower
+                Effective collaboration
               </p>
               <h2 class="mt-3 text-3xl font-black text-gray-900">
-                Less posturing, more focus
+                Partnership with clear agreements
               </h2>
               <ul class="mt-6 space-y-3 text-sm text-gray-700">
                 <li class="flex items-start gap-3">
                   <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"></span>
-                  <span>Clearer distinction between product, service and custom route.</span>
+                  <span>Clear agreements on goals, planning, responsibilities and outcomes.</span>
                 </li>
                 <li class="flex items-start gap-3">
                   <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"></span>
-                  <span>Better fit for organizations that are not looking for a vague custom-work story.</span>
+                  <span>For organizations that want support with fixed products and practical AI applications.</span>
                 </li>
                 <li class="flex items-start gap-3">
                   <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"></span>
-                  <span>A more credible site in which guidance strengthens the product line.</span>
+                  <span>Guidance that helps with choice, setup and use, without an unnecessarily large project.</span>
                 </li>
               </ul>
             </div>

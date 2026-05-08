@@ -43,20 +43,20 @@ export const hardwareCatalog: HardwareItem[] = [
     slug: "aitje-custom",
     title: "AITJE Custom",
     shortDescription:
-      "Persoonlijke AI-oplossing voor situaties waar standaardhardware niet precies past.",
+      "Maatwerkroute voor edge- en on-premise AI waar nog geen standaardproduct voor bestaat.",
     heroDescription:
-      "Voor organisaties die net meer specs of een specifieke offline workflow nodig hebben op hardware-niveau.",
+      "Voor organisaties met een concrete lokale AI-vraag waarvoor software, workflow en hardware specifiek moeten worden samengesteld.",
     image: "/images/custom-suited.png",
     sections: [
       {
         title: "Wat maakt dit maatwerk?",
         content:
-          "We stemmen hardwarekeuze, modelinzet, opslag, netwerkarchitectuur en beheerflows af op jullie praktijk in plaats van op een generiek template.",
+          "We ontwikkelen tegen uurtarief en stemmen hardwarekeuze, modelinzet, opslag, netwerkarchitectuur en beheerflows af op jullie praktijk.",
       },
       {
         title: "Integratie met bestaande systemen",
         content:
-          "Custom trajecten zijn geschikt voor organisaties die moeten koppelen met bestaande applicaties, API's, documentenstromen en beveiligingsrichtlijnen.",
+          "Custom trajecten zijn geschikt wanneer een bestaande AITJE-oplossing niet genoeg is voor applicaties, API's, documentenstromen, beveiligingsrichtlijnen of offline workflows.",
       },
       {
         title: "Overdracht en onderhoud",

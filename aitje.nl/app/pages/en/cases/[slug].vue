@@ -3,7 +3,7 @@ const route = useRoute();
 const mapping: Record<string, string> = {
   "thuiszorg-voice-rapportage": "/en/use-cases/meetings-and-conversations",
   "boekenwinkel-rag-isbn": "/en/use-cases/internal-knowledge-and-policy",
-  "it-beheer-lokale-coding-agents": "/en/use-cases/custom-and-agentic-workflows",
+  "it-beheer-lokale-coding-agents": "/en/use-cases/dev-agency-running-own-coding-agents",
   "rijschool-whatsapp-notulist": "/en/use-cases/meetings-and-conversations",
 };
 await navigateTo(mapping[String(route.params.slug)] ?? "/en/use-cases", { redirectCode: 301 });

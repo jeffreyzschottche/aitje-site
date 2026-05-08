@@ -70,7 +70,7 @@ const staticEntries: Record<string, { title: string; description: string; pageTy
   },
   "/diensten": {
     title: "Diensten | AITJE",
-    description: "AITJE helpt met AI-strategie, optimalisatieconsultancy, AITJE Custom en SLA.",
+    description: "AITJE helpt met productinstallatie, consultancy, AITJE Custom en SLA voor edge en on-premise AI.",
     pageType: "Service",
   },
   "/use-cases": {
@@ -101,8 +101,8 @@ const staticEntries: Record<string, { title: string; description: string; pageTy
     pageType: "ContactPage",
   },
   "/diensten/ai-strategie": {
-    title: "AI-strategie | AITJE",
-    description: "AITJE helpt bepalen waar AI nu echt waarde toevoegt binnen je organisatie. Praktisch advies over infrastructuur, tooling en prioriteiten.",
+    title: "SLA & strategisch partnerschap | AITJE",
+    description: "AI-strategie valt bij AITJE onder SLA en doorlopende samenwerking voor edge en on-premise AI.",
     pageType: "Service",
   },
   "/diensten/consultancy": {

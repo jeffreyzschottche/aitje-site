@@ -489,29 +489,29 @@
 
           <article class="overflow-hidden rounded-[2.5rem] border border-gray-200 bg-white shadow-sm">
             <img
-              src="/images/aitje-product.png"
+              src="/images/wanneer-aitje.png"
               alt="AITJE producten en diensten"
               class="h-56 w-full object-cover"
             />
             <div class="p-8">
               <p class="text-xs font-semibold uppercase tracking-[0.35em] text-[#facc15]">
-                Waarom dit smaller is
+                Effectieve samenwerking
               </p>
               <h2 class="mt-3 text-3xl font-black text-gray-900">
-                Minder grootspraak, meer focus
+                Partnerschap met heldere afspraken
               </h2>
               <ul class="mt-6 space-y-3 text-sm text-gray-700">
                 <li class="flex items-start gap-3">
                   <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"></span>
-                  <span>Duidelijker onderscheid tussen product, dienst en custom route.</span>
+                  <span>Heldere afspraken over doel, planning, verantwoordelijkheden en resultaat.</span>
                 </li>
                 <li class="flex items-start gap-3">
                   <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"></span>
-                  <span>Betere aansluiting op organisaties die geen vaag maatwerkverhaal zoeken.</span>
+                  <span>Voor organisaties die ondersteuning willen bij vaste producten en praktische AI-toepassingen.</span>
                 </li>
                 <li class="flex items-start gap-3">
                   <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"></span>
-                  <span>Een geloofwaardiger site waarin begeleiding de productlijn versterkt.</span>
+                  <span>Begeleiding die helpt bij keuze, inrichting en gebruik, zonder onnodig groot traject.</span>
                 </li>
               </ul>
             </div>

@@ -46,61 +46,68 @@
         </div>
       </section>
 
-      <section class="mx-auto mt-12 max-w-4xl space-y-6">
-        <article class="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm">
-          <div class="flex items-start gap-4">
-            <div
-              class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#facc15] text-sm font-black text-black"
-            >
-              01
-            </div>
-            <div>
-              <h2 class="text-2xl font-black text-gray-900">
-                Recognizable problem
-              </h2>
-              <p class="mt-3 text-base leading-8 text-gray-600">
-                {{ item.problem }}
-              </p>
-            </div>
-          </div>
+      <section class="mx-auto mt-12 max-w-5xl">
+        <article class="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm sm:p-10">
+          <p class="text-sm font-semibold uppercase tracking-[0.4em] text-[#facc15]">
+            Context
+          </p>
+          <h2 class="mt-3 text-3xl font-black text-gray-900">
+            {{ item.contextTitle ?? "What this use case is about" }}
+          </h2>
+          <p class="mt-5 text-lg leading-9 text-gray-600">
+            {{ item.context }}
+          </p>
         </article>
 
-        <article class="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm">
-          <div class="flex items-start gap-4">
-            <div
-              class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#facc15] text-sm font-black text-black"
-            >
-              02
-            </div>
-            <div>
-              <h2 class="text-2xl font-black text-gray-900">
-                Desired outcome
-              </h2>
-              <p class="mt-3 text-base leading-8 text-gray-600">
-                {{ item.outcome }}
-              </p>
-            </div>
-          </div>
-        </article>
+        <div class="mt-6 grid gap-6 md:grid-cols-2">
+          <article class="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm">
+            <p class="text-sm font-semibold uppercase tracking-[0.3em] text-[#facc15]">
+              Problem
+            </p>
+            <h2 class="mt-3 text-2xl font-black text-gray-900">
+              {{ item.problemTitle ?? "What gets stuck?" }}
+            </h2>
+            <p class="mt-4 text-base leading-8 text-gray-600">
+              {{ item.problem }}
+            </p>
+          </article>
 
-        <article class="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm">
-          <div class="flex items-start gap-4">
-            <div
-              class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#facc15] text-sm font-black text-black"
+          <article class="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm">
+            <p class="text-sm font-semibold uppercase tracking-[0.3em] text-[#facc15]">
+              Approach
+            </p>
+            <h2 class="mt-3 text-2xl font-black text-gray-900">
+              {{ item.outcomeTitle ?? "What changes with AITJE?" }}
+            </h2>
+            <p class="mt-4 text-base leading-8 text-gray-600">
+              {{ item.outcome }}
+            </p>
+          </article>
+        </div>
+
+        <article class="mt-6 rounded-3xl border border-gray-200 bg-white p-8 shadow-sm sm:p-10">
+          <div class="max-w-3xl">
+            <p class="text-sm font-semibold uppercase tracking-[0.4em] text-[#facc15]">
+              Practical
+            </p>
+            <h2 class="mt-3 text-3xl font-black text-gray-900">
+              {{ item.practicalTitle ?? "When this is a good fit" }}
+            </h2>
+            <p class="mt-4 text-base leading-8 text-gray-600">
+              {{ item.practical }}
+            </p>
+          </div>
+          <div class="mt-6 grid gap-4 md:grid-cols-3">
+            <article
+              v-for="bullet in item.bullets"
+              :key="bullet"
+              class="rounded-2xl border border-gray-200 bg-[#fafafa] p-5"
             >
-              03
-            </div>
-            <div class="w-full">
-              <h2 class="text-2xl font-black text-gray-900">
-                What fits here
-              </h2>
-              <ul class="mt-4 space-y-3 text-base text-gray-600">
-                <li v-for="bullet in item.bullets" :key="bullet" class="flex gap-3">
-                  <span class="mt-2 h-2 w-2 rounded-full bg-[#facc15]"></span>
-                  <span>{{ bullet }}</span>
-                </li>
-              </ul>
-            </div>
+              <div class="h-2 w-10 rounded-full bg-[#facc15]"></div>
+              <p class="mt-4 text-base font-semibold leading-7 text-gray-800">
+                {{ bullet }}
+              </p>
+            </article>
           </div>
         </article>
       </section>

@@ -5,15 +5,14 @@
 ## Producten
 
 - [AITJE Assistent](https://aitje.com/producten/aitje-assistent): Lokale Edge AI op eigen hardware met kennisbank, offline bereikbaarheid en API-toegang voor organisaties.
-- [AITJE Custom](https://aitje.com/producten/aitje-custom): Maatwerkoplossingen voor organisaties waar standaardhardware niet past.
+- [AITJE Custom](https://aitje.com/producten/aitje-custom): Maatwerkroute voor edge- en on-premise AI waar nog geen standaardproduct voor bestaat.
 - [Alle producten](https://aitje.com/producten): Overzicht van de productlijn: Assistent, Custom en Coder.
 
 ## Diensten
 
-- [Diensten overzicht](https://aitje.com/diensten): Implementatie, uitbreiding, consultancy, AI-strategie en SLA.
-- [AI-strategie](https://aitje.com/diensten/ai-strategie): Bepalen waar AI nu echt waarde toevoegt binnen je organisatie.
-- [Consultancy](https://aitje.com/diensten/consultancy): Huidig AI-gebruik goedkoper en stabieler maken.
-- [SLA](https://aitje.com/diensten/sla): Maandelijkse samenwerking voor support en doorontwikkeling.
+- [Diensten overzicht](https://aitje.com/diensten): Productinstallatie, consultancy, AITJE Custom en SLA voor edge en on-premise AI.
+- [Consultancy](https://aitje.com/diensten/consultancy): Meedenken over waar edge AI praktisch nut heeft en hoe huidig AI-gebruik slimmer kan.
+- [SLA](https://aitje.com/diensten/sla): Strategisch partnerschap voor support, kennisbankbeheer, advies en doorontwikkeling.
 
 ## Use Cases
 

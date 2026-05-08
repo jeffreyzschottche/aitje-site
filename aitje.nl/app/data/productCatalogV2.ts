@@ -119,21 +119,21 @@ export const productCatalogV2: Record<"nl" | "en", LocaleContent> = {
         title: "AITJE Custom",
         status: "available",
         summary:
-          "Voor organisaties waar de vaste oplossingen niet goed passen en die een strategische Edge AI-partner zoeken.",
+          "Voor organisaties die een edge- of on-premise AI-oplossing nodig hebben waar nog geen standaardproduct voor bestaat.",
         audience:
-          "Voor organisaties met specifieke hardwarewensen, agentic workflows of een complexere omgeving.",
+          "Voor organisaties met een concreet probleem dat vraagt om maatwerksoftware, passende hardware of een specifieke lokale AI-workflow.",
         highlights: [
-          "Strategisch meedenken over inzet van Edge AI",
-          "Alternatieve hardware mogelijk",
-          "Gericht op een passende oplossing in plaats van een standaardverhaal",
+          "Ontwikkeling tegen uurtarief",
+          "Hardwarekosten apart en transparant",
+          "Gericht op edge en on-premise AI waar bestaande producten niet genoeg zijn",
         ],
         cta: "Vraag een offerte aan",
         intro:
-          "AITJE Custom is de route voor organisaties die verder moeten kijken dan een standaardproduct. We denken mee over inzet, hardware, workflows en vervolgstappen.",
+          "AITJE Custom is de route voor organisaties die iets nodig hebben dat nog niet als vast AITJE-product bestaat. We ontwikkelen de oplossing tegen uurtarief en rekenen benodigde hardware apart door.",
         useCases: [
-          "Een zwaardere of afwijkende hardwareopzet nodig",
-          "Lokale agents koppelen aan bestaande processen",
-          "Praktische vertaalslag maken van idee naar werkbare oplossing",
+          "Een specifieke edge AI-workflow bouwen",
+          "Een on-premise toepassing koppelen aan bestaande processen",
+          "Passende hardware selecteren en inrichten voor een maatwerkoplossing",
         ],
       },
       {
