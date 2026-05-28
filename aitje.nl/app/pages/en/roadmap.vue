@@ -17,11 +17,10 @@
               continuing to build within AITJE.
             </p>
             <p class="max-w-3xl text-base leading-8 text-gray-600">
-              AITJE is continuously working on development, research and
-              tracking changes in the market. We try not to move too fast, but
-              also not to become too slow. We keep looking for the right
-              balance: which technology is not only interesting today, but also
-              stable and useful for the years ahead?
+              We build local AI step by step for organizations that need
+              practical control. This page shows which parts are available now,
+              which choices we are sharpening and which product directions come
+              later.
             </p>
           </div>
 
@@ -277,10 +276,10 @@ const roadmapYears = [
         label: "Q1-Q2",
         title: "Research and foundation",
         summary:
-          "In 2024, the focus was on technical exploration and building the base for local Edge AI.",
+          "In 2024, we explored which local AI technology was reliable enough for day-to-day use.",
         points: [
-          "Deeper work on AI workflows, RAG and local models.",
-          "Early tests with Ollama and infrastructure choices, among others.",
+          "Tested AI workflows, RAG and local models for practical use.",
+          "Made early infrastructure choices for a local assistant environment.",
         ],
       },
       {
@@ -290,10 +289,10 @@ const roadmapYears = [
         label: "Q3-Q4",
         title: "Defining direction",
         summary:
-          "In the second half of 2024, it became clear where the real product opportunities and risks were.",
+          "In the second half of 2024, we focused more sharply on products that improve control, cost and continuity.",
         points: [
-          "More focus on cost, energy use and dependency on external AI platforms.",
-          "The foundation was laid for a smaller and clearer product line.",
+          "More focus on reducing dependency on external AI platforms.",
+          "Laid the foundation for a clear product line around local AI.",
         ],
       },
     ],
@@ -306,12 +305,12 @@ const roadmapYears = [
         quarterEnd: 1,
         short: "Q1",
         label: "Q1",
-        title: "First product foundation",
+        title: "Product foundation sharpened",
         summary:
-          "The foundation of AITJE Assistant was refined further in terms of content and positioning.",
+          "AITJE Assistant gained a clearer role within the product line.",
         points: [
-          "Further development of the product foundation.",
-          "The direction and role of the product line were worked out further.",
+          "Worked out the local assistant environment in more detail.",
+          "Defined where AITJE Assistant is most useful.",
         ],
       },
       {
@@ -321,10 +320,10 @@ const roadmapYears = [
         label: "Q2",
         title: "Demos and practical feedback",
         summary:
-          "The first demo versions and customer feedback made clear which direction was credible enough to continue.",
+          "Demos and customer conversations made clear where organizations see the most value.",
         points: [
-          "First demo versions of AITJE Assistant tested in practice.",
-          "Practical feedback used to sharpen both product and positioning.",
+          "Tested AITJE Assistant in practice through early demos.",
+          "Used feedback to sharpen the product, explanation and positioning.",
         ],
       },
       {
@@ -332,12 +331,12 @@ const roadmapYears = [
         quarterEnd: 3,
         short: "Q3",
         label: "Q3",
-        title: "Narrowing the focus",
+        title: "Simplifying the product line",
         summary:
-          "The roadmap was reduced from loose ideas to a smaller and clearer whole.",
+          "The product line was reduced to a smaller and clearer whole.",
         points: [
-          "Fewer side paths, more focus on the core of AITJE.",
-          "The product structure was prepared for a simpler story and navigation toward the launch of AITJE.",
+          "Fewer loose directions, more focus on the core of AITJE.",
+          "Prepared the site and navigation for a clearer product story.",
         ],
       },
       {
@@ -347,10 +346,10 @@ const roadmapYears = [
         label: "Q4",
         title: "Preparing for 2026",
         summary:
-          "By the end of 2025, the foundation was in place for a product line with clear status: what exists, what is underway and what comes later.",
+          "By the end of 2025, the next product direction was clear.",
         points: [
           "The 2026 roadmap was defined based on practical experience and positioning.",
-          "The direction for AITJE Assistant and AITJE Coder became sharper.",
+          "The roles of AITJE Assistant, AITJE Assistant+ and AITJE Coder became sharper.",
         ],
       },
     ],
@@ -363,13 +362,13 @@ const roadmapYears = [
         quarterEnd: 1,
         short: "Q1",
         label: "Q1",
-        title: "Assistant is in place",
+        title: "AITJE Assistant development completed",
         summary:
-          "AITJE Assistant has launched as AITJE's core product.",
+          "AITJE Assistant is ready for organizations that want to use local AI in a controlled way.",
         points: [
           "AITJE Assistant is available for organizations that want to use AI locally and manageably.",
-          "AITJE Assistant+ exists as a variant with better specs and more intelligence for heavier use cases.",
-          "Multiple requests for different purposes made it clear that a separate custom route is a logical part of the offering.",
+          "For heavier use cases, AITJE Assistant+ offers better specs and more intelligence.",
+          "For organizations with specific requirements, AITJE Custom supports tailored solutions.",
         ],
       },
       {
@@ -379,7 +378,7 @@ const roadmapYears = [
         label: "Q2",
         title: "Clear foundation",
         summary:
-          "The foundation is sharpened further while active products are monitored in practice.",
+          "The focus is on stable use, clear explanation and further optimization.",
         points: [
           "Finalize and optimize AITJE Coder toward a more stable product.",
           "Monitor AITJE Assistant for usage, reliability and practical deployment.",
@@ -392,10 +391,10 @@ const roadmapYears = [
         label: "Q3",
         title: "New directions in development",
         summary:
-          "From Q3 onward, attention shifts to the next expansion of the product line.",
+          "From Q3 onward, we continue building the next expansion of the product line.",
         points: [
-          "AITJE Coder is prepared further in substance.",
-          "The existing line intentionally stays compact and focused on products with clear status.",
+          "Prepare AITJE Coder further for technical work with AI.",
+          "Keep the existing line compact, so each product has a clear status and role.",
         ],
       },
       {
@@ -405,7 +404,7 @@ const roadmapYears = [
         label: "Q4",
         title: "From test to live",
         summary:
-          "The second half of the year is about bringing the next development line live.",
+          "The second half of the year is about launching the next product line.",
         points: [
           "AITJE Coder launches in Q4 2026.",
           "The first live phase focuses on controlled use and technical AI workflows.",
@@ -423,11 +422,11 @@ const roadmapYears = [
         label: "Q1",
         title: "Further development",
         summary:
-          "The existing line is refined first before expanding again.",
+          "We improve what is already in place before the product line grows further.",
         points: [
-          "Existing products are refined further in substance and usability.",
+          "Improve existing products further in substance and usability.",
           "User experience and practical deployment remain leading.",
-          "The product line expands based on patterns from repeated custom projects.",
+          "Base new product choices on recurring questions from custom projects.",
         ],
       },
       {
@@ -437,7 +436,7 @@ const roadmapYears = [
         label: "Q2",
         title: "Notulist and Off-Grid",
         summary:
-          "Attention shifts to products that solve recurring questions from practice.",
+          "Attention shifts to products for recurring real-world questions.",
         points: [
           "Focus on AITJE Notulist for minutes, summaries and knowledge retention.",
           "Focus on AITJE Off-Grid for AI use in situations where internet or power is not a given.",
@@ -450,9 +449,9 @@ const roadmapYears = [
         label: "Q3",
         title: "Monitoring and landing",
         summary:
-          "Q3 is about measuring, learning and seeing how the product line holds up in practice.",
+          "Q3 is about measuring, learning and understanding what customers need in practice.",
         points: [
-          "Gather information about Coder and Assistant based on usage and feedback.",
+          "Gather usage and feedback around AITJE Coder and AITJE Assistant.",
           "Monitor and adjust the development of AITJE Off-Grid and AITJE Notulist.",
         ],
       },
@@ -463,10 +462,10 @@ const roadmapYears = [
         label: "Q4",
         title: "Defining the next phase",
         summary:
-          "At the end of 2027, the line is reviewed again based on product usage and real-world practice.",
+          "At the end of 2027, we decide which next product steps add the most value.",
         points: [
           "Set new priorities based on product usage and feedback.",
-          "Keep the roadmap tied to real status and concrete demand.",
+          "Keep the roadmap tied to real product status and concrete customer demand.",
           "Re-evaluate the tech and hardware stack, because AI developments continue to move quickly.",
         ],
       },

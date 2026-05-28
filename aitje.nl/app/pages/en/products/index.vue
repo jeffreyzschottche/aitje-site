@@ -10,12 +10,11 @@
           Products
         </p>
         <h1 class="mt-4 text-5xl font-black text-gray-900">
-          The AITJE product line
+          AI on your own hardware, without unnecessary dependency
         </h1>
         <p class="mt-6 text-lg text-gray-600">
-          No more separate hardware and software pages, but a smaller and
-          clearer line with a core product, a custom route and a few logical
-          next steps.
+          Products for organizations that want to use AI practically, with more
+          control over data, power usage, API costs, privacy and availability.
         </p>
       </section>
 
@@ -40,57 +39,24 @@
         </div>
       </section>
 
-      <section class="mx-auto mt-8 max-w-6xl">
-        <article
-          class="overflow-hidden rounded-[2.5rem] border border-gray-200 bg-white shadow-sm"
-        >
-          <div class="grid gap-0 md:grid-cols-[0.72fr_1.28fr]">
-            <div class="border-b border-gray-200 bg-[#faf7ea] md:border-b-0 md:border-r">
-              <img
-                src="/images/aitje-cubes.png"
-                alt="AITJE product line"
-                class="h-full min-h-[18rem] w-full object-cover"
-              />
-            </div>
-
-            <div class="p-8 md:p-10">
-              <div>
-                <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
-                  {{ productSnapshots[0].badge }}
-                </p>
-                <h2 class="mt-3 text-3xl font-black text-gray-900">
-                  {{ productSnapshots[0].title }}
-                </h2>
-                <p class="mt-3 text-base leading-8 text-gray-600">
-                  {{ productSnapshots[0].description }}
-                </p>
-                <p class="mt-4 text-base leading-8 text-gray-600">
-                  {{ productSnapshots[1].description }}
-                </p>
-              </div>
-            </div>
-          </div>
-        </article>
-      </section>
-
       <section class="mx-auto mt-12 max-w-6xl">
         <div class="mb-8 max-w-3xl">
           <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
             Overview
           </p>
           <h2 class="mt-3 text-4xl font-black text-gray-900">
-            Products that connect logically
+            Our products
           </h2>
           <p class="mt-4 text-base leading-8 text-gray-600">
-            Below you can see the current AITJE product line. Not as a store,
-            but as a quick way to see which product already exists, what is in
-            development and which direction follows next within
+            Explore AITJE's AI products: locally deployable, designed to reduce
+            external API calls and built for organizations that want to keep
+            control over internal knowledge, costs and access.
             <a
-              :href="localePath('/kenniscentrum/wat-is-edge-ai')"
+              :href="localePath('/kenniscentrum/wat-is-local-ai')"
               class="knowledge-link"
               data-knowledge-link="true"
             >
-              local AI
+              Read more about local AI
             </a>
             .
           </p>
@@ -114,18 +80,34 @@
                 :class="product.imagePanelClass"
               >
                 <div
+                  v-if="product.image"
                   class="absolute inset-0"
                   :class="product.isUnavailable
                     ? 'bg-gradient-to-br from-white/8 via-[#1f1f1f]/18 to-[#090909]/52'
                     : 'bg-gradient-to-br from-white/10 via-transparent to-black/30'"
                 />
                 <img
+                  v-if="product.image"
                   :src="product.image"
                   :alt="product.title"
                   class="relative h-full min-h-[20rem] w-full object-cover transition"
                   :class="product.isUnavailable ? 'scale-[1.02] blur-sm saturate-[0.75] brightness-[0.72]' : ''"
                   loading="lazy"
                 />
+                <div
+                  v-else
+                  class="relative flex min-h-[20rem] h-full w-full flex-col justify-center bg-[#050505] p-8 text-white"
+                >
+                  <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
+                    No image available yet
+                  </p>
+                  <p class="mt-4 max-w-sm text-3xl font-black leading-tight">
+                    {{ product.title }}
+                  </p>
+                  <p class="mt-4 max-w-sm text-sm leading-7 text-white/62">
+                    This product is still in development.
+                  </p>
+                </div>
               </div>
 
               <div class="flex flex-col justify-between p-8 md:p-10">
@@ -137,7 +119,7 @@
                     <span
                       class="rounded-full border border-[#facc15] bg-[#facc15] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.28em] text-[#212121]"
                     >
-                      {{ product.statusLabel }}
+                      {{ product.displayStatus }}
                     </span>
                   </div>
 
@@ -166,7 +148,7 @@
                     class="inline-flex min-w-[12.5rem] items-center justify-center rounded-full bg-[#facc15] px-9 py-4 text-sm font-semibold whitespace-nowrap text-[#212121] transition hover:bg-white hover:text-black"
                     @click.stop="openWaitlistModal(product)"
                   >
-                    Keep me updated
+                    {{ product.ctaLabel }}
                   </button>
 
                   <NuxtLink
@@ -174,7 +156,7 @@
                     :to="product.link"
                     class="inline-flex min-w-[9.5rem] items-center justify-center rounded-full bg-[#facc15] px-7 py-3 text-sm font-semibold whitespace-nowrap text-[#212121] transition hover:bg-white hover:text-black"
                   >
-                    More info
+                    {{ product.ctaLabel }}
                   </NuxtLink>
                 </div>
               </div>
@@ -276,45 +258,31 @@ const statusLabels = productStatusLabel.en;
 
 const valueProps = [
   {
-    badge: "Structure",
-    title: "One product line",
+    badge: "Control",
+    title: "Less dependency",
     description:
-      "The route is now clear: a core product, a custom route and Coder as an in-development follow-up product.",
+      "Use AI on your own hardware and reduce dependence on external platforms, API costs and outages.",
     icon: Layers3,
   },
   {
-    badge: "Local",
-    title: "Local Edge AI",
+    badge: "Knowledge",
+    title: "Keep data close",
     description:
-      "The focus is on products that give organizations more control over usage, privacy and long-term costs.",
+      "Use documents, policies and internal knowledge locally instead of sending everything to external AI services by default.",
     icon: Shield,
   },
   {
-    badge: "Practical",
-    title: "Practical in use",
+    badge: "Expandable",
+    title: "From base to custom",
     description:
-      "The product line stays smaller and more concrete, so regular organizations can understand faster what fits them.",
+      "Start with a clear base and expand when your workflow, hardware or use case becomes more specific.",
     icon: Cpu,
-  },
-];
-
-const productSnapshots = [
-  {
-    badge: "Exists now",
-    title: "AITJE Assistent",
-    description: "The core product for knowledge, documents and daily AI tasks on a dedicated device.",
-  },
-  {
-    badge: "Parallel route",
-    title: "AITJE Custom",
-    description: "For organizations where the fixed line is not a good enough fit or where hardware and workflow differ.",
   },
 ];
 
 const productBannerImages: Record<string, string> = {
   "aitje-assistent": "/images/aitje-cubes.png",
   "aitje-custom": "/images/aitje-custom.png",
-  "aitje-coder": "/images/aitje-product.png",
 };
 
 const productBannerKickers: Record<string, string> = {
@@ -325,17 +293,17 @@ const productBannerKickers: Record<string, string> = {
 
 const productBannerExtras: Record<string, string> = {
   "aitje-assistent":
-    "The foundation for organizations that want to use AI practically on their own device, with OS, Client and Knowledge Base as parts of the same line.",
+    "Use AITJE Assistent as conversational AI for internal questions, document work and knowledge base use inside your own environment. AITJE OS, Client and Knowledge Base form the foundation, without a recurring AI subscription.",
   "aitje-custom":
-    "The route for organizations that do not get far enough with a standard setup and need a more concrete translation from idea to workable hardware or workflow.",
+    "Choose Custom when you need a specific workflow, integration, hardware choice or local AI application that does not come out of the box.",
   "aitje-coder":
-    "For teams that want to use AI for coding, technical changes and internal tooling, with more control over context, environment and development flow.",
+    "AITJE Coder focuses on coding agents that remain available on your own hardware and can work with the context you allow.",
 };
 
 const productBannerPanelClasses: Record<string, string> = {
   "aitje-assistent": "bg-[#f6f0dc]",
   "aitje-custom": "bg-[#f5ede2]",
-  "aitje-coder": "bg-[#efe9de]",
+  "aitje-coder": "bg-[#050505]",
 };
 
 const waitlistModalOpen = ref(false);
@@ -354,9 +322,11 @@ const productBanners = products.map((product) => ({
   summary: product.summary,
   audience: product.audience,
   statusLabel: statusLabels[product.status],
+  displayStatus: product.slug === "aitje-custom" ? "On request" : statusLabels[product.status],
   kicker: productBannerKickers[product.slug] ?? "Product",
   extra: productBannerExtras[product.slug] ?? product.intro,
-  image: productBannerImages[product.slug] ?? "/images/aitje-product.png",
+  ctaLabel: product.cta,
+  image: productBannerImages[product.slug] ?? "",
   imagePanelClass: productBannerPanelClasses[product.slug] ?? "bg-[#faf7ea]",
   cardClass: product.status !== "available"
     ? "border-white/12 bg-[#2a2a2a] text-white"

@@ -14,10 +14,10 @@
           Strategisch AI-partnerschap
         </h1>
         <p class="mt-6 text-lg text-gray-600">
-          AITJE begeleidt organisaties bij het inzetten van on-premise en edge
-          AI. Onze producten zijn gemaakt om direct bruikbaar te zijn, maar als
-          kennis, tijd of capaciteit ontbreekt helpen we met inrichting,
-          consultancy, maatwerk en doorlopende samenwerking binnen een SLA.
+          AITJE helpt organisaties lokale AI praktisch in te zetten. We
+          ondersteunen bij installatie, kennisbeheer, consultancy, maatwerk en
+          doorlopende samenwerking wanneer je extra capaciteit of expertise
+          nodig hebt.
         </p>
       </section>
 
@@ -66,7 +66,7 @@
                   <span
                     class="mt-3 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"
                   ></span>
-                  <span>Mogelijkheid voor storingslijn en ticket support.</span>
+                  <span>Mogelijkheid voor storingslijn en ticketsupport.</span>
                 </li>
                 <li class="flex gap-3">
                   <span
@@ -146,6 +146,16 @@
                 <h2 class="mt-2 text-lg font-semibold">
                   {{ service.title }}
                 </h2>
+                <p
+                  class="mt-2 text-sm leading-6"
+                  :class="
+                    selectedServiceKey === service.key
+                      ? 'text-gray-200'
+                      : 'text-gray-500'
+                  "
+                >
+                  {{ service.navDescription }}
+                </p>
               </button>
             </div>
           </aside>
@@ -181,6 +191,17 @@
               </p>
               <p class="mt-2 text-sm leading-7 text-gray-700">
                 {{ activeService.result }}
+              </p>
+            </div>
+
+            <div class="mt-5 rounded-[1.75rem] border border-gray-100 p-5">
+              <p
+                class="text-xs font-semibold uppercase tracking-[0.35em] text-gray-500"
+              >
+                Wat valt hier niet onder
+              </p>
+              <p class="mt-2 text-sm leading-7 text-gray-700">
+                {{ activeService.notIncluded }}
               </p>
             </div>
 
@@ -221,6 +242,48 @@
                 </NuxtLink>
               </div>
             </div>
+          </article>
+        </div>
+      </section>
+
+      <section
+        class="mx-auto mt-16 max-w-7xl rounded-[2.5rem] border border-gray-200 bg-white px-8 py-10 text-center shadow-sm lg:px-12"
+      >
+        <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
+          Proces
+        </p>
+        <h2 class="mt-3 text-4xl font-black text-gray-900">
+          Zo werkt het
+        </h2>
+        <p class="mx-auto mt-4 max-w-2xl text-sm leading-7 text-gray-600">
+          We houden de eerste stap klein: eerst scherp krijgen wat je nodig
+          hebt, daarna kiezen we de juiste dienst en maken we duidelijke
+          afspraken.
+        </p>
+        <div class="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
+          <article
+            v-for="(step, index) in processSteps"
+            :key="step.title"
+            class="relative text-center"
+          >
+            <ArrowRight
+              v-if="index < processSteps.length - 1"
+              class="absolute -right-5 top-7 hidden h-6 w-6 text-gray-900/80 lg:block"
+            />
+            <div
+              class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#212121] text-[#facc15]"
+            >
+              <component :is="step.icon" class="h-7 w-7" />
+            </div>
+            <p class="mt-5 text-xs font-semibold uppercase tracking-[0.3em] text-[#facc15]">
+              Stap {{ step.number }}
+            </p>
+            <h3 class="mt-2 text-lg font-black text-gray-900">
+              {{ step.title }}
+            </h3>
+            <p class="mt-2 text-sm leading-6 text-gray-600">
+              {{ step.description }}
+            </p>
           </article>
         </div>
       </section>
@@ -350,11 +413,17 @@
 
 <script setup lang="ts">
 import {
+  ArrowRight,
+  ClipboardList,
   ClipboardPenLine,
+  FileText,
+  Handshake,
   Leaf,
+  MessagesSquare,
   PlugZap,
   ShieldCheck,
   Sparkles,
+  Wrench,
 } from "lucide-vue-next";
 import { serviceCatalog } from "../data/serviceCatalog";
 
@@ -370,7 +439,7 @@ const introCards = [
     badge: "Custom",
     title: "Waar nodig",
     description:
-      "AITJE Custom blijft bestaan, maar als gerichte route in plaats van een breed maatwerklabel. Kleiner en duidelijker.",
+      "Voor concrete vragen waarbij standaardproducten niet genoeg aansluiten op je hardware, workflow of organisatie.",
     icon: Sparkles,
   },
   {
@@ -383,6 +452,39 @@ const introCards = [
 ];
 
 const servicePanels = serviceCatalog;
+
+const processSteps = [
+  {
+    number: "1",
+    title: "Kennismaking",
+    description: "We bespreken je situatie, productgebruik, data, team en belangrijkste vraag.",
+    icon: MessagesSquare,
+  },
+  {
+    number: "2",
+    title: "Inventarisatie",
+    description: "We bepalen wat er technisch en organisatorisch nodig is en welke dienst daarbij past.",
+    icon: ClipboardList,
+  },
+  {
+    number: "3",
+    title: "Voorstel of inschatting",
+    description: "Je krijgt een duidelijke richting, uurtariefinschatting, offerte of SLA-voorstel.",
+    icon: FileText,
+  },
+  {
+    number: "4",
+    title: "Uitvoering",
+    description: "We richten in, adviseren, bouwen of ondersteunen volgens de gemaakte afspraken.",
+    icon: Wrench,
+  },
+  {
+    number: "5",
+    title: "Overdracht of support",
+    description: "Je krijgt uitleg, beheerafspraken en eventueel doorlopende ondersteuning via SLA.",
+    icon: Handshake,
+  },
+];
 
 const selectedServiceKey =
   ref<(typeof servicePanels)[number]["key"]>("installation");
@@ -426,9 +528,9 @@ const services = [
     title: "AITJE Custom",
     focus: "Custom route",
     description:
-      "Voor organisaties die een edge- of on-premise AI-oplossing nodig hebben waar nu nog geen passend AITJE-product voor bestaat.",
+      "Voor organisaties met een concrete AI-vraag die vraagt om specifieke hardware, een eigen workflow of extra functionaliteit buiten onze standaardproducten.",
     result:
-      "Een maatwerkroute tegen uurtarief, inclusief de benodigde hardwarekosten.",
+      "Een gerichte maatwerkoplossing tegen uurtarief, inclusief inzicht in de benodigde hardwarekosten.",
     details: [
       "Ontwikkeling van specifieke edge- of on-premise AI-functionaliteit",
       "Selectie en inrichting van passende hardware",
@@ -448,7 +550,7 @@ const services = [
     details: [
       "Kennisbank opzetten, inrichten, bijhouden of uitleg geven hoe je dat zelf doet",
       "Support, updates, troubleshooting en gereserveerde tijd",
-      "Strategisch meedenken over AI-inzet, continuiteit en vervolgstappen",
+      "Strategisch meedenken over AI-inzet, continuïteit en vervolgstappen",
     ],
     fit: "Voor organisaties die AITJE structureel naast zich willen hebben in plaats van alleen losse hulp per incident.",
     image: "/images/promptpaleis-home-screen.png",

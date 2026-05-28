@@ -43,7 +43,7 @@ export const hardwareCatalog: HardwareItem[] = [
     slug: "aitje-custom",
     title: "AITJE Custom",
     shortDescription:
-      "Maatwerkroute voor edge- en on-premise AI waar nog geen standaardproduct voor bestaat.",
+      "Maatwerkroute voor lokale, edge- en on-premise AI op hardware die past bij jouw probleem.",
     heroDescription:
       "Voor organisaties met een concrete lokale AI-vraag waarvoor software, workflow en hardware specifiek moeten worden samengesteld.",
     image: "/images/aitje-custom.png",

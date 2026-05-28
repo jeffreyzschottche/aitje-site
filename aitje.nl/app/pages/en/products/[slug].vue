@@ -79,6 +79,193 @@
         </div>
       </section>
 
+      <template v-if="isCustom">
+        <section class="mx-auto -mt-4 w-full px-4 py-12 text-center sm:max-w-5xl sm:px-8">
+          <p class="text-sm font-semibold uppercase tracking-[0.5em] text-[#facc15]">
+            AITJE Custom Solutions
+          </p>
+          <h2 class="mt-4 text-5xl font-black text-gray-900">
+            AI solutions that do not exist as standard products yet
+          </h2>
+          <p class="mt-6 text-lg leading-8 text-gray-600">
+            Not every organization can solve its AI question with a standard
+            product. With AITJE Custom Solutions we build AI-first solutions
+            around your organization's
+            <NuxtLink :to="localePath('/kenniscentrum/wat-is-een-workflow')" class="knowledge-link" data-knowledge-link="true">workflow</NuxtLink>,
+            data, hardware and environment. That can be an
+            <NuxtLink :to="localePath('/kenniscentrum/wat-is-een-ai-agent')" class="knowledge-link" data-knowledge-link="true">AI agent</NuxtLink>,
+            a local AI application on
+            <NuxtLink :to="localePath('/kenniscentrum/white-label-hardware-aitje-software')" class="knowledge-link" data-knowledge-link="true">white-label hardware with AITJE software</NuxtLink>,
+            or a solution with
+            <NuxtLink :to="localePath('/kenniscentrum/wat-is-edge-ai')" class="knowledge-link" data-knowledge-link="true">edge AI</NuxtLink>,
+            <NuxtLink :to="localePath('/kenniscentrum/wat-is-local-ai')" class="knowledge-link" data-knowledge-link="true">local AI</NuxtLink>
+            or
+            <NuxtLink :to="localePath('/kenniscentrum/wat-is-on-premise-ai')" class="knowledge-link" data-knowledge-link="true">on-premise AI</NuxtLink>
+            where that makes sense.
+          </p>
+        </section>
+
+        <section class="mx-auto mt-2 max-w-6xl px-4 sm:px-6">
+          <div class="grid gap-6 md:grid-cols-3">
+            <article
+              v-for="card in customFitCards"
+              :key="card.title"
+              class="rounded-[2rem] border border-gray-200 bg-white p-6 shadow-sm"
+            >
+              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#212121] text-[#facc15]">
+                <component :is="card.icon" class="h-6 w-6" />
+              </div>
+              <p class="mt-5 text-xs font-semibold uppercase tracking-[0.35em] text-[#facc15]">
+                {{ card.badge }}
+              </p>
+              <h3 class="mt-2 text-2xl font-black text-gray-900">
+                {{ card.title }}
+              </h3>
+              <p class="mt-3 text-sm leading-7 text-gray-600">
+                {{ card.description }}
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="mx-auto mt-16 max-w-7xl px-4 sm:px-6">
+          <div class="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
+            <article class="rounded-[2.5rem] bg-[#212121] p-8 text-white shadow-sm lg:sticky lg:top-28 lg:p-10">
+              <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
+                What we build
+              </p>
+              <h2 class="mt-3 text-4xl font-black">
+                From AI question to local solution
+              </h2>
+              <p class="mt-5 text-base leading-8 text-gray-300">
+                AITJE Custom is not a standard product, but a route we take
+                together. Where traditional agencies build and maintain your
+                websites, apps or social channels, at AITJE Custom we first
+                choose the hardware your problem actually needs. Then we build
+                a local,
+                <NuxtLink :to="localePath('/kenniscentrum/wat-is-edge-ai')" class="knowledge-link" data-knowledge-link="true">edge</NuxtLink>
+                or
+                <NuxtLink :to="localePath('/kenniscentrum/wat-is-on-premise-ai')" class="knowledge-link" data-knowledge-link="true">on-premise AI</NuxtLink>
+                solution on top of it that adds value inside your own environment.
+              </p>
+              <NuxtLink
+                :to="localePath('/contact?onderwerp=offerte')"
+                class="mt-8 inline-flex items-center justify-center rounded-full bg-[#facc15] px-6 py-3 text-sm font-semibold text-black transition hover:bg-white"
+              >
+                Discuss custom work
+              </NuxtLink>
+            </article>
+
+            <div class="grid gap-4 md:grid-cols-2">
+              <article
+                v-for="item in customBuildItems"
+                :key="item.title"
+                class="rounded-[1.75rem] border border-gray-200 bg-white p-6 shadow-sm"
+              >
+                <p class="text-xs font-semibold uppercase tracking-[0.32em] text-[#facc15]">
+                  {{ item.badge }}
+                </p>
+                <h3 class="mt-2 text-xl font-black text-gray-900">
+                  {{ item.title }}
+                </h3>
+                <p class="mt-3 text-sm leading-7 text-gray-600">
+                  {{ item.text }}
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="mx-auto mt-16 max-w-7xl px-4 sm:px-6">
+          <div class="rounded-[2.5rem] border border-gray-200 bg-white p-8 shadow-sm lg:p-10">
+            <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
+              Process
+            </p>
+            <h2 class="mt-3 text-4xl font-black text-gray-900">
+              How we keep custom work manageable
+            </h2>
+            <div class="mt-8 grid gap-4 md:grid-cols-4">
+              <article
+                v-for="step in customProcessSteps"
+                :key="step.title"
+                class="rounded-[1.5rem] border border-gray-100 bg-[#fafafa] p-5"
+              >
+                <p class="text-xs font-semibold uppercase tracking-[0.3em] text-[#facc15]">
+                  {{ step.number }}
+                </p>
+                <h3 class="mt-2 text-lg font-black text-gray-900">
+                  {{ step.title }}
+                </h3>
+                <p class="mt-2 text-sm leading-7 text-gray-600">
+                  {{ step.text }}
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="mx-auto mt-16 max-w-7xl px-4 sm:px-6">
+          <div class="grid gap-6 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+            <article class="rounded-[2.5rem] border border-gray-200 bg-white p-8 shadow-sm lg:p-10">
+              <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
+                What this includes
+              </p>
+              <h2 class="mt-3 text-3xl font-black text-gray-900">
+                Concrete AI solutions on suitable hardware
+              </h2>
+              <ul class="mt-6 space-y-3 text-sm leading-7 text-gray-700">
+                <li
+                  v-for="item in customIncludedItems"
+                  :key="item"
+                  class="flex items-start gap-3"
+                >
+                  <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"></span>
+                  <span>
+                    <template
+                      v-for="segment in item.segments"
+                      :key="segment.text"
+                    >
+                      <NuxtLink
+                        v-if="segment.href"
+                        :to="localePath(segment.href)"
+                        class="knowledge-link"
+                        data-knowledge-link="true"
+                      >
+                        {{ segment.text }}
+                      </NuxtLink>
+                      <template v-else>{{ segment.text }}</template>
+                    </template>
+                  </span>
+                </li>
+              </ul>
+            </article>
+
+            <article class="rounded-[2.5rem] bg-[#212121] p-8 text-white shadow-sm lg:p-10">
+              <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
+                Next step
+              </p>
+              <h2 class="mt-3 text-3xl font-black">
+                Do you have an AI question that does not fit a standard product?
+              </h2>
+              <p class="mt-4 text-sm leading-7 text-gray-300">
+                Send us your question. We will check whether AITJE Custom makes
+                sense, or whether an existing product, installation, consultancy
+                or
+                <NuxtLink :to="localePath('/diensten/sla')" class="knowledge-link" data-knowledge-link="true">SLA</NuxtLink>
+                fits better.
+              </p>
+              <NuxtLink
+                :to="localePath('/contact?onderwerp=offerte')"
+                class="mt-7 inline-flex items-center justify-center rounded-full bg-[#facc15] px-6 py-3 text-sm font-semibold text-black transition hover:bg-white"
+              >
+                Discuss custom work
+              </NuxtLink>
+            </article>
+          </div>
+        </section>
+      </template>
+
+      <template v-else>
       <section class="mx-auto -mt-4 w-full px-4 py-12 text-center sm:max-w-5xl sm:px-8">
         <p class="text-sm font-semibold uppercase tracking-[0.5em] text-[#facc15]">
           {{ introSection.kicker }}
@@ -519,6 +706,7 @@
           </article>
         </div>
       </section>
+      </template>
     </main>
 
     <BottomCta />
@@ -542,6 +730,7 @@ if (unavailableSlugs.has(slug.value)) {
 }
 
 const product = computed(() => productCatalogV2.en.products.find((entry) => entry.slug === slug.value));
+const isCustom = computed(() => slug.value === "aitje-custom");
 
 if (!product.value) {
   throw createError({ statusCode: 404, statusMessage: "Page not found" });
@@ -550,7 +739,7 @@ if (!product.value) {
 const statusLabel = computed(() => {
   const customLabels: Record<string, string> = {
     "aitje-assistent": "Local AI",
-    "aitje-custom": "Custom AI",
+    "aitje-custom": "Custom Solutions",
   };
 
   return customLabels[slug.value] ?? productStatusLabel.en[product.value!.status];
@@ -573,14 +762,24 @@ const primaryCta = computed(() => {
 
 const useCasesRoute = localePath("/use-cases");
 
-const heroFacts = computed(() => [
-  { label: "Audience", value: product.value!.audience },
-  { label: "Use cases", value: `${product.value!.useCases.length} concrete directions` },
-  {
-    label: "Modules",
-    value: product.value!.modules?.length ? `${product.value!.modules.length} connected components` : "Standalone proposition",
-  },
-]);
+const heroFacts = computed(() => {
+  if (isCustom.value) {
+    return [
+      { label: "Type", value: "AI-first custom work on request" },
+      { label: "Focus", value: "Edge AI, local AI, on-premise AI and hardware" },
+      { label: "Outcome", value: "White-label hardware, AITJE software" },
+    ];
+  }
+
+  return [
+    { label: "Audience", value: product.value!.audience },
+    { label: "Use cases", value: `${product.value!.useCases.length} concrete directions` },
+    {
+      label: "Modules",
+      value: product.value!.modules?.length ? `${product.value!.modules.length} connected components` : "Standalone proposition",
+    },
+  ];
+});
 
 const introSection = computed(() => ({
   kicker: product.value!.status === "available" ? "Product" : "In development",
@@ -722,6 +921,116 @@ const installationPoints = computed(() => [
   "Setting up integrations, knowledge sources and workflow steps in a practical way",
   "Handover and guidance so the product is actually used",
 ]);
+
+const customFitCards = [
+  {
+    badge: "AI agency",
+    title: "AI-first custom work",
+    description:
+      "We combine agents, workflows, data and hardware into one practical solution.",
+    icon: PlugZap,
+  },
+  {
+    badge: "Middle ground",
+    title: "Product where possible",
+    description:
+      "If existing products or services are enough, we choose those. Custom is for questions that are genuinely more specific.",
+    icon: Sparkles,
+  },
+  {
+    badge: "Local",
+    title: "AI on suitable hardware",
+    description:
+      "We look for a setup that can run locally, at the edge or on-premise when data, availability or environment requires it.",
+    icon: Leaf,
+  },
+];
+
+const customBuildItems = [
+  {
+    badge: "Agents",
+    title: "Local AI agents",
+    text: "Agents that work with defined context, tools and boundaries inside your own environment.",
+  },
+  {
+    badge: "Workflows",
+    title: "AI in existing processes",
+    text: "Document flows, intake, summaries, checks or follow-up processed logically with AI.",
+  },
+  {
+    badge: "Hardware",
+    title: "Devices and local setups",
+    text: "A solution on suitable hardware, with local AI, edge AI or on-premise deployment where needed.",
+  },
+  {
+    badge: "Input",
+    title: "Scan, camera or document processing",
+    text: "AI applications around visual input, barcodes, forms, files or other practical sources.",
+  },
+  {
+    badge: "Integrations",
+    title: "Connections to existing tools",
+    text: "Connections to internal systems, websites, applications or data sources when the workflow requires it.",
+  },
+  {
+    badge: "Offline",
+    title: "AI without constant cloud dependency",
+    text: "Solutions that remain usable locally when internet, external APIs or cloud platforms are not the right base.",
+  },
+];
+
+const customProcessSteps = [
+  {
+    number: "01",
+    title: "Clarify the question",
+    text: "We determine what problem needs to be solved and whether Custom is actually needed.",
+  },
+  {
+    number: "02",
+    title: "Design the solution",
+    text: "We choose the logical combination of AI, software, hardware, data and workflow.",
+  },
+  {
+    number: "03",
+    title: "Build and test",
+    text: "We develop in a focused way, test with real input and keep scope and cost visible.",
+  },
+  {
+    number: "04",
+    title: "Deliver or continue",
+    text: "You receive a working solution with agreements about management, handover or SLA.",
+  },
+];
+
+const customIncludedItems = [
+  {
+    segments: [
+      { text: "Local AI", href: "/kenniscentrum/wat-is-local-ai" },
+      { text: " agents that work with your data and processes inside your own environment." },
+    ],
+  },
+  {
+    segments: [
+      { text: "Edge AI", href: "/kenniscentrum/wat-is-edge-ai" },
+      { text: " and " },
+      { text: "on-premise AI", href: "/kenniscentrum/wat-is-on-premise-ai" },
+      { text: " solutions on hardware we select for your problem." },
+    ],
+  },
+  {
+    segments: [
+      { text: "Workflows", href: "/kenniscentrum/wat-is-een-workflow" },
+      { text: " for documents, intake, checks, summaries or follow-up." },
+    ],
+  },
+  {
+    segments: [
+      { text: "Integrations with existing systems, applications, websites, " },
+      { text: "APIs", href: "/kenniscentrum/wat-is-een-api" },
+      { text: " or data sources." },
+    ],
+  },
+];
 
 const introCards = [
   {

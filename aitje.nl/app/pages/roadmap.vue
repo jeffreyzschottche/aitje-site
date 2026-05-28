@@ -17,11 +17,10 @@
               verder uitbouwen binnen AITJE.
             </p>
             <p class="max-w-3xl text-base leading-8 text-gray-600">
-              AITJE is continu bezig met ontwikkeling, research en het volgen
-              van veranderingen in de markt. Daarbij proberen we niet te snel te
-              schakelen, maar ook niet te sloom te worden. We zoeken steeds naar
-              de juiste balans: welke technologie is niet alleen interessant
-              vandaag, maar ook stabiel en bruikbaar voor de komende jaren?
+              We bouwen stap voor stap aan lokale AI die organisaties echt
+              kunnen gebruiken. Op deze pagina zie je welke onderdelen al
+              beschikbaar zijn, welke keuzes we nu aanscherpen en welke
+              productrichtingen later volgen.
             </p>
           </div>
 
@@ -277,10 +276,10 @@ const roadmapYears = [
         label: "Q1-Q2",
         title: "Onderzoek en fundering",
         summary:
-          "In 2024 lag de nadruk op technische verkenning en het bouwen van de basis voor lokale Edge AI.",
+          "In 2024 onderzochten we welke lokale AI-techniek betrouwbaar genoeg is voor dagelijks gebruik.",
         points: [
-          "Verdieping in AI-workflows, RAG en lokale modellen.",
-          "Vroege tests met onder meer Ollama en infrastructuurkeuzes.",
+          "AI-workflows, RAG en lokale modellen getest op praktische inzetbaarheid.",
+          "Vroege infrastructuurkeuzes gemaakt voor een lokale assistentomgeving.",
         ],
       },
       {
@@ -290,10 +289,10 @@ const roadmapYears = [
         label: "Q3-Q4",
         title: "Richting bepalen",
         summary:
-          "In de tweede helft van 2024 werd duidelijk waar de echte productkansen en risico's lagen.",
+          "In de tweede helft van 2024 kozen we scherper voor producten die controle, kosten en continuïteit verbeteren.",
         points: [
-          "Meer focus op kosten, energieverbruik en afhankelijkheid van externe AI-platformen.",
-          "De basis gelegd voor een kleinere en duidelijkere productlijn.",
+          "Meer focus op minder afhankelijkheid van externe AI-platformen.",
+          "De basis gelegd voor een overzichtelijke productlijn rond lokale AI.",
         ],
       },
     ],
@@ -306,12 +305,12 @@ const roadmapYears = [
         quarterEnd: 1,
         short: "Q1",
         label: "Q1",
-        title: "Eerste productbasis",
+        title: "Productbasis aangescherpt",
         summary:
-          "De basis voor AITJE Assistent werd inhoudelijk verder aangescherpt.",
+          "AITJE Assistent kreeg een duidelijkere rol binnen de productlijn.",
         points: [
-          "Doorontwikkeling van de productbasis.",
-          "Richting en inzet van de productlijn verder uitgewerkt.",
+          "De lokale assistentomgeving verder uitgewerkt.",
+          "Scherper bepaald waarvoor AITJE Assistent het meest geschikt is.",
         ],
       },
       {
@@ -321,10 +320,10 @@ const roadmapYears = [
         label: "Q2",
         title: "Demo's en praktijkfeedback",
         summary:
-          "De eerste demoversies en klantfeedback maakten duidelijk welke lijn geloofwaardig genoeg was om door te zetten.",
+          "Demo's en klantgesprekken maakten duidelijk waar organisaties de meeste waarde zien.",
         points: [
-          "Eerste demoversies van AITJE Assistent in de praktijk getest.",
-          "Praktijkfeedback gebruikt om product en positionering aan te scherpen.",
+          "AITJE Assistent in de praktijk getest met vroege demo's.",
+          "Feedback gebruikt om product, uitleg en positionering scherper te maken.",
         ],
       },
       {
@@ -332,12 +331,12 @@ const roadmapYears = [
         quarterEnd: 3,
         short: "Q3",
         label: "Q3",
-        title: "Focus versmallen",
+        title: "Productlijn versimpeld",
         summary:
-          "De roadmap werd teruggebracht van losse ideeën naar een kleiner en helderder geheel.",
+          "We brachten de productlijn terug naar een kleiner en duidelijker geheel.",
         points: [
-          "Minder losse zijpaden, meer focus op de kern van AITJE.",
-          "De productstructuur voorbereid op een eenvoudiger verhaal en navigatie richting de lancering van AITJE.",
+          "Minder losse richtingen, meer focus op de kern van AITJE.",
+          "De site en navigatie voorbereid op een duidelijker productverhaal.",
         ],
       },
       {
@@ -347,10 +346,10 @@ const roadmapYears = [
         label: "Q4",
         title: "Voorbereiding op 2026",
         summary:
-          "Eind 2025 lag de basis voor een productlijn met duidelijke status: wat bestaat, wat loopt en wat later komt.",
+          "Eind 2025 lag er een duidelijke productrichting voor de volgende fase.",
         points: [
-          "Roadmap 2026 opgesteld op basis van praktijk en positionering.",
-          "De lijn richting AITJE Assistent en AITJE Coder scherper gemaakt.",
+          "Roadmap 2026 bepaald op basis van praktijkervaring en positionering.",
+          "De rol van AITJE Assistent, AITJE Assistent+ en AITJE Coder scherper gemaakt.",
         ],
       },
     ],
@@ -363,13 +362,13 @@ const roadmapYears = [
         quarterEnd: 1,
         short: "Q1",
         label: "Q1",
-        title: "Assistent staat er",
+        title: "AITJE Assistent ontwikkeling afgerond",
         summary:
-          "AITJE Assistent is gelanceerd als kernproduct van AITJE.",
+          "AITJE Assistent is klaar voor organisaties die lokale AI beheersbaar willen inzetten.",
         points: [
           "AITJE Assistent is beschikbaar voor organisaties die AI lokaal en beheersbaar willen inzetten.",
-          "AITJE Assistent+ bestaat als variant met betere specs en meer intelligentie voor zwaardere toepassingen.",
-          "Door meerdere aanvragen voor verschillende doeleinden werd duidelijk dat een aparte maatwerkroute logisch is.",
+          "Voor zwaardere toepassingen is er AITJE Assistent+ met betere specs en meer intelligentie.",
+          "Voor organisaties met specifieke wensen werken we via AITJE Custom aan maatwerkoplossingen.",
         ],
       },
       {
@@ -379,10 +378,10 @@ const roadmapYears = [
         label: "Q2",
         title: "Heldere basis",
         summary:
-          "De basis wordt verder aangescherpt terwijl lopende producten in de praktijk worden gevolgd.",
+          "De focus ligt op stabiel gebruik, duidelijke uitleg en verdere optimalisatie.",
         points: [
-          "AITJE Coder afronden en optimaliseren richting een stabieler product.",
-          "AITJE Assistent monitoren op gebruik, betrouwbaarheid en praktische inzetbaarheid.",
+          "AITJE Coder verder afronden en optimaliseren richting een stabiel product.",
+          "AITJE Assistent volgen op gebruik, betrouwbaarheid en praktische inzetbaarheid.",
         ],
       },
       {
@@ -392,10 +391,10 @@ const roadmapYears = [
         label: "Q3",
         title: "Nieuwe richtingen in ontwikkeling",
         summary:
-          "Vanaf Q3 verschuift de aandacht naar de eerstvolgende uitbreiding van de productlijn.",
+          "Vanaf Q3 werken we verder aan de volgende uitbreiding van de productlijn.",
         points: [
-          "AITJE Coder wordt inhoudelijk verder voorbereid.",
-          "De bestaande lijn blijft bewust compact en gericht op producten met duidelijke status.",
+          "AITJE Coder verder voorbereiden voor technisch werk met AI.",
+          "De bestaande lijn compact houden, zodat elk product een duidelijke status en rol heeft.",
         ],
       },
       {
@@ -405,7 +404,7 @@ const roadmapYears = [
         label: "Q4",
         title: "Van test naar live",
         summary:
-          "De tweede helft van het jaar draait om het live brengen van de volgende ontwikkellijn.",
+          "De tweede helft van het jaar draait om de livegang van de volgende productlijn.",
         points: [
           "AITJE Coder wordt in Q4 2026 gelanceerd.",
           "De eerste livefase staat in het teken van gecontroleerd gebruik en technische workflows met AI.",
@@ -423,11 +422,11 @@ const roadmapYears = [
         label: "Q1",
         title: "Doorontwikkeling",
         summary:
-          "De bestaande lijn wordt eerst verder aangescherpt voordat er weer verbreed wordt.",
+          "We verbeteren eerst wat er staat voordat de productlijn verder groeit.",
         points: [
-          "Bestaande producten worden inhoudelijk verder aangescherpt.",
+          "Bestaande producten verder verbeteren op inhoud en gebruiksgemak.",
           "Gebruikservaring en praktische inzetbaarheid blijven leidend.",
-          "De productlijn wordt uitgebreid op basis van patronen uit herhaalde maatwerktrajecten.",
+          "Nieuwe productkeuzes baseren op terugkerende vragen uit maatwerktrajecten.",
         ],
       },
       {
@@ -437,7 +436,7 @@ const roadmapYears = [
         label: "Q2",
         title: "Notulist en Off-Grid",
         summary:
-          "De aandacht verschuift naar producten die terugkerende vragen uit de praktijk oplossen.",
+          "De aandacht verschuift naar producten voor terugkerende vragen uit de praktijk.",
         points: [
           "Focus op AITJE Notulist voor verslaglegging, samenvatting en kennisborging.",
           "Focus op AITJE Off-Grid voor AI-gebruik in situaties waar internet of stroom niet vanzelfsprekend is.",
@@ -450,9 +449,9 @@ const roadmapYears = [
         label: "Q3",
         title: "Monitoren en landen",
         summary:
-          "Q3 draait om meten, leren en bepalen hoe de productlijn zich in de praktijk houdt.",
+          "Q3 draait om meten, leren en bepalen wat klanten in de praktijk nodig hebben.",
         points: [
-          "Informatie ophalen over Coder en Assistent op basis van gebruik en feedback.",
+          "Gebruik en feedback rond AITJE Coder en AITJE Assistent verzamelen.",
           "De ontwikkeling van AITJE Off-Grid en AITJE Notulist monitoren en bijsturen.",
         ],
       },
@@ -463,10 +462,10 @@ const roadmapYears = [
         label: "Q4",
         title: "Volgende fase bepalen",
         summary:
-          "Aan het eind van 2027 wordt de lijn opnieuw beoordeeld op basis van productgebruik en praktijk.",
+          "Aan het eind van 2027 bepalen we welke productstappen daarna het meeste waarde toevoegen.",
         points: [
           "Nieuwe prioriteiten bepalen op basis van productgebruik en feedback.",
-          "De roadmap gekoppeld houden aan echte status en concrete vraag.",
+          "De roadmap gekoppeld houden aan echte productstatus en concrete klantvraag.",
           "De tech- en hardwarestack opnieuw evalueren, omdat ontwikkelingen in AI snel blijven gaan.",
         ],
       },

@@ -9,6 +9,21 @@ export const knowledgeArticleImages = {
     heroImage: "/images/knowledge/wat-is-edge-ai-hero.webp",
     imageAlt: "Werkstation met lokale rekenkracht en development tools.",
   },
+  "wat-is-local-ai": {
+    thumbnail: "/images/knowledge/wat-is-edge-ai-thumb.webp",
+    heroImage: "/images/knowledge/wat-is-edge-ai-hero.webp",
+    imageAlt: "Werkstation met lokale rekenkracht en development tools.",
+  },
+  "wat-is-on-premise-ai": {
+    thumbnail: "/images/knowledge/wat-is-een-api-thumb.webp",
+    heroImage: "/images/knowledge/wat-is-een-api-hero.webp",
+    imageAlt: "Serverhardware en verbindingen die lokale AI-infrastructuur uitbeelden.",
+  },
+  "white-label-hardware-aitje-software": {
+    thumbnail: "/images/knowledge/wat-is-een-backend-thumb.webp",
+    heroImage: "/images/knowledge/wat-is-een-backend-hero.webp",
+    imageAlt: "Hardware en softwarelaag voor een lokale AI-oplossing.",
+  },
   "wat-is-rag": {
     thumbnail: "/images/knowledge/wat-is-rag-thumb.webp",
     heroImage: "/images/knowledge/wat-is-rag-hero.webp",

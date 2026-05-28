@@ -43,9 +43,9 @@ export const hardwareCatalog: HardwareItem[] = [
     slug: "aitje-custom",
     title: "AITJE Custom",
     shortDescription:
-      "Personalized AI solution for situations where standard hardware does not exactly fit.",
+      "Custom route for local, edge and on-premise AI on hardware matched to your problem.",
     heroDescription:
-      "For organizations that need just more specs or a specific offline workflow at the hardware level.",
+      "For organizations that need a local AI solution built around the right hardware, workflow and operating environment.",
     image: "/images/aitje-custom.png",
     sections: [
       {

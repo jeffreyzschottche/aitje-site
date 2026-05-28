@@ -6,7 +6,7 @@
         <p class="text-sm font-semibold uppercase tracking-[0.5em] text-[#facc15]">FAQ</p>
         <h1 class="mt-4 text-5xl font-black text-gray-900">Veelgestelde vragen</h1>
         <p class="mt-6 text-lg text-gray-600">
-          Antwoorden op veelgestelde vragen over wat AITJE doet en aanbied.
+          Antwoorden op veelgestelde vragen over wat AITJE doet en aanbiedt.
         </p>
       </section>
 
@@ -263,7 +263,7 @@ const faqGroups = [
       {
         question: "Wat is AITJE Assistent precies?",
         answer:
-          "AITJE Assistent is een mini computer die geoptimaliseerd is met onze eigen software. Je krijgt een lokale LLM, een door AITJE gemaakte kennisbank om je documenten te verwerken zodat ze in de LLM gebruikt kunnen worden en een AI powered kennis systeem dat ook zonder internet bereikbaar blijft.",
+          "AITJE Assistent is een mini computer die geoptimaliseerd is met onze eigen software. Je krijgt een lokale LLM, een door AITJE gemaakte kennisbank om je documenten te verwerken en een AI-gestuurd kennissysteem dat ook zonder internet bereikbaar blijft.",
       },
       {
         question: "Doet AITJE ook aan custom build hardware?",
@@ -273,13 +273,13 @@ const faqGroups = [
       {
         question: "Wat is AITJE Coder?",
         answer:
-          "AITJE Coder is een manier om te programmeren zonder Claude Code, Codex of Gemini. Je hebt een coding agent beschikbaar via ons hardware device. Geen abonnementen, geen storingen. Een coding partner die bereikbaar is zolang je internet hebt.",
+          "AITJE Coder is een manier om te programmeren zonder Claude Code, Codex of Gemini. Je krijgt een coding agent op eigen hardware, zonder abonnementen of afhankelijkheid van externe storingen. De agent blijft lokaal bereikbaar; internet is alleen nodig wanneer je bewust online bronnen, updates of externe koppelingen gebruikt.",
       },
       {
         question: "Hoeveel kosten jullie producten?",
-        answer: "Vraag een prijslijst of offerte aan via onze contactpagina.",
+        answer: "Vraag een actuele prijslijst of een offerte aan via onze contactpagina.",
         linkTo: "/contact?onderwerp=offerte",
-        linkLabel: "Vraag een offerte aan",
+        linkLabel: "Vraag een actuele prijslijst of offerte aan",
       },
     ],
   },
@@ -305,12 +305,12 @@ const faqGroups = [
       {
         question: "Is alles lokaal of ook hybride mogelijk?",
         answer:
-          "Beide. We ontwerpen lokaal waar het kan en hybride waar het nodig is, met behoud van grip op data, kosten en continuiteit.",
+          "Beide. We ontwerpen lokaal waar het kan en hybride waar het nodig is, met behoud van grip op data, kosten en continuïteit.",
       },
       {
         question: "Kan jullie LLM op internet zoeken?",
         answer:
-          "Ja. Zolang er een internetverbinding beschikbaar is op het wifi- of lokale netwerk, kunnen AITJE-producten ook gebruikmaken van AI.",
+          "Ja, wanneer internettoegang bewust is ingeschakeld kan een AITJE-omgeving online informatie ophalen via gekoppelde zoek- of browsetools. Zonder internet blijft de lokale LLM beschikbaar voor taken met lokale kennis en bestanden.",
       },
       {
         question: "Welke modellen gebruiken jullie?",
@@ -337,7 +337,7 @@ const faqGroups = [
       {
         question: "Hoe embedden jullie data in de kennisbank voor AITJE Assistent?",
         answer:
-          "We verwerken en embedden data op de server en synchroniseren die naar een prive versiebeheeraccount voor jouw organisatie. Vanaf daar kun je op de Assistent syncen met de live omgeving. Als verkeerde data is toegevoegd, kunnen we via versiebeheer ook terugzetten en back-ups maken.",
+          "We verwerken en embedden data op de server en synchroniseren die naar een privé versiebeheeraccount voor jouw organisatie. Vanaf daar kun je op de Assistent syncen met de live omgeving. Als verkeerde data is toegevoegd, kunnen we via versiebeheer ook terugzetten en back-ups maken.",
       },
       {
         question: "Kan AITJE Assistent lokaal doorwerken zonder internet?",
@@ -437,12 +437,12 @@ const faqGroups = [
       {
         question: "Wat als er een internetstoring is bij AITJE Assistent?",
         answer:
-          "AITJE Assistent merkt daar in de basis weinig van. Synchroniseren is dan tijdelijk lastiger, omdat gechunkte vector-embedding data uit versiebeheer wordt opgehaald. De lokale gegevens en lokale LLM-functionaliteit blijven wel beschikbaar.",
+          "AITJE Assistent blijft lokaal werken bij een internetstoring. De lokale LLM, kennisbank, embeddings en bestanden blijven beschikbaar op het device. Alleen functies die bewust internet nodig hebben, zoals online zoeken, externe koppelingen of updates, zijn dan tijdelijk niet beschikbaar.",
       },
       {
-        question: "Kunnen meerdere mensen op het netwerk AITJE Assistent API gebruiken?",
+        question: "Kunnen meerdere mensen op het netwerk AITJE Assistent of AITJE Coder gebruiken?",
         answer:
-          "Ja. Je maakt accounts aan en installeert de mobiele of desktopapplicatie. Daarna kan die gebruiker via het netwerk en via de AITJE Client-applicatie gebruikmaken van de lokale LLM en API.",
+          "Ja. Je maakt accounts aan en installeert de mobiele of desktopapplicatie. Daarna kunnen gebruikers via het lokale netwerk en de AITJE Client-applicatie gebruikmaken van de lokale LLM, API en, bij AITJE Coder, de lokale coding agent.",
       },
       {
         question: "Hoe beperken jullie dat agents een eigen wil krijgen?",
@@ -452,7 +452,7 @@ const faqGroups = [
       {
         question: "Wat als er een storing is?",
         answer:
-          "We kunnen op afstand meekijken. Neem contact op met AITJE of schiet een ticket in als je een SLA hebt, dan kijken we op afstand met je mee.",
+          "Neem contact op met AITJE of schiet een ticket in als je een SLA hebt. Waar mogelijk kijken we op afstand mee en helpen we de oorzaak te vinden.",
       },
       {
         question: "Hoe voorkomt AITJE afhankelijkheid van externe platformen?",

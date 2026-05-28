@@ -12,13 +12,12 @@
           About AITJE
         </p>
         <h1 class="mt-4 text-5xl font-black text-gray-900">
-          A look at who we are, what we do and what we stand for
+          Practical AI for organizations that want to stay in control
         </h1>
         <p class="mt-6 text-lg text-gray-600">
-          AITJE is a Dutch company that helps organizations use AI in a
-          smarter, more independent and future-ready way. Not as a vague AI
-          label, but as a partner with clear products, clear choices and
-          practical guidance.
+          AITJE helps organizations use AI in a smarter, more independent and
+          future-ready way. With clear products, clear choices and guidance that
+          fits real-world work.
         </p>
       </section>
 
@@ -74,9 +73,9 @@
           <div class="mx-auto mt-6 max-w-4xl space-y-5 text-base leading-8 text-gray-700">
             <p>
               For many organizations, AI is both interesting and confusing.
-              AITJE wants to be a practical partner in that: someone who not
-              only delivers technology, but also helps choose, explain,
-              implement and improve it over time.
+              AITJE brings structure to that: we deliver technology, but also
+              help with choices, explanation, implementation and ongoing
+              improvement.
             </p>
           </div>
         </div>
@@ -116,9 +115,9 @@
                 organizations work.
               </p>
               <p>
-                Our view is that it is better to prepare for that development on
-                your own systems, without full dependence on foreign parties,
-                Big Tech or external platforms.
+                Our view is that it is better to prepare for that development
+                close to your own organization, without full dependence on
+                foreign parties, Big Tech or external platforms.
               </p>
               <p>
                 That is why we do not only look at what is technically possible,
@@ -158,13 +157,13 @@
               What we do
             </p>
             <h2 class="mt-3 text-4xl font-black">
-              Products, services and custom work that connect logically
+              Products, services and custom work with one clear direction
             </h2>
             <div class="mt-5 max-w-2xl space-y-4 text-base leading-8 text-black/75">
               <p>
-                AITJE is building a clear product line, offers guidance where
-                needed and delivers custom work when standard options do not fit
-                well. That creates a route organizations can actually follow.
+                AITJE builds a clear product line, offers guidance where needed
+                and delivers custom work when standard options do not fit well.
+                That makes AI concrete enough to use in daily work.
               </p>
               <p>
                 We build products that solve concrete problems and needs inside
@@ -194,13 +193,13 @@
             Approach
           </p>
           <h2 class="mt-3 text-4xl font-black text-gray-900">
-            From AI idea to something that actually fits your organization
+            AI that fits your data, people and way of working
           </h2>
           <p class="mx-auto mt-5 max-w-4xl text-base leading-8 text-gray-700">
-            Many organizations know they need to do something with AI, but not
-            where to start or what is sensible to manage themselves. AITJE makes
-            that step smaller: from first question and feasible use case to a
-            solution that fits your data, people, infrastructure and way of
+            Many organizations see opportunities with AI, but do not always
+            know where to start or what is sensible to manage themselves. AITJE
+            makes that step smaller: from first question and feasible use case
+            to a solution that fits your data, people, infrastructure and way of
             working.
           </p>
         </div>
@@ -242,8 +241,8 @@
             <p class="mt-6 max-w-2xl text-base leading-8 text-gray-300">
               AITJE is a small team with a clear conviction: AI should be
               understandable, responsible and practical for organizations. We
-              like to think along about your situation and look together at what
-              fits logically.
+              think along about your situation and define the next logical step
+              together.
             </p>
             <p class="mt-4 max-w-2xl text-base leading-8 text-gray-300">
               <i>
@@ -287,7 +286,7 @@ const youtubeEmbedUrl = "https://www.youtube.com/embed/3ZJgaJGeRS4";
 const visionCards = [
   {
     title: "Start with the problem",
-    text: "We do not start with a model or tool, but with the question of where your organization loses time, carries risk or wants to use knowledge better.",
+    text: "We do not start with a model or tool, but with the question of where your organization loses time, carries risk or could use knowledge better.",
   },
   {
     title: "Workable for teams",
@@ -295,7 +294,7 @@ const visionCards = [
   },
   {
     title: "Local where it adds value",
-    text: "We deliberately look at which knowledge, data and functions are better kept close to the organization, so usage, access and dependencies stay manageable.",
+    text: "We deliberately look at which knowledge, data and functions are better kept close to the organization, so usage, access and dependencies remain manageable.",
   },
   {
     title: "Managed after delivery",
@@ -306,7 +305,7 @@ const visionCards = [
 const values = [
   {
     title: "Clarity over jargon",
-    text: "We want organizations to quickly understand what something does, why it is relevant and when it makes sense.",
+    text: "Organizations should quickly understand what something does, why it is relevant and when it makes sense.",
   },
   {
     title: "Control over dependence",
@@ -318,7 +317,7 @@ const values = [
   },
   {
     title: "Partnership over one-off delivery",
-    text: "We do not only want to put something in place, but also think along about how it keeps working in practice.",
+    text: "We do not only deliver something once, but also think along about how it keeps working in practice.",
   },
 ];
 

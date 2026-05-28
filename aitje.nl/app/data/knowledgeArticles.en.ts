@@ -15,6 +15,10 @@ export type KnowledgeArticle = {
   readTime: string;
   category: string;
   sections: KnowledgeArticleSection[];
+  links?: {
+    label: string;
+    slug: string;
+  }[];
 };
 
 export const knowledgeArticles: KnowledgeArticle[] = [
@@ -88,6 +92,134 @@ export const knowledgeArticles: KnowledgeArticle[] = [
         content:
           "Edge AI does not automatically mean everything is better. It can bring major advantages, but it also adds management work and technical responsibility. The real question is not whether cloud is bad, but which parts of a process should remain local and which parts can safely be external.",
       },
+    ],
+    links: [
+      { label: "Local AI", slug: "wat-is-local-ai" },
+      { label: "On-premise AI", slug: "wat-is-on-premise-ai" },
+      { label: "White-label hardware, AITJE software", slug: "white-label-hardware-aitje-software" },
+    ],
+  },
+  {
+    slug: "wat-is-local-ai",
+    title: "What is local AI?",
+    excerpt:
+      "Local AI means AI runs inside your own environment, for example on a local device, server or network. It is about more control over data, availability, cost and dependency on external AI platforms.",
+    ...knowledgeArticleImages["wat-is-local-ai"],
+    readTime: "5 min",
+    category: "Infrastructure",
+    sections: [
+      {
+        title: "In short",
+        content:
+          "Local AI is AI that does not fully depend on an external cloud environment. Processing happens locally, on dedicated hardware or inside your own network. That keeps the AI foundation closer to the organization using it.",
+      },
+      {
+        title: "Why does this matter?",
+        content:
+          "A lot of AI usage depends on external platforms with subscriptions, API costs and third-party rules. Local AI reduces that dependency. It is especially relevant when internal knowledge, privacy, continuity or predictable costs matter.",
+      },
+      {
+        title: "Is local AI the same as edge AI?",
+        content:
+          "The terms overlap. Edge AI emphasizes processing close to the data source. Local AI emphasizes availability inside your own environment. In practice, the terms are often used together.",
+      },
+      {
+        title: "What can run locally?",
+        content:
+          "Examples include answering internal questions, searching documents, using knowledge bases, summarizing information, running agents or supporting workflows. Not everything has to be local, but sensitive or availability-critical parts often benefit from it.",
+      },
+      {
+        title: "What should you consider?",
+        content:
+          "Local AI requires good choices around hardware, models, access, updates and management. It is not a loose trick, but an infrastructure decision. The strongest setup combines local capability with clear rules about what may still connect externally.",
+      },
+    ],
+    links: [
+      { label: "Edge AI", slug: "wat-is-edge-ai" },
+      { label: "On-premise AI", slug: "wat-is-on-premise-ai" },
+      { label: "AI agent", slug: "wat-is-een-ai-agent" },
+    ],
+  },
+  {
+    slug: "wat-is-on-premise-ai",
+    title: "What is on-premise AI?",
+    excerpt:
+      "On-premise AI means AI runs on infrastructure managed by your own organization or location. It can help with privacy, compliance, continuity and control over systems.",
+    ...knowledgeArticleImages["wat-is-on-premise-ai"],
+    readTime: "5 min",
+    category: "Infrastructure",
+    sections: [
+      {
+        title: "In short",
+        content:
+          "On-premise AI runs on hardware that belongs to the organization, location or managed internal environment. Instead of sending all processing to an external AI service, key parts stay closer to your own infrastructure.",
+      },
+      {
+        title: "When do you choose it?",
+        content:
+          "On-premise AI makes sense when data is sensitive, systems need to keep working locally or external platforms do not fit policy, cost or availability requirements. It is especially relevant for organizations with clear requirements around management and access.",
+      },
+      {
+        title: "How is it different from cloud AI?",
+        content:
+          "With cloud AI, processing mostly runs on a third-party provider's infrastructure. With on-premise AI, more responsibility sits with the organization or a partner managing the local environment. You gain control, but management needs to be arranged properly.",
+      },
+      {
+        title: "Which parts are involved?",
+        content:
+          "Beyond the model, you need hardware, software, access control, logging, updates, monitoring and support agreements. On-premise AI is not just installing a model; it is building a usable environment.",
+      },
+      {
+        title: "Practical nuance",
+        content:
+          "On-premise does not mean nothing may ever connect externally. Some organizations combine local processing with selected external integrations. The important part is making a conscious decision about what stays local and where external services do or do not make sense.",
+      },
+    ],
+    links: [
+      { label: "Local AI", slug: "wat-is-local-ai" },
+      { label: "Edge AI", slug: "wat-is-edge-ai" },
+      { label: "White-label hardware, AITJE software", slug: "white-label-hardware-aitje-software" },
+    ],
+  },
+  {
+    slug: "white-label-hardware-aitje-software",
+    title: "White-label hardware, AITJE software",
+    excerpt:
+      "White-label hardware with AITJE software means AITJE selects suitable hardware and delivers the software layer, setup and AI functionality that fit the use case.",
+    ...knowledgeArticleImages["white-label-hardware-aitje-software"],
+    readTime: "5 min",
+    category: "Infrastructure",
+    sections: [
+      {
+        title: "What does white-label hardware mean?",
+        content:
+          "White-label hardware is existing or selected hardware that is not designed from scratch as a new hardware product, but chosen because its specifications fit the application. AITJE uses that base to deliver a practical local AI solution.",
+      },
+      {
+        title: "Where is AITJE's value?",
+        content:
+          "The value is not just in the device. It is in the combination of hardware choice, software, configuration, AI functionality, access and management. AITJE makes the solution usable for the organization and the process it is meant for.",
+      },
+      {
+        title: "Why not always build custom hardware?",
+        content:
+          "Building hardware from scratch is often slow, expensive and unnecessary. For many AI applications, it is smarter to select proven hardware and design the software layer, setup and AI workflow properly around it.",
+      },
+      {
+        title: "How does this fit local AI?",
+        content:
+          "Local AI needs hardware that is powerful, stable and suitable for the task. By choosing hardware based on actual use, a solution can run locally without making every application fully dependent on external platforms.",
+      },
+      {
+        title: "What do you get in the end?",
+        content:
+          "The result is not a loose box with specs, but a working AI solution on selected hardware with AITJE software around it. Think of an assistant, agent, workflow, integration or local AI application.",
+      },
+    ],
+    links: [
+      { label: "Local AI", slug: "wat-is-local-ai" },
+      { label: "On-premise AI", slug: "wat-is-on-premise-ai" },
+      { label: "Workflow", slug: "wat-is-een-workflow" },
     ],
   },
   {

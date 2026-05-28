@@ -73,6 +73,24 @@
         </article>
       </section>
 
+      <section v-if="article.links?.length" class="mx-auto mt-12 max-w-4xl">
+        <div class="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm">
+          <p class="text-sm font-semibold uppercase tracking-[0.4em] text-[#facc15]">
+            Related terms
+          </p>
+          <div class="mt-5 flex flex-wrap gap-3">
+            <NuxtLink
+              v-for="link in article.links"
+              :key="link.slug"
+              :to="localePath(`/kenniscentrum/${link.slug}`)"
+              class="rounded-full border border-gray-200 px-4 py-2 text-sm font-semibold text-gray-700 transition hover:border-[#facc15] hover:bg-[#facc15] hover:text-black"
+            >
+              {{ link.label }}
+            </NuxtLink>
+          </div>
+        </div>
+      </section>
+
       <section class="mx-auto mt-12 max-w-5xl">
         <div class="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm">
           <p class="text-sm font-semibold uppercase tracking-[0.4em] text-[#facc15]">
@@ -134,7 +152,7 @@ const { localePath } = useSiteLocale();
 
 const mergedSlugAliases: Record<string, string> = {
   "wat-is-een-taalmodel": "wat-is-een-llm",
-  "wat-betekent-lokale-ai": "wat-is-edge-ai",
+  "wat-betekent-lokale-ai": "wat-is-local-ai",
 };
 
 const route = useRoute();

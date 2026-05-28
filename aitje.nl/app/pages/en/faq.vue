@@ -264,7 +264,7 @@ const faqGroups = [
       {
         question: "What exactly is AITJE Assistant?",
         answer:
-          "AITJE Assistant is a mini computer optimized with our own software. You get a local LLM, a knowledge base built by AITJE to process your documents so they can be used inside the LLM, and an AI-powered knowledge system that remains accessible even without internet.",
+          "AITJE Assistant is a mini computer optimized with our own software. You get a local LLM, a knowledge base built by AITJE to process your documents and an AI-powered knowledge system that remains accessible even without internet.",
       },
       {
         question: "Does AITJE also do custom-built hardware?",
@@ -274,13 +274,13 @@ const faqGroups = [
       {
         question: "What is AITJE Coder?",
         answer:
-          "AITJE Coder is a way to program without Claude Code, Codex or Gemini. You get a coding agent through our hardware device. No subscriptions, no outages. A coding partner that stays available as long as you have internet.",
+          "AITJE Coder is a way to program without Claude Code, Codex or Gemini. You get a coding agent on your own hardware, without subscriptions or dependency on external outages. The agent remains available locally; internet is only needed when you intentionally use online sources, updates or external integrations.",
       },
       {
         question: "How much do your products cost?",
-        answer: "Request a price list or quote through our contact page.",
+        answer: "Request the current price list or a quote through our contact page.",
         linkTo: "/contact?onderwerp=offerte",
-        linkLabel: "Request a quote",
+        linkLabel: "Request the current price list or a quote",
       },
     ],
   },
@@ -311,7 +311,7 @@ const faqGroups = [
       {
         question: "Can your LLM search the internet?",
         answer:
-          "Yes. As long as an internet connection is available on the Wi-Fi or local network, AITJE products can also use AI.",
+          "Yes, when internet access is intentionally enabled, an AITJE environment can retrieve online information through connected search or browsing tools. Without internet, the local LLM remains available for tasks that use local knowledge and files.",
       },
       {
         question: "Which models do you use?",
@@ -438,12 +438,12 @@ const faqGroups = [
       {
         question: "What if there is an internet outage with AITJE Assistant?",
         answer:
-          "At its core, AITJE Assistant is not heavily affected by that. Synchronizing becomes temporarily harder, because chunked vector-embedding data is retrieved from version control. The local data and local LLM functionality remain available.",
+          "AITJE Assistant keeps working locally during an internet outage. The local LLM, knowledge base, embeddings and files remain available on the device. Only functions that intentionally need internet, such as online search, external integrations or updates, are temporarily unavailable.",
       },
       {
-        question: "Can multiple people on the network use the AITJE Assistant API?",
+        question: "Can multiple people on the network use AITJE Assistant or AITJE Coder?",
         answer:
-          "Yes. You create accounts and install the mobile or desktop application. After that, the user can use the local LLM and API over the network and through the AITJE Client application.",
+          "Yes. You create accounts and install the mobile or desktop application. After that, users can use the local LLM, API and, with AITJE Coder, the local coding agent through the local network and the AITJE Client application.",
       },
       {
         question: "How do you prevent agents from developing a will of their own?",
@@ -453,7 +453,7 @@ const faqGroups = [
       {
         question: "What happens if there is a disruption?",
         answer:
-          "We can look along remotely. Contact AITJE or submit a ticket if you have an SLA, and we will look along with you remotely.",
+          "Contact AITJE or submit a ticket if you have an SLA. Where possible, we look along remotely and help identify the cause.",
       },
       {
         question: "How does AITJE prevent dependency on external platforms?",

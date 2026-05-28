@@ -14,11 +14,9 @@
           Strategic AI partnership
         </h1>
         <p class="mt-6 text-lg text-gray-600">
-          AITJE guides organizations in using on-premise and edge AI. We help
-          with strategy, setup, custom work and ongoing development, either as
-          separate services or as concrete agreements within an SLA. This keeps
-          our solutions and future expansions aligned with your organization,
-          instead of the other way around.
+          AITJE helps organizations put local AI to practical use. We support
+          installation, knowledge management, consultancy, custom work and
+          ongoing collaboration when you need extra capacity or expertise.
         </p>
       </section>
 
@@ -52,16 +50,13 @@
                   <span
                     class="mt-3 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"
                   ></span>
-                  <span
-                    >Separate services available at a fixed hourly rate without
-                    a partnership.</span
-                  >
+                  <span>Installation help, consultancy and custom work available at an hourly rate.</span>
                 </li>
                 <li class="flex gap-3">
                   <span
                     class="mt-3 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"
                   ></span>
-                  <span>Concrete agreements within our SLA.</span>
+                  <span>Structural agreements within our SLA as a strategic partnership.</span>
                 </li>
                 <li class="flex gap-3">
                   <span
@@ -73,10 +68,7 @@
                   <span
                     class="mt-3 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"
                   ></span>
-                  <span
-                    >Products built so we can look along remotely, only with
-                    permission.</span
-                  >
+                  <span>Products work out of the box; setup by AITJE is optional.</span>
                 </li>
               </ul>
             </div>
@@ -147,6 +139,16 @@
                 <h2 class="mt-2 text-lg font-semibold">
                   {{ service.title }}
                 </h2>
+                <p
+                  class="mt-2 text-sm leading-6"
+                  :class="
+                    selectedServiceKey === service.key
+                      ? 'text-gray-200'
+                      : 'text-gray-500'
+                  "
+                >
+                  {{ service.navDescription }}
+                </p>
               </button>
             </div>
           </aside>
@@ -165,6 +167,14 @@
             <p class="mt-5 max-w-3xl text-base leading-8 text-gray-600">
               {{ activeService.description }}
             </p>
+            <div
+              v-if="'body' in activeService && activeService.body?.length"
+              class="mt-6 max-w-4xl space-y-4 text-sm leading-7 text-gray-600"
+            >
+              <p v-for="paragraph in activeService.body" :key="paragraph">
+                {{ paragraph }}
+              </p>
+            </div>
 
             <div class="mt-8 rounded-[1.75rem] bg-[#fafafa] p-5">
               <p
@@ -174,6 +184,17 @@
               </p>
               <p class="mt-2 text-sm leading-7 text-gray-700">
                 {{ activeService.result }}
+              </p>
+            </div>
+
+            <div class="mt-5 rounded-[1.75rem] border border-gray-100 p-5">
+              <p
+                class="text-xs font-semibold uppercase tracking-[0.35em] text-gray-500"
+              >
+                What is not included
+              </p>
+              <p class="mt-2 text-sm leading-7 text-gray-700">
+                {{ activeService.notIncluded }}
               </p>
             </div>
 
@@ -214,6 +235,47 @@
                 </NuxtLink>
               </div>
             </div>
+          </article>
+        </div>
+      </section>
+
+      <section
+        class="mx-auto mt-16 max-w-7xl rounded-[2.5rem] border border-gray-200 bg-white px-8 py-10 text-center shadow-sm lg:px-12"
+      >
+        <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
+          Process
+        </p>
+        <h2 class="mt-3 text-4xl font-black text-gray-900">
+          How it works
+        </h2>
+        <p class="mx-auto mt-4 max-w-2xl text-sm leading-7 text-gray-600">
+          We keep the first step small: clarify what you need, choose the right
+          service and agree on the scope before work starts.
+        </p>
+        <div class="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
+          <article
+            v-for="(step, index) in processSteps"
+            :key="step.title"
+            class="relative text-center"
+          >
+            <ArrowRight
+              v-if="index < processSteps.length - 1"
+              class="absolute -right-5 top-7 hidden h-6 w-6 text-gray-900/80 lg:block"
+            />
+            <div
+              class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#212121] text-[#facc15]"
+            >
+              <component :is="step.icon" class="h-7 w-7" />
+            </div>
+            <p class="mt-5 text-xs font-semibold uppercase tracking-[0.3em] text-[#facc15]">
+              Step {{ step.number }}
+            </p>
+            <h3 class="mt-2 text-lg font-black text-gray-900">
+              {{ step.title }}
+            </h3>
+            <p class="mt-2 text-sm leading-6 text-gray-600">
+              {{ step.description }}
+            </p>
           </article>
         </div>
       </section>
@@ -343,11 +405,17 @@
 
 <script setup lang="ts">
 import {
+  ArrowRight,
+  ClipboardList,
   ClipboardPenLine,
+  FileText,
+  Handshake,
   Leaf,
+  MessagesSquare,
   PlugZap,
   ShieldCheck,
   Sparkles,
+  Wrench,
 } from "lucide-vue-next";
 
 const { localePath } = useSiteLocale();
@@ -355,23 +423,23 @@ const { localePath } = useSiteLocale();
 const introCards = [
   {
     badge: "Strategy",
-    title: "Not everything at once",
+    title: "Clear first choices",
     description:
-      "We first help determine what makes sense before anything gets built or expanded.",
+      "We help determine what makes sense before anything gets built, installed or expanded.",
     icon: PlugZap,
   },
   {
     badge: "Custom",
     title: "Where needed",
     description:
-      "AITJE Custom remains available, but as a focused route instead of a broad custom-work label. Smaller and clearer.",
+      "For concrete questions where standard products do not fully match your hardware, workflow or organization.",
     icon: Sparkles,
   },
   {
     badge: "Continuity",
-    title: "Ultimate freedom",
+    title: "Strategic partnership",
     description:
-      "Choose what fits: products only, extra services or a periodically cancellable SLA. You stay in control, we stand beside you.",
+      "Within an SLA, we support you with helpdesk, knowledge management, advice and further development.",
     icon: Leaf,
   },
 ];
@@ -381,10 +449,17 @@ const servicePanels = [
     key: "installation",
     sidebarLabel: "Product installation",
     title: "Product installation",
+    navDescription: "For accounts, permissions, local access and a clean go-live.",
     focus: "Implementation",
     description:
       "We help with installation, permissions, knowledge base sync and technical setup so AITJE products land in your environment ready to use.",
+    body: [
+      "Product installation is practical help, not a required step. In most cases, you can start with an AITJE product yourself. It can still be useful for us to help when multiple users, permissions, network choices or management agreements are involved.",
+      "We can set up the product remotely or come on site when the environment requires it. This includes accounts, access rights, local availability and a logical starting structure for existing knowledge sources.",
+    ],
     result: "A stable start without loose technical ends or unclear handover.",
+    notIncluded:
+      "No custom development or long-term management track. AITJE Custom or SLA fits better for that.",
     details: [
       "Installation and basic setup of AITJE products",
       "Alignment of permissions, access and knowledge base sync",
@@ -392,17 +467,49 @@ const servicePanels = [
     ],
     fit: "For organizations choosing a product and wanting the go-live to be right from the start.",
     link: localePath("/contact?onderwerp=product-installatie"),
-    cta: "Contact us",
+    cta: "Plan installation",
+  },
+  {
+    key: "knowledgebase-management",
+    sidebarLabel: "Knowledge management",
+    title: "Knowledge management & data setup",
+    navDescription: "For source selection, document structure and knowledge base management.",
+    focus: "Knowledge and data",
+    description:
+      "We help determine which documents, sources and agreements are needed to make your knowledge base useful for reliable AI answers.",
+    body: [
+      "A good knowledge base does not start with uploading as many files as possible. It starts with the right selection and structure. We help choose which sources are useful, what should stay out and how documents should be organized.",
+      "After that, we set up the data for practical use with AITJE Assistant. Think of naming, versions, source quality, priorities and agreements about who manages changes.",
+    ],
+    result:
+      "A usable knowledge base with clear source choices, structure and management agreements.",
+    notIncluded:
+      "No unlimited document management after delivery. Ongoing management can be arranged within an SLA.",
+    details: [
+      "Choose which documents and sources are valuable for AI use",
+      "Set up the knowledge base with a logical data and source structure",
+      "Guidance on management, updates, versioning and source quality",
+    ],
+    fit: "For organizations that want to use AITJE Assistant with their own knowledge, but need help with the right setup and workflow.",
+    link: localePath("/contact?onderwerp=kennisbank-managen"),
+    cta: "Set up knowledge base",
   },
   {
     key: "expansion",
     sidebarLabel: "Product expansion",
     title: "Product expansion",
+    navDescription: "For extra users, modules, integrations or setup.",
     focus: "Further development",
     description:
       "We expand existing AITJE setups in a focused way when more users, extra modules, integrations or additional setup are needed.",
+    body: [
+      "Product expansion is for situations where the base already works, but the practical use becomes larger or more specific. Extra teams may join, a workflow may need adjustment or existing parts may need to connect to new processes.",
+      "We first look at what is already in place, so the expansion does not become a second separate system. Then we decide what is technically needed and which choices remain manageable over time.",
+    ],
     result:
       "A next step that connects logically to what is already there, without starting over.",
+    notIncluded:
+      "No complete rebuild of your environment. We expand in a focused way on what already works.",
     details: [
       "Expansion of an existing product setup or workflow",
       "Extra modules, integrations or organizational setup",
@@ -410,34 +517,48 @@ const servicePanels = [
     ],
     fit: "For organizations already working with AITJE and wanting to scale or broaden in a controlled way.",
     link: localePath("/contact?onderwerp=product-uitbreiding"),
-    cta: "Contact us",
+    cta: "Discuss expansion",
   },
   {
     key: "custom",
     sidebarLabel: "AITJE Custom",
     title: "AITJE Custom",
+    navDescription: "For custom work around hardware, workflows or local AI functionality.",
     focus: "Custom route",
     description:
-      "For organizations where the fixed solutions do not fit well and where AITJE needs to think along on hardware, workflows or agentic deployment.",
-    result:
-      "A route that better matches the real situation of the organization.",
-    details: [
-      "Strategic thinking around Edge AI",
-      "Alternative hardware when standard does not fit",
-      "Practical translation from idea to approach",
+      "For organizations with a concrete AI question that requires specific hardware, a custom workflow or extra functionality outside our standard products.",
+    body: [
+      "AITJE Custom is for situations where a standard product does not fit the practical reality well enough. This may involve a specific workflow, an additional integration, unusual hardware requirements or a local AI application that needs to match how your team works.",
+      "We develop at an hourly rate and make hardware costs transparent separately. Before we start, we determine together whether custom work is really needed or whether an existing product with installation, consultancy or SLA is enough.",
     ],
-    fit: "For organizations with unusual requirements, specific hardware wishes or more complex processes than the fixed line supports.",
+    result:
+      "A focused custom solution at an hourly rate, with insight into required hardware costs.",
+    notIncluded:
+      "No open-ended track where everything is built at once. We start with scope, estimate and clear choices.",
+    details: [
+      "Development of specific edge or on-premise AI functionality",
+      "Selection and setup of suitable hardware",
+      "Practical delivery around a workflow without a standard solution yet",
+    ],
+    fit: "For organizations with a concrete problem where our existing products are not yet sufficient.",
     link: localePath("/contact?onderwerp=aitje-custom"),
-    cta: "Contact us",
+    cta: "Discuss custom work",
   },
   {
     key: "consultancy",
     sidebarLabel: "Consultancy",
     title: "Consultancy",
+    navDescription: "For advice on cost, risk, dependency and first steps.",
     focus: "Cost & stability",
     description:
       "We analyze current AI usage and look at where cost, stability and dependency can be improved.",
+    body: [
+      "Consultancy is useful when you are not yet sure whether local AI, edge AI or an AITJE product makes sense. We look at processes, existing tools, costs, dependencies and places where AI is already used or remains unused.",
+      "The outcome does not always have to be a purchase or custom project. Sometimes the right advice is to organize something more simply, keep using existing tools first or only make a small part local.",
+    ],
     result: "More control over usage, vendors and practical AI deployment.",
+    notIncluded:
+      "No build track. Consultancy provides direction, choices and advice; implementation is planned separately.",
     details: [
       "Analysis of the current AI stack and usage",
       "Lower dependence on external platforms where logical",
@@ -445,17 +566,24 @@ const servicePanels = [
     ],
     fit: "For teams already using AI but lacking enough overview of cost, risk and continuity.",
     link: localePath("/contact?onderwerp=consultancy"),
-    cta: "Contact us",
+    cta: "Request advice call",
   },
   {
     key: "strategy",
     sidebarLabel: "AI strategy",
     title: "AI strategy",
+    navDescription: "Clarify opportunities, risks, direction and first steps.",
     focus: "Strategy",
     description:
       "We help determine where AI brings the most value now, what Edge AI does and does not make sense for, and which first steps are realistic.",
+    body: [
+      "AI strategy is for organizations that want clarity before making technical choices. We map realistic opportunities, risks, dependencies and the role local AI can play.",
+      "The goal is a practical direction: what to do first, what to leave for later and which choices avoid unnecessary complexity.",
+    ],
     result:
       "A concrete plan that lets you move forward without getting lost in all the AI options.",
+    notIncluded:
+      "No implementation by default. Strategy gives direction first; setup or development can follow later.",
     details: [
       "Where AI can add direct value right now",
       "Which deployment makes sense for your organization",
@@ -463,26 +591,66 @@ const servicePanels = [
     ],
     fit: "For organizations that first want clarity on direction, opportunities and the role of local Edge AI.",
     link: localePath("/contact?onderwerp=ai-strategie"),
-    cta: "Contact us",
+    cta: "Discuss AI strategy",
   },
   {
     key: "sla",
-    sidebarLabel: "SLA",
+    sidebarLabel: "Service Level Agreement",
     title: "SLA",
+    navDescription: "For support, updates, knowledge management and strategic development.",
     focus: "Monthly collaboration",
     description:
       "A monthly collaboration for support, updates, reserved time, installation help and advice around products and Edge AI implementations.",
+    body: [
+      "The SLA is for organizations that want AITJE structurally involved instead of only per incident. Support, updates, reserved time, strategic advice and knowledge base work can come together in one agreement.",
+      "Knowledge bases need ongoing attention because sources change, priorities shift and teams need to know how to keep adding information correctly. You can manage it yourself, we can keep it up to date or we agree on a shared form.",
+    ],
     result: "Ongoing support without having to solve everything ad hoc.",
+    notIncluded:
+      "No unlimited development bundle. The SLA contains agreed support, time, management and further development.",
     details: [
-      "Fixed time and support per month",
-      "Updates to models and software when needed",
-      "5 euro PromptPaleis credit per month for customers with SLA",
+      "Set up, maintain or explain how to manage your knowledge base",
+      "Support, updates, troubleshooting and reserved time",
+      "Strategic advice on AI use, continuity and next steps",
     ],
     fit: "For organizations that want continuity without having to switch per incident every time.",
     link: localePath("/contact?onderwerp=sla"),
-    cta: "Contact us",
+    cta: "Discuss SLA",
   },
 ] as const;
+
+const processSteps = [
+  {
+    number: "1",
+    title: "Introduction",
+    description: "We discuss your situation, product use, data, team and main question.",
+    icon: MessagesSquare,
+  },
+  {
+    number: "2",
+    title: "Inventory",
+    description: "We determine what is technically and organizationally needed and which service fits.",
+    icon: ClipboardList,
+  },
+  {
+    number: "3",
+    title: "Proposal or estimate",
+    description: "You receive a clear direction, hourly estimate, quote or SLA proposal.",
+    icon: FileText,
+  },
+  {
+    number: "4",
+    title: "Execution",
+    description: "We set up, advise, build or support according to the agreed scope.",
+    icon: Wrench,
+  },
+  {
+    number: "5",
+    title: "Handover or support",
+    description: "You receive explanation, management agreements and optional ongoing SLA support.",
+    icon: Handshake,
+  },
+];
 
 const selectedServiceKey =
   ref<(typeof servicePanels)[number]["key"]>("installation");

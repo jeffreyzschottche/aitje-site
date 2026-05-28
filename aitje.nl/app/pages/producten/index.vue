@@ -10,12 +10,11 @@
           Producten
         </p>
         <h1 class="mt-4 text-5xl font-black text-gray-900">
-          De productlijn van AITJE
+          AI op eigen hardware, zonder onnodige afhankelijkheid
         </h1>
         <p class="mt-6 text-lg text-gray-600">
-          Geen losse hardware- en softwarepagina&apos;s meer, maar een kleinere en
-          duidelijkere lijn met een kernproduct, een custom route en een paar
-          logische vervolgstappen.
+          Producten voor organisaties die AI praktisch willen gebruiken met meer
+          grip op data, stroomverbruik, API-kosten, privacy en beschikbaarheid.
         </p>
       </section>
 
@@ -40,57 +39,24 @@
         </div>
       </section>
 
-      <section class="mx-auto mt-8 max-w-6xl">
-        <article
-          class="overflow-hidden rounded-[2.5rem] border border-gray-200 bg-white shadow-sm"
-        >
-          <div class="grid gap-0 md:grid-cols-[0.72fr_1.28fr]">
-            <div class="border-b border-gray-200 bg-[#faf7ea] md:border-b-0 md:border-r">
-              <img
-                src="/images/aitje-cubes.png"
-                alt="AITJE productlijn"
-                class="h-full min-h-[18rem] w-full object-cover"
-              />
-            </div>
-
-            <div class="p-8 md:p-10">
-              <div>
-                <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
-                  {{ productSnapshots[0].badge }}
-                </p>
-                <h2 class="mt-3 text-3xl font-black text-gray-900">
-                  {{ productSnapshots[0].title }}
-                </h2>
-                <p class="mt-3 text-base leading-8 text-gray-600">
-                  {{ productSnapshots[0].description }}
-                </p>
-                <p class="mt-4 text-base leading-8 text-gray-600">
-                  {{ productSnapshots[1].description }}
-                </p>
-              </div>
-            </div>
-          </div>
-        </article>
-      </section>
-
       <section class="mx-auto mt-12 max-w-6xl">
         <div class="mb-8 max-w-3xl">
           <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
             Overzicht
           </p>
           <h2 class="mt-3 text-4xl font-black text-gray-900">
-            Producten die logisch op elkaar aansluiten
+            Onze producten
           </h2>
           <p class="mt-4 text-base leading-8 text-gray-600">
-            Hieronder zie je de huidige productlijn van AITJE. Niet als winkel,
-            maar als snelle manier om te zien welk product nu bestaat, wat in
-            ontwikkeling is en welke richting daarna volgt binnen
+            Hier vind je de AI-producten van AITJE: lokaal inzetbaar, gericht op
+            minder externe API-calls en gemaakt voor organisaties die controle
+            willen houden over interne kennis, kosten en toegang.
             <a
-              href="/kenniscentrum/wat-is-edge-ai"
+              href="/kenniscentrum/wat-is-local-ai"
               class="knowledge-link"
               data-knowledge-link="true"
             >
-              lokale AI
+              Lees meer over lokale AI
             </a>
             .
           </p>
@@ -114,18 +80,34 @@
                 :class="product.imagePanelClass"
               >
                 <div
+                  v-if="product.image"
                   class="absolute inset-0"
                   :class="product.isUnavailable
                     ? 'bg-gradient-to-br from-white/8 via-[#1f1f1f]/18 to-[#090909]/52'
                     : 'bg-gradient-to-br from-white/10 via-transparent to-black/30'"
                 />
                 <img
+                  v-if="product.image"
                   :src="product.image"
                   :alt="product.title"
                   class="relative h-full min-h-[20rem] w-full object-cover transition"
                   :class="product.isUnavailable ? 'scale-[1.02] blur-sm saturate-[0.75] brightness-[0.72]' : ''"
                   loading="lazy"
                 />
+                <div
+                  v-else
+                  class="relative flex min-h-[20rem] h-full w-full flex-col justify-center bg-[#050505] p-8 text-white"
+                >
+                  <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
+                    Nog geen afbeelding beschikbaar
+                  </p>
+                  <p class="mt-4 max-w-sm text-3xl font-black leading-tight">
+                    {{ product.title }}
+                  </p>
+                  <p class="mt-4 max-w-sm text-sm leading-7 text-white/62">
+                    Dit product is nog in ontwikkeling.
+                  </p>
+                </div>
               </div>
 
               <div class="flex flex-col justify-between p-8 md:p-10">
@@ -137,7 +119,7 @@
                     <span
                       class="rounded-full border border-[#facc15] bg-[#facc15] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.28em] text-[#212121]"
                     >
-                      {{ product.statusLabel }}
+                      {{ product.displayStatus }}
                     </span>
                   </div>
 
@@ -167,7 +149,7 @@
                     class="inline-flex min-w-[12.5rem] items-center justify-center rounded-full bg-[#facc15] px-9 py-4 text-sm font-semibold whitespace-nowrap text-[#212121] transition hover:bg-white hover:text-black"
                     @click.stop="openWaitlistModal(product)"
                   >
-                    Houd me op de hoogte
+                    {{ product.ctaLabel }}
                   </button>
 
                   <NuxtLink
@@ -175,7 +157,7 @@
                     :to="product.link"
                     class="inline-flex min-w-[9.5rem] items-center justify-center rounded-full bg-[#facc15] px-7 py-3 text-sm font-semibold whitespace-nowrap text-[#212121] transition hover:bg-white hover:text-black"
                   >
-                    Meer info
+                    {{ product.ctaLabel }}
                   </NuxtLink>
                 </div>
               </div>
@@ -274,45 +256,31 @@ const statusLabels = productStatusLabel.nl;
 
 const valueProps = [
   {
-    badge: "Structuur",
-    title: "Eén productlijn",
+    badge: "Controle",
+    title: "Minder afhankelijk",
     description:
-      "De route is nu helder: een kernproduct, een custom route en Coder als vervolgproduct in ontwikkeling.",
+      "Werk met AI op eigen hardware en beperk afhankelijkheid van externe platformen, API-kosten en storingen.",
     icon: Layers3,
   },
   {
-    badge: "Lokaal",
-    title: "Lokale Edge AI",
+    badge: "Kennis",
+    title: "Eigen data dichtbij",
     description:
-      "De focus ligt op producten die organisaties meer regie geven over gebruik, privacy en lange termijnkosten.",
+      "Gebruik documenten, beleid en interne kennis lokaal, zonder alles standaard naar externe AI-diensten te sturen.",
     icon: Shield,
   },
   {
-    badge: "Praktisch",
-    title: "Praktisch inzetbaar",
+    badge: "Uitbreidbaar",
+    title: "Van basis naar maatwerk",
     description:
-      "De productlijn blijft kleiner en concreter, zodat gewone organisaties sneller begrijpen wat bij hen past.",
+      "Begin met een duidelijke basis en breid uit wanneer je workflow, hardware of toepassing specifieker wordt.",
     icon: Cpu,
-  },
-];
-
-const productSnapshots = [
-  {
-    badge: "Bestaat nu",
-    title: "AITJE Assistent",
-    description: "Het kernproduct voor kennis, documenten en dagelijkse AI-taken op een eigen device.",
-  },
-  {
-    badge: "Route ernaast",
-    title: "AITJE Custom",
-    description: "Voor organisaties waar de vaste lijn niet goed genoeg past of waar hardware en workflow afwijken.",
   },
 ];
 
 const productBannerImages: Record<string, string> = {
   "aitje-assistent": "/images/aitje-cubes.png",
   "aitje-custom": "/images/aitje-custom.png",
-  "aitje-coder": "/images/aitje-product.png",
 };
 
 const productBannerKickers: Record<string, string> = {
@@ -323,17 +291,17 @@ const productBannerKickers: Record<string, string> = {
 
 const productBannerExtras: Record<string, string> = {
   "aitje-assistent":
-    "De basis voor organisaties die AI praktisch willen inzetten op een eigen device, met OS, Client en Kennisbank als onderdelen van dezelfde lijn.",
+    "Gebruik AITJE Assistent als conversational AI voor interne vragen, documentwerk en kennisbankgebruik binnen je eigen omgeving. AITJE OS, Client en Kennisbank vormen samen de basis, zonder terugkerend AI-abonnement.",
   "aitje-custom":
-    "De route voor organisaties die niet uitkomen met een standaardopzet en een concretere vertaling nodig hebben van idee naar werkbare hardware of workflow.",
+    "Kies Custom wanneer je een specifieke workflow, koppeling, hardwarekeuze of lokale AI-toepassing nodig hebt die niet standaard uit de doos komt.",
   "aitje-coder":
-    "Voor teams die AI willen inzetten bij coderen, technische wijzigingen en interne tooling, met meer grip op context, omgeving en ontwikkelproces.",
+    "AITJE Coder richt zich op coding agents die beschikbaar blijven op eigen hardware en kunnen werken met de context die jij toestaat.",
 };
 
 const productBannerPanelClasses: Record<string, string> = {
   "aitje-assistent": "bg-[#f6f0dc]",
   "aitje-custom": "bg-[#f5ede2]",
-  "aitje-coder": "bg-[#efe9de]",
+  "aitje-coder": "bg-[#050505]",
 };
 
 const waitlistModalOpen = ref(false);
@@ -352,9 +320,11 @@ const productBanners = products.map((product) => ({
   summary: product.summary,
   audience: product.audience,
   statusLabel: statusLabels[product.status],
+  displayStatus: product.slug === "aitje-custom" ? "Op aanvraag" : statusLabels[product.status],
   kicker: productBannerKickers[product.slug] ?? "Product",
   extra: productBannerExtras[product.slug] ?? product.intro,
-  image: productBannerImages[product.slug] ?? "/images/aitje-product.png",
+  ctaLabel: product.cta,
+  image: productBannerImages[product.slug] ?? "",
   imagePanelClass: productBannerPanelClasses[product.slug] ?? "bg-[#faf7ea]",
   cardClass: product.status !== "available"
     ? "border-white/12 bg-[#2a2a2a] text-white"

@@ -60,21 +60,21 @@ export const productCatalogV2: Record<"nl" | "en", LocaleContent> = {
         title: "AITJE Assistent",
         status: "available",
         summary:
-          "Lokale Edge AI op een eigen device voor organisaties die met kennis, documenten en dagelijkse vragen willen werken zonder alles naar externe platformen te sturen.",
+          "Een lokale AI-assistent op eigen hardware voor vragen, documenten, interne kennis en conversational AI, zonder alles standaard naar externe platformen te sturen.",
         audience:
-          "Voor organisaties die meer regie willen over AI-gebruik, privacy en lange termijnkosten.",
+          "Voor organisaties die AI willen gebruiken met meer regie over data, privacy, stroomverbruik, API-kosten en beschikbaarheid.",
         highlights: [
           "Lokale assistent op eigen device",
           "Werkt samen met OS, Client en Kennisbank",
-          "Geschikt voor dagelijks gebruik binnen teams",
+          "Conversational AI zonder terugkerend AI-abonnement",
         ],
-        cta: "Vraag een prijslijst aan",
+        cta: "Bekijk product",
         intro:
-          "AITJE Assistent is het kernproduct van AITJE. Je zet het in als lokale assistent voor kennis, vragen, documentwerk en praktische AI-taken binnen je organisatie.",
+          "Gebruik AITJE Assistent voor interne vragen, documentwerk, kennisbankgebruik en conversational AI binnen je eigen omgeving. AITJE OS, Client en Kennisbank vormen samen de basis.",
         useCases: [
           "Interne kennis sneller terugvinden",
           "Documenten en beleid begrijpelijk doorzoekbaar maken",
-          "Lokaler werken met minder afhankelijkheid van API-kosten",
+          "Lokaler werken met minder afhankelijkheid van API-kosten en externe platforms",
         ],
         modules: [
           {
@@ -119,17 +119,17 @@ export const productCatalogV2: Record<"nl" | "en", LocaleContent> = {
         title: "AITJE Custom",
         status: "available",
         summary:
-          "Voor organisaties die een edge- of on-premise AI-oplossing nodig hebben waar nog geen standaardproduct voor bestaat.",
+          "Een gezamenlijke route voor lokale, edge- en on-premise AI-oplossingen: eerst de juiste hardware voor het probleem, daarna de agent, workflow of koppeling die daarop draait.",
         audience:
-          "Voor organisaties met een concreet probleem dat vraagt om maatwerksoftware, passende hardware of een specifieke lokale AI-workflow.",
+          "Voor organisaties met een concrete AI-vraag waarbij standaardsoftware, klassieke webbouw of generieke AI-tools niet genoeg zijn.",
         highlights: [
           "Ontwikkeling tegen uurtarief",
           "Hardwarekosten apart en transparant",
           "Gericht op edge en on-premise AI waar bestaande producten niet genoeg zijn",
         ],
-        cta: "Vraag een offerte aan",
+        cta: "Bespreek maatwerk",
         intro:
-          "AITJE Custom is de route voor organisaties die iets nodig hebben dat nog niet als vast AITJE-product bestaat. We ontwikkelen de oplossing tegen uurtarief en rekenen benodigde hardware apart door.",
+          "Met AITJE Custom Solutions ontwerpen en bouwen we AI-first oplossingen rond edge AI, local AI, on-premise AI en passende hardware. Soms wordt dat een workflow, soms een agent, soms een device met software eromheen. Het is geen standaardproduct, maar een traject waarin we samen bepalen wat jouw probleem nodig heeft.",
         useCases: [
           "Een specifieke edge AI-workflow bouwen",
           "Een on-premise toepassing koppelen aan bestaande processen",
@@ -141,9 +141,9 @@ export const productCatalogV2: Record<"nl" | "en", LocaleContent> = {
         title: "AITJE Coder",
         status: "in-development",
         summary:
-          "In ontwikkeling als coder-product voor organisaties die lokaal en gecontroleerd willen bouwen, aanpassen en doorontwikkelen met AI-ondersteuning.",
+          "In ontwikkeling voor teams die met lokale of gecontroleerde coding agents willen werken aan code, scripts, tooling en technische wijzigingen.",
         audience:
-          "Voor organisaties en teams die softwareontwikkeling, technische wijzigingen of interne tools sneller willen uitvoeren zonder volledige afhankelijkheid van externe AI-platformen.",
+          "Voor organisaties en ontwikkelteams die AI willen inzetten bij softwareontwikkeling zonder volledig afhankelijk te zijn van externe coding platforms.",
         highlights: [
           "Gericht op coderen, aanpassen en technisch uitwerken",
           "Lokale of gecontroleerde inzet binnen eigen omgeving",
@@ -199,21 +199,21 @@ export const productCatalogV2: Record<"nl" | "en", LocaleContent> = {
         title: "AITJE Assistent",
         status: "available",
         summary:
-          "Local Edge AI on its own device for organizations that want to work with knowledge, documents and daily questions without sending everything to external platforms.",
+          "A local AI assistant on dedicated hardware for questions, documents, internal knowledge and conversational AI, without sending everything to external platforms by default.",
         audience:
-          "For organizations that want more control over AI usage, privacy and long-term costs.",
+          "For organizations that want to use AI with more control over data, privacy, power usage, API costs and availability.",
         highlights: [
           "Local assistant on a dedicated device",
           "Works together with OS, Client and Knowledge Base",
-          "Suitable for daily team use",
+          "Conversational AI without a recurring AI subscription",
         ],
-        cta: "Request a price list",
+        cta: "View product",
         intro:
-          "AITJE Assistent is AITJE's core product. It helps organizations use local AI for knowledge, questions, document work and practical daily tasks.",
+          "Use AITJE Assistent for internal questions, document work, knowledge base use and conversational AI inside your own environment. AITJE OS, Client and Knowledge Base form the foundation.",
         useCases: [
           "Finding internal knowledge faster",
           "Making documents and policies easier to search",
-          "Working more locally with less dependence on API costs",
+          "Working more locally with less dependence on API costs and external platforms",
         ],
         modules: [
           {
@@ -258,17 +258,17 @@ export const productCatalogV2: Record<"nl" | "en", LocaleContent> = {
         title: "AITJE Custom",
         status: "available",
         summary:
-          "For organizations where the fixed solutions are not the right fit and a strategic Edge AI partner makes more sense.",
+          "A collaborative route for local, edge and on-premise AI solutions: first the right hardware for the problem, then the agent, workflow or integration that runs on it.",
         audience:
-          "For organizations with specific hardware needs, agentic workflows or a more complex environment.",
+          "For organizations with a concrete AI question where standard software, traditional web development or generic AI tools are not enough.",
         highlights: [
-          "Strategic guidance on where Edge AI fits",
-          "Alternative hardware is possible",
-          "Focused on the right solution instead of a generic pitch",
+          "Development at an hourly rate",
+          "Hardware costs shown separately and transparently",
+          "Focused on edge and on-premise AI where existing products are not enough",
         ],
-        cta: "Request a quote",
+        cta: "Discuss custom work",
         intro:
-          "AITJE Custom is the route for organizations that need more than a standard product. We help think through usage, hardware, workflows and practical next steps.",
+          "With AITJE Custom Solutions we design and build AI-first solutions around edge AI, local AI, on-premise AI and suitable hardware. Sometimes that becomes a workflow, sometimes an agent, sometimes a device with software around it. It is not a standard product, but a track in which we determine together what your problem needs.",
         useCases: [
           "A heavier or different hardware setup",
           "Local agents connected to existing processes",
@@ -280,9 +280,9 @@ export const productCatalogV2: Record<"nl" | "en", LocaleContent> = {
         title: "AITJE Coder",
         status: "in-development",
         summary:
-          "In development as a coder-focused product for organizations that want to build, adapt and iterate with AI support in a local or controlled setup.",
+          "In development for teams that want to work with local or controlled coding agents on code, scripts, tooling and technical changes.",
         audience:
-          "For organizations and teams that want to move faster in software development, technical changes or internal tooling without full dependence on external AI platforms.",
+          "For organizations and development teams that want to use AI in software development without full dependence on external coding platforms.",
         highlights: [
           "Focused on coding, adapting and technical implementation",
           "Local or controlled use inside your own environment",

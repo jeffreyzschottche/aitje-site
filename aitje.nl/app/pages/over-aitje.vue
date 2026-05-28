@@ -12,13 +12,12 @@
           Over AITJE
         </p>
         <h1 class="mt-4 text-5xl font-black text-gray-900">
-          Een blik op wie we zijn, wat we doen en waar we voor staan
+          Praktische AI voor organisaties die grip willen houden
         </h1>
         <p class="mt-6 text-lg text-gray-600">
-          AITJE is een Nederlands bedrijf dat organisaties helpt om AI slimmer,
-          zelfstandiger en toekomstbestendiger in te zetten. Niet als vaag
-          AI-label, maar als partner met duidelijke producten, heldere keuzes en
-          praktische begeleiding.
+          AITJE helpt organisaties AI slim, zelfstandig en toekomstbestendig in
+          te zetten. Met duidelijke producten, heldere keuzes en begeleiding die
+          aansluit op de praktijk.
         </p>
       </section>
 
@@ -74,9 +73,8 @@
           <div class="mx-auto mt-6 max-w-4xl space-y-5 text-base leading-8 text-gray-700">
             <p>
               Voor veel organisaties is AI tegelijk interessant en verwarrend.
-              AITJE wil daarin een praktische partner zijn: iemand die niet
-              alleen technologie levert, maar ook helpt kiezen, uitleggen,
-              implementeren en doorontwikkelen.
+              AITJE brengt daar structuur in: we leveren technologie, maar
+              helpen ook bij keuzes, uitleg, implementatie en doorontwikkeling.
             </p>
           </div>
         </div>
@@ -115,7 +113,7 @@
                 gaan een steeds grotere rol spelen in hoe organisaties werken.
               </p>
               <p>
-                Onze visie is dat je die ontwikkeling beter op je eigen systemen kunt voorbereiden,
+                Onze visie is dat je die ontwikkeling beter dicht bij je eigen organisatie kunt voorbereiden,
                 zonder volledige afhankelijkheid van het buitenland, Big Tech of externe platformen.
               </p>
               <p>
@@ -155,13 +153,13 @@
               Wat we doen
             </p>
             <h2 class="mt-3 text-4xl font-black">
-              Producten, diensten en maatwerk die logisch op elkaar aansluiten
+              Producten, diensten en maatwerk met één duidelijke lijn
             </h2>
             <div class="mt-5 max-w-2xl space-y-4 text-base leading-8 text-black/75">
               <p>
-              AITJE bouwt aan een duidelijke productlijn, biedt begeleiding waar
+              AITJE bouwt een duidelijke productlijn, biedt begeleiding waar
               dat nodig is en levert maatwerk wanneer standaard niet goed past.
-              Zo ontstaat een route die organisaties echt kunnen volgen.
+              Zo wordt AI concreet genoeg om er echt mee te werken.
               </p>
               <p>
                 We bouwen producten die concrete problemen en behoeftes binnen
@@ -191,14 +189,14 @@
             Aanpak
           </p>
           <h2 class="mt-3 text-4xl font-black text-gray-900">
-            Van AI-idee naar iets dat echt in je organisatie past
+            AI die past bij je data, mensen en manier van werken
           </h2>
           <p class="mx-auto mt-5 max-w-4xl text-base leading-8 text-gray-700">
-            Veel organisaties weten dat ze iets met AI moeten, maar niet waar ze
-            moeten beginnen of wat verstandig is om zelf te beheren. AITJE helpt
-            die stap kleiner te maken: van eerste vraag en haalbare toepassing
-            naar een oplossing die past bij je data, mensen, infrastructuur en
-            manier van werken.
+            Veel organisaties zien kansen met AI, maar weten niet altijd waar
+            ze moeten beginnen of wat verstandig is om zelf te beheren. AITJE
+            maakt die stap kleiner: van eerste vraag en haalbare toepassing naar
+            een oplossing die past bij je data, mensen, infrastructuur en manier
+            van werken.
           </p>
         </div>
       </section>
@@ -239,8 +237,8 @@
             <p class="mt-6 max-w-2xl text-base leading-8 text-gray-300">
               AITJE is een klein team met een duidelijke overtuiging: AI moet
               helder, verantwoord en praktisch inzetbaar zijn voor organisaties.
-              We denken graag mee over jouw situatie en kijken samen wat logisch
-              past.
+              We denken mee over jouw situatie en bepalen samen welke stap
+              logisch is.
             </p>
             <p class="mt-4 max-w-2xl text-base leading-8 text-gray-300">
               <i>
@@ -282,7 +280,7 @@ const youtubeEmbedUrl = "https://www.youtube.com/embed/3ZJgaJGeRS4";
 const visionCards = [
   {
     title: "Beginnen bij het probleem",
-    text: "We starten niet bij een model of tool, maar bij de vraag waar je organisatie tijd verliest, risico loopt of kennis beter wil benutten.",
+    text: "We starten niet bij een model of tool, maar bij de vraag waar je organisatie tijd verliest, risico loopt of kennis beter kan benutten.",
   },
   {
     title: "Werkbaar voor teams",
@@ -290,7 +288,7 @@ const visionCards = [
   },
   {
     title: "Lokaal waar dat waarde heeft",
-    text: "We kijken bewust welke kennis, data en functies beter dichtbij de organisatie kunnen draaien, zodat gebruik, toegang en afhankelijkheden beheersbaar blijven.",
+    text: "We kijken bewust welke kennis, data en functies beter dicht bij de organisatie kunnen draaien, zodat gebruik, toegang en afhankelijkheden beheersbaar blijven.",
   },
   {
     title: "Beheer na oplevering",
@@ -312,14 +310,14 @@ const whatWeDo = [
   {
     badge: "Maatwerk",
     title: "Custom waar nodig",
-    text: "Als standaard niet goed past, bouwen we maatwerk agents, RAG-oplossingen en andere AI-routes die beter aansluiten op de praktijk van het team.",
+    text: "Als standaard niet goed past, bouwen we maatwerkagents, RAG-oplossingen en andere AI-routes die beter aansluiten op de praktijk van het team.",
   },
 ];
 
 const values = [
   {
     title: "Helderheid boven jargon",
-    text: "We willen dat organisaties snel begrijpen wat iets doet, waarom het relevant is en wanneer het zinvol is.",
+    text: "Organisaties moeten snel kunnen begrijpen wat iets doet, waarom het relevant is en wanneer het zinvol is.",
   },
   {
     title: "Regie boven afhankelijkheid",
@@ -331,7 +329,7 @@ const values = [
   },
   {
     title: "Partnerschap boven losse verkoop",
-    text: "We willen niet alleen iets neerzetten, maar ook meedenken over hoe het in de praktijk blijft werken.",
+    text: "We leveren niet alleen iets op, maar denken ook mee over hoe het in de praktijk blijft werken.",
   },
 ];
 

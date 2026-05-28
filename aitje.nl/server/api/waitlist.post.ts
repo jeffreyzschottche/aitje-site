@@ -1,6 +1,7 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { randomUUID } from "node:crypto";
+import { Resend } from "resend";
 
 type WaitlistRequestBody = {
   email?: string;
@@ -22,6 +23,50 @@ const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const waitlistFilePath = resolve(process.cwd(), "server/data/waitlist.json");
 
 const clean = (value?: string) => value?.trim() || "";
+const cleanConfigValue = (value: unknown) => {
+  if (typeof value !== "string") {
+    return "";
+  }
+
+  const trimmed = value.trim();
+
+  if (
+    (trimmed.startsWith('"') && trimmed.endsWith('"')) ||
+    (trimmed.startsWith("'") && trimmed.endsWith("'"))
+  ) {
+    return trimmed.slice(1, -1).trim();
+  }
+
+  return trimmed;
+};
+
+const escapeHtml = (value: string) =>
+  value
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+
+const extractResendErrorMessage = (error: unknown) => {
+  if (typeof error === "string" && error.trim()) {
+    return error;
+  }
+
+  if (typeof error !== "object" || error === null) {
+    return "";
+  }
+
+  if ("message" in error && typeof error.message === "string" && error.message.trim()) {
+    return error.message;
+  }
+
+  if ("name" in error && typeof error.name === "string" && error.name.trim()) {
+    return error.name;
+  }
+
+  return "";
+};
 
 const readWaitlistRows = async () => {
   try {
@@ -46,6 +91,10 @@ const writeWaitlistRows = async (rows: WaitlistRow[]) => {
 };
 
 export default defineEventHandler(async (event) => {
+  const config = useRuntimeConfig(event);
+  const resendApiKey = cleanConfigValue(config.resendApiKey);
+  const resendFromEmail = cleanConfigValue(config.resendFromEmail);
+  const waitlistToEmail = cleanConfigValue(config.waitlistToEmail);
   const body = await readBody<WaitlistRequestBody>(event);
 
   const email = clean(body.email).toLowerCase();
@@ -73,6 +122,20 @@ export default defineEventHandler(async (event) => {
     });
   }
 
+  if (!resendApiKey) {
+    throw createError({
+      statusCode: 500,
+      statusMessage: "RESEND_API_KEY is not configured.",
+    });
+  }
+
+  if (!resendFromEmail || !waitlistToEmail) {
+    throw createError({
+      statusCode: 500,
+      statusMessage: "Waitlist email settings are incomplete.",
+    });
+  }
+
   const rows = await readWaitlistRows();
   const existingRow = rows.find(
     (row) => row.email === email && row.productSlug === productSlug,
@@ -85,15 +148,66 @@ export default defineEventHandler(async (event) => {
     };
   }
 
-  rows.push({
+  const row = {
     id: randomUUID(),
     email,
     locale,
     productSlug,
     productTitle,
     createdAt: new Date().toISOString(),
+  };
+
+  const resend = new Resend(resendApiKey);
+  const mailSubject = `AITJE waitlist: ${productTitle}`;
+  const html = `
+    <h1>Nieuwe waitlist inschrijving</h1>
+    <p><strong>Product:</strong> ${escapeHtml(productTitle)}</p>
+    <p><strong>Product slug:</strong> ${escapeHtml(productSlug)}</p>
+    <p><strong>E-mailadres:</strong> ${escapeHtml(email)}</p>
+    <p><strong>Taal:</strong> ${escapeHtml(locale)}</p>
+  `;
+  const text = [
+    "Nieuwe waitlist inschrijving",
+    "",
+    `Product: ${productTitle}`,
+    `Product slug: ${productSlug}`,
+    `E-mailadres: ${email}`,
+    `Taal: ${locale}`,
+  ].join("\n");
+
+  const { error } = await resend.emails.send({
+    from: resendFromEmail,
+    to: [waitlistToEmail],
+    replyTo: [email],
+    subject: mailSubject,
+    html,
+    text,
   });
 
+  if (error) {
+    const resendMessage = extractResendErrorMessage(error);
+
+    console.error("Resend waitlist send failure", {
+      error,
+      from: resendFromEmail,
+      to: waitlistToEmail,
+      replyTo: email,
+      productSlug,
+      productTitle,
+    });
+
+    throw createError({
+      statusCode: 502,
+      statusMessage:
+        process.dev && resendMessage
+          ? resendMessage
+          : locale === "en"
+            ? "Sending failed. Please try again later."
+            : "Versturen mislukt. Probeer het later opnieuw.",
+    });
+  }
+
+  rows.push(row);
   await writeWaitlistRows(rows);
 
   return {

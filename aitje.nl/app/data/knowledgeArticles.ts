@@ -15,6 +15,10 @@ export type KnowledgeArticle = {
   readTime: string;
   category: string;
   sections: KnowledgeArticleSection[];
+  links?: {
+    label: string;
+    slug: string;
+  }[];
 };
 
 export const knowledgeArticles: KnowledgeArticle[] = [
@@ -88,6 +92,134 @@ export const knowledgeArticles: KnowledgeArticle[] = [
         content:
           "Edge AI betekent niet automatisch dat alles beter is. Lokale inzet kan veel voordelen geven, maar vraagt ook beheer, technische keuzes en duidelijke grenzen. De juiste vraag is niet of cloud slecht is, maar welk deel van een proces lokaal hoort en welk deel eventueel extern mag draaien.",
       },
+    ],
+    links: [
+      { label: "Local AI", slug: "wat-is-local-ai" },
+      { label: "On-premise AI", slug: "wat-is-on-premise-ai" },
+      { label: "White-label hardware, AITJE software", slug: "white-label-hardware-aitje-software" },
+    ],
+  },
+  {
+    slug: "wat-is-local-ai",
+    title: "Wat is local AI?",
+    excerpt:
+      "Local AI betekent dat AI binnen je eigen omgeving draait, bijvoorbeeld op een lokaal device, server of netwerk. Het draait om meer grip op data, beschikbaarheid, kosten en afhankelijkheid van externe AI-platformen.",
+    ...knowledgeArticleImages["wat-is-local-ai"],
+    readTime: "5 min",
+    category: "Infrastructuur",
+    sections: [
+      {
+        title: "In het kort",
+        content:
+          "Local AI is AI die niet volledig afhankelijk is van een externe cloudomgeving. De verwerking gebeurt lokaal, op eigen hardware of binnen het eigen netwerk. Daardoor blijft de basis dichter bij de organisatie die de AI gebruikt.",
+      },
+      {
+        title: "Waarom is dit relevant?",
+        content:
+          "Veel AI-gebruik loopt via externe platformen met abonnementen, API-kosten en regels van derden. Local AI beperkt die afhankelijkheid. Dat is vooral interessant wanneer interne kennis, privacy, continuiteit of voorspelbare kosten belangrijk zijn.",
+      },
+      {
+        title: "Is local AI hetzelfde als edge AI?",
+        content:
+          "De begrippen overlappen sterk. Edge AI benadrukt dat verwerking dicht bij de databron gebeurt. Local AI benadrukt dat de AI binnen je eigen omgeving beschikbaar is. In de praktijk worden de termen vaak samen gebruikt.",
+      },
+      {
+        title: "Wat kun je lokaal doen?",
+        content:
+          "Denk aan interne vragen beantwoorden, documenten doorzoeken, kennisbanken gebruiken, samenvattingen maken, agents draaien of workflows ondersteunen. Niet alles hoeft lokaal, maar de onderdelen met gevoelige data of hoge beschikbaarheid kunnen er vaak veel baat bij hebben.",
+      },
+      {
+        title: "Waar moet je op letten?",
+        content:
+          "Local AI vraagt om goede keuzes rond hardware, modellen, toegang, updates en beheer. Het is geen los trucje, maar een infrastructuurkeuze. De beste oplossing combineert lokale kracht met duidelijke afspraken over wat eventueel nog extern mag.",
+      },
+    ],
+    links: [
+      { label: "Edge AI", slug: "wat-is-edge-ai" },
+      { label: "On-premise AI", slug: "wat-is-on-premise-ai" },
+      { label: "AI agent", slug: "wat-is-een-ai-agent" },
+    ],
+  },
+  {
+    slug: "wat-is-on-premise-ai",
+    title: "Wat is on-premise AI?",
+    excerpt:
+      "On-premise AI betekent dat AI draait op infrastructuur die onder beheer staat van je eigen organisatie of locatie. Dat kan helpen bij privacy, compliance, continuiteit en controle over systemen.",
+    ...knowledgeArticleImages["wat-is-on-premise-ai"],
+    readTime: "5 min",
+    category: "Infrastructuur",
+    sections: [
+      {
+        title: "In het kort",
+        content:
+          "On-premise AI draait op hardware die bij de organisatie, vestiging of eigen beheeromgeving hoort. In plaats van alle verwerking naar een externe AI-dienst te sturen, houd je de belangrijkste onderdelen dichter bij je eigen infrastructuur.",
+      },
+      {
+        title: "Wanneer kies je hiervoor?",
+        content:
+          "On-premise AI is logisch wanneer data gevoelig is, systemen lokaal moeten blijven werken of wanneer externe platformen niet passen bij beleid, kosten of beschikbaarheid. Het is vooral relevant voor organisaties met duidelijke eisen rond beheer en toegang.",
+      },
+      {
+        title: "Wat is het verschil met cloud AI?",
+        content:
+          "Bij cloud AI draait de verwerking grotendeels op infrastructuur van een externe aanbieder. Bij on-premise AI ligt meer verantwoordelijkheid bij de organisatie zelf of bij een partner die de lokale omgeving beheert. Je wint controle, maar moet beheer goed regelen.",
+      },
+      {
+        title: "Welke onderdelen horen erbij?",
+        content:
+          "Naast het model heb je hardware, software, toegangsbeheer, logging, updates, monitoring en afspraken over support nodig. On-premise AI is dus niet alleen een model installeren, maar een werkbare omgeving bouwen.",
+      },
+      {
+        title: "Praktische nuance",
+        content:
+          "On-premise betekent niet dat nooit iets extern mag. Sommige organisaties combineren lokale verwerking met geselecteerde externe koppelingen. Belangrijk is dat je bewust kiest welk deel lokaal blijft en waar externe diensten wel of niet logisch zijn.",
+      },
+    ],
+    links: [
+      { label: "Local AI", slug: "wat-is-local-ai" },
+      { label: "Edge AI", slug: "wat-is-edge-ai" },
+      { label: "White-label hardware, AITJE software", slug: "white-label-hardware-aitje-software" },
+    ],
+  },
+  {
+    slug: "white-label-hardware-aitje-software",
+    title: "White-label hardware, AITJE software",
+    excerpt:
+      "White-label hardware met AITJE software betekent dat AITJE passende hardware selecteert en daarop de softwarelaag, inrichting en AI-functionaliteit levert die bij de toepassing past.",
+    ...knowledgeArticleImages["white-label-hardware-aitje-software"],
+    readTime: "5 min",
+    category: "Infrastructuur",
+    sections: [
+      {
+        title: "Wat betekent white-label hardware?",
+        content:
+          "White-label hardware is bestaande of geselecteerde hardware die niet als eigen hardwareproduct vanaf nul wordt ontworpen, maar wordt gekozen omdat de specificaties passen bij de toepassing. AITJE gebruikt die basis om een praktische lokale AI-oplossing te leveren.",
+      },
+      {
+        title: "Waar zit de waarde van AITJE?",
+        content:
+          "De waarde zit niet alleen in het apparaat, maar vooral in de combinatie van hardwarekeuze, software, configuratie, AI-functionaliteit, toegang en beheer. AITJE zorgt dat de oplossing bruikbaar wordt voor de organisatie en het proces waarvoor die bedoeld is.",
+      },
+      {
+        title: "Waarom niet altijd eigen hardware bouwen?",
+        content:
+          "Hardware vanaf nul ontwikkelen is vaak traag, duur en onnodig. Voor veel AI-toepassingen is het slimmer om bewezen hardware te kiezen en de softwarelaag, inrichting en AI-workflow daarop goed te ontwerpen.",
+      },
+      {
+        title: "Hoe past dit bij lokale AI?",
+        content:
+          "Lokale AI vraagt om hardware die voldoende krachtig, stabiel en passend is voor de taak. Door de hardware te kiezen op basis van het gebruik, kan een oplossing lokaal draaien zonder dat elke toepassing volledig afhankelijk wordt van externe platformen.",
+      },
+      {
+        title: "Wat krijg je uiteindelijk?",
+        content:
+          "Het resultaat is geen losse doos met specs, maar een werkende AI-oplossing op gekozen hardware met AITJE software eromheen. Denk aan een assistent, agent, workflow, koppeling of lokale AI-toepassing.",
+      },
+    ],
+    links: [
+      { label: "Local AI", slug: "wat-is-local-ai" },
+      { label: "On-premise AI", slug: "wat-is-on-premise-ai" },
+      { label: "Workflow", slug: "wat-is-een-workflow" },
     ],
   },
   {
