@@ -60,17 +60,17 @@ export const productCatalogV2: Record<"nl" | "en", LocaleContent> = {
         title: "AITJE Assistent",
         status: "available",
         summary:
-          "Een lokale AI-assistent op eigen hardware voor vragen, documenten, interne kennis en conversational AI, zonder alles standaard naar externe platformen te sturen.",
+          "Een lokaal AI-station op eigen hardware voor chat, documenten, kennisbankgebruik en interne vragen, zonder alles standaard naar externe platformen te sturen.",
         audience:
           "Voor organisaties die AI willen gebruiken met meer regie over data, privacy, stroomverbruik, API-kosten en beschikbaarheid.",
         highlights: [
           "Lokale assistent op eigen device",
           "Werkt samen met OS, Client en Kennisbank",
-          "Conversational AI zonder terugkerend AI-abonnement",
+          "Lokale AI zonder per-token meter voor normaal lokaal gebruik",
         ],
         cta: "Bekijk product",
         intro:
-          "Gebruik AITJE Assistent voor interne vragen, documentwerk, kennisbankgebruik en conversational AI binnen je eigen omgeving. AITJE OS, Client en Kennisbank vormen samen de basis.",
+          "Gebruik AITJE Assistent voor interne vragen, documentwerk, kennisbankgebruik en conversational AI binnen je eigen omgeving. AITJE OS, Client en lokale Kennisbank vormen samen de basis.",
         useCases: [
           "Interne kennis sneller terugvinden",
           "Documenten en beleid begrijpelijk doorzoekbaar maken",
@@ -109,7 +109,7 @@ export const productCatalogV2: Record<"nl" | "en", LocaleContent> = {
             {
               label: "Uitvoering",
               assistant: "Standaard uitvoering",
-              assistantPlus: "Andere kleur en snellere variant",
+              assistantPlus: "Krachtigere uitvoering voor grotere modellen en intensiever gebruik",
             },
           ],
         },
@@ -199,17 +199,17 @@ export const productCatalogV2: Record<"nl" | "en", LocaleContent> = {
         title: "AITJE Assistent",
         status: "available",
         summary:
-          "A local AI assistant on dedicated hardware for questions, documents, internal knowledge and conversational AI, without sending everything to external platforms by default.",
+          "A local AI station on dedicated hardware for chat, documents, knowledge base use and internal questions, without sending everything to external platforms by default.",
         audience:
           "For organizations that want to use AI with more control over data, privacy, power usage, API costs and availability.",
         highlights: [
           "Local assistant on a dedicated device",
           "Works together with OS, Client and Knowledge Base",
-          "Conversational AI without a recurring AI subscription",
+          "Local AI without a per-token meter for normal local use",
         ],
         cta: "View product",
         intro:
-          "Use AITJE Assistent for internal questions, document work, knowledge base use and conversational AI inside your own environment. AITJE OS, Client and Knowledge Base form the foundation.",
+          "Use AITJE Assistent for internal questions, document work, knowledge base use and conversational AI inside your own environment. AITJE OS, Client and local Knowledge Base form the foundation.",
         useCases: [
           "Finding internal knowledge faster",
           "Making documents and policies easier to search",
@@ -248,7 +248,7 @@ export const productCatalogV2: Record<"nl" | "en", LocaleContent> = {
             {
               label: "Version",
               assistant: "Standard version",
-              assistantPlus: "Different color and faster variant",
+              assistantPlus: "More powerful edition for larger models and more intensive use",
             },
           ],
         },

@@ -281,7 +281,7 @@ const valueProps = [
 ];
 
 const productBannerImages: Record<string, string> = {
-  "aitje-assistent": "/images/aitje-cubes.png",
+  "aitje-assistent": "/images/assistant/assistant-devices-comparison.png",
   "aitje-custom": "/images/aitje-custom.png",
 };
 
@@ -293,7 +293,7 @@ const productBannerKickers: Record<string, string> = {
 
 const productBannerExtras: Record<string, string> = {
   "aitje-assistent":
-    "Use AITJE Assistent as conversational AI for internal questions, document work and knowledge base use inside your own environment. AITJE OS, Client and Knowledge Base form the foundation, without a recurring AI subscription.",
+    "Use AITJE Assistent as a local AI station for internal questions, document work and knowledge base use inside your own environment. AITJE OS, Client and local Knowledge Base form the foundation, without a per-token meter for normal local use.",
   "aitje-custom":
     "Choose Custom when you need a specific workflow, integration, hardware choice or local AI application that does not come out of the box.",
   "aitje-coder":

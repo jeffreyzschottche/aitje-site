@@ -15,12 +15,12 @@ export type HardwareItem = {
 export const hardwareCatalog: HardwareItem[] = [
   {
     slug: "aitje-assistent",
-    title: "AITJE Cube",
+    title: "AITJE Assistent",
     shortDescription:
-      "Lokale AI-oplossing op eigen hardware met kennisbank, offline bereikbaarheid en API-toegang.",
+      "Lokale AI-oplossing op eigen hardware met chatclient, kennisbank, offline bereikbaarheid en toegang via je netwerk.",
     heroDescription:
-      "AITJE Cube is onze lokale AI-computer met een eigen Operating System, een lokale LLM en kennisbankfunctionaliteit voor organisaties die controle willen over data, kosten en continuiteit.",
-    image: "/images/aitje-cubes.png",
+      "AITJE Assistent is ons lokale AI-station met een eigen Operating System, lokale modellen en kennisbankfunctionaliteit voor organisaties die controle willen over data, kosten en continuiteit.",
+    image: "/images/assistant/assistant-devices-comparison.png",
     sections: [
       {
         title: "Waarvoor gebruik je dit product?",

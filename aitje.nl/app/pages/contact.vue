@@ -368,7 +368,7 @@ const resolveSubjectFromQuery = () => {
     }
   }
 
-  return "kennismaking";
+  return "demo";
 };
 
 const resolveMessageFromQuery = () => {

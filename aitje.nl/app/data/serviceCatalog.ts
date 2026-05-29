@@ -27,7 +27,7 @@ export const serviceCatalog = [
   {
     key: "knowledgebase-management",
     sidebarLabel: "Kennisbeheer",
-    title: "Kennisbeheer & data-inrichting",
+    title: "Data-inrichting",
     navDescription: "Voor bronkeuze, documentstructuur en beheer van je kennisbank.",
     focus: "Kennis en data",
     description:

@@ -15,12 +15,12 @@ export type HardwareItem = {
 export const hardwareCatalog: HardwareItem[] = [
   {
     slug: "aitje-assistent",
-    title: "AITJE Assistant",
+    title: "AITJE Assistent",
     shortDescription:
-      "Local AI assistant on proprietary hardware with knowledge base, offline accessibility and API access.",
+      "Local AI solution on dedicated hardware with chat client, knowledge base, offline availability and access through your network.",
     heroDescription:
-      "AITJE Assistant is a mini computer with our own Operating System, a local LLM and knowledge base functionality for organizations that want control over data, costs and continuity.",
-    image: "/images/aitje-cubes.png",
+      "AITJE Assistent is our local AI station with its own Operating System, local models and knowledge base functionality for organizations that want control over data, costs and continuity.",
+    image: "/images/assistant/assistant-devices-comparison.png",
     sections: [
       {
         title: "What do you use this product for?",

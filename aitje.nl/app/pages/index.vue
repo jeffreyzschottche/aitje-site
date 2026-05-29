@@ -579,9 +579,9 @@
                   Kies de AI-oplossing die past bij je organisatie
                 </h3>
                 <p class="mt-3 max-w-3xl text-sm text-gray-300">
-                  Onze producten draaien op white-labeled hardware met ons eigen
-                  OS, ondersteund door AITJE-software die alles goed laat
-                  samenwerken.
+                  AITJE Assistent draait lokaal op white-labeled hardware met
+                  ons eigen OS, browserclient en kennisbank. Na een gesprek
+                  kiezen we de uitvoering die past bij je organisatie.
                 </p>
               </div>
               <NuxtLink
@@ -1196,10 +1196,10 @@ const hardwareShowcase = [
   {
     label: "Hardware",
     title: "AITJE Assistent",
-    image: "/images/aitje-cubes.png",
-    link: "/producten/hardware/aitje-assistent",
+    image: "/images/assistant/assistant-devices-comparison.png",
+    link: "/producten/aitje-assistent",
     description:
-      "De lokale AI-assistent met externe kennisbank, API-toegang via je netwerk, web search en taalmodellen naar keuze.",
+      "Je lokale AI-station met eigen chatclient, lokale kennisbank, web search waar nodig en toegang via je eigen netwerk.",
   },
   {
     label: "Hardware",
@@ -1223,19 +1223,19 @@ const productShowcase = [
   {
     label: "Product",
     title: "AITJE Assistent",
-    image: "/images/aitje-cubes.png",
-    link: "/producten/hardware/aitje-assistent",
+    image: "/images/assistant/device-with-logo.png",
+    link: "/producten/aitje-assistent",
     description:
-      "De lokale AI-assistent met externe kennisbank, API-toegang via je netwerk, web search en taalmodellen naar keuze.",
+      "De lokale AI-assistent voor organisaties die willen starten met eigen chat, documenten en kennis op het lokale netwerk.",
     cta: "Bekijk product",
   },
   {
     label: "Product",
     title: "AITJE Assistent+",
-    image: "/images/aitje-cubes.png",
-    link: "/producten/hardware/aitje-assistent",
+    image: "/images/assistant/device-plus-with-logo.png",
+    link: "/producten/aitje-assistent",
     description:
-      "De uitgebreidere variant van AITJE Assistent voor organisaties die meer kracht, intelligentie en ruimte willen.",
+      "De krachtigere uitvoering voor zwaardere modellen, grotere kenniscontext en intensiever gebruik door je organisatie.",
     cta: "Bekijk product",
   },
   {

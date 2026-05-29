@@ -577,9 +577,9 @@
                   Choose the AI solution that fits your organization
                 </h3>
                 <p class="mt-3 max-w-3xl text-sm text-gray-300">
-                  Our products run on white-labeled hardware with our own OS,
-                  supported by AITJE software that keeps everything working
-                  together.
+                  AITJE Assistent runs locally on white-labeled hardware with
+                  our own OS, browser client and knowledge base. After a short
+                  conversation, we choose the edition that fits your organization.
                 </p>
               </div>
               <NuxtLink
@@ -1183,10 +1183,10 @@ const hardwareShowcase = [
   {
     label: "Hardware",
     title: "AITJE Assistent",
-    image: "/images/aitje-cubes.png",
-    link: localePath("/producten/hardware/aitje-assistent"),
+    image: "/images/assistant/assistant-devices-comparison.png",
+    link: localePath("/producten/aitje-assistent"),
     description:
-      "The local AI assistant with external knowledge base, API access through your network, web search and language models of your choice.",
+      "Your local AI station with its own chat client, local knowledge base, web search when needed and access through your own network.",
   },
   {
     label: "Hardware",
@@ -1210,19 +1210,19 @@ const productShowcase = [
   {
     label: "Product",
     title: "AITJE Assistent",
-    image: "/images/aitje-cubes.png",
-    link: localePath("/producten/hardware/aitje-assistent"),
+    image: "/images/assistant/device-with-logo.png",
+    link: localePath("/producten/aitje-assistent"),
     description:
-      "The local AI assistant with external knowledge base, API access through your network, web search and language models of your choice.",
+      "The local AI assistant for organizations that want to start with their own chat, documents and knowledge on the local network.",
     cta: "View product",
   },
   {
     label: "Product",
     title: "AITJE Assistent+",
-    image: "/images/aitje-cubes.png",
-    link: localePath("/producten/hardware/aitje-assistent"),
+    image: "/images/assistant/device-plus-with-logo.png",
+    link: localePath("/producten/aitje-assistent"),
     description:
-      "The expanded variant of AITJE Assistent for organizations that want more power, intelligence and room to grow.",
+      "The more powerful edition for heavier models, larger knowledge context and more intensive use by your organization.",
     cta: "View product",
   },
   {
@@ -1251,7 +1251,7 @@ const homeServices = serviceCatalog.map((service) => ({
     service.key === "installation"
       ? "Product installation"
       : service.key === "knowledgebase-management"
-        ? "Knowledge base management"
+        ? "Data setup"
       : service.key === "expansion"
         ? "Product expansion"
         : service.key === "custom"

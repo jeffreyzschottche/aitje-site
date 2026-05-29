@@ -24,7 +24,15 @@ type ResolvedSeoEntry = {
   schema: Record<string, unknown>[];
 };
 
+type SeoSourceEntry = {
+  title: string;
+  description: string;
+  pageType?: string;
+  image?: string;
+};
+
 const DEFAULT_IMAGE = "/images/aitje-cubes.png";
+const ASSISTANT_IMAGE = "/images/assistant/assistant-devices-comparison.png";
 const EN_ROUTE_MAP: Record<string, string> = {
   "/producten": "/products",
   "/diensten": "/services",
@@ -58,7 +66,7 @@ const toDutchPath = (path: string) => {
   return withoutPrefix;
 };
 
-const staticEntries: Record<string, { title: string; description: string; pageType?: string }> = {
+const staticEntries: Record<string, SeoSourceEntry> = {
   "/": {
     title: "AITJE | Lokale Edge AI voor organisaties",
     description:
@@ -215,6 +223,7 @@ const resolveDynamic = (path: string, localeKey: LocaleKey) => {
         title: `${product.title} | AITJE`,
         description: product.summary,
         pageType: "Product",
+        image: slug === "aitje-assistent" ? ASSISTANT_IMAGE : undefined,
       };
     }
   }
@@ -256,6 +265,7 @@ export const resolveSeoEntry = (path: string, siteUrl: string): ResolvedSeoEntry
       : toEnglishPath(normalizedPath);
 
   const entry = staticEntries[normalizedPath] ?? resolveDynamic(normalizedPath, localeKey) ?? staticEntries[localeKey === "en" ? "/en" : "/"]!;
+  const image = entry.image ?? DEFAULT_IMAGE;
 
   return {
     title: entry.title,
@@ -263,7 +273,7 @@ export const resolveSeoEntry = (path: string, siteUrl: string): ResolvedSeoEntry
     path: normalizedPath,
     locale,
     localeKey,
-    image: `${siteUrl}${DEFAULT_IMAGE}`,
+    image: `${siteUrl}${image}`,
     pageType: entry.pageType ?? "WebPage",
     breadcrumbs: makeCrumbs(localeKey, normalizedPath),
     alternatePath,

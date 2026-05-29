@@ -472,7 +472,7 @@ const servicePanels = [
   {
     key: "knowledgebase-management",
     sidebarLabel: "Knowledge management",
-    title: "Knowledge management & data setup",
+    title: "Data setup",
     navDescription: "For source selection, document structure and knowledge base management.",
     focus: "Knowledge and data",
     description:

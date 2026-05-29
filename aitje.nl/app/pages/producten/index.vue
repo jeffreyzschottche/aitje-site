@@ -279,7 +279,7 @@ const valueProps = [
 ];
 
 const productBannerImages: Record<string, string> = {
-  "aitje-assistent": "/images/aitje-cubes.png",
+  "aitje-assistent": "/images/assistant/assistant-devices-comparison.png",
   "aitje-custom": "/images/aitje-custom.png",
 };
 
@@ -291,7 +291,7 @@ const productBannerKickers: Record<string, string> = {
 
 const productBannerExtras: Record<string, string> = {
   "aitje-assistent":
-    "Gebruik AITJE Assistent als conversational AI voor interne vragen, documentwerk en kennisbankgebruik binnen je eigen omgeving. AITJE OS, Client en Kennisbank vormen samen de basis, zonder terugkerend AI-abonnement.",
+    "Gebruik AITJE Assistent als lokaal AI-station voor interne vragen, documentwerk en kennisbankgebruik binnen je eigen omgeving. AITJE OS, Client en lokale Kennisbank vormen samen de basis, zonder per-token meter voor normaal lokaal gebruik.",
   "aitje-custom":
     "Kies Custom wanneer je een specifieke workflow, koppeling, hardwarekeuze of lokale AI-toepassing nodig hebt die niet standaard uit de doos komt.",
   "aitje-coder":
