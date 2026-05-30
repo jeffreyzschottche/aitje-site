@@ -370,7 +370,7 @@
                     :caption="edition.title"
                     :zoom-label="t.mediaActions.zoomLabel"
                     :close-label="t.mediaActions.closeLabel"
-                    frame-class="mb-4 overflow-hidden rounded-[1.5rem] bg-white"
+                    frame-class="mb-4 overflow-hidden rounded-[1.5rem] bg-[#161616]"
                     image-class="aspect-[4/3] w-full object-contain"
                   />
                   <p class="text-sm font-black text-[#facc15]">{{ edition.title }}</p>
