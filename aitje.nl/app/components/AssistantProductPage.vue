@@ -339,17 +339,13 @@
                 <ZoomableMedia
                   :src="fleet.image"
                   :alt="fleet.alt"
-                  :caption="fleet.title"
                   :zoom-label="t.mediaActions.zoomLabel"
                   :close-label="t.mediaActions.closeLabel"
                   frame-class="border-b border-gray-200 bg-[#f8f8f8]"
                   image-class="aspect-[16/10] w-full object-contain"
                 />
                 <div class="p-5">
-                  <h3 class="text-lg font-black text-gray-950">
-                    {{ fleet.title }}
-                  </h3>
-                  <p class="mt-2 text-sm leading-7 text-gray-600">
+                  <p class="text-sm leading-7 text-gray-600">
                     {{ fleet.text }}
                   </p>
                 </div>
@@ -529,14 +525,14 @@ const nl = {
     kicker: "Lokale AI voor organisaties",
     title: "AITJE Assistent",
     text:
-      "Een lokaal AI-station waarmee je team kan chatten met AI zonder dat interne data voor gewone chat en kennisvragen wordt gedeeld met externe AI-diensten. AITJE draait op zorgvuldig geselecteerde hardware in je eigen omgeving, werkt via je lokale netwerk en gebruikt een ingebouwde kennisbank om documenten beschikbaar te maken voor de assistent.",
+      "De AITJE Assistent is een lokaal AI-station waarmee je team met AI kan chatten zonder dat interne data voor gewone chat en kennisvragen wordt gedeeld met externe AI-diensten. AITJE draait op zorgvuldig geselecteerde hardware in je eigen omgeving, werkt via je lokale netwerk en gebruikt een ingebouwde kennisbank om documenten beschikbaar te maken voor de assistent.",
     primaryCta: "Bespreek AITJE Assistent",
     secondaryCta: "Bekijk diensten",
     imageAlt: "AITJE Assistent hardware met AITJE software",
     facts: [
       { label: "Eigen netwerk", value: "Chat, beheer en kennisbank draaien binnen je eigen lokale omgeving." },
       { label: "Geen internet nodig", value: "Gewone chat en lokale kennisvragen blijven werken zonder internetverbinding." },
-      { label: "Zelf of met hulp", value: "Je kunt zelf installeren; installatie, SLA en uitbreiding zijn optioneel." },
+      { label: "Zelf of met hulp", value: "Werkt out of the box en is gemakkelijk zelf te installeren. Installatie, SLA en uitbreiding zijn optioneel." },
     ],
   },
   plain: {
@@ -764,7 +760,7 @@ const nl = {
   },
   variants: {
     kicker: "Twee uitvoeringen",
-    title: "Eén product, twee uitvoeringen",
+    title: "Eén product, twee versies",
     text:
       "AITJE Assistent is er in een standaarduitvoering en een plus-uitvoering. De standaarduitvoering is bedoeld voor teams die lokaal willen werken met chat, kennisbank en dagelijks documentgebruik. AITJE Assistent+ geeft meer capaciteit: sneller antwoorden, zwaardere taalmodellen, meer gelijktijdig gebruik en meer ruimte om kennis te verwerken. We werken nu met twee zorgvuldig gekozen white-label hardwaredevices die voor deze use case sterk zijn in prijs en kwaliteit. Omdat de hardwaremarkt snel verandert, werken we met prijs op aanvraag in plaats van een vaste hardwarebelofte. Voor specifieke situaties kunnen we via AITJE Custom zoeken naar white-label hardware die beter past bij jouw use case.",
     imageAlt: "AITJE Assistent uitvoeringen",
