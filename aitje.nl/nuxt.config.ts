@@ -31,6 +31,8 @@ export default defineNuxtConfig({
   css: ['./app/assets/css/main.css'],
   runtimeConfig: {
     resendApiKey: process.env.RESEND_API_KEY,
+    resendWebhookSecret: process.env.RESEND_WEBHOOK_SECRET,
+    resendInboundEmail: process.env.RESEND_INBOUND_EMAIL || "contact@aitje.com",
     resendFromEmail: process.env.RESEND_FROM_EMAIL || "AITJE Contact <onboarding@resend.dev>",
     contactToEmail: process.env.CONTACT_TO_EMAIL || "info@aitje.nl",
     waitlistToEmail: process.env.WAITLIST_TO_EMAIL || process.env.CONTACT_TO_EMAIL || "info@aitje.nl",
