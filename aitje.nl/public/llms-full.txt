@@ -56,14 +56,14 @@ Voor organisaties waar standaardhardware niet goed past. AITJE denkt mee over in
 
 URL: https://aitje.com/producten/aitje-coder
 
-On-premise codeer-AI voor ontwikkelteams: één doos in het eigen netwerk van de klant die de AI-modellen zelf draait. Developers richten hun bestaande tools (VS Code met Continue.dev of Cline, Aider, Zed, Claude Code, GitHub Copilot met eigen model) op die doos in plaats van op een clouddienst. Daarnaast is er een beheerpaneel waarin taken worden uitgezet die een agent zelfstandig uitvoert in de repositories van de klant.
+On-premise codeer-AI voor ontwikkelteams: één apparaat in het eigen netwerk van de klant dat de AI-modellen zelf draait. Developers richten hun bestaande tools (VS Code met Continue.dev of Cline, Aider, Zed, Claude Code, GitHub Copilot met eigen model) op dat apparaat in plaats van op een clouddienst. Daarnaast is er een beheerpaneel waarin taken worden uitgezet die een agent zelfstandig uitvoert in de repositories van de klant.
 
 - Broncode en prompts blijven op het eigen netwerk; in de standaardopstelling gaat er niets naar een externe AI-dienst
 - Geen abonnement per developer en geen afrekening per vraag of per token
 - Elke agent-taak eindigt bij een mens: wijzigingen worden per bestand beoordeeld en pas na goedkeuring gaat er een pull request open
 - Rollen (developer, beoordelaar, beheerder), een onwijzigbaar logboek en meldingen via Slack, Teams, Mattermost of e-mail
 - Koppelingen met GitHub, GitLab en Gitea, plus triggers vanuit GitHub Issues en Linear
-- Twee varianten: één doos voor een enkele developer en een ruimere variant voor teams met meerdere gelijktijdige taken
+- Twee varianten: één apparaat voor een enkele developer en een ruimere variant voor teams met meerdere gelijktijdige taken
 - Nog niet los te bestellen; wordt eerst bij een klein aantal pilotklanten in gebruik genomen
 
 ---

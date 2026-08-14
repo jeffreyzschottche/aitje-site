@@ -6,7 +6,7 @@
 
 - [AITJE Assistent](https://aitje.com/producten/aitje-assistent): Lokale Edge AI op eigen hardware met kennisbank, offline bereikbaarheid en API-toegang voor organisaties.
 - [AITJE Custom](https://aitje.com/producten/aitje-custom): Maatwerkroute voor lokale, edge- en on-premise AI op hardware die past bij jouw probleem.
-- [AITJE Coder](https://aitje.com/producten/aitje-coder): On-premise codeer-AI en codeer-agents op één doos in je eigen netwerk. Developers werken door in hun eigen editor, grotere taken gaan naar een agent en wijzigingen worden per bestand beoordeeld voordat er een pull request opengaat. Geen cloud, geen abonnement per developer. In ontwikkeling; pilotplekken open.
+- [AITJE Coder](https://aitje.com/producten/aitje-coder): On-premise codeer-AI en codeer-agents op één apparaat in je eigen netwerk. Developers werken door in hun eigen editor, grotere taken gaan naar een agent en wijzigingen worden per bestand beoordeeld voordat er een pull request opengaat. Geen cloud, geen abonnement per developer. In ontwikkeling; pilotplekken open.
 - [Alle producten](https://aitje.com/producten): Overzicht van de productlijn: Assistent, Custom en Coder.
 
 ## Diensten

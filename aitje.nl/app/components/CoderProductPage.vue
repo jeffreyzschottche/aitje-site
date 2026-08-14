@@ -561,7 +561,7 @@ const nl = {
     badge: "In ontwikkeling · pilotplekken open",
     title: "AITJE Coder",
     text:
-      "Eén doos in je eigen netwerk waarmee je team AI inzet bij softwareontwikkeling. Je developers werken door in de editor die ze al gebruiken, en grotere klussen zet je uit bij een agent die zelfstandig aan de slag gaat. Je code en je vragen blijven binnen je eigen omgeving.",
+      "Eén apparaat in je eigen netwerk waarmee je team AI inzet bij softwareontwikkeling. Je developers werken door in de editor die ze al gebruiken, en grotere klussen zet je uit bij een agent die zelfstandig aan de slag gaat. Je code en je vragen blijven binnen je eigen omgeving.",
     primaryCta: "Word pilotklant",
     secondaryCta: "Houd me op de hoogte",
     imageAlt: "Het overzichtsscherm van AITJE Coder",
@@ -569,7 +569,7 @@ const nl = {
     facts: [
       {
         label: "Op je eigen netwerk",
-        value: "De doos staat bij jou. Vragen en code gaan niet naar een externe AI-dienst.",
+        value: "Het apparaat staat bij jou. Vragen en code gaan niet naar een externe AI-dienst.",
       },
       {
         label: "Geen abonnement per developer",
@@ -589,7 +589,7 @@ const nl = {
     items: [
       {
         icon: Server,
-        title: "De doos",
+        title: "Het apparaat",
         text: "Een compacte computer die je in de meterkast of serverruimte zet. Wij leveren hem ingericht, met de AI-modellen er al op. Aansluiten op stroom en netwerk is genoeg.",
       },
       {
@@ -618,7 +618,7 @@ const nl = {
       {
         tag: "Meedenken",
         title: "In de editor die je al gebruikt",
-        text: "Je developers richten hun bestaande tools op de doos in plaats van op een clouddienst. Ze merken vooral dat het sneller is en dat er niets naar buiten gaat.",
+        text: "Je developers richten hun bestaande tools op het apparaat in plaats van op een clouddienst. Ze merken vooral dat het sneller is en dat er niets naar buiten gaat.",
       },
       {
         tag: "Meewerken",
@@ -673,7 +673,7 @@ const nl = {
       {
         icon: Lock,
         title: "Je code blijft bij jou",
-        text: "De AI-modellen draaien op de doos zelf. Je code en je vragen worden in de standaardopstelling niet naar een externe dienst gestuurd.",
+        text: "De AI-modellen draaien op het apparaat zelf. Je code en je vragen worden in de standaardopstelling niet naar een externe dienst gestuurd.",
       },
       {
         icon: Users,
@@ -707,7 +707,7 @@ const nl = {
     title: "Geen abonnement per developer",
     paragraphs: [
       "Bij de bekende AI-codeerdiensten betaal je per developer per maand, en vaak nog extra zodra iemand veel gebruikt. Groeit je team, dan groeit de rekening mee. Draait er een zware taak, dan zie je dat terug op de factuur.",
-      "AITJE Coder werkt anders. De doos staat bij jou en draait de modellen zelf. Of er nu drie of dertig taken doorheen gaan, dat verandert niets aan wat het kost.",
+      "AITJE Coder werkt anders. Het apparaat staat bij jou en draait de modellen zelf. Of er nu drie of dertig taken doorheen gaan, dat verandert niets aan wat het kost.",
       "Wat je wél ziet is verbruik: hoeveel er per developer, per project en per taak doorheen gaat. Niet om af te rekenen, maar om te weten waar de tijd en de capaciteit heen gaan.",
     ],
     cta: "Vraag de prijslijst aan",
@@ -830,22 +830,22 @@ const nl = {
       {
         question: "Wie kan onze broncode zien?",
         answer:
-          "Alleen jij. De AI-modellen draaien op de doos in je eigen netwerk, dus je code en je vragen gaan in de standaardopstelling niet naar een externe partij. Onze support kan alleen meekijken als jij daar toestemming voor geeft, en dat wordt gelogd.",
+          "Alleen jij. De AI-modellen draaien op het apparaat in je eigen netwerk, dus je code en je vragen gaan in de standaardopstelling niet naar een externe partij. Onze support kan alleen meekijken als jij daar toestemming voor geeft, en dat wordt gelogd.",
       },
       {
         question: "Moeten onze developers hun vertrouwde tools inruilen?",
         answer:
-          "Nee. Ze blijven werken in de editor die ze al gebruiken; die wijst alleen naar jullie eigen doos in plaats van naar een clouddienst. Het beheerpaneel is er daarnaast, voor het werk dat je liever uitbesteedt.",
+          "Nee. Ze blijven werken in de editor die ze al gebruiken; die wijst alleen naar jullie eigen apparaat in plaats van naar een clouddienst. Het beheerpaneel is er daarnaast, voor het werk dat je liever uitbesteedt.",
       },
       {
-        question: "Wat als de doos uitvalt?",
+        question: "Wat als het apparaat uitvalt?",
         answer:
           "Dan valt het AI-gedeelte weg, niet je ontwikkelwerk: je code staat gewoon in je eigen Git-omgeving. De onderdelen starten zichzelf opnieuw op na een storing, en via een SLA kunnen we onderhoud en ondersteuning vastleggen.",
       },
       {
         question: "Hoeveel beheer kost dit ons?",
         answer:
-          "In de praktijk weinig. De doos werkt na installatie zelfstandig, updates worden gecontroleerd geïnstalleerd en nooit tijdens kantooruren, en er is een scherm op het apparaat zelf waarmee je basiszaken kunt regelen zonder browser.",
+          "In de praktijk weinig. Het apparaat werkt na installatie zelfstandig, updates worden gecontroleerd geïnstalleerd en nooit tijdens kantooruren, en er zit een scherm op waarmee je basiszaken kunt regelen zonder browser.",
       },
       {
         question: "En als er over een half jaar een beter AI-model is?",
@@ -855,7 +855,7 @@ const nl = {
       {
         question: "Hoe begint een pilot?",
         answer:
-          "Met een gesprek van een half uur over jullie situatie en wat je zou willen uitbesteden aan een agent. Past het, dan zetten we samen een doos op in je eigen omgeving en kiezen we een handvol echte taken om mee te beginnen.",
+          "Met een gesprek van een half uur over jullie situatie en wat je zou willen uitbesteden aan een agent. Past het, dan zetten we er samen één neer in je eigen omgeving en kiezen we een handvol echte taken om mee te beginnen.",
       },
     ],
   },

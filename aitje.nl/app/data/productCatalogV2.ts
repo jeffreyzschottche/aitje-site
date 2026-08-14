@@ -141,7 +141,7 @@ export const productCatalogV2: Record<"nl" | "en", LocaleContent> = {
         title: "AITJE Coder",
         status: "in-development",
         summary:
-          "Eén doos in je eigen netwerk waarmee je team AI inzet bij softwareontwikkeling. Developers werken door in hun eigen editor, grotere klussen gaan naar een agent die zelfstandig aan de slag gaat.",
+          "Eén apparaat in je eigen netwerk waarmee je team AI inzet bij softwareontwikkeling. Developers werken door in hun eigen editor, grotere klussen gaan naar een agent die zelfstandig aan de slag gaat.",
         audience:
           "Voor organisaties en ontwikkelteams die AI willen inzetten bij softwareontwikkeling zonder hun broncode en hun kosten uit handen te geven aan een externe dienst.",
         highlights: [
@@ -151,7 +151,7 @@ export const productCatalogV2: Record<"nl" | "en", LocaleContent> = {
         ],
         cta: "Bekijk AITJE Coder",
         intro:
-          "AITJE Coder draait de AI-modellen op een doos in je eigen omgeving. Je developers richten hun bestaande tools daarop, en werk dat je liever uitbesteedt zet je als taak weg bij een agent die het resultaat ter beoordeling aanlevert.",
+          "AITJE Coder draait de AI-modellen op een apparaat in je eigen omgeving. Je developers richten hun bestaande tools daarop, en werk dat je liever uitbesteedt zet je als taak weg bij een agent die het resultaat ter beoordeling aanlevert.",
         useCases: [
           "Terugkerend onderhoud en dependency-upgrades uitbesteden",
           "Tests en documentatie laten bijwerken zonder dat het blijft liggen",

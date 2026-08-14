@@ -79,7 +79,7 @@ const staticEntries: Record<string, SeoSourceEntry> = {
   "/producten/aitje-coder": {
     title: "AITJE Coder | Codeer-agents op je eigen netwerk",
     description:
-      "AITJE Coder is een lokale AI-doos voor softwareontwikkeling: je developers werken door in hun eigen editor, grotere taken gaan naar een agent, en niets verandert in je code zonder goedkeuring. Geen cloud, geen abonnement per developer.",
+      "AITJE Coder zet AI voor softwareontwikkeling op één apparaat in je eigen netwerk: je developers werken door in hun eigen editor, grotere taken gaan naar een agent, en niets verandert in je code zonder goedkeuring. Geen cloud, geen abonnement per developer.",
     pageType: "Product",
   },
   "/diensten": {
