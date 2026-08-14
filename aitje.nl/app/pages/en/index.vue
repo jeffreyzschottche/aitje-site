@@ -1238,10 +1238,11 @@ const productShowcase = [
     label: "Product",
     title: "AITJE Coder",
     image: "/images/birds.png",
+    link: localePath("/producten/aitje-coder"),
     description:
       "For organizations and teams that want a subscription-independent coding agent available through the local network.",
     status: "In development",
-    cta: "Not launched yet",
+    cta: "View AITJE Coder",
   },
 ];
 

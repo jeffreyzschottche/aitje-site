@@ -718,12 +718,6 @@ import { productCatalogV2, productStatusLabel } from "@/data/productCatalogV2";
 
 const route = useRoute();
 const slug = computed(() => String(route.params.slug));
-const unavailableSlugs = new Set(["aitje-coder"]);
-
-if (unavailableSlugs.has(slug.value)) {
-  await navigateTo("/producten", { redirectCode: 302 });
-}
-
 const product = computed(() => productCatalogV2.nl.products.find((entry) => entry.slug === slug.value));
 const isCustom = computed(() => slug.value === "aitje-custom");
 

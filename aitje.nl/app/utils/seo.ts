@@ -76,6 +76,12 @@ const staticEntries: Record<string, SeoSourceEntry> = {
     title: "Producten | AITJE",
     description: "De productlijn van AITJE: AITJE Assistent, AITJE Custom en AITJE Coder.",
   },
+  "/producten/aitje-coder": {
+    title: "AITJE Coder | Codeer-agents op je eigen netwerk",
+    description:
+      "AITJE Coder is een lokale AI-doos voor softwareontwikkeling: je developers werken door in hun eigen editor, grotere taken gaan naar een agent, en niets verandert in je code zonder goedkeuring. Geen cloud, geen abonnement per developer.",
+    pageType: "Product",
+  },
   "/diensten": {
     title: "Diensten | AITJE",
     description: "AITJE helpt met productinstallatie, consultancy, AITJE Custom en SLA voor edge en on-premise AI.",
@@ -135,6 +141,12 @@ const staticEntries: Record<string, SeoSourceEntry> = {
   "/en/products": {
     title: "Products | AITJE",
     description: "The AITJE product line: AITJE Assistent, AITJE Custom and AITJE Coder.",
+  },
+  "/en/products/aitje-coder": {
+    title: "AITJE Coder | Coding agents on your own network",
+    description:
+      "AITJE Coder is a local AI box for software development: your developers keep working in their own editor, bigger tasks go to an agent, and nothing changes in your code without approval. No cloud, no per-developer subscription.",
+    pageType: "Product",
   },
   "/en/services": {
     title: "Services | AITJE",

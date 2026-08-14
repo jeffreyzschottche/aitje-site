@@ -511,11 +511,10 @@ const productLinks = computed(() => [
     label: "AITJE Coder",
     baseTo: "/producten/aitje-coder",
     to: localePath("/producten/aitje-coder"),
-    disabled: true,
     description:
       locale.value === "en"
-        ? "In development for controlled AI-assisted coding."
-        : "In ontwikkeling voor gecontroleerd coderen met AI.",
+        ? "Coding agents on your own network."
+        : "Codeer-agents op je eigen netwerk.",
   },
 ]);
 

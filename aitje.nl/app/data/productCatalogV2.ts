@@ -141,21 +141,21 @@ export const productCatalogV2: Record<"nl" | "en", LocaleContent> = {
         title: "AITJE Coder",
         status: "in-development",
         summary:
-          "In ontwikkeling voor teams die met lokale of gecontroleerde coding agents willen werken aan code, scripts, tooling en technische wijzigingen.",
+          "Eén doos in je eigen netwerk waarmee je team AI inzet bij softwareontwikkeling. Developers werken door in hun eigen editor, grotere klussen gaan naar een agent die zelfstandig aan de slag gaat.",
         audience:
-          "Voor organisaties en ontwikkelteams die AI willen inzetten bij softwareontwikkeling zonder volledig afhankelijk te zijn van externe coding platforms.",
+          "Voor organisaties en ontwikkelteams die AI willen inzetten bij softwareontwikkeling zonder hun broncode en hun kosten uit handen te geven aan een externe dienst.",
         highlights: [
-          "Gericht op coderen, aanpassen en technisch uitwerken",
-          "Lokale of gecontroleerde inzet binnen eigen omgeving",
-          "Bedoeld voor ontwikkelwerk, scripts, tooling en iteratie",
+          "Je code en je vragen blijven op je eigen netwerk",
+          "Geen abonnement per developer en geen afrekening per vraag",
+          "Niets verandert in je code zonder dat een mens het heeft goedgekeurd",
         ],
-        cta: "Meld je interesse",
+        cta: "Bekijk AITJE Coder",
         intro:
-          "AITJE Coder is in ontwikkeling voor teams die AI willen inzetten bij softwareontwikkeling, technische taken en interne tooling, maar wel met duidelijke regie over omgeving, data en werkwijze.",
+          "AITJE Coder draait de AI-modellen op een doos in je eigen omgeving. Je developers richten hun bestaande tools daarop, en werk dat je liever uitbesteedt zet je als taak weg bij een agent die het resultaat ter beoordeling aanlevert.",
         useCases: [
-          "Code aanpassen en nieuwe features sneller uitwerken",
-          "Interne scripts, tools en technische workflows opzetten",
-          "Lokaler ontwikkelen met meer grip op context en toegang",
+          "Terugkerend onderhoud en dependency-upgrades uitbesteden",
+          "Tests en documentatie laten bijwerken zonder dat het blijft liggen",
+          "Werken met AI zonder dat broncode het pand verlaat",
         ],
       },
     ],
@@ -280,21 +280,21 @@ export const productCatalogV2: Record<"nl" | "en", LocaleContent> = {
         title: "AITJE Coder",
         status: "in-development",
         summary:
-          "In development for teams that want to work with local or controlled coding agents on code, scripts, tooling and technical changes.",
+          "One box on your own network that lets your team use AI in software development. Developers keep working in their own editor, bigger jobs go to an agent that handles them on its own.",
         audience:
-          "For organizations and development teams that want to use AI in software development without full dependence on external coding platforms.",
+          "For organizations and development teams that want to use AI in software development without handing their source code and their costs to an external service.",
         highlights: [
-          "Focused on coding, adapting and technical implementation",
-          "Local or controlled use inside your own environment",
-          "Built for development work, scripts, tooling and iteration",
+          "Your code and your questions stay on your own network",
+          "No per-developer subscription and no charge per question",
+          "Nothing changes in your code until a person has approved it",
         ],
-        cta: "Register your interest",
+        cta: "View AITJE Coder",
         intro:
-          "AITJE Coder is in development for teams that want to use AI in software development, technical tasks and internal tooling while keeping clear control over environment, data and workflow.",
+          "AITJE Coder runs the AI models on a box in your own environment. Your developers point their existing tools at it, and work you would rather hand over becomes a task for an agent that delivers the result for review.",
         useCases: [
-          "Adjusting code and shipping new features faster",
-          "Building internal scripts, tools and technical workflows",
-          "Developing more locally with better control over context and access",
+          "Handing over recurring maintenance and dependency upgrades",
+          "Keeping tests and documentation up to date instead of postponed",
+          "Working with AI without source code leaving the building",
         ],
       },
     ],

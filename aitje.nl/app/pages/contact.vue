@@ -343,6 +343,7 @@ const route = useRoute();
 const subjectOptions = [
   { value: "demo", label: "Demo" },
   { value: "kennismaking", label: "Kennismaking" },
+  { value: "interesse-aitje-coder", label: "AITJE Coder" },
   { value: "belverzoek", label: "Belverzoek" },
   { value: "vraag", label: "Vraag" },
   { value: "prijslijst", label: "Prijslijst" },
@@ -463,6 +464,8 @@ const messagePlaceholder = computed(() => {
       return "Vertel ons welke vraag je hebt.";
     case "offerte":
       return "Vertel ons voor welke dienst, case of product je een offerte wilt ontvangen.";
+    case "interesse-aitje-coder":
+      return "Vertel kort met hoeveel developers je werkt en wat je zou willen uitbesteden aan een codeer-agent.";
     default:
       return "Vertel ons waar we je mee kunnen helpen.";
   }

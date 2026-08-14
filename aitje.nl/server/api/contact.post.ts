@@ -24,6 +24,7 @@ const subjectLabels: Record<string, { nl: string; en: string }> = {
   partnerschap: { nl: "Partnerschap", en: "Partnership" },
   prijslijst: { nl: "Prijslijst", en: "Price list" },
   offerte: { nl: "Offerte", en: "Quote" },
+  "interesse-aitje-coder": { nl: "AITJE Coder", en: "AITJE Coder" },
 };
 
 const escapeHtml = (value: string) =>

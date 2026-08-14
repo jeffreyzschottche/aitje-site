@@ -723,12 +723,6 @@ const { localePath } = useSiteLocale();
 
 const route = useRoute();
 const slug = computed(() => String(route.params.slug));
-const unavailableSlugs = new Set(["aitje-coder"]);
-
-if (unavailableSlugs.has(slug.value)) {
-  await navigateTo("/en/products", { redirectCode: 302 });
-}
-
 const product = computed(() => productCatalogV2.en.products.find((entry) => entry.slug === slug.value));
 const isCustom = computed(() => slug.value === "aitje-custom");
 

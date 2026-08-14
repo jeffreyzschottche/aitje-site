@@ -52,13 +52,19 @@ Voor organisaties waar standaardhardware niet goed past. AITJE denkt mee over in
 - Alternatieve hardware mogelijk
 - Gericht op passende oplossing in plaats van standaardverhaal
 
-### AITJE Coder (In ontwikkeling)
+### AITJE Coder (In ontwikkeling, pilotplekken open)
 
-Productrichting voor gecontroleerd coderen en technische workflows met AI.
+URL: https://aitje.com/producten/aitje-coder
 
-- Gericht op coderen, scripts en interne tooling
-- Lokale of gecontroleerde inzet
-- Nog niet beschikbaar als live product
+On-premise codeer-AI voor ontwikkelteams: één doos in het eigen netwerk van de klant die de AI-modellen zelf draait. Developers richten hun bestaande tools (VS Code met Continue.dev of Cline, Aider, Zed, Claude Code, GitHub Copilot met eigen model) op die doos in plaats van op een clouddienst. Daarnaast is er een beheerpaneel waarin taken worden uitgezet die een agent zelfstandig uitvoert in de repositories van de klant.
+
+- Broncode en prompts blijven op het eigen netwerk; in de standaardopstelling gaat er niets naar een externe AI-dienst
+- Geen abonnement per developer en geen afrekening per vraag of per token
+- Elke agent-taak eindigt bij een mens: wijzigingen worden per bestand beoordeeld en pas na goedkeuring gaat er een pull request open
+- Rollen (developer, beoordelaar, beheerder), een onwijzigbaar logboek en meldingen via Slack, Teams, Mattermost of e-mail
+- Koppelingen met GitHub, GitLab en Gitea, plus triggers vanuit GitHub Issues en Linear
+- Twee varianten: één doos voor een enkele developer en een ruimere variant voor teams met meerdere gelijktijdige taken
+- Nog niet los te bestellen; wordt eerst bij een klein aantal pilotklanten in gebruik genomen
 
 ---
 
@@ -146,7 +152,7 @@ AITJE Assistent is een mini computer die geoptimaliseerd is met onze eigen softw
 Ja. En als we je niet volledig kunnen helpen binnen jouw specifieke expertise, hebben we een stabiel netwerk van specialisten waarmee we je wens kunnen realiseren.
 
 **Wat is AITJE Coder?**
-AITJE Coder is een manier om te programmeren zonder Claude Code, Codex of Gemini. Je hebt een coding agent beschikbaar via ons hardware device. Geen abonnementen, geen storingen. Een coding partner die bereikbaar is zolang je internet hebt.
+AITJE Coder is een manier om te programmeren zonder Claude Code, Codex of Gemini. Je krijgt een coding agent op eigen hardware, zonder abonnementen of afhankelijkheid van externe storingen. De agent blijft lokaal bereikbaar; internet is alleen nodig wanneer je bewust online bronnen, updates of externe koppelingen gebruikt.
 
 **Hoeveel kosten jullie producten?**
 Vraag een prijslijst of offerte aan via /contact?onderwerp=offerte.

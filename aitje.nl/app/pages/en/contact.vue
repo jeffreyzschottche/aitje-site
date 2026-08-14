@@ -337,6 +337,7 @@ const route = useRoute();
 const subjectOptions = [
   { value: "demo", label: "Demo" },
   { value: "kennismaking", label: "Introduction" },
+  { value: "interesse-aitje-coder", label: "AITJE Coder" },
   { value: "belverzoek", label: "Call request" },
   { value: "vraag", label: "Question" },
   { value: "prijslijst", label: "Price list" },
@@ -457,6 +458,8 @@ const messagePlaceholder = computed(() => {
       return "Tell us what question you have.";
     case "offerte":
       return "Tell us for which service, case, or product you would like to receive a quote.";
+    case "interesse-aitje-coder":
+      return "Tell us briefly how many developers you work with and what you would want to hand over to a coding agent.";
     default:
       return "Tell us how we can help.";
   }

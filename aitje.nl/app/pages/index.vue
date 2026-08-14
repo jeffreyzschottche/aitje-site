@@ -1251,10 +1251,11 @@ const productShowcase = [
     label: "Product",
     title: "AITJE Coder",
     image: "/images/birds.png",
+    link: "/producten/aitje-coder",
     description:
       "Voor organisaties en teams die een abonnement-onafhankelijke coding agent willen, beschikbaar via het lokale netwerk.",
     status: "In ontwikkeling",
-    cta: "Nog niet gelanceerd",
+    cta: "Bekijk AITJE Coder",
   },
 ];
 

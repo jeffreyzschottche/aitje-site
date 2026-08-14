@@ -68,11 +68,11 @@
             :key="product.slug"
             class="group overflow-hidden rounded-[2.5rem] border shadow-sm transition hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(0,0,0,0.18)]"
             :class="product.cardClass"
-            :role="product.isUnavailable ? 'button' : undefined"
-            :tabindex="product.isUnavailable ? 0 : undefined"
-            @click="product.isUnavailable ? openWaitlistModal(product) : undefined"
-            @keydown.enter.prevent="product.isUnavailable ? openWaitlistModal(product) : undefined"
-            @keydown.space.prevent="product.isUnavailable ? openWaitlistModal(product) : undefined"
+            :role="product.isWaitlistOnly ? 'button' : undefined"
+            :tabindex="product.isWaitlistOnly ? 0 : undefined"
+            @click="product.isWaitlistOnly ? openWaitlistModal(product) : undefined"
+            @keydown.enter.prevent="product.isWaitlistOnly ? openWaitlistModal(product) : undefined"
+            @keydown.space.prevent="product.isWaitlistOnly ? openWaitlistModal(product) : undefined"
           >
             <div class="grid gap-0 md:grid-cols-[0.72fr_1.28fr]">
               <div
@@ -144,7 +144,7 @@
                   </div>
 
                   <button
-                    v-if="product.isUnavailable"
+                    v-if="product.isWaitlistOnly"
                     type="button"
                     class="inline-flex min-w-[12.5rem] items-center justify-center rounded-full bg-[#facc15] px-9 py-4 text-sm font-semibold whitespace-nowrap text-[#212121] transition hover:bg-white hover:text-black"
                     @click.stop="openWaitlistModal(product)"
@@ -283,6 +283,8 @@ const productBannerImages: Record<string, string> = {
   "aitje-custom": "/images/aitje-custom.png",
 };
 
+const productsWithDetailPage = new Set(["aitje-assistent", "aitje-custom", "aitje-coder"]);
+
 const productBannerKickers: Record<string, string> = {
   "aitje-assistent": "Kernproduct",
   "aitje-custom": "Custom Route",
@@ -330,6 +332,9 @@ const productBanners = products.map((product) => ({
     ? "border-white/12 bg-[#2a2a2a] text-white"
     : "border-[#facc15]/55 bg-[#050505] text-white",
   isUnavailable: product.status !== "available",
+  // Nog niet gelanceerd, maar er is wel een eigen pagina: dan linken we daarheen in
+  // plaats van meteen de wachtlijst te openen.
+  isWaitlistOnly: product.status !== "available" && !productsWithDetailPage.has(product.slug),
   link: `/producten/${product.slug}`,
 }));
 
