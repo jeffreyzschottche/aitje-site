@@ -723,12 +723,6 @@ const { localePath } = useSiteLocale();
 
 const route = useRoute();
 const slug = computed(() => String(route.params.slug));
-const unavailableSlugs = new Set(["aitje-coder"]);
-
-if (unavailableSlugs.has(slug.value)) {
-  await navigateTo("/en/products", { redirectCode: 302 });
-}
-
 const product = computed(() => productCatalogV2.en.products.find((entry) => entry.slug === slug.value));
 const isCustom = computed(() => slug.value === "aitje-custom");
 
@@ -756,7 +750,7 @@ const heroImage = computed(() => {
 
 const primaryCta = computed(() => {
   if (slug.value === "aitje-custom") return localePath("/contact?onderwerp=offerte");
-  if (slug.value === "aitje-coder") return localePath("/contact?onderwerp=interesse-aitje-coder");
+  if (product.value?.status !== "available") return localePath(`/contact?onderwerp=interesse-${slug.value}`);
   return localePath("/contact?onderwerp=demo");
 });
 

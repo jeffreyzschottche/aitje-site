@@ -329,7 +329,7 @@ const productBanners = products.map((product) => ({
   cardClass: product.status !== "available"
     ? "border-white/12 bg-[#2a2a2a] text-white"
     : "border-[#facc15]/55 bg-[#050505] text-white",
-  isUnavailable: product.status !== "available",
+  isUnavailable: false,
   link: `/producten/${product.slug}`,
 }));
 

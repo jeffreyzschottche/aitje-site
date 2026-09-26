@@ -74,7 +74,7 @@ const staticEntries: Record<string, SeoSourceEntry> = {
   },
   "/producten": {
     title: "Producten | AITJE",
-    description: "De productlijn van AITJE: AITJE Assistent, AITJE Custom en AITJE Coder.",
+    description: "De productlijn van AITJE brengt hardware, software en AI-modellen samen voor kennis, coderen, taken, gesprekken en creatief werk.",
   },
   "/diensten": {
     title: "Diensten | AITJE",
@@ -134,7 +134,7 @@ const staticEntries: Record<string, SeoSourceEntry> = {
   },
   "/en/products": {
     title: "Products | AITJE",
-    description: "The AITJE product line: AITJE Assistent, AITJE Custom and AITJE Coder.",
+    description: "The AITJE product line combines hardware, software and AI models for knowledge, coding, tasks, meetings and creative work.",
   },
   "/en/services": {
     title: "Services | AITJE",

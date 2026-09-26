@@ -718,12 +718,6 @@ import { productCatalogV2, productStatusLabel } from "@/data/productCatalogV2";
 
 const route = useRoute();
 const slug = computed(() => String(route.params.slug));
-const unavailableSlugs = new Set(["aitje-coder"]);
-
-if (unavailableSlugs.has(slug.value)) {
-  await navigateTo("/producten", { redirectCode: 302 });
-}
-
 const product = computed(() => productCatalogV2.nl.products.find((entry) => entry.slug === slug.value));
 const isCustom = computed(() => slug.value === "aitje-custom");
 
@@ -749,7 +743,7 @@ const heroImage = computed(() => {
 });
 const primaryCta = computed(() => {
   if (slug.value === "aitje-custom") return "/contact?onderwerp=offerte";
-  if (slug.value === "aitje-coder") return "/contact?onderwerp=interesse-aitje-coder";
+  if (product.value?.status !== "available") return `/contact?onderwerp=interesse-${slug.value}`;
   return "/contact?onderwerp=demo";
 });
 const useCasesRoute = "/use-cases";
