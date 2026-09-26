@@ -73,7 +73,7 @@ Zorg bij uitvoering voor geschikte afbeeldingsformaten, voorspelbare laadruimte 
 
 ## Referenties en open werk
 
-De bronbestanden van verpakkingen en moodboards staan vermeld in [vibe.md](vibe.md); ze zijn niet automatisch in de repository geïmporteerd.
+De bronbestanden van verpakkingen en moodboards staan vermeld in [vibe.md](vibe.md). Een geselecteerde set staat als referentie in [inspiration/](inspiration/README.md); dat zijn geen website-assets.
 
 Nog uitwerken: assetinventaris, selectie, duurzame projectlocaties, noodzakelijke nieuwe beelden en de exacte beelden voor overige producten en Custom. Dit document genereert of bewerkt nog geen afbeeldingen.
 

@@ -155,6 +155,8 @@ Door de oprichter aangeleverde bestanden, momenteel buiten de repository:
 
 Deze verwijzingen zijn broninformatie, geen al geïmporteerde website-assets. Bij de beeldinventarisatie moeten duurzame projectlocaties worden bepaald.
 
+Nieuwere versies van de verpakkingen en moodboards staan in [inspiration/](inspiration/README.md), met een overzicht van wat wel en niet overgenomen wordt.
+
 ## Vervolgdocumenten
 
 - **principles.md:** ontwerpprincipes en visuele hiërarchie.
