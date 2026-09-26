@@ -1,603 +1,187 @@
-<template>
-  <div class="bg-[#f5f5f5] text-gray-900">
-    <SiteNavigation />
-    <main class="px-6 pt-32">
-      <section
-        class="mx-auto w-full px-4 py-12 text-center sm:max-w-5xl sm:px-8"
-      >
-        <p
-          class="text-sm font-semibold uppercase tracking-[0.5em] text-[#facc15]"
-        >
-          Contact
-        </p>
-        <h1 class="mt-4 text-5xl font-black text-gray-900">
-          Praat met het team van AITJE
-        </h1>
-        <p class="mt-6 text-lg text-gray-600">
-          Heb je vragen of wil je meer informatie over onze producten, diensten
-          of aanpak? Stuur ons gerust een bericht. We denken graag met je mee
-          over wat past bij jouw organisatie.
-        </p>
-      </section>
-
-      <div
-        class="mx-auto mt-16 grid max-w-6xl gap-10 lg:grid-cols-[0.85fr_1.15fr]"
-      >
-        <section class="space-y-6">
-          <div
-            class="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm"
-          >
-            <h2 class="text-2xl font-semibold">Direct contact</h2>
-            <p class="mt-2 text-sm text-gray-500">
-              Kies het kanaal dat voor jou het prettigst werkt.
-            </p>
-            <div class="mt-6 flex items-center gap-4">
-              <a
-                href="https://www.linkedin.com/in/aitje-bv-a095453b4/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="AITJE op LinkedIn"
-                class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-[#fafafa] transition hover:border-[#facc15]"
-              >
-                <img
-                  :src="linkedinIcon"
-                  alt=""
-                  aria-hidden="true"
-                  class="h-5 w-5 object-contain"
-                />
-              </a>
-              <a
-                href="https://www.tiktok.com/@aitje.bv"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="AITJE op TikTok"
-                class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-[#fafafa] transition hover:border-[#facc15]"
-              >
-                <svg
-                  aria-hidden="true"
-                  viewBox="0 0 24 24"
-                  class="h-5 w-5 fill-current"
-                >
-                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.38V2h-3.13v12.38a2.67 2.67 0 1 1-2.67-2.67c.31 0 .61.05.9.15V8.67a5.8 5.8 0 0 0-.9-.07A5.8 5.8 0 1 0 15.82 14V7.73a7.9 7.9 0 0 0 4.77 1.6V6.2c-.34 0-.67-.03-1-.11Z" />
-                </svg>
-              </a>
-              <a
-                href="mailto:aitjebv@gmail.com"
-                aria-label="Mail AITJE"
-                class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-[#fafafa] transition hover:border-[#facc15]"
-              >
-                <img
-                  :src="gmailIcon"
-                  alt=""
-                  aria-hidden="true"
-                  class="h-5 w-5 object-contain"
-                />
-              </a>
-              <button
-                type="button"
-                aria-label="Belverzoek aanvragen"
-                class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-[#fafafa] text-gray-900 transition hover:border-[#facc15]"
-                @click="setSubject('belverzoek')"
-              >
-                <PhoneCall aria-hidden="true" class="h-5 w-5" />
-              </button>
-            </div>
-          </div>
-          <div class="rounded-3xl bg-[#facc15] p-6 text-[#212121]">
-            <h3 class="text-xl font-semibold">
-              Veel vragen zijn al beantwoord in de FAQ
-            </h3>
-            <p class="mt-3 text-sm">
-              Bekijk eerst de veelgestelde vragen over privacy, back-ups,
-              maatwerk en gebruik. Staat jouw vraag er niet tussen, neem dan
-              gewoon contact met ons op.
-            </p>
-            <NuxtLink
-              to="/faq"
-              class="mt-5 inline-flex text-sm font-semibold text-black underline decoration-black/40 underline-offset-4 transition hover:decoration-black"
-            >
-              Naar de FAQ
-            </NuxtLink>
-          </div>
-          <section
-            v-if="formData.subject === 'kennismaking'"
-            class="rounded-[2rem] border border-gray-200 bg-white p-6 shadow-sm"
-          >
-            <div>
-              <p
-                class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
-              >
-                Digitale kennismaking
-              </p>
-              <h3 class="mt-2 text-2xl font-semibold text-gray-900">
-                Geef je voorkeur door
-              </h3>
-              <p class="mt-3 text-sm leading-6 text-gray-600">
-                Deze datum en tijd zijn een voorkeur, geen definitieve afspraak.
-                We nemen je verzoek mee in onze planning en mailen je daarna
-                welke momenten beschikbaar zijn.
-              </p>
-            </div>
-            <div class="mt-6 grid gap-4 md:grid-cols-2">
-              <div class="space-y-2">
-                <label class="text-sm font-semibold text-gray-700"
-                  >Kies een datum *</label
-                >
-                <input
-                  type="date"
-                  v-model="selectedDate"
-                  :min="bookingWindow.min"
-                  :max="bookingWindow.max"
-                  required
-                  class="w-full rounded-xl border border-gray-300 px-4 py-3 text-gray-900 transition focus:border-[#facc15] focus:outline-none"
-                />
-              </div>
-              <div class="space-y-2">
-                <label class="text-sm font-semibold text-gray-700"
-                  >Kies een tijd *</label
-                >
-                <select
-                  v-model="selectedTime"
-                  :disabled="!selectedDate"
-                  required
-                  class="w-full rounded-xl border border-gray-300 px-4 py-3 text-gray-900 transition focus:border-[#facc15] focus:outline-none disabled:cursor-not-allowed disabled:bg-gray-100"
-                >
-                  <option value="">Selecteer een tijd</option>
-                  <option
-                    v-for="time in availableTimes"
-                    :key="time"
-                    :value="time"
-                  >
-                    {{ time }}
-                  </option>
-                </select>
-              </div>
-              <div class="space-y-2">
-                <label class="text-sm font-semibold text-gray-700"
-                  >Platform *</label
-                >
-                <select
-                  v-model="meetingPlatform"
-                  required
-                  class="w-full rounded-xl border border-gray-300 px-4 py-3 text-gray-900 transition focus:border-[#facc15] focus:outline-none"
-                >
-                  <option value="">Selecteer een platform</option>
-                  <option
-                    v-for="platform in platformOptions"
-                    :key="platform"
-                    :value="platform"
-                  >
-                    {{ platform }}
-                  </option>
-                </select>
-              </div>
-              <div class="space-y-2">
-                <label class="text-sm font-semibold text-gray-700"
-                  >Verificatie e-mail *</label
-                >
-                <input
-                  type="email"
-                  v-model="verificationEmail"
-                  required
-                  placeholder="waar wil je de afspraakbevestiging ontvangen?"
-                  class="w-full rounded-xl border border-gray-300 px-4 py-3 text-gray-900 transition focus:border-[#facc15] focus:outline-none"
-                />
-              </div>
-            </div>
-          </section>
-          <section
-            v-if="formData.subject === 'belverzoek'"
-            class="rounded-[2rem] border border-gray-200 bg-white p-6 shadow-sm"
-          >
-            <p
-              class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
-            >
-              Belverzoek
-            </p>
-            <h3 class="mt-2 text-2xl font-semibold text-gray-900">
-              Laat weten wanneer we kunnen bellen
-            </h3>
-            <p class="mt-3 text-sm leading-6 text-gray-600">
-              We delen ons telefoonnummer niet meer openbaar door de toename
-              van spam calls. Vul je telefoonnummer en bereikbaarheid in, dan
-              nemen we contact met je op zodra het past.
-            </p>
-          </section>
-        </section>
-        <section
-          class="flex flex-col rounded-3xl border border-gray-200 bg-[#fafafa] p-8"
-        >
-          <h2 class="text-3xl font-semibold">Stuur ons een bericht</h2>
-          <form
-            class="mt-6 flex flex-1 flex-col space-y-4"
-            @submit.prevent="submitContact"
-          >
-            <div
-              v-if="submitMessage"
-              :class="[
-                'rounded-2xl border px-4 py-3 text-sm',
-                submitState === 'success'
-                  ? 'border-green-200 bg-green-50 text-green-800'
-                  : 'border-red-200 bg-red-50 text-red-800',
-              ]"
-            >
-              {{ submitMessage }}
-            </div>
-            <FormInput
-              label="Naam *"
-              v-model="formData.name"
-              required
-              placeholder="Je naam"
-            />
-            <FormInput
-              label="Email *"
-              v-model="formData.email"
-              type="email"
-              required
-              placeholder="je@email.nl"
-            />
-            <FormInput
-              :label="phoneInputLabel"
-              v-model="formData.phone"
-              :required="formData.subject === 'belverzoek'"
-              placeholder="+31 6 12345678"
-            />
-            <div>
-              <label class="block text-sm font-semibold text-gray-700"
-                >Onderwerp *</label
-              >
-              <div
-                class="mt-2 grid gap-2 sm:grid-cols-2"
-                role="tablist"
-                aria-label="Onderwerp"
-              >
-                <button
-                  v-for="option in subjectOptions"
-                  :key="option.value"
-                  type="button"
-                  role="tab"
-                  :aria-selected="formData.subject === option.value"
-                  :class="[
-                    'rounded-xl border px-4 py-3 text-left text-sm font-semibold transition',
-                    formData.subject === option.value
-                      ? 'border-black bg-black text-white'
-                      : 'border-gray-300 bg-white text-gray-700 hover:border-[#facc15]',
-                  ]"
-                  @click="setSubject(option.value)"
-                >
-                  {{ option.label }}
-                </button>
-              </div>
-            </div>
-            <div class="flex-1">
-              <label class="block text-sm font-semibold text-gray-700"
-                >Bericht *</label
-              >
-              <textarea
-                v-model="formData.message"
-                required
-                class="mt-2 h-full w-full min-h-[12rem] rounded-xl border border-gray-300 px-4 py-3 text-gray-900 transition focus:border-[#facc15] focus:outline-none"
-                :placeholder="messagePlaceholder"
-              ></textarea>
-            </div>
-            <button
-              type="submit"
-              :disabled="isSubmitDisabled"
-              class="mt-8 w-full rounded-full bg-black px-6 py-3 text-base font-semibold text-white cursor-pointer transition-colors duration-200 hover:bg-black hover:text-[#facc15] disabled:cursor-not-allowed disabled:bg-gray-300 disabled:text-gray-600"
-            >
-              {{
-                isSubmitting
-                  ? "Bezig met versturen..."
-                  : formData.subject === "kennismaking"
-                    ? "Verstuur voorkeursmoment"
-                    : formData.subject === "belverzoek"
-                      ? "Verstuur belverzoek"
-                      : "Verstuur bericht"
-              }}
-            </button>
-          </form>
-        </section>
-      </div>
-
-      <section
-        class="mx-auto mt-16 flex max-w-6xl flex-col gap-10 overflow-hidden rounded-[3rem] bg-[#212121] px-8 py-16 text-white md:flex-row md:items-center"
-      >
-        <div class="space-y-6 md:w-2/3">
-          <p
-            class="text-xs font-semibold uppercase tracking-[0.5em] text-gray-300"
-          >
-            Neem contact op
-          </p>
-          <h2 class="text-4xl font-black leading-tight">
-            We beantwoorden je vragen graag
-          </h2>
-          <p class="text-lg text-gray-200">
-            Bij AITJE doen we ons best om lange strategische relaties aan te
-            gaan. Jij focust je op waar jij goed in bent, je business, en wij
-            zorgen er voor dat jouw moderne onderneming vlekkeloos AI op een
-            veilige manier, toekomstbestendig kan integreren.
-          </p>
-        </div>
-        <img
-          src="/images/birds.png"
-          alt="Vrije vogel"
-          class="h-64 w-full rounded-3xl object-cover shadow-2xl shadow-black/40 md:w-1/3"
-        />
-      </section>
-    </main>
-
-    <BottomCta />
-
-    <SiteFooter />
-  </div>
-</template>
-
 <script setup lang="ts">
-import { computed, defineComponent, h, reactive, ref, watch } from "vue";
-import { PhoneCall } from "lucide-vue-next";
-import linkedinIcon from "@/assets/images/social/linkedin.png";
-import gmailIcon from "@/assets/images/social/gmail.png";
+// Contact page (redesign/pages/contact.md, besluiten 46, 51). Buttons elsewhere prefill ?onderwerp= and ?product=.
+import { contactProducts, contactTopics, findContactProduct, findTopic } from "#shared/contactTopics";
+import { contact } from "@/content/site";
+
+usePageSeo({
+  title: "Contact",
+  description: `Bespreek je AI-vraag met AITJE. Bel ${contact.phone}, mail ${contact.email} of vul het formulier in. AITJE denkt mee.`,
+  breadcrumbs: [{ name: "Contact", path: "/contact" }],
+});
 
 const route = useRoute();
+const initialTopic = findTopic(String(route.query.onderwerp ?? ""))?.key ?? "ai-vraag";
+const initialProduct = findContactProduct(String(route.query.product ?? ""))?.slug ?? "";
 
-const subjectOptions = [
-  { value: "demo", label: "Demo" },
-  { value: "kennismaking", label: "Kennismaking" },
-  { value: "belverzoek", label: "Belverzoek" },
-  { value: "vraag", label: "Vraag" },
-  { value: "prijslijst", label: "Prijslijst" },
-  { value: "offerte", label: "Offerte" },
-];
-
-const resolveSubjectFromQuery = () => {
-  const query = route.query;
-  const allowed = new Set(subjectOptions.map((option) => option.value));
-
-  const onderwerpParam = query.onderwerp;
-  const onderwerp = Array.isArray(onderwerpParam)
-    ? onderwerpParam[0]
-    : onderwerpParam;
-
-  if (typeof onderwerp === "string" && allowed.has(onderwerp)) {
-    return onderwerp;
-  }
-
-  for (const key of Object.keys(query)) {
-    if (allowed.has(key)) {
-      return key;
-    }
-  }
-
-  return "demo";
-};
-
-const resolveMessageFromQuery = () => {
-  const messageParam = route.query.bericht;
-  const message = Array.isArray(messageParam) ? messageParam[0] : messageParam;
-
-  if (typeof message === "string" && message.trim().length > 0) {
-    return message;
-  }
-
-  return "";
-};
-
-const formatInputDate = (date: Date) => date.toISOString().slice(0, 10);
-const today = new Date();
-const maxBookingDate = new Date(today);
-maxBookingDate.setDate(today.getDate() + 30);
-
-const bookingWindow = computed(() => ({
-  min: formatInputDate(today),
-  max: formatInputDate(maxBookingDate),
-}));
-
-const availableTimes = [
-  "09:00",
-  "10:00",
-  "11:00",
-  "13:00",
-  "14:00",
-  "15:00",
-  "16:00",
-];
-const platformOptions = [
-  "Google Meet",
-  "Microsoft Teams",
-  "Discord",
-  "Zoom",
-  "Telefoon",
-];
-
-const selectedDate = ref("");
-const selectedTime = ref("");
-const meetingPlatform = ref("");
-const verificationEmail = ref("");
-const isSubmitting = ref(false);
-const submitState = ref<"success" | "error" | "">("");
-const submitMessage = ref("");
-const formData = reactive({
+const form = reactive({
   name: "",
   email: "",
   phone: "",
-  subject: resolveSubjectFromQuery(),
-  message: resolveMessageFromQuery(),
+  company: "",
+  topic: initialTopic as string,
+  product: initialProduct as string,
+  message: "",
+  website: "",
 });
 
-const setSubject = (subject: string) => {
-  formData.subject = subject;
-  submitState.value = "";
-  submitMessage.value = "";
+const status = ref<"idle" | "sending" | "sent" | "error">("idle");
+const errorMessage = ref("");
 
-  if (subject !== "kennismaking") {
-    selectedDate.value = "";
-    selectedTime.value = "";
-    meetingPlatform.value = "";
-    verificationEmail.value = "";
-  }
-};
+const needsProduct = computed(() => Boolean(findTopic(form.topic)?.needsProduct));
+const selectedProduct = computed(() => findContactProduct(form.product));
 
-watch(
-  () => route.fullPath,
-  () => {
-    setSubject(resolveSubjectFromQuery());
-    formData.message = resolveMessageFromQuery();
-  },
-);
-
-const phoneInputLabel = computed(() =>
-  formData.subject === "belverzoek" ? "Telefoon *" : "Telefoon",
-);
-
-const messagePlaceholder = computed(() => {
-  switch (formData.subject) {
+const heading = computed(() => {
+  const name = selectedProduct.value?.name;
+  switch (form.topic) {
     case "demo":
-      return "Vertel ons waar je een demo van zou willen.";
-    case "kennismaking":
-      return "Vertel kort waarom je een digitale kennismaking wilt en welke vragen je alvast hebt.";
-    case "belverzoek":
-      return "Geef aan waarover je wilt bellen en op welke dagen of dagdelen je goed bereikbaar bent.";
-    case "prijslijst":
-      return "Vertel ons voor welk product of welke dienst je een prijslijst wilt ontvangen.";
-    case "vraag":
-      return "Vertel ons welke vraag je hebt.";
-    case "offerte":
-      return "Vertel ons voor welke dienst, case of product je een offerte wilt ontvangen.";
+      return name ? `Vraag een demo aan van ${name}` : "Vraag een demo aan";
+    case "product-regelen":
+      return name ? `Laat AITJE ${name} regelen` : "Laat AITJE het regelen";
+    case "zelfinstallatie":
+      return name ? `Bestel ${name} voor zelfinstallatie` : "Bestel voor zelfinstallatie";
+    case "interesse":
+      return name ? `Interesse in ${name}` : "Laat je interesse weten";
+    case "ai-scan":
+      return "Vraag een AI-scan aan";
+    case "samenwerken":
+      return "Bespreek een samenwerking";
     default:
-      return "Vertel ons waar we je mee kunnen helpen.";
+      return "Bespreek je AI-vraag";
   }
 });
 
-const formatDate = (value: string) => {
-  return new Date(value).toLocaleDateString("nl-NL", {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-};
-
-const resetForm = () => {
-  formData.name = "";
-  formData.email = "";
-  formData.phone = "";
-  formData.subject = resolveSubjectFromQuery();
-  formData.message = "";
-  selectedDate.value = "";
-  selectedTime.value = "";
-  meetingPlatform.value = "";
-  verificationEmail.value = "";
-};
-
-const submitContact = async () => {
-  submitState.value = "";
-  submitMessage.value = "";
-
-  if (
-    formData.subject === "kennismaking" &&
-    (!selectedDate.value ||
-      !selectedTime.value ||
-      !meetingPlatform.value ||
-      !verificationEmail.value)
-  ) {
-    if (typeof window !== "undefined") {
-      window.alert(
-        "Vul alle afspraakgegevens in om je kennismaking te plannen.",
-      );
-    }
-    return;
-  }
-
-  if (formData.subject === "belverzoek" && !formData.phone.trim()) {
-    if (typeof window !== "undefined") {
-      window.alert("Vul je telefoonnummer in voor een belverzoek.");
-    }
-    return;
-  }
-
+const submit = async () => {
+  status.value = "sending";
+  errorMessage.value = "";
   try {
-    isSubmitting.value = true;
-
-    await $fetch("/api/contact", {
-      method: "POST",
-      body: {
-        locale: "nl",
-        ...formData,
-        meetingDate: selectedDate.value,
-        meetingTime: selectedTime.value,
-        meetingPlatform: meetingPlatform.value,
-        verificationEmail: verificationEmail.value,
-      },
-    });
-
-    submitState.value = "success";
-    submitMessage.value =
-      formData.subject === "kennismaking"
-        ? `Je voorkeursmoment is ontvangen: ${formatDate(selectedDate.value)} om ${selectedTime.value} via ${meetingPlatform.value}. Dit is nog geen definitieve afspraak; we mailen beschikbare momenten naar ${verificationEmail.value}.`
-        : formData.subject === "belverzoek"
-          ? "Bedankt. Je belverzoek is verzonden en we nemen contact met je op zodra het past."
-          : "Bedankt. Je bericht is verzonden en we nemen zo snel mogelijk contact met je op.";
-
-    resetForm();
+    await $fetch("/api/contact", { method: "POST", body: { ...form, product: needsProduct.value ? form.product : "" } });
+    status.value = "sent";
+    window.gtag?.("event", "generate_lead", { topic: form.topic, product: form.product || undefined });
   } catch (error: unknown) {
-    const message =
-      typeof error === "object" &&
-      error !== null &&
-      "data" in error &&
-      typeof error.data === "object" &&
-      error.data !== null &&
-      "statusMessage" in error.data &&
-      typeof error.data.statusMessage === "string"
-        ? error.data.statusMessage
-        : "Versturen mislukt. Probeer het later opnieuw.";
-
-    submitState.value = "error";
-    submitMessage.value = message;
-  } finally {
-    isSubmitting.value = false;
+    status.value = "error";
+    const data = (error as { data?: { statusMessage?: string } })?.data;
+    errorMessage.value = data?.statusMessage ?? "Versturen is niet gelukt. Probeer het opnieuw, of mail of bel AITJE direct.";
   }
 };
 
-const isSubmitDisabled = computed(() => {
-  if (isSubmitting.value) return true;
-  if (formData.subject === "belverzoek") return !formData.phone.trim();
-  if (formData.subject !== "kennismaking") return false;
-  return (
-    !selectedDate.value ||
-    !selectedTime.value ||
-    !meetingPlatform.value ||
-    !verificationEmail.value
-  );
-});
-
-const FormInput = defineComponent({
-  props: {
-    label: { type: String, required: true },
-    modelValue: { type: String, default: "" },
-    type: { type: String, default: "text" },
-    placeholder: { type: String, default: "" },
-    required: { type: Boolean, default: false },
-  },
-  emits: ["update:modelValue"],
-  setup(props, { emit }) {
-    return () =>
-      h("div", {}, [
-        h(
-          "label",
-          { class: "block text-sm font-semibold text-gray-700" },
-          props.label,
-        ),
-        h("input", {
-          class:
-            "mt-2 w-full rounded-xl border border-gray-300 px-4 py-3 text-gray-900 transition focus:border-[#facc15] focus:outline-none",
-          type: props.type,
-          value: props.modelValue,
-          required: props.required,
-          placeholder: props.placeholder,
-          onInput: (event: Event) =>
-            emit("update:modelValue", (event.target as HTMLInputElement).value),
-        }),
-      ]);
-  },
-});
+const inputClass =
+  "mt-2 block w-full rounded-2xl border border-line bg-surface px-4 py-3 text-base outline-none transition-colors placeholder:text-muted/60 focus:border-ink focus:ring-4 focus:ring-brand/30";
 </script>
+
+<template>
+  <div>
+    <section class="relative overflow-hidden pt-28 pb-24 md:pt-36">
+      <div class="pointer-events-none absolute -top-32 -right-32 -z-10 size-[40rem] rounded-full bg-brand/20 blur-3xl" />
+      <div class="container-page grid gap-12 lg:grid-cols-[1fr_1.25fr]">
+        <div>
+          <p class="eyebrow text-brand-ink">Contact</p>
+          <h1 class="mt-4 font-heading text-[2.6rem] leading-[1.02] font-bold md:text-[3.8rem]">{{ heading }}</h1>
+          <p class="mt-6 max-w-md text-lg leading-relaxed text-muted">
+            Vertel waar je tegenaan loopt of wat je wilt bereiken. AITJE denkt mee en laat je weten welke route past.
+          </p>
+
+          <div class="mt-10 space-y-3">
+            <a :href="contact.phoneHref" class="flex items-center gap-4 rounded-2xl border border-line bg-surface p-4 transition-colors hover:border-ink">
+              <span class="grid size-11 place-items-center rounded-xl bg-brand"><AppIcon name="phone" :size="19" /></span>
+              <span>
+                <span class="block text-sm text-muted">Bellen</span>
+                <span class="font-semibold">{{ contact.phone }}</span>
+              </span>
+            </a>
+            <a :href="`mailto:${contact.email}`" class="flex items-center gap-4 rounded-2xl border border-line bg-surface p-4 transition-colors hover:border-ink">
+              <span class="grid size-11 place-items-center rounded-xl bg-brand"><AppIcon name="mail" :size="19" /></span>
+              <span>
+                <span class="block text-sm text-muted">Mailen</span>
+                <span class="font-semibold">{{ contact.email }}</span>
+              </span>
+            </a>
+          </div>
+          <p class="mt-4 text-sm text-muted">{{ contact.hours }}</p>
+
+          <div class="on-dark mt-10 rounded-panel bg-ink p-6 text-white">
+            <p class="font-heading font-semibold">Klantvraag over AI?</p>
+            <p class="mt-1 text-sm text-muted-dark">Ben je een IT-bedrijf of bureau? Bekijk hoe AITJE met je samenwerkt.</p>
+            <NuxtLink to="/diensten/voor-it-bedrijven" class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-brand">
+              Voor IT-bedrijven en bureaus <AppIcon name="arrow-right" :size="15" />
+            </NuxtLink>
+          </div>
+        </div>
+
+        <div class="rounded-[2rem] border border-line bg-surface p-6 shadow-card md:p-10">
+          <div v-if="status === 'sent'" class="py-10 text-center" role="status">
+            <span class="mx-auto grid size-16 place-items-center rounded-full bg-brand"><AppIcon name="check" :size="30" :stroke-width="2.5" /></span>
+            <h2 class="mt-6 font-heading text-3xl font-bold">Bedankt!</h2>
+            <p class="mx-auto mt-3 max-w-sm text-muted">
+              Je vraag is binnen en AITJE neemt contact met je op. Je ontvangt ook een bevestiging per mail. Bij spoed kun je bellen.
+            </p>
+            <UiButton to="/" variant="secondary" class="mt-8">Terug naar de homepage</UiButton>
+          </div>
+
+          <form v-else novalidate class="space-y-5" @submit.prevent="submit">
+            <div class="grid gap-5 sm:grid-cols-2">
+              <label class="block">
+                <span class="text-sm font-semibold">Naam <span class="text-brand-ink">*</span></span>
+                <input v-model="form.name" type="text" name="name" autocomplete="name" required :class="inputClass" />
+              </label>
+              <label class="block">
+                <span class="text-sm font-semibold">E-mail <span class="text-brand-ink">*</span></span>
+                <input v-model="form.email" type="email" name="email" autocomplete="email" required :class="inputClass" />
+              </label>
+              <label class="block">
+                <span class="text-sm font-semibold">Telefoon <span class="font-normal text-muted">(optioneel)</span></span>
+                <input v-model="form.phone" type="tel" name="phone" autocomplete="tel" :class="inputClass" />
+              </label>
+              <label class="block">
+                <span class="text-sm font-semibold">Bedrijf <span class="font-normal text-muted">(optioneel)</span></span>
+                <input v-model="form.company" type="text" name="company" autocomplete="organization" :class="inputClass" />
+              </label>
+            </div>
+
+            <label class="block">
+              <span class="text-sm font-semibold">Waar gaat je vraag over?</span>
+              <select v-model="form.topic" name="topic" :class="inputClass">
+                <option v-for="topic in contactTopics" :key="topic.key" :value="topic.key">{{ topic.label }}</option>
+              </select>
+            </label>
+
+            <label v-if="needsProduct" class="block">
+              <span class="text-sm font-semibold">Product</span>
+              <select v-model="form.product" name="product" :class="inputClass">
+                <option value="">Kies een product</option>
+                <option v-for="p in contactProducts" :key="p.slug" :value="p.slug">{{ p.name }}</option>
+              </select>
+            </label>
+
+            <label class="block">
+              <span class="text-sm font-semibold">Je bericht <span class="text-brand-ink">*</span></span>
+              <textarea
+                v-model="form.message"
+                name="message"
+                rows="5"
+                required
+                placeholder="Bijvoorbeeld: we zijn een kantoor met 15 mensen en willen AI gebruiken zonder dat klantgegevens naar buiten gaan."
+                :class="inputClass"
+              />
+            </label>
+
+            <!-- Honeypot -->
+            <label class="hidden" aria-hidden="true">
+              Website <input v-model="form.website" type="text" name="website" tabindex="-1" autocomplete="off" />
+            </label>
+
+            <p v-if="status === 'error'" class="rounded-2xl border border-red-200 bg-red-50 p-4 text-sm text-red-800" role="alert">
+              {{ errorMessage }}
+            </p>
+
+            <div class="flex flex-col gap-4 pt-2 sm:flex-row sm:items-center sm:justify-between">
+              <p class="text-xs text-muted">Je ontvangt een bevestiging per mail. Een aanvraag is nog geen bestelling of afspraak.</p>
+              <UiButton type="submit" size="lg" arrow :disabled="status === 'sending'">
+                {{ status === "sending" ? "Versturen…" : "Verstuur je vraag" }}
+              </UiButton>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
+</template>

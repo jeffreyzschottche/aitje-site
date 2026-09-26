@@ -1,38 +1,36 @@
 # AITJE
 
-> AITJE is een Nederlands bedrijf dat on-premise edge-AI-oplossingen ontwikkelt voor het MKB. We bieden hardware (mini-PCs) en software waarmee organisaties lokaal met AI werken, zonder data naar externe cloudplatformen te sturen. Focus op GDPR-compliance, data-soevereiniteit en voorspelbare kosten. Gevestigd in Beverwijk, Nederland.
+> AITJE is je partner in AI: een Nederlandse AI-specialist met eigen producten. AITJE onderzoekt waar AI werk makkelijker, beter of goedkoper maakt, bouwt en installeert de oplossing en blijft daarna bereikbaar. Het belangrijkste specialisme is AI op eigen hardware of een eigen server; externe modellen worden gebruikt waar ze aantoonbaar beter passen. AITJE werkt voor bedrijven, makers en professionals, en IT-bedrijven en bureaus.
+
+Alle prijzen zijn exclusief btw en voorlopig.
 
 ## Producten
 
-- [AITJE Assistent](https://aitje.com/producten/aitje-assistent): Lokale Edge AI op eigen hardware met kennisbank, offline bereikbaarheid en API-toegang voor organisaties.
-- [AITJE Custom](https://aitje.com/producten/aitje-custom): Maatwerkroute voor lokale, edge- en on-premise AI op hardware die past bij jouw probleem.
-- [Alle producten](https://aitje.com/producten): Overzicht van de productlijn: Assistent, Custom en Coder.
+- [Alle producten](https://aitje.com/producten): Overzicht van de AI-producten, met beschikbare en geplande producten.
+- [AITJE Assistent](https://aitje.com/producten/aitje-assistent): Je eigen AI-chatassistent met kennisbank, accounts en rollen, op eigen hardware of server. Lokaal chatten zonder externe tokenkosten, ook zonder internet. €499 per omgeving.
+- [AITJE Coder](https://aitje.com/producten/aitje-coder): Je eigen coding agents op eigen hardware; lokaal alternatief voor Claude Code en Codex, via terminal, AITJE-interface of OpenCode. €699 per omgeving.
+- In ontwikkeling: AITJE Manager, Notulist, Prepper, 3D, Beeld, Video en Muziek.
 
 ## Diensten
 
-- [Diensten overzicht](https://aitje.com/diensten): Productinstallatie, consultancy, AITJE Custom en SLA voor edge en on-premise AI.
-- [Consultancy](https://aitje.com/diensten/consultancy): Meedenken over waar edge AI praktisch nut heeft en hoe huidig AI-gebruik slimmer kan.
-- [SLA](https://aitje.com/diensten/sla): Strategisch partnerschap voor support, kennisbankbeheer, advies en doorontwikkeling.
+- [Diensten](https://aitje.com/diensten): Overzicht van alle diensten.
+- [AI-scan](https://aitje.com/diensten/ai-scan): Onderzoek naar werkprocessen en huidig AI-gebruik, met een praktisch rapport. Vanaf €595.
+- [Advies en analyse](https://aitje.com/diensten/advies-en-analyse): Antwoord op concrete AI-vragen over modelkeuze, architectuur en kosten. €85 per uur.
+- [Installatie en inrichting](https://aitje.com/diensten/installatie-en-inrichting): Hardware of server kiezen en de AI-omgeving gebruiksklaar opleveren. Vanaf €199.
+- [Optimalisatie](https://aitje.com/diensten/optimalisatie): Bestaande AI betrouwbaarder, goedkoper en beter onder controle maken.
+- [Veilig AI-gebruik](https://aitje.com/diensten/veilig-ai-gebruik): Inzicht in waar AI-data wordt verwerkt en opgeslagen, en praktische maatregelen. AI-datalocatiecheck €1.499.
+- [AITJE Custom — AI op maat](https://aitje.com/diensten/aitje-custom): Van AI-idee naar werkende oplossing, in urenblokken die de klant goedkeurt. €85 per uur.
+- [Ondersteuning en onderhoud](https://aitje.com/diensten/ondersteuning-en-onderhoud): SLA met service-uren, modelbeheer en AI-APK: AITJE Core, Plus of Max, vanaf €49,99 per maand.
+- [Voor IT-bedrijven en bureaus](https://aitje.com/diensten/voor-it-bedrijven): AITJE als AI-specialist voor jouw klanten; de partner houdt de klantrelatie.
 
-## Use Cases
+## Cases en kennis
 
-- [Use Cases](https://aitje.com/use-cases): Herkenbare situaties waarin lokale Edge AI en AITJE relevant kunnen zijn.
-
-## Kenniscentrum
-
-- [Kenniscentrum](https://aitje.com/kenniscentrum): Artikelen over AI-termen, technieken en toepassingen helder uitgelegd.
+- [Cases](https://aitje.com/cases): Praktijkcases, demo's en voorbeeldsituaties, duidelijk gelabeld.
+- [Kenniscentrum](https://aitje.com/kenniscentrum): Uitleg over AI-basis, je eigen AI-omgeving, agents en workflows, en koppelen en bouwen.
 
 ## Over AITJE
 
-- [Over AITJE](https://aitje.com/over-aitje): Achtergrond, visie en positionering van AITJE als Nederlands edge-AI-bedrijf.
-- [Roadmap](https://aitje.com/roadmap): Wat bestaat, wat in ontwikkeling is en wat gepland staat.
-
-## FAQ
-
-- [Veelgestelde vragen](https://aitje.com/faq): Antwoorden over producten, privacy, techniek, diensten en doelgroep.
-
-## Contact
-
-- [Contact](https://aitje.com/contact): Neem contact op voor een demo, offerte of kennismaking.
-- E-mail: aitjebv@gmail.com
-- LinkedIn: https://www.linkedin.com/in/aitje-bv-a095453b4/
+- [Over AITJE](https://aitje.com/over-aitje): Wie AITJE is en hoe samenwerken werkt.
+- [Visie](https://aitje.com/visie): Toegang tot AI in eigen beheer; afhankelijkheid als bewuste keuze, niet als onbedoeld gevolg.
+- [Veelgestelde vragen](https://aitje.com/faq): Antwoorden over AITJE, het aanbod, samenwerken, data en kosten.
+- [Contact](https://aitje.com/contact): contact@aitje.com

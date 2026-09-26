@@ -1,1087 +1,307 @@
-<template>
-  <div class="bg-[#f3efe5] text-gray-950">
-    <SiteNavigation />
-
-    <main v-if="product" class="pb-24 pt-28">
-      <section>
-        <div
-          class="relative w-full overflow-hidden border border-black/10 bg-[#050505] px-6 py-8 text-white shadow-[0_22px_70px_rgba(0,0,0,0.18)] sm:px-8 lg:px-10 lg:py-10"
-        >
-          <div class="pointer-events-none absolute inset-0">
-            <div class="absolute -left-16 top-8 h-40 w-40 rounded-full bg-[#facc15]/20 blur-3xl"></div>
-            <div class="absolute right-0 top-0 h-64 w-64 rounded-full bg-cyan-400/12 blur-3xl"></div>
-            <div class="absolute -bottom-10 right-20 h-56 w-56 rounded-full bg-rose-500/10 blur-3xl"></div>
-            <div
-              class="absolute inset-x-0 bottom-0 h-36 bg-[linear-gradient(180deg,rgba(5,5,5,0)_0%,rgba(250,204,21,0.14)_100%)]"
-            ></div>
-          </div>
-
-          <div class="relative mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_0.92fr] lg:items-center">
-            <div>
-              <div class="flex flex-wrap items-center gap-3">
-                <span
-                  class="inline-flex items-center rounded-full border border-[#facc15]/40 bg-[#facc15]/15 px-4 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.34em] text-[#facc15]"
-                >
-                  {{ statusLabel }}
-                </span>
-              </div>
-
-              <h1 class="mt-5 max-w-4xl text-[2.8rem] font-black uppercase leading-[0.9] sm:text-[4rem] xl:text-[5.2rem]">
-                {{ product.title }}
-              </h1>
-              <p class="mt-5 max-w-2xl text-base leading-8 text-white/72 sm:text-lg">
-                {{ product.summary }}
-              </p>
-
-              <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-                <NuxtLink
-                  :to="primaryCta"
-                  class="inline-flex items-center justify-center rounded-full bg-[#facc15] px-6 py-3 text-sm font-semibold text-black transition hover:bg-white"
-                >
-                  {{ product.cta }}
-                </NuxtLink>
-                <NuxtLink
-                  :to="useCasesRoute"
-                  class="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:border-white/35 hover:bg-white/10"
-                >
-                  Bekijk use cases
-                </NuxtLink>
-              </div>
-
-              <div class="mt-10 grid gap-5 border-t border-white/10 pt-6 sm:grid-cols-3">
-                <div v-for="item in heroFacts" :key="item.label" class="min-h-20">
-                  <p class="text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-white/40">
-                    {{ item.label }}
-                  </p>
-                  <p class="mt-3 max-w-[18rem] text-sm leading-6 text-white/82">
-                    {{ item.value }}
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="relative">
-              <div
-                class="relative overflow-hidden rounded-[2.4rem] bg-[radial-gradient(circle_at_top,#1f1f1f_0%,#090909_62%,#050505_100%)] p-6 sm:p-8"
-              >
-                <div class="rounded-[2rem] p-3">
-                  <img
-                    :src="heroImage"
-                    :alt="product.title"
-                    class="h-[20rem] w-full rounded-[1.5rem] object-cover sm:h-[26rem]"
-                  />
-                </div>
-
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <template v-if="isCustom">
-        <section class="mx-auto -mt-4 w-full px-4 py-12 text-center sm:max-w-5xl sm:px-8">
-          <p class="text-sm font-semibold uppercase tracking-[0.5em] text-[#facc15]">
-            AITJE Custom Solutions
-          </p>
-          <h2 class="mt-4 text-5xl font-black text-gray-900">
-            AI-oplossingen die nog niet standaard bestaan
-          </h2>
-          <p class="mt-6 text-lg leading-8 text-gray-600">
-            Niet elke organisatie heeft genoeg aan een standaardproduct. Met
-            AITJE Custom Solutions bouwen we AI-first oplossingen rond jouw
-            <NuxtLink to="/kenniscentrum/wat-is-een-workflow" class="knowledge-link" data-knowledge-link="true">workflow</NuxtLink>,
-            data, hardware en omgeving, voor jouw organisatie. Dat kan gaan om
-            een <NuxtLink to="/kenniscentrum/wat-is-een-ai-agent" class="knowledge-link" data-knowledge-link="true">AI-agent</NuxtLink>,
-            een lokale AI-toepassing op
-            <NuxtLink to="/kenniscentrum/white-label-hardware-aitje-software" class="knowledge-link" data-knowledge-link="true">white-label hardware met AITJE software</NuxtLink>,
-            of een oplossing met
-            <NuxtLink to="/kenniscentrum/wat-is-edge-ai" class="knowledge-link" data-knowledge-link="true">edge AI</NuxtLink>,
-            <NuxtLink to="/kenniscentrum/wat-is-local-ai" class="knowledge-link" data-knowledge-link="true">local AI</NuxtLink>
-            of
-            <NuxtLink to="/kenniscentrum/wat-is-on-premise-ai" class="knowledge-link" data-knowledge-link="true">on-premise AI</NuxtLink>
-            waar dat logisch is.
-          </p>
-        </section>
-
-        <section class="mx-auto mt-2 max-w-6xl px-4 sm:px-6">
-          <div class="grid gap-6 md:grid-cols-3">
-            <article
-              v-for="card in customFitCards"
-              :key="card.title"
-              class="rounded-[2rem] border border-gray-200 bg-white p-6 shadow-sm"
-            >
-              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#212121] text-[#facc15]">
-                <component :is="card.icon" class="h-6 w-6" />
-              </div>
-              <p class="mt-5 text-xs font-semibold uppercase tracking-[0.35em] text-[#facc15]">
-                {{ card.badge }}
-              </p>
-              <h3 class="mt-2 text-2xl font-black text-gray-900">
-                {{ card.title }}
-              </h3>
-              <p class="mt-3 text-sm leading-7 text-gray-600">
-                {{ card.description }}
-              </p>
-            </article>
-          </div>
-        </section>
-
-        <section class="mx-auto mt-16 max-w-7xl px-4 sm:px-6">
-          <div class="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
-            <article class="rounded-[2.5rem] bg-[#212121] p-8 text-white shadow-sm lg:sticky lg:top-28 lg:p-10">
-              <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
-                Wat we bouwen
-              </p>
-              <h2 class="mt-3 text-4xl font-black">
-                Van AI-vraag naar lokale oplossing
-              </h2>
-              <p class="mt-5 text-base leading-8 text-gray-300">
-                AITJE Custom is geen standaardproduct, maar een route die we
-                samen inslaan. Waar traditionele agencies je websites, apps
-                of socials bouwen en bijhouden, kiezen we bij AITJE Custom
-                eerst de hardware die nodig is voor jouw probleem. Daarna
-                bouwen we daarop een lokale,
-                <NuxtLink to="/kenniscentrum/wat-is-edge-ai" class="knowledge-link" data-knowledge-link="true">edge</NuxtLink>
-                of
-                <NuxtLink to="/kenniscentrum/wat-is-on-premise-ai" class="knowledge-link" data-knowledge-link="true">on-premise AI</NuxtLink>-oplossing
-                die binnen je eigen omgeving waarde toevoegt.
-              </p>
-              <NuxtLink
-                to="/contact?onderwerp=offerte"
-                class="mt-8 inline-flex items-center justify-center rounded-full bg-[#facc15] px-6 py-3 text-sm font-semibold text-black transition hover:bg-white"
-              >
-                Maatwerk bespreken
-              </NuxtLink>
-            </article>
-
-            <div class="grid gap-4 md:grid-cols-2">
-              <article
-                v-for="item in customBuildItems"
-                :key="item.title"
-                class="rounded-[1.75rem] border border-gray-200 bg-white p-6 shadow-sm"
-              >
-                <p class="text-xs font-semibold uppercase tracking-[0.32em] text-[#facc15]">
-                  {{ item.badge }}
-                </p>
-                <h3 class="mt-2 text-xl font-black text-gray-900">
-                  {{ item.title }}
-                </h3>
-                <p class="mt-3 text-sm leading-7 text-gray-600">
-                  {{ item.text }}
-                </p>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <section class="mx-auto mt-16 max-w-7xl px-4 sm:px-6">
-          <div class="rounded-[2.5rem] border border-gray-200 bg-white p-8 shadow-sm lg:p-10">
-            <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
-              Proces
-            </p>
-            <h2 class="mt-3 text-4xl font-black text-gray-900">
-              Zo maken we maatwerk beheersbaar
-            </h2>
-            <div class="mt-8 grid gap-4 md:grid-cols-4">
-              <article
-                v-for="step in customProcessSteps"
-                :key="step.title"
-                class="rounded-[1.5rem] border border-gray-100 bg-[#fafafa] p-5"
-              >
-                <p class="text-xs font-semibold uppercase tracking-[0.3em] text-[#facc15]">
-                  {{ step.number }}
-                </p>
-                <h3 class="mt-2 text-lg font-black text-gray-900">
-                  {{ step.title }}
-                </h3>
-                <p class="mt-2 text-sm leading-7 text-gray-600">
-                  {{ step.text }}
-                </p>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <section class="mx-auto mt-16 max-w-7xl px-4 sm:px-6">
-          <div class="grid gap-6 lg:grid-cols-[1fr_0.9fr] lg:items-center">
-            <article class="rounded-[2.5rem] border border-gray-200 bg-white p-8 shadow-sm lg:p-10">
-              <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
-                Wat valt hieronder
-              </p>
-              <h2 class="mt-3 text-3xl font-black text-gray-900">
-                Concrete AI-oplossingen op passende hardware
-              </h2>
-              <ul class="mt-6 space-y-3 text-sm leading-7 text-gray-700">
-                <li
-                  v-for="item in customIncludedItems"
-                  :key="item"
-                  class="flex items-start gap-3"
-                >
-                  <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"></span>
-                  <span>
-                    <template
-                      v-for="segment in item.segments"
-                      :key="segment.text"
-                    >
-                      <NuxtLink
-                        v-if="segment.href"
-                        :to="segment.href"
-                        class="knowledge-link"
-                        data-knowledge-link="true"
-                      >
-                        {{ segment.text }}
-                      </NuxtLink>
-                      <template v-else>{{ segment.text }}</template>
-                    </template>
-                  </span>
-                </li>
-              </ul>
-            </article>
-
-            <article class="rounded-[2.5rem] bg-[#212121] p-8 text-white shadow-sm lg:p-10">
-              <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
-                Volgende stap
-              </p>
-              <h2 class="mt-3 text-3xl font-black">
-                Heb je een AI-vraag die niet standaard past?
-              </h2>
-              <p class="mt-4 text-sm leading-7 text-gray-300">
-                Stuur ons je vraag. Dan kijken we of AITJE Custom logisch is, of
-                dat een bestaand product, installatie, consultancy of
-                <NuxtLink to="/diensten/sla" class="knowledge-link" data-knowledge-link="true">SLA</NuxtLink>
-                beter past.
-              </p>
-              <NuxtLink
-                to="/contact?onderwerp=offerte"
-                class="mt-7 inline-flex items-center justify-center rounded-full bg-[#facc15] px-6 py-3 text-sm font-semibold text-black transition hover:bg-white"
-              >
-                Maatwerk bespreken
-              </NuxtLink>
-            </article>
-          </div>
-        </section>
-      </template>
-
-      <template v-else>
-      <section class="mx-auto -mt-4 w-full px-4 py-12 text-center sm:max-w-5xl sm:px-8">
-        <p class="text-sm font-semibold uppercase tracking-[0.5em] text-[#facc15]">
-          {{ introSection.kicker }}
-        </p>
-        <h2 class="mt-4 text-5xl font-black text-gray-900">
-          {{ introSection.title }}
-        </h2>
-        <p class="mt-6 text-lg text-gray-600">
-          {{ introSection.text }}
-        </p>
-      </section>
-
-      <section class="mx-auto mt-2 max-w-6xl px-4 sm:px-6">
-        <div class="grid gap-6 md:grid-cols-3">
-          <article
-            v-for="card in introCards"
-            :key="card.title"
-            class="rounded-[2rem] border border-gray-200 bg-white p-6 shadow-sm"
-          >
-            <div
-              class="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#212121] text-[#facc15]"
-            >
-              <component :is="card.icon" class="h-6 w-6" />
-            </div>
-            <p class="mt-5 text-xs font-semibold uppercase tracking-[0.35em] text-[#facc15]">
-              {{ card.badge }}
-            </p>
-            <h2 class="mt-2 text-2xl font-black text-gray-900">
-              {{ card.title }}
-            </h2>
-            <p class="mt-3 text-sm leading-7 text-gray-600">
-              {{ card.description }}
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section class="mt-16 bg-black py-14">
-        <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
-          <article class="flex h-full flex-col justify-center rounded-[2rem] border border-white/10 bg-white/5 p-7 text-white shadow-[0_24px_70px_rgba(0,0,0,0.28)]">
-            <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
-              {{ blackSection.kicker }}
-            </p>
-            <h2 class="mt-4 text-3xl font-black">
-              {{ blackSection.title }}
-            </h2>
-            <p class="mt-5 text-lg font-medium leading-8 text-white/88">
-              {{ blackSection.subtitle }}
-            </p>
-            <p class="mt-5 max-w-2xl text-base leading-8 text-white/72">
-              {{ blackSection.paragraph }}
-            </p>
-          </article>
-
-          <article>
-            <div class="overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-3 shadow-[0_24px_70px_rgba(0,0,0,0.28)]">
-              <img
-                :src="heroImage"
-                :alt="product.title"
-                class="h-[18rem] w-full rounded-[1.4rem] object-cover sm:h-[24rem]"
-              />
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="mx-auto mt-16 max-w-7xl px-4 sm:px-6">
-        <div class="text-center">
-          <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
-            Visie
-          </p>
-          <h2 class="mt-3 text-4xl font-black text-gray-900">
-            AI moet voor jouw organisatie werken, niet andersom
-          </h2>
-          <p class="mx-auto mt-5 max-w-4xl text-base leading-8 text-gray-700">
-            AI is niet meer weg te denken. Agents, LLM&apos;s, beeldgeneratie en
-            videogeneratie gaan een steeds grotere rol spelen in hoe organisaties werken.
-            Onze visie is dat je die ontwikkeling beter op je eigen systemen kunt
-            voorbereiden, zonder volledige afhankelijkheid van het buitenland, Big Tech
-            of externe platformen.
-          </p>
-        </div>
-      </section>
-
-      <section class="mx-auto mt-12 max-w-7xl px-4 sm:px-6">
-        <div class="rounded-[3rem] border border-gray-200 bg-white p-8 shadow-sm lg:p-10">
-          <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
-            Waar we in geloven
-          </p>
-          <div class="mt-8 grid gap-4 md:grid-cols-2">
-            <article
-              v-for="card in beliefCards"
-              :key="card.title"
-              class="rounded-[1.75rem] border border-gray-100 bg-[#fafafa] p-6"
-            >
-              <h3 class="text-2xl font-black text-gray-900">
-                {{ card.title }}
-              </h3>
-              <p class="mt-3 text-sm leading-7 text-gray-600">
-                {{ card.text }}
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="mx-auto max-w-7xl px-4 pb-6 pt-14 sm:px-6">
-        <div class="border-b border-gray-200">
-          <div class="flex flex-wrap gap-x-8 gap-y-3">
-            <button
-              v-for="tab in productTabs"
-              :key="tab.key"
-              type="button"
-              class="border-b-[3px] px-1 pb-5 text-lg font-black transition"
-              :class="activeProductTab === tab.key
-                ? 'border-black text-black'
-                : 'border-transparent text-gray-400 hover:text-gray-700'"
-              @click="activeProductTab = tab.key"
-            >
-              {{ tab.label }}
-            </button>
-          </div>
-        </div>
-
-        <div class="pt-10 md:min-h-[34rem]">
-          <div v-if="activeProductTab === 'specs'">
-            <p class="max-w-6xl text-lg leading-9 text-gray-600">
-              {{ specsIntro }}
-            </p>
-
-            <div class="mt-8 overflow-x-auto rounded-[2rem] border border-gray-200 bg-white shadow-sm">
-              <table class="w-full min-w-[600px] border-collapse text-left">
-                <thead class="bg-[#fafafa]">
-                  <tr>
-                    <th class="border-b border-gray-200 px-5 py-4 text-base font-black text-gray-900">Onderdeel</th>
-                    <th class="border-b border-gray-200 px-5 py-4 text-base font-black text-gray-900">Inhoud</th>
-                    <th class="border-b border-gray-200 px-5 py-4 text-base font-black text-gray-900">Rol</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr
-                    v-for="row in specsRows"
-                    :key="row.label"
-                    class="odd:bg-[#f7f7f7]"
-                  >
-                    <td class="px-5 py-4 text-base font-medium text-gray-800">
-                      {{ row.label }}
-                    </td>
-                    <td class="px-5 py-4 text-base text-gray-700">
-                      {{ row.value }}
-                    </td>
-                    <td class="px-5 py-4 text-base text-gray-600">
-                      {{ row.note }}
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <div v-else-if="activeProductTab === 'os'">
-            <p class="max-w-6xl text-lg leading-9 text-gray-600">
-              {{ osIntro }}
-            </p>
-
-            <div class="mt-8 overflow-x-auto rounded-[2rem] border border-gray-200 bg-white shadow-sm">
-              <table class="w-full min-w-[600px] border-collapse text-left">
-                <thead class="bg-[#fafafa]">
-                  <tr>
-                    <th class="border-b border-gray-200 px-5 py-4 text-base font-black text-gray-900">Laag</th>
-                    <th class="border-b border-gray-200 px-5 py-4 text-base font-black text-gray-900">Status</th>
-                    <th class="border-b border-gray-200 px-5 py-4 text-base font-black text-gray-900">Beschrijving</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr
-                    v-for="row in osRows"
-                    :key="row.layer"
-                    class="odd:bg-[#f7f7f7]"
-                  >
-                    <td class="px-5 py-4 text-base font-medium text-gray-800">
-                      {{ row.layer }}
-                    </td>
-                    <td class="px-5 py-4 text-base text-gray-700">
-                      {{ row.status }}
-                    </td>
-                    <td class="px-5 py-4 text-base text-gray-600">
-                      {{ row.description }}
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <div v-else-if="activeProductTab === 'models'">
-            <p class="max-w-6xl text-lg leading-9 text-gray-600">
-              {{ modelsIntro }}
-            </p>
-
-            <div class="mt-8 overflow-x-auto rounded-[2rem] border border-gray-200 bg-white shadow-sm">
-              <table class="w-full min-w-[600px] border-collapse text-left">
-                <thead class="bg-[#fafafa]">
-                  <tr>
-                    <th class="border-b border-gray-200 px-5 py-4 text-base font-black text-gray-900">Model type</th>
-                    <th class="border-b border-gray-200 px-5 py-4 text-base font-black text-gray-900">Model</th>
-                    <th class="border-b border-gray-200 px-5 py-4 text-base font-black text-gray-900">Standaard</th>
-                    <th class="border-b border-gray-200 px-5 py-4 text-base font-black text-gray-900">Uitbreidbaar</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr
-                    v-for="row in modelRows"
-                    :key="`${row.type}-${row.name}`"
-                    class="odd:bg-[#f7f7f7]"
-                  >
-                    <td class="px-5 py-4 text-base font-medium text-gray-800">
-                      {{ row.type }}
-                    </td>
-                    <td class="px-5 py-4 text-base text-gray-700">
-                      {{ row.name }}
-                    </td>
-                    <td class="px-5 py-4 text-base font-semibold" :class="row.default ? 'text-green-700' : 'text-red-500'">
-                      {{ row.default ? 'Ja' : 'Nee' }}
-                    </td>
-                    <td class="px-5 py-4 text-base font-semibold" :class="row.expandable ? 'text-green-700' : 'text-red-500'">
-                      {{ row.expandable ? 'Ja' : 'Nee' }}
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <div v-else-if="activeProductTab === 'personalization'">
-            <p class="max-w-6xl text-lg leading-9 text-gray-600">
-              {{ personalizationIntro }}
-            </p>
-
-            <div class="mt-8 grid gap-5 md:grid-cols-2">
-              <article
-                v-for="item in personalizationItems"
-                :key="item.title"
-                class="rounded-[1.75rem] border border-gray-200 bg-white p-6 shadow-sm"
-              >
-                <h3 class="text-2xl font-black text-gray-900">
-                  {{ item.title }}
-                </h3>
-                <ul class="mt-4 space-y-3 text-base leading-7 text-gray-600">
-                  <li
-                    v-for="point in item.points"
-                    :key="point"
-                    class="flex items-start gap-3"
-                  >
-                    <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"></span>
-                    <span>{{ point }}</span>
-                  </li>
-                </ul>
-              </article>
-            </div>
-          </div>
-
-          <div v-else>
-            <p class="max-w-6xl text-lg leading-9 text-gray-600">
-              {{ installationIntro }}
-            </p>
-
-            <div class="mt-8 grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
-              <article class="rounded-[2rem] border border-gray-200 bg-white p-7 shadow-sm">
-                <h3 class="text-2xl font-black text-gray-900">
-                  Wat we rondom installatie kunnen betekenen
-                </h3>
-                <ul class="mt-5 space-y-3 text-base leading-7 text-gray-600">
-                  <li
-                    v-for="point in installationPoints"
-                    :key="point"
-                    class="flex items-start gap-3"
-                  >
-                    <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"></span>
-                    <span>{{ point }}</span>
-                  </li>
-                </ul>
-              </article>
-
-              <article class="rounded-[2rem] bg-[#212121] p-7 text-white shadow-sm">
-                <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
-                  Diensten
-                </p>
-                <h3 class="mt-4 text-2xl font-black">
-                  Voor alle info over wat wij kunnen betekenen
-                </h3>
-                <p class="mt-4 text-base leading-8 text-gray-300">
-                  Bekijk de dienstenpagina voor installatie, uitbreiding, consultancy, SLA en andere vormen van begeleiding rond producten van AITJE.
-                </p>
-                <NuxtLink
-                  to="/diensten"
-                  class="mt-6 inline-flex items-center justify-center rounded-full bg-[#facc15] px-6 py-3 text-sm font-semibold text-black transition hover:bg-white"
-                >
-                  Bekijk diensten
-                </NuxtLink>
-              </article>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <ProductSoftwareShowcase
-        :hero-image="heroImage"
-        locale="nl"
-        :product-slug="slug"
-        :product-title="product.title"
-      />
-
-      <section class="mx-auto max-w-7xl px-4 pb-14 pt-14 sm:px-6">
-        <div>
-          <div class="grid gap-6 lg:grid-cols-[0.9fr_1.15fr_0.9fr] lg:items-center">
-            <div class="grid gap-6">
-              <article
-                v-for="value in valueColumns.left"
-                :key="value.title"
-                class="rounded-[2.5rem] border border-gray-200 bg-white p-8 text-center shadow-sm"
-              >
-                <h3 class="text-2xl font-black text-gray-900">
-                  {{ value.title }}
-                </h3>
-                <p class="mt-4 text-sm leading-7 text-gray-600">
-                  {{ value.text }}
-                </p>
-              </article>
-            </div>
-
-            <article class="rounded-[2.75rem] border border-gray-200 bg-white p-8 text-center shadow-sm lg:p-10">
-              <img
-                src="/images/aitje-logo.png"
-                alt="AITJE logo"
-                class="mx-auto h-24 w-auto object-contain"
-              />
-              <p class="mt-8 text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
-                Onze visie
-              </p>
-              <h3 class="mt-3 text-4xl font-black text-gray-900">
-                AI moet voor jouw organisatie werken, niet andersom
-              </h3>
-              <div class="mt-5 space-y-4 text-base leading-8 text-gray-700">
-                <p>
-                  AI wordt snel een vast onderdeel van hoe organisaties werken.
-                </p>
-                <p>
-                  Daarom geloven wij in voorbereiding op je eigen systemen, met
-                  meer grip op data, gebruik en afhankelijkheden.
-                </p>
-                <p>
-                  Niet alles wat nieuw is, is ook logisch. Wij kiezen liever
-                  voor wat bruikbaar, verantwoord en houdbaar blijft.
-                </p>
-              </div>
-            </article>
-
-            <div class="grid gap-6">
-              <article
-                v-for="value in valueColumns.right"
-                :key="value.title"
-                class="rounded-[2.5rem] border border-gray-200 bg-white p-8 text-center shadow-sm"
-              >
-                <h3 class="text-2xl font-black text-gray-900">
-                  {{ value.title }}
-                </h3>
-                <p class="mt-4 text-sm leading-7 text-gray-600">
-                  {{ value.text }}
-                </p>
-              </article>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="mx-auto mt-16 max-w-7xl px-4 sm:px-6">
-        <div class="grid items-center gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-          <article class="rounded-[2.5rem] bg-[#212121] px-8 py-10 text-white lg:px-10">
-            <div class="mx-auto flex max-w-2xl flex-col justify-center">
-              <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
-                Prijs & volgende stap
-              </p>
-              <h2 class="mt-3 text-4xl font-black">
-                Vraag een prijslijst of offerte aan
-              </h2>
-              <p class="mt-4 text-sm leading-7 text-gray-300">
-                Producten, diensten en SLA zijn bewust niet uitgewerkt als losse
-                prijsblokjes op de pagina. We houden de site helder en sturen door
-                naar een prijslijst, offerte of kennismaking zodra de vraag concreet is.
-              </p>
-              <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-                <NuxtLink
-                  to="/contact?onderwerp=prijslijst"
-                  class="inline-flex items-center justify-center rounded-full bg-[#facc15] px-6 py-3 text-sm font-semibold text-black transition hover:bg-white"
-                >
-                  Prijslijst aanvragen
-                </NuxtLink>
-                <NuxtLink
-                  to="/contact?onderwerp=offerte"
-                  class="inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:border-white"
-                >
-                  Offerte aanvragen
-                </NuxtLink>
-              </div>
-            </div>
-          </article>
-
-          <article class="overflow-hidden rounded-[2.5rem] border border-gray-200 bg-white shadow-sm">
-            <img
-              src="/images/wanneer-aitje.png"
-              alt="AITJE producten en diensten"
-              class="h-56 w-full object-cover"
-            />
-            <div class="p-8">
-              <p class="text-xs font-semibold uppercase tracking-[0.35em] text-[#facc15]">
-                Effectieve samenwerking
-              </p>
-              <h2 class="mt-3 text-3xl font-black text-gray-900">
-                Partnerschap met heldere afspraken
-              </h2>
-              <ul class="mt-6 space-y-3 text-sm text-gray-700">
-                <li class="flex items-start gap-3">
-                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"></span>
-                  <span>Heldere afspraken over doel, planning, verantwoordelijkheden en resultaat.</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"></span>
-                  <span>Voor organisaties die ondersteuning willen bij vaste producten en praktische AI-toepassingen.</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#facc15]"></span>
-                  <span>Begeleiding die helpt bij keuze, inrichting en gebruik, zonder onnodig groot traject.</span>
-                </li>
-              </ul>
-            </div>
-          </article>
-        </div>
-      </section>
-      </template>
-    </main>
-
-    <BottomCta />
-    <SiteFooter />
-  </div>
-</template>
-
 <script setup lang="ts">
-import { computed, ref } from "vue";
-import { Leaf, PlugZap, Sparkles } from "lucide-vue-next";
-import { productCatalogV2, productStatusLabel } from "@/data/productCatalogV2";
+// Product page (redesign/pages/product.md, besluiten 41, 45, 46, 51).
+import { availableProducts, getProduct, installPrice, localNote } from "@/content/products";
+import { contactLink } from "@/content/site";
 
 const route = useRoute();
-const slug = computed(() => String(route.params.slug));
-const product = computed(() => productCatalogV2.nl.products.find((entry) => entry.slug === slug.value));
-const isCustom = computed(() => slug.value === "aitje-custom");
+const product = getProduct(String(route.params.slug));
 
-if (!product.value) {
-  throw createError({ statusCode: 404, statusMessage: "Pagina niet gevonden" });
+if (!product) {
+  throw createError({ statusCode: 404, statusMessage: "Product niet gevonden", fatal: true });
 }
 
-const statusLabel = computed(() => {
-  const customLabels: Record<string, string> = {
-    "aitje-assistent": "Lokale AI",
-    "aitje-custom": "Custom Solutions",
-  };
+const available = product.status === "available";
+const others = availableProducts.filter((p) => p.slug !== product.slug);
 
-  return customLabels[slug.value] ?? productStatusLabel.nl[product.value!.status];
+usePageSeo({
+  title: available ? `${product.name}: ${product.headline}` : `${product.name} (in ontwikkeling)`,
+  description: product.seoDescription,
+  image: product.image,
+  breadcrumbs: [
+    { name: "Producten", path: "/producten" },
+    { name: product.name, path: `/producten/${product.slug}` },
+  ],
+  faq: product.faq,
+  schema: available
+    ? [
+        {
+          "@type": "Product",
+          name: product.name,
+          description: product.subline,
+          brand: { "@type": "Brand", name: "AITJE" },
+          offers: {
+            "@type": "Offer",
+            price: product.price,
+            priceCurrency: "EUR",
+            availability: "https://schema.org/InStock",
+          },
+        },
+      ]
+    : [],
 });
-const heroImage = computed(() => {
-  const mapping: Record<string, string> = {
-    "aitje-assistent": "/images/aitje-cubes.png",
-    "aitje-custom": "/images/aitje-custom.png",
-    "aitje-coder": "/images/aitje-product.png",
-  };
-  return mapping[slug.value] ?? "/images/aitje-product.png";
-});
-const primaryCta = computed(() => {
-  if (slug.value === "aitje-custom") return "/contact?onderwerp=offerte";
-  if (product.value?.status !== "available") return `/contact?onderwerp=interesse-${slug.value}`;
-  return "/contact?onderwerp=demo";
-});
-const useCasesRoute = "/use-cases";
-
-const heroFacts = computed(() => {
-  if (isCustom.value) {
-    return [
-      { label: "Type", value: "AI-first maatwerk op aanvraag" },
-      { label: "Focus", value: "Edge AI, local AI, on-premise AI en hardware" },
-      { label: "Uitkomst", value: "White-label hardware, AITJE software" },
-    ];
-  }
-
-  return [
-    { label: "Publiek", value: product.value!.audience },
-    { label: "Use cases", value: `${product.value!.useCases.length} concrete richtingen` },
-    {
-      label: "Modules",
-      value: product.value!.modules?.length ? `${product.value!.modules.length} gekoppelde onderdelen` : "Standalone propositie",
-    },
-  ];
-});
-
-const introSection = computed(() => ({
-  kicker: product.value!.status === "available" ? "Product" : "In ontwikkeling",
-  title: product.value!.title,
-  text: product.value!.intro,
-}));
-
-const blackSection = computed(() => ({
-  kicker: product.value!.status === "available" ? "Product" : "Richting",
-  title: product.value!.title,
-  subtitle: product.value!.summary,
-  paragraph: product.value!.intro,
-}));
-
-const productTabs = [
-  { key: "specs", label: "Specs" },
-  { key: "os", label: "OS" },
-  { key: "models", label: "Models" },
-  { key: "personalization", label: "Personalisatie" },
-  { key: "installation", label: "Ondersteuning" },
-] as const;
-
-const activeProductTab = ref<(typeof productTabs)[number]["key"]>("specs");
-
-const specsIntro = computed(() =>
-  `${product.value!.title} is opgezet als een duidelijke productlaag binnen AITJE. Onderstaand zie je welke onderdelen, inzet en rol daarbij horen.`
-);
-
-const specsRows = computed(() => [
-  {
-    label: "Status",
-    value: statusLabel.value,
-    note: product.value!.status === "available" ? "Direct inzetbaar voor trajecten" : "Nog niet live als standaardproduct",
-  },
-  {
-    label: "Doelgroep",
-    value: product.value!.audience,
-    note: "Primaire organisatievorm waar dit product op gericht is",
-  },
-  {
-    label: "Samenvatting",
-    value: product.value!.summary,
-    note: "Kern van de propositie",
-  },
-  {
-    label: "Use cases",
-    value: product.value!.useCases.join(", "),
-    note: "Voorbeelden van praktische inzet",
-  },
-]);
-
-const osIntro = computed(() =>
-  `Binnen AITJE kijken we niet alleen naar een losse interface, maar naar de hele laag eromheen: beheer, toegang, workflows en de manier waarop dit product in de organisatie landt.`
-);
-
-const osRows = computed(() => {
-  const moduleRows = product.value!.modules?.map((module) => ({
-    layer: module.title,
-    status: "Actief onderdeel",
-    description: module.summary,
-  })) ?? [];
-
-  return [
-    {
-      layer: "Beheerlaag",
-      status: "Ingericht per traject",
-      description: `Aansluitend op ${product.value!.title}, rechten, gebruik en praktische inrichting.`,
-    },
-    {
-      layer: "Workflowlaag",
-      status: "Afhankelijk van inzet",
-      description: product.value!.highlights[0] ?? product.value!.summary,
-    },
-    ...moduleRows,
-  ];
-});
-
-const modelsIntro = computed(() =>
-  `Niet elk product vraagt dezelfde modelmix. Deze tabel laat zien welke modelrichtingen logisch aansluiten op ${product.value!.title}.`
-);
-
-const modelRows = computed(() => [
-  {
-    type: "Kennis & chat",
-    name: "Llama / Qwen instruct-modellen",
-    default: slug.value === "aitje-assistent",
-    expandable: true,
-  },
-  {
-    type: "Document & workflow",
-    name: "Samenvatten, structureren en extraction-routes",
-    default: true,
-    expandable: true,
-  },
-  {
-    type: "Speech / intake",
-    name: "Transcriptie- of intakegerichte modellen",
-    default: slug.value !== "aitje-assistent",
-    expandable: true,
-  },
-  {
-    type: "Vision / multimodaal",
-    name: "Beeld- of camera-ondersteuning waar relevant",
-    default: false,
-    expandable: slug.value !== "aitje-custom",
-  },
-]);
-
-const personalizationIntro = computed(() =>
-  `Personalisatie zit niet alleen in styling, maar vooral in rechten, bronnen, workflowstappen en output. Dit zijn de belangrijkste richtingen waarin ${product.value!.title} aangepast kan worden.`
-);
-
-const personalizationItems = computed(() => [
-  {
-    title: "Inrichting",
-    points: [
-      "Toegang, rollen en gebruik afstemmen op team of organisatie",
-      "Bronnen, documenten of context toevoegen per traject",
-      "Werkflows laten aansluiten op bestaande processen",
-    ],
-  },
-  {
-    title: "Output",
-    points: [
-      "Samenvatting, transcript of gestructureerde output per situatie",
-      "Koppeling naar eigen app, site of interne omgeving waar nodig",
-      "Instelbare vorm voor terugkoppeling, opvolging of verwerking",
-    ],
-  },
-]);
-
-const installationIntro = computed(() =>
-  `Een product van AITJE staat niet los van inrichting en overdracht. Rond ${product.value!.title} kunnen we helpen met installatie, afstemming en praktische ingebruikname.`
-);
-
-const installationPoints = computed(() => [
-  `Installatie en basisinrichting van ${product.value!.title} in jullie omgeving`,
-  "Afstemming van rechten, toegang en gebruik per team of organisatie",
-  "Koppelingen, kennisbronnen en workflowstappen praktisch inrichten",
-  "Overdracht en begeleiding zodat het product ook echt gebruikt wordt",
-]);
-
-const customFitCards = [
-  {
-    badge: "AI agency",
-    title: "AI-first maatwerk",
-    description:
-      "We combineren agents, workflows, data en hardware tot één praktische oplossing.",
-    icon: PlugZap,
-  },
-  {
-    badge: "Middenweg",
-    title: "Product waar het kan",
-    description:
-      "Als bestaande producten of diensten genoeg zijn, kiezen we daarvoor. Custom is voor vragen die echt specifieker zijn.",
-    icon: Sparkles,
-  },
-  {
-    badge: "Lokaal",
-    title: "AI op passende hardware",
-    description:
-      "We zoeken naar een opstelling die lokaal, edge of on-premise kan werken wanneer data, beschikbaarheid of omgeving daarom vraagt.",
-    icon: Leaf,
-  },
-];
-
-const customBuildItems = [
-  {
-    badge: "Agents",
-    title: "Lokale AI-agents",
-    text: "Agents die met ingestelde context, tools en grenzen taken uitvoeren binnen je eigen omgeving.",
-  },
-  {
-    badge: "Workflows",
-    title: "AI in bestaande processen",
-    text: "Documentstromen, intake, samenvattingen, controles of opvolging logisch verwerken met AI.",
-  },
-  {
-    badge: "Hardware",
-    title: "Devices en lokale opstellingen",
-    text: "Een oplossing op een passend device, met lokale AI, edge AI of on-premise inzet waar dat nodig is.",
-  },
-  {
-    badge: "Input",
-    title: "Scan, camera of documentverwerking",
-    text: "AI-toepassingen rond visuele input, barcodes, formulieren, bestanden of andere praktische bronnen.",
-  },
-  {
-    badge: "Koppelingen",
-    title: "Integraties met bestaande tools",
-    text: "Koppelingen met interne systemen, websites, applicaties of databronnen wanneer de workflow dat vraagt.",
-  },
-  {
-    badge: "Offline",
-    title: "AI zonder constante cloudafhankelijkheid",
-    text: "Oplossingen die lokaal bruikbaar blijven wanneer internet, externe API's of cloudplatformen geen logische basis zijn.",
-  },
-];
-
-const customProcessSteps = [
-  {
-    number: "01",
-    title: "Vraag scherp krijgen",
-    text: "We bepalen welk probleem opgelost moet worden en of Custom echt nodig is.",
-  },
-  {
-    number: "02",
-    title: "Oplossing ontwerpen",
-    text: "We kiezen de logische combinatie van AI, software, hardware, data en workflow.",
-  },
-  {
-    number: "03",
-    title: "Bouwen en testen",
-    text: "We ontwikkelen gericht, testen met echte input en houden scope en kosten inzichtelijk.",
-  },
-  {
-    number: "04",
-    title: "Opleveren of doorpakken",
-    text: "Je krijgt een werkende oplossing met afspraken over beheer, overdracht of SLA.",
-  },
-];
-
-const customIncludedItems = [
-  {
-    segments: [
-      { text: "Lokale AI", href: "/kenniscentrum/wat-is-local-ai" },
-      { text: "-agents die binnen je eigen omgeving met je data en processen werken." },
-    ],
-  },
-  {
-    segments: [
-      { text: "Edge AI", href: "/kenniscentrum/wat-is-edge-ai" },
-      { text: "- en " },
-      { text: "on-premise AI", href: "/kenniscentrum/wat-is-on-premise-ai" },
-      { text: "-oplossingen op hardware die we voor jouw probleem selecteren." },
-    ],
-  },
-  {
-    segments: [
-      { text: "Workflows", href: "/kenniscentrum/wat-is-een-workflow" },
-      { text: " voor documenten, intake, controles, samenvattingen of opvolging." },
-    ],
-  },
-  {
-    segments: [
-      { text: "Koppelingen met bestaande systemen, applicaties, websites, " },
-      { text: "API's", href: "/kenniscentrum/wat-is-een-api" },
-      { text: " of databronnen." },
-    ],
-  },
-];
-
-const introCards = [
-  {
-    badge: "Strategie",
-    title: "Niet alles tegelijk",
-    description:
-      "We helpen eerst bepalen wat logisch is, voordat er gebouwd of uitgebreid wordt.",
-    icon: PlugZap,
-  },
-  {
-    badge: "Custom",
-    title: "Alleen als standaard niet past",
-    description:
-      "AITJE Custom blijft bestaan, maar als gerichte route in plaats van een breed maatwerklabel. Kleiner en duidelijker.",
-    icon: Sparkles,
-  },
-  {
-    badge: "Continuiteit",
-    title: "Regie en continuiteit",
-    description:
-      "De focus ligt op meer grip op AI-gebruik, minder afhankelijkheid en keuzes die op lange termijn houdbaar zijn.",
-    icon: Leaf,
-  },
-];
-
-const values = [
-  {
-    title: "Helderheid boven jargon",
-    text: "We willen dat organisaties snel begrijpen wat iets doet, waarom het relevant is en wanneer het zinvol is.",
-  },
-  {
-    title: "Regie boven afhankelijkheid",
-    text: "We zoeken steeds naar manieren om data, kennis en AI-gebruik minder kwetsbaar te maken voor externe keuzes.",
-  },
-  {
-    title: "Stabiliteit boven hype",
-    text: "Niet elke trend verdient een plek in een organisatie. We kiezen liever iets dat werkt en houdbaar blijft.",
-  },
-  {
-    title: "Partnerschap boven losse verkoop",
-    text: "We willen niet alleen iets neerzetten, maar ook meedenken over hoe het in de praktijk blijft werken.",
-  },
-];
-
-const valueColumns = {
-  left: values.slice(0, 2),
-  right: values.slice(2, 4),
-};
-
-const beliefCards = [
-  {
-    title: "De markt verandert snel",
-    text: "AI wordt een vast onderdeel van moderne organisaties. Agents, LLM's, beeldgeneratie en videogeneratie gaan processen veranderen, terwijl de partijen daarachter hun investeringen uiteindelijk willen terugverdienen.",
-  },
-  {
-    title: "Afhankelijkheid maakt kwetsbaar",
-    text: "Externe AI-kosten kunnen fors stijgen, platformkeuzes van derden raken direct jouw operatie en volledige afhankelijkheid maakt organisaties op termijn kwetsbaar.",
-  },
-  {
-    title: "Software, hardware en begeleiding",
-    text: "AITJE biedt hardware en software om jouw organisatie toekomstbestendig met AI te laten werken. Niet als hype, maar als praktische infrastructuur waarmee jij grip houdt op data, kosten en continuiteit.",
-  },
-  {
-    title: "Praktisch inzetbaar in de organisatie",
-    text: "Lokale toegang tot documenten en kennis via een LLM, praktische inzet voor teams en bedrijfsprocessen en ondersteuning bij integratie op een veilige manier.",
-  },
-];
 </script>
+
+<template>
+  <div v-if="available">
+    <!-- Hero -->
+    <section class="relative overflow-hidden pt-28 pb-16 md:pt-36 md:pb-24">
+      <div class="pointer-events-none absolute -top-40 -right-40 -z-10 size-[42rem] rounded-full bg-brand/20 blur-3xl" />
+      <div class="container-page grid items-center gap-12 lg:grid-cols-[1.15fr_1fr]">
+        <div>
+          <div class="mb-6 flex flex-wrap items-center gap-3">
+            <UiBadge tone="brand" dot>Beschikbaar</UiBadge>
+            <NuxtLink to="/producten" class="text-sm text-muted hover:text-ink">← Alle producten</NuxtLink>
+          </div>
+          <p class="eyebrow text-brand-ink">{{ product.name }}</p>
+          <h1 class="mt-4 font-heading text-[2.6rem] leading-[1.02] font-bold md:text-[3.8rem]">{{ product.headline }}</h1>
+          <p class="mt-6 max-w-xl text-lg leading-relaxed text-ink/80 md:text-xl">{{ product.subline }}</p>
+          <p class="mt-5 max-w-xl border-l-2 border-brand pl-4 text-sm leading-relaxed text-muted">{{ localNote }}</p>
+          <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+            <UiButton :to="contactLink('product-regelen', product.slug)" size="lg" arrow>Laat AITJE het regelen</UiButton>
+            <UiButton :to="contactLink('demo', product.slug)" variant="secondary" size="lg">Vraag een demo aan</UiButton>
+          </div>
+          <p class="mt-5 text-sm text-muted">
+            Vanaf <strong class="text-ink">€{{ product.price }}</strong> per omgeving, excl. btw ·
+            <a href="#prijs" class="underline decoration-brand underline-offset-4 hover:text-ink">Bekijk de prijsopbouw</a>
+          </p>
+        </div>
+        <div class="relative">
+          <div class="absolute inset-8 -z-10 rounded-full bg-brand/30 blur-3xl" />
+          <img
+            :src="product.image"
+            :alt="`Verpakking van ${product.name}`"
+            class="mx-auto w-full max-w-md drop-shadow-[0_40px_50px_rgb(0_0_0/0.22)]"
+            fetchpriority="high"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- In het kort + features -->
+    <section class="py-16 md:py-24">
+      <div class="container-page grid gap-12 lg:grid-cols-[1fr_1.3fr]">
+        <div>
+          <p class="eyebrow text-brand-ink">In het kort</p>
+          <div class="mt-5 space-y-5 text-lg leading-relaxed text-ink/85">
+            <RichText v-for="(p, i) in product.intro" :key="i" :text="p" tag="p" />
+          </div>
+        </div>
+        <div class="grid gap-4 sm:grid-cols-2">
+          <div v-for="feature in product.features" :key="feature.title" class="rounded-card border border-line bg-surface p-6">
+            <span class="grid size-10 place-items-center rounded-xl bg-brand"><AppIcon :name="feature.icon" :size="19" /></span>
+            <h3 class="mt-4 font-heading font-semibold">{{ feature.title }}</h3>
+            <p class="mt-1.5 text-sm leading-relaxed text-muted">{{ feature.text }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problemen -->
+    <section class="px-3 md:px-5">
+      <div class="on-dark rounded-[2.25rem] bg-ink py-20 text-white md:py-24">
+        <div class="container-page">
+          <SectionHeading eyebrow="Waarom" :title="`Wat ${product.name} voor je oplost.`" dark />
+          <div class="mt-12 grid gap-4 md:grid-cols-2">
+            <div v-for="row in product.problems" :key="row.problem" class="rounded-card border border-line-dark bg-charcoal p-6">
+              <p class="flex gap-3 text-muted-dark">
+                <AppIcon name="x" :size="18" class="mt-0.5 shrink-0 text-white/40" /> {{ row.problem }}
+              </p>
+              <p class="mt-4 flex gap-3 font-medium">
+                <AppIcon name="check" :size="18" class="mt-0.5 shrink-0 text-brand" /> {{ row.solution }}
+              </p>
+            </div>
+          </div>
+          <div class="mt-14 grid gap-8 lg:grid-cols-[1fr_2fr]">
+            <h3 class="font-heading text-2xl font-bold">Voor wie</h3>
+            <CheckList :items="product.forWho" dark />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section v-if="product.gallery?.length" class="py-20 md:py-24">
+      <div class="container-page">
+        <SectionHeading eyebrow="Zo ziet het eruit" :title="`${product.shortName} in beeld.`" />
+        <div class="mt-10 grid gap-6 md:grid-cols-3">
+          <figure v-for="shot in product.gallery" :key="shot.src" class="group">
+            <div class="overflow-hidden rounded-card border border-line bg-surface">
+              <img :src="shot.src" :alt="shot.alt" loading="lazy" class="aspect-[16/10] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]" />
+            </div>
+            <figcaption class="mt-3 text-sm text-muted">{{ shot.caption }}</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Prijs -->
+    <section id="prijs" class="scroll-mt-24 bg-sand py-20 md:py-24">
+      <div class="container-page">
+        <SectionHeading
+          eyebrow="Prijs"
+          title="Eerlijk opgebouwd. Jij ziet wat je betaalt."
+          intro="Het product, de hardware en de installatie staan apart. Zo weet je precies waar je geld naartoe gaat."
+        />
+        <div class="mt-12 grid gap-6 lg:grid-cols-[1.35fr_1fr]">
+          <!-- Laat AITJE het regelen -->
+          <div class="rounded-panel border-2 border-ink bg-surface p-7 md:p-9">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <h3 class="font-heading text-2xl font-bold">AITJE regelt het</h3>
+              <UiBadge tone="brand">Aanbevolen</UiBadge>
+            </div>
+            <p class="mt-2 text-muted">AITJE adviseert de hardware, installeert en levert gebruiksklaar op.</p>
+            <dl class="mt-8 divide-y divide-line border-y border-line">
+              <div class="flex items-baseline justify-between gap-4 py-4">
+                <dt>{{ product.name }}</dt>
+                <dd class="text-right font-heading text-xl font-bold">€{{ product.price }}</dd>
+              </div>
+              <div class="flex items-baseline justify-between gap-4 py-4">
+                <dt>Installatie en inrichting</dt>
+                <dd class="text-right font-semibold">vanaf €{{ installPrice }}</dd>
+              </div>
+              <div class="flex items-baseline justify-between gap-4 py-4">
+                <dt>Hardware of server</dt>
+                <dd class="text-right text-sm text-muted">Afhankelijk van capaciteit, in je offerte</dd>
+              </div>
+              <div class="flex items-baseline justify-between gap-4 py-4">
+                <dt>
+                  <NuxtLink to="/diensten/ondersteuning-en-onderhoud" class="underline decoration-brand underline-offset-4">Ondersteuning en onderhoud</NuxtLink>
+                </dt>
+                <dd class="text-right text-sm text-muted">Optioneel, vanaf €49,99 p/m</dd>
+              </div>
+            </dl>
+            <p class="mt-5 text-xs text-muted">Alle prijzen exclusief btw. Geen totaalprijs zolang hardware en scope nog niet bekend zijn.</p>
+            <UiButton :to="contactLink('product-regelen', product.slug)" size="lg" arrow class="mt-7 w-full sm:w-auto">Laat AITJE het regelen</UiButton>
+          </div>
+
+          <!-- Zelfinstallatie -->
+          <div class="flex flex-col rounded-panel border border-line bg-surface p-7 md:p-9">
+            <h3 class="font-heading text-2xl font-bold">Zelf installeren</h3>
+            <p class="mt-2 text-muted">Heb je geschikte hardware? Dan kun je {{ product.shortName }} zelf installeren.</p>
+            <p class="mt-6 font-heading text-4xl font-bold">€{{ product.price }}</p>
+            <p class="text-sm text-muted">per omgeving, excl. btw</p>
+            <div class="mt-6">
+              <CheckList :items="product.selfInstall ?? []" />
+            </div>
+            <UiButton :to="contactLink('zelfinstallatie', product.slug)" variant="dark" arrow class="mt-auto w-full sm:w-auto">
+              Bestel voor zelfinstallatie
+            </UiButton>
+          </div>
+        </div>
+
+        <div class="mt-6 grid gap-6 md:grid-cols-2">
+          <div class="rounded-card border border-line bg-surface p-6">
+            <h3 class="font-heading font-semibold">Wat erbij zit</h3>
+            <CheckList :items="product.included ?? []" class="mt-4" />
+          </div>
+          <div class="rounded-card border border-line bg-surface p-6">
+            <h3 class="font-heading font-semibold">Niet automatisch inbegrepen</h3>
+            <CheckList :items="product.notIncluded ?? []" negative class="mt-4" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <CasesSection :slugs="product.caseSlugs ?? []" :title="`${product.shortName} in de praktijk.`" />
+
+    <!-- Technische details + FAQ -->
+    <section class="py-20 md:py-24" :class="product.caseSlugs?.length ? 'border-t border-line' : ''">
+      <div class="container-page grid gap-16 lg:grid-cols-2">
+        <div>
+          <SectionHeading eyebrow="Technische details" title="Voor wie het precies wil weten." />
+          <div class="mt-8 divide-y divide-line border-y border-line">
+            <details v-for="item in product.technical" :key="item.title" class="group">
+              <summary class="flex cursor-pointer list-none items-center justify-between py-5 font-heading font-semibold">
+                {{ item.title }}
+                <AppIcon name="chevron-down" :size="18" class="transition-transform group-open:rotate-180" />
+              </summary>
+              <p class="pb-5 leading-relaxed text-muted">{{ item.text }}</p>
+            </details>
+          </div>
+        </div>
+        <div>
+          <SectionHeading eyebrow="Veelgestelde vragen" :title="`Vragen over ${product.shortName}.`" />
+          <div class="mt-8"><FaqList :items="product.faq ?? []" /></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bredere mogelijkheden -->
+    <section class="pb-20">
+      <div class="container-page">
+        <div class="grid items-center gap-8 overflow-hidden rounded-panel border border-line bg-surface md:grid-cols-[1fr_1.2fr]">
+          <img src="/img/ai-op-maat.webp" alt="Een papegaai als kleermaker die een vogel een pak aanmeet" loading="lazy" class="aspect-[4/3] size-full object-cover" />
+          <div class="p-8 md:p-10">
+            <p class="eyebrow text-brand-ink">Bredere mogelijkheden</p>
+            <h2 class="mt-3 font-heading text-3xl font-bold">Iets vergelijkbaars nodig, maar net anders?</h2>
+            <p class="mt-4 text-muted">
+              {{ product.name }} laat zien wat AITJE kan bouwen. Andere workflows, koppelingen of hardware? Dat kan met AITJE Custom — AI op maat.
+            </p>
+            <UiButton to="/diensten/aitje-custom" variant="secondary" arrow class="mt-6">Bekijk AITJE Custom</UiButton>
+          </div>
+        </div>
+
+        <div v-if="others.length" class="mt-16">
+          <h2 class="font-heading text-2xl font-bold">Andere producten</h2>
+          <div class="mt-6 grid gap-6 md:grid-cols-2">
+            <ProductCard v-for="other in others" :key="other.slug" :product="other" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <CtaBanner
+      :title="`${product.name} voor jouw werk?`"
+      text="Laat AITJE de hardware kiezen en alles gebruiksklaar opleveren, of zie het eerst in een persoonlijke demo."
+      :primary="{ label: 'Laat AITJE het regelen', to: contactLink('product-regelen', product.slug) }"
+      :secondary="{ label: 'Vraag een demo aan', to: contactLink('demo', product.slug) }"
+    />
+  </div>
+
+  <!-- Gepland product -->
+  <div v-else>
+    <PageHero eyebrow="In ontwikkeling" :title="product.name" :subline="product.tagline">
+      <template #before>
+        <div class="mb-6 flex flex-wrap items-center gap-3">
+          <UiBadge tone="muted" dot>In ontwikkeling</UiBadge>
+          <NuxtLink to="/producten" class="text-sm text-muted hover:text-ink">← Alle producten</NuxtLink>
+        </div>
+      </template>
+      <div class="mt-8 max-w-2xl space-y-4 text-lg leading-relaxed text-ink/80">
+        <p v-for="(p, i) in product.intro" :key="i">{{ p }}</p>
+      </div>
+      <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+        <UiButton :to="contactLink('interesse', product.slug)" size="lg" arrow>Laat je interesse weten</UiButton>
+        <UiButton to="/diensten/aitje-custom" variant="secondary" size="lg">Nu al iets vergelijkbaars nodig?</UiButton>
+      </div>
+    </PageHero>
+
+    <section class="pb-24">
+      <div class="container-page grid gap-6 md:grid-cols-2">
+        <div class="rounded-panel border border-line bg-surface p-8">
+          <h2 class="font-heading text-xl font-bold">Voor wie</h2>
+          <CheckList :items="product.forWho" class="mt-5" />
+        </div>
+        <div class="rounded-panel border border-line bg-surface p-8">
+          <h2 class="font-heading text-xl font-bold">Wat het gaat oplossen</h2>
+          <ul class="mt-5 space-y-4">
+            <li v-for="row in product.problems" :key="row.problem">
+              <p class="text-muted">{{ row.problem }}</p>
+              <p class="mt-1 flex gap-2 font-medium"><AppIcon name="check" :size="18" class="mt-0.5 shrink-0 text-brand-ink" /> {{ row.solution }}</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <p class="container-page mt-8 text-sm text-muted">
+        {{ product.name }} is nog niet beschikbaar. Prijs en exacte functionaliteit worden bekendgemaakt zodra het product klaar is.
+      </p>
+    </section>
+
+    <CtaBanner
+      :title="`Interesse in ${product.name}?`"
+      text="Laat het weten. Je hoort het als eerste zodra er meer bekend is, zonder verplichtingen."
+      :primary="{ label: 'Laat je interesse weten', to: contactLink('interesse', product.slug) }"
+      :secondary="{ label: 'Bekijk beschikbare producten', to: '/producten' }"
+    />
+  </div>
+</template>

@@ -1,396 +1,87 @@
+<script setup lang="ts">
+// Product overview (redesign/pages/products.md, besluiten 09, 28, 51).
+import { availableProducts, plannedProducts, installPrice } from "@/content/products";
+import { contactLink } from "@/content/site";
+
+usePageSeo({
+  title: "AI-producten",
+  description:
+    "De AI-producten van AITJE: AITJE Assistent en AITJE Coder, gebruiksklaar op je eigen hardware of server. Zelf installeren of door AITJE laten opleveren.",
+  breadcrumbs: [{ name: "Producten", path: "/producten" }],
+});
+
+const priceParts = [
+  { title: "Het AI-product", text: "Eén aankoop per omgeving of device. Geen licentie per gebruiker.", icon: "box" },
+  { title: "Hardware of server", text: "Gebruik geschikte eigen hardware, koop op advies of laat AITJE leveren. Wat je betaalt, is van jou.", icon: "server" },
+  { title: "Installatie en inrichting", text: `Zelf doen, of AITJE levert gebruiksklaar op vanaf €${installPrice}.`, icon: "wrench" },
+];
+</script>
+
 <template>
-  <div class="bg-[#f5f5f5] text-gray-900">
-    <SiteNavigation />
-
-    <main class="px-6 pb-20 pt-32">
-      <section
-        class="mx-auto w-full px-4 py-12 text-center sm:max-w-5xl sm:px-8"
-      >
-        <p class="text-sm font-semibold uppercase tracking-[0.5em] text-[#facc15]">
-          Producten
-        </p>
-        <h1 class="mt-4 text-5xl font-black text-gray-900">
-          AI op eigen hardware, zonder onnodige afhankelijkheid
-        </h1>
-        <p class="mt-6 text-lg text-gray-600">
-          Producten voor organisaties die AI praktisch willen gebruiken met meer
-          grip op data, stroomverbruik, API-kosten, privacy en beschikbaarheid.
-        </p>
-      </section>
-
-      <section class="mx-auto mt-8 max-w-6xl">
-        <div class="grid gap-6 md:grid-cols-3">
-          <article
-            v-for="value in valueProps"
-            :key="value.title"
-            class="rounded-[2rem] border border-gray-200 bg-white p-6 shadow-sm"
-          >
-            <div
-              class="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#212121] text-[#facc15]"
-            >
-              <component :is="value.icon" class="h-6 w-6" />
-            </div>
-            <p class="mt-5 text-xs font-semibold uppercase tracking-[0.35em] text-[#facc15]">
-              {{ value.badge }}
-            </p>
-            <h2 class="mt-2 text-2xl font-black text-gray-900">{{ value.title }}</h2>
-            <p class="mt-3 text-sm leading-7 text-gray-600">{{ value.description }}</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="mx-auto mt-12 max-w-6xl">
-        <div class="mb-8 max-w-3xl">
-          <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
-            Overzicht
-          </p>
-          <h2 class="mt-3 text-4xl font-black text-gray-900">
-            Onze producten
-          </h2>
-          <p class="mt-4 text-base leading-8 text-gray-600">
-            Hier vind je de AI-producten van AITJE: lokaal inzetbaar, gericht op
-            minder externe API-calls en gemaakt voor organisaties die controle
-            willen houden over interne kennis, kosten en toegang.
-            <a
-              href="/kenniscentrum/wat-is-local-ai"
-              class="knowledge-link"
-              data-knowledge-link="true"
-            >
-              Lees meer over lokale AI
-            </a>
-            .
-          </p>
-        </div>
-
-        <div class="space-y-8">
-          <article
-            v-for="product in productBanners"
-            :key="product.slug"
-            class="group overflow-hidden rounded-[2.5rem] border shadow-sm transition hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(0,0,0,0.18)]"
-            :class="product.cardClass"
-            :role="product.isUnavailable ? 'button' : undefined"
-            :tabindex="product.isUnavailable ? 0 : undefined"
-            @click="product.isUnavailable ? openWaitlistModal(product) : undefined"
-            @keydown.enter.prevent="product.isUnavailable ? openWaitlistModal(product) : undefined"
-            @keydown.space.prevent="product.isUnavailable ? openWaitlistModal(product) : undefined"
-          >
-            <div class="grid gap-0 md:grid-cols-[0.72fr_1.28fr]">
-              <div
-                class="relative border-b border-gray-200 md:border-b-0 md:border-r"
-                :class="product.imagePanelClass"
-              >
-                <div
-                  v-if="product.image"
-                  class="absolute inset-0"
-                  :class="product.isUnavailable
-                    ? 'bg-gradient-to-br from-white/8 via-[#1f1f1f]/18 to-[#090909]/52'
-                    : 'bg-gradient-to-br from-white/10 via-transparent to-black/30'"
-                />
-                <img
-                  v-if="product.image"
-                  :src="product.image"
-                  :alt="product.title"
-                  class="relative h-full min-h-[20rem] w-full object-cover transition"
-                  :class="product.isUnavailable ? 'scale-[1.02] blur-sm saturate-[0.75] brightness-[0.72]' : ''"
-                  loading="lazy"
-                />
-                <div
-                  v-else
-                  class="relative flex min-h-[20rem] h-full w-full flex-col justify-center bg-[#050505] p-8 text-white"
-                >
-                  <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
-                    Nog geen afbeelding beschikbaar
-                  </p>
-                  <p class="mt-4 max-w-sm text-3xl font-black leading-tight">
-                    {{ product.title }}
-                  </p>
-                  <p class="mt-4 max-w-sm text-sm leading-7 text-white/62">
-                    Dit product is nog in ontwikkeling.
-                  </p>
-                </div>
-              </div>
-
-              <div class="flex flex-col justify-between p-8 md:p-10">
-                <div>
-                  <div class="flex flex-wrap items-center gap-3">
-                    <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
-                      {{ product.kicker }}
-                    </p>
-                    <span
-                      class="rounded-full border border-[#facc15] bg-[#facc15] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.28em] text-[#212121]"
-                    >
-                      {{ product.displayStatus }}
-                    </span>
-                  </div>
-
-                    <h3 class="mt-4 text-3xl font-black text-[#facc15] md:text-[2.6rem] md:leading-[1.05]">
-                      {{ product.title }}
-                    </h3>
-                    <p class="mt-4 max-w-2xl text-base leading-8 text-white/78">
-                      {{ product.summary }}
-                    </p>
-                    <p class="mt-4 max-w-2xl text-base leading-8 text-white/70">
-                      {{ product.extra }}
-                    </p>
-
-                </div>
-
-                <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                  <div class="flex items-center gap-3">
-                    <div class="h-1.5 w-10 rounded-full bg-[#facc15]" />
-                    <p class="text-sm font-medium text-white/62">
-                      {{ product.audience }}
-                    </p>
-                  </div>
-
-                  <button
-                    v-if="product.isUnavailable"
-                    type="button"
-                    class="inline-flex min-w-[12.5rem] items-center justify-center rounded-full bg-[#facc15] px-9 py-4 text-sm font-semibold whitespace-nowrap text-[#212121] transition hover:bg-white hover:text-black"
-                    @click.stop="openWaitlistModal(product)"
-                  >
-                    {{ product.ctaLabel }}
-                  </button>
-
-                  <NuxtLink
-                    v-else
-                    :to="product.link"
-                    class="inline-flex min-w-[9.5rem] items-center justify-center rounded-full bg-[#facc15] px-7 py-3 text-sm font-semibold whitespace-nowrap text-[#212121] transition hover:bg-white hover:text-black"
-                  >
-                    {{ product.ctaLabel }}
-                  </NuxtLink>
-                </div>
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
-    </main>
-
-    <div
-      v-if="waitlistModalOpen"
-      class="fixed inset-0 z-[70] flex items-center justify-center bg-black/55 px-4"
-      @click="closeWaitlistModal"
+  <div>
+    <PageHero
+      eyebrow="AI-producten"
+      title="Je eigen AI-omgeving, klaar voor jouw werk."
+      subline="Bij een AITJE-product is het uitzoekwerk al gedaan. Modellen, software en configuratie zijn op elkaar afgestemd, zodat je begint met een werkende basis."
     >
-      <div
-        class="w-full max-w-xl rounded-[2rem] border border-[#facc15] bg-white p-7 shadow-[0_30px_90px_rgba(0,0,0,0.25)] sm:p-8"
-        @click.stop
-      >
-        <div class="flex items-start justify-between gap-4">
-          <div>
-            <p class="text-xs font-semibold uppercase tracking-[0.35em] text-[#facc15]">
-              Momenteel in ontwikkeling
-            </p>
-            <h2 class="mt-3 text-3xl font-black text-gray-900">
-              {{ selectedWaitlistProduct?.title }}
-            </h2>
-            <p class="mt-4 text-base leading-8 text-gray-600">
-              Dit product is nog niet live. Vul je e-mailadres in, dan zetten we
-              je op de mailinglist en updaten we je zodra dit product beschikbaar is.
-            </p>
-          </div>
-
-          <button
-            type="button"
-            class="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-500 transition hover:border-gray-300 hover:text-gray-900"
-            aria-label="Sluiten"
-            @click="closeWaitlistModal"
-          >
-            <span class="absolute left-1/2 top-1/2 text-2xl leading-none -translate-x-1/2 -translate-y-1/2">×</span>
-          </button>
-        </div>
-
-        <form class="mt-8 space-y-4" @submit.prevent="submitWaitlist">
-          <div>
-            <label class="text-sm font-semibold text-gray-900" for="waitlist-email">
-              E-mailadres
-            </label>
-            <input
-              id="waitlist-email"
-              v-model="waitlistEmail"
-              type="email"
-              inputmode="email"
-              autocomplete="email"
-              placeholder="je@email.nl"
-              class="mt-2 w-full rounded-2xl border border-gray-200 bg-[#faf7ea] px-4 py-3 text-base text-gray-900 outline-none transition focus:border-[#facc15]"
-            />
-          </div>
-
-          <p v-if="waitlistError" class="text-sm font-medium text-red-600">
-            {{ waitlistError }}
-          </p>
-          <p v-if="waitlistSuccess" class="text-sm font-medium text-green-700">
-            {{ waitlistSuccess }}
-          </p>
-
-          <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <p class="text-sm text-gray-500">
-              {{ selectedWaitlistProduct?.title }}
-            </p>
-
-            <button
-              type="submit"
-              :disabled="waitlistSubmitting"
-              class="inline-flex min-w-[12rem] items-center justify-center rounded-full bg-[#facc15] px-7 py-3 text-sm font-semibold text-[#212121] transition hover:bg-[#212121] hover:text-[#facc15] disabled:cursor-not-allowed disabled:opacity-60"
-            >
-              {{ waitlistSubmitting ? "Opslaan..." : "Schrijf me in" }}
-            </button>
-          </div>
-        </form>
+      <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+        <UiButton :to="contactLink('demo')" size="lg" arrow>Vraag een demo aan</UiButton>
+        <UiButton to="/contact" variant="secondary" size="lg">Bespreek je AI-vraag</UiButton>
       </div>
-    </div>
+    </PageHero>
 
-    <BottomCta />
-    <SiteFooter />
+    <section class="pb-20">
+      <div class="container-page">
+        <div class="mb-8 flex items-center gap-3">
+          <UiBadge tone="brand" dot>Beschikbaar</UiBadge>
+          <span class="text-sm text-muted">Werkend en te bestellen</span>
+        </div>
+        <div class="grid gap-6 md:grid-cols-2">
+          <ProductCard v-for="product in availableProducts" :key="product.slug" :product="product" />
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-sand py-20">
+      <div class="container-page grid gap-12 lg:grid-cols-[1fr_1.4fr]">
+        <SectionHeading
+          eyebrow="Hoe je een product krijgt"
+          title="Drie onderdelen. Jij kiest wat je zelf doet."
+          intro="Je ziet altijd apart wat het product, de hardware en de installatie kosten. Ondersteuning is optioneel."
+        />
+        <div class="grid gap-4 sm:grid-cols-3">
+          <div v-for="(part, i) in priceParts" :key="part.title" class="rounded-card border border-line bg-surface p-6">
+            <div class="flex items-center justify-between">
+              <span class="grid size-10 place-items-center rounded-xl bg-brand"><AppIcon :name="part.icon" :size="19" /></span>
+              <span class="font-mono text-xs text-muted">0{{ i + 1 }}</span>
+            </div>
+            <h3 class="mt-5 font-heading font-semibold">{{ part.title }}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-muted">{{ part.text }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20">
+      <div class="container-page">
+        <SectionHeading
+          eyebrow="In ontwikkeling"
+          title="Wat AITJE hierna bouwt."
+          intro="Deze producten zijn nog niet beschikbaar. Laat je interesse weten, dan hoor je het als eerste. Iets vergelijkbaars nu al nodig? Dat kan misschien via [AITJE Custom](/diensten/aitje-custom)."
+        />
+        <div class="mt-10 grid gap-3 md:grid-cols-2 lg:grid-cols-3">
+          <ProductCard v-for="product in plannedProducts" :key="product.slug" :product="product" />
+        </div>
+      </div>
+    </section>
+
+    <CasesSection :slugs="['chatgpt-in-je-eigen-organisatie', 'coder-game-in-24-uur']" title="Producten in de praktijk." />
+
+    <CtaBanner
+      title="Niet zeker welk product past?"
+      text="In een persoonlijke online demo laat AITJE zien wat de producten kunnen en bespreek je wat bij jouw situatie past."
+      :primary="{ label: 'Vraag een demo aan', to: contactLink('demo') }"
+      :secondary="{ label: 'Bekijk AITJE Custom', to: '/diensten/aitje-custom' }"
+    />
   </div>
 </template>
-
-<script setup lang="ts">
-import { ref } from "vue";
-import { Cpu, Layers3, Shield } from "lucide-vue-next";
-
-import { productCatalogV2, productStatusLabel } from "@/data/productCatalogV2";
-
-const products = productCatalogV2.nl.products;
-const statusLabels = productStatusLabel.nl;
-
-const valueProps = [
-  {
-    badge: "Controle",
-    title: "Minder afhankelijk",
-    description:
-      "Werk met AI op eigen hardware en beperk afhankelijkheid van externe platformen, API-kosten en storingen.",
-    icon: Layers3,
-  },
-  {
-    badge: "Kennis",
-    title: "Eigen data dichtbij",
-    description:
-      "Gebruik documenten, beleid en interne kennis lokaal, zonder alles standaard naar externe AI-diensten te sturen.",
-    icon: Shield,
-  },
-  {
-    badge: "Uitbreidbaar",
-    title: "Van basis naar maatwerk",
-    description:
-      "Begin met een duidelijke basis en breid uit wanneer je workflow, hardware of toepassing specifieker wordt.",
-    icon: Cpu,
-  },
-];
-
-const productBannerImages: Record<string, string> = {
-  "aitje-assistent": "/images/assistant/assistant-devices-comparison.png",
-  "aitje-custom": "/images/aitje-custom.png",
-};
-
-const productBannerKickers: Record<string, string> = {
-  "aitje-assistent": "Kernproduct",
-  "aitje-custom": "Custom Route",
-  "aitje-coder": "Ontwikkelen met AI",
-};
-
-const productBannerExtras: Record<string, string> = {
-  "aitje-assistent":
-    "Gebruik AITJE Assistent als lokaal AI-station voor interne vragen, documentwerk en kennisbankgebruik binnen je eigen omgeving. AITJE OS, Client en lokale Kennisbank vormen samen de basis, zonder per-token meter voor normaal lokaal gebruik.",
-  "aitje-custom":
-    "Kies Custom wanneer je een specifieke workflow, koppeling, hardwarekeuze of lokale AI-toepassing nodig hebt die niet standaard uit de doos komt.",
-  "aitje-coder":
-    "AITJE Coder richt zich op coding agents die beschikbaar blijven op eigen hardware en kunnen werken met de context die jij toestaat.",
-};
-
-const productBannerPanelClasses: Record<string, string> = {
-  "aitje-assistent": "bg-[#f6f0dc]",
-  "aitje-custom": "bg-[#f5ede2]",
-  "aitje-coder": "bg-[#050505]",
-};
-
-const waitlistModalOpen = ref(false);
-const waitlistEmail = ref("");
-const waitlistError = ref("");
-const waitlistSuccess = ref("");
-const waitlistSubmitting = ref(false);
-const selectedWaitlistProduct = ref<null | {
-  slug: string;
-  title: string;
-}>(null);
-
-const productBanners = products.map((product) => ({
-  slug: product.slug,
-  title: product.title,
-  summary: product.summary,
-  audience: product.audience,
-  statusLabel: statusLabels[product.status],
-  displayStatus: product.slug === "aitje-custom" ? "Op aanvraag" : statusLabels[product.status],
-  kicker: productBannerKickers[product.slug] ?? "Product",
-  extra: productBannerExtras[product.slug] ?? product.intro,
-  ctaLabel: product.cta,
-  image: productBannerImages[product.slug] ?? "",
-  imagePanelClass: productBannerPanelClasses[product.slug] ?? "bg-[#faf7ea]",
-  cardClass: product.status !== "available"
-    ? "border-white/12 bg-[#2a2a2a] text-white"
-    : "border-[#facc15]/55 bg-[#050505] text-white",
-  isUnavailable: false,
-  link: `/producten/${product.slug}`,
-}));
-
-const openWaitlistModal = (product: { slug: string; title: string }) => {
-  selectedWaitlistProduct.value = {
-    slug: product.slug,
-    title: product.title,
-  };
-  waitlistModalOpen.value = true;
-  waitlistError.value = "";
-  waitlistSuccess.value = "";
-};
-
-const closeWaitlistModal = () => {
-  waitlistModalOpen.value = false;
-  waitlistError.value = "";
-  waitlistSuccess.value = "";
-};
-
-const submitWaitlist = async () => {
-  const email = waitlistEmail.value.trim();
-  const selectedProduct = selectedWaitlistProduct.value;
-
-  waitlistError.value = "";
-  waitlistSuccess.value = "";
-
-  if (!selectedProduct) {
-    waitlistError.value = "Er is geen product geselecteerd.";
-    return;
-  }
-
-  if (!email) {
-    waitlistError.value = "Vul een e-mailadres in.";
-    return;
-  }
-
-  waitlistSubmitting.value = true;
-
-  try {
-    const response = await $fetch<{ ok: boolean; alreadyExists?: boolean }>("/api/waitlist", {
-      method: "POST",
-      body: {
-        email,
-        locale: "nl",
-        productSlug: selectedProduct.slug,
-        productTitle: selectedProduct.title,
-      },
-    });
-
-    waitlistSuccess.value = response.alreadyExists
-      ? "Je stond al op de mailinglist. We houden je op de hoogte."
-      : "Je staat op de mailinglist. We laten het weten zodra dit product live is.";
-    waitlistEmail.value = "";
-  } catch (error) {
-    waitlistError.value =
-      error instanceof Error && error.message
-        ? error.message
-        : "Opslaan mislukt. Probeer het later opnieuw.";
-  } finally {
-    waitlistSubmitting.value = false;
-  }
-};
-
-</script>

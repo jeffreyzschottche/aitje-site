@@ -1,340 +1,148 @@
+<script setup lang="ts">
+// About page (redesign/pages/about.md, content/team.md, besluit 51).
+import { founders, foundersIntro, network, networkIntro } from "@/content/team";
+
+usePageSeo({
+  title: "Over AITJE",
+  description:
+    "AITJE is een Nederlands AI-productbedrijf en specialist. Eigen producten, advies en maatwerk, en mensen die bereikbaar blijven. Maak kennis met de oprichters en het netwerk.",
+  image: "/img/workplace.webp",
+  breadcrumbs: [{ name: "Over AITJE", path: "/over-aitje" }],
+});
+
+const steps = [
+  { title: "Gesprek of demo", text: "Je vertelt wat je wilt bereiken. AITJE laat zien wat er kan." },
+  { title: "AI-scan of concrete vraag", text: "Breed onderzoeken, of direct een voorstel voor je vraag." },
+  { title: "Oplevering", text: "Een product, een ingerichte omgeving of AI op maat, getest en uitgelegd." },
+  { title: "Ondersteuning", text: "Als je wilt: hulp, updates en meedenken over de volgende stap." },
+];
+
+const strengths = [
+  { title: "Eigen producten én expertise", text: "Producten waarin het uitzoekwerk al is gedaan, en de kennis om specifieke oplossingen te bouwen.", icon: "box" },
+  { title: "Je eigen AI-omgeving", text: "AI op eigen hardware of een eigen server, waar dat past. Externe modellen alleen waar ze echt meerwaarde hebben.", icon: "server" },
+  { title: "Bereikbaar en meedenkend", text: "Een telefoonnummer en mensen die meedenken. Ook na de oplevering.", icon: "phone" },
+  { title: "Onderbouwde keuzes", text: "AITJE rekent door welk model bij welk werk past en wat dat kost. Niet elke taak heeft het duurste model nodig.", icon: "gauge" },
+];
+</script>
+
 <template>
-  <div class="bg-[#f5f5f5] text-gray-900">
-    <SiteNavigation />
+  <div>
+    <PageHero
+      eyebrow="Over AITJE"
+      title="AI-specialisme dat je verder helpt."
+      subline="AITJE is een Nederlands AI-productbedrijf en specialist. AITJE bouwt eigen producten, levert advies en maatwerk, en helpt je AI praktisch toepassen, op je eigen hardware of server waar dat past."
+      image="/img/workplace.webp"
+      image-alt="Een werkplaats met AITJE-hardware, schermen en een robotarm"
+    />
 
-    <main class="px-6 pb-20 pt-32">
-      <section
-        class="mx-auto w-full px-4 py-12 text-center sm:max-w-5xl sm:px-8"
-      >
-        <p
-          class="text-sm font-semibold uppercase tracking-[0.5em] text-[#facc15]"
-        >
-          Over AITJE
+    <!-- Rol -->
+    <section class="px-3 md:px-5">
+      <div class="on-dark rounded-[2.25rem] bg-ink py-20 text-white md:py-28">
+        <div class="container-page max-w-4xl text-center">
+          <p class="eyebrow text-brand">De rol van AITJE</p>
+          <p class="mt-6 font-heading text-[2rem] leading-[1.15] font-bold md:text-[3rem]">
+            Voor computers was er de systeembeheerder. Voor internet het webbureau.
+            <span class="text-brand">Voor AI is er AITJE.</span>
+          </p>
+          <p class="mx-auto mt-8 max-w-2xl text-lg text-muted-dark">
+            AITJE onderzoekt wat past, bouwt wat nodig is, installeert het en blijft bereikbaar. Van de eerste vraag tot het onderhoud jaren later.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Oprichters -->
+    <section class="py-20 md:py-28">
+      <div class="container-page grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:items-center">
+        <div class="relative">
+          <!-- Placeholder for the founders' photo (redesign/content/team.md). -->
+          <div class="relative grid aspect-[4/3] place-items-center overflow-hidden rounded-panel border border-dashed border-line bg-gradient-to-br from-brand/25 via-sand to-page">
+            <div class="text-center">
+              <div class="mx-auto flex -space-x-4">
+                <span v-for="f in founders" :key="f.name" class="grid size-20 place-items-center rounded-full border-4 border-page bg-ink font-heading text-2xl font-bold text-brand">
+                  {{ f.name.charAt(0) }}
+                </span>
+              </div>
+              <p class="mt-4 font-mono text-xs text-muted">Foto van de oprichters volgt</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <SectionHeading eyebrow="De oprichters" title="De mensen achter AITJE." :intro="foundersIntro" />
+          <div class="mt-10 space-y-6">
+            <div v-for="f in founders" :key="f.name" class="rounded-card border border-line bg-surface p-6">
+              <h3 class="font-heading text-xl font-bold">{{ f.name }}</h3>
+              <p class="text-sm font-medium text-brand-ink">{{ f.role }}</p>
+              <p class="mt-3 leading-relaxed text-muted">{{ f.bio }}</p>
+              <p class="mt-4 border-l-2 border-brand pl-4 text-sm italic">“{{ f.quote }}”</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Netwerk -->
+    <section class="bg-sand py-20 md:py-24">
+      <div class="container-page">
+        <SectionHeading eyebrow="Het netwerk" title="Meer dan twee mensen." :intro="networkIntro" />
+        <div class="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+          <div v-for="person in network" :key="person.name" class="rounded-card border border-line bg-surface p-5 text-center">
+            <!-- Placeholder until the doodle illustrations are made. -->
+            <span class="mx-auto grid size-20 place-items-center rounded-full border-2 border-ink bg-brand/40">
+              <AppIcon :name="person.icon" :size="30" :stroke-width="1.5" />
+            </span>
+            <p class="mt-4 font-heading font-semibold">{{ person.name }}</p>
+            <p class="mt-1 text-sm text-muted">{{ person.field }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Onderscheid -->
+    <section class="py-20 md:py-28">
+      <div class="container-page">
+        <SectionHeading eyebrow="Wat AITJE anders maakt" title="Geen hardwarewinkel. Geen adviesbureau dat alleen uren verkoopt." />
+        <div class="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          <div v-for="item in strengths" :key="item.title" class="rounded-card border border-line bg-surface p-6">
+            <span class="grid size-10 place-items-center rounded-xl bg-brand"><AppIcon :name="item.icon" :size="19" /></span>
+            <h3 class="mt-5 font-heading text-lg font-semibold">{{ item.title }}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-muted">{{ item.text }}</p>
+          </div>
+        </div>
+        <p class="mt-8 max-w-3xl text-muted">
+          En niet tegen cloud of externe modellen: de taak bepaalt de oplossing.
         </p>
-        <h1 class="mt-4 text-5xl font-black text-gray-900">
-          Praktische AI voor organisaties die grip willen houden
-        </h1>
-        <p class="mt-6 text-lg text-gray-600">
-          AITJE helpt organisaties AI slim, zelfstandig en toekomstbestendig in
-          te zetten. Met duidelijke producten, heldere keuzes en begeleiding die
-          aansluit op de praktijk.
-        </p>
-      </section>
+      </div>
+    </section>
 
-      <section class="mx-auto mt-4 max-w-5xl">
-        <div
-          class="overflow-hidden rounded-[2.5rem] border border-gray-200 bg-white shadow-sm"
-        >
-          <div v-if="youtubeEmbedUrl" class="aspect-video w-full">
-            <iframe
-              :src="youtubeEmbedUrl"
-              title="AITJE video"
-              class="h-full w-full"
-              allow="
-                accelerometer;
-                autoplay;
-                clipboard-write;
-                encrypted-media;
-                gyroscope;
-                picture-in-picture;
-                web-share;
-              "
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-            />
-          </div>
-          <div
-            v-else
-            class="flex aspect-video items-center justify-center px-8 text-center"
-          >
-            <div>
-              <p
-                class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
-              >
-                YouTube video
-              </p>
-              <p class="mt-3 text-base text-gray-600">
-                Stuur de YouTube-link even door, dan zet ik de embed hier direct
-                goed in.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+    <!-- Samenwerken -->
+    <section class="border-t border-line py-20">
+      <div class="container-page">
+        <SectionHeading eyebrow="Hoe samenwerken werkt" title="Van eerste gesprek tot blijvende hulp." />
+        <div class="mt-10"><StepList :steps="steps" /></div>
+      </div>
+    </section>
 
-      <section class="mx-auto mt-16 max-w-7xl">
-        <div class="text-center">
-          <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
-            Waarom AITJE
+    <!-- Visie -->
+    <section class="pb-20">
+      <div class="container-page grid items-center gap-10 overflow-hidden rounded-panel border border-line bg-surface lg:grid-cols-2">
+        <img src="/img/netherlands.webp" alt="Een fietser op een pad langs een Hollandse molen" loading="lazy" class="aspect-[4/3] size-full object-cover" />
+        <div class="p-8 md:p-12">
+          <p class="eyebrow text-brand-ink">Visie</p>
+          <p class="mt-4 font-heading text-2xl leading-snug font-bold md:text-3xl">
+            Afhankelijkheid mag een bewuste keuze zijn. Niet een onbedoeld gevolg.
           </p>
-          <h2 class="mt-3 text-4xl font-black text-gray-900">
-            Een nuchtere route tussen hype en stilstand
-          </h2>
-          <div class="mx-auto mt-6 max-w-4xl space-y-5 text-base leading-8 text-gray-700">
-            <p>
-              Voor veel organisaties is AI tegelijk interessant en verwarrend.
-              AITJE brengt daar structuur in: we leveren technologie, maar
-              helpen ook bij keuzes, uitleg, implementatie en doorontwikkeling.
-            </p>
-          </div>
-        </div>
-
-        <div class="mt-12 grid gap-6 lg:grid-cols-[0.9fr_1.15fr_0.9fr] lg:items-center">
-          <div class="grid gap-6">
-            <article
-              v-for="value in valueColumns.left"
-              :key="value.title"
-              class="rounded-[2.5rem] border border-gray-200 bg-white p-8 text-center shadow-sm"
-            >
-              <h3 class="text-2xl font-black text-gray-900">
-                {{ value.title }}
-              </h3>
-              <p class="mt-4 text-sm leading-7 text-gray-600">
-                {{ value.text }}
-              </p>
-            </article>
-          </div>
-
-          <article class="rounded-[2.75rem] border border-gray-200 bg-white p-8 text-center shadow-sm lg:p-10">
-            <img
-              src="/images/aitje-logo.png"
-              alt="AITJE logo"
-              class="mx-auto h-24 w-auto object-contain"
-            />
-            <p class="mt-8 text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
-              Onze visie
-            </p>
-            <h3 class="mt-3 text-4xl font-black text-gray-900">
-              AI moet voor jouw organisatie werken, niet andersom
-            </h3>
-            <div class="mt-5 space-y-4 text-base leading-8 text-gray-700">
-              <p>
-                AI is niet meer weg te denken. Agents, LLM&apos;s, beeldgeneratie en videogeneratie
-                gaan een steeds grotere rol spelen in hoe organisaties werken.
-              </p>
-              <p>
-                Onze visie is dat je die ontwikkeling beter dicht bij je eigen organisatie kunt voorbereiden,
-                zonder volledige afhankelijkheid van het buitenland, Big Tech of externe platformen.
-              </p>
-              <p>
-                Daarom kijken we niet alleen naar wat technisch mogelijk is, maar vooral naar wat
-                bruikbaar, verantwoord en werkbaar blijft. De nieuwste tool is niet automatisch de juiste tool.
-              </p>
-            </div>
-          </article>
-
-          <div class="grid gap-6">
-            <article
-              v-for="value in valueColumns.right"
-              :key="value.title"
-              class="rounded-[2.5rem] border border-gray-200 bg-white p-8 text-center shadow-sm"
-            >
-              <h3 class="text-2xl font-black text-gray-900">
-                {{ value.title }}
-              </h3>
-              <p class="mt-4 text-sm leading-7 text-gray-600">
-                {{ value.text }}
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section
-        class="mx-auto mt-16 max-w-7xl overflow-hidden rounded-[3rem] bg-[#facc15] text-black shadow-sm"
-      >
-        <div
-          class="grid gap-8 px-8 py-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:px-12 lg:py-12"
-        >
-          <div>
-            <p
-              class="text-xs font-semibold uppercase tracking-[0.4em] text-black/60"
-            >
-              Wat we doen
-            </p>
-            <h2 class="mt-3 text-4xl font-black">
-              Producten, diensten en maatwerk met één duidelijke lijn
-            </h2>
-            <div class="mt-5 max-w-2xl space-y-4 text-base leading-8 text-black/75">
-              <p>
-              AITJE bouwt een duidelijke productlijn, biedt begeleiding waar
-              dat nodig is en levert maatwerk wanneer standaard niet goed past.
-              Zo wordt AI concreet genoeg om er echt mee te werken.
-              </p>
-              <p>
-                We bouwen producten die concrete problemen en behoeftes binnen
-                je organisatie oplossen en zorgen dat AI lokaal, duidelijk en in
-                eigen beheer inzetbaar wordt. Daarnaast helpen we met
-                AI-strategie, consultancy, implementatie en keuzes rond
-                infrastructuur, processen en dagelijks gebruik.
-              </p>
-            </div>
-          </div>
-
-          <article
-            class="overflow-hidden rounded-[2.5rem] border border-black/10 bg-white/70 shadow-sm"
-          >
-            <img
-              src="/images/no-costs.png"
-              alt="AITJE productbeeld"
-              class="h-full min-h-[22rem] w-full object-cover"
-            />
-          </article>
-        </div>
-      </section>
-
-      <section class="mx-auto mt-16 max-w-7xl">
-        <div class="text-center">
-          <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
-            Aanpak
+          <p class="mt-4 leading-relaxed text-muted">
+            AITJE wil dat Nederlandse organisaties toegang houden tot AI in eigen beheer, zonder onbedoeld afhankelijk te worden van gesloten platformen.
           </p>
-          <h2 class="mt-3 text-4xl font-black text-gray-900">
-            AI die past bij je data, mensen en manier van werken
-          </h2>
-          <p class="mx-auto mt-5 max-w-4xl text-base leading-8 text-gray-700">
-            Veel organisaties zien kansen met AI, maar weten niet altijd waar
-            ze moeten beginnen of wat verstandig is om zelf te beheren. AITJE
-            maakt die stap kleiner: van eerste vraag en haalbare toepassing naar
-            een oplossing die past bij je data, mensen, infrastructuur en manier
-            van werken.
-          </p>
+          <UiButton to="/visie" variant="dark" arrow class="mt-7">Lees de visie van AITJE</UiButton>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="mx-auto mt-12 max-w-7xl">
-        <div class="rounded-[3rem] border border-gray-200 bg-white p-8 shadow-sm lg:p-10">
-          <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]">
-            Hoe we dat concreet maken
-          </p>
-          <div class="mt-8 grid gap-4 md:grid-cols-2">
-            <article
-              v-for="card in visionCards"
-              :key="card.title"
-              class="rounded-[1.75rem] border border-gray-100 bg-[#fafafa] p-6"
-            >
-              <h3 class="text-2xl font-black text-gray-900">
-                {{ card.title }}
-              </h3>
-              <p class="mt-3 text-sm leading-7 text-gray-600">
-                {{ card.text }}
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="mx-auto mt-16 max-w-7xl">
-        <div class="grid gap-6 lg:grid-cols-[0.92fr_1.08fr]">
-          <article
-            class="h-full rounded-[2.5rem] bg-[#212121] p-8 text-white shadow-sm lg:p-10"
-          >
-            <p
-              class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
-            >
-              Ons team
-            </p>
-            <h2 class="mt-3 text-4xl font-black">Maak kennis met ons team</h2>
-            <p class="mt-6 max-w-2xl text-base leading-8 text-gray-300">
-              AITJE is een klein team met een duidelijke overtuiging: AI moet
-              helder, verantwoord en praktisch inzetbaar zijn voor organisaties.
-              We denken mee over jouw situatie en bepalen samen welke stap
-              logisch is.
-            </p>
-            <p class="mt-4 max-w-2xl text-base leading-8 text-gray-300">
-              <i>
-                PS: dit zijn wij niet, wil je ons knappe koppen in het echt
-                zien? Plan een kennismaking in!
-              </i>
-            </p>
-            <NuxtLink
-              to="/contact"
-              class="mt-8 inline-flex items-center justify-center rounded-full bg-[#facc15] px-6 py-3 text-sm font-semibold text-black transition hover:bg-white hover:text-black"
-            >
-              Kennismaken
-            </NuxtLink>
-          </article>
-
-          <div class="grid gap-6">
-            <article
-              class="h-full overflow-hidden rounded-[2.25rem] border border-gray-200 bg-white shadow-sm"
-            >
-              <img
-                src="/images/aitje-home-footer.png"
-                alt="AITJE productbeeld"
-                class="h-80 w-full object-cover lg:h-full"
-              />
-            </article>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <BottomCta />
-    <SiteFooter />
+    <CtaBanner
+      title="Benieuwd wat AITJE voor jouw werk kan betekenen?"
+      :secondary="{ label: 'Veelgestelde vragen', to: '/faq' }"
+    />
   </div>
 </template>
-
-<script setup lang="ts">
-const youtubeEmbedUrl = "https://www.youtube.com/embed/3ZJgaJGeRS4";
-
-const visionCards = [
-  {
-    title: "Beginnen bij het probleem",
-    text: "We starten niet bij een model of tool, maar bij de vraag waar je organisatie tijd verliest, risico loopt of kennis beter kan benutten.",
-  },
-  {
-    title: "Werkbaar voor teams",
-    text: "Een oplossing moet aansluiten op bestaande processen, rollen en verantwoordelijkheden. Anders blijft AI een losse demo in plaats van een bruikbaar onderdeel van het werk.",
-  },
-  {
-    title: "Lokaal waar dat waarde heeft",
-    text: "We kijken bewust welke kennis, data en functies beter dicht bij de organisatie kunnen draaien, zodat gebruik, toegang en afhankelijkheden beheersbaar blijven.",
-  },
-  {
-    title: "Beheer na oplevering",
-    text: "AI moet ook na de eerste implementatie begrijpelijk blijven. Daarom denken we mee over onderhoud, toegang, documentstromen, kosten en doorontwikkeling.",
-  },
-];
-
-const whatWeDo = [
-  {
-    badge: "Producten",
-    title: "Duidelijke productlijn",
-    text: "We bouwen producten die concrete problemen en behoeftes binnen je organisatie oplossen en lokaal, duidelijk en in eigen beheer inzetbaar zijn.",
-  },
-  {
-    badge: "Diensten",
-    title: "Begeleiding en strategie",
-    text: "We helpen organisaties met AI-strategie, consultancy, implementatie en keuzes rond infrastructuur, processen en inzet.",
-  },
-  {
-    badge: "Maatwerk",
-    title: "Custom waar nodig",
-    text: "Als standaard niet goed past, bouwen we maatwerkagents, RAG-oplossingen en andere AI-routes die beter aansluiten op de praktijk van het team.",
-  },
-];
-
-const values = [
-  {
-    title: "Helderheid boven jargon",
-    text: "Organisaties moeten snel kunnen begrijpen wat iets doet, waarom het relevant is en wanneer het zinvol is.",
-  },
-  {
-    title: "Regie boven afhankelijkheid",
-    text: "We zoeken steeds naar manieren om data, kennis en AI-gebruik minder kwetsbaar te maken voor externe keuzes.",
-  },
-  {
-    title: "Stabiliteit boven hype",
-    text: "Niet elke trend verdient een plek in een organisatie. We kiezen liever iets dat werkt en houdbaar blijft.",
-  },
-  {
-    title: "Partnerschap boven losse verkoop",
-    text: "We leveren niet alleen iets op, maar denken ook mee over hoe het in de praktijk blijft werken.",
-  },
-];
-
-const valueColumns = {
-  left: values.slice(0, 2),
-  right: values.slice(2, 4),
-};
-</script>

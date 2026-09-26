@@ -1,1541 +1,344 @@
-<template>
-  <div class="bg-white text-gray-900">
-    <SiteNavigation />
-
-    <main>
-      <section class="pt-2">
-        <div
-          class="relative w-full overflow-hidden bg-[#212121] text-white shadow-[0_28px_90px_rgba(0,0,0,0.18)]"
-        >
-          <div
-            class="hero-network pointer-events-none absolute inset-0 z-[1] opacity-60"
-            aria-hidden="true"
-          >
-            <svg
-              viewBox="0 0 1440 900"
-              class="h-full w-full"
-              preserveAspectRatio="xMidYMid slice"
-              fill="none"
-            >
-              <g class="hero-network-lines">
-                <path
-                  d="M40 240L180 170L320 245L465 165L615 230L770 175L930 240L1085 170L1240 235L1390 160"
-                />
-                <path
-                  d="M10 470L150 395L280 470L430 390L595 450L740 375L900 445L1050 385L1205 455L1380 390"
-                />
-                <path
-                  d="M85 690L235 610L385 675L535 600L690 665L860 590L1015 650L1170 590L1330 660"
-                />
-                <path d="M180 170L150 395L235 610" />
-                <path d="M320 245L280 470L385 675" />
-                <path d="M465 165L430 390L535 600" />
-                <path d="M615 230L595 450L690 665" />
-                <path d="M770 175L740 375L860 590" />
-                <path d="M930 240L900 445L1015 650" />
-                <path d="M1085 170L1050 385L1170 590" />
-                <path d="M1240 235L1205 455L1330 660" />
-                <path d="M320 245L430 390L595 450L740 375L900 445L1050 385" />
-                <path d="M180 170L320 245L430 390L535 600" />
-                <path d="M615 230L740 375L860 590L1015 650" />
-              </g>
-
-              <g class="hero-network-points">
-                <circle cx="40" cy="240" r="4" style="animation-delay: -1.2s" />
-                <circle
-                  cx="180"
-                  cy="170"
-                  r="5"
-                  style="animation-delay: -2.8s"
-                />
-                <circle
-                  cx="320"
-                  cy="245"
-                  r="4"
-                  style="animation-delay: -0.8s"
-                />
-                <circle
-                  cx="465"
-                  cy="165"
-                  r="4"
-                  style="animation-delay: -3.6s"
-                />
-                <circle
-                  cx="615"
-                  cy="230"
-                  r="5"
-                  style="animation-delay: -1.9s"
-                />
-                <circle
-                  cx="770"
-                  cy="175"
-                  r="4"
-                  style="animation-delay: -4.2s"
-                />
-                <circle
-                  cx="930"
-                  cy="240"
-                  r="5"
-                  style="animation-delay: -2.1s"
-                />
-                <circle
-                  cx="1085"
-                  cy="170"
-                  r="4"
-                  style="animation-delay: -5.1s"
-                />
-                <circle
-                  cx="1240"
-                  cy="235"
-                  r="5"
-                  style="animation-delay: -2.7s"
-                />
-                <circle
-                  cx="1390"
-                  cy="160"
-                  r="4"
-                  style="animation-delay: -0.5s"
-                />
-                <circle cx="10" cy="470" r="4" style="animation-delay: -4.6s" />
-                <circle
-                  cx="150"
-                  cy="395"
-                  r="5"
-                  style="animation-delay: -1.1s"
-                />
-                <circle
-                  cx="280"
-                  cy="470"
-                  r="4"
-                  style="animation-delay: -3.9s"
-                />
-                <circle
-                  cx="430"
-                  cy="390"
-                  r="5"
-                  style="animation-delay: -2.4s"
-                />
-                <circle
-                  cx="595"
-                  cy="450"
-                  r="4"
-                  style="animation-delay: -5.5s"
-                />
-                <circle
-                  cx="740"
-                  cy="375"
-                  r="5"
-                  style="animation-delay: -1.7s"
-                />
-                <circle
-                  cx="900"
-                  cy="445"
-                  r="4"
-                  style="animation-delay: -4.9s"
-                />
-                <circle
-                  cx="1050"
-                  cy="385"
-                  r="5"
-                  style="animation-delay: -2.9s"
-                />
-                <circle
-                  cx="1205"
-                  cy="455"
-                  r="4"
-                  style="animation-delay: -0.9s"
-                />
-                <circle
-                  cx="1380"
-                  cy="390"
-                  r="5"
-                  style="animation-delay: -3.1s"
-                />
-                <circle cx="85" cy="690" r="4" style="animation-delay: -2.2s" />
-                <circle
-                  cx="235"
-                  cy="610"
-                  r="5"
-                  style="animation-delay: -4.4s"
-                />
-                <circle
-                  cx="385"
-                  cy="675"
-                  r="4"
-                  style="animation-delay: -1.4s"
-                />
-                <circle
-                  cx="535"
-                  cy="600"
-                  r="5"
-                  style="animation-delay: -5.2s"
-                />
-                <circle
-                  cx="690"
-                  cy="665"
-                  r="4"
-                  style="animation-delay: -2.6s"
-                />
-                <circle
-                  cx="860"
-                  cy="590"
-                  r="5"
-                  style="animation-delay: -3.4s"
-                />
-                <circle
-                  cx="1015"
-                  cy="650"
-                  r="4"
-                  style="animation-delay: -0.7s"
-                />
-                <circle
-                  cx="1170"
-                  cy="590"
-                  r="5"
-                  style="animation-delay: -4.8s"
-                />
-                <circle
-                  cx="1330"
-                  cy="660"
-                  r="4"
-                  style="animation-delay: -1.6s"
-                />
-              </g>
-
-              <g class="hero-network-glow">
-                <circle cx="280" cy="470" r="52" />
-                <circle cx="690" cy="665" r="72" />
-                <circle cx="1205" cy="455" r="64" />
-                <circle cx="930" cy="240" r="48" />
-              </g>
-            </svg>
-          </div>
-          <div
-            class="absolute inset-0 z-0 bg-cover bg-center"
-            style="
-              background-image: url(&quot;/images/home-header-test.png&quot;);
-            "
-            aria-hidden="true"
-          ></div>
-          <div
-            class="absolute inset-0 z-[2] bg-[linear-gradient(180deg,rgba(10,10,10,0.42)_0%,rgba(10,10,10,0.68)_38%,rgba(10,10,10,0.88)_100%)]"
-            aria-hidden="true"
-          ></div>
-          <div
-            class="absolute inset-x-0 bottom-0 z-[4] h-40 bg-[linear-gradient(180deg,rgba(0,0,0,0)_0%,rgba(0,0,0,0.82)_58%,#000_100%)]"
-            aria-hidden="true"
-          ></div>
-          <div
-            class="absolute inset-0 z-[3] bg-[radial-gradient(circle_at_top,rgba(250,204,21,0.12),transparent_34%)]"
-            aria-hidden="true"
-          ></div>
-
-          <div
-            class="relative z-10 mx-auto flex min-h-[42rem] max-w-6xl flex-col items-center justify-center px-6 pb-12 pt-28 text-center md:min-h-[48rem]"
-          >
-            <img
-              src="/images/aitjelogo.png"
-              alt="AITJE"
-              class="h-16 w-auto md:h-20"
-            />
-            <h1 class="mt-4 text-4xl font-black text-[#facc15] md:text-5xl">
-              {{ phrases[currentPhrase] }}
-            </h1>
-            <p
-              class="mt-8 max-w-4xl text-lg leading-8 text-gray-200 md:text-xl"
-            >
-              AITJE is een Nederlands gewortelde organisatie dat pre-made
-              oplossingen biedt op white-labeled hardware, geoptimaliseerd met
-              op maat gemaakte software. Onze oplossingen zijn gericht op het
-              beheren van kennis, vragen beantwoorden, administratie bijhouden,
-              programmeren, meetings notuleren en meer.
-            </p>
-            <p
-              class="mt-6 text-xs font-extrabold uppercase tracking-[0.45em] text-gray-400 sm:text-sm"
-            >
-              · Edge AI · Veilige data opslag · Geen API kosten ·
-            </p>
-            <div class="mt-8 flex flex-col gap-4 sm:flex-row">
-              <NuxtLink
-                to="/producten"
-                class="inline-flex items-center justify-center rounded-full bg-[#facc15] px-8 py-3 text-base font-semibold text-black transition-colors duration-200 hover:bg-white"
-              >
-                Bekijk producten
-              </NuxtLink>
-              <NuxtLink
-                to="/diensten"
-                class="inline-flex items-center justify-center rounded-full border border-white/25 bg-white/5 px-8 py-3 text-base font-semibold text-white transition hover:border-white"
-              >
-                Alle diensten
-              </NuxtLink>
-            </div>
-
-            <div class="mt-12 grid w-full max-w-4xl gap-4 sm:grid-cols-3">
-              <div
-                v-for="(stat, index) in heroStats"
-                :key="stat.label"
-                class="group relative min-h-[7.25rem] overflow-hidden rounded-2xl border p-5 text-left backdrop-blur-md transition duration-300 hover:-translate-y-1"
-                :class="
-                  index === 1
-                    ? 'border-[#facc15] bg-[#facc15] text-black shadow-[0_18px_45px_rgba(250,204,21,0.28)]'
-                    : 'border-white/18 bg-black/45 text-white shadow-[0_18px_45px_rgba(0,0,0,0.22)] hover:border-[#facc15]/55 hover:bg-black/60'
-                "
-              >
-                <span
-                  class="absolute inset-x-5 top-0 h-1 rounded-b-full"
-                  :class="index === 1 ? 'bg-black/18' : 'bg-[#facc15]'"
-                  aria-hidden="true"
-                ></span>
-                <div class="flex items-start justify-between gap-4">
-                  <div>
-                    <p
-                      class="text-sm font-medium"
-                      :class="index === 1 ? 'text-black/78' : 'text-gray-300'"
-                    >
-                      {{ stat.label }}
-                    </p>
-                    <p
-                      class="mt-2 text-2xl font-black leading-tight"
-                      :class="index === 1 ? 'text-black' : 'text-white'"
-                    >
-                      {{ stat.value }}
-                    </p>
-                  </div>
-                  <span
-                    class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full"
-                    :class="
-                      index === 1
-                        ? 'bg-black/10 text-black'
-                        : 'bg-[#facc15]/12 text-[#facc15] ring-1 ring-[#facc15]/25'
-                    "
-                    aria-hidden="true"
-                  >
-                    <component :is="stat.icon" class="h-5 w-5" />
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="bg-[#f5f5f5] px-6 py-20">
-        <div
-          class="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center"
-        >
-          <div>
-            <p
-              class="text-sm font-semibold uppercase tracking-[0.5em] text-[#facc15]"
-            >
-              Over AITJE
-            </p>
-            <h2 class="mt-4 text-4xl font-black text-gray-900">Wie we zijn</h2>
-            <div class="mt-6 space-y-5 text-lg leading-8 text-gray-600">
-              <p>
-                <strong
-                  >Altijd dichtbij. Altijd beschikbaar. Volledig in eigen
-                  beheer.</strong
-                >
-                Met lokale AI-oplossingen blijf je onafhankelijk van internet,
-                externe providers en platformstoringen. Je data blijft binnen je
-                organisatie en je voorkomt onnodige abonnementskosten.
-              </p>
-              <p>
-                <i
-                  >Wij helpen je AI slimmer, veiliger en goedkoper in te
-                  zetten:</i
-                >
-                <br />
-                met duidelijke producten, uitbreidingsmogelijkheden en
-                persoonlijke begeleiding.
-              </p>
-              <p>De kracht van AI, zonder de controle uit handen te geven.</p>
-            </div>
-          </div>
-
-          <div
-            class="overflow-hidden rounded-[2.5rem] border border-gray-200 bg-white shadow-sm"
-          >
-            <iframe
-              src="https://www.youtube.com/embed/3ZJgaJGeRS4?start=70"
-              title="AITJE video"
-              class="aspect-video w-full"
-              allow="
-                accelerometer;
-                autoplay;
-                clipboard-write;
-                encrypted-media;
-                gyroscope;
-                picture-in-picture;
-                web-share;
-              "
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-            />
-          </div>
-        </div>
-      </section>
-
-      <section class="px-6 py-20">
-        <div
-          class="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.8fr_1.2fr]"
-        >
-          <div
-            class="space-y-6 rounded-3xl border border-gray-200 bg-[#fafafa] p-6 md:p-10"
-          >
-            <p
-              class="text-sm font-semibold uppercase tracking-[0.4em] text-[#facc15]"
-            >
-              De infrastructuur van AITJE
-            </p>
-            <h2 class="text-3xl font-black text-gray-900 md:text-4xl">
-              Van out of the box tot maatwerk&shy;oplossingen
-            </h2>
-            <p class="text-gray-700">
-              Als bedrijf bieden we lokale hardware voor edge AI, software die
-              daarop aansluit en oplossingen die kunnen verbinden met externe
-              platformen die door AITJE zijn gemaakt, zoals kennisbanken en
-              documentverwerking. Daarnaast denken we mee over de beste inzet
-              van AI binnen je organisatie: soms met een van onze bestaande
-              producten, soms met uitbreiding op maat.
-            </p>
-            <ul class="space-y-4">
-              <li
-                v-for="item in productHighlights"
-                :key="item"
-                class="flex items-start gap-3 text-gray-700"
-              >
-                <div
-                  class="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#212121] text-xs font-bold text-[#facc15]"
-                >
-                  ✓
-                </div>
-                <span class="pt-0.5">{{ item }}</span>
-              </li>
-            </ul>
-            <div class="flex flex-col gap-3 sm:flex-row">
-              <NuxtLink
-                to="/roadmap"
-                class="inline-flex items-center justify-center rounded-full bg-black px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#212121] hover:text-[#facc15]"
-              >
-                Bekijk de roadmap
-              </NuxtLink>
-            </div>
-          </div>
-          <div class="grid gap-6 md:grid-cols-2">
-            <article
-              v-for="feature in features"
-              :key="feature.title"
-              class="flex h-full flex-col rounded-3xl border border-gray-200 p-6 shadow-md"
-            >
-              <div
-                class="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#212121] text-[#facc15]"
-              >
-                <component :is="feature.icon" class="h-6 w-6" />
-              </div>
-              <h3 class="mt-4 text-xl font-semibold text-gray-900">
-                {{ feature.title }}
-              </h3>
-              <p class="mt-2 text-sm text-gray-600">
-                {{ feature.description }}
-              </p>
-              <div class="mt-auto pt-6">
-                <NuxtLink
-                  :to="feature.link"
-                  class="inline-flex items-center justify-center rounded-full bg-[#facc15] px-5 py-3 text-sm font-semibold text-black transition hover:bg-black hover:text-[#facc15]"
-                >
-                  {{ feature.cta }}
-                </NuxtLink>
-              </div>
-            </article>
-            <article
-              ref="edgeMetricsSectionRef"
-              class="relative overflow-hidden rounded-3xl bg-[#111111] p-6 text-white shadow-[0_24px_70px_rgba(0,0,0,0.14)] md:col-span-2"
-            >
-              <CloudBackground />
-              <div class="relative z-10">
-                <p
-                  class="text-xs font-semibold uppercase tracking-[0.35em] text-[#facc15]"
-                >
-                  Waarom dit telt
-                </p>
-                <h3 class="mt-3 max-w-2xl text-2xl font-black leading-tight">
-                  De toekomst van AI ligt niet alleen in de cloud, maar ook
-                  dichtbij huis.
-                </h3>
-                <div class="mt-3 max-w-2xl text-sm leading-7 text-white/85">
-                  <p>
-                    Wanneer de kosten van AI-gebruik stijgen, platformen
-                    uitvallen of data buiten de organisatie verdwijnt, word jij
-                    kwetsbaar. Edge AI brengt de kracht van AI naar je eigen
-                    omgeving: altijd beschikbaar en veiliger voor je
-                    organisatie.
-                  </p>
-                </div>
-              </div>
-
-              <div class="relative z-10 mt-6 grid gap-4 lg:grid-cols-2">
-                <div
-                  class="rounded-[1.5rem] border border-white/15 bg-[#111111]/72 p-4 shadow-[0_18px_45px_rgba(0,0,0,0.16)] backdrop-blur-md"
-                >
-                  <p
-                    class="text-xs font-semibold uppercase tracking-[0.3em] text-white/60"
-                  >
-                    Zonder Edge AI
-                  </p>
-                  <div class="mt-4 grid gap-3 sm:grid-cols-2">
-                    <div
-                      v-for="item in missionRiskMetrics"
-                      :key="item.label"
-                      class="rounded-2xl border border-red-400/15 bg-red-500/8 px-3 py-3"
-                    >
-                      <p class="text-xs font-semibold text-white/70">
-                        {{ item.label }}
-                      </p>
-                      <p class="mt-1 text-lg font-black text-red-200">
-                        {{ formatMissionMetric(item) }}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div
-                  class="rounded-[1.5rem] border border-[#facc15]/35 bg-[#111111]/68 p-4 shadow-[0_18px_45px_rgba(0,0,0,0.16)] backdrop-blur-md"
-                >
-                  <p
-                    class="text-xs font-semibold uppercase tracking-[0.3em] text-[#facc15]"
-                  >
-                    Met Edge AI
-                  </p>
-                  <div class="mt-4 grid gap-3 sm:grid-cols-2">
-                    <div
-                      v-for="item in missionEdgeMetrics"
-                      :key="item.label"
-                      class="rounded-2xl border border-[#facc15]/20 bg-[#facc15]/8 px-3 py-3"
-                    >
-                      <p class="text-xs font-semibold text-white/78">
-                        {{ item.label }}
-                      </p>
-                      <p class="mt-1 text-lg font-black text-[#facc15]">
-                        {{ formatMissionMetric(item) }}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="bg-[#212121] px-6 py-20 text-white">
-        <div class="mx-auto max-w-6xl space-y-14">
-          <div>
-            <p
-              class="text-sm font-semibold uppercase tracking-[0.4em] text-[#facc15]"
-            >
-              Showcase
-            </p>
-            <h2 class="mt-4 text-4xl font-black">Wat we doen</h2>
-            <p class="mt-3 max-w-3xl text-gray-300">
-              Direct inzetbare AI-oplossingen uit de AITJE suite, ontwikkeld
-              voor privacy, controle en schaalbaarheid.
-            </p>
-            <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <NuxtLink
-                to="/producten"
-                class="inline-flex items-center justify-center rounded-full bg-[#facc15] px-6 py-3 text-sm font-semibold text-black transition hover:bg-white"
-              >
-                Bekijk alle producten
-              </NuxtLink>
-              <NuxtLink
-                to="/diensten"
-                class="inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:border-white"
-              >
-                Naar diensten
-              </NuxtLink>
-              <NuxtLink
-                to="/cases"
-                class="inline-flex items-center justify-center text-sm font-semibold text-[#facc15] transition hover:text-white"
-              >
-                Of bekijk cases
-              </NuxtLink>
-            </div>
-          </div>
-
-          <div
-            class="overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-6 md:p-8"
-          >
-            <div
-              class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between"
-            >
-              <div>
-                <p
-                  class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
-                >
-                  Producten
-                </p>
-                <h3 class="mt-3 text-3xl font-black">
-                  Kies de AI-oplossing die past bij je organisatie
-                </h3>
-                <p class="mt-3 max-w-3xl text-sm text-gray-300">
-                  AITJE Assistent draait lokaal op white-labeled hardware met
-                  ons eigen OS, browserclient en kennisbank. Na een gesprek
-                  kiezen we de uitvoering die past bij je organisatie.
-                </p>
-              </div>
-              <NuxtLink
-                to="/producten"
-                class="inline-flex items-center justify-center rounded-full bg-[#facc15] px-6 py-3 text-sm font-semibold text-black transition hover:bg-black hover:text-[#facc15]"
-              >
-                Bekijk producten
-              </NuxtLink>
-            </div>
-            <div class="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-              <article
-                v-for="item in productShowcase"
-                :key="item.title"
-                class="group flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#161616] transition hover:-translate-y-1 hover:border-[#facc15]/70 hover:shadow-[0_24px_60px_rgba(250,204,21,0.08)]"
-              >
-                <div
-                  class="aspect-[4/3] border-b border-white/10 bg-black/30 p-4"
-                >
-                  <img
-                    :src="item.image"
-                    :alt="item.title"
-                    class="h-full w-full rounded-2xl bg-white object-contain p-3"
-                    :class="item.status ? 'blur-sm grayscale opacity-70' : ''"
-                  />
-                </div>
-                <div class="flex flex-1 flex-col p-5">
-                  <div class="flex items-center justify-between gap-3">
-                    <p
-                      v-if="!item.status"
-                      class="text-xs font-semibold uppercase tracking-[0.3em] text-[#facc15]"
-                    >
-                      {{ item.label }}
-                    </p>
-                    <span
-                      v-if="item.status"
-                      class="whitespace-nowrap rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-gray-300"
-                    >
-                      {{ item.status }}
-                    </span>
-                  </div>
-                  <h4 class="mt-3 text-xl font-semibold text-white">
-                    {{ item.title }}
-                  </h4>
-                  <p class="mt-3 text-sm leading-7 text-gray-300">
-                    {{ item.description }}
-                  </p>
-                  <div class="mt-auto pt-5">
-                    <NuxtLink
-                      v-if="item.link"
-                      :to="item.link"
-                      class="inline-flex text-sm font-semibold text-[#facc15] transition hover:text-white"
-                    >
-                      {{ item.cta }}
-                    </NuxtLink>
-                    <span
-                      v-else
-                      class="inline-flex text-sm font-semibold text-gray-400"
-                    >
-                      {{ item.cta }}
-                    </span>
-                  </div>
-                </div>
-              </article>
-            </div>
-          </div>
-
-          <div
-            class="rounded-[2rem] border border-white/10 bg-white/5 p-6 md:p-8"
-          >
-            <div
-              class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between"
-            >
-              <div>
-                <p
-                  class="text-xs font-semibold uppercase tracking-[0.4em] text-[#facc15]"
-                >
-                  Diensten
-                </p>
-                <h3 class="mt-3 text-3xl font-black">
-                  Hoe we organisaties helpen met implementatie en maatwerk
-                </h3>
-                <p class="mt-3 max-w-3xl text-sm text-gray-300">
-                  AITJE denkt strategisch met je mee over hoe AI echt waarde
-                  toevoegt binnen je organisatie. Bekijk onze diensten om snel
-                  te zien waar we inhoudelijk, technisch en operationeel op
-                  ondersteunen.
-                </p>
-              </div>
-              <NuxtLink
-                to="/diensten"
-                class="inline-flex items-center justify-center rounded-full bg-[#facc15] px-6 py-3 text-sm font-semibold text-black transition hover:bg-black hover:text-[#facc15]"
-              >
-                Bekijk diensten
-              </NuxtLink>
-            </div>
-            <div class="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-              <NuxtLink
-                v-for="service in homeServices"
-                :key="service.key"
-                :to="`/diensten#${service.key}`"
-                class="flex flex-col rounded-[1.75rem] border border-white/10 bg-[#161616] p-6 transition hover:-translate-y-1 hover:border-[#facc15]/70 hover:shadow-[0_24px_60px_rgba(250,204,21,0.08)]"
-              >
-                <div class="flex items-start justify-between gap-4">
-                  <div>
-                    <p
-                      class="text-xs font-semibold uppercase tracking-[0.3em] text-[#facc15]"
-                    >
-                      {{ service.focus }}
-                    </p>
-                    <h4
-                      class="mt-3 text-2xl font-semibold text-white md:whitespace-nowrap"
-                    >
-                      {{ service.title }}
-                    </h4>
-                  </div>
-                  <span
-                    class="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.24em] text-gray-300"
-                  >
-                    Dienst
-                  </span>
-                </div>
-                <p class="mt-4 text-sm leading-7 text-gray-300">
-                  {{ servicePreview(service.description, service.key) }}
-                  <span class="font-semibold text-[#facc15]"
-                    >... meer info</span
-                  >
-                </p>
-              </NuxtLink>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="bg-[#fafafa] px-6 py-20">
-        <div
-          ref="missionSectionRef"
-          class="mx-auto max-w-5xl rounded-[2.5rem] border border-gray-200 bg-white p-8 shadow-sm md:p-10"
-        >
-          <div class="mx-auto max-w-4xl text-center">
-            <div class="overflow-hidden rounded-[2rem] bg-[#f5f5f5]">
-              <img
-                src="/images/our-vision.png"
-                alt="Onze missie"
-                class="h-[16rem] w-full object-cover md:h-[22rem]"
-              />
-            </div>
-
-            <p
-              class="mt-8 text-sm font-semibold uppercase tracking-[0.4em] text-[#facc15]"
-            >
-              Onze missie
-            </p>
-            <p class="mt-4 text-5xl font-black leading-none text-[#facc15]">
-              "
-            </p>
-            <blockquote
-              class="mx-auto mt-4 max-w-3xl text-2xl font-semibold leading-tight text-gray-900 md:text-3xl"
-            >
-              AI is niet meer weg te denken. Hoe meer mensen en bedrijven het
-              gebruiken, hoe afhankelijker we worden van Big Tech uit het
-              buitenland.
-            </blockquote>
-            <div
-              class="mx-auto mt-8 max-w-3xl space-y-4 text-base leading-7 text-gray-600"
-            >
-              <p>
-                Tegelijkertijd groeit de afhankelijkheid van externe platformen,
-                stijgende kosten en systemen waar organisaties geen controle
-                over hebben.
-              </p>
-              <p>
-                Wij geloven dat AI dichter bij de organisatie moet staan —
-                lokaal, veilig en in eigen beheer.<br />
-                Zodat je controle houdt over je data, je kosten voorspelbaar
-                blijven en je niet afhankelijk bent van partijen buiten je eigen
-                omgeving.
-              </p>
-            </div>
-            <div class="mt-10">
-              <NuxtLink
-                to="/visie"
-                class="inline-flex items-center justify-center rounded-full bg-black px-8 py-3 text-sm font-semibold text-white transition hover:bg-black hover:text-[#facc15]"
-              >
-                Lees meer over onze visie
-              </NuxtLink>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="bg-[#212121] px-6 pb-20 pt-24 text-white md:pt-28">
-        <div class="mx-auto max-w-6xl">
-          <div class="text-center">
-            <p
-              class="text-sm font-semibold uppercase tracking-[0.4em] text-[#facc15]"
-            >
-              Waarom AITJE
-            </p>
-            <h2 class="mt-4 text-4xl font-black md:text-5xl">
-              Redenen om voor Lokale Edge AI te kiezen
-            </h2>
-            <p class="mx-auto mt-5 max-w-3xl text-base leading-8 text-gray-300">
-              Voor organisaties telt niet alleen wat AI vandaag kan, maar ook of
-              het stabiel, betaalbaar en beheersbaar blijft zodra het echt
-              onderdeel wordt van de dagelijkse operatie.
-            </p>
-          </div>
-
-          <div
-            class="mt-12 grid gap-6 lg:grid-cols-[0.78fr_1.22fr] lg:items-start"
-          >
-            <div
-              class="overflow-hidden rounded-[2.2rem] border border-white/10 bg-[#161616] shadow-[0_24px_70px_rgba(0,0,0,0.2)]"
-            >
-              <div class="border-b border-white/8 px-5 py-4">
-                <div class="flex items-center gap-2">
-                  <span class="h-2.5 w-2.5 rounded-full bg-[#ff6b6b]"></span>
-                  <span class="h-2.5 w-2.5 rounded-full bg-[#ffd166]"></span>
-                  <span class="h-2.5 w-2.5 rounded-full bg-[#06d6a0]"></span>
-                </div>
-              </div>
-              <div class="p-4 md:p-5">
-                <img
-                  src="/images/aitje-workplace.png"
-                  alt="AITJE interface"
-                  class="h-[24rem] w-full rounded-[1.6rem] border border-white/8 object-cover md:h-[31rem]"
-                />
-              </div>
-            </div>
-
-            <div class="grid gap-4 sm:grid-cols-2 sm:auto-rows-fr">
-              <article
-                v-for="reason in reasons"
-                :key="reason.title"
-                class="flex h-full flex-col rounded-[1.7rem] border border-white/10 bg-[#161616] p-5"
-              >
-                <div class="flex items-center gap-3">
-                  <div
-                    class="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-[#facc15]/12 text-[#facc15]"
-                  >
-                    <component :is="reason.icon" class="h-5 w-5" />
-                  </div>
-                  <div>
-                    <p
-                      class="text-[0.62rem] font-semibold uppercase tracking-[0.28em] text-white/35"
-                    >
-                      Wat wij oplossen
-                    </p>
-                    <h3 class="mt-1 text-base font-black text-white">
-                      {{ reason.title }}
-                    </h3>
-                    <p
-                      v-if="reason.theme"
-                      class="mt-1 text-[0.62rem] font-semibold uppercase tracking-[0.28em] text-[#facc15]"
-                    >
-                      {{ reason.theme }}
-                    </p>
-                  </div>
-                </div>
-                <div class="mt-4">
-                  <p class="text-[13px] leading-6 text-gray-300">
-                    {{ reason.summary }}
-                  </p>
-                </div>
-              </article>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="bg-[#fafafa] px-6 pt-28 pb-20">
-        <div class="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.1fr_0.9fr]">
-          <div class="space-y-6">
-            <p
-              class="text-sm font-semibold uppercase tracking-[0.4em] text-[#facc15]"
-            >
-              Handige links
-            </p>
-            <h2 class="text-4xl font-black text-gray-900">
-              Snel naar de juiste pagina
-            </h2>
-            <p class="text-lg text-gray-700">
-              Bekijk onze belangrijkste pagina's voor producten, diensten,
-              toepassingen, kennis en contact.
-            </p>
-            <div
-              class="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm"
-            >
-              <ul class="space-y-4">
-                <li v-for="link in handyLinks" :key="link.to">
-                  <NuxtLink
-                    :to="link.to"
-                    class="text-lg font-semibold text-[#d4a700] transition hover:text-black"
-                  >
-                    {{ link.label }}
-                  </NuxtLink>
-                </li>
-              </ul>
-            </div>
-            <img
-              src="/images/last-image-home.png"
-              alt="AITJE lokale AI-oplossing"
-              class="w-full rounded-3xl border border-gray-200 bg-white object-cover shadow-sm"
-            />
-          </div>
-          <div
-            class="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm"
-          >
-            <p
-              class="text-sm font-semibold uppercase tracking-[0.4em] text-[#facc15]"
-            >
-              FAQ
-            </p>
-            <h3 class="mt-3 text-3xl font-black text-gray-900">
-              Veelgestelde vragen
-            </h3>
-            <p class="mt-3 text-sm text-gray-600">
-              Korte antwoorden op vragen over privacy, back-ups, maatwerk en hoe
-              AITJE in de praktijk werkt.
-            </p>
-            <div class="mt-6 space-y-4">
-              <div
-                v-for="item in homepageFaqs"
-                :key="item.question"
-                class="rounded-2xl bg-white p-4"
-              >
-                <p
-                  class="text-xs font-semibold uppercase tracking-[0.4em] text-gray-400"
-                >
-                  Vraag
-                </p>
-                <h4 class="text-lg font-semibold text-gray-900">
-                  {{ item.question }}
-                </h4>
-                <p class="text-sm text-gray-600">{{ item.answer }}</p>
-              </div>
-            </div>
-            <div class="mt-6">
-              <NuxtLink
-                to="/faq"
-                class="text-sm font-semibold text-[#d4a700] transition hover:text-black"
-              >
-                Bekijk alle veelgestelde vragen
-              </NuxtLink>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <BottomCta :with-top-margin="false" />
-    <SiteFooter />
-  </div>
-</template>
-
 <script setup lang="ts">
-import { onBeforeUnmount, onMounted, ref } from "vue";
-import { serviceCatalog } from "../data/serviceCatalog";
-import {
-  Blocks,
-  BookOpen,
-  Bot,
-  Droplet,
-  Globe,
-  Lock,
-  Server,
-  Shield,
-  Sparkles,
-  Zap,
-} from "lucide-vue-next";
+// Homepage (redesign/pages/home.md, besluiten 11, 41, 43, 45, 46, 51).
+import { availableProducts } from "@/content/products";
+import { articles, featuredArticleSlugs } from "@/content/knowledge";
+import { mainCta } from "@/content/site";
 
-const phrases = ["Je partner in Edge & On-premise AI"];
-const heroStats = [
-  { label: "Werkt zonder internet", value: "100% onafhankelijk", icon: Zap },
-  { label: "Goed voor het milieu", value: "Zonder datacenter", icon: Droplet },
-  {
-    label: "AITJE denkt met je mee",
-    value: "Strategisch partnerschap",
-    icon: Shield,
-  },
-];
-
-const missionSectionRef = ref<HTMLElement | null>(null);
-const edgeMetricsSectionRef = ref<HTMLElement | null>(null);
-const missionCounterStarted = ref(false);
-const missionAnimationFrame = ref<number | null>(null);
-const missionObserver = ref<IntersectionObserver | null>(null);
-
-const missionRiskMetrics = ref([
-  {
-    label: "Prijs per 1K tokens",
-    target: 0.01,
-    prefix: "€",
-    decimals: 2,
-    value: 0,
-  },
-  {
-    label: "Liter water p/j",
-    target: 765,
-    suffix: " mld l",
-    decimals: 0,
-    value: 0,
-  },
-  {
-    label: "Outages per jaar",
-    target: 20,
-    suffix: "+",
-    decimals: 0,
-    value: 0,
-  },
-  {
-    label: "Records gelekt",
-    target: 195,
-    suffix: " mln",
-    decimals: 0,
-    value: 0,
-  },
-]);
-
-const missionEdgeMetrics = ref([
-  {
-    label: "Afhankelijkheden",
-    target: 0,
-    decimals: 0,
-    value: 0,
-  },
-  {
-    label: "Beschikbaar intern",
-    target: 24,
-    suffix: "/7",
-    decimals: 0,
-    value: 0,
-  },
-  {
-    label: "Lokale opslag",
-    target: 100,
-    suffix: "%",
-    decimals: 0,
-    value: 0,
-  },
-  {
-    label: "Per prompt",
-    target: 0,
-    prefix: "€",
-    decimals: 0,
-    value: 0,
-  },
-]);
-
-const easeOutCubic = (t: number) => 1 - (1 - t) ** 3;
-
-const formatMissionMetric = (item: {
-  value: number;
-  prefix?: string;
-  suffix?: string;
-  decimals?: number;
-}) => {
-  const formattedValue =
-    item.decimals && item.decimals > 0
-      ? item.value.toLocaleString("nl-NL", {
-          minimumFractionDigits: item.decimals,
-          maximumFractionDigits: item.decimals,
-        })
-      : Math.round(item.value).toLocaleString("nl-NL");
-
-  return `${item.prefix ?? ""}${formattedValue}${item.suffix ?? ""}`;
-};
-
-const startMissionCounters = () => {
-  if (missionCounterStarted.value || typeof window === "undefined") {
-    return;
-  }
-
-  missionCounterStarted.value = true;
-  const duration = 1800;
-  const start = window.performance.now();
-
-  const tick = (now: number) => {
-    const progress = Math.min((now - start) / duration, 1);
-    const eased = easeOutCubic(progress);
-
-    missionRiskMetrics.value = missionRiskMetrics.value.map((item) => ({
-      ...item,
-      value: item.target * eased,
-    }));
-
-    missionEdgeMetrics.value = missionEdgeMetrics.value.map((item) => ({
-      ...item,
-      value: item.target * eased,
-    }));
-
-    if (progress < 1) {
-      missionAnimationFrame.value = window.requestAnimationFrame(tick);
-    }
-  };
-
-  missionAnimationFrame.value = window.requestAnimationFrame(tick);
-};
-
-onMounted(() => {
-  if (typeof window === "undefined") {
-    return;
-  }
-
-  const observedSections = [
-    edgeMetricsSectionRef.value,
-    missionSectionRef.value,
-  ].filter(Boolean) as HTMLElement[];
-
-  if (!observedSections.length) {
-    return;
-  }
-
-  missionObserver.value = new IntersectionObserver(
-    (entries) => {
-      if (!entries.some((entry) => entry.isIntersecting)) return;
-      startMissionCounters();
-      missionObserver.value?.disconnect();
-    },
-    {
-      threshold: [0.2],
-      rootMargin: "0px 0px -20% 0px",
-    },
-  );
-
-  observedSections.forEach((section) => {
-    missionObserver.value?.observe(section);
-  });
+usePageSeo({
+  title: "AITJE — Je partner in AI",
+  description:
+    "AITJE is je partner in AI: eigen AI-producten, advies, installatie en AI op maat, op je eigen hardware of server. Jij houdt de controle, AITJE regelt de techniek.",
+  image: "/img/egg-nest.webp",
 });
 
-onBeforeUnmount(() => {
-  missionObserver.value?.disconnect();
-  if (typeof window !== "undefined" && missionAnimationFrame.value) {
-    window.cancelAnimationFrame(missionAnimationFrame.value);
-  }
-});
-
-const reasons = [
+const routes = [
   {
-    title: "Afhankelijkheid",
-    theme: "Bedrijfscontinuiteit",
-    problem:
-      "Wanneer je een internetstoring ervaart of een extern AI-platform niet beschikbaar is, verlies je direct tijd en continuiteit.",
-    solution:
-      "AITJE-hardware blijft lokaal werken en is via je eigen netwerk toegankelijk, zodat teams onafhankelijk kunnen doorwerken.",
-    summary:
-      "Wanneer je een internetstoring ervaart of een extern AI-platform niet beschikbaar is, verlies je direct tijd en continuiteit. AITJE-hardware blijft lokaal werken en is via je eigen netwerk toegankelijk, zodat teams onafhankelijk kunnen doorwerken.",
-    icon: Server,
+    situation: "Ik wil iets met AI, maar weet niet waar ik moet beginnen.",
+    answer: "Start met een AI-scan",
+    text: "AITJE onderzoekt je werk en laat zien waar AI echt iets oplevert.",
+    to: "/diensten/ai-scan",
+    icon: "scan",
   },
   {
-    title: "Financieel",
-    theme: "Voorspelbare kosten",
-    problem:
-      "Gebruikskosten van externe AI-platformen lopen op, terwijl je weinig grip hebt op abonnementen, prijswijzigingen en de keuzes van buitenlandse aanbieders.",
-    solution:
-      "Met AITJE verlaag je structureel de afhankelijkheid van terugkerende AI-kosten.",
-    summary:
-      "Gebruikskosten van externe AI-platformen lopen op, terwijl je weinig grip hebt op abonnementen, prijswijzigingen en de keuzes van buitenlandse aanbieders. Met AITJE verlaag je structureel de afhankelijkheid van terugkerende AI-kosten.",
-    icon: Sparkles,
-  },
-  {
-    title: "Privacy",
-    theme: "",
-    problem:
-      "Gevoelige informatie delen met andere landen of externe partijen brengt extra risico's mee, zeker in tijden van politieke spanningen, hacks en strengere privacy-eisen.",
-    solution:
-      "Met AITJE houd je bedrijfsinformatie, persoonsgegevens en andere gevoelige data in eigen beheer.",
-    summary:
-      "Gevoelige informatie delen met andere landen of externe partijen brengt extra risico's mee, zeker in tijden van politieke spanningen, hacks en strengere privacy-eisen. Met AITJE houd je bedrijfsinformatie, persoonsgegevens en andere gevoelige data in eigen beheer.",
-    icon: Shield,
-  },
-  {
-    title: "Klimaat",
-    theme: "Bewuster gebruik",
-    problem:
-      "Grote AI-techbedrijven verwerken enorme hoeveelheden verzoeken in datacenters die veel rekenkracht, energie, water en koeling vragen.",
-    solution:
-      "Met AITJE werk je lokaal op je eigen device, waardoor je minder afhankelijk bent van externe AI-datacenters en onnodig cloudverkeer beperkt.",
-    summary:
-      "Grote AI-techbedrijven verwerken enorme hoeveelheden verzoeken in datacenters die veel rekenkracht, energie, water en koeling vragen. Met AITJE werk je lokaal op je eigen device, waardoor je minder afhankelijk bent van externe AI-datacenters en onnodig cloudverkeer beperkt.",
-    icon: Droplet,
-  },
-];
-
-const productHighlights = [
-  "Advies over waar AI binnen jouw organisatie het meeste effect heeft",
-  "Hardware voor lokale edge AI en eigen infrastructuur",
-  "Focus op werking zonder internet",
-  "Uitbreidingen van bestaande producten",
-];
-
-const features = [
-  {
-    title: "Producten",
-    description:
-      "Verschillende hardware voor verschillende behoeftes: out-of-the-box oplossingen met vaste tiers, ons eigen OS, Edge AI en een lokale API.",
-    icon: Bot,
-    link: "/producten",
-    cta: "Bekijk producten",
-  },
-  {
-    title: "Diensten",
-    description:
-      "Hulp bij installatie, uitbreiding, consultancy, AI-strategie en SLA-ondersteuning voor organisaties die lokaal met AI willen werken.",
-    icon: Blocks,
-    link: "/diensten",
-    cta: "Bekijk diensten",
-  },
-];
-
-const hardwareShowcase = [
-  {
-    label: "Hardware",
-    title: "AITJE Assistent",
-    image: "/images/assistant/assistant-devices-comparison.png",
-    link: "/producten/aitje-assistent",
-    description:
-      "Je lokale AI-station met eigen chatclient, lokale kennisbank, web search waar nodig en toegang via je eigen netwerk.",
-  },
-  {
-    label: "Hardware",
-    title: "AITJE Custom",
-    image: "/images/custom-suited.png",
-    link: "/producten/hardware/aitje-custom",
-    description:
-      "Voor situaties waar standaard hardware niet precies past en je meer performance of specifieke integraties nodig hebt.",
-  },
-  {
-    label: "Software",
-    title: "AITJE Assistent OS",
-    image: "/images/os-screenshots/chatassistent.jpeg",
-    link: "/producten/software/aitje-assistent-os",
-    description:
-      "De lokale cockpit op de cube waar chat, kennis, kaarten, apparaten en beheer samenkomen.",
-  },
-];
-
-const productShowcase = [
-  {
-    label: "Product",
-    title: "AITJE Assistent",
-    image: "/images/assistant/device-with-logo.png",
-    link: "/producten/aitje-assistent",
-    description:
-      "De lokale AI-assistent voor organisaties die willen starten met eigen chat, documenten en kennis op het lokale netwerk.",
-    cta: "Bekijk product",
-  },
-  {
-    label: "Product",
-    title: "AITJE Assistent+",
-    image: "/images/assistant/device-plus-with-logo.png",
-    link: "/producten/aitje-assistent",
-    description:
-      "De krachtigere uitvoering voor zwaardere modellen, grotere kenniscontext en intensiever gebruik door je organisatie.",
-    cta: "Bekijk product",
-  },
-  {
-    label: "Product",
-    title: "AITJE Custom",
-    image: "/images/custom-suited.png",
-    link: "/producten/hardware/aitje-custom",
-    description:
-      "Voor situaties waar standaard hardware niet precies past en je meer performance of specifieke integraties nodig hebt.",
-    cta: "Bekijk product",
-  },
-  {
-    label: "Product",
-    title: "AITJE Coder",
-    image: "/images/birds.png",
-    description:
-      "Voor organisaties en teams die een abonnement-onafhankelijke coding agent willen, beschikbaar via het lokale netwerk.",
-    status: "In ontwikkeling",
-    cta: "Nog niet gelanceerd",
-  },
-];
-
-const homeServices = serviceCatalog;
-
-const servicePreview = (description: string, key?: string) =>
-  description
-    .split(/\s+/)
-    .slice(0, key === "sla" ? 7 : 8)
-    .join(" ");
-
-const handyLinks = [
-  {
-    label: "Producten",
+    situation: "Ik wil een eigen AI-omgeving die gewoon werkt.",
+    answer: "Kies een AITJE-product",
+    text: "Een eigen chatassistent of coding agents, gebruiksklaar op je eigen hardware.",
     to: "/producten",
+    icon: "box",
   },
   {
-    label: "Diensten",
-    to: "/diensten",
+    situation: "Ik heb een proces dat slimmer kan, maar er bestaat nog niets voor.",
+    answer: "Laat het bouwen met AITJE Custom",
+    text: "Van idee naar werkende oplossing, in urenblokken die jij goedkeurt.",
+    to: "/diensten/aitje-custom",
+    icon: "sparkles",
   },
   {
-    label: "Oplossingen",
-    to: "/oplossingen",
-  },
-  {
-    label: "Kenniscentrum",
-    to: "/kenniscentrum",
-  },
-  {
-    label: "FAQ",
-    to: "/faq",
-  },
-  {
-    label: "Roadmap",
-    to: "/roadmap",
-  },
-  {
-    label: "Visie",
-    to: "/visie",
-  },
-  {
-    label: "Contact",
-    to: "/contact",
+    situation: "We gebruiken al AI, maar het levert te weinig op.",
+    answer: "Laat je AI optimaliseren",
+    text: "Betere resultaten, lagere kosten en meer controle over wat je al hebt.",
+    to: "/diensten/optimalisatie",
+    icon: "gauge",
   },
 ];
 
-const homepageFaqs = [
+const benefits = [
   {
-    question: "Deelt AITJE mijn info?",
-    answer:
-      "Nee. AITJE is gebouwd om data lokaal en in eigen beheer te houden.",
+    title: "Je eigen AI. Geen rekening per vraag.",
+    text: "Met lokale modellen op je eigen hardware of server betaal je niet per vraag aan een externe AI-aanbieder. Hardware, stroom en ondersteuning blijven wel kostenposten.",
+    icon: "cpu",
   },
   {
-    question: "Maakt AITJE back-ups?",
-    answer:
-      "Op aanvraag kunnen we dit voor je inrichten, bijvoorbeeld voor een kennisbank-back-up.",
+    title: "Blijft werken als een ander uitvalt.",
+    text: "De lokale functies zijn niet afhankelijk van een externe AI-dienst. Wel van je eigen omgeving: het apparaat of de server, stroom en je netwerk.",
+    icon: "wifi-off",
   },
   {
-    question: "Maken jullie ook maatwerkoplossingen?",
-    answer:
-      "Ja. We begeleiden je waar mogelijk in zowel hardware als software en bouwen ook maatwerk waar dat nodig is.",
+    title: "Je data in je eigen omgeving.",
+    text: "Bij lokaal gebruik blijven documenten en vragen op je eigen hardware of server. Zet je bewust een online functie aan, dan weet je vooraf wat er gedeeld wordt.",
+    icon: "shield",
   },
   {
-    question: "Kan AITJE zonder internet werken?",
-    answer:
-      "Ja. Lokale edge-opstellingen kunnen ook blijven werken als internet of externe platformen wegvallen.",
-  },
-  {
-    question: "Welke taal modellen ondersteunen jullie?",
-    answer:
-      "Voor jouw specifieke behoefte kunnen we altijd een ander taalmodel kiezen en gebruiken.",
+    title: "Iemand die meedenkt.",
+    text: "Een telefoonnummer en mensen die meedenken over wat past. Ook na de oplevering, als je dat wilt.",
+    icon: "users",
   },
 ];
 
-const currentPhrase = ref(0);
+const steps = [
+  { title: "Gesprek of demo", text: "Je vertelt waar je tegenaan loopt. AITJE laat zien wat er kan en denkt mee over wat past." },
+  { title: "Scan of concrete vraag", text: "Een AI-scan als je breed wilt kijken, of direct een voorstel als je vraag al duidelijk is." },
+  { title: "Bouwen en installeren", text: "AITJE levert een product, richt je omgeving in of bouwt AI op maat, en test alles." },
+  { title: "Blijven meedenken", text: "Hulp, updates en nieuwe modellen, zodat je opstelling de beste blijft voor jouw werk." },
+];
 
-useHead({
-  script: [
-    {
-      type: "application/ld+json",
-      key: "homepage-faq-structured-data",
-      innerHTML: JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        mainEntity: homepageFaqs.map((item) => ({
-          "@type": "Question",
-          name: item.question,
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: item.answer,
-          },
-        })),
-      }),
-    },
-  ],
-});
+const audiences = [
+  {
+    title: "Voor bedrijven",
+    text: "AI die past bij jouw bedrijf. Van een eerste vraag tot een eigen AI-omgeving: AITJE helpt onderzoeken, kiezen en toepassen.",
+    links: [
+      { label: "Diensten", to: "/diensten" },
+      { label: "Producten", to: "/producten" },
+    ],
+  },
+  {
+    title: "Voor makers en professionals",
+    text: "Je eigen AI voor het werk dat jij maakt. Gebruik geschikte eigen hardware of laat AITJE een passende omgeving adviseren en inrichten.",
+    links: [{ label: "Producten", to: "/producten" }],
+  },
+  {
+    title: "Voor IT-bedrijven en bureaus",
+    text: "AI-specialist voor jouw klanten. Jij houdt de klantrelatie, AITJE levert de kennis en uitvoering voor de afgesproken AI-vraag.",
+    links: [{ label: "Samenwerken", to: "/diensten/voor-it-bedrijven" }],
+  },
+];
+
+const featuredArticles = computed(() =>
+  featuredArticleSlugs.map((slug) => articles.find((a) => a.slug === slug)).filter((a) => a !== undefined),
+);
 </script>
 
-<style scoped>
-.hero-network {
-  mix-blend-mode: screen;
-}
+<template>
+  <div>
+    <!-- Hero -->
+    <section class="relative overflow-hidden pt-28 pb-16 md:pt-36 md:pb-24">
+      <div class="pointer-events-none absolute -top-40 -right-40 -z-10 size-[46rem] rounded-full bg-brand/20 blur-3xl" />
+      <svg class="pointer-events-none absolute top-24 right-0 -z-10 hidden h-[36rem] w-[52rem] text-brand lg:block" viewBox="0 0 800 560" fill="none" aria-hidden="true">
+        <ellipse cx="520" cy="300" rx="330" ry="210" stroke="currentColor" stroke-opacity="0.5" />
+        <ellipse cx="520" cy="300" rx="250" ry="330" stroke="currentColor" stroke-opacity="0.25" transform="rotate(-24 520 300)" />
+        <circle cx="205" cy="250" r="6" fill="currentColor" />
+        <circle cx="742" cy="140" r="4" fill="currentColor" />
+        <circle cx="610" cy="505" r="5" fill="currentColor" />
+      </svg>
 
-.hero-network-lines {
-  stroke: rgba(250, 204, 21, 0.2);
-  stroke-width: 1.4;
-  stroke-dasharray: 4 8;
-}
+      <div class="container-page grid items-center gap-10 lg:grid-cols-[1.1fr_1fr]">
+        <div>
+          <p class="eyebrow mb-6 inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1.5 text-ink/70">
+            <span class="size-1.5 rounded-full bg-brand" /> Nederlandse AI-specialist met eigen producten
+          </p>
+          <h1 class="font-heading text-[3.2rem] leading-[0.98] font-bold sm:text-[4.5rem] lg:text-[5.4rem]">
+            Je partner
+            <span class="relative inline-block whitespace-nowrap">
+              <span class="relative z-10">in AI.</span>
+              <span class="absolute inset-x-[-0.1em] bottom-[0.08em] -z-0 h-[0.32em] rounded-sm bg-brand" aria-hidden="true" />
+            </span>
+          </h1>
+          <p class="mt-7 max-w-xl text-xl leading-relaxed text-ink/80 md:text-2xl">
+            AI op je eigen hardware of server. Jij houdt de controle, AITJE regelt de techniek.
+          </p>
+          <p class="mt-4 max-w-xl text-muted">
+            Advies, eigen AI-producten, installatie en AI op maat. Van de eerste vraag tot het onderhoud jaren later.
+          </p>
+          <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+            <UiButton :to="mainCta.to" size="lg" arrow>{{ mainCta.label }}</UiButton>
+            <UiButton to="/producten" variant="secondary" size="lg">Bekijk de producten</UiButton>
+          </div>
+          <ul class="mt-10 flex flex-wrap gap-x-6 gap-y-2 text-sm text-ink/70">
+            <li class="flex items-center gap-2"><AppIcon name="check" :size="16" class="text-brand-ink" /> Eigen producten</li>
+            <li class="flex items-center gap-2"><AppIcon name="check" :size="16" class="text-brand-ink" /> Advies, bouw en installatie</li>
+            <li class="flex items-center gap-2"><AppIcon name="check" :size="16" class="text-brand-ink" /> Bereikbaar na oplevering</li>
+          </ul>
+        </div>
 
-.hero-network-points {
-  fill: rgba(250, 204, 21, 0.92);
-}
+        <div class="relative mx-auto w-full max-w-xl">
+          <div class="relative aspect-square overflow-hidden rounded-[2.5rem] bg-surface shadow-lift">
+            <img src="/img/egg-nest.webp" alt="Een gouden ei tussen witte eieren in een nest" class="size-full object-cover" fetchpriority="high" />
+          </div>
+          <div class="absolute -bottom-5 -left-4 flex items-center gap-3 rounded-2xl border border-line bg-surface/95 p-3 pr-5 shadow-lift backdrop-blur sm:-left-10">
+            <img src="/img/box-assistent.webp" alt="" class="size-14 rounded-xl bg-sand object-contain p-1" />
+            <div>
+              <p class="text-sm font-semibold">AITJE Assistent</p>
+              <p class="text-xs text-muted">Je eigen AI-chatassistent</p>
+            </div>
+          </div>
+          <div class="absolute -top-4 -right-3 flex items-center gap-3 rounded-2xl border border-line-dark bg-ink/95 p-3 pr-5 text-white shadow-lift backdrop-blur sm:-right-8">
+            <img src="/img/box-coder.webp" alt="" class="size-14 rounded-xl bg-white object-contain p-1" />
+            <div>
+              <p class="text-sm font-semibold">AITJE Coder</p>
+              <p class="font-mono text-[0.7rem] text-brand">$ zonder externe tokens</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-.hero-network-points circle {
-  transform-origin: center;
-}
+    <!-- Waar sta jij? -->
+    <section class="py-20 md:py-28">
+      <div class="container-page">
+        <SectionHeading
+          eyebrow="Waar sta jij?"
+          title="Je hoeft niet te weten welk model of welke server je nodig hebt."
+          intro="Begin bij waar je tegenaan loopt. AITJE vertaalt dat naar de route die bij je past."
+        />
+        <div class="mt-12 grid gap-4 md:grid-cols-2">
+          <NuxtLink
+            v-for="route in routes"
+            :key="route.to"
+            :to="route.to"
+            class="group relative flex flex-col gap-6 overflow-hidden rounded-panel border border-line bg-surface p-7 transition-all duration-300 hover:-translate-y-1 hover:border-ink hover:shadow-lift md:p-9"
+          >
+            <p class="font-heading text-xl leading-snug font-semibold text-ink/80 md:text-2xl">“{{ route.situation }}”</p>
+            <div class="mt-auto flex items-end justify-between gap-4 border-t border-line pt-6">
+              <div class="flex items-start gap-4">
+                <span class="grid size-11 shrink-0 place-items-center rounded-2xl bg-brand">
+                  <AppIcon :name="route.icon" :size="21" />
+                </span>
+                <div>
+                  <p class="font-semibold">{{ route.answer }}</p>
+                  <p class="mt-1 text-sm text-muted">{{ route.text }}</p>
+                </div>
+              </div>
+              <span class="grid size-10 shrink-0 place-items-center rounded-full bg-ink text-white transition-colors group-hover:bg-brand group-hover:text-ink">
+                <AppIcon name="arrow-right" :size="18" />
+              </span>
+            </div>
+          </NuxtLink>
+        </div>
+      </div>
+    </section>
 
-.hero-network-glow {
-  fill: rgba(250, 204, 21, 0.1);
-  transform-origin: center;
-}
+    <!-- Voordelen -->
+    <section class="px-3 md:px-5">
+      <div class="on-dark relative isolate overflow-hidden rounded-[2.25rem] bg-ink py-20 text-white md:py-28">
+        <div class="pointer-events-none absolute -bottom-40 -left-32 -z-10 size-[36rem] rounded-full bg-brand/15 blur-3xl" />
+        <div class="container-page grid gap-14 lg:grid-cols-[1fr_1.2fr] lg:items-center">
+          <div>
+            <SectionHeading
+              eyebrow="Je eigen AI-omgeving"
+              title="Je eigen AI. AITJE regelt de techniek."
+              intro="AI op je eigen hardware of een eigen server is het specialisme van AITJE. Waar een externe dienst beter past, zegt AITJE dat ook."
+              dark
+            />
+            <div class="relative mt-10 overflow-hidden rounded-[1.75rem]">
+              <img src="/img/no-token-costs.webp" alt="Een hand op een lokaal AI-apparaat naast een stapel munten" loading="lazy" class="aspect-[16/10] w-full object-cover" />
+            </div>
+          </div>
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div v-for="benefit in benefits" :key="benefit.title" class="rounded-card border border-line-dark bg-charcoal p-6">
+              <span class="grid size-10 place-items-center rounded-xl bg-brand text-ink">
+                <AppIcon :name="benefit.icon" :size="19" />
+              </span>
+              <h3 class="mt-5 font-heading text-lg leading-snug font-semibold">{{ benefit.title }}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-muted-dark">{{ benefit.text }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-.bird-flight {
-  display: none;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  overflow: clip;
-  pointer-events: none;
-  z-index: 0;
-}
+    <!-- Producten -->
+    <section class="py-20 md:py-28">
+      <div class="container-page">
+        <div class="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <SectionHeading
+            eyebrow="AI-producten"
+            title="Kant-en-klare AI, waarin het uitzoekwerk al is gedaan."
+            intro="Modellen, software en configuratie op elkaar afgestemd. Zelf installeren of gebruiksklaar laten opleveren."
+          />
+          <UiButton to="/producten" variant="secondary" arrow>Alle producten</UiButton>
+        </div>
+        <div class="mt-12 grid gap-6 md:grid-cols-2">
+          <ProductCard v-for="product in availableProducts" :key="product.slug" :product="product" />
+        </div>
+      </div>
+    </section>
 
-.bird-container {
-  position: absolute;
-  left: 0;
-  top: 30%;
-  transform: scale(0.35) translateX(-16vw);
-  will-change: transform;
-}
+    <!-- Cases -->
+    <CasesSection
+      :slugs="['chatgpt-in-je-eigen-organisatie', 'council-hub', 'coder-game-in-24-uur']"
+      title="AI die echt werk doet."
+      intro="Van een eigen ChatGPT op kantoor tot agents die tickets voorbereiden. Kijk wat AITJE bouwt."
+    />
 
-.bird-container-one {
-  animation: fly-right-one 11s linear infinite;
-  animation-delay: 0s;
-}
+    <!-- Werkwijze -->
+    <section class="bg-sand py-20 md:py-28">
+      <div class="container-page">
+        <SectionHeading
+          eyebrow="Zo werkt het"
+          title="Van eerste vraag tot oplossing die blijft werken."
+          intro="Geen dik rapport dat in een la verdwijnt. AITJE onderzoekt wat past, bouwt het en blijft bereikbaar."
+        />
+        <div class="mt-12">
+          <StepList :steps="steps" />
+        </div>
+        <div class="mt-10 flex flex-col gap-3 sm:flex-row">
+          <UiButton to="/diensten/ai-scan" arrow>Bekijk de AI-scan</UiButton>
+          <UiButton to="/diensten" variant="secondary">Alle diensten</UiButton>
+        </div>
+      </div>
+    </section>
 
-.bird-container-two {
-  animation: fly-right-two 12s linear infinite;
-  animation-delay: 2s;
-}
+    <!-- Voor wie -->
+    <section class="py-20 md:py-28">
+      <div class="container-page">
+        <SectionHeading eyebrow="Voor wie" title="Voor iedereen die AI wil laten werken." />
+        <div class="mt-12 grid gap-6 lg:grid-cols-3">
+          <div
+            v-for="(audience, i) in audiences"
+            :key="audience.title"
+            class="flex flex-col rounded-panel p-8"
+            :class="i === 2 ? 'on-dark bg-ink text-white' : 'border border-line bg-surface'"
+          >
+            <p class="font-mono text-xs tracking-widest" :class="i === 2 ? 'text-brand' : 'text-brand-ink'">0{{ i + 1 }}</p>
+            <h3 class="mt-4 font-heading text-2xl font-bold">{{ audience.title }}</h3>
+            <p class="mt-3 leading-relaxed" :class="i === 2 ? 'text-muted-dark' : 'text-muted'">{{ audience.text }}</p>
+            <div class="mt-auto flex flex-wrap gap-2 pt-8">
+              <UiButton
+                v-for="link in audience.links"
+                :key="link.to"
+                :to="link.to"
+                :variant="i === 2 ? 'primary' : 'secondary'"
+                size="sm"
+                arrow
+              >
+                {{ link.label }}
+              </UiButton>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-.bird-container-three {
-  animation: fly-right-three 10.5s linear infinite;
-  animation-delay: 4.5s;
-}
+    <!-- Over en visie -->
+    <section class="pb-20 md:pb-28">
+      <div class="container-page grid gap-10 lg:grid-cols-2 lg:items-center">
+        <div class="relative overflow-hidden rounded-panel">
+          <img src="/img/netherlands.webp" alt="Een fietser op een pad langs een Hollandse molen" loading="lazy" class="aspect-[4/3] w-full object-cover" />
+        </div>
+        <div>
+          <p class="eyebrow text-brand-ink">Over AITJE</p>
+          <blockquote class="mt-5 font-heading text-[1.9rem] leading-[1.15] font-bold md:text-[2.4rem]">
+            “De vraag is niet of het duurder is. De vraag is of je het zelf uitzoekt of dat iemand het voor je doet.”
+          </blockquote>
+          <p class="mt-6 leading-relaxed text-muted">
+            AITJE is een Nederlands AI-productbedrijf en specialist. Eigen producten, actuele kennis en mensen die bereikbaar blijven.
+            Afhankelijkheid mag een bewuste keuze zijn. Niet een onbedoeld gevolg.
+          </p>
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+            <UiButton to="/over-aitje" variant="dark" arrow>Over AITJE</UiButton>
+            <UiButton to="/visie" variant="secondary">Lees de visie</UiButton>
+          </div>
+        </div>
+      </div>
+    </section>
 
-.bird-container-four {
-  animation: fly-right-four 11.5s linear infinite;
-  animation-delay: 6.5s;
-}
+    <!-- Kenniscentrum -->
+    <section class="border-t border-line py-20 md:py-28">
+      <div class="container-page">
+        <div class="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <SectionHeading
+            eyebrow="Kenniscentrum"
+            title="AI in gewone taal."
+            intro="Wat is een LLM, wat betekent lokale AI en wat doet een agent eigenlijk? Heldere uitleg, zonder hype."
+          />
+          <UiButton to="/kenniscentrum" variant="secondary" arrow>Naar het kenniscentrum</UiButton>
+        </div>
+        <div class="mt-12 grid gap-6 md:grid-cols-3">
+          <ArticleCard v-for="article in featuredArticles" :key="article.slug" :article="article" />
+        </div>
+      </div>
+    </section>
 
-.bird {
-  width: 88px;
-  height: 125px;
-  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/174479/bird-cells-new.svg");
-  background-size: auto 100%;
-  background-position: 0 0;
-  animation: flap 0.95s steps(10) infinite;
-  filter: brightness(0) invert(1);
-  opacity: 0.9;
-}
-
-@media (min-width: 1024px) {
-  .bird-flight {
-    display: block;
-  }
-}
-
-@keyframes flap {
-  100% {
-    background-position: -880px 0;
-  }
-}
-
-@keyframes fly-right-one {
-  0% {
-    transform: scale(0.35) translateX(-16vw) translateY(6vh);
-  }
-  20% {
-    transform: scale(0.4) translateX(20vw) translateY(1vh);
-  }
-  45% {
-    transform: scale(0.42) translateX(45vw) translateY(-4vh);
-  }
-  70% {
-    transform: scale(0.38) translateX(75vw) translateY(3vh);
-  }
-  100% {
-    transform: scale(0.35) translateX(116vw) translateY(8vh);
-  }
-}
-
-@keyframes fly-right-two {
-  0% {
-    transform: scale(0.3) translateX(-18vw) translateY(-5vh);
-  }
-  30% {
-    transform: scale(0.35) translateX(28vw) translateY(-10vh);
-  }
-  55% {
-    transform: scale(0.4) translateX(58vw) translateY(-6vh);
-  }
-  80% {
-    transform: scale(0.34) translateX(90vw) translateY(-12vh);
-  }
-  100% {
-    transform: scale(0.3) translateX(118vw) translateY(-7vh);
-  }
-}
-
-@keyframes fly-right-three {
-  0% {
-    transform: scale(0.28) translateX(-20vw) translateY(12vh);
-  }
-  35% {
-    transform: scale(0.32) translateX(35vw) translateY(5vh);
-  }
-  70% {
-    transform: scale(0.3) translateX(78vw) translateY(10vh);
-  }
-  100% {
-    transform: scale(0.26) translateX(118vw) translateY(14vh);
-  }
-}
-
-@keyframes fly-right-four {
-  0% {
-    transform: scale(0.24) translateX(-22vw) translateY(-14vh);
-  }
-  30% {
-    transform: scale(0.29) translateX(30vw) translateY(-18vh);
-  }
-  65% {
-    transform: scale(0.27) translateX(70vw) translateY(-12vh);
-  }
-  100% {
-    transform: scale(0.24) translateX(118vw) translateY(-16vh);
-  }
-}
-
-@media (max-width: 768px) {
-  .bird {
-    width: 66px;
-    height: 94px;
-    animation-duration: 1.1s;
-    opacity: 0.75;
-  }
-
-  .bird-container-one {
-    animation-duration: 9.5s;
-  }
-
-  .bird-container-two {
-    animation-duration: 10.5s;
-  }
-
-  .bird-container-three {
-    animation-duration: 9s;
-  }
-
-  .bird-container-four {
-    animation-duration: 10s;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .bird,
-  .bird-container {
-    animation: none !important;
-  }
-}
-</style>
+    <CtaBanner />
+  </div>
+</template>

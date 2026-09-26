@@ -1,30 +1,19 @@
 import { Resend } from "resend";
+import { findContactProduct, findTopic } from "#shared/contactTopics";
 
 type ContactRequestBody = {
-  locale?: string;
   name?: string;
   email?: string;
   phone?: string;
-  subject?: string;
+  company?: string;
+  topic?: string;
+  product?: string;
   message?: string;
-  meetingDate?: string;
-  meetingTime?: string;
-  meetingPlatform?: string;
-  verificationEmail?: string;
+  /** Honeypot: real visitors leave this empty. */
+  website?: string;
 };
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-const subjectLabels: Record<string, { nl: string; en: string }> = {
-  council: { nl: "Council", en: "Council" },
-  demo: { nl: "Demo", en: "Demo" },
-  kennismaking: { nl: "Kennismaking", en: "Introduction" },
-  belverzoek: { nl: "Belverzoek", en: "Call request" },
-  vraag: { nl: "Vraag", en: "Question" },
-  partnerschap: { nl: "Partnerschap", en: "Partnership" },
-  prijslijst: { nl: "Prijslijst", en: "Price list" },
-  offerte: { nl: "Offerte", en: "Quote" },
-};
 
 const escapeHtml = (value: string) =>
   value
@@ -34,209 +23,110 @@ const escapeHtml = (value: string) =>
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#39;");
 
-const clean = (value?: string) => value?.trim() || "";
+const clean = (value?: string, max = 5000) => (value ?? "").trim().slice(0, max);
+
 const cleanConfigValue = (value: unknown) => {
-  if (typeof value !== "string") {
-    return "";
-  }
-
+  if (typeof value !== "string") return "";
   const trimmed = value.trim();
-
-  if (
-    (trimmed.startsWith('"') && trimmed.endsWith('"')) ||
-    (trimmed.startsWith("'") && trimmed.endsWith("'"))
-  ) {
+  if ((trimmed.startsWith('"') && trimmed.endsWith('"')) || (trimmed.startsWith("'") && trimmed.endsWith("'"))) {
     return trimmed.slice(1, -1).trim();
   }
-
   return trimmed;
-};
-const extractResendErrorMessage = (error: unknown) => {
-  if (typeof error === "string" && error.trim()) {
-    return error;
-  }
-
-  if (typeof error !== "object" || error === null) {
-    return "";
-  }
-
-  if ("message" in error && typeof error.message === "string" && error.message.trim()) {
-    return error.message;
-  }
-
-  if ("name" in error && typeof error.name === "string" && error.name.trim()) {
-    return error.name;
-  }
-
-  return "";
 };
 
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig(event);
   const resendApiKey = cleanConfigValue(config.resendApiKey);
-  const resendFromEmail = cleanConfigValue(config.resendFromEmail);
-  const contactToEmail = cleanConfigValue(config.contactToEmail);
+  const fromEmail = cleanConfigValue(config.resendFromEmail);
+  const toEmail = cleanConfigValue(config.contactToEmail);
   const body = await readBody<ContactRequestBody>(event);
 
-  const locale = body.locale === "en" ? "en" : "nl";
-  const name = clean(body.name);
-  const email = clean(body.email);
-  const phone = clean(body.phone);
-  const subject = clean(body.subject);
+  // Silently accept bot submissions without sending anything.
+  if (clean(body.website)) return { ok: true };
+
+  const name = clean(body.name, 200);
+  const email = clean(body.email, 200);
+  const phone = clean(body.phone, 50);
+  const company = clean(body.company, 200);
   const message = clean(body.message);
-  const meetingDate = clean(body.meetingDate);
-  const meetingTime = clean(body.meetingTime);
-  const meetingPlatform = clean(body.meetingPlatform);
-  const verificationEmail = clean(body.verificationEmail);
+  const topic = findTopic(clean(body.topic)) ?? findTopic("anders")!;
+  const product = findContactProduct(clean(body.product));
 
-  if (!name || !email || !subject || !message) {
-    throw createError({
-      statusCode: 400,
-      statusMessage:
-        locale === "en"
-          ? "Please fill in all required fields."
-          : "Vul alle verplichte velden in.",
-    });
+  if (!name || !email || !message) {
+    throw createError({ statusCode: 400, statusMessage: "Vul je naam, e-mailadres en bericht in." });
   }
-
   if (!emailPattern.test(email)) {
-    throw createError({
-      statusCode: 400,
-      statusMessage:
-        locale === "en"
-          ? "Enter a valid email address."
-          : "Vul een geldig e-mailadres in.",
-    });
+    throw createError({ statusCode: 400, statusMessage: "Vul een geldig e-mailadres in." });
   }
-
-  if (subject === "kennismaking") {
-    if (!meetingDate || !meetingTime || !meetingPlatform || !verificationEmail) {
-      throw createError({
-        statusCode: 400,
-        statusMessage:
-          locale === "en"
-            ? "Fill in all appointment details."
-            : "Vul alle afspraakgegevens in.",
-      });
-    }
-
-    if (!emailPattern.test(verificationEmail)) {
-      throw createError({
-        statusCode: 400,
-        statusMessage:
-          locale === "en"
-            ? "Enter a valid verification email address."
-            : "Vul een geldig verificatie e-mailadres in.",
-      });
-    }
-  }
-
-  if (subject === "belverzoek" && !phone) {
-    throw createError({
-      statusCode: 400,
-      statusMessage:
-        locale === "en"
-          ? "Enter your phone number for a call request."
-          : "Vul je telefoonnummer in voor een belverzoek.",
-    });
-  }
-
-  if (!resendApiKey) {
-    throw createError({
-      statusCode: 500,
-      statusMessage: "RESEND_API_KEY is not configured.",
-    });
-  }
-
-  if (!resendFromEmail || !contactToEmail) {
-    throw createError({
-      statusCode: 500,
-      statusMessage: "Resend email settings are incomplete.",
-    });
+  if (!resendApiKey || !fromEmail || !toEmail) {
+    throw createError({ statusCode: 500, statusMessage: "Het contactformulier is nog niet ingesteld." });
   }
 
   const resend = new Resend(resendApiKey);
-  const subjectLabel =
-    subjectLabels[subject]?.[locale] || (locale === "en" ? "Contact request" : "Contactaanvraag");
-  const mailSubject =
-    locale === "en"
-      ? `AITJE contact form: ${subjectLabel}`
-      : `AITJE contactformulier: ${subjectLabel}`;
-
-  const html = `
-    <h1>${locale === "en" ? "New contact request" : "Nieuwe contactaanvraag"}</h1>
-    <p><strong>${locale === "en" ? "Name" : "Naam"}:</strong> ${escapeHtml(name)}</p>
-    <p><strong>Email:</strong> ${escapeHtml(email)}</p>
-    <p><strong>${locale === "en" ? "Phone" : "Telefoon"}:</strong> ${escapeHtml(phone || "-")}</p>
-    <p><strong>${locale === "en" ? "Subject" : "Onderwerp"}:</strong> ${escapeHtml(subjectLabel)}</p>
-    <p><strong>${locale === "en" ? "Message" : "Bericht"}:</strong></p>
-    <p>${escapeHtml(message).replaceAll("\n", "<br />")}</p>
-    ${
-      subject === "kennismaking"
-        ? `
-    <hr />
-    <p><strong>${locale === "en" ? "Appointment date" : "Afspraakdatum"}:</strong> ${escapeHtml(meetingDate)}</p>
-    <p><strong>${locale === "en" ? "Appointment time" : "Afspraaktijd"}:</strong> ${escapeHtml(meetingTime)}</p>
-    <p><strong>Platform:</strong> ${escapeHtml(meetingPlatform)}</p>
-    <p><strong>${locale === "en" ? "Confirmation email" : "Bevestigingsmail"}:</strong> ${escapeHtml(verificationEmail)}</p>
-    `
-        : ""
-    }
-  `;
-
-  const textLines = [
-    locale === "en" ? "New contact request" : "Nieuwe contactaanvraag",
-    "",
-    `${locale === "en" ? "Name" : "Naam"}: ${name}`,
-    `Email: ${email}`,
-    `${locale === "en" ? "Phone" : "Telefoon"}: ${phone || "-"}`,
-    `${locale === "en" ? "Subject" : "Onderwerp"}: ${subjectLabel}`,
-    "",
-    `${locale === "en" ? "Message" : "Bericht"}:`,
-    message,
+  const subjectSuffix = product ? ` — ${product.name}` : "";
+  const rows: [string, string][] = [
+    ["Naam", name],
+    ["E-mail", email],
+    ["Telefoon", phone || "-"],
+    ["Bedrijf", company || "-"],
+    ["Onderwerp", topic.label],
+    ["Product", product?.name ?? "-"],
   ];
 
-  if (subject === "kennismaking") {
-    textLines.push(
-      "",
-      `${locale === "en" ? "Appointment date" : "Afspraakdatum"}: ${meetingDate}`,
-      `${locale === "en" ? "Appointment time" : "Afspraaktijd"}: ${meetingTime}`,
-      `Platform: ${meetingPlatform}`,
-      `${locale === "en" ? "Confirmation email" : "Bevestigingsmail"}: ${verificationEmail}`,
-    );
-  }
-
   const { error } = await resend.emails.send({
-    from: resendFromEmail,
-    to: [contactToEmail],
-    replyTo: subject === "kennismaking" ? [verificationEmail || email] : [email],
-    subject: mailSubject,
-    html,
-    text: textLines.join("\n"),
+    from: fromEmail,
+    to: [toEmail],
+    replyTo: [email],
+    subject: `Contactformulier: ${topic.label}${subjectSuffix}`,
+    html: `
+      <h1>Nieuwe aanvraag via aitje.com</h1>
+      <table cellpadding="6">${rows.map(([k, v]) => `<tr><td><strong>${k}</strong></td><td>${escapeHtml(v)}</td></tr>`).join("")}</table>
+      <p><strong>Bericht</strong></p>
+      <p>${escapeHtml(message).replaceAll("\n", "<br />")}</p>
+    `,
+    text: [...rows.map(([k, v]) => `${k}: ${v}`), "", "Bericht:", message].join("\n"),
   });
 
   if (error) {
-    const resendMessage = extractResendErrorMessage(error);
-
-    console.error("Resend send failure", {
-      error,
-      from: resendFromEmail,
-      to: contactToEmail,
-      replyTo: subject === "kennismaking" ? verificationEmail || email : email,
-    });
-
-    throw createError({
-      statusCode: 502,
-      statusMessage:
-        process.dev && resendMessage
-          ? resendMessage
-          : locale === "en"
-            ? "Sending failed. Please try again later."
-            : "Versturen mislukt. Probeer het later opnieuw.",
-    });
+    console.error("Resend send failure", { error, to: toEmail });
+    throw createError({ statusCode: 502, statusMessage: "Versturen is niet gelukt. Probeer het later opnieuw of mail naar contact@aitje.com." });
   }
 
-  return {
-    ok: true,
-  };
+  // Confirmation to the sender. A failure here must not fail the request: the enquiry itself arrived.
+  const firstName = name.split(" ")[0];
+  const confirmation = await resend.emails.send({
+    from: fromEmail,
+    to: [email],
+    replyTo: [toEmail],
+    subject: "Je vraag is binnen bij AITJE",
+    html: `
+      <p>Hoi ${escapeHtml(firstName ?? name)},</p>
+      <p>Bedankt voor je bericht. Je vraag is goed aangekomen en AITJE neemt contact met je op.</p>
+      <p><strong>Onderwerp:</strong> ${escapeHtml(topic.label)}${product ? ` (${escapeHtml(product.name)})` : ""}</p>
+      <p><strong>Je bericht:</strong><br />${escapeHtml(message).replaceAll("\n", "<br />")}</p>
+      <p>Wil je iets aanvullen? Beantwoord deze mail gewoon.</p>
+      <p>Groet,<br />AITJE — Je partner in AI</p>
+    `,
+    text: [
+      `Hoi ${firstName ?? name},`,
+      "",
+      "Bedankt voor je bericht. Je vraag is goed aangekomen en AITJE neemt contact met je op.",
+      "",
+      `Onderwerp: ${topic.label}${product ? ` (${product.name})` : ""}`,
+      "",
+      "Je bericht:",
+      message,
+      "",
+      "Wil je iets aanvullen? Beantwoord deze mail gewoon.",
+      "",
+      "Groet,",
+      "AITJE — Je partner in AI",
+    ].join("\n"),
+  });
+
+  if (confirmation.error) {
+    console.error("Resend confirmation failure", { error: confirmation.error });
+  }
+
+  return { ok: true };
 });
