@@ -41,7 +41,7 @@ withDefaults(
         </div>
         <div class="cta-orbit" aria-hidden="true">
           <OrbitGraphic /><span
-            ><AppIcon name="sparkles" :size="52" :stroke-width="1"
+            ><img src="/img/aitje-egg.png" alt="" width="385" height="481" loading="lazy"
           /></span>
         </div>
       </div>

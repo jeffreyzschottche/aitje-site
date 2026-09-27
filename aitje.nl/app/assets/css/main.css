@@ -2430,3 +2430,20 @@ a:hover .product-card-copy .round-arrow {
     display: none;
   }
 }
+
+/* CTA egg: the AITJE logo egg itself (public/img/aitje-egg.png), floating with a soft shadow. */
+.cta-orbit > span {
+  width: 118px;
+  height: auto;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  transform: rotate(0deg);
+}
+.cta-orbit > span img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(10px 18px 22px rgb(118 99 5 / 0.35));
+}
