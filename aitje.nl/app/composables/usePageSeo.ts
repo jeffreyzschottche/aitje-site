@@ -11,7 +11,8 @@ type PageSeo = {
   schema?: Record<string, unknown>[];
 };
 
-const stripLinks = (text: string) => text.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1");
+const stripLinks = (text: string) =>
+  text.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1");
 
 export const organizationSchema = (siteUrl: string) => ({
   "@type": "Organization",
@@ -28,20 +29,25 @@ export function usePageSeo(seo: PageSeo) {
   const route = useRoute();
   const siteUrl = useRuntimeConfig().public.siteUrl.replace(/\/$/, "");
   const url = `${siteUrl}${route.path === "/" ? "" : route.path}`;
-  const image = `${siteUrl}${seo.image ?? "/img/egg-nest.webp"}`;
+  const image = `${siteUrl}${seo.image ?? "/img/redesign/owl-hero.webp"}`;
   const fullTitle = route.path === "/" ? seo.title : `${seo.title} | AITJE`;
 
-  const graph: Record<string, unknown>[] = [organizationSchema(siteUrl), ...(seo.schema ?? [])];
+  const graph: Record<string, unknown>[] = [
+    organizationSchema(siteUrl),
+    ...(seo.schema ?? []),
+  ];
 
   if (seo.breadcrumbs?.length) {
     graph.push({
       "@type": "BreadcrumbList",
-      itemListElement: [{ name: "Home", path: "/" }, ...seo.breadcrumbs].map((crumb, i) => ({
-        "@type": "ListItem",
-        position: i + 1,
-        name: crumb.name,
-        item: `${siteUrl}${crumb.path === "/" ? "" : crumb.path}`,
-      })),
+      itemListElement: [{ name: "Home", path: "/" }, ...seo.breadcrumbs].map(
+        (crumb, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          name: crumb.name,
+          item: `${siteUrl}${crumb.path === "/" ? "" : crumb.path}`,
+        }),
+      ),
     });
   }
 
@@ -74,7 +80,10 @@ export function usePageSeo(seo: PageSeo) {
       {
         type: "application/ld+json",
         key: "structured-data",
-        innerHTML: JSON.stringify({ "@context": "https://schema.org", "@graph": graph }),
+        innerHTML: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": graph,
+        }),
       },
     ],
   });

@@ -1,0 +1,19 @@
+# Vrijstaande dienstbeelden
+
+Gemaakt met imagegen op basis van de bestaande merkbeelden. De WebP-bestanden in `aitje.nl/public/img/redesign/` behouden echte alfa-transparantie. `ServiceScene.vue` combineert ze met een zachte achtergrondgloed en losse, op muisbeweging reagerende lagen. Beweging is uitgeschakeld bij reduced motion en touchscreens.
+
+## owl-hero-cutout.webp
+
+Use case: background-removal. Edit the attached AITJE website photograph into a truly transparent-background PNG cutout for an interactive website hero. Keep the owl, glowing egg and twig/cable nest on one compact irregular moss-covered rock. Remove the distant scenery, sky, landscape, windmill and background foliage. Reconstruct the outer edge of the rock as an organic complete silhouette, with fine moss edges. Preserve the photoreal detail, lighting, subject identity and natural materials. Center the entire subject with 8% clear transparent padding on EVERY edge; no cropped subject. Square 1024x1024. Actual alpha transparency outside the subject, including gaps between leaves and branches. No white rectangle, no checkerboard painted into the image, no text, no frame, no added graphics. Very subtle translucent contact shadow beneath the rock/hardware; no solid ground plane.
+
+## raven-scene-cutout.webp
+
+Use case: background-removal. Edit the attached AITJE website photograph into a truly transparent-background PNG cutout for an interactive website hero. Keep the raven, glowing egg and twig/cable nest on one compact irregular moss-covered rock. Remove the distant scenery, sky, landscape, windmill and background foliage. Reconstruct the outer edge of the rock as an organic complete silhouette, with fine moss edges. Preserve the photoreal detail, lighting, subject identity and natural materials. Center the entire subject with 8% clear transparent padding on EVERY edge; no cropped subject. Square 1024x1024. Actual alpha transparency outside the subject, including gaps between leaves and branches. No white rectangle, no checkerboard painted into the image, no text, no frame, no added graphics. Very subtle translucent contact shadow beneath the rock/hardware; no solid ground plane.
+
+## local-growth-cutout.webp
+
+Use case: background-removal. Edit the attached AITJE website photograph into a truly transparent-background PNG cutout for an interactive website hero. Keep the green seedling and cream egg on one compact irregular moss-covered rock. Remove the distant scenery, sky, landscape, windmill and background foliage. Reconstruct the outer edge of the rock as an organic complete silhouette, with fine moss edges. Preserve the photoreal detail, lighting, subject identity and natural materials. Center the entire subject with 8% clear transparent padding on EVERY edge; no cropped subject. Square 1024x1024. Actual alpha transparency outside the subject, including gaps between leaves and branches. No white rectangle, no checkerboard painted into the image, no text, no frame, no added graphics. Very subtle translucent contact shadow beneath the rock/hardware; no solid ground plane.
+
+## infrastructure-cutout.webp
+
+Use case: background-removal. Edit the attached AITJE website photograph into a truly transparent-background PNG cutout for an interactive website hero. Keep the three black computers, plant and mossy small rocks. Remove the room, wall, window and entire desk. Arrange the objects as one compact grounded composition. Preserve the photoreal detail, lighting, subject identity and natural materials. Center the entire subject with 8% clear transparent padding on EVERY edge; no cropped subject. Square 1024x1024. Actual alpha transparency outside the subject, including gaps between leaves and branches. No white rectangle, no checkerboard painted into the image, no text, no frame, no added graphics. Very subtle translucent contact shadow beneath the rock/hardware; no solid ground plane.

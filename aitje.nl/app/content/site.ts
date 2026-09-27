@@ -4,13 +4,19 @@ export const contact = {
   email: "contact@aitje.com",
   // DUMMY — replace before launch (redesign/content/team.md).
   phone: "+31 6 12 34 56 78",
-  phoneHref: "tel:+31612345678",
+  phoneHref: "mailto:contact@aitje.com",
+  phoneConfirmed: false,
   hours: "Maandag tot en met vrijdag, 09.00–18.00 uur",
 };
 
 export const mainCta = { label: "Bespreek je AI-vraag", to: "/contact" };
 
-export type NavLink = { label: string; to: string; description?: string; disabled?: boolean };
+export type NavLink = {
+  label: string;
+  to: string;
+  description?: string;
+  disabled?: boolean;
+};
 export type NavItem = { label: string; to: string; children?: NavLink[] };
 
 export const contactLink = (topic: string, product?: string) => {
@@ -34,8 +40,14 @@ export const footerGroups: { title: string; links: NavLink[] }[] = [
       { label: "Alle diensten", to: "/diensten" },
       { label: "AI-scan", to: "/diensten/ai-scan" },
       { label: "AITJE Custom — AI op maat", to: "/diensten/aitje-custom" },
-      { label: "Ondersteuning en onderhoud", to: "/diensten/ondersteuning-en-onderhoud" },
-      { label: "Voor IT-bedrijven en bureaus", to: "/diensten/voor-it-bedrijven" },
+      {
+        label: "Ondersteuning en onderhoud",
+        to: "/diensten/ondersteuning-en-onderhoud",
+      },
+      {
+        label: "Voor IT-bedrijven en bureaus",
+        to: "/diensten/voor-it-bedrijven",
+      },
     ],
   },
   {

@@ -14,13 +14,15 @@ withDefaults(
 
 <template>
   <div :class="[align === 'center' ? 'mx-auto text-center' : '', 'max-w-3xl']">
-    <p v-if="eyebrow" :class="['eyebrow mb-4', dark ? 'text-brand' : 'text-brand-ink']">{{ eyebrow }}</p>
+    <p
+      v-if="eyebrow"
+      :class="['eyebrow mb-4', dark ? 'text-brand' : 'text-brand-ink']"
+    >
+      {{ eyebrow }}
+    </p>
     <component
       :is="as"
-      :class="[
-        'font-heading text-[2rem] leading-[1.08] font-bold md:text-[2.75rem]',
-        dark ? 'text-white' : 'text-ink',
-      ]"
+      :class="['section-title', dark ? 'text-white' : 'text-ink']"
     >
       <slot name="title">{{ title }}</slot>
     </component>
@@ -28,7 +30,10 @@ withDefaults(
       v-if="intro"
       :text="intro"
       tag="p"
-      :class="['mt-5 text-lg leading-relaxed', dark ? 'text-muted-dark' : 'text-muted']"
+      :class="[
+        'mt-5 text-lg leading-relaxed',
+        dark ? 'text-muted-dark' : 'text-muted',
+      ]"
     />
     <slot />
   </div>

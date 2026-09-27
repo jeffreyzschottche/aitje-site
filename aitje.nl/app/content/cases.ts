@@ -5,10 +5,16 @@ import type { CaseStudy } from "./types";
 const assistent = { name: "AITJE Assistent", to: "/producten/aitje-assistent" };
 const coder = { name: "AITJE Coder", to: "/producten/aitje-coder" };
 const custom = { name: "AITJE Custom", to: "/diensten/aitje-custom" };
-const installatie = { name: "Installatie en inrichting", to: "/diensten/installatie-en-inrichting" };
+const installatie = {
+  name: "Installatie en inrichting",
+  to: "/diensten/installatie-en-inrichting",
+};
 const optimalisatie = { name: "Optimalisatie", to: "/diensten/optimalisatie" };
 const veilig = { name: "Veilig AI-gebruik", to: "/diensten/veilig-ai-gebruik" };
-const support = { name: "Ondersteuning en onderhoud", to: "/diensten/ondersteuning-en-onderhoud" };
+const support = {
+  name: "Ondersteuning en onderhoud",
+  to: "/diensten/ondersteuning-en-onderhoud",
+};
 
 const exampleDisclaimer =
   "Dit is een voorbeeldsituatie: een realistische toepassing die laat zien wat een AITJE Custom-traject kan opleveren. Het is geen beschrijving van een uitgevoerde opdracht.";
@@ -16,167 +22,129 @@ const exampleDisclaimer =
 export const cases: CaseStudy[] = [
   {
     slug: "chatgpt-in-je-eigen-organisatie",
-    label: "Praktijkcase",
-    title: "ChatGPT in je eigen organisatie",
-    context: "Een administratiekantoor met 14 medewerkers",
+    label: "Voorbeeldsituatie",
+    title: "Een eigen AI-assistent voor je organisatie",
+    context: "Kenniswerk en interne documenten",
     summary:
-      "Medewerkers wilden ChatGPT gebruiken, maar klantdossiers mochten niet naar buiten. AITJE installeerde een eigen AI-assistent op een server op kantoor, met een kennisbank van interne handleidingen.",
+      "Schrijven, samenvatten en vragen stellen over interne handleidingen. Zo kan een eigen AI-omgeving het dagelijkse werk van een kantoor ondersteunen.",
     icon: "message",
-    image: "/img/assistent-devices.webp",
+    image: "/img/redesign/case-chatgpt.webp",
+    background: "/img/cases/bg-case-chatgpt.webp",
     offer: [assistent, installatie, support],
     recognize: [
-      "Collega's plakken al stukken tekst in ChatGPT, maar niemand weet precies wat wel en niet mag.",
-      "Je hebt handleidingen en werkinstructies die niemand kan vinden.",
-      "Je wilt AI, maar geen extra abonnement per medewerker.",
+      "Bedrijfsinformatie belandt in losse chatdiensten.",
+      "Handleidingen zijn er wel, maar lastig te vinden.",
+      "Je wilt één AI-omgeving voor je team.",
     ],
     sections: [
       {
         title: "De vraag",
         paragraphs: [
-          "Het kantoor zag dat medewerkers steeds vaker ChatGPT gebruikten voor e-mails en samenvattingen, soms met klantgegevens erin. De directie wilde AI niet verbieden, maar wel zelf bepalen waar de gegevens blijven.",
+          "Hoe geef je medewerkers bruikbare AI, terwijl je grip houdt op documenten, toegang en de gekozen modellen? Deze voorbeeldsituatie begint bij een kantoor dat een eigen omgeving wil.",
         ],
       },
       {
-        title: "De beginsituatie",
-        paragraphs: [
-          "Losse ChatGPT-accounts, een netwerkschijf met honderden werkinstructies en een map 'handig' die niemand meer bijhield. Nieuwe medewerkers stelden dezelfde vragen aan dezelfde twee collega's.",
-        ],
-      },
-      {
-        title: "Wat AITJE deed",
+        title: "Een mogelijke aanpak",
         bullets: [
-          "Een compacte server geadviseerd die op kantoor kon staan, en laten leveren.",
-          "AITJE Assistent geïnstalleerd met een lokaal taalmodel, accounts voor alle medewerkers en een rol voor beheer.",
-          "De werkinstructies en het kwaliteitshandboek opgeschoond en in de kennisbank gezet.",
-          "Het team uitgelegd wat het kan, waar je op let en wanneer je websearch bewust aanzet.",
+          "De gebruikte documenten, werkzaamheden en benodigde capaciteit onderzoeken.",
+          "AITJE Assistent installeren op geschikte hardware of een eigen server.",
+          "Relevante bronnen structureren en een kennisbank inrichten als aanvullende opdracht.",
+          "Accounts en rollen instellen en het team uitleg geven over lokaal en online gebruik.",
         ],
       },
       {
-        title: "Oplevering",
+        title: "Wat een oplevering kan zijn",
         paragraphs: [
-          "Een eigen chatomgeving op kantoor, bereikbaar via de browser. Medewerkers schrijven, vatten samen en stellen vragen over interne procedures. De lokale basis werkt ook zonder internet.",
-        ],
-      },
-      {
-        title: "Resultaat",
-        paragraphs: [
-          "Na een maand gebruikte het hele team de assistent dagelijks. De losse ChatGPT-accounts zijn opgezegd en er komen merkbaar minder vragen bij de twee vraagbaken.",
+          "Een chatomgeving voor schrijven, samenvatten en vragen over geselecteerde bronnen. De lokale basis blijft bruikbaar zonder externe AI-dienst, zolang de eigen omgeving beschikbaar is. Antwoorden moeten waar nodig door een medewerker worden gecontroleerd.",
         ],
       },
     ],
-    quote: "Eindelijk AI waar ik niet bij hoef na te denken of ik iets mag plakken.",
+    disclaimer: exampleDisclaimer,
     dummy: true,
   },
   {
     slug: "council-hub",
-    label: "Praktijkcase",
-    title: "Council Hub: één centraal punt voor je bedrijf",
-    context: "Een softwarebedrijf met 18 medewerkers en ruim 400 zakelijke klanten",
+    label: "Voorbeeldsituatie",
+    title: "Eén overzicht voor klantvragen en bedrijfsinformatie",
+    context: "Supportteams en zakelijke dienstverlening",
     summary:
-      "Tickets in het ene systeem, facturen in het andere, klantinfo in een derde. AITJE bouwde één hub waar alles samenkomt en agents tickets voorbereiden, terwijl een mens de belangrijke stappen goedkeurt.",
+      "Klantinformatie, tickets en facturen bij elkaar brengen. Agents kunnen informatie voorbereiden, terwijl medewerkers de belangrijke beslissingen nemen.",
     icon: "layout",
-    image: "/img/council-hub.webp",
+    image: "/img/redesign/case-council.webp",
+    background: "/img/cases/bg-case-council.webp",
     offer: [custom, installatie, support],
     recognize: [
-      "Je springt de hele dag tussen je helpdesk, boekhouding en CRM.",
-      "Een klant belt en je moet drie systemen openen om te weten hoe het ervoor staat.",
-      "Eenvoudige tickets blijven liggen omdat iedereen met de moeilijke bezig is.",
+      "Je schakelt steeds tussen helpdesk, boekhouding en CRM.",
+      "Voor een klantvraag moet je meerdere systemen openen.",
+      "Terugkerende vragen vragen telkens hetzelfde uitzoekwerk.",
     ],
     sections: [
       {
         title: "De vraag",
         paragraphs: [
-          "Het supportteam verloor tijd met zoeken en schakelen tussen systemen. De directie wilde in één oogopslag zien hoe het ging, per klant en in totaal.",
+          "Kan één omgeving de informatie samenbrengen die een supportteam dagelijks nodig heeft? Een passende oplossing hangt af van de beschikbare koppelingen, toegangsrechten en kwaliteit van de gegevens.",
         ],
       },
       {
-        title: "De beginsituatie",
-        paragraphs: [
-          "Een helpdesksysteem, een boekhoudpakket en een CRM, zonder koppeling. Rapportages werden maandelijks met de hand in een spreadsheet gemaakt.",
-        ],
-      },
-      {
-        title: "Wat AITJE deed",
+        title: "Een mogelijke aanpak",
         bullets: [
-          "Fase 1: koppelingen met de drie systemen en één klantbeeld met open tickets, openstaande facturen en contactmomenten.",
-          "Fase 2: agents die nieuwe tickets lezen, categoriseren, klantinfo en eerdere oplossingen verzamelen en een conceptantwoord klaarzetten.",
-          "Fase 3: een [workflow](/kenniscentrum/wat-is-een-workflow) met human in the loop. Standaardantwoorden gaan na één klik uit; terugbetalingen en contractwijzigingen wachten altijd op een medewerker.",
-          "Alles draait op een eigen server; klantgegevens gaan niet naar externe modellen.",
+          "Onderzoeken welke systemen gekoppeld kunnen worden en welke gegevens nodig zijn.",
+          "Een eerste prototype bouwen met één klantbeeld en relevante informatie.",
+          "Een agent laten helpen bij categoriseren en conceptantwoorden voorbereiden.",
+          "Menselijke goedkeuring opnemen vóór belangrijke acties, zoals het versturen van antwoorden of wijzigen van contracten.",
         ],
       },
       {
-        title: "Oplevering",
+        title: "Mogelijke oplevering",
         paragraphs: [
-          "Een dashboard met ticketstatus, financiële stand per klant, signalen zoals 'klant heeft drie tickets en een openstaande factuur', en een wachtrij met door agents voorbereide tickets.",
-        ],
-      },
-      {
-        title: "Resultaat",
-        paragraphs: [
-          "Het team werkt vanuit één scherm. Eenvoudige tickets worden sneller afgehandeld en de maandrapportage maakt zichzelf.",
+          "Een centrale werkplek met relevante klantinformatie en voorbereid werk. AITJE kan dit in afgesproken urenblokken onderzoeken en bouwen; na iedere fase bepaal je de volgende stap.",
         ],
       },
     ],
+    disclaimer: exampleDisclaimer,
     dummy: true,
   },
   {
     slug: "coder-game-in-24-uur",
-    label: "Demo",
-    title: "AITJE Coder in actie: een game in 24 uur",
-    context: "Eigen project van AITJE",
+    label: "Voorbeeldsituatie",
+    title: "Van programmeeropdracht naar een werkend prototype",
+    context: "Lokale coding agents in je ontwikkelproces",
     summary:
-      "Wat kunnen lokale coding agents in 24 uur? AITJE bouwde met AITJE Coder een complete bosgame, van leeg project tot speelbare versie, zonder externe tokenkosten.",
+      "Een agent die je project leest, code wijzigt en controles uitvoert. Ontdek hoe je lokale coding agents kunt inzetten en waar jouw beoordeling nodig blijft.",
     icon: "code",
-    image: "/img/box-coder.webp",
+    image: "/img/redesign/case-coder.webp",
+    background: "/img/cases/bg-case-coder.webp",
     offer: [coder],
     recognize: [
-      "Je team gebruikt Claude Code of Codex en de rekening loopt op.",
-      "Je wilt agents langer laten doorwerken, maar niet betalen per poging.",
-      "Je vraagt je af of lokale modellen al goed genoeg zijn voor echt werk.",
+      "Je wilt code in je eigen omgeving houden.",
+      "Externe tokenkosten beperken het experimenteren.",
+      "Je wilt weten hoe lokale agents bij je werk passen.",
     ],
     sections: [
       {
         title: "De vraag",
         paragraphs: [
-          "Hoe ver kom je met lokale coding agents als je ze een dag de ruimte geeft, en waar heb je als mens nog sturing nodig?",
+          "Hoe zet je een lokale coding agent zinvol aan het werk? Begin met een afgebakende opdracht en een project waarvan je het resultaat kunt beoordelen.",
         ],
       },
       {
-        title: "De opzet",
+        title: "Een mogelijke werkwijze",
         bullets: [
-          "Eén werkstation met AITJE Coder, de vijf standaardmodellen en OpenCode als harnas.",
-          "Startpunt: een leeg project en een ontwerpdocument van één pagina.",
-          "Het spel: Woudloper, een 2D-verkenningsgame in een bos met dag-en-nachtcyclus, verzamelobjecten en eenvoudige vijanden.",
-          "De regel: alle code door agents; de mens stuurt, test en beslist.",
+          "Een passend lokaal model kiezen binnen AITJE Coder.",
+          "De opdracht afbakenen en relevante projectcontext meegeven.",
+          "De agent code laten lezen, wijzigingen laten maken en commando's laten uitvoeren.",
+          "Controles en wijzigingen beoordelen, bijsturen en opnieuw testen.",
         ],
       },
       {
-        title: "Wat de agents deden",
-        bullets: [
-          "De projectstructuur, game-loop, besturing en tilemap opzetten.",
-          "Bugs zelf reproduceren via de terminal en herstellen.",
-          "'s Nachts zonder begeleiding levelvarianten en geluidseffecten toevoegen.",
-        ],
-      },
-      {
-        title: "Waar de mens nodig was",
-        bullets: [
-          "Keuzes over gevoel en moeilijkheid: 'te snel', 'niet leuk'.",
-          "Het terugdraaien van een doodlopende aanpak bij de vijanden.",
-          "Een grote taak opsplitsen toen een agent vastliep.",
-        ],
-      },
-      {
-        title: "Resultaat en inzichten",
-        paragraphs: ["Een speelbare build met drie levels, te spelen in de browser."],
-        bullets: [
-          "Kleinere, duidelijke taken werken beter dan één grote opdracht.",
-          "Lokale modellen zijn goed in structuur en herhaling; smaak en richting blijven mensenwerk.",
-          "Zonder kosten per poging kun je agents laten itereren tot het werkt.",
+        title: "Waar jij nodig blijft",
+        paragraphs: [
+          "Functionele keuzes, kwaliteit en de uiteindelijke goedkeuring blijven mensenwerk. Het resultaat hangt af van de taak, het model, de beschikbare context en de hardware. Lokale uitvoering gebruikt geen externe tokens; hardware en stroom kosten wel geld.",
         ],
       },
     ],
-    disclaimer: "Dit is een demonstratie. Resultaten gelden voor deze opzet en zijn geen belofte voor ieder project.",
+    disclaimer:
+      "Dit is een voorbeeld van een werkwijze. De eerder opgenomen gamedemo en doorlooptijd zijn nog niet bevestigd en worden daarom niet als resultaat getoond.",
     dummy: true,
   },
   {
@@ -185,7 +153,9 @@ export const cases: CaseStudy[] = [
     title: "Van werkbon naar conceptofferte",
     context: "Een installatiebedrijf met 30 monteurs",
     summary:
-      "Monteurs maken foto's en spreken een notitie in. Een uur later staat er een conceptofferte klaar in het offertesysteem, op basis van de eigen prijslijst.",
+      "Van foto's en een ingesproken notitie naar een conceptofferte op basis van de eigen prijslijst. Een medewerker controleert voordat de offerte naar de klant gaat.",
+    image: "/img/redesign/case-offerte.webp",
+    background: "/img/cases/bg-case-offerte.webp",
     icon: "wrench",
     offer: [custom, installatie],
     recognize: [
@@ -193,7 +163,8 @@ export const cases: CaseStudy[] = [
       "Offertes maken is avondwerk voor de planner of de eigenaar.",
       "Klanten haken af omdat een concurrent sneller was.",
     ],
-    alsoFor: "loodgieters, dakdekkers, schilders, zonnepaneleninstallateurs, schoonmaakbedrijven",
+    alsoFor:
+      "loodgieters, dakdekkers, schilders, zonnepaneleninstallateurs, schoonmaakbedrijven",
     sections: [
       {
         title: "De vraag",
@@ -227,6 +198,8 @@ export const cases: CaseStudy[] = [
     context: "Een transportbedrijf met 40 vrachtwagens",
     summary:
       "Transportopdrachten komen binnen als e-mail, pdf of foto van een vrachtbrief. AI leest ze uit en zet ze klaar in het planningssysteem; de planner hoeft alleen te controleren.",
+    image: "/img/redesign/case-orders.webp",
+    background: "/img/cases/bg-case-orders.webp",
     icon: "truck",
     offer: [custom, optimalisatie],
     recognize: [
@@ -234,7 +207,8 @@ export const cases: CaseStudy[] = [
       "Iedere klant stuurt opdrachten in een ander formaat.",
       "Een typefout in een adres of tijdvenster kost je een hele rit.",
     ],
-    alsoFor: "groothandels, drukkerijen, verhuurbedrijven, iedereen die orders of aanvragen per mail ontvangt",
+    alsoFor:
+      "groothandels, drukkerijen, verhuurbedrijven, iedereen die orders of aanvragen per mail ontvangt",
     sections: [
       {
         title: "De vraag",
@@ -268,6 +242,8 @@ export const cases: CaseStudy[] = [
     context: "Een middelgrote gemeente",
     summary:
       "Bij een informatieverzoek moeten honderden mails en documenten worden doorzocht en persoonsgegevens gelakt. Een lokale AI doet het voorwerk; een medewerker beslist.",
+    image: "/img/redesign/case-lakken.webp",
+    background: "/img/cases/bg-case-lakken.webp",
     icon: "file-search",
     offer: [custom, veilig, installatie],
     recognize: [
@@ -275,7 +251,8 @@ export const cases: CaseStudy[] = [
       "Medewerkers lakken dagenlang met de hand namen, adressen en telefoonnummers.",
       "Deze documenten mogen absoluut niet naar een externe AI-dienst.",
     ],
-    alsoFor: "onderwijsinstellingen, woningcorporaties, advocatenkantoren, HR-afdelingen",
+    alsoFor:
+      "onderwijsinstellingen, woningcorporaties, advocatenkantoren, HR-afdelingen",
     sections: [
       {
         title: "De vraag",
@@ -309,6 +286,8 @@ export const cases: CaseStudy[] = [
     context: "Een autobedrijf met eigen werkplaats en 8 monteurs",
     summary:
       "Monteurs spreken hun bevindingen in op de tablet die al in de werkplaats hangt. De werkorder wordt netjes ingevuld in het dealersysteem.",
+    image: "/img/redesign/case-werkorder.webp",
+    background: "/img/cases/bg-case-werkorder.webp",
     icon: "mic",
     offer: [custom, installatie],
     recognize: [
@@ -316,7 +295,8 @@ export const cases: CaseStudy[] = [
       "Werkorders zijn half ingevuld, dus de klant krijgt vage uitleg bij de factuur.",
       "Extra werk dat de monteur tegenkwam, wordt vergeten door te geven.",
     ],
-    alsoFor: "fietsenmakers, onderhoudsmonteurs, facilitair beheer, agrarische loonbedrijven",
+    alsoFor:
+      "fietsenmakers, onderhoudsmonteurs, facilitair beheer, agrarische loonbedrijven",
     sections: [
       {
         title: "De vraag",
@@ -350,6 +330,8 @@ export const cases: CaseStudy[] = [
     context: "Een technische groothandel met 12.000 artikelen",
     summary:
       "12.000 artikelen met magere of ontbrekende omschrijvingen. Een lokale AI schrijft en vertaalt ze in de eigen tone of voice, zonder rekening per tekst.",
+    image: "/img/redesign/case-productteksten.webp",
+    background: "/img/cases/bg-case-productteksten.webp",
     icon: "package",
     offer: [custom, installatie],
     recognize: [

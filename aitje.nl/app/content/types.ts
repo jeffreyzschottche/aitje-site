@@ -24,6 +24,10 @@ export type Product = {
   tagline: string;
   icon: string;
   image?: string;
+  /** Full-width royalty-free photo behind the hero and card (Unsplash License). */
+  background?: string;
+  /** Use a stronger wash when the photo is busy behind the copy. */
+  backgroundStrong?: boolean;
   headline: string;
   subline: string;
   intro: string[];
@@ -54,6 +58,10 @@ export type Service = {
   short: string;
   icon: string;
   image?: string;
+  /** Full-width royalty-free photo behind the hero (Unsplash License). */
+  background?: string;
+  /** Use a stronger wash when the photo is busy behind the copy. */
+  backgroundStrong?: boolean;
   headline: string;
   subline: string;
   cta: Cta;
@@ -80,6 +88,8 @@ export type CaseStudy = {
   summary: string;
   icon: string;
   image?: string;
+  /** Full-width royalty-free photo behind the hero and card (Unsplash License). */
+  background?: string;
   offer: { name: string; to: string }[];
   recognize: string[];
   alsoFor?: string;

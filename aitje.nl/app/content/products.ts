@@ -13,7 +13,8 @@ export const products: Product[] = [
     name: "AITJE Assistent",
     shortName: "Assistent",
     status: "available",
-    tagline: "Je eigen AI-chatassistent, met je eigen kennis en data in je eigen omgeving.",
+    tagline:
+      "Je eigen AI-chatassistent, met je eigen kennis en data in je eigen omgeving.",
     icon: "message",
     image: "/img/box-assistent.webp",
     headline: "Je eigen AI-chatassistent. Onder jouw controle.",
@@ -32,29 +33,58 @@ export const products: Product[] = [
     ],
     problems: [
       {
-        problem: "Collega's plakken bedrijfsinformatie in externe chatdiensten.",
-        solution: "Lokale vragen blijven in je eigen omgeving en gaan niet standaard naar een externe AI-dienst.",
+        problem:
+          "Collega's plakken bedrijfsinformatie in externe chatdiensten.",
+        solution:
+          "Lokale vragen blijven in je eigen omgeving en gaan niet standaard naar een externe AI-dienst.",
       },
       {
         problem: "Je betaalt per medewerker een AI-abonnement.",
-        solution: "Eén aankoop per omgeving, zonder licentie per gebruiker en zonder tokenrekening per lokale vraag.",
+        solution:
+          "Eén aankoop per omgeving, zonder licentie per gebruiker en zonder tokenrekening per lokale vraag.",
       },
       {
         problem: "Niemand vindt de juiste handleiding of werkinstructie.",
-        solution: "De kennisbank beantwoordt vragen op basis van je eigen documenten.",
+        solution:
+          "De kennisbank beantwoordt vragen op basis van je eigen documenten.",
       },
       {
         problem: "Chat, kennis en beheer zitten in losse tools.",
-        solution: "Chat, kennisbank, accounts en rollen zitten in één omgeving.",
+        solution:
+          "Chat, kennisbank, accounts en rollen zitten in één omgeving.",
       },
     ],
     features: [
-      { icon: "message", title: "Lokale chat", text: "Schrijven, samenvatten en uitleg vragen met een model dat op je eigen omgeving draait." },
-      { icon: "library", title: "Kennisbank", text: "Voeg je eigen bronnen toe en laat antwoorden daarop baseren." },
-      { icon: "users", title: "Accounts en rollen", text: "Bepaal wie wat mag, vanuit dezelfde omgeving." },
-      { icon: "cpu", title: "Modelkeuze", text: "Kies het model per taak, met een redeneermodus voor lastige vragen." },
-      { icon: "globe", title: "Websearch als je wilt", text: "Zet online zoeken bewust aan wanneer je actuele informatie nodig hebt." },
-      { icon: "wifi-off", title: "Werkt zonder internet", text: "De lokale basis blijft bruikbaar zolang je apparaat of server en netwerk beschikbaar zijn." },
+      {
+        icon: "message",
+        title: "Lokale chat",
+        text: "Schrijven, samenvatten en uitleg vragen met een model dat op je eigen omgeving draait.",
+      },
+      {
+        icon: "library",
+        title: "Kennisbank",
+        text: "Voeg je eigen bronnen toe en laat antwoorden daarop baseren.",
+      },
+      {
+        icon: "users",
+        title: "Accounts en rollen",
+        text: "Bepaal wie wat mag, vanuit dezelfde omgeving.",
+      },
+      {
+        icon: "cpu",
+        title: "Modelkeuze",
+        text: "Kies het model per taak, met een redeneermodus voor lastige vragen.",
+      },
+      {
+        icon: "globe",
+        title: "Websearch als je wilt",
+        text: "Zet online zoeken bewust aan wanneer je actuele informatie nodig hebt.",
+      },
+      {
+        icon: "wifi-off",
+        title: "Werkt zonder internet",
+        text: "De lokale basis blijft bruikbaar zolang je apparaat of server en netwerk beschikbaar zijn.",
+      },
     ],
     included: [
       "Chatomgeving met lokale modellen",
@@ -78,15 +108,40 @@ export const products: Product[] = [
       "Hulp en ondersteuning kun je apart afspreken.",
     ],
     technical: [
-      { title: "Zonder internet", text: "Chat met het geïnstalleerde model, vragen over de lokale kennisbank, lokale documenten en afbeeldingen, en beheer. Vereist dat je apparaat of server en het lokale netwerk beschikbaar zijn." },
-      { title: "Met internet", text: "Websearch, updates en nieuwe modellen, ondersteuning op afstand als dat is afgesproken, en externe modellen als je daar bewust voor kiest." },
-      { title: "Capaciteit", text: "Snelheid, modelgrootte, aantal gelijktijdige gebruikers en kennisbankruimte hangen af van de hardware of server. AITJE adviseert een lichte of krachtige omgeving op basis van je gebruik." },
-      { title: "Systeemeisen", text: "Minimale en aanbevolen specificaties worden vóór publicatie bevestigd. Twijfel je of je hardware geschikt is? Vraag het AITJE." },
+      {
+        title: "Zonder internet",
+        text: "Chat met het geïnstalleerde model, vragen over de lokale kennisbank, lokale documenten en afbeeldingen, en beheer. Vereist dat je apparaat of server en het lokale netwerk beschikbaar zijn.",
+      },
+      {
+        title: "Met internet",
+        text: "Websearch, updates en nieuwe modellen, ondersteuning op afstand als dat is afgesproken, en externe modellen als je daar bewust voor kiest.",
+      },
+      {
+        title: "Capaciteit",
+        text: "Snelheid, modelgrootte, aantal gelijktijdige gebruikers en kennisbankruimte hangen af van de hardware of server. AITJE adviseert een lichte of krachtige omgeving op basis van je gebruik.",
+      },
+      {
+        title: "Systeemeisen",
+        text: "Minimale en aanbevolen specificaties worden vóór publicatie bevestigd. Twijfel je of je hardware geschikt is? Vraag het AITJE.",
+      },
     ],
     gallery: [
-      { src: "/img/assistent-kennisbank-inzicht.webp", alt: "Overzicht van de kennisbank met aantallen documenten en categorieën", caption: "Kennisbank-inzicht: wat staat erin en wat is recent toegevoegd." },
-      { src: "/img/assistent-kennisbank.webp", alt: "Bibliotheek van de kennisbank met documenten per categorie", caption: "De bibliotheek: je eigen documenten, per categorie geordend." },
-      { src: "/img/assistent-devices.webp", alt: "Drie compacte AITJE-apparaten", caption: "Op een compact apparaat op kantoor of op een eigen server." },
+      {
+        src: "/img/assistent-kennisbank-inzicht.webp",
+        alt: "Overzicht van de kennisbank met aantallen documenten en categorieën",
+        caption:
+          "Kennisbank-inzicht: wat staat erin en wat is recent toegevoegd.",
+      },
+      {
+        src: "/img/assistent-kennisbank.webp",
+        alt: "Bibliotheek van de kennisbank met documenten per categorie",
+        caption: "De bibliotheek: je eigen documenten, per categorie geordend.",
+      },
+      {
+        src: "/img/assistent-devices.webp",
+        alt: "Drie compacte AITJE-apparaten",
+        caption: "Op een compact apparaat op kantoor of op een eigen server.",
+      },
     ],
     faq: [
       {
@@ -101,7 +156,7 @@ export const products: Product[] = [
       },
       {
         q: "Wat kost AITJE Assistent?",
-        a: "Het product kost €499 (excl. btw) per omgeving, zonder kosten per gebruiker. Hardware en installatie komen er apart bij, afhankelijk van je situatie.",
+        a: "De voorlopige productprijs is €499 (excl. btw) per omgeving, zonder kosten per gebruiker. Hardware en installatie komen er apart bij, afhankelijk van je situatie.",
         general: true,
       },
       {
@@ -117,7 +172,10 @@ export const products: Product[] = [
         a: "Nee. Het is één product. Hoe krachtig je omgeving is, hangt af van de hardware of server die je kiest.",
       },
     ],
-    caseSlugs: ["chatgpt-in-je-eigen-organisatie", "documenten-doorzoeken-en-lakken"],
+    caseSlugs: [
+      "chatgpt-in-je-eigen-organisatie",
+      "documenten-doorzoeken-en-lakken",
+    ],
     seoDescription:
       "AITJE Assistent: je eigen AI-chatassistent met kennisbank, op je eigen hardware of server. Chat lokaal zonder externe tokenkosten. Vanaf €499 per omgeving.",
   },
@@ -126,7 +184,8 @@ export const products: Product[] = [
     name: "AITJE Coder",
     shortName: "Coder",
     status: "available",
-    tagline: "Je eigen coding agents op eigen hardware. Zonder externe tokenkosten.",
+    tagline:
+      "Je eigen coding agents op eigen hardware. Zonder externe tokenkosten.",
     icon: "code",
     image: "/img/box-coder.webp",
     headline: "Je eigen coding agents. Zonder externe tokenkosten.",
@@ -146,28 +205,57 @@ export const products: Product[] = [
     problems: [
       {
         problem: "De rekening voor externe coding agents loopt op.",
-        solution: "Lokale taken kosten geen externe tokens per opdracht. Agents mogen itereren tot het werkt.",
+        solution:
+          "Lokale taken kosten geen externe tokens per opdracht. Agents mogen itereren tot het werkt.",
       },
       {
-        problem: "Werk ligt stil als een externe dienst uitvalt of je limiet bereikt is.",
-        solution: "De lokale kern blijft werken, ook zonder internet, zolang je eigen omgeving beschikbaar is.",
+        problem:
+          "Werk ligt stil als een externe dienst uitvalt of je limiet bereikt is.",
+        solution:
+          "De lokale kern blijft werken, ook zonder internet, zolang je eigen omgeving beschikbaar is.",
       },
       {
         problem: "Modellen, interfaces en harnassen uitzoeken kost dagen.",
-        solution: "Vijf geselecteerde modellen, in gewone taal uitgelegd, klaar voor gebruik.",
+        solution:
+          "Vijf geselecteerde modellen, in gewone taal uitgelegd, klaar voor gebruik.",
       },
       {
         problem: "Je code moet in je eigen omgeving blijven.",
-        solution: "Coder draait op je eigen hardware of server; jij bepaalt wat toegankelijk is.",
+        solution:
+          "Coder draait op je eigen hardware of server; jij bepaalt wat toegankelijk is.",
       },
     ],
     features: [
-      { icon: "terminal", title: "Terminal en CLI", text: "Werk vanuit je eigen terminal met lokaal draaiende modellen." },
-      { icon: "layout", title: "AITJE-interface", text: "Een grafische interface voor wie liever niet in de terminal werkt." },
-      { icon: "plug", title: "Ondersteunde harnassen", text: "Koppel Coder aan OpenCode en andere ondersteunde coding-harnassen." },
-      { icon: "cpu", title: "Vijf vaste modellen", text: "Licht, snel of krachtig: je kiest per taak, zonder modelnamen te hoeven kennen." },
-      { icon: "repeat", title: "Iteratief werken", text: "Agents lezen en wijzigen projecten, voeren commando's uit en werken taken af." },
-      { icon: "wifi-off", title: "Werkt zonder internet", text: "De lokale kern blijft bruikbaar zonder verbinding met een externe modelaanbieder." },
+      {
+        icon: "terminal",
+        title: "Terminal en CLI",
+        text: "Werk vanuit je eigen terminal met lokaal draaiende modellen.",
+      },
+      {
+        icon: "layout",
+        title: "AITJE-interface",
+        text: "Een grafische interface voor wie liever niet in de terminal werkt.",
+      },
+      {
+        icon: "plug",
+        title: "Ondersteunde harnassen",
+        text: "Koppel Coder aan OpenCode en andere ondersteunde coding-harnassen.",
+      },
+      {
+        icon: "cpu",
+        title: "Vijf vaste modellen",
+        text: "Licht, snel of krachtig: je kiest per taak, zonder modelnamen te hoeven kennen.",
+      },
+      {
+        icon: "repeat",
+        title: "Iteratief werken",
+        text: "Agents lezen en wijzigen projecten, voeren commando's uit en werken taken af.",
+      },
+      {
+        icon: "wifi-off",
+        title: "Werkt zonder internet",
+        text: "De lokale kern blijft bruikbaar zonder verbinding met een externe modelaanbieder.",
+      },
     ],
     included: [
       "Vijf geselecteerde lokale codeermodellen",
@@ -191,10 +279,22 @@ export const products: Product[] = [
       "Hulp en ondersteuning kun je apart afspreken.",
     ],
     technical: [
-      { title: "Zonder internet", text: "Werken met de geïnstalleerde modellen, programmeren via GUI, API, CLI en lokaal beschikbare harnassen, en lokale projecten lezen, wijzigen en uitvoeren." },
-      { title: "Met internet", text: "Online documentatie opzoeken, nieuwe modellen downloaden, packages en Git-diensten gebruiken, en ondersteuning op afstand als dat is afgesproken." },
-      { title: "Capaciteit", text: "Snelheid, modelvariant, contextcapaciteit en het aantal gelijktijdige gebruikers hangen af van de hardware. Voor een groter team kan een server of meer dan één omgeving nodig zijn." },
-      { title: "Compatibiliteit", text: "OpenCode wordt ondersteund. Welke andere harnassen officieel worden ondersteund, wordt vóór publicatie bevestigd. Coder belooft geen werking met iedere tool." },
+      {
+        title: "Zonder internet",
+        text: "Werken met de geïnstalleerde modellen, programmeren via GUI, API, CLI en lokaal beschikbare harnassen, en lokale projecten lezen, wijzigen en uitvoeren.",
+      },
+      {
+        title: "Met internet",
+        text: "Online documentatie opzoeken, nieuwe modellen downloaden, packages en Git-diensten gebruiken, en ondersteuning op afstand als dat is afgesproken.",
+      },
+      {
+        title: "Capaciteit",
+        text: "Snelheid, modelvariant, contextcapaciteit en het aantal gelijktijdige gebruikers hangen af van de hardware. Voor een groter team kan een server of meer dan één omgeving nodig zijn.",
+      },
+      {
+        title: "Compatibiliteit",
+        text: "OpenCode wordt ondersteund. Welke andere harnassen officieel worden ondersteund, wordt vóór publicatie bevestigd. Coder belooft geen werking met iedere tool.",
+      },
     ],
     faq: [
       {
@@ -209,12 +309,12 @@ export const products: Product[] = [
       },
       {
         q: "Wat kost AITJE Coder?",
-        a: "Het product kost €699 (excl. btw) per omgeving, zonder externe tokenkosten voor lokaal gebruik. Hardware en installatie komen er apart bij.",
+        a: "De voorlopige productprijs is €699 (excl. btw) per omgeving, zonder externe tokenkosten voor lokaal gebruik. Hardware en installatie komen er apart bij.",
         general: true,
       },
       {
         q: "Zijn lokale modellen goed genoeg voor echt werk?",
-        a: "Voor veel taken wel, zeker als je ze klein en duidelijk maakt. Bekijk de [game die in 24 uur met Coder is gebouwd](/cases/coder-game-in-24-uur) voor wat wel en niet goed ging.",
+        a: "Voor veel taken wel, zeker als je ze klein en duidelijk maakt. Bekijk het [voorbeeld van een lokale codeerworkflow](/cases/coder-game-in-24-uur), of vraag een demo aan om de mogelijkheden voor je eigen werk te bespreken.",
       },
       {
         q: "Kan ik zelf een ander model toevoegen?",
@@ -230,12 +330,24 @@ export const products: Product[] = [
     name: "AITJE Manager",
     shortName: "Manager",
     icon: "bot",
-    tagline: "Een persoonlijke agent die taken uitvoert, binnen grenzen die jij bepaalt.",
-    intro: "AITJE Manager wordt een AI-agent die taken uitvoert namens jou. Jij bepaalt wat de agent mag doen, niet een leverancier. Terugkerend werk dat blijft liggen, gebeurt vanzelf.",
-    forWho: ["Ondernemers en managers met terugkerende taken", "Bedrijven die processen willen automatiseren zonder externe platformen", "Professionals die routinewerk willen delegeren"],
+    tagline:
+      "Een persoonlijke agent die taken uitvoert, binnen grenzen die jij bepaalt.",
+    intro:
+      "AITJE Manager wordt een AI-agent die taken uitvoert namens jou. Jij bepaalt wat de agent mag doen, niet een leverancier. Terugkerend werk dat blijft liggen, gebeurt vanzelf.",
+    forWho: [
+      "Ondernemers en managers met terugkerende taken",
+      "Bedrijven die processen willen automatiseren zonder externe platformen",
+      "Professionals die routinewerk willen delegeren",
+    ],
     problems: [
-      { problem: "Taken blijven liggen door tijdgebrek", solution: "De agent voert taken uit binnen ingestelde grenzen" },
-      { problem: "Geen controle over wat een agent mag", solution: "Jij bepaalt de grenzen" },
+      {
+        problem: "Taken blijven liggen door tijdgebrek",
+        solution: "De agent voert taken uit binnen ingestelde grenzen",
+      },
+      {
+        problem: "Geen controle over wat een agent mag",
+        solution: "Jij bepaalt de grenzen",
+      },
     ],
   }),
   planned({
@@ -243,12 +355,24 @@ export const products: Product[] = [
     name: "AITJE Notulist",
     shortName: "Notulist",
     icon: "mic",
-    tagline: "Opnemen, samenvatten, doorzetten. Niemand hoeft meer te notuleren.",
-    intro: "AITJE Notulist wordt een omgeving die gesprekken en vergaderingen opneemt, samenvat en het verslag doorzet naar je eigen systemen. Lokaal verwerkt.",
-    forWho: ["Bedrijven met veel overleggen", "Teams die verslagen willen zonder handmatig notuleren", "Organisaties met vertrouwelijke gesprekken"],
+    tagline:
+      "Opnemen, samenvatten, doorzetten. Niemand hoeft meer te notuleren.",
+    intro:
+      "AITJE Notulist wordt een omgeving die gesprekken en vergaderingen opneemt, samenvat en het verslag doorzet naar je eigen systemen. Lokaal verwerkt.",
+    forWho: [
+      "Bedrijven met veel overleggen",
+      "Teams die verslagen willen zonder handmatig notuleren",
+      "Organisaties met vertrouwelijke gesprekken",
+    ],
     problems: [
-      { problem: "Niemand wil notuleren", solution: "Automatische samenvatting na afloop" },
-      { problem: "Audio uploaden naar een externe dienst", solution: "Verwerking in je eigen omgeving" },
+      {
+        problem: "Niemand wil notuleren",
+        solution: "Automatische samenvatting na afloop",
+      },
+      {
+        problem: "Audio uploaden naar een externe dienst",
+        solution: "Verwerking in je eigen omgeving",
+      },
     ],
   }),
   planned({
@@ -256,11 +380,20 @@ export const products: Product[] = [
     name: "AITJE Prepper",
     shortName: "Prepper",
     icon: "compass",
-    tagline: "Offline kennis, kaarten en cursussen op een zelfstandig apparaat.",
-    intro: "AITJE Prepper wordt een kennissysteem dat volledig offline werkt: kaarten, handleidingen, cursussen en referentiemateriaal, ook zonder netwerk.",
-    forWho: ["Mensen die voorbereid willen zijn op situaties zonder internet", "Buitensporters, reizigers en expedities", "Iedereen die kennis altijd beschikbaar wil hebben"],
+    tagline:
+      "Offline kennis, kaarten en cursussen op een zelfstandig apparaat.",
+    intro:
+      "AITJE Prepper wordt een kennissysteem dat volledig offline werkt: kaarten, handleidingen, cursussen en referentiemateriaal, ook zonder netwerk.",
+    forWho: [
+      "Mensen die voorbereid willen zijn op situaties zonder internet",
+      "Buitensporters, reizigers en expedities",
+      "Iedereen die kennis altijd beschikbaar wil hebben",
+    ],
     problems: [
-      { problem: "Kennis is afhankelijk van internet", solution: "Werkt volledig offline" },
+      {
+        problem: "Kennis is afhankelijk van internet",
+        solution: "Werkt volledig offline",
+      },
       { problem: "Versnipperde bronnen", solution: "Alles in één systeem" },
     ],
   }),
@@ -269,12 +402,24 @@ export const products: Product[] = [
     name: "AITJE 3D",
     shortName: "3D",
     icon: "box",
-    tagline: "Een eigen AI-omgeving voor 3D-werk, zonder abonnement per zitplaats.",
-    intro: "AITJE 3D wordt een AI-omgeving voor 3D-modellering en -generatie op je eigen hardware. Je werk blijft van jou.",
-    forWho: ["3D-artiesten en ontwerpers", "Studio's met meerdere werkplekken", "Makers die hun werk niet willen uploaden"],
+    tagline:
+      "Een eigen AI-omgeving voor 3D-werk, zonder abonnement per zitplaats.",
+    intro:
+      "AITJE 3D wordt een AI-omgeving voor 3D-modellering en -generatie op je eigen hardware. Je werk blijft van jou.",
+    forWho: [
+      "3D-artiesten en ontwerpers",
+      "Studio's met meerdere werkplekken",
+      "Makers die hun werk niet willen uploaden",
+    ],
     problems: [
-      { problem: "Abonnement per zitplaats", solution: "Eigen omgeving op eigen hardware" },
-      { problem: "Onduidelijk eigendom van gegenereerd werk", solution: "Het werk blijft van de maker" },
+      {
+        problem: "Abonnement per zitplaats",
+        solution: "Eigen omgeving op eigen hardware",
+      },
+      {
+        problem: "Onduidelijk eigendom van gegenereerd werk",
+        solution: "Het werk blijft van de maker",
+      },
     ],
   }),
   planned({
@@ -283,10 +428,18 @@ export const products: Product[] = [
     shortName: "Beeld",
     icon: "image",
     tagline: "Generatieve beeldbewerking in je eigen omgeving.",
-    intro: "AITJE Beeld wordt een omgeving voor beeldgeneratie en -bewerking op je eigen hardware. Je materiaal blijft lokaal en wordt niet gebruikt om andermans model te trainen.",
-    forWho: ["Fotografen en beeldbewerkers", "Grafisch ontwerpers en illustratoren", "Marketingteams"],
+    intro:
+      "AITJE Beeld wordt een omgeving voor beeldgeneratie en -bewerking op je eigen hardware. Je materiaal blijft lokaal en wordt niet gebruikt om andermans model te trainen.",
+    forWho: [
+      "Fotografen en beeldbewerkers",
+      "Grafisch ontwerpers en illustratoren",
+      "Marketingteams",
+    ],
     problems: [
-      { problem: "Materiaal gebruikt voor training door derden", solution: "Blijft in je eigen omgeving" },
+      {
+        problem: "Materiaal gebruikt voor training door derden",
+        solution: "Blijft in je eigen omgeving",
+      },
       { problem: "Credits per generatie", solution: "Eigen capaciteit" },
     ],
   }),
@@ -296,10 +449,18 @@ export const products: Product[] = [
     shortName: "Video",
     icon: "video",
     tagline: "Videobewerking en generatie met eigen rekenkracht.",
-    intro: "AITJE Video wordt een omgeving voor videobewerking en -generatie op je eigen machine, zonder wachtrij of creditsysteem.",
-    forWho: ["Videografen en editors", "Contentcreators en productiebedrijven", "Studio's met eigen rendercapaciteit"],
+    intro:
+      "AITJE Video wordt een omgeving voor videobewerking en -generatie op je eigen machine, zonder wachtrij of creditsysteem.",
+    forWho: [
+      "Videografen en editors",
+      "Contentcreators en productiebedrijven",
+      "Studio's met eigen rendercapaciteit",
+    ],
     problems: [
-      { problem: "Wachtrijen bij rendering", solution: "Eigen hardware, eigen prioriteit" },
+      {
+        problem: "Wachtrijen bij rendering",
+        solution: "Eigen hardware, eigen prioriteit",
+      },
       { problem: "Credits per render", solution: "Eigen capaciteit" },
     ],
   }),
@@ -309,10 +470,18 @@ export const products: Product[] = [
     shortName: "Muziek",
     icon: "music",
     tagline: "Muziek, zang en loops maken in een eigen AI-omgeving.",
-    intro: "AITJE Muziek wordt een omgeving voor muziekgeneratie op je eigen hardware: complete nummers, stems, loops en vocals.",
-    forWho: ["Muzikanten en producers", "Studio's en componisten", "Contentcreators die muziek nodig hebben"],
+    intro:
+      "AITJE Muziek wordt een omgeving voor muziekgeneratie op je eigen hardware: complete nummers, stems, loops en vocals.",
+    forWho: [
+      "Muzikanten en producers",
+      "Studio's en componisten",
+      "Contentcreators die muziek nodig hebben",
+    ],
     problems: [
-      { problem: "Samples uploaden naar externe diensten", solution: "Verwerking in je eigen omgeving" },
+      {
+        problem: "Samples uploaden naar externe diensten",
+        solution: "Verwerking in je eigen omgeving",
+      },
       { problem: "Credits per track", solution: "Eigen capaciteit" },
     ],
   }),
@@ -331,13 +500,25 @@ function planned(p: {
   return {
     ...p,
     status: "planned",
+    image: `/img/redesign/${p.slug.replace("aitje-", "")}-box.webp`,
     headline: p.tagline,
-    subline: "In ontwikkeling. Laat je interesse weten, dan hoor je het als eerste zodra er meer bekend is.",
+    subline:
+      "In ontwikkeling. Laat je interesse weten, dan hoor je het als eerste zodra er meer bekend is.",
     intro: [p.intro],
     seoDescription: `${p.name} is in ontwikkeling. ${p.tagline} Laat je interesse weten bij AITJE.`,
   };
 }
 
-export const availableProducts = products.filter((p) => p.status === "available");
+// Hero and card photos (Unsplash License, redesign/visuals/photo-credits.md).
+const busyPhotos = ["aitje-video"];
+for (const product of products) {
+  product.background = `/img/products/bg-${product.slug}.webp`;
+  product.backgroundStrong = busyPhotos.includes(product.slug);
+}
+
+export const availableProducts = products.filter(
+  (p) => p.status === "available",
+);
 export const plannedProducts = products.filter((p) => p.status === "planned");
-export const getProduct = (slug: string) => products.find((p) => p.slug === slug);
+export const getProduct = (slug: string) =>
+  products.find((p) => p.slug === slug);

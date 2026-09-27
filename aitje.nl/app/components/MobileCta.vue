@@ -28,13 +28,15 @@ onBeforeUnmount(() => window.removeEventListener("scroll", onScroll));
       v-if="visible && !hidden"
       class="fixed inset-x-0 bottom-0 z-40 flex gap-2 border-t border-line bg-surface/95 p-3 backdrop-blur-lg sm:hidden"
     >
-      <UiButton :to="mainCta.to" class="flex-1" arrow>{{ mainCta.label }}</UiButton>
+      <UiButton :to="mainCta.to" class="flex-1" arrow>{{
+        mainCta.label
+      }}</UiButton>
       <a
-        :href="contact.phoneHref"
+        :href="`mailto:${contact.email}`"
         class="grid size-11 shrink-0 place-items-center rounded-full border border-line bg-surface"
-        aria-label="Bel AITJE"
+        aria-label="Mail AITJE"
       >
-        <AppIcon name="phone" :size="18" />
+        <AppIcon name="mail" :size="18" />
       </a>
     </div>
   </Transition>

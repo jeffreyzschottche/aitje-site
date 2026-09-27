@@ -1,5 +1,4 @@
 <script setup lang="ts">
-// Hero for overview and detail pages. The home page has its own hero.
 withDefaults(
   defineProps<{
     eyebrow?: string;
@@ -8,33 +7,61 @@ withDefaults(
     image?: string;
     imageAlt?: string;
     imageFit?: "cover" | "contain";
+    immersive?: boolean;
+    backdrop?: string;
+    /** Full-width photo behind the hero, washed out towards the text. */
+    background?: string;
+    backgroundStrong?: boolean;
+    /** Dark hero: black gradient over the photo, light text. Default when a background photo is set. */
+    dark?: boolean;
+    /** Keep a light hero even with a background photo. */
+    light?: boolean;
   }>(),
   { imageFit: "cover", imageAlt: "" },
 );
 </script>
-
 <template>
-  <section class="relative overflow-hidden pt-32 pb-16 md:pt-40 md:pb-24">
-    <div class="pointer-events-none absolute -top-32 right-[-10%] -z-10 size-[40rem] rounded-full bg-brand/15 blur-3xl" />
-    <div class="container-page grid items-center gap-12" :class="image ? 'lg:grid-cols-[1.15fr_1fr]' : ''">
-      <div class="max-w-3xl">
+  <section
+    class="page-hero"
+    :class="{ 'page-hero-image': image, 'page-hero-plain': !image, 'has-photo-bg': background, 'page-hero-dark': dark || (background && !light) }"
+  >
+    <template v-if="background">
+      <img class="photo-bg" :class="{ 'photo-bg-muted': backgroundStrong }" :src="background" alt="" aria-hidden="true" fetchpriority="high" />
+      <div class="photo-wash" :class="{ 'photo-wash-strong': backgroundStrong }" aria-hidden="true" />
+    </template>
+    <div class="container-page page-hero-layout">
+      <div class="page-hero-copy">
         <slot name="before" />
-        <p v-if="eyebrow" class="eyebrow mb-5 text-brand-ink">{{ eyebrow }}</p>
-        <h1 class="font-heading text-[2.6rem] leading-[1.02] font-bold md:text-[4rem]">
+        <p v-if="eyebrow" class="eyebrow text-brand-ink">{{ eyebrow }}</p>
+        <h1>
           <slot name="title">{{ title }}</slot>
         </h1>
-        <p v-if="subline" class="mt-6 max-w-2xl text-lg leading-relaxed text-muted md:text-xl">{{ subline }}</p>
+        <p v-if="subline" class="page-hero-intro">{{ subline }}</p>
         <slot />
       </div>
-      <div v-if="image" class="relative">
-        <div class="absolute -inset-4 -z-10 rounded-[2.5rem] bg-gradient-to-br from-brand/30 to-transparent blur-2xl" />
-        <img
-          :src="image"
-          :alt="imageAlt"
-          class="w-full rounded-[2rem]"
-          :class="imageFit === 'cover' ? 'aspect-[4/3] object-cover shadow-lift' : 'object-contain drop-shadow-[0_30px_40px_rgb(0_0_0/0.18)]'"
-          fetchpriority="high"
-        />
+      <div
+        v-if="image"
+        class="page-hero-art"
+        :class="{ 'contain-art': imageFit === 'contain' }"
+      >
+        <ServiceScene v-if="immersive" :src="image" :alt="imageAlt" :backdrop="backdrop" />
+        <template v-else
+          ><OrbitGraphic /><ProductPackshot
+            v-if="imageFit === 'contain'"
+            :src="image"
+            :alt="imageAlt"
+          /><img
+            v-else
+            :src="image"
+            :alt="imageAlt"
+            width="1200"
+            height="900"
+            fetchpriority="high"
+          /></template
+        >
+      </div>
+      <div v-else class="page-hero-orbit" aria-hidden="true">
+        <OrbitGraphic /><span>KENNIS.<br />TECHNIEK.<br />MOGELIJKHEDEN.</span>
       </div>
     </div>
   </section>

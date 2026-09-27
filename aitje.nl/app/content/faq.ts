@@ -5,7 +5,12 @@ import { availableProducts } from "./products";
 import { services } from "./services";
 import { contact } from "./site";
 
-export type FaqGroup = { id: string; title: string; items: Faq[]; link?: { label: string; to: string } };
+export type FaqGroup = {
+  id: string;
+  title: string;
+  items: Faq[];
+  link?: { label: string; to: string };
+};
 
 const generalGroups: FaqGroup[] = [
   {
@@ -81,7 +86,9 @@ const trailingGroups: FaqGroup[] = [
       },
       {
         q: "Kan ik AITJE bellen?",
-        a: `Ja. Bel ${contact.phone} of mail naar ${contact.email}.`,
+        a: contact.phoneConfirmed
+          ? `Ja. Bel ${contact.phone} of mail naar ${contact.email}.`
+          : `Laat je telefoonnummer achter via het [contactformulier](/contact), of mail naar ${contact.email}.`,
       },
     ],
   },
@@ -118,7 +125,9 @@ const trailingGroups: FaqGroup[] = [
 const productGroup: FaqGroup = {
   id: "producten",
   title: "Producten",
-  items: availableProducts.flatMap((p) => (p.faq ?? []).filter((f) => f.general)),
+  items: availableProducts.flatMap((p) =>
+    (p.faq ?? []).filter((f) => f.general),
+  ),
   link: { label: "Bekijk alle producten", to: "/producten" },
 };
 
@@ -129,4 +138,9 @@ const serviceGroup: FaqGroup = {
   link: { label: "Bekijk alle diensten", to: "/diensten" },
 };
 
-export const faqGroups: FaqGroup[] = [...generalGroups, productGroup, serviceGroup, ...trailingGroups];
+export const faqGroups: FaqGroup[] = [
+  ...generalGroups,
+  productGroup,
+  serviceGroup,
+  ...trailingGroups,
+];
