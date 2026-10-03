@@ -260,30 +260,12 @@ a:hover .product-card-copy .round-arrow {
 }
 .home-hero {
   position: relative;
+  z-index: 1;
   min-height: 735px;
   padding-top: 80px;
-  overflow: hidden;
-  background: var(--color-page);
-}
-.home-hero-image {
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 56%;
-}
-.home-hero-wash {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    90deg,
-    #f8f8f6 0%,
-    rgb(248 248 246/0.96) 20%,
-    rgb(248 248 246/0.75) 38%,
-    transparent 64%
-  );
+  overflow: visible;
+  background: #243b36;
+  color: #fff;
 }
 .home-hero-content {
   position: relative;
@@ -294,7 +276,7 @@ a:hover .product-card-copy .round-arrow {
   display: flex;
   align-items: center;
   gap: 0.8rem;
-  color: #45453f;
+  color: rgb(255 255 255 / 0.85);
 }
 .home-hero h1 {
   font-size: clamp(4rem, 7.5vw, 7rem);
@@ -307,14 +289,14 @@ a:hover .product-card-copy .round-arrow {
 .hero-intro {
   font-size: clamp(1.05rem, 1.5vw, 1.3rem);
   line-height: 1.65;
-  color: #33352f;
+  color: rgb(255 255 255 / 0.94);
   max-width: 520px;
 }
 .hero-description {
   margin-top: 16px;
   font-size: 0.95rem;
   line-height: 1.75;
-  color: var(--color-muted);
+  color: rgb(255 255 255 / 0.8);
   max-width: 450px;
 }
 .hero-actions {
@@ -329,20 +311,22 @@ a:hover .product-card-copy .round-arrow {
   gap: 0.7rem;
   margin-top: 42px;
   font-size: 0.73rem;
-  color: #5e6057;
+  color: rgb(255 255 255 / 0.8);
 }
 .hero-scroll span {
-  border: 1px solid #c8c9bd;
+  border: 1px solid rgb(255 255 255 / 0.4);
   border-radius: 50%;
-  width: 27px;
-  height: 35px;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  line-height: 1;
   display: grid;
   place-items: center;
 }
 .hero-coordinate {
   position: absolute;
-  right: 4vw;
-  bottom: 25px;
+  right: 9vw;
+  bottom: 140px;
   color: white;
   font: 0.6rem/1.9 var(--font-mono);
   letter-spacing: 0.15em;
@@ -352,8 +336,132 @@ a:hover .product-card-copy .round-arrow {
   opacity: 0.7;
 }
 .benefit-strip {
-  background: #fff;
+  background: var(--color-page);
+  border-bottom: 1px solid var(--color-line);
+  padding-top: 150px;
+}
+.aitje-film {
+  padding-block: clamp(64px, 8vw, 112px);
+}
+.aitje-film--home {
+  background: #f0f0eb;
+}
+.aitje-film-home,
+.aitje-film-about {
+  display: grid;
+  grid-template-columns: 0.82fr 1.18fr;
+  align-items: center;
+  gap: clamp(32px, 6vw, 88px);
+}
+.aitje-film-copy,
+.aitje-film-about-copy {
+  max-width: 520px;
+}
+.aitje-film-copy .eyebrow,
+.aitje-film-about-copy .eyebrow,
+.aitje-film-vision-heading .eyebrow {
+  color: #a86c08;
+}
+.aitje-film h2 {
+  margin-top: 14px;
+  font: 700 clamp(2rem, 3.5vw, 3.25rem)/1.08 var(--font-heading);
+  letter-spacing: -0.045em;
+}
+.aitje-film-copy > p:last-child,
+.aitje-film-about-copy > p:last-child {
+  margin-top: 20px;
+  color: #62645f;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+.aitje-film-player {
+  overflow: hidden;
+  border: 1px solid rgb(35 39 30 / 0.12);
+  border-radius: 22px;
+  background: #111;
+  box-shadow: 0 24px 64px -38px rgb(20 26 17 / 0.4);
+}
+.aitje-film-player iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+}
+.aitje-film--about {
+  background: #f3f3f0;
   border-block: 1px solid var(--color-line);
+}
+.aitje-film--vision {
+  background:
+    radial-gradient(ellipse at 80% 0%, rgb(251 204 21 / 0.12), transparent 42%),
+    #11130f;
+  color: white;
+}
+.aitje-film-vision {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  align-items: center;
+  gap: clamp(32px, 6vw, 88px);
+}
+.aitje-film-vision-heading {
+  max-width: 490px;
+}
+.aitje-film-vision-heading h2 {
+  font-size: clamp(2.25rem, 4vw, 3.8rem);
+}
+.aitje-film-vision-heading > p:last-child {
+  margin-top: 18px;
+  color: #c6c9be;
+  font-size: 1rem;
+}
+.aitje-film--vision .aitje-film-player {
+  border-color: rgb(255 255 255 / 0.15);
+  box-shadow: 0 24px 80px -38px rgb(0 0 0 / 0.8);
+}
+.home-about {
+  background: #f3f3f0;
+}
+.home-about-layout {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  align-items: center;
+  gap: clamp(32px, 5vw, 76px);
+}
+.home-about-copy > .eyebrow {
+  color: #a86c08;
+}
+.home-about-copy h2 {
+  margin-top: 14px;
+  font: 700 clamp(2rem, 3.3vw, 3rem)/1.08 var(--font-heading);
+  letter-spacing: -0.045em;
+}
+.home-about-prose {
+  display: grid;
+  gap: 18px;
+  margin-top: 24px;
+  max-width: 610px;
+  color: #62645f;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+.home-about-prose strong {
+  color: #22241f;
+}
+.home-about-prose em {
+  color: #33352f;
+}
+.home-about-video {
+  overflow: hidden;
+  border: 1px solid #e1e2dc;
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 18px 50px -38px rgb(20 26 17 / 0.32);
+}
+.home-about-video iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
 }
 .benefit-grid {
   display: grid;
@@ -412,7 +520,7 @@ a:hover .product-card-copy .round-arrow {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 24px 28px 0;
+  padding: 20px 28px;
   gap: 1rem;
 }
 .product-card-top .eyebrow {
@@ -433,7 +541,7 @@ a:hover .product-card-copy .round-arrow {
   display: grid;
   place-items: center;
   background: radial-gradient(ellipse at center, #f4f1df, transparent 65%);
-  margin-top: 4px;
+  margin-top: 0;
 }
 .product-card-stage > .product-packshot {
   height: 91%;
@@ -580,21 +688,24 @@ a:hover .product-card-copy .round-arrow {
   position: relative;
   color: white;
   min-height: 620px;
-  overflow: hidden;
+  /* Leave room for the crown as the image crop grows on wide screens. */
+  margin-top: max(0px, calc(28.125vw - 420px));
+  overflow: visible;
 }
-.nature-scene > img {
+.nature-scene > .nature-scene-artwork {
   position: absolute;
   left: 0;
   top: 0;
   height: 100%;
   width: 100%;
-  object-fit: cover;
 }
 .nature-scene-layout {
   position: relative;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 9%;
+  max-width: none;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 6%;
+  background: linear-gradient(90deg, transparent 46%, #080808 61%);
   min-height: 620px;
   padding-block: 85px;
 }
@@ -607,8 +718,12 @@ a:hover .product-card-copy .round-arrow {
   letter-spacing: 0.12em;
   color: #e8e8da;
 }
+.nature-scene-copy {
+  min-width: 0;
+  max-width: 560px;
+}
 .nature-scene-copy h2 {
-  font-size: clamp(2.3rem, 4.3vw, 3.8rem);
+  font-size: clamp(2rem, 4vw, 3.8rem);
   line-height: 1.12;
   font-weight: 600;
   margin-top: 24px;
@@ -683,6 +798,23 @@ a:hover .product-card-copy .round-arrow {
 }
 .environment-section {
   background: #eeeee7;
+  position: relative;
+  isolation: isolate;
+  overflow: visible;
+}
+.environment-section > .container-page {
+  position: relative;
+  z-index: 1;
+}
+@media (max-width: 1279px) {
+  .environment-section {
+    padding-bottom: 130px;
+  }
+}
+@media (min-width: 1280px) and (max-width: 1599px) {
+  .environment-section > .container-page {
+    width: calc(100% - 240px);
+  }
 }
 .environment {
   border: 1px solid #d9dacf;
@@ -1239,22 +1371,22 @@ a:hover .product-card-copy .round-arrow {
   justify-items: start;
 }
 .site-footer-wordmark {
-  font: 700 clamp(6rem, 20vw, 19rem)/0.85 var(--font-heading);
+  font: 700 clamp(2rem, 4vw, 3.5rem)/1 var(--font-heading);
   letter-spacing: -0.09em;
   color: #272b22;
   border-top: 1px solid #30332c;
-  padding-top: 45px;
-  margin-top: 65px;
+  padding-top: 24px;
+  margin-top: 40px;
   display: flex;
   justify-content: space-between;
-  align-items: start;
+  align-items: center;
 }
 .site-footer-wordmark span {
   font: 0.6rem/1.8 var(--font-mono);
   letter-spacing: 0.1em;
   color: #9b9f90;
   text-align: right;
-  padding-top: 12px;
+  padding-top: 0;
 }
 .product-detail-hero {
   background: #eeeee7;
@@ -1327,26 +1459,12 @@ a:hover .product-card-copy .round-arrow {
   line-height: 1.7;
   color: #69705d;
 }
-@media (min-width: 1600px) {
-  .home-hero-image {
-    width: 92%;
-  }
-}
 @media (max-width: 1023px) {
   .home-hero {
     min-height: 650px;
   }
   .home-hero-content {
     padding-top: 85px;
-  }
-  .home-hero-wash {
-    background: linear-gradient(
-      90deg,
-      #f8f8f6 0%,
-      #f8f8f6eb 28%,
-      #f8f8f660 62%,
-      transparent 85%
-    );
   }
   .hero-coordinate {
     display: none;
@@ -1385,9 +1503,6 @@ a:hover .product-card-copy .round-arrow {
   .audience-card h3 {
     font-size: 1.12rem;
   }
-  .nature-scene-layout {
-    gap: 4%;
-  }
   .page-hero {
     padding-top: 125px;
   }
@@ -1410,30 +1525,17 @@ a:hover .product-card-copy .round-arrow {
 }
 @media (max-width: 767px) {
   .home-hero {
+    --hero-mobile-art-height: min(124.6875vw, 623.4375px);
+    --hero-mobile-overhang: 95px;
     padding-top: 70px;
-    min-height: 930px;
+    min-height: 0;
   }
-  .home-hero-image {
-    height: 520px;
-    width: 125%;
-    max-width: none;
-    top: auto;
-    bottom: 0;
-    right: 0;
-    object-position: right center;
-  }
-  .home-hero-wash {
-    background: linear-gradient(
-      180deg,
-      #f8f8f6 0%,
-      #f8f8f6 47%,
-      #f8f8f6d9 52%,
-      transparent 67%
-    );
+  .benefit-strip {
+    padding-top: 95px;
   }
   .home-hero-content {
     padding-top: 47px;
-    padding-bottom: 330px;
+    padding-bottom: calc(var(--hero-mobile-art-height) - var(--hero-mobile-overhang) + 24px);
   }
   .home-hero h1 {
     font-size: clamp(3.9rem, 14.5vw, 5rem);
@@ -1495,16 +1597,29 @@ a:hover .product-card-copy .round-arrow {
   .nature-scene {
     min-height: auto;
   }
-  .nature-scene > img {
-    height: 390px;
-    top: auto;
-    bottom: 0;
-    width: 145%;
-    max-width: none;
-    object-position: left center;
+  .home-about-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .aitje-film-home,
+  .aitje-film-about,
+  .aitje-film-vision {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .aitje-film h2,
+  .aitje-film-vision-heading h2 {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+  .aitje-film-player {
+    border-radius: 16px;
+  }
+  .home-about-prose {
+    font-size: 0.92rem;
   }
   .nature-scene-layout {
     min-height: 875px;
+    background: none;
     display: flex;
     flex-direction: column-reverse;
     justify-content: space-between;
@@ -2333,6 +2448,28 @@ a:hover .product-card-copy .round-arrow {
 .page-hero-dark .photo-bg {
   filter: saturate(0.9) brightness(0.85);
 }
+/* Service environments already have a shaded copy area. Keep the scene visible. */
+.service-world-hero .photo-bg {
+  object-position: 62% center;
+  filter: saturate(0.96);
+}
+.service-world-hero.page-hero-dark .photo-wash {
+  background:
+    linear-gradient(90deg, rgb(6 17 12 / 0.55), rgb(6 17 12 / 0.38) 36%, rgb(6 17 12 / 0.12) 64%, transparent 100%),
+    linear-gradient(180deg, rgb(6 17 12 / 0.2), transparent 26%, transparent 72%, rgb(6 17 12 / 0.45));
+}
+.service-world-hero .page-hero-art .service-scene {
+  width: 100%;
+  margin-left: 0;
+}
+@media (max-width: 767px) {
+  .service-world-hero .photo-bg {
+    object-position: 72% center;
+  }
+  .service-world-hero.page-hero-dark .photo-wash {
+    background: linear-gradient(180deg, rgb(6 17 12 / 0.8), rgb(6 17 12 / 0.72) 48%, rgb(6 17 12 / 0.26) 75%, rgb(6 17 12 / 0.5));
+  }
+}
 .page-hero-dark h1 {
   color: #fff;
 }
@@ -2387,15 +2524,13 @@ a:hover .product-card-copy .round-arrow {
   background: var(--color-sand);
 }
 .article-card-photo::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, transparent 55%, rgb(11 11 11 / 0.35) 100%);
+  content: none;
 }
 .article-card-photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  filter: none;
   transition: transform 0.6s ease;
 }
 .article-card:hover .article-card-photo img {
@@ -2411,6 +2546,7 @@ a:hover .product-card-copy .round-arrow {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  filter: none;
   transition: transform 0.7s ease;
 }
 .article-feature:hover .article-feature-photo img {
@@ -2446,4 +2582,16 @@ a:hover .product-card-copy .round-arrow {
   width: 100%;
   height: auto;
   filter: drop-shadow(10px 18px 22px rgb(118 99 5 / 0.35));
+}
+
+/* Card backgrounds: soft, out-of-focus nature scenes instead of stock laptops */
+.product-card .product-card-photo {
+  opacity: 1;
+  filter: none;
+}
+.product-card:hover .product-card-photo {
+  opacity: 1;
+}
+.product-coder .product-stage-label {
+  color: #d9c9a0;
 }

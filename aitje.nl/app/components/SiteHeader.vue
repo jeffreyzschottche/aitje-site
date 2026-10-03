@@ -30,7 +30,6 @@ const menus: Menu[] = [
     to: "/producten",
     columns: [
       {
-        title: "Beschikbaar",
         links: availableProducts.map((p) => ({
           label: p.name,
           to: `/producten/${p.slug}`,
@@ -105,6 +104,12 @@ const menus: Menu[] = [
     ],
   },
 ];
+
+// Unpublished products leave no empty dropdown columns or headings.
+for (const menu of menus) {
+  const columns = menu.columns?.filter((column) => column.links.length > 0);
+  menu.columns = columns?.length ? columns : undefined;
+}
 
 const isActive = (to: string) =>
   route.path === to || route.path.startsWith(`${to}/`);
@@ -233,11 +238,11 @@ watch(mobileOpen, (value) => {
                       <li v-for="link in column.links" :key="link.to">
                         <NuxtLink
                           :to="link.to"
-                          class="flex items-start gap-3 rounded-2xl px-3 py-2.5 transition-colors hover:bg-sand"
+                          class="flex items-center gap-3 rounded-2xl px-3 py-2.5 transition-colors hover:bg-sand"
                         >
                           <span
                             v-if="link.icon"
-                            class="mt-0.5 grid size-8 shrink-0 place-items-center rounded-xl bg-brand/20 text-ink"
+                            class="grid size-8 shrink-0 place-items-center rounded-xl bg-brand text-ink"
                           >
                             <AppIcon :name="link.icon" :size="17" />
                           </span>

@@ -12,7 +12,7 @@ const props = withDefaults(
   {
     title: "Herken je dit?",
     intro:
-      "Herkenbare voorbeeldsituaties laten zien hoe AI bij je werk kan passen. Ontdek de vraag, de aanpak en een mogelijke oplossing.",
+      "Van interne kennis doorzoeken tot werkprocessen verbinden. Ontdek de toepassing, de vraag en de aanpak.",
     dark: false,
   },
 );

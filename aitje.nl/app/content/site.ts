@@ -1,4 +1,5 @@
 // Navigation, contact details and shared calls to action (pages/sitemap.md, besluiten 46, 49, 51).
+import { availableProducts } from "./products";
 
 export const contact = {
   email: "contact@aitje.com",
@@ -30,8 +31,10 @@ export const footerGroups: { title: string; links: NavLink[] }[] = [
     title: "Producten",
     links: [
       { label: "Alle producten", to: "/producten" },
-      { label: "AITJE Assistent", to: "/producten/aitje-assistent" },
-      { label: "AITJE Coder", to: "/producten/aitje-coder" },
+      ...availableProducts.map((p) => ({
+        label: p.name,
+        to: `/producten/${p.slug}`,
+      })),
     ],
   },
   {
@@ -39,6 +42,7 @@ export const footerGroups: { title: string; links: NavLink[] }[] = [
     links: [
       { label: "Alle diensten", to: "/diensten" },
       { label: "AI-scan", to: "/diensten/ai-scan" },
+      { label: "Token management & optimalisatie", to: "/diensten/token-management-en-optimalisatie" },
       { label: "AITJE Custom — AI op maat", to: "/diensten/aitje-custom" },
       {
         label: "Ondersteuning en onderhoud",

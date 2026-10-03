@@ -50,6 +50,7 @@ const capabilities = [
   { title: "AITJE-producten installeren", icon: "box" },
   { title: "AI op maat bouwen", icon: "sparkles" },
   { title: "Koppelingen en integraties", icon: "plug" },
+  { title: "Token management & optimalisatie", icon: "workflow" },
   { title: "Technische ondersteuning", icon: "lifebuoy" },
 ];
 
@@ -84,11 +85,12 @@ const visibility = [
 <template>
   <div>
     <PageHero
+      class="service-world-hero"
       eyebrow="Voor IT-bedrijven en bureaus"
       title="AI-specialist voor jouw klanten."
       subline="Jij houdt de klantrelatie, AITJE levert de AI-expertise. Voor webbureaus, systeembeheerders, automatiseerders en IT-dienstverleners die de AI-vraag van hun klanten willen kunnen beantwoorden."
       image="/img/redesign/partners.webp"
-      background="/img/services/bg-voor-it-bedrijven.webp"
+      background="/img/services/nature-tech/voor-it-bedrijven.webp"
       immersive
       image-alt="Een raaf en een roodborstje op een houten brug die samen een kabel vasthouden, met het AITJE-ei tussen hen in"
     >
@@ -181,6 +183,7 @@ const visibility = [
 
     <section class="pb-20">
       <div class="container-page">
+        <TokenServiceCallout class="mb-12" />
         <div class="partner-flow">
           <div>
             <AppIcon name="users" :size="27" />

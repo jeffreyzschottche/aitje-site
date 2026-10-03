@@ -1,5 +1,5 @@
 <script setup lang="ts">
-// Case page (redesign/pages/case.md, besluit 51).
+// Case detail uses the same artwork and content as its preview.
 import { cases, getCase } from "@/content/cases";
 
 const route = useRoute();
@@ -14,7 +14,7 @@ if (!item) {
 }
 
 const more = cases.filter((c) => c.slug !== item.slug).slice(0, 3);
-const primaryOffer = item.offer[0]!;
+const primaryOffer = item.offer[0];
 
 usePageSeo({
   title: item.title,
@@ -29,57 +29,32 @@ usePageSeo({
 
 <template>
   <div>
-    <section
-      class="case-story-hero relative overflow-hidden pt-28 pb-14 md:pt-36"
-      :class="{ 'has-photo-bg': item.background, 'page-hero-dark': item.background }"
+    <PageHero
+      :eyebrow="item.context"
+      :title="item.title"
+      :subline="item.summary"
+      :background="item.background"
+      :image="item.image"
+      :image-alt="item.title"
+      immersive
+      dark
     >
-      <template v-if="item.background">
-        <img class="photo-bg" :src="item.background" alt="" aria-hidden="true" fetchpriority="high" />
-        <div class="photo-wash" aria-hidden="true" />
+      <template #before>
+        <NuxtLink to="/cases" class="mb-8 inline-flex items-center gap-2 text-sm text-white/75 hover:text-white">
+          <span aria-hidden="true">←</span> Alle cases
+        </NuxtLink>
       </template>
-      <div
-        class="pointer-events-none absolute -top-32 -right-32 -z-10 size-[38rem] rounded-full bg-brand/15 blur-3xl"
-      />
-      <div class="container-page">
-        <NuxtLink to="/cases" class="text-sm text-muted hover:text-ink"
-          >← Alle cases</NuxtLink
+      <div class="flex flex-wrap gap-2">
+        <NuxtLink
+          v-for="offer in item.offer"
+          :key="offer.to"
+          :to="offer.to"
+          class="inline-flex items-center gap-1.5 rounded-full border border-white/30 px-3.5 py-2 text-sm font-medium hover:border-brand hover:text-brand"
         >
-        <div class="mt-6 grid items-center gap-10 lg:grid-cols-[1.3fr_1fr]">
-          <div>
-            <div class="flex flex-wrap items-center gap-3">
-              <CaseLabel :label="item.label" />
-              <span class="text-sm text-muted">{{ item.context }}</span>
-            </div>
-            <h1
-              class="mt-5 font-heading text-[2.5rem] leading-[1.04] font-bold md:text-[3.6rem]"
-            >
-              {{ item.title }}
-            </h1>
-            <p v-if="item.dummy" class="draft-note">
-              Voorbeeld ter inspiratie. Geen bevestigd klantresultaat.
-            </p>
-            <p
-              class="mt-6 max-w-2xl text-lg leading-relaxed text-ink/80 md:text-xl"
-            >
-              {{ item.summary }}
-            </p>
-          <div class="mt-8 flex flex-wrap gap-2">
-            <NuxtLink
-              v-for="offer in item.offer"
-              :key="offer.to"
-              :to="offer.to"
-              class="inline-flex items-center gap-1.5 rounded-full border border-line bg-surface px-3.5 py-1.5 text-sm font-medium hover:border-ink"
-            >
-              {{ offer.name }} <AppIcon name="arrow-up-right" :size="14" />
-            </NuxtLink>
-          </div>
-          </div>
-          <div>
-            <ServiceScene v-if="item.image" :src="item.image" :alt="item.title" />
-          </div>
-        </div>
+          {{ offer.name }} <AppIcon name="arrow-up-right" :size="14" />
+        </NuxtLink>
       </div>
-    </section>
+    </PageHero>
 
     <!-- Herken je dit? -->
     <section class="pt-16 pb-16">
@@ -130,12 +105,7 @@ usePageSeo({
           >
             “{{ item.quote }}”
           </blockquote>
-          <p
-            v-if="item.disclaimer"
-            class="rounded-2xl bg-sand p-5 text-sm leading-relaxed text-muted"
-          >
-            {{ item.disclaimer }}
-          </p>
+
         </article>
 
         <aside class="lg:sticky lg:top-28 lg:self-start">
@@ -147,7 +117,7 @@ usePageSeo({
             <UiButton to="/contact" arrow class="mt-6 w-full"
               >Bespreek je AI-vraag</UiButton
             >
-            <UiButton :to="primaryOffer.to" variant="light" class="mt-3 w-full"
+            <UiButton v-if="primaryOffer" :to="primaryOffer.to" variant="light" class="mt-3 w-full"
               >Bekijk {{ primaryOffer.name }}</UiButton
             >
           </div>

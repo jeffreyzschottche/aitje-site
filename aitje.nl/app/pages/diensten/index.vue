@@ -8,6 +8,9 @@ usePageSeo({
     "Wat AITJE voor je doet: AI-scan, advies en analyse, installatie, optimalisatie, veilig AI-gebruik, AI op maat en ondersteuning. Van eerste vraag tot onderhoud.",
   breadcrumbs: [{ name: "Diensten", path: "/diensten" }],
 });
+useHead({
+  link: [{ rel: "preload", as: "image", href: "/img/redesign/services-nature-tech-bridge.webp", fetchpriority: "high" }],
+});
 
 const scan = getService("ai-scan")!;
 const custom = getService("aitje-custom")!;
@@ -19,15 +22,20 @@ const others = services.filter(
 <template>
   <div>
     <PageHero
+      class="services-bridge-hero"
       eyebrow="Diensten"
       title="Van een AI-vraag naar iets dat werkt."
       subline="Je AI-vraag onderzoeken, een omgeving inrichten of een complete oplossing bouwen. AITJE helpt je kiezen en uitvoeren. Van de eerste vraag tot het onderhoud jaren later."
       image="/img/redesign/services.webp"
-      background="/img/services/bg-archive.webp"
-      background-strong
+      background="/img/redesign/services-nature-tech-bridge.webp"
+      dark
       immersive
       image-alt="Een open houten gereedschapskist met gereedschap en het gloeiende AITJE-ei"
-    />
+    >
+      <template #title>
+        Van een AI-vraag <span class="services-bridge-title">naar iets dat werkt.</span>
+      </template>
+    </PageHero>
 
     <!-- Uitgelicht -->
     <section class="pb-16">
@@ -145,6 +153,10 @@ const others = services.filter(
       </div>
     </section>
     <!-- Overige diensten -->
+    <section class="py-10">
+      <div class="container-page"><TokenServiceCallout /></div>
+    </section>
+
     <section class="py-16">
       <div class="container-page">
         <SectionHeading
@@ -187,3 +199,55 @@ const others = services.filter(
     />
   </div>
 </template>
+
+<style scoped>
+.services-bridge-hero {
+  background: #0c211d;
+  border-bottom: 0;
+  margin-bottom: 45px;
+}
+.services-bridge-title {
+  color: #facc15;
+}
+.services-bridge-hero :deep(.photo-bg) {
+  object-position: 65% center;
+}
+.services-bridge-hero :deep(.photo-wash) {
+  background:
+    linear-gradient(90deg, rgb(4 19 16 / 0.86), rgb(4 19 16 / 0.72) 35%, rgb(4 19 16 / 0.18) 60%, transparent 85%),
+    linear-gradient(180deg, rgb(4 19 16 / 0.12), transparent 40%, rgb(4 19 16 / 0.35));
+}
+.services-bridge-hero :deep(.page-hero-layout) {
+  min-height: 540px;
+}
+.services-bridge-hero :deep(.page-hero-intro) {
+  color: #e5ebe0;
+}
+.services-bridge-hero :deep(.page-hero-art) {
+  align-self: end;
+}
+.services-bridge-hero :deep(.service-scene) {
+  width: 88%;
+  margin-left: 12%;
+}
+.services-bridge-hero :deep(.service-scene-orbit) {
+  opacity: 0.25;
+}
+.services-bridge-hero :deep(.service-scene-subject) {
+  filter: drop-shadow(0 20px 28px rgb(0 0 0 / 0.3));
+}
+@media (max-width: 767px) {
+  .services-bridge-hero {
+    margin-bottom: 30px;
+  }
+  .services-bridge-hero :deep(.page-hero-layout) {
+    min-height: 0;
+  }
+  .services-bridge-hero :deep(.photo-bg) {
+    object-position: 78% center;
+  }
+  .services-bridge-hero :deep(.photo-wash) {
+    background: linear-gradient(180deg, rgb(4 19 16 / 0.92), rgb(4 19 16 / 0.82) 38%, rgb(4 19 16 / 0.12) 70%, rgb(4 19 16 / 0.48));
+  }
+}
+</style>

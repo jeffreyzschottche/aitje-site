@@ -4,6 +4,12 @@
 
 ## Nieuw te schrijven
 
+Op 3 oktober 2026 zijn 22 begripsartikelen toegevoegd aan de centrale collectie: frontier-modellen, open-source AI, tokens, modelrouting, quantisatie, fine-tuning, tool calling, MCP, hallucinaties, digitale soevereiniteit, abliteration, weights, KV-cache, vectoren, token factories, inference, vision-modellen, coding-modellen, VC subsidy, loss-leader pricing, predatory pricing en vendor lock-in. De artikelen bevatten uitleg, een praktisch voorbeeld, bronnen en gerelateerde artikelen.
+
+Alle 39 artikelen hebben daarnaast een eigen onderdeel **Hoe AITJE dit toepast**, met een passend product- of dienstenlink. De artikelheaders en overzichtskaarten gebruiken lokaal opgeslagen, ongetinte stockfotografie; bron en licentie staan in `redesign/visuals/photo-credits.md`. Uitgelichte artikelen zijn behouden.
+
+De onderwerpen tokens, open source, frontier-modellen en fine-tuning uit de onderstaande oorspronkelijke backlog zijn daarmee ingevuld. De overige ideeën blijven toekomstig werk.
+
 | Artikel | Categorie | Gelinkt vanaf | Prio |
 | --- | --- | --- | --- |
 | Wat zijn tokens en tokenkosten? | AI-basis | Homepage, Coder, FAQ Kosten, case 7 | 1 |

@@ -40,8 +40,8 @@ export type Article = KnowledgeArticle & {
 
 export const articles: Article[] = knowledgeArticles.map((article) => ({
   ...article,
-  topic: categoryBySlug[article.slug] ?? "AI-basis",
-  lastUpdated: LAST_UPDATED,
+  topic: article.topic ?? categoryBySlug[article.slug] ?? "AI-basis",
+  lastUpdated: article.lastUpdated ?? LAST_UPDATED,
 }));
 
 export const featuredArticleSlugs = ["wat-is-local-ai", "wat-is-een-llm", "wat-is-een-ai-agent"];

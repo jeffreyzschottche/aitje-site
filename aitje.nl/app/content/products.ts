@@ -7,7 +7,8 @@ export const localNote =
 
 export const installPrice = 199;
 
-export const products: Product[] = [
+// Set status to "disabled" to unpublish a product everywhere.
+const productDefinitions: Product[] = [
   {
     slug: "aitje-assistent",
     name: "AITJE Assistent",
@@ -16,7 +17,7 @@ export const products: Product[] = [
     tagline:
       "Je eigen AI-chatassistent, met je eigen kennis en data in je eigen omgeving.",
     icon: "message",
-    image: "/img/box-assistent.webp",
+    image: "/img/covers/v2/aitje-assistent.webp",
     headline: "Je eigen AI-chatassistent. Onder jouw controle.",
     subline:
       "Op je eigen hardware of server, met jouw kennis en data in je eigen omgeving. Chat lokaal zonder externe tokenkosten, ook zonder internet.",
@@ -171,6 +172,36 @@ export const products: Product[] = [
         q: "Is AITJE Assistent+ een aparte versie?",
         a: "Nee. Het is één product. Hoe krachtig je omgeving is, hangt af van de hardware of server die je kiest.",
       },
+      {
+        q: "Welke bestandsformaten kan ik aan de kennisbank toevoegen?",
+        a: "De kennisbank ondersteunt gangbare bestandsformaten, zoals PDF, CSV, Excel, TXT en Word (.docx). Heb je een ander formaat? Dan kijken we samen hoe die informatie het beste kan worden ingelezen.",
+        general: true,
+      },
+      {
+        q: "Kan AITJE Assistent ook gescande documenten en afbeeldingen lezen?",
+        a: "Ja. AITJE Assistent kan ook informatie uit gescande documenten en afbeeldingen verwerken. Hoe goed dat gaat, hangt onder meer af van de leesbaarheid en de kwaliteit van het bestand.",
+        general: true,
+      },
+      {
+        q: "Laat AITJE Assistent zien uit welk document een antwoord komt?",
+        a: "Ja. Bij antwoorden op basis van de kennisbank toont de Assistent bronverwijzingen. Zo kun je terugvinden welke documenten zijn gebruikt en het antwoord naast de oorspronkelijke informatie leggen.",
+        general: true,
+      },
+      {
+        q: "Wat gebeurt er als documenten in de kennisbank elkaar tegenspreken?",
+        a: "Het model geeft aan wanneer de gevonden informatie elkaar tegenspreekt. In de kennismanager kun je categorieën of specifieke documenten bovendien een prioriteit of weging geven. Zo geef je aan welke bronnen zwaarder moeten meewegen, bijvoorbeeld een actuele werkinstructie tegenover een ouder document.",
+        general: true,
+      },
+      {
+        q: "Hoe worden gewijzigde of verwijderde documenten in de kennisbank verwerkt?",
+        a: "Wijzigingen worden bij de databasesynchronisatie verwerkt. De informatie wordt opgeknipt in doorzoekbare tekststukken, ook wel chunks, en omgezet naar vectoren voor de zoekindex. Tijdens een chat haalt de Assistent daaruit de relevante informatie op via RAG. De synchronisatie zorgt dat wijzigingen en verwijderingen worden meegenomen; vóór die verwerking kan de eerdere versie nog in de index staan.",
+        general: true,
+      },
+      {
+        q: "Kunnen afdelingen elk hun eigen afgeschermde kennisbank krijgen?",
+        a: "Ja. Je kunt bepaalde kennis aan specifieke gebruikersrollen toewijzen. Daarmee bepaal je welke medewerkers toegang hebben tot welke informatie, bijvoorbeeld per afdeling of functie.",
+        general: true,
+      },
     ],
     caseSlugs: [
       "chatgpt-in-je-eigen-organisatie",
@@ -187,7 +218,7 @@ export const products: Product[] = [
     tagline:
       "Je eigen coding agents op eigen hardware. Zonder externe tokenkosten.",
     icon: "code",
-    image: "/img/box-coder.webp",
+    image: "/img/covers/v2/aitje-coder.webp",
     headline: "Je eigen coding agents. Zonder externe tokenkosten.",
     subline:
       "Op je eigen hardware of server, met je code in je eigen omgeving. Werk lokaal door als externe AI-diensten uitvallen, via je terminal, de AITJE-interface of een ondersteund coding-harnas.",
@@ -320,6 +351,31 @@ export const products: Product[] = [
         q: "Kan ik zelf een ander model toevoegen?",
         a: "Ja. Je kunt zelf een geschikt model toevoegen, of AITJE los of via een SLA vragen de modelselectie te onderhouden.",
       },
+      {
+        q: "Met welke programmeertalen en frameworks kan AITJE Coder werken?",
+        a: "Je kunt met alle programmeertalen en frameworks werken; Coder is niet beperkt tot één vaste stack. Via skills kun je aanvullende documentatie, instructies en projectafspraken meegeven. De kwaliteit hangt af van het gekozen model en de beschikbare context, dus bij een specifieke stack testen we op jouw taken.",
+        general: true,
+      },
+      {
+        q: "Kan AITJE Coder aan een bestaande codebase werken?",
+        a: "Ja. Coder kan bestaande projecten lezen, uitleggen en aanpassen. Je hoeft dus geen nieuw project te beginnen. Met projectdocumentatie en duidelijke instructies geef je de agent context over de structuur en de afspraken in je codebase.",
+        general: true,
+      },
+      {
+        q: "Hoe bepaal ik welke bestanden en commando’s een coding agent mag gebruiken?",
+        a: "Dat stel je in via het coding-harnas: de tool waarmee je de agent laat werken. De mogelijkheden voor toegang en toestemming hangen van dat harnas af. Geplande coding-taken werken via pull requests op GitHub, met toegang via een personal access token (PAT). Daarbij bepalen we welke repository en toegangsrechten de agent krijgt.",
+        general: true,
+      },
+      {
+        q: "Kan ik wijzigingen van AITJE Coder eerst beoordelen voordat ze worden toegepast?",
+        a: "Ja. Bij geplande coding-taken worden wijzigingen als pull request op GitHub aangeboden. Je kunt de voorgestelde wijzigingen bekijken en beoordelen voordat je ze samenvoegt. Bij interactief gebruik bepaalt het gekozen coding-harnas welke goedkeuringsmomenten beschikbaar zijn.",
+        general: true,
+      },
+      {
+        q: "Kan AITJE Coder ook tests schrijven en fouten opsporen?",
+        a: "Ja. Coder kan tests schrijven, bestaande tests uitvoeren en fouten onderzoeken. De agent kan daarvoor je code, foutmeldingen en testresultaten gebruiken om een wijziging voor te stellen. Je kunt de tests en wijzigingen vervolgens zelf beoordelen.",
+        general: true,
+      },
     ],
     caseSlugs: ["coder-game-in-24-uur"],
     seoDescription:
@@ -327,6 +383,7 @@ export const products: Product[] = [
   },
   planned({
     slug: "aitje-manager",
+    status: "disabled",
     name: "AITJE Manager",
     shortName: "Manager",
     icon: "bot",
@@ -352,6 +409,7 @@ export const products: Product[] = [
   }),
   planned({
     slug: "aitje-notulist",
+    status: "disabled",
     name: "AITJE Notulist",
     shortName: "Notulist",
     icon: "mic",
@@ -377,6 +435,7 @@ export const products: Product[] = [
   }),
   planned({
     slug: "aitje-prepper",
+    status: "disabled",
     name: "AITJE Prepper",
     shortName: "Prepper",
     icon: "compass",
@@ -399,6 +458,7 @@ export const products: Product[] = [
   }),
   planned({
     slug: "aitje-3d",
+    status: "disabled",
     name: "AITJE 3D",
     shortName: "3D",
     icon: "box",
@@ -424,6 +484,7 @@ export const products: Product[] = [
   }),
   planned({
     slug: "aitje-beeld",
+    status: "disabled",
     name: "AITJE Beeld",
     shortName: "Beeld",
     icon: "image",
@@ -445,6 +506,7 @@ export const products: Product[] = [
   }),
   planned({
     slug: "aitje-video",
+    status: "disabled",
     name: "AITJE Video",
     shortName: "Video",
     icon: "video",
@@ -466,6 +528,7 @@ export const products: Product[] = [
   }),
   planned({
     slug: "aitje-muziek",
+    status: "disabled",
     name: "AITJE Muziek",
     shortName: "Muziek",
     icon: "music",
@@ -491,6 +554,7 @@ function planned(p: {
   slug: string;
   name: string;
   shortName: string;
+  status?: "planned" | "disabled";
   icon: string;
   tagline: string;
   intro: string;
@@ -499,8 +563,8 @@ function planned(p: {
 }): Product {
   return {
     ...p,
-    status: "planned",
-    image: `/img/redesign/${p.slug.replace("aitje-", "")}-box.webp`,
+    status: p.status ?? "planned",
+    image: `/img/covers/v2/${p.slug}.webp`,
     headline: p.tagline,
     subline:
       "In ontwikkeling. Laat je interesse weten, dan hoor je het als eerste zodra er meer bekend is.",
@@ -509,13 +573,22 @@ function planned(p: {
   };
 }
 
-// Hero and card photos (Unsplash License, redesign/visuals/photo-credits.md).
+// Default hero photos (Unsplash License, redesign/visuals/photo-credits.md).
+// Assistent and Coder use generated nature workspaces (output/imagegen).
+const generatedBackgrounds: Record<string, string> = {
+  "aitje-assistent": "/img/redesign/assistant-knowledge-workspace.webp",
+  "aitje-coder": "/img/redesign/coder-forest-atelier.webp",
+};
 const busyPhotos = ["aitje-video"];
-for (const product of products) {
-  product.background = `/img/products/bg-${product.slug}.webp`;
+for (const product of productDefinitions) {
+  product.background = generatedBackgrounds[product.slug]
+    ?? `/img/products/bg-${product.slug}.webp`;
   product.backgroundStrong = busyPhotos.includes(product.slug);
 }
 
+// Only published products leave this module. Lists, lookups, and the sitemap
+// all share this filter, so disabled details also resolve as not found.
+export const products = productDefinitions.filter((p) => p.status !== "disabled");
 export const availableProducts = products.filter(
   (p) => p.status === "available",
 );

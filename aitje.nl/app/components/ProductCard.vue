@@ -7,6 +7,7 @@ withDefaults(
 </script>
 <template>
   <NuxtLink
+    v-if="product.status !== 'disabled'"
     :to="`/producten/${product.slug}`"
     class="product-card"
     :class="{
@@ -21,13 +22,12 @@ withDefaults(
             ? "ONTWIKKELEN & BOUWEN"
             : "KENNIS & DAGELIJKS WERK"
         }}</span
-        ><UiBadge tone="brand" dot>Beschikbaar</UiBadge>
+        ><UiBadge tone="brand" dot>Vraag een demo aan</UiBadge>
       </div>
       <div class="product-card-stage">
         <img
-          v-if="product.background"
           class="product-card-photo"
-          :src="product.background"
+          :src="`/img/products/card-${product.slug}.webp`"
           alt=""
           aria-hidden="true"
           loading="lazy"

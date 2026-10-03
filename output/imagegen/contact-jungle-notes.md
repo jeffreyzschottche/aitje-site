@@ -1,0 +1,9 @@
+# Contact jungle illustration
+
+Built-in image_gen tool used to edit `aitje.nl/public/img/redesign/contact-cutout.webp`.
+
+Final asset: `aitje.nl/public/img/redesign/contact-jungle-cutout.webp` (1254 × 1254, transparent WebP).
+
+## Final prompt
+
+Use case: precise-object-edit / compositing. Edit target: the provided transparent contact-page cutout. Preserve the original realistic pigeon, its head and orange eye, stacked tied ivory envelopes, small glowing speckled egg and golden brass mailbox slot. Preserve their identity, shape, pose and warm light. Add lush botanical undergrowth around and behind them: dark forest-green fern fronds and broad tropical jungle leaves rising at the left and right sides, small dense leafy bushes and moss at the base of the envelopes. Make this a rich natural photoreal collage with depth and strong light-dark contrast: deep emerald shaded foliage behind the grey pigeon and bright warm golden highlights along leaf edges, lighter fresh-green small leaves in the foreground. Keep the pigeon face, chest, feet, glowing egg and mailbox opening fully visible; plants may overlap only envelope outer corners and bottom edges. The foliage frames the subject rather than forming a flat green blob. Keep the central subjects at roughly their original proportions, do not replace or redesign them. All foliage and all branch tips inside the frame with 30px transparent safety margin, slightly larger natural framing around the subjects. Square 1024x1024 or higher square output. Genuinely transparent alpha background, crisp natural plant contours; no painted forest backdrop, no white fog, no haze, no artificial flat oval background, no text, no added animals. Premium realistic botanical photography, warm rim light from upper left with dark cool green leaves for contrast.

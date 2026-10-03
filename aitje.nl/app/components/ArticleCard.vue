@@ -5,7 +5,7 @@ defineProps<{ article: Article }>();
 <template>
   <NuxtLink :to="`/kenniscentrum/${article.slug}`" class="article-card group"
     ><div class="article-card-photo">
-      <img :src="article.thumbnail" :alt="article.imageAlt" loading="lazy" width="720" height="540" />
+      <img :src="article.thumbnail" :alt="article.imageAlt" loading="lazy" width="1000" height="625" />
     </div>
     <div class="article-card-copy">
       <p class="eyebrow text-brand-ink">{{ article.topic }}</p>

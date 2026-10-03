@@ -6,7 +6,10 @@ usePageSeo({
   title: "AITJE — Je partner in AI",
   description:
     "AI op je eigen hardware of server. Jij houdt de controle, AITJE regelt de techniek. Eigen AI-producten, advies, installatie en AI op maat.",
-  image: "/img/redesign/owl-hero.webp",
+  image: "/img/redesign/aitje-egg-hero-crisp.webp",
+});
+useHead({
+  link: [{ rel: "preload", as: "image", href: "/img/redesign/aitje-egg-hero-crisp.webp", fetchpriority: "high" }],
 });
 const featured = featuredArticleSlugs
   .map((slug) => articles.find((a) => a.slug === slug))
@@ -14,23 +17,23 @@ const featured = featuredArticleSlugs
 const benefits = [
   {
     icon: "shield",
-    title: "Je data. Jouw omgeving.",
-    text: "Bij lokaal gebruik blijven je documenten en vragen op je eigen hardware of server.",
+    title: "Houd je vragen en documenten lokaal.",
+    text: "Laat ze verwerken op je eigen hardware of server, zonder externe AI-aanbieder voor die verwerking.",
   },
   {
     icon: "cpu",
-    title: "Geen rekening per vraag.",
-    text: "Lokale modellen vragen geen externe tokens. Hardware, stroom en beheer staan daar los van.",
+    title: "Geen externe kosten per vraag.",
+    text: "Een lokaal model draait op je eigen hardware of server. Je betaalt daarvoor geen gebruikskosten aan een externe modelaanbieder.",
   },
   {
     icon: "wifi-off",
-    title: "Lokaal blijven werken.",
-    text: "De lokale kern werkt zonder externe AI-dienst, zolang je eigen omgeving beschikbaar is.",
+    title: "Werk door zonder externe AI-dienst.",
+    text: "De functies in je eigen omgeving blijven bruikbaar wanneer die omgeving werkt. Online functies hebben wel een verbinding nodig.",
   },
   {
     icon: "phone",
-    title: "Een specialist die meedenkt.",
-    text: "Van het eerste idee tot installatie en ondersteuning. Een vraag? Neem contact op.",
+    title: "Een AI-specialist aan je zijde.",
+    text: "Van de eerste keuze tot de inrichting van je omgeving: we denken mee en helpen je verder.",
   },
 ];
 const routes = [
@@ -40,6 +43,13 @@ const routes = [
     text: "Laat je werk en mogelijkheden onderzoeken met een AI-scan.",
     to: "/diensten/ai-scan",
     icon: "scan",
+  },
+  {
+    question: "Kunnen mijn API-kosten omlaag?",
+    title: "De juiste AI per stap. Minder onnodige tokens.",
+    text: "Laat modelcalls en workflows optimaliseren. Code doet het vaste werk; de LLM krijgt een gerichte taak.",
+    to: "/diensten/token-management-en-optimalisatie",
+    icon: "workflow",
   },
   {
     question: "Kan mijn huidige AI beter?",
@@ -105,15 +115,8 @@ const audiences = [
 <template>
   <div class="home-page">
     <section class="home-hero">
-      <img
-        class="home-hero-image"
-        src="/img/redesign/owl-hero.webp"
-        alt="Een uil naast een lichtgevend ei in een nest van takken en kabels"
-        width="1536"
-        height="1024"
-        fetchpriority="high"
-      />
-      <div class="home-hero-wash" />
+      <HeroSkyCollage />
+      <HeroEggVisual />
       <div class="container-page home-hero-content">
         <p class="eyebrow hero-eyebrow">
           <span class="signal-dot" /> NEDERLANDSE AI. DICHTBIJ.
@@ -158,7 +161,40 @@ const audiences = [
       </div>
     </section>
 
-    <section class="section-space product-section">
+    <section class="home-about section-space">
+      <div class="container-page home-about-layout">
+        <div class="home-about-copy">
+          <p class="eyebrow text-brand">Over AITJE</p>
+          <h2>Wie we zijn</h2>
+          <div class="home-about-prose">
+            <p>
+              <strong>Altijd dichtbij. Altijd beschikbaar. Volledig in eigen beheer.</strong>
+              Met lokale AI-oplossingen blijf je onafhankelijk van internet,
+              externe providers en platformstoringen. Je data blijft binnen je
+              organisatie en je voorkomt onnodige abonnementskosten.
+            </p>
+            <p>
+              <em>Wij helpen je AI slimmer, veiliger en goedkoper in te zetten:</em>
+              met duidelijke producten, uitbreidingsmogelijkheden en persoonlijke
+              begeleiding.
+            </p>
+            <p>De kracht van AI, zonder de controle uit handen te geven.</p>
+          </div>
+        </div>
+        <div class="home-about-video">
+          <iframe
+            src="https://www.youtube.com/embed/3ZJgaJGeRS4?start=70"
+            title="AITJE video"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          />
+        </div>
+      </div>
+    </section>
+
+    <section v-if="availableProducts.length" class="section-space product-section">
       <div class="container-page">
         <div class="section-topline">
           <SectionHeading
@@ -190,13 +226,7 @@ const audiences = [
     </section>
 
     <section class="nature-scene on-dark">
-      <img
-        src="/img/redesign/raven-scene.webp"
-        alt="Een kraai bij een lichtgevend ei tussen mos, takken en kabels"
-        width="1536"
-        height="1024"
-        loading="lazy"
-      />
+      <NatureSceneVisual />
       <div class="container-page nature-scene-layout">
         <div class="scene-caption">
           <span class="signal-dot" /> EIGEN KENNIS. EIGEN KRACHT.
@@ -204,7 +234,7 @@ const audiences = [
         <div class="nature-scene-copy">
           <p class="eyebrow text-brand">02 / Eigen regie</p>
           <h2>
-            Je eigen AI.<br /><span>Een wereld<br />aan mogelijkheden.</span>
+            Je eigen AI.<br /><span>Een wereld<br /> aan mogelijkheden.</span>
           </h2>
           <p>
             Je kennis is waardevol. Je gereedschap ook. AITJE helpt je AI
@@ -268,6 +298,7 @@ const audiences = [
     </section>
 
     <section class="section-space environment-section">
+      <EnvironmentNature />
       <div class="container-page">
         <SectionHeading
           eyebrow="04 / De techniek, begrijpelijk"
@@ -312,7 +343,7 @@ const audiences = [
         'coder-game-in-24-uur',
       ]"
       title="Minder abstract. Meer mogelijk."
-      intro="Van documenten doorzoeken tot software bouwen. Ontdek toepassingen, demo's en herkenbare voorbeeldsituaties."
+      intro="Van documenten doorzoeken tot software bouwen. Ontdek hoe AI aansluit op het dagelijkse werk."
     />
 
     <section class="section-space process-section">

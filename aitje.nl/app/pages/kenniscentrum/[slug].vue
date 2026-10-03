@@ -90,8 +90,8 @@ usePageSeo({
     </section>
 
     <section class="pb-12">
-      <div class="container-page max-w-5xl">
-        <KnowledgeVisual :slug="article.slug" :topic="article.topic" large />
+      <div class="container-page max-w-6xl">
+        <KnowledgeArticleHero :article="article" />
       </div>
     </section>
 
@@ -105,6 +105,7 @@ usePageSeo({
             :href="`#uitleg-${i}`"
             >{{ section.title }}</a
           >
+          <a v-if="article.application" href="#aitje-toepassing">Hoe AITJE dit toepast</a>
         </nav>
         <div class="article-body">
           <div class="space-y-10">
@@ -124,6 +125,18 @@ usePageSeo({
               </p>
             </section>
           </div>
+
+          <section v-if="article.application" id="aitje-toepassing" class="mt-12 rounded-2xl border border-brand/40 bg-brand/10 p-6 md:p-8">
+            <p class="eyebrow text-brand-ink">Van begrip naar praktijk</p>
+            <h2 class="mt-3 font-heading text-2xl font-bold">Hoe AITJE dit toepast</h2>
+            <p class="mt-4 text-lg leading-relaxed text-ink/85">{{ article.application.text }}</p>
+            <NuxtLink :to="article.application.link.to" class="text-link mt-5">{{ article.application.link.label }} <AppIcon name="arrow-up-right" :size="18" /></NuxtLink>
+          </section>
+
+          <TokenServiceCallout
+            v-if="['wat-is-een-api', 'wat-is-een-workflow', 'wat-is-een-llm', 'wat-is-context', 'wat-is-prompt-engineering', 'wat-zijn-tokens', 'wat-is-modelrouting', 'wat-is-inference', 'wat-is-een-token-factory', 'wat-is-tekstgeneratie', 'wat-is-codegeneratie', 'ai-generatie-lokaal-of-via-een-api'].includes(article.slug)"
+            class="mt-12"
+          />
 
           <div
             class="on-dark mt-16 rounded-panel bg-ink p-8 text-white md:p-10"

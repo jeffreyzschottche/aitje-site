@@ -44,6 +44,7 @@ usePageSeo({
 <template>
   <div>
     <PageHero
+      class="service-world-hero"
       :eyebrow="service.name"
       :title="service.headline"
       :subline="service.subline"
@@ -68,7 +69,7 @@ usePageSeo({
           <strong class="block font-heading text-lg text-ink">{{
             service.price.label
           }}</strong>
-          (Excl btw) · voorlopige prijs
+          <span v-if="!service.price.onRequest">(Excl btw) · voorlopige prijs</span>
         </p>
       </div>
     </PageHero>
@@ -97,6 +98,8 @@ usePageSeo({
         </div>
       </div>
     </section>
+
+    <TokenWorkflowExample v-if="service.slug === 'token-management-en-optimalisatie'" />
 
     <!-- Hoe het werkt -->
     <section id="aanpak" class="scroll-mt-24 bg-sand py-20">
@@ -222,7 +225,7 @@ usePageSeo({
           <p class="mt-4 font-heading text-4xl font-bold">
             {{ service.price.label }}
           </p>
-          <p class="text-sm text-muted">
+          <p v-if="!service.price.onRequest" class="text-sm text-muted">
             (Excl btw) · voorlopige prijs, te bevestigen in je offerte
           </p>
           <p class="mt-5 leading-relaxed text-muted">

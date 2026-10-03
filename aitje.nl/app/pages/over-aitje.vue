@@ -6,6 +6,9 @@ usePageSeo({
   image: "/img/redesign/about.webp",
   breadcrumbs: [{ name: "Over AITJE", path: "/over-aitje" }],
 });
+useHead({
+  link: [{ rel: "preload", as: "image", href: "/img/redesign/about-connected-forest.webp", fetchpriority: "high" }],
+});
 const strengths = [
   {
     title: "Eigen producten",
@@ -51,13 +54,20 @@ const steps = [
 <template>
   <div>
     <PageHero
+      class="about-forest-hero"
       eyebrow="Aangenaam. AITJE."
       title="Techniek in het hoofd. Jouw werk voor ogen."
       subline="AITJE is een Nederlands AI-productbedrijf en specialist. Eigen producten, praktisch advies en mensen die de techniek voor je kunnen regelen."
       image="/img/redesign/about.webp"
+      background="/img/redesign/about-connected-forest.webp"
+      dark
       immersive
       image-alt="Een uil en een raaf naast elkaar bij een nest met het gloeiende AITJE-ei op een rots met mos"
-      ><UiButton to="/contact" arrow class="mt-8"
+      >
+      <template #title>
+        Techniek in het hoofd. <span class="about-forest-title">Jouw werk voor ogen.</span>
+      </template>
+      <UiButton to="/contact" arrow class="mt-8"
         >Maak kennis met AITJE</UiButton
       ></PageHero
     >
@@ -98,19 +108,18 @@ const steps = [
         </div>
       </div>
     </section>
-    <section class="nature-scene on-dark about-nature">
+    <AitjeFilm placement="about" full />
+    <section class="about-workshop on-dark">
       <img
-        src="/img/redesign/raven-scene.webp"
-        alt="Kraai en ei in een nest van natuur en techniek"
-        width="1536"
-        height="1024"
+        class="about-workshop-image"
+        src="/img/redesign/about-hens-workshop.webp"
+        alt="Twee kippen bij een werkplaats in het bos, met bouwtekeningen, een kruiwagen en een kleine computer verbonden met gouden kabels"
+        width="1672"
+        height="941"
         loading="lazy"
       />
-      <div class="container-page nature-scene-layout">
-        <div class="scene-caption">
-          <span class="signal-dot" /> KENNIS DIE JE VERDER BRENGT
-        </div>
-        <div class="nature-scene-copy">
+      <div class="container-page about-workshop-layout">
+        <div class="about-workshop-copy">
           <p class="eyebrow text-brand">De overtuiging</p>
           <h2>AI dichtbij.<br /><span>De regie bij jou.</span></h2>
           <p>
@@ -191,3 +200,141 @@ const steps = [
     />
   </div>
 </template>
+
+<style scoped>
+.about-workshop {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #07100f;
+  color: #fff;
+}
+.about-workshop-image {
+  position: absolute;
+  inset-block: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 2200px;
+  height: 100%;
+  object-fit: cover;
+  object-position: left center;
+  z-index: -2;
+}
+.about-workshop::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg, transparent 35%, rgb(7 16 15 / 0.55) 52%, rgb(7 16 15 / 0.85) 63%, #07100f 90%);
+}
+.about-workshop-layout {
+  display: grid;
+  grid-template-columns: 1fr 0.85fr;
+  align-items: center;
+  gap: 70px;
+  min-height: clamp(620px, 42vw, 850px);
+  padding-block: 85px;
+}
+.about-workshop-copy {
+  grid-column: 2;
+  max-width: 520px;
+}
+.about-workshop-copy h2 {
+  font-size: clamp(2rem, 3.5vw, 3.6rem);
+  line-height: 1.12;
+  font-weight: 600;
+  margin-top: 24px;
+}
+.about-workshop-copy h2 span {
+  color: #facc15;
+}
+.about-workshop-copy > p:not(.eyebrow) {
+  margin-top: 24px;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #e0e5dc;
+}
+.about-workshop-copy > p.scene-secondary {
+  margin-top: 16px;
+  font-size: 0.9rem;
+  color: #b7c1b6;
+}
+.about-workshop-copy > a {
+  margin-top: 26px;
+}
+@media (min-width: 2200px) {
+  .about-workshop-image {
+    mask-image: linear-gradient(90deg, transparent, #000 14%, #000 80%, transparent);
+  }
+}
+@media (max-width: 767px) {
+  .about-workshop-image {
+    position: relative;
+    inset: auto;
+    transform: none;
+    max-width: none;
+    height: auto;
+    aspect-ratio: 1.1;
+    object-position: 15% center;
+  }
+  .about-workshop::before {
+    inset-block: 0 auto;
+    height: calc(100vw / 1.1 + 1px);
+    background: linear-gradient(180deg, transparent 65%, #07100f 100%);
+  }
+  .about-workshop-layout {
+    display: block;
+    min-height: auto;
+    padding-block: 12px 55px;
+  }
+  .about-workshop-copy {
+    max-width: none;
+  }
+  .about-workshop-copy h2 {
+    font-size: clamp(2rem, 8vw, 2.7rem);
+  }
+}
+.about-forest-hero {
+  background: #08191b;
+  border-bottom: 0;
+  margin-bottom: 0;
+}
+.about-forest-title {
+  color: #facc15;
+}
+.about-forest-hero :deep(.photo-bg) {
+  object-position: 64% center;
+  filter: saturate(1.03) contrast(1.02);
+}
+.about-forest-hero :deep(.photo-wash) {
+  background:
+    linear-gradient(90deg, rgb(4 16 18 / 0.82), rgb(4 16 18 / 0.64) 34%, rgb(4 16 18 / 0.25) 58%, transparent 78%),
+    linear-gradient(180deg, rgb(4 16 18 / 0.22), transparent 35%, rgb(4 16 18 / 0.5) 100%);
+}
+.about-forest-hero :deep(.page-hero-intro) {
+  color: #e1e7df;
+}
+.about-forest-hero :deep(.service-scene) {
+  width: 108%;
+  margin-left: -4%;
+}
+.about-forest-hero :deep(.service-scene-orbit) {
+  opacity: 0.2;
+}
+.about-forest-hero :deep(.service-scene-subject) {
+  filter: drop-shadow(0 20px 28px rgb(0 0 0 / 0.3));
+}
+@media (max-width: 767px) {
+  .about-forest-hero :deep(.photo-bg) {
+    object-position: 76% center;
+  }
+  .about-forest-hero :deep(.photo-wash) {
+    background: linear-gradient(180deg, rgb(4 16 18 / 0.9), rgb(4 16 18 / 0.82) 40%, rgb(4 16 18 / 0.12) 75%, rgb(4 16 18 / 0.42));
+  }
+  .about-forest-hero :deep(.service-scene) {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+</style>

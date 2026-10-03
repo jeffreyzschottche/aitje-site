@@ -9,6 +9,9 @@ usePageSeo({
   breadcrumbs: [{ name: "Veelgestelde vragen", path: "/faq" }],
   faq: faqGroups.flatMap((g) => g.items),
 });
+useHead({
+  link: [{ rel: "preload", as: "image", href: "/img/redesign/faq-forest-paths.webp", fetchpriority: "high" }],
+});
 const search = ref("");
 const filteredGroups = computed(() =>
   faqGroups
@@ -27,13 +30,20 @@ const filteredGroups = computed(() =>
 <template>
   <div>
     <PageHero
+      class="faq-forest-hero"
       eyebrow="Veelgestelde vragen"
-      title="Goede vragen. Heldere antwoorden."
-      subline="Kort antwoord, en een link naar de pagina met meer details. Specifieke vragen over een product of dienst vind je ook op die pagina."
+      title="Meer weten? We helpen je op weg."
+      subline="Over de techniek, de keuzes en wat werkt in jouw situatie. Ontdek onze antwoorden en neem gerust contact op als jouw vraag er niet tussen staat."
       image="/img/redesign/faq.webp"
+      background="/img/redesign/faq-forest-paths.webp"
+      dark
       immersive
       image-alt="Een koolmees op een houten wegwijzer, met het gloeiende AITJE-ei in een nestje eronder"
-    />
+    >
+      <template #title>
+        Meer weten? <span class="faq-forest-title">We helpen je op weg.</span>
+      </template>
+    </PageHero>
 
     <section class="pb-24">
       <div class="container-page mb-10">
@@ -104,3 +114,50 @@ const filteredGroups = computed(() =>
     />
   </div>
 </template>
+
+<style scoped>
+.faq-forest-hero {
+  background: #0c211d;
+  border-bottom: 0;
+  margin-bottom: 45px;
+}
+.faq-forest-title {
+  color: #facc15;
+}
+.faq-forest-hero :deep(.photo-bg) {
+  object-position: 65% center;
+}
+.faq-forest-hero :deep(.photo-wash) {
+  background:
+    linear-gradient(90deg, rgb(4 19 16 / 0.84), rgb(4 19 16 / 0.68) 35%, rgb(4 19 16 / 0.24) 60%, transparent 85%),
+    linear-gradient(180deg, rgb(4 19 16 / 0.12), transparent 40%, rgb(4 19 16 / 0.42));
+}
+.faq-forest-hero :deep(.page-hero-intro) {
+  color: #e5ebe0;
+}
+.faq-forest-hero :deep(.service-scene) {
+  width: 105%;
+  margin-left: -2.5%;
+}
+.faq-forest-hero :deep(.service-scene-orbit) {
+  opacity: 0.25;
+}
+.faq-forest-hero :deep(.service-scene-subject) {
+  filter: drop-shadow(0 20px 28px rgb(0 0 0 / 0.25));
+}
+@media (max-width: 767px) {
+  .faq-forest-hero {
+    margin-bottom: 30px;
+  }
+  .faq-forest-hero :deep(.photo-bg) {
+    object-position: 80% center;
+  }
+  .faq-forest-hero :deep(.photo-wash) {
+    background: linear-gradient(180deg, rgb(4 19 16 / 0.9), rgb(4 19 16 / 0.82) 40%, rgb(4 19 16 / 0.12) 75%, rgb(4 19 16 / 0.48));
+  }
+  .faq-forest-hero :deep(.service-scene) {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+</style>

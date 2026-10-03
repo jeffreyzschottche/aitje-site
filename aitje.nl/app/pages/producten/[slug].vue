@@ -21,6 +21,11 @@ if (!product) {
 
 const available = product.status === "available";
 const others = availableProducts.filter((p) => p.slug !== product.slug);
+if (["aitje-assistent", "aitje-coder"].includes(product.slug)) {
+  useHead({
+    link: [{ rel: "preload", as: "image", href: product.background, fetchpriority: "high" }],
+  });
+}
 
 usePageSeo({
   title: available
@@ -52,6 +57,10 @@ usePageSeo({
     <!-- Hero -->
     <section
       class="product-detail-hero page-hero-dark has-photo-bg relative overflow-hidden pt-28 pb-16 md:pt-36 md:pb-24"
+      :class="{
+        'assistant-knowledge-hero': product.slug === 'aitje-assistent',
+        'coder-forest-hero': product.slug === 'aitje-coder',
+      }"
     >
       <img class="photo-bg" :class="{ 'photo-bg-muted': product.backgroundStrong }" :src="product.background" alt="" aria-hidden="true" fetchpriority="high" />
       <div class="photo-wash" :class="{ 'photo-wash-strong': product.backgroundStrong }" aria-hidden="true" />
@@ -407,7 +416,7 @@ usePageSeo({
           class="grid items-center gap-8 overflow-hidden rounded-panel border border-line bg-surface md:grid-cols-[1fr_1.2fr]"
         >
           <ProductPackshot
-            src="/img/redesign/custom-box.webp"
+            src="/img/covers/v2/aitje-custom.webp"
             alt="AITJE Custom: AI op maat, met een ekster als verpakkingsillustratie"
             loading="lazy"
             class="mx-auto w-full max-w-md p-6"
@@ -431,6 +440,8 @@ usePageSeo({
             >
           </div>
         </div>
+
+        <TokenServiceCallout class="mt-10" />
 
         <div v-if="others.length" class="mt-16">
           <h2 class="font-heading text-2xl font-bold">Andere producten</h2>
@@ -531,3 +542,22 @@ usePageSeo({
     />
   </div>
 </template>
+
+<style scoped>
+:is(.assistant-knowledge-hero, .coder-forest-hero) .photo-bg {
+  object-position: 65% center;
+}
+:is(.assistant-knowledge-hero, .coder-forest-hero) .photo-wash {
+  background:
+    linear-gradient(90deg, rgb(4 19 16 / 0.9), rgb(4 19 16 / 0.76) 35%, rgb(4 19 16 / 0.22) 60%, transparent 85%),
+    linear-gradient(180deg, rgb(4 19 16 / 0.12), transparent 40%, rgb(4 19 16 / 0.42));
+}
+@media (max-width: 1023px) {
+  :is(.assistant-knowledge-hero, .coder-forest-hero) .photo-bg {
+    object-position: 78% center;
+  }
+  :is(.assistant-knowledge-hero, .coder-forest-hero) .photo-wash {
+    background: linear-gradient(180deg, rgb(4 19 16 / 0.94), rgb(4 19 16 / 0.85) 48%, rgb(4 19 16 / 0.2) 80%, rgb(4 19 16 / 0.48));
+  }
+}
+</style>

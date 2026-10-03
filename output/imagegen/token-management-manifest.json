@@ -1,0 +1,16 @@
+[
+  {
+    "key": "background",
+    "mode": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Create one landscape 16:9 cinematic photoreal full-bleed website hero BACKGROUND for AITJE's new service Token management & optimization. This is a premium botanical engineering workshop deep in a living woodland. An organized wooden routing wall links three different compact computing modules by physically grounded amber fiber-optic cables; a central routing mechanism splits one busy data stream into carefully selected smaller routes. An oak workbench has simple structured data trays, a compact processor, and a restrained monitor with nonverbal graphs. This represents choosing between remote frontier models, local models and edge devices per task, preparing only the needed data with code, reducing needless LLM traffic. Deep forest green, oak grain, moss, black metal, brass, warm natural daylight, subtle amber signals. The LEFT 42 percent is quiet shadowed woodland/timber, low contrast for WHITE WEBSITE COPY. Main routing wall in middle and upper right around 65 percent horizontally. Lower right leaves space for a separately composited foreground illustration. Wide eye-height environment, tangible and believable, no product closeup. No words, price labels, logos, watermark, people, birds, eggs, floating holograms, oversaturated cyberpunk, or extra UI. Match a polished nature and practical technology brand.",
+    "source": "/Users/jeffreyzschottche/.codex/generated_images/01a0e8d7-144f-7ca0-a379-48b666c074ec/exec-ec9880c3-c1d3-4c74-94ef-518cdd43c698.png",
+    "asset": "aitje.nl/public/img/services/nature-tech/token-management-en-optimalisatie.webp"
+  },
+  {
+    "key": "cutout",
+    "mode": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Create one premium photoreal 3D decorative website hero CUTOUT on genuine transparent background, square composition, subject fully visible with generous 8 percent margins. A mossy stone island supports a beautiful small oak and brass workflow routing station. A compact dark local computer at left, a small edge module at right, and a central brass branching switch are linked by three thin warm amber fiber-optic routes. Near the switch, tidy wooden trays containing a few clean ivory data cards suggest code preparing only the required data. One elegant speckled ivory egg with a single glowing golden ring rests near the nodes, matching a warm nature/technology brand. A small fresh fern and leafy sprig soften the engineering. Visually convey selective routing, efficient workflows and less wasted traffic. Warm daylight, rich real material textures, natural forest green and matte charcoal, tactile craftsmanship. Three-quarter view. Single cohesive isolated subject, NOT a background scene. No birds, no people, no text, no logos, no labels, no poster, no extra elements outside silhouette. Genuine alpha transparency, sharp cutout edges, restrained soft contact shadow under the stone only. All branches and modules fit inside the frame.",
+    "source": "/Users/jeffreyzschottche/.codex/generated_images/01a0e8d7-144f-7ca0-a379-48b666c074ec/exec-b2378144-7c15-4080-bb1a-347776a5ac3d.png",
+    "asset": "aitje.nl/public/img/redesign/token-management-cutout.webp"
+  }
+]

@@ -13,7 +13,8 @@ export type Cta = {
   to: string;
 };
 
-export type ProductStatus = "available" | "planned";
+/** Disabled products are unpublished everywhere, including their detail page. */
+export type ProductStatus = "available" | "planned" | "disabled";
 
 export type Product = {
   slug: string;
@@ -24,7 +25,7 @@ export type Product = {
   tagline: string;
   icon: string;
   image?: string;
-  /** Full-width royalty-free photo behind the hero and card (Unsplash License). */
+  /** Context photograph shared by the hero and card; sources in photo-credits.md. */
   background?: string;
   /** Use a stronger wash when the photo is busy behind the copy. */
   backgroundStrong?: boolean;
@@ -70,7 +71,7 @@ export type Service = {
   steps: { title: string; text: string }[];
   deliverables: string[];
   parts?: ServicePart[];
-  price: { label: string; note: string };
+  price: { label: string; note: string; onRequest?: boolean };
   notIncluded: string[];
   faq: Faq[];
   caseSlugs: string[];
@@ -88,8 +89,9 @@ export type CaseStudy = {
   summary: string;
   icon: string;
   image?: string;
-  /** Full-width royalty-free photo behind the hero and card (Unsplash License). */
+  /** Context photograph shared by the hero and card; sources in photo-credits.md. */
   background?: string;
+  photoAlt?: string;
   offer: { name: string; to: string }[];
   recognize: string[];
   alsoFor?: string;

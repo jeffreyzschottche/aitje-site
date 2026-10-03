@@ -1,0 +1,10 @@
+{
+  "mode": "built-in image_gen",
+  "useCase": "precise-object-edit",
+  "prompt": "Use case: precise-object-edit.\nAsset type: existing transparent foreground illustration for a website hero.\nInput image 1 is the EDIT TARGET. Make one tiny local correction only: remove the conspicuous solid black moustache-shaped feather patch just BELOW the bird's beak, on its cheek, around x=52–56% and y=13–17% of this square image. Replace that small black cheek stripe with delicate cream and warm pale peach feathers that blend naturally into the adjacent cheek and throat. Keep the actual beak dark grey, sharp and anatomically convincing; preserve its entire silhouette and the mouth seam. Preserve the eye, brow, head shape, crest, pose, wing pattern, feet, tail, books, glasses, glowing lantern, speckled egg, golden ring, foliage, mossy stone, all lighting, colors, textures, composition, size, and framing exactly as in the original. Do not repaint or redesign the scene. Do not add objects, text or extra birds. The bird should have a soft feathered cheek with no black stripe that reads as a human moustache. Preserve the existing transparent background, including the natural soft glow, so the cutout continues to blend into the existing website background. Return the complete original square composition with only this local facial feather correction.",
+  "editTarget": "aitje.nl/public/img/redesign/knowledge-cutout.webp",
+  "source": "/Users/jeffreyzschottche/.codex/generated_images/01a0e8d7-144f-7ca0-a379-48b666c074ec/exec-778783ba-cd5c-4ed9-ba26-d17d4bf4f718.png",
+  "asset": "aitje.nl/public/img/redesign/knowledge-soft-cheek-cutout.webp",
+  "url": "/img/redesign/knowledge-soft-cheek-cutout.webp",
+  "consumer": "aitje.nl/app/pages/kenniscentrum/index.vue"
+}

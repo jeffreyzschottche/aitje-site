@@ -90,6 +90,125 @@ export const services: Service[] = [
       "De AI-scan van AITJE: ontdek waar AI jouw werk makkelijker, beter of goedkoper maakt. Praktisch rapport met kansen en vervolgstappen. Vanaf €595.",
   },
   {
+    slug: "token-management-en-optimalisatie",
+    name: "Token management & optimalisatie",
+    short:
+      "Modelkeuze, API-calls en workflows slimmer inrichten. Minder onnodige tokens, met kwaliteit en kosten per eindresultaat in beeld.",
+    icon: "workflow",
+    image: "/img/redesign/token-management-cutout.webp",
+    headline: "De juiste AI per stap. Minder kosten per resultaat.",
+    subline:
+      "AITJE beheert en optimaliseert calls naar frontier-, lokale en edge-modellen. Met gerichte context, slimme modelrouting en code die het voorbereidende werk doet.",
+    cta: {
+      label: "Bespreek je tokengebruik",
+      to: contactLink("token-management"),
+    },
+    intro: [
+      "Een krachtige LLM hoeft niet elke stap in je workflow uit te voeren. Data ophalen, filteren, berekenen en vaste controles kunnen vaak met code. Het model krijgt alleen de informatie en opdracht die het op dat moment nodig heeft.",
+      "AITJE onderzoekt je API-calls en bouwt of verbetert de flow eromheen. We combineren frontier-modellen via externe API's met lokale modellen, modellen op je eigen server of on-device edge-modellen. Per stap kiezen we wat past bij de taak, kwaliteit, snelheid en kosten.",
+      "De prijs per miljoen tokens vertelt maar een deel van het verhaal. Een goedkoper model kan voor jouw taak beter werken, terwijl een duurder model soms minder pogingen nodig heeft. We vergelijken met jouw voorbeelden en meten de totale kosten per gecontroleerd, bruikbaar eindresultaat.",
+    ],
+    forWho: [
+      "Teams met hoge of moeilijk voorspelbare kosten voor LLM-API's",
+      "Bedrijven die agents of workflows met meerdere modellen gebruiken",
+      "Organisaties die frontier-, lokale en edge-modellen willen combineren",
+      "IT-bedrijven en bureaus die AI-workflows voor klanten bouwen",
+      "Wie een nieuwe API-workflow direct efficiënt wil laten inrichten",
+    ],
+    steps: [
+      {
+        title: "Calls en kosten in kaart",
+        text: "We bekijken input- en outputtokens, context, modelkeuze, herhaalde calls en mislukte pogingen. De nulmeting omvat kwaliteit, doorlooptijd en kosten per bruikbaar resultaat.",
+      },
+      {
+        title: "Modellen vergelijken",
+        text: "Met representatieve taken vergelijken we geschikte frontier-, lokale en edge-modellen. Een lagere tokenprijs is pas een verbetering als de resultaten en snelheid ook passen.",
+      },
+      {
+        title: "Workflow slimmer bouwen",
+        text: "Code haalt data op, filtert en controleert. Een centrale laag handelt modelcalls af, routeert per stap en gebruikt waar passend gerichte context, caching, begrensde retries en budgetten.",
+      },
+      {
+        title: "Testen en beheren",
+        text: "We vergelijken met de nulmeting en documenteren de inrichting. Logging, gebruikslimieten en een afgesproken vorm van beheer geven grip op kosten en wijzigingen.",
+      },
+    ],
+    deliverables: [
+      "Een nulmeting van tokengebruik, calls en kosten per eindresultaat",
+      "Een modelvergelijking op jouw taken, met kwaliteit en snelheid",
+      "De afgesproken API-workflow en routing tussen modellen",
+      "Gerichte context en voorbereiding van data met code",
+      "Logging, budgetten en limieten voor het afgesproken gebruik",
+      "Een vergelijking vóór en na, inclusief retries en mislukte resultaten",
+      "Documentatie en afspraken over toegang, gegevensstromen en beheer",
+    ],
+    price: {
+      label: "Op aanvraag",
+      onRequest: true,
+      note: "We spreken analyse, bouw, toegang en eventueel doorlopend beheer vooraf af. Modelgebruik, hardware, hosting en externe API-kosten worden apart begroot.",
+    },
+    notIncluded: [
+      "Externe API-kosten, hardware, hosting of softwarelicenties",
+      "Een vaste besparing of dezelfde uitkomst voor iedere workflow",
+      "Doorlopend beheer buiten de afgesproken opdracht",
+    ],
+    faq: [
+      {
+        q: "Wat is Token management & optimalisatie?",
+        a: "AITJE beheert en optimaliseert modelcalls, tokengebruik en API-workflows. We kiezen per stap een passend model en laten code data ophalen, filteren en controleren, zodat een LLM minder onnodig werk doet. Lees meer over [Token management & optimalisatie](/diensten/token-management-en-optimalisatie).",
+        general: true,
+      },
+      {
+        q: "Werkt dit met frontier-, lokale en edge-modellen?",
+        a: "Ja. We kunnen geschikte externe model-API's combineren met lokale endpoints, eigen servers en modellen op apparaten. Beschikbaarheid, capaciteit, gegevensstromen en de taak bepalen welke combinatie past.",
+      },
+      {
+        q: "Kiezen jullie altijd het goedkoopste model?",
+        a: "Nee. We testen op jouw taken en vergelijken kwaliteit, snelheid, tokengebruik en het aantal pogingen. Een model met een lagere tokenprijs kan meer calls nodig hebben; een duurder model kan voor een bepaalde stap juist voordeliger uitpakken.",
+      },
+      {
+        q: "Kan een workflow van €4 naar €0,40 per resultaat?",
+        a: "Dat is een rekenvoorbeeld, geen vaste belofte. Bij een fictief gelijk tarief van €4 per miljoen tokens kost één miljoen tokens €4 en honderdduizend tokens €0,40. De haalbare besparing hangt af van de workflow, output, kwaliteit en retries. Kosten voor code, hosting, beheer en ontwikkeling staan daar apart van.",
+      },
+      {
+        q: "Wat doet code in plaats van de LLM?",
+        a: "Bijvoorbeeld gegevens ophalen via een API, relevante velden selecteren, berekeningen uitvoeren en output tegen vaste regels controleren. Het model krijgt een afgebakende taak met gerichte context, in plaats van alle ruwe data en stappen in één grote prompt.",
+      },
+      {
+        q: "Kunnen jullie ook nieuwe workflows bouwen en API-calls beheren?",
+        a: "Ja. AITJE kan een centrale laag voor modelcalls en een nieuwe workflow bouwen, met routing, logging, budgetten en limieten. Ook toegang, veilige omgang met sleutels en een vorm van doorlopend beheer spreken we vooraf af.",
+      },
+      {
+        q: "Wat is het verschil met Optimalisatie?",
+        a: "Deze dienst richt zich specifiek op tokengebruik, modelrouting en API-workflows. [Optimalisatie](/diensten/optimalisatie) kijkt breder naar een bestaande AI-oplossing, bijvoorbeeld betrouwbaarheid, stabiliteit en menselijke controle.",
+      },
+      {
+        q: "Hoe meten jullie of een besparing ten koste gaat van de kwaliteit?",
+        a: "Door het eindresultaat te testen. We vergelijken de oorspronkelijke en de aangepaste workflow op dezelfde taken en beoordelen of de uitkomst nog aan de afgesproken eisen voldoet. Minder tokens of een goedkoper model is pas een verbetering als het resultaat goed genoeg blijft.",
+        general: true,
+      },
+      {
+        q: "Kunnen we zien wat iedere workflow of afdeling aan AI-gebruik kost?",
+        a: "Ja. Tijdens een check van je AI-gebruik kunnen we de kosten per workflow of afdeling in kaart brengen. We kijken naar modelcalls, tokengebruik en het aantal pogingen per resultaat. Waar nodig richten we logging in om dat inzicht te krijgen.",
+        general: true,
+      },
+      {
+        q: "Wat gebeurt er als een model-API uitvalt of zijn limiet bereikt?",
+        a: "Daar kunnen we een fallback voor bouwen: een andere route of een ander model dat de taak overneemt. Voor cruciale stappen kan een lokaal model of een model op het apparaat zelf een goede keuze zijn, zodat die stap minder afhankelijk is van een externe API. Welke terugval mogelijk is, hangt af van de taak en spreken we bij de inrichting af.",
+        general: true,
+      },
+      {
+        q: "Kunnen jullie voorkomen dat een vastgelopen workflow eindeloos API-calls blijft doen?",
+        a: "Ja. We kunnen limieten voor pogingen en kosten, logging en duidelijke stopmomenten inbouwen. Op belangrijke momenten kan een medewerker eerst moeten beoordelen of de workflow verder mag: human in the loop. Zo combineren we technische grenzen met menselijke controle.",
+        general: true,
+      },
+    ],
+    caseSlugs: [],
+    related: ["ai-scan", "advies-en-analyse", "optimalisatie", "aitje-custom"],
+    seoDescription:
+      "Token management & optimalisatie van AITJE: frontier-, lokale en edge-modellen combineren, API-workflows bouwen en onnodige tokens verminderen. Grip op kosten per resultaat.",
+  },
+  {
     slug: "advies-en-analyse",
     name: "Advies en analyse",
     short:
@@ -276,6 +395,21 @@ export const services: Service[] = [
       {
         q: "Kan het op afstand?",
         a: "Vaak wel. Een server kan meestal volledig op afstand worden ingericht. Een bezoek ligt voor de hand als er fysieke hardware aangesloten moet worden.",
+      },
+      {
+        q: "Kan ik mijn AI-omgeving veilig vanuit huis of onderweg gebruiken?",
+        a: "Ja. AITJE kan toegang op afstand voor je inrichten, met passende beveiliging en toegangsrechten. Dit is een mogelijkheid die we apart inschakelen en afstemmen op je netwerk en de mensen die de omgeving moeten kunnen gebruiken.",
+        general: true,
+      },
+      {
+        q: "Kan dezelfde server zowel AITJE Assistent als AITJE Coder draaien?",
+        a: "AITJE richt Assistent en Coder liever op aparte omgevingen in. Zo kunnen we de capaciteit en inrichting op elk product afstemmen en voorkomen we dat ze elkaar bij gelijktijdig gebruik in de weg zitten. We adviseren je welke opstelling bij jouw gebruik past.",
+        general: true,
+      },
+      {
+        q: "Hoe verhuis ik mijn AI-omgeving naar andere hardware?",
+        a: "Een migratie doen we bij voorkeur samen, als aparte dienst. AITJE helpt je bij het overzetten van de omgeving en het exporteren en meenemen van de vectordatabase, tekstchunks en embeddings. Daarna controleren we of de kennisbank en de toepassing op de nieuwe hardware goed werken.",
+        general: true,
       },
     ],
     caseSlugs: ["chatgpt-in-je-eigen-organisatie", "spraak-naar-werkorder"],
@@ -469,7 +603,7 @@ export const services: Service[] = [
     name: "AITJE Custom — AI op maat",
     short: "Van AI-idee naar werkende oplossing, in afgesproken urenblokken.",
     icon: "sparkles",
-    image: "/img/redesign/custom-box.webp",
+    image: "/img/covers/v2/aitje-custom.webp",
     headline: "Van AI-idee naar werkende oplossing.",
     subline:
       "AITJE onderzoekt en bouwt in afgesproken urenblokken. Na iedere fase zie je de voortgang en bepaal je de volgende stap.",
@@ -677,11 +811,17 @@ export const partnerService = {
   icon: "handshake",
 };
 
-// Hero photos (Unsplash License, redesign/visuals/photo-credits.md).
-const busyServicePhotos = ["veilig-ai-gebruik"];
+// Generated nature-and-technology environments, one scene per service.
+// Prompts and source files: output/imagegen/service-backgrounds-manifest.json.
 for (const service of services) {
-  service.background = `/img/services/bg-${service.slug}.webp`;
-  service.backgroundStrong = busyServicePhotos.includes(service.slug);
+  service.background = `/img/services/nature-tech/${service.slug}.webp`;
+}
+
+// Add the specialist service alongside existing related offers.
+for (const service of services) {
+  if (["ai-scan", "advies-en-analyse", "optimalisatie", "aitje-custom"].includes(service.slug)) {
+    service.related.push("token-management-en-optimalisatie");
+  }
 }
 
 export const getService = (slug: string) =>

@@ -62,6 +62,8 @@ const heading = computed(() => {
       return name ? `Interesse in ${name}` : "Laat je interesse weten";
     case "ai-scan":
       return "Vraag een AI-scan aan";
+    case "token-management":
+      return "Bespreek je tokengebruik en API-workflow";
     case "samenwerken":
       return "Bespreek een samenwerking";
     default:
@@ -117,8 +119,8 @@ const inputClass =
 
           <div class="contact-scene mt-8 max-w-sm">
             <ServiceScene
-              src="/img/redesign/contact.webp"
-              alt="Een postduif op een stapel enveloppen naast een koperen brievenbusklep, met het gloeiende AITJE-ei"
+              src="/img/redesign/contact-jungle-cutout.webp"
+              alt="Een postduif tussen varens, junglebladeren en mos, op een stapel enveloppen naast een koperen brievenbusklep en het gloeiende AITJE-ei"
             />
           </div>
           <div class="mt-10 space-y-3">

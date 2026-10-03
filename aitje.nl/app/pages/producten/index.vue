@@ -13,6 +13,9 @@ usePageSeo({
     "De AI-producten van AITJE: AITJE Assistent en AITJE Coder, gebruiksklaar op je eigen hardware of server. Zelf installeren of door AITJE laten opleveren.",
   breadcrumbs: [{ name: "Producten", path: "/producten" }],
 });
+useHead({
+  link: [{ rel: "preload", as: "image", href: "/img/redesign/products-botanical-gallery.webp", fetchpriority: "high" }],
+});
 
 const priceParts = [
   {
@@ -36,14 +39,19 @@ const priceParts = [
 <template>
   <div>
     <PageHero
+      class="products-gallery-hero"
       eyebrow="AI-producten"
       title="Je eigen AI. Klaar om mee te werken."
       subline="Bij een AITJE-product is het uitzoekwerk al gedaan. Modellen, software en configuratie zijn op elkaar afgestemd, zodat je begint met een werkende basis."
       image="/img/redesign/products.webp"
-      background="/img/products/bg-archive.webp"
+      background="/img/redesign/products-botanical-gallery.webp"
+      dark
       immersive
       image-alt="Kleine zwarte apparaten op een stenen podium rond het gloeiende AITJE-ei"
     >
+      <template #title>
+        Je eigen AI. <span class="products-gallery-title">Klaar om mee te werken.</span>
+      </template>
       <div class="mt-9 flex flex-col gap-3 sm:flex-row">
         <UiButton :to="contactLink('demo')" size="lg" arrow
           >Vraag een demo aan</UiButton
@@ -54,7 +62,7 @@ const priceParts = [
       </div>
     </PageHero>
 
-    <section class="pb-20">
+    <section v-if="availableProducts.length" class="pb-20">
       <div class="container-page">
         <div class="mb-8 flex items-center gap-3">
           <UiBadge tone="brand" dot>Beschikbaar</UiBadge>
@@ -98,7 +106,7 @@ const priceParts = [
       </div>
     </section>
 
-    <section class="py-20">
+    <section v-if="plannedProducts.length" class="py-20">
       <div class="container-page">
         <SectionHeading
           eyebrow="In ontwikkeling"
@@ -140,3 +148,46 @@ const priceParts = [
     />
   </div>
 </template>
+
+<style scoped>
+.products-gallery-hero {
+  background: #0c201b;
+  border-bottom: 0;
+  margin-bottom: 45px;
+}
+.products-gallery-title {
+  color: #facc15;
+}
+.products-gallery-hero :deep(.photo-bg) {
+  object-position: 65% center;
+}
+.products-gallery-hero :deep(.photo-wash) {
+  background:
+    linear-gradient(90deg, rgb(4 19 16 / 0.86), rgb(4 19 16 / 0.72) 35%, rgb(4 19 16 / 0.2) 60%, transparent 85%),
+    linear-gradient(180deg, rgb(4 19 16 / 0.12), transparent 40%, rgb(4 19 16 / 0.42));
+}
+.products-gallery-hero :deep(.page-hero-intro) {
+  color: #e5ebe0;
+}
+.products-gallery-hero :deep(.service-scene) {
+  width: 100%;
+  margin-left: 0;
+}
+.products-gallery-hero :deep(.service-scene-orbit) {
+  opacity: 0.25;
+}
+.products-gallery-hero :deep(.service-scene-subject) {
+  filter: drop-shadow(0 20px 28px rgb(0 0 0 / 0.3));
+}
+@media (max-width: 767px) {
+  .products-gallery-hero {
+    margin-bottom: 30px;
+  }
+  .products-gallery-hero :deep(.photo-bg) {
+    object-position: 80% center;
+  }
+  .products-gallery-hero :deep(.photo-wash) {
+    background: linear-gradient(180deg, rgb(4 19 16 / 0.92), rgb(4 19 16 / 0.85) 48%, rgb(4 19 16 / 0.12) 80%, rgb(4 19 16 / 0.48));
+  }
+}
+</style>

@@ -30,6 +30,7 @@ import {
   Plus,
   Repeat,
   ScanSearch,
+  Search,
   Server,
   Shield,
   Sparkles,
@@ -39,6 +40,7 @@ import {
   Video,
   WifiOff,
   Wrench,
+  Workflow,
   X,
 } from "lucide-vue-next";
 
@@ -73,6 +75,7 @@ const icons = {
   plus: Plus,
   repeat: Repeat,
   scan: ScanSearch,
+  search: Search,
   server: Server,
   shield: Shield,
   sparkles: Sparkles,
@@ -82,6 +85,7 @@ const icons = {
   video: Video,
   "wifi-off": WifiOff,
   wrench: Wrench,
+  workflow: Workflow,
   x: X,
 } as const;
 

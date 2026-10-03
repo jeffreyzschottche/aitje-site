@@ -1,9 +1,15 @@
 <script setup lang="ts">
+import { coverOutlines } from "@/content/coverOutlines";
+
 const props = defineProps<{ src: string; alt: string }>();
 const id = useId();
 // Clip the studio backdrop along the six edges of each original box.
 // Coordinates use the source's square canvas, so artwork and text stay intact.
 const outline = computed(() => {
+  if (props.src.includes("/covers/v2/")) {
+    const slug = props.src.split("/").pop()?.replace(/\.webp$/, "") ?? "";
+    return coverOutlines[slug];
+  }
   if (props.src.includes("box-assistent"))
     return "103,55 194,18 897,81 896,909 195,947 103,925";
   if (props.src.includes("box-coder"))

@@ -1,6 +1,7 @@
 // Cases (redesign/content/cases.md, pages/cases.md, pages/case.md, besluit 51).
 // Details marked dummy must be replaced by confirmed facts before launch.
 import type { CaseStudy } from "./types";
+import { getProduct } from "./products";
 
 const assistent = { name: "AITJE Assistent", to: "/producten/aitje-assistent" };
 const coder = { name: "AITJE Coder", to: "/producten/aitje-coder" };
@@ -30,6 +31,7 @@ export const cases: CaseStudy[] = [
     icon: "message",
     image: "/img/redesign/case-chatgpt.webp",
     background: "/img/cases/bg-case-chatgpt.webp",
+    photoAlt: "Een lichte kantoorruimte met werkplekken en documenten",
     offer: [assistent, installatie, support],
     recognize: [
       "Bedrijfsinformatie belandt in losse chatdiensten.",
@@ -40,7 +42,7 @@ export const cases: CaseStudy[] = [
       {
         title: "De vraag",
         paragraphs: [
-          "Hoe geef je medewerkers bruikbare AI, terwijl je grip houdt op documenten, toegang en de gekozen modellen? Deze voorbeeldsituatie begint bij een kantoor dat een eigen omgeving wil.",
+          "Hoe geef je medewerkers bruikbare AI, terwijl je grip houdt op documenten, toegang en de gekozen modellen? De uitgangspunten zijn een eigen omgeving, bruikbare bronnen en duidelijke toegangsrechten.",
         ],
       },
       {
@@ -72,6 +74,7 @@ export const cases: CaseStudy[] = [
     icon: "layout",
     image: "/img/redesign/case-council.webp",
     background: "/img/cases/bg-case-council.webp",
+    photoAlt: "Collega’s bespreken informatie aan een vergadertafel",
     offer: [custom, installatie, support],
     recognize: [
       "Je schakelt steeds tussen helpdesk, boekhouding en CRM.",
@@ -114,6 +117,7 @@ export const cases: CaseStudy[] = [
     icon: "code",
     image: "/img/redesign/case-coder.webp",
     background: "/img/cases/bg-case-coder.webp",
+    photoAlt: "Code op het scherm van een laptop",
     offer: [coder],
     recognize: [
       "Je wilt code in je eigen omgeving houden.",
@@ -151,11 +155,12 @@ export const cases: CaseStudy[] = [
     slug: "werkbon-naar-offerte",
     label: "Voorbeeldsituatie",
     title: "Van werkbon naar conceptofferte",
-    context: "Een installatiebedrijf met 30 monteurs",
+    context: "Installatie & buitendienst",
     summary:
       "Van foto's en een ingesproken notitie naar een conceptofferte op basis van de eigen prijslijst. Een medewerker controleert voordat de offerte naar de klant gaat.",
     image: "/img/redesign/case-offerte.webp",
     background: "/img/cases/bg-case-offerte.webp",
+    photoAlt: "Een installateur werkt aan een elektrische installatie",
     icon: "wrench",
     offer: [custom, installatie],
     recognize: [
@@ -182,7 +187,7 @@ export const cases: CaseStudy[] = [
         ],
       },
       {
-        title: "Wat het oplevert",
+        title: "Waar de workflow bij helpt",
         paragraphs: [
           "Offertes worden gemaakt terwijl de situatie nog vers is, in de eigen huisstijl en met de eigen prijzen. Het kantoor controleert in plaats van alles zelf uit te typen.",
         ],
@@ -195,11 +200,12 @@ export const cases: CaseStudy[] = [
     slug: "orders-uit-email-automatisch",
     label: "Voorbeeldsituatie",
     title: "Orders uit e-mail automatisch in het systeem",
-    context: "Een transportbedrijf met 40 vrachtwagens",
+    context: "Transport & orderverwerking",
     summary:
       "Transportopdrachten komen binnen als e-mail, pdf of foto van een vrachtbrief. AI leest ze uit en zet ze klaar in het planningssysteem; de planner hoeft alleen te controleren.",
     image: "/img/redesign/case-orders.webp",
     background: "/img/cases/bg-case-orders.webp",
+    photoAlt: "Een vrachtwagen rijdt op de weg",
     icon: "truck",
     offer: [custom, optimalisatie],
     recognize: [
@@ -226,9 +232,9 @@ export const cases: CaseStudy[] = [
         ],
       },
       {
-        title: "Wat het oplevert",
+        title: "Waar de workflow bij helpt",
         paragraphs: [
-          "Planners krijgen hun ochtend terug en er gaan minder fouten mee in de planning. Nieuwe klanten met een eigen orderformaat kunnen zonder extra koppeling worden aangesloten.",
+          "De workflow zet uitgelezen ordergegevens klaar voor controle. De planner beoordeelt de planning en de gemarkeerde twijfelgevallen. Per orderformaat wordt getest welke gegevens betrouwbaar kunnen worden verwerkt.",
         ],
       },
     ],
@@ -239,11 +245,12 @@ export const cases: CaseStudy[] = [
     slug: "documenten-doorzoeken-en-lakken",
     label: "Voorbeeldsituatie",
     title: "Honderden documenten doorzoeken en lakken",
-    context: "Een middelgrote gemeente",
+    context: "Documentonderzoek & informatiebeheer",
     summary:
       "Bij een informatieverzoek moeten honderden mails en documenten worden doorzocht en persoonsgegevens gelakt. Een lokale AI doet het voorwerk; een medewerker beslist.",
     image: "/img/redesign/case-lakken.webp",
     background: "/img/cases/bg-case-lakken.webp",
+    photoAlt: "Documenten worden aan een bureau doorgenomen",
     icon: "file-search",
     offer: [custom, veilig, installatie],
     recognize: [
@@ -270,7 +277,7 @@ export const cases: CaseStudy[] = [
         ],
       },
       {
-        title: "Wat het oplevert",
+        title: "Waar de workflow bij helpt",
         paragraphs: [
           "Het zware zoek- en markeerwerk wordt voorbereid. Medewerkers besteden hun tijd aan de beoordeling in plaats van aan het zoeken.",
         ],
@@ -283,11 +290,12 @@ export const cases: CaseStudy[] = [
     slug: "spraak-naar-werkorder",
     label: "Voorbeeldsituatie",
     title: "Inspreken in plaats van typen in de werkplaats",
-    context: "Een autobedrijf met eigen werkplaats en 8 monteurs",
+    context: "Automotive & werkplaatsadministratie",
     summary:
       "Monteurs spreken hun bevindingen in op de tablet die al in de werkplaats hangt. De werkorder wordt netjes ingevuld in het dealersysteem.",
     image: "/img/redesign/case-werkorder.webp",
     background: "/img/cases/bg-case-werkorder.webp",
+    photoAlt: "Een monteur werkt onder de motorkap van een auto",
     icon: "mic",
     offer: [custom, installatie],
     recognize: [
@@ -314,7 +322,7 @@ export const cases: CaseStudy[] = [
         ],
       },
       {
-        title: "Wat het oplevert",
+        title: "Waar de workflow bij helpt",
         paragraphs: [
           "Complete werkorders zonder typen, duidelijke uitleg voor de klant en adviezen voor vervolgwerk die niet meer verloren gaan.",
         ],
@@ -327,11 +335,12 @@ export const cases: CaseStudy[] = [
     slug: "productteksten-zonder-tokenkosten",
     label: "Voorbeeldsituatie",
     title: "Duizenden productteksten zonder rekening per tekst",
-    context: "Een technische groothandel met 12.000 artikelen",
+    context: "Groothandel & e-commerce",
     summary:
-      "12.000 artikelen met magere of ontbrekende omschrijvingen. Een lokale AI schrijft en vertaalt ze in de eigen tone of voice, zonder rekening per tekst.",
+      "Een catalogus met magere of ontbrekende omschrijvingen. Een lokale AI schrijft en vertaalt ze in de eigen tone of voice, zonder rekening per tekst.",
     image: "/img/redesign/case-productteksten.webp",
     background: "/img/cases/bg-case-productteksten.webp",
+    photoAlt: "Stellingen en voorraad in een magazijn",
     icon: "package",
     offer: [custom, installatie],
     recognize: [
@@ -357,9 +366,9 @@ export const cases: CaseStudy[] = [
         ],
       },
       {
-        title: "Wat het oplevert",
+        title: "Waar de workflow bij helpt",
         paragraphs: [
-          "Duizenden teksten in weken in plaats van maanden. Omdat er geen kosten per tekst zijn, kun je een batch zo vaak opnieuw laten draaien als nodig is.",
+          "De workflow bereidt beschrijvingen en vertalingen per productgroep voor. Bij volledig lokale verwerking zijn er geen externe tokenkosten; hardware, verwerkingstijd en controle blijven onderdeel van het werk.",
         ],
       },
     ],
@@ -367,6 +376,14 @@ export const cases: CaseStudy[] = [
     dummy: false,
   },
 ];
+
+// Keep case stories, but remove links to unpublished products.
+for (const item of cases) {
+  item.offer = item.offer.filter((offer) =>
+    !offer.to.startsWith("/producten/")
+      || Boolean(getProduct(offer.to.slice("/producten/".length))),
+  );
+}
 
 export const getCase = (slug: string) => cases.find((c) => c.slug === slug);
 export const getCases = (slugs: string[] = []) =>
