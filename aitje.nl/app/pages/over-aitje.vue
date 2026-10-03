@@ -56,7 +56,7 @@ const steps = [
     <PageHero
       class="about-forest-hero"
       eyebrow="Aangenaam. AITJE."
-      title="Techniek in het hoofd. Jouw werk voor ogen."
+      title="Jouw partner in AI. Van idee tot uitvoering."
       subline="AITJE is een Nederlands AI-productbedrijf en specialist. Eigen producten, praktisch advies en mensen die de techniek voor je kunnen regelen."
       image="/img/redesign/about.webp"
       background="/img/redesign/about-connected-forest.webp"
@@ -65,7 +65,7 @@ const steps = [
       image-alt="Een uil en een raaf naast elkaar bij een nest met het gloeiende AITJE-ei op een rots met mos"
       >
       <template #title>
-        Techniek in het hoofd. <span class="about-forest-title">Jouw werk voor ogen.</span>
+        Jouw partner in AI. <span class="about-forest-title">Van idee tot uitvoering.</span>
       </template>
       <UiButton to="/contact" arrow class="mt-8"
         >Maak kennis met AITJE</UiButton
@@ -74,10 +74,7 @@ const steps = [
     <section class="section-space">
       <div class="container-page">
         <div class="about-composition">
-          <SectionHeading
-            eyebrow="De rol van AITJE"
-            title="Voor computers de systeembeheerder. Voor AI: AITJE."
-          />
+          <AboutRoleHeading />
           <div class="space-y-5 text-lg leading-relaxed text-muted">
             <p>
               AI ontwikkelt zich snel. Welke modellen zijn bruikbaar? Wat kan op
@@ -121,15 +118,10 @@ const steps = [
       <div class="container-page about-workshop-layout">
         <div class="about-workshop-copy">
           <p class="eyebrow text-brand">De overtuiging</p>
-          <h2>AI dichtbij.<br /><span>De regie bij jou.</span></h2>
+          <h2>Grip op<br /><span>wat je gebruikt.</span></h2>
           <p>
-            Afhankelijkheid mag een bewuste keuze zijn. Niet een onbedoeld
-            gevolg.
-          </p>
-          <p class="scene-secondary">
-            Daarom kijkt AITJE eerst naar eigen hardware en servers, en daarna
-            naar Nederlandse, Europese of andere externe oplossingen die
-            aantoonbaar passen.
+            Weten waar je data blijft, waarvoor je betaalt en wie je helpt als
+            iets uitvalt. Dat hoort voor ons bij een werkende AI-oplossing.
           </p>
           <UiButton to="/visie" variant="light" arrow>Lees de visie</UiButton>
         </div>
@@ -137,11 +129,22 @@ const steps = [
     </section>
     <section class="section-space">
       <div class="container-page">
-        <SectionHeading
-          eyebrow="De mensen achter de techniek"
-          title="Twee oprichters. Eén gedeelde richting."
-          intro="AI praktisch en toegankelijk maken vraagt om technische kennis én aandacht voor het werk van de klant. Die twee kanten komen samen bij AITJE."
-        />
+        <div class="about-founders-intro">
+          <SectionHeading
+            eyebrow="De mensen achter de techniek"
+            title="Twee oprichters. Een netwerk van specialisten."
+            intro="Achter AITJE staan twee oprichters en een vast netwerk van partners. Van hardwareontwerpers en softwareontwikkelaars tot netwerkbeheerders en specialisten in beveiliging, ontwerp en implementatie. Zo brengen we voor elk onderdeel de juiste mensen samen rond één doel: een oplossing die werkt voor jou."
+          />
+          <img
+            class="about-founders-photo"
+            src="/img/redesign/aitje-founders.png"
+            alt="Kees links en Jeffrey rechts, de twee oprichters van AITJE, in hun kantoor"
+            width="1376"
+            height="876"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
         <div class="founder-panels mt-10">
           <div class="founder-panel">
             <AppIcon name="code" :size="36" />
@@ -177,14 +180,29 @@ const steps = [
             <h3>{{ field.title }}</h3>
           </div>
         </div>
+        <TechnologyLogoSlider />
       </div>
     </section>
-    <section class="section-space">
+    <section class="section-space about-collaboration">
       <div class="container-page">
-        <SectionHeading
-          eyebrow="Samenwerken"
-          title="Van eerste gesprek tot de volgende stap."
-        /><StepList :steps="steps" class="mt-12" /><UiButton
+        <div class="about-collaboration-intro">
+          <SectionHeading
+            class="about-collaboration-heading"
+            eyebrow="Samenwerken"
+            title="Van eerste gesprek tot de volgende stap."
+          />
+          <div class="about-collaboration-perch" aria-hidden="true">
+            <img
+              src="/img/redesign/about-robin-branch.png"
+              alt=""
+              width="1536"
+              height="1024"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
+        <StepList :steps="steps" class="mt-12" /><UiButton
           to="/diensten"
           variant="secondary"
           arrow
@@ -202,6 +220,62 @@ const steps = [
 </template>
 
 <style scoped>
+.about-founders-intro {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: center;
+  gap: clamp(2rem, 4vw, 4rem);
+}
+.about-founders-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 24px;
+  border: 1px solid var(--color-line);
+}
+@media (max-width: 1023px) {
+  .about-founders-intro {
+    grid-template-columns: 1fr;
+  }
+}
+.about-collaboration {
+  overflow: hidden;
+}
+.about-collaboration-intro {
+  position: relative;
+  min-height: clamp(240px, 19vw, 300px);
+}
+.about-collaboration-heading {
+  max-width: 55%;
+}
+.about-collaboration-perch {
+  position: absolute;
+  top: -40px;
+  right: calc(50% - 50vw - 24px);
+  width: clamp(440px, 44vw, 800px);
+  pointer-events: none;
+}
+.about-collaboration-perch img {
+  width: 100%;
+  height: auto;
+}
+@media (max-width: 767px) {
+  .about-collaboration-intro {
+    min-height: auto;
+  }
+  .about-collaboration-heading {
+    max-width: none;
+  }
+  .about-collaboration-perch {
+    --perch-width: clamp(440px, 75vw, 560px);
+    position: relative;
+    top: auto;
+    right: auto;
+    width: var(--perch-width);
+    margin: 1rem 0 -1rem;
+    margin-left: calc(50% + 50vw + 24px - var(--perch-width));
+  }
+}
 .about-workshop {
   position: relative;
   isolation: isolate;
