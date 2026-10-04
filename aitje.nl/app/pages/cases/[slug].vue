@@ -1,6 +1,13 @@
 <script setup lang="ts">
 // Case detail uses the same artwork and content as its preview.
 import { cases, getCase } from "@/content/cases";
+import CaseProductEnrichment from "@/components/CaseProductEnrichment.vue";
+import CaseWorkshopVoice from "@/components/CaseWorkshopVoice.vue";
+import CaseRealEstate from "@/components/CaseRealEstate.vue";
+import CaseProductModels from "@/components/CaseProductModels.vue";
+import CaseGameLevels from "@/components/CaseGameLevels.vue";
+import CaseCouncilHub from "@/components/CaseCouncilHub.vue";
+import CaseDevelopmentAgency from "@/components/CaseDevelopmentAgency.vue";
 
 const route = useRoute();
 const item = getCase(String(route.params.slug));
@@ -30,6 +37,8 @@ usePageSeo({
 <template>
   <div>
     <PageHero
+      class="case-detail-hero"
+      :class="{ 'product-models-hero': item.productModels || item.gameLevels || item.councilHub || item.developmentAgency }"
       :eyebrow="item.context"
       :title="item.title"
       :subline="item.summary"
@@ -44,7 +53,7 @@ usePageSeo({
           <span aria-hidden="true">←</span> Alle cases
         </NuxtLink>
       </template>
-      <div class="flex flex-wrap gap-2">
+      <div class="mt-6 flex flex-wrap gap-3">
         <NuxtLink
           v-for="offer in item.offer"
           :key="offer.to"
@@ -56,6 +65,15 @@ usePageSeo({
       </div>
     </PageHero>
 
+    <CaseProductEnrichment v-if="item.productEnrichment" :story="item.productEnrichment" />
+    <CaseWorkshopVoice v-else-if="item.workshopVoice" :story="item.workshopVoice" />
+    <CaseRealEstate v-else-if="item.realEstate" :story="item.realEstate" />
+    <CaseProductModels v-else-if="item.productModels" :story="item.productModels" />
+    <CaseGameLevels v-else-if="item.gameLevels" :story="item.gameLevels" />
+    <CaseCouncilHub v-else-if="item.councilHub" :story="item.councilHub" />
+    <CaseDevelopmentAgency v-else-if="item.developmentAgency" :story="item.developmentAgency" />
+
+    <template v-else>
     <!-- Herken je dit? -->
     <section class="pt-16 pb-16">
       <div class="container-page">
@@ -125,6 +143,7 @@ usePageSeo({
       </div>
     </section>
 
+    </template>
     <section class="border-t border-line py-20">
       <div class="container-page">
         <h2 class="font-heading text-2xl font-bold">Andere cases</h2>
@@ -137,3 +156,10 @@ usePageSeo({
     <CtaBanner />
   </div>
 </template>
+
+<style scoped>
+.case-detail-hero { margin-bottom: 0; }
+.product-models-hero :deep(.photo-bg) { z-index: 0; }
+.product-models-hero :deep(.photo-wash) { z-index: 1; }
+.product-models-hero :deep(.page-hero-layout) { position: relative; z-index: 2; }
+</style>

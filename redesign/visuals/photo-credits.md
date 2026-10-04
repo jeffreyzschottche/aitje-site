@@ -1,5 +1,9 @@
 # Fotoherkomst
 
+## Achtergrond case 3D-productmodellen
+
+`/img/cases/bg-case-3d-productmodellen.jpg`: technische tekeningen en tekeninstrumenten op een werktafel, foto van Tima Miroshnichenko. [Bron op Pexels](https://www.pexels.com/photo/person-people-creative-building-6615239/). Gedownload op 4 oktober 2026, 2560 px breed. Gebruikt onder de [Pexels-licentie](https://www.pexels.com/license/). Illustratieve stockfoto, geen foto van de klant.
+
 Achtergrondfoto's voor de cases, producten en diensten (hero, overzicht en kaarten), gedownload van Unsplash in 2400 px breed.
 
 **Licentie:** [Unsplash License](https://unsplash.com/license): gratis te gebruiken, ook commercieel, zonder toestemming of naamsvermelding. Niet toegestaan: de foto's ongewijzigd verkopen of een concurrerende fotodienst opzetten. Alle foto's komen van `images.unsplash.com` (gratis licentie), niet van `plus.unsplash.com` (Unsplash+, betaald).

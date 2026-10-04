@@ -133,7 +133,7 @@ const priceParts = [
       </div>
     </section>
     <CasesSection
-      :slugs="['chatgpt-in-je-eigen-organisatie', 'coder-game-in-24-uur']"
+      :slugs="['chatgpt-of-codex-in-je-eigen-organisatie', 'coder-game-in-24-uur']"
       title="Producten in de praktijk."
     />
 

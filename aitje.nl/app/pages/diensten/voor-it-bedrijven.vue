@@ -208,8 +208,7 @@ const visibility = [
     <CasesSection
       :slugs="[
         'council-hub',
-        'werkbon-naar-offerte',
-        'orders-uit-email-automatisch',
+        '3d-productmodellen-met-ai',
       ]"
       title="Wat je je klanten kunt bieden."
       intro="Voorbeelden van AI-oplossingen die AITJE bouwt. Zo ook voor jouw klanten, onder jouw regie."

@@ -82,8 +82,7 @@ export const services: Service[] = [
     ],
     caseSlugs: [
       "council-hub",
-      "werkbon-naar-offerte",
-      "orders-uit-email-automatisch",
+      "3d-productmodellen-met-ai",
     ],
     related: ["advies-en-analyse", "aitje-custom", "optimalisatie"],
     seoDescription:
@@ -203,7 +202,7 @@ export const services: Service[] = [
         general: true,
       },
     ],
-    caseSlugs: [],
+    caseSlugs: ["chatgpt-of-codex-in-je-eigen-organisatie", "productteksten-zonder-tokenkosten", "3d-productmodellen-met-ai"],
     related: ["ai-scan", "advies-en-analyse", "optimalisatie", "aitje-custom"],
     seoDescription:
       "Token management & optimalisatie van AITJE: frontier-, lokale en edge-modellen combineren, API-workflows bouwen en onnodige tokens verminderen. Grip op kosten per resultaat.",
@@ -296,7 +295,7 @@ export const services: Service[] = [
     ],
     caseSlugs: [
       "productteksten-zonder-tokenkosten",
-      "chatgpt-in-je-eigen-organisatie",
+      "chatgpt-of-codex-in-je-eigen-organisatie",
     ],
     related: ["ai-scan", "optimalisatie", "veilig-ai-gebruik"],
     seoDescription:
@@ -412,7 +411,7 @@ export const services: Service[] = [
         general: true,
       },
     ],
-    caseSlugs: ["chatgpt-in-je-eigen-organisatie", "spraak-naar-werkorder"],
+    caseSlugs: ["chatgpt-of-codex-in-je-eigen-organisatie", "spraak-naar-werkorder"],
     related: ["ondersteuning-en-onderhoud", "aitje-custom", "ai-scan"],
     seoDescription:
       "AITJE installeert en richt je eigen AI-omgeving in, op eigen hardware of server. Gebruiksklaar opgeleverd, getest en uitgelegd. Vanaf €199.",
@@ -496,7 +495,7 @@ export const services: Service[] = [
         a: "Nee. Het is een praktische technische beoordeling, geen juridisch oordeel of garantie dat een systeem nooit fouten maakt.",
       },
     ],
-    caseSlugs: ["orders-uit-email-automatisch", "council-hub"],
+    caseSlugs: ["3d-productmodellen-met-ai", "council-hub"],
     related: [
       "advies-en-analyse",
       "ondersteuning-en-onderhoud",
@@ -592,7 +591,7 @@ export const services: Service[] = [
     ],
     caseSlugs: [
       "documenten-doorzoeken-en-lakken",
-      "chatgpt-in-je-eigen-organisatie",
+      "chatgpt-of-codex-in-je-eigen-organisatie",
     ],
     related: ["advies-en-analyse", "installatie-en-inrichting", "ai-scan"],
     seoDescription:
@@ -675,8 +674,7 @@ export const services: Service[] = [
     ],
     caseSlugs: [
       "council-hub",
-      "werkbon-naar-offerte",
-      "orders-uit-email-automatisch",
+      "3d-productmodellen-met-ai",
       "spraak-naar-werkorder",
     ],
     related: [
@@ -755,7 +753,7 @@ export const services: Service[] = [
         a: "Ongebruikte uren gaan één maand mee, met maximaal één maandtegoed. De oudste uren gaan eerst.",
       },
     ],
-    caseSlugs: ["chatgpt-in-je-eigen-organisatie", "council-hub"],
+    caseSlugs: ["chatgpt-of-codex-in-je-eigen-organisatie", "council-hub"],
     related: ["installatie-en-inrichting", "optimalisatie", "aitje-custom"],
     seoDescription:
       "Ondersteuning en onderhoud van AITJE: service-uren, modelbeheer en een periodieke AI-APK. AITJE Core, Plus of Max, vanaf €49,99 per maand.",

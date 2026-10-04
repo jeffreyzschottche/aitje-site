@@ -45,24 +45,30 @@ const select = (key: string) =>
     <PageHero
       class="cases-greenhouse-hero"
       eyebrow="Cases / AI in de praktijk"
-      title="AI aan het werk. In jouw praktijk."
-      subline="Van een vraag over je eigen documenten tot een complete workflow. Ontdek hoe AI aansluit op het werk dat je iedere dag doet."
+      title="Wat kan AI voor jou doen? Van vraag naar oplossing."
+      subline="Bekijk hoe we AI laten aansluiten op bestaande processen, systemen en de mensen die ermee werken."
       background="/img/redesign/cases-greenhouse-workshop.webp"
       image="/img/redesign/cases.webp"
       image-alt="Een vogel werkt aan een kleine werkbank op een met mos begroeide rots"
       immersive
       dark
     >
-      <template #title>AI aan het werk.<br /><span class="text-brand">In jouw praktijk.</span></template>
+      <template #title>Wat kan AI voor jou doen?<br /><span class="text-brand">Van vraag naar oplossing.</span></template>
       <UiButton href="#toepassingen" arrow>Ontdek de toepassingen</UiButton>
     </PageHero>
 
     <section id="toepassingen" class="cases-overview py-16 md:py-24">
       <div class="container-page">
-        <div class="mb-10 max-w-2xl">
+        <div class="cases-overview-intro">
+        <div class="cases-overview-copy">
           <p class="eyebrow text-brand-ink">Van vraag naar werkwijze</p>
           <h2 class="mt-4 font-heading text-3xl leading-tight font-bold md:text-4xl">Waar wil jij AI inzetten?</h2>
-          <p class="mt-4 text-lg leading-relaxed text-muted">Kennis toegankelijk maken, terugkerend werk stroomlijnen of software bouwen. Begin bij het proces dat jij wilt verbeteren.</p>
+          <p class="mt-4 text-lg leading-relaxed text-muted">Waar AI waarde kan toevoegen, is niet altijd duidelijk. Zeker als je niet dagelijks systemen en workflows bouwt. AITJE brengt AI en software engineering samen om een werkende oplossing voor jouw vraag te bouwen. Daarbij optimaliseren we de workflow, de modelkeuze en de kosten.</p>
+          <p class="mt-4 text-lg leading-relaxed text-muted">Bekijk hieronder hoe we organisaties en bedrijven vooruit helpen en doe inspiratie op voor je eigen werk.</p>
+        </div>
+        <figure class="cases-overview-art">
+          <img src="/img/redesign/cases-workflow-workbench.webp" alt="Drie vogels bouwen samen een werkplek met verbonden technologie, omringd door planten en een goudgeel verlicht ei" width="1254" height="1254" loading="lazy" decoding="async" />
+        </figure>
         </div>
         <div class="filter-pills" aria-label="Filter toepassingen">
           <button
@@ -92,6 +98,17 @@ const select = (key: string) =>
 
 <style scoped>
 .cases-overview { scroll-margin-top: 110px; }
+.cases-overview-intro { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); align-items: center; gap: 3rem; margin-bottom: 2.5rem; }
+.cases-overview-copy { max-width: 42rem; }
+.cases-overview-art { margin: 0; min-width: 0; }
+.cases-overview-art img { display: block; width: 100%; height: auto; object-fit: contain; filter: drop-shadow(0 15px 18px rgb(31 49 25 / .08)); }
+@media (max-width: 1023px) {
+  .cases-overview-intro { grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: 1.5rem; }
+}
+@media (max-width: 767px) {
+  .cases-overview-intro { grid-template-columns: 1fr; gap: 1rem; }
+  .cases-overview-art { width: min(100%, 390px); justify-self: center; }
+}
 .cases-greenhouse-hero { background: #0c211e; border-bottom: 0; }
 .cases-greenhouse-hero :deep(.photo-bg) { object-position: 65% center; }
 .cases-greenhouse-hero :deep(.photo-wash) {

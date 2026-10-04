@@ -188,7 +188,6 @@ const others = services.filter(
     <CasesSection
       :slugs="[
         'council-hub',
-        'werkbon-naar-offerte',
         'documenten-doorzoeken-en-lakken',
       ]"
     />

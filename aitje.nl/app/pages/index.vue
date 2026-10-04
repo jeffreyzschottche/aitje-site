@@ -338,8 +338,7 @@ const audiences = [
 
     <CasesSection
       :slugs="[
-        'chatgpt-in-je-eigen-organisatie',
-        'werkbon-naar-offerte',
+        'chatgpt-of-codex-in-je-eigen-organisatie',
         'coder-game-in-24-uur',
       ]"
       title="Minder abstract. Meer mogelijk."

@@ -204,7 +204,7 @@ const productDefinitions: Product[] = [
       },
     ],
     caseSlugs: [
-      "chatgpt-in-je-eigen-organisatie",
+      "chatgpt-of-codex-in-je-eigen-organisatie",
       "documenten-doorzoeken-en-lakken",
     ],
     seoDescription:
@@ -345,7 +345,7 @@ const productDefinitions: Product[] = [
       },
       {
         q: "Zijn lokale modellen goed genoeg voor echt werk?",
-        a: "Voor veel taken wel, zeker als je ze klein en duidelijk maakt. Bekijk het [voorbeeld van een lokale codeerworkflow](/cases/coder-game-in-24-uur), of vraag een demo aan om de mogelijkheden voor je eigen werk te bespreken.",
+        a: "Voor veel taken wel, zeker als je ze klein en duidelijk maakt. Bekijk hoe een marketingbureau met AITJE Coder [25 nieuwe gamelevels per week maakt](/cases/coder-game-in-24-uur), of vraag een demo aan om de mogelijkheden voor je eigen werk te bespreken.",
       },
       {
         q: "Kan ik zelf een ander model toevoegen?",
@@ -377,7 +377,7 @@ const productDefinitions: Product[] = [
         general: true,
       },
     ],
-    caseSlugs: ["coder-game-in-24-uur"],
+    caseSlugs: ["chatgpt-of-codex-in-je-eigen-organisatie", "coder-game-in-24-uur", "3d-productmodellen-met-ai"],
     seoDescription:
       "AITJE Coder: je eigen coding agents op eigen hardware of server. Lokaal alternatief voor Claude Code en Codex, zonder externe tokenkosten. Vanaf €699.",
   },

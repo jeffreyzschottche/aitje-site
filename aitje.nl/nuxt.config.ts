@@ -52,6 +52,8 @@ export default defineNuxtConfig({
     "/cases/boekenwinkel-rag-isbn": redirect("/cases"),
     "/cases/it-beheer-lokale-coding-agents": redirect("/cases/coder-game-in-24-uur"),
     "/cases/rijschool-whatsapp-notulist": redirect("/cases"),
+    "/cases/orders-uit-email-automatisch": redirect("/cases/3d-productmodellen-met-ai"),
+    "/cases/chatgpt-in-je-eigen-organisatie": redirect("/cases/chatgpt-of-codex-in-je-eigen-organisatie"),
 
     // Old service routes.
     "/diensten/consultancy": redirect("/diensten/advies-en-analyse"),
