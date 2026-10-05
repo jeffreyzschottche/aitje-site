@@ -1,6 +1,12 @@
 <script setup lang="ts">
 // Service page (redesign/pages/service.md, besluit 51).
 import { getService, slaPlans, partnerService } from "@/content/services";
+import InstallationSetup from "@/components/InstallationSetup.vue";
+import OptimizationOptions from "@/components/OptimizationOptions.vue";
+import SafeAiControls from "@/components/SafeAiControls.vue";
+import SlaPartnership from "@/components/SlaPartnership.vue";
+import CustomProjectJourney from "@/components/CustomProjectJourney.vue";
+import ServicePageNav from "@/components/ServicePageNav.vue";
 
 const route = useRoute();
 const service = getService(String(route.params.slug));
@@ -19,6 +25,15 @@ const related = service.related.map((slug) =>
     : { ...getService(slug)!, price: getService(slug)!.price.label },
 );
 const isSupport = service.slug === "ondersteuning-en-onderhoud";
+const isAdvice = service.slug === "advies-en-analyse";
+const isCustom = service.slug === "aitje-custom";
+const sections = [
+  { label: "Wat houdt het in?", href: "#over-de-dienst" },
+  { label: "De aanpak", href: "#aanpak" },
+  { label: "Wat je krijgt", href: "#oplevering" },
+  { label: "Kosten & afspraken", href: isSupport ? "#sla-niveaus" : "#dienst-prijs" },
+  { label: "Veelgestelde vragen", href: "#dienst-vragen" },
+];
 
 usePageSeo({
   title: `${service.name}: ${service.headline}`,
@@ -69,21 +84,15 @@ usePageSeo({
           <strong class="block font-heading text-lg text-ink">{{
             service.price.label
           }}</strong>
-          <span v-if="!service.price.onRequest">(Excl btw) · voorlopige prijs</span>
+          <span v-if="!service.price.onRequest && service.price.label !== 'Vast uurtarief'">Excl. btw</span>
         </p>
       </div>
     </PageHero>
 
-    <nav class="product-jumpnav" aria-label="Op deze dienstpagina">
-      <div class="container-page">
-        <a href="#aanpak">De aanpak</a><a href="#oplevering">Wat je krijgt</a
-        ><a href="#dienst-prijs">Kosten &amp; afspraken</a
-        ><a href="#dienst-vragen">Veelgestelde vragen</a>
-      </div>
-    </nav>
+    <ServicePageNav :highlights="service.highlights" :sections="sections" />
     <!-- Wat het is -->
-    <section class="py-16 md:py-20">
-      <div class="container-page grid gap-12 lg:grid-cols-[1.3fr_1fr]">
+    <section id="over-de-dienst" class="service-intro scroll-mt-24 py-16 md:py-20">
+      <div class="container-page grid items-center gap-12 lg:grid-cols-[1.3fr_1fr]">
         <div class="space-y-5 text-lg leading-relaxed text-ink/85">
           <RichText
             v-for="(p, i) in service.intro"
@@ -99,25 +108,36 @@ usePageSeo({
       </div>
     </section>
 
-    <TokenWorkflowExample v-if="service.slug === 'token-management-en-optimalisatie'" />
+    <AdviceAnalysisPlan v-if="isAdvice" />
+    <InstallationSetup v-if="service.slug === 'installatie-en-inrichting'" />
+    <OptimizationOptions v-if="service.slug === 'optimalisatie'" />
+    <SafeAiControls v-if="service.slug === 'veilig-ai-gebruik'" />
+    <SlaPartnership v-if="isSupport" />
+
+    <template v-if="service.slug === 'token-management-en-optimalisatie'">
+      <TokenUsageOverview />
+      <TokenWorkflowExample />
+    </template>
 
     <!-- Hoe het werkt -->
-    <section id="aanpak" class="scroll-mt-24 bg-sand py-20">
+    <CustomProjectJourney v-if="isCustom" :steps="service.steps" :deliverables="service.deliverables" />
+    <section v-else id="aanpak" class="scroll-mt-24 bg-sand py-20">
       <div class="container-page">
         <SectionHeading
           eyebrow="Hoe het werkt"
-          title="Stap voor stap, zonder verrassingen."
+          :title="isAdvice ? 'Van vraag naar een plan.' : 'Stap voor stap, zonder verrassingen.'"
         />
         <div class="mt-10"><StepList :steps="service.steps" /></div>
       </div>
     </section>
 
     <!-- Wat je krijgt + onderdelen -->
-    <section id="oplevering" class="scroll-mt-24 py-20">
+    <section v-if="!isCustom" id="oplevering" class="scroll-mt-24 py-20">
       <div class="container-page grid gap-12 lg:grid-cols-[1fr_1.3fr]">
         <div>
-          <SectionHeading eyebrow="Wat je krijgt" title="Concreet resultaat." />
+          <SectionHeading eyebrow="Wat je krijgt" :title="isAdvice ? 'Keuzes waar je mee verder kunt.' : 'Concreet resultaat.'" />
           <CheckList :items="service.deliverables" class="mt-8" />
+          <p v-if="isAdvice" class="mt-5 text-sm leading-relaxed text-muted">De diepgang volgt je vraag. Een korte sessie geeft een schriftelijke samenvatting; een analyse werkt de afgesproken onderdelen verder uit.</p>
         </div>
         <div v-if="service.parts?.length">
           <p class="eyebrow text-brand-ink">Onderdelen</p>
@@ -150,10 +170,20 @@ usePageSeo({
           :icon="service.icon"
         />
       </div>
+      <aside v-if="isAdvice" class="container-page mt-12">
+        <div class="flex flex-col gap-6 border-t border-line pt-8 md:flex-row md:items-center md:justify-between">
+          <div class="max-w-2xl">
+            <p class="eyebrow text-brand-ink">Van plan naar uitvoering</p>
+            <h3 class="mt-3 font-heading text-2xl font-bold">Akkoord? Dan kan AITJE bouwen.</h3>
+            <p class="mt-3 leading-relaxed text-muted">Je weet wat er gebouwd wordt, welke controles nodig zijn en hoeveel uren dat naar verwachting kost. Pas na jouw akkoord op het plan en de uren begint de bouw.</p>
+          </div>
+          <UiButton to="/diensten/aitje-custom" variant="secondary" arrow class="shrink-0">Bekijk AI op maat</UiButton>
+        </div>
+      </aside>
     </section>
 
     <!-- SLA-vergelijking -->
-    <section v-if="isSupport" class="px-3 md:px-5">
+    <section v-if="isSupport" id="sla-niveaus" class="sla-plan-comparison scroll-mt-24 px-3 md:px-5">
       <div class="on-dark rounded-[2.25rem] bg-ink py-20 text-white">
         <div class="container-page">
           <SectionHeading
@@ -190,8 +220,8 @@ usePageSeo({
                 per maand, excl. btw
               </p>
               <p class="mt-6 font-mono text-sm">
-                {{ plan.hours }} service-{{ plan.hours === 1 ? "uur" : "uren" }}
-                per maand
+                {{ plan.hours }} {{ plan.hours === 1 ? "serviceuur" : "serviceuren" }}
+                per maand inbegrepen
               </p>
               <ul class="mt-5 space-y-2.5 text-sm">
                 <li v-for="f in plan.features" :key="f" class="flex gap-2">
@@ -221,12 +251,12 @@ usePageSeo({
     <section id="dienst-prijs" class="scroll-mt-24 py-20">
       <div class="container-page grid gap-6 md:grid-cols-2">
         <div class="rounded-panel border-2 border-ink bg-surface p-8">
-          <p class="eyebrow text-brand-ink">Prijs</p>
+          <p class="eyebrow text-brand-ink">{{ isCustom ? 'Uurtarief & projectbudget' : 'Prijs' }}</p>
           <p class="mt-4 font-heading text-4xl font-bold">
             {{ service.price.label }}
           </p>
-          <p v-if="!service.price.onRequest" class="text-sm text-muted">
-            (Excl btw) · voorlopige prijs, te bevestigen in je offerte
+          <p v-if="!service.price.onRequest && service.price.label !== 'Vast uurtarief'" class="text-sm text-muted">
+            Excl. btw
           </p>
           <p class="mt-5 leading-relaxed text-muted">
             {{ service.price.note }}
@@ -242,14 +272,14 @@ usePageSeo({
       </div>
     </section>
 
-    <CasesSection :slugs="service.caseSlugs" dark />
+    <CasesSection :slugs="service.caseSlugs" :title="isCustom ? 'Maatwerk in de praktijk.' : 'Herken je dit?'" dark />
 
     <!-- FAQ -->
     <section id="dienst-vragen" class="scroll-mt-24 py-20 md:py-24">
       <div class="container-page grid gap-12 lg:grid-cols-[1fr_1.6fr]">
         <SectionHeading
           eyebrow="Veelgestelde vragen"
-          :title="`Vragen over ${service.name}.`"
+          :title="isCustom ? 'Vragen over jouw project.' : `Vragen over ${service.name}.`"
         >
           <NuxtLink
             to="/faq"
@@ -262,17 +292,6 @@ usePageSeo({
       </div>
     </section>
 
-    <section
-      v-if="service.slug === 'installatie-en-inrichting'"
-      class="section-space environment-section"
-    >
-      <div class="container-page">
-        <SectionHeading
-          eyebrow="Welke omgeving past?"
-          title="De opstelling volgt jouw werk."
-        /><AiEnvironment class="mt-10" />
-      </div>
-    </section>
     <!-- Gerelateerd -->
     <section class="border-t border-line py-20">
       <div class="container-page">

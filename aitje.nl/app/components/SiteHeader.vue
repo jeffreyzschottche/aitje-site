@@ -2,7 +2,7 @@
 // Header: full width at the top, compact centred pill after scrolling (visuals/components.md).
 import { availableProducts, plannedProducts } from "@/content/products";
 import { services, partnerService } from "@/content/services";
-import { mainCta } from "@/content/site";
+import { customNavLabel, mainCta } from "@/content/site";
 
 const route = useRoute();
 const scrolled = ref(false);
@@ -30,12 +30,20 @@ const menus: Menu[] = [
     to: "/producten",
     columns: [
       {
-        links: availableProducts.map((p) => ({
-          label: p.name,
-          to: `/producten/${p.slug}`,
-          text: p.tagline,
-          icon: p.icon,
-        })),
+        links: [
+          ...availableProducts.map((p) => ({
+            label: p.name,
+            to: `/producten/${p.slug}`,
+            text: p.tagline,
+            icon: p.icon,
+          })),
+          {
+            label: customNavLabel,
+            to: "/diensten/aitje-custom",
+            text: "Een AI-oplossing voor jouw specifieke vraag.",
+            icon: "sparkles",
+          },
+        ],
       },
       {
         title: "In ontwikkeling",
@@ -54,7 +62,7 @@ const menus: Menu[] = [
     columns: [
       {
         links: services.map((s) => ({
-          label: s.name,
+          label: s.slug === "aitje-custom" ? customNavLabel : s.name,
           to: `/diensten/${s.slug}`,
           icon: s.icon,
         })),

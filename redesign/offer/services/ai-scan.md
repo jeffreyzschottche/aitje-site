@@ -23,6 +23,12 @@ De AI-scan is de standaard eerste stap voor vrijwel ieder nieuw traject. AITJE o
 
 Het doel is eerst een goed totaalbeeld op te bouwen. De scan is dus geen verkooppraatje voor één vooraf gekozen product en ook niet automatisch het begin van een bouwopdracht.
 
+Token management valt binnen dit brede onderzoek: de scan inventariseert AI-gebruik,
+abonnementen en optimalisatiekansen op hoofdlijnen. Een uitgebreide modelvergelijking,
+workflowaanpassingen en beheer worden apart afgesproken via
+[Token management & optimalisatie](token-management.md), ook rechtstreeks af te nemen
+zonder voorafgaande scan.
+
 ## Eén brede scan
 
 Er is één AI-scan, geen apart basis-, modeltest- of compleetpakket.

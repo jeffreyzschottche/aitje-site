@@ -1,8 +1,17 @@
 <script setup lang="ts">
 // Partner route: redesign/pages/partners.md and redesign/strategy/partner-model.md.
 import { contactLink } from "@/content/site";
+import { partnerService } from "@/content/services";
+import ServicePageNav from "@/components/ServicePageNav.vue";
 
 const cta = { label: "Bespreek een klantvraag", to: contactLink("samenwerken") };
+const sections = [
+  { label: "Klantvragen", href: "#klantvragen" },
+  { label: "Samenwerking", href: "#samenwerking" },
+  { label: "Techniek", href: "#techniek" },
+  { label: "De aanpak", href: "#aanpak" },
+  { label: "Na oplevering", href: "#na-oplevering" },
+];
 
 usePageSeo({
   title: "AI-specialist voor IT-bedrijven en bureaus",
@@ -78,9 +87,7 @@ const visibility = [
       </div>
     </PageHero>
 
-    <section class="partner-promise" aria-label="Kern van de samenwerking"><div class="container-page partner-promise-inner">
-      <strong>Jouw klantrelatie.</strong><span aria-hidden="true">+</span><strong>AITJE als AI-specialist.</strong><p>Van haalbaarheid tot bouw en technisch vervolg.</p>
-    </div></section>
+    <ServicePageNav :highlights="partnerService.highlights" :sections="sections" label="Op deze partnerpagina" />
 
     <section id="klantvragen" class="partner-section partner-routes"><div class="container-page">
       <div class="partner-heading-grid"><div><p class="eyebrow text-brand-ink">Waar AITJE bij helpt</p><h2>Een AI-vraag van je klant. Wat nu?</h2></div><p>Of je nu servers beheert, websites bouwt of apps ontwikkelt: AITJE voegt specialistische AI-kennis en uitvoering toe aan jouw dienstverlening.</p></div>
@@ -102,14 +109,14 @@ const visibility = [
       <div class="partner-example-visual" aria-label="Van bestaande website en klantkennis naar een AI-functie"><div class="partner-example-source"><AppIcon name="globe" :size="26" /><div><strong>Website & CMS</strong><span>Bestaande omgeving van het bureau</span></div></div><div class="partner-example-connector"><span>bevat</span><AppIcon name="arrow-right" :size="20" /></div><div class="partner-example-source"><AppIcon name="library" :size="26" /><div><strong>Documenten & productkennis</strong><span>De informatie van de klant</span></div></div><div class="partner-example-connector"><span>wordt bruikbaar via</span><AppIcon name="arrow-right" :size="20" /></div><div class="partner-example-result"><AppIcon name="message" :size="27" /><div><strong>AI-functie in de website</strong><span>Bureau + AITJE, ieder vanuit zijn eigen vak</span></div></div></div>
     </div></section>
 
-    <section class="partner-section partner-tech"><div class="container-page partner-tech-grid">
+    <section id="techniek" class="partner-section partner-tech"><div class="container-page partner-tech-grid">
       <div><p class="eyebrow text-brand-ink">Technisch samenwerken</p><h2>AI die past in de bestaande omgeving.</h2><p class="partner-body-copy">De website, server of app van je klant is het vertrekpunt. AITJE kijkt naar systemen, gegevens en beheer voordat het een model of infrastructuur kiest.</p><div class="partner-tech-links"><NuxtLink to="/producten/aitje-assistent">AITJE Assistent <AppIcon name="arrow-up-right" :size="16" /></NuxtLink><NuxtLink to="/producten/aitje-coder">AITJE Coder <AppIcon name="arrow-up-right" :size="16" /></NuxtLink><NuxtLink to="/diensten/aitje-custom">AI op maat <AppIcon name="arrow-up-right" :size="16" /></NuxtLink></div></div>
       <ul class="partner-tech-list"><li><AppIcon name="server" :size="23" /><div><strong>Hardware & hosting</strong><p>Eigen apparatuur, een server of een externe dienst wanneer die beter bij de opdracht past.</p></div></li><li><AppIcon name="plug" :size="23" /><div><strong>Systemen & API’s</strong><p>Aansluiten op de website, app, kennisbank of bestaande bedrijfssoftware.</p></div></li><li><AppIcon name="shield" :size="23" /><div><strong>Data & toegang</strong><p>Bespreken welke gegevens waar verwerkt worden en wie toegang nodig heeft.</p></div></li><li><AppIcon name="gauge" :size="23" /><div><strong>Modellen & kosten</strong><p>De modelkeuze en workflow afstemmen op kwaliteit, gebruik en kosten per resultaat.</p></div></li></ul>
     </div></section>
 
-    <section class="partner-section partner-process"><div class="container-page"><div class="partner-heading-grid"><div><p class="eyebrow text-brand-ink">Van klantvraag naar oplevering</p><h2>Eerst duidelijkheid. Dan jouw offerte.</h2></div><p>AITJE bakent het technische AI-deel af voordat jij het aan je klant aanbiedt. Hoeveel onderzoek nodig is, hangt af van de vraag.</p></div><ol class="partner-step-list"><li v-for="step in projectSteps" :key="step.number"><span>{{ step.number }}</span><h3>{{ step.title }}</h3><p>{{ step.text }}</p></li></ol><div class="partner-process-cta"><p>Al een AI-vraag van een klant? De oplossing hoeft nog niet vast te staan.</p><UiButton :to="cta.to" arrow>{{ cta.label }}</UiButton></div></div></section>
+    <section id="aanpak" class="partner-section partner-process"><div class="container-page"><div class="partner-heading-grid"><div><p class="eyebrow text-brand-ink">Van klantvraag naar oplevering</p><h2>Eerst duidelijkheid. Dan jouw offerte.</h2></div><p>AITJE bakent het technische AI-deel af voordat jij het aan je klant aanbiedt. Hoeveel onderzoek nodig is, hangt af van de vraag.</p></div><ol class="partner-step-list"><li v-for="step in projectSteps" :key="step.number"><span>{{ step.number }}</span><h3>{{ step.title }}</h3><p>{{ step.text }}</p></li></ol><div class="partner-process-cta"><p>Al een AI-vraag van een klant? De oplossing hoeft nog niet vast te staan.</p><UiButton :to="cta.to" arrow>{{ cta.label }}</UiButton></div></div></section>
 
-    <section class="partner-section partner-followup"><div class="container-page partner-followup-grid">
+    <section id="na-oplevering" class="partner-section partner-followup"><div class="container-page partner-followup-grid">
       <div><p class="eyebrow text-brand-ink">Bij de klant</p><h2>Jij bepaalt hoe AITJE aansluit.</h2><p class="partner-body-copy">Op de achtergrond of samen in gesprek: per opdracht spreken jullie af wie de klant waarvoor benadert.</p><ul class="partner-visibility"><li v-for="item in visibility" :key="item.title"><AppIcon name="check" :size="19" /><div><strong>{{ item.title }}</strong><p>{{ item.text }}</p></div></li></ul><p class="partner-small-note">Vaste AITJE-producten behouden hun naam. Oplossingen op maat kunnen waar passend onder jouw naam worden geleverd.</p></div>
       <div class="partner-aftercare"><p class="eyebrow text-brand">Na oplevering</p><h3>De klant belt jou. Jij kunt op AITJE terugvallen.</h3><p>Dagelijkse vragen lopen via jouw bedrijf. Bij storingen, modelwissels of uitbreidingen helpt AITJE met het afgesproken AI-deel.</p><div class="partner-aftercare-list"><span>Losse vervolgopdracht</span><span>Afgesproken ondersteuning of SLA</span></div><p>Leg vooraf vast wie waarvoor bereikbaar is. Dan weet jouw klant waar hij terechtkan.</p><NuxtLink to="/diensten/ondersteuning-en-onderhoud">Bekijk ondersteuning en onderhoud <AppIcon name="arrow-up-right" :size="18" /></NuxtLink></div>
     </div></section>
@@ -125,12 +132,7 @@ const visibility = [
 .partner-back-link:hover,.partner-hero-secondary:hover { color: var(--color-brand); }
 .partner-hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 1.3rem; margin-top: 2rem; }
 .partner-hero-secondary { display: inline-flex; align-items: center; gap: .5rem; color: white; font-size: .875rem; font-weight: 600; }
-.partner-promise { background: var(--color-brand); }
-.partner-promise-inner { display: flex; align-items: center; flex-wrap: wrap; gap: .7rem 1rem; padding-block: 1.3rem; }
-.partner-promise strong { font: 700 clamp(1.1rem, 2vw, 1.55rem) var(--font-heading); letter-spacing: -.04em; }
-.partner-promise-inner>span { opacity: .45; font-size: 1.4rem; }
-.partner-promise p { margin-left: auto; max-width: 18rem; font-size: .78rem; line-height: 1.5; }
-.partner-section { padding-block: clamp(4rem, 7vw, 6.5rem); }
+.partner-section { padding-block: clamp(4rem, 7vw, 6.5rem); scroll-margin-top: 6rem; }
 .partner-section h2 { margin-top: .8rem; font: 700 clamp(2rem, 3.4vw, 3.3rem)/1.12 var(--font-heading); letter-spacing: -.055em; }
 .partner-section h3 { font-family: var(--font-heading); letter-spacing: -.035em; }
 .partner-heading-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); align-items: end; gap: 4rem; }
@@ -212,7 +214,6 @@ const visibility = [
 @media (max-width: 1023px) {
   .partner-heading-grid,.partner-roles-grid,.partner-example-grid,.partner-tech-grid,.partner-followup-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .partner-route-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .partner-promise p { margin-left: 0; flex-basis: 100%; }
   .partner-example-visual { max-width: 650px; width: 100%; }
 }
 @media (max-width: 767px) {
@@ -229,7 +230,6 @@ const visibility = [
   .partner-role-row p:last-of-type::before { content: 'AITJE'; }
 }
 @media (max-width: 479px) {
-  .partner-promise-inner { gap: .35rem .6rem; }
   .partner-example-split { grid-template-columns: 1fr; }
   .partner-example-visual,.partner-aftercare { padding: 1.3rem; }
 }

@@ -1,6 +1,7 @@
 <script setup lang="ts">
+const props = withDefaults(defineProps<{ variant?: "general" | "installation" }>(), { variant: "general" });
 const selected = ref(0);
-const options = [
+const generalOptions = [
   {
     name: "Op je eigen hardware",
     label: "LOKAAL",
@@ -44,7 +45,52 @@ const options = [
     note: "Externe modellen en online tools kunnen gebruikskosten en verwerking buiten je eigen omgeving meebrengen.",
   },
 ];
-const current = computed(() => options[selected.value]!);
+const installationOptions = [
+  {
+    name: "Hardware op locatie",
+    label: "IN JE EIGEN OMGEVING",
+    icon: "cpu",
+    title: "Een computer die bij de taak past.",
+    text: "AITJE werkt onder meer met BOSGAME M5 en M6 en Mac mini. Voor zwaardere toepassingen komen bijvoorbeeld NVIDIA DGX Spark of Dell PowerEdge in beeld. De modellen, het aantal gebruikers en de benodigde capaciteit bepalen wat past.",
+    points: [
+      "Hardware zelf aanschaffen of laten regelen",
+      "Software, modellen en opslag ingericht",
+      "Verbonden met je werkplekken en netwerk",
+    ],
+    nodes: ["Je werkplekken", "Gekozen hardware", "Je AI-oplossing"],
+    note: "Dit zijn voorbeelden, geen verplichte apparaten. AITJE stemt de keuze af op je doel, budget en bestaande omgeving.",
+  },
+  {
+    name: "Server, VPS of GPU-VPS",
+    label: "EEN SERVER LATEN INRICHTEN",
+    icon: "server",
+    title: "De rekenkracht die je nodig hebt.",
+    text: "Een droplet, eigen server of VPS met GPU, bijvoorbeeld bij Nebius. AITJE kan een geschikte omgeving zoeken en regelen voor je modellen, database en software, en installeert de afgesproken onderdelen.",
+    points: [
+      "Hosting en capaciteit vooraf afgestemd",
+      "Modellen en database volgens het plan",
+      "Toegang voor de afgesproken gebruikers",
+    ],
+    nodes: ["Je gebruikers", "Server of GPU-VPS", "Je AI-oplossing"],
+    note: "Serverhuur en eventuele gebruikskosten staan apart van de installatie. Vooraf is duidelijk wie de hosting en het verdere beheer verzorgt.",
+  },
+  {
+    name: "Wat je al hebt",
+    label: "EIGEN HARDWARE OF HOSTING",
+    icon: "plug",
+    title: "Verder bouwen op je eigen omgeving.",
+    text: "Al hardware aangeschaft of een eigen hostingpartij? AITJE beoordeelt of de omgeving geschikt is en richt daarop de oplossing in. Je kunt ook zelf de server kiezen of hosten en de installatie aan AITJE overlaten.",
+    points: [
+      "Bestaande capaciteit vooraf beoordeeld",
+      "Toegang en technische eisen afgestemd",
+      "Duidelijke verdeling van het werk",
+    ],
+    nodes: ["Je huidige omgeving", "Controle & inrichting", "Je AI-oplossing"],
+    note: "Ontbrekende capaciteit, toegang of andere beperkingen worden vóór de implementatie besproken, met een passende vervolgstap.",
+  },
+];
+const options = computed(() => props.variant === "installation" ? installationOptions : generalOptions);
+const current = computed(() => options.value[selected.value]!);
 </script>
 <template>
   <div class="environment">
@@ -69,7 +115,7 @@ const current = computed(() => options[selected.value]!);
         <CheckList :items="current.points" class="mt-6" />
       </div>
       <div class="environment-diagram">
-        <p class="eyebrow">Zo loopt je vraag</p>
+        <p class="eyebrow">{{ variant === 'installation' ? 'Zo komt het samen' : 'Zo loopt je vraag' }}</p>
         <div
           v-for="(node, index) in current.nodes"
           :key="node"

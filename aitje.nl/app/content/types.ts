@@ -52,12 +52,16 @@ export type ServicePart = {
   price: string;
 };
 
+export type ServiceHighlight = { icon: string; text: string };
+
 export type Service = {
   slug: string;
   name: string;
   /** One line for cards. */
   short: string;
   icon: string;
+  /** Three short points in the shared yellow bar immediately below the hero. */
+  highlights: [ServiceHighlight, ServiceHighlight, ServiceHighlight];
   image?: string;
   /** Full-width royalty-free photo behind the hero (Unsplash License). */
   background?: string;

@@ -2,7 +2,7 @@
 
 > AITJE is je partner in AI: een Nederlandse AI-specialist met eigen producten. AITJE onderzoekt waar AI werk makkelijker, beter of goedkoper maakt, bouwt en installeert de oplossing en blijft daarna bereikbaar. Het belangrijkste specialisme is AI op eigen hardware of een eigen server; externe modellen worden gebruikt waar ze aantoonbaar beter passen. AITJE werkt voor bedrijven, makers en professionals, en IT-bedrijven en bureaus.
 
-Alle prijzen zijn exclusief btw en voorlopig.
+Alle prijzen zijn exclusief btw. Werkzaamheden en budget worden vooraf afgesproken. Het uurtarief staat bij ‘Wat vraagt AITJE per uur?’ op de FAQ-pagina.
 
 ## Producten
 
@@ -15,11 +15,11 @@ Alle prijzen zijn exclusief btw en voorlopig.
 
 - [Diensten](https://aitje.com/diensten): Overzicht van alle diensten.
 - [AI-scan](https://aitje.com/diensten/ai-scan): Onderzoek naar werkprocessen en huidig AI-gebruik, met een praktisch rapport. Vanaf €595.
-- [Advies en analyse](https://aitje.com/diensten/advies-en-analyse): Antwoord op concrete AI-vragen over modelkeuze, architectuur en kosten. €85 per uur.
+- [Advies en analyse](https://aitje.com/diensten/advies-en-analyse): Antwoord op concrete AI-vragen over modelkeuze, architectuur en kosten. Vast uurtarief.
 - [Installatie en inrichting](https://aitje.com/diensten/installatie-en-inrichting): Hardware of server kiezen en de AI-omgeving gebruiksklaar opleveren. Vanaf €199.
 - [Optimalisatie](https://aitje.com/diensten/optimalisatie): Bestaande AI betrouwbaarder, goedkoper en beter onder controle maken.
 - [Veilig AI-gebruik](https://aitje.com/diensten/veilig-ai-gebruik): Inzicht in waar AI-data wordt verwerkt en opgeslagen, en praktische maatregelen. AI-datalocatiecheck €1.499.
-- [AITJE Custom — AI op maat](https://aitje.com/diensten/aitje-custom): Van AI-idee naar werkende oplossing, in urenblokken die de klant goedkeurt. €85 per uur.
+- [AITJE Custom — AI op maat](https://aitje.com/diensten/aitje-custom): Van AI-idee naar werkende oplossing, in urenblokken die de klant goedkeurt. Vast uurtarief.
 - [Ondersteuning en onderhoud](https://aitje.com/diensten/ondersteuning-en-onderhoud): SLA met service-uren, modelbeheer en AI-APK: AITJE Core, Plus of Max, vanaf €49,99 per maand.
 - [Voor IT-bedrijven en bureaus](https://aitje.com/diensten/voor-it-bedrijven): AITJE als AI-specialist voor jouw klanten; de partner houdt de klantrelatie.
 

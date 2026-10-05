@@ -56,6 +56,25 @@ Afhankelijk van de klantvraag kan AITJE adviseren over of werken aan:
 
 Welke maatregelen passen, wordt per omgeving beoordeeld. Anonimisering wordt niet zonder controle als volledig of gegarandeerd voorgesteld.
 
+### Verdieping bevestigd op 5 oktober 2026
+
+De oprichter wil de pagina vooral concreet maken rond maatregelen vóór verzending, kennisopvraging en uitvoering:
+
+- **Dataminimalisatie en anonimisatie:** persoonsgegevens en herkenbare details lokaal verwijderen of vervangen vóór een externe frontier-call. Pseudonimisatie met labels is niet vanzelf volledige anonimisatie; context kan iemand herkenbaar houden.
+- **Gescheiden context:** nieuwe sessies per taak of klant en bewust ingesteld geheugen. Dit voorkomt onnodig meesturen van historie, maar verandert geen providerbewaring of trainingbeleid.
+- **Providerinstellingen:** waar beschikbaar traininggebruik uitschakelen, bewaartermijnen onderzoeken en voorwaarden en uitzonderingen voor zero-data retention controleren. Geen algemene belofte van direct verwijderen bij alle enterprise-API's.
+- **Role-based access:** authenticatie en autorisatie buiten de LLM afdwingen, vóór retrieval. Alleen toegestane documenten, categorieën en tekststukken mogen in de RAG-context terechtkomen. Dezelfde rechten gelden bij tool calls.
+- **Prompt injection en jailbreaks:** een invoer-/documentfilter of LLM-firewall combineren met scheiding van instructies en bronmateriaal, beperkte toolrechten en validatie van acties. Eén filter wordt niet als sluitende beveiliging gepresenteerd.
+- **Billing en gebruik:** budgetcontrole vóór calls, rate limiting per gebruiker en taak, begrensde retries en stopmomenten. Waarschuwingen bij providers zijn niet altijd harde caps; vertraagde rapportage en lopende calls tellen mee.
+- **Human in the loop:** voorstel en gevolgen tonen, expliciet akkoord vóór belangrijke acties en de bevestiging loggen.
+- **Outputvalidatie:** codecontroles, broncontrole via RAG en eventueel LLM-as-a-Judge. RAG of een tweede model sluit fouten niet uit; belangrijke uitkomsten kunnen menselijke beoordeling nodig hebben.
+- **Lokale verwerking:** gevoelige stappen waar passend intern houden, met aandacht voor netwerk, toegang, logging en externe terugvalroutes. Geen algemene garantie dat lokaal draaien gegevenslekken onmogelijk maakt.
+- **Auditlogs en sleutels:** gebruiker, model, bronnen, akkoord en actie herleidbaar maken. Gevoelige inhoud niet automatisch volledig loggen; toegang en bewaartermijnen afspreken. API-sleutels afschermen en rechten beperken.
+
+De pagina laat een illustratief voorbeeld van gegevensvoorbereiding en een interactieve rolverdeling voor RAG zien. Dit zijn uitlegelementen, geen werkende authenticatie- of anonimisatievoorziening van de website.
+
+De AI-datalocatiecheck blijft een afzonderlijk geprijsd onderzoek met overzicht en verbeteradvies. Een uitgewerkt maatregelenplan en implementatie worden apart op scope en uren afgesproken.
+
 De Guardrailcheck blijft beschreven onder [Optimalisatie](optimization.md). Praktische interne afspraken en AI-beleid sluiten aan op [Advies en analyse](consultancy.md).
 
 ## AI-wegwijs
@@ -130,3 +149,6 @@ AITJE levert praktische inzichten, begeleiding en technische verbeteringen. Juri
 - Bevestigde antwoorden van de oprichter over Veilig AI-gebruik, AI-datalocatiecheck en AI-wegwijs.
 - Bestaande prijsbasis uit het bedrijfsdocument; bedragen worden later gecontroleerd.
 - [Aanbodoverzicht](../overview.md), [Advies en analyse](consultancy.md), [Optimalisatie](optimization.md) en de contextdocumenten.
+- [OWASP — Prompt Injection Prevention](https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html), [RAG Security](https://cheatsheetseries.owasp.org/cheatsheets/RAG_Security_Cheat_Sheet.html) en [System Prompt Leakage](https://genai.owasp.org/llmrisk/llm072025-system-prompt-leakage/).
+- [Anthropic — API and data retention](https://platform.claude.com/docs/en/manage-claude/api-and-data-retention).
+- [European Data Protection Board — Anonymisation / pseudonymisation](https://www.edpb.europa.eu/topics/ai-and-technology/anonymisation-pseudonymisation_en).

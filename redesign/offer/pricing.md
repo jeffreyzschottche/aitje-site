@@ -6,6 +6,10 @@ Dit is het centrale overzicht van prijsopbouw en voorlopige bedragen voor het re
 
 De aanbodstructuur is bevestigd. Definitieve bedragen worden vóór publicatie gecontroleerd. Vermeld bij prijzen steeds **(Excl btw)** volgens de gekozen presentatierichting.
 
+Keuze oprichter, 5 oktober 2026: Advies en analyse toont **Vast uurtarief** in plaats van het eerdere openbare bedrag van €85 met ‘voorlopige prijs’. Tarief, scope en verwachte uren worden vooraf afgesproken. Eventuele bouw krijgt een aparte begroting en begint na akkoord op het plan en de uren.
+
+Aanvullende keuze oprichter, 5 oktober 2026: het bedrag **€85 per uur, exclusief btw** staat op de website uitsluitend bij de algemene FAQ-vraag **Wat vraagt AITJE per uur?** Diensten, onderdelen, overzichtskaarten en gerelateerde kaarten tonen voor uurwerk **Vast uurtarief**. Dienstpagina's tonen geen vermelding ‘voorlopige prijs’ of ‘voorlopige vanafprijs’. De bedragen in onderstaande tabellen blijven interne prijsreferenties, geen instructie om het uurtarief opnieuw op andere pagina's te publiceren.
+
 ## Drie herkenbare prijsonderdelen
 
 Bij producten en complete oplossingen worden drie onderdelen zichtbaar gemaakt:
@@ -112,7 +116,7 @@ Voorlopig normaal tarief: **€85 per uur (Excl btw)**.
 
 Onderzoek en ontwikkeling gebeuren in vooraf afgesproken urenblokken. Na ieder blok laat AITJE voortgang zien en beslist de klant over doorgaan, bijsturen of stoppen. Bestede onderzoeksuren worden betaald, ook wanneer een aanpak niet haalbaar blijkt.
 
-Een werkende MVP toont de kernwerking aan. Afwerking, design en verdere implementatie zijn betaald vervolgwerk. Hardware/serverkosten en installatie worden herkenbaar apart begroot.
+Verduidelijking oprichter, 5 oktober 2026: Custom is het volledige persoonlijke project tot het afgesproken eindproduct, met analyse, ontwerp, omgevingskeuze, ontwikkeling, tests, optimalisatie, livegang, feedbackrondes en overdracht. Een prototype kan een tussenstap zijn. Alle werkzaamheden vallen onder hetzelfde uurtarief en het vooraf afgestemde budget per fase. Nieuwe wensen en extra uren worden eerst afgesproken. Hardware, hosting, licenties en externe modelkosten worden apart begroot; inrichtingswerk wordt binnen de projectbegroting herkenbaar gemaakt en niet dubbel berekend.
 
 ## SLA's
 

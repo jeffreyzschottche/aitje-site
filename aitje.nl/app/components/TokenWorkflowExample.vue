@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const steps = [
   { icon: "code", title: "Code bereidt voor", text: "Data ophalen, filteren en berekenen." },
-  { icon: "workflow", title: "Routing kiest", text: "Frontier, lokaal of edge, passend bij de stap." },
+  { icon: "workflow", title: "Het juiste model", text: "Een extern, lokaal of edge-model, passend bij de stap." },
   { icon: "cpu", title: "LLM doet de taak", text: "Alleen de benodigde context en een heldere opdracht." },
   { icon: "check", title: "Output controleren", text: "Code valideert; kwaliteit wordt getest." },
 ];
@@ -13,7 +13,7 @@ const steps = [
       <SectionHeading
         eyebrow="Zo kan het slimmer"
         title="Laat code doen wat code kan."
-        intro="Een workflow haalt eerst de juiste gegevens op. Het model hoeft daarna alleen de stap uit te voeren waarvoor AI nodig is."
+        intro="Een workflow kan worden opgedeeld in kleinere taken. Code haalt de juiste gegevens op en doet berekeningen; het model krijgt een gerichte opdracht met alleen de benodigde informatie."
       />
       <ol class="token-workflow-steps mt-10">
         <li v-for="(step, index) in steps" :key="step.title" class="relative rounded-card border border-line bg-surface p-6">
@@ -32,8 +32,9 @@ const steps = [
         <h3 class="mt-3 font-heading text-2xl font-semibold">Van €4 naar €0,40 aan modelgebruik.</h3>
         <p class="mt-3 max-w-3xl leading-relaxed text-muted">
           Stel: een workflow gebruikt in totaal één miljoen tokens per eindresultaat.
-          Door minder data mee te sturen en vaste stappen met code te doen, zijn
-          voor hetzelfde resultaat nog honderdduizend tokens nodig.
+          Door de taak op te delen, minder data mee te sturen en vaste stappen met
+          code te doen, zijn voor een resultaat van dezelfde kwaliteit nog
+          honderdduizend tokens nodig.
         </p>
         <dl class="mt-7 grid gap-4 md:grid-cols-2">
           <div class="rounded-card border border-line p-6">
@@ -57,11 +58,11 @@ const steps = [
       </div>
       <div class="mt-8 grid gap-6 md:grid-cols-2">
         <div class="border-t border-line pt-6">
-          <h3 class="font-heading text-xl font-semibold">Het duurste model is niet altijd het beste.</h3>
+          <h3 class="font-heading text-xl font-semibold">Vergelijk met jouw eigen werk.</h3>
           <p class="mt-3 leading-relaxed text-muted">
-            Een model van bijvoorbeeld €4 per miljoen tokens kan op jouw taak
-            beter presteren dan een model van €10. Dit zijn fictieve tarieven:
-            AITJE vergelijkt met jouw voorbeelden en kiest per stap.
+            Een kleiner model kan goed passen bij een afgebakende taak, terwijl
+            een complexere stap een krachtiger model vraagt. AITJE vergelijkt
+            met jouw voorbeelden en telt ook controlewerk en extra pogingen mee.
           </p>
         </div>
         <div class="border-t border-line pt-6">

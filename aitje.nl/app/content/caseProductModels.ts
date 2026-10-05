@@ -24,7 +24,6 @@ export const productModelsCase: CaseStudy = {
       "Onze partner heeft een catalogus van meer dan 10.000 producten. Handmatig voor ieder product een model en een serie beelden laten maken, was op die schaal moeilijk betaalbaar. AITJE bouwde daarom een herhaalbare workflow op basis van de productgegevens en technische tekeningen die al in het WordPress-CMS stonden.",
     ],
     models: [
-      { name: "Tweepolig contactsnoer", src: "/models/contact-leads/sae-twin-lead.glb", text: "Twee connectoren, een rood-zwarte kabel en een beschermkap." },
       { name: "Snoer met ringklemmen", src: "/models/contact-leads/ring-terminal-lead.glb", text: "Een tweepolige aansluiting met twee metalen ringterminals." },
       { name: "Y-adapter", src: "/models/contact-leads/y-adapter.glb", text: "Een ingang die zich vertakt naar twee aansluitingen." },
     ],

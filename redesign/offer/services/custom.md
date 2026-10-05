@@ -2,119 +2,92 @@
 
 ## Status en positie
 
-AITJE Custom is een dienst en route voor specifieke AI-oplossingen, geen afzonderlijk vast product. Dit document is de leidende beschrijving van het aanbod.
+Leidende beschrijving van AITJE Custom, aangevuld met de verduidelijking van de oprichter op 5 oktober 2026. Custom is een persoonlijk maatwerkproject voor vragen die de vaste producten en oplossingen onvoldoende afdekken. De route staat ook onder Producten in de navigatie, maar is geen vast softwarepakket.
 
 ## In één zin
 
-Van AI-idee naar werkende oplossing: AITJE onderzoekt, ontwerpt, bouwt en richt in wat jouw toepassing nodig heeft, in afgesproken betaalde fases.
+Je complete AI-project op uurbasis: van analyse en ontwerp tot bouwen, testen, live zetten, feedback verwerken en het afgesproken eindproduct overdragen.
 
-## Wat AITJE Custom is
+## Wanneer Custom past
 
-AITJE Custom past bij een concrete vraag waarvoor een vast product of standaardinrichting onvoldoende is. AITJE brengt bestaande modellen, software, tools, hardware en eigen ontwikkeling samen tot een passende oplossing.
+Het kan gaan om iets dat AITJE nog niet heeft gebouwd, maar ook om een bestaande aanpak die op een andere manier wordt toegepast. De werkzaamheden, gegevens, systemen en gebruikers van de klant bepalen het project.
 
-Dat kan onder andere zijn:
+Bijvoorbeeld een specifieke workflow, agent, interface, integratie, kennisbank of AI-toepassing op een tablet. Een vaste oplossing kan als bouwsteen worden gebruikt en worden aangevuld met klantspecifieke code, configuratie en koppelingen.
 
-- een agent of workflow voor specifieke werkzaamheden;
-- een integratie met bestaande bedrijfssoftware;
-- een kennisbank of interface voor een bepaalde toepassing;
-- een combinatie van lokale en externe modellen;
-- een AI-toepassing op een bestaande tablet, computer of server;
-- een uitbreiding waarvoor nieuwe functionaliteit moet worden ontwikkeld.
+Als Assistent, Coder of een vaste oplossing de vraag al voldoende afdekt, bespreekt AITJE die route. Alleen een server inrichten valt onder Installatie en inrichting; een gerichte verbetering kan onder Optimalisatie vallen. Custom brengt de benodigde onderdelen samen in één project.
 
-Het vraagstuk bepaalt de oplossing. Een eigen server inrichten hoeft op zichzelf geen Custom-traject te zijn; dat kan ook onder Installatie en inrichting vallen.
+## Een volledig traject
 
-## Hardware als onderdeel van de oplossing
+De klant en AITJE spreken vooraf het beoogde resultaat, de scope, werkzaamheden, verwachte uren en het budget per fase af.
 
-AITJE zoekt vooral naar geschikte bestaande hardware en richt die zo in dat de toepassing doet wat nodig is.
+1. **Analyse & ontwerp.** Werkprocessen, doel, gewenste functionaliteit, gegevens, koppelingen, risico’s en testplan uitdenken.
+2. **De omgeving kiezen.** Modellen, passende hardware en/of een server kiezen. Lokaal, via externe API’s of gecombineerd; capaciteit, privacy, kosten en beheer meenemen.
+3. **Bouwen & koppelen.** Software programmeren, interface ontwikkelen, systemen verbinden, instructies en kennis inrichten en controles toevoegen.
+4. **Testen & optimaliseren.** Echte taken en foutscenario’s toetsen; waar nodig workflow, modelkeuze, snelheid en kosten verbeteren.
+5. **Live & feedback.** De omgeving inrichten voor dagelijks gebruik, gecontroleerd live zetten, gebruikersfeedback verzamelen en de afgesproken aanpassingen verwerken en opnieuw testen.
+6. **Opleveren & overdragen.** De afgesproken werking samen controleren en de oplossing met toegang, documentatie en uitleg overdragen.
 
-AITJE kan apparaten selecteren, leveren, configureren en combineren met passende modellen en software. Zelf elektronica ontwerpen of veel fysieke hardware aanpassen is geen standaardonderdeel van deze dienst.
+Dit is de volledige projectroute, geen verplicht pakket met een identieke scope voor iedere klant. De fases kunnen overlappen: feedback kan nieuw test- of ontwikkelwerk opleveren.
 
-Dit sluit aan op de brede expertise van AITJE: hardware, software en modellen worden samen beoordeeld vanuit de gewenste functionaliteit.
+## Prototype als tussenstap
 
-## Van idee naar werkende MVP
+Bij een nieuw of onzeker idee kan betaald onderzoek of een prototype eerst toetsen of de aanpak werkt. Een prototype is dan een tussenstap. Het doel van het complete traject blijft het afgesproken eindproduct, inclusief de benodigde afwerking, tests en ingebruikname.
 
-Bij een onzeker of vernieuwend idee kan het traject beginnen met betaald onderzoek en een prototype.
+Een onderzoek kan uitwijzen dat een aanpak aangepast moet worden of onvoldoende haalbaar is. Bestede onderzoeks- en ontwikkeluren blijven betaald, ook als de klant besluit te stoppen.
 
-Het doel is een werkende MVP: een minimale uitvoering die de kernwerking van het idee aantoont. Daarmee kan de klant zien of de toepassing in de onderzochte situatie werkt voordat er verder wordt geïnvesteerd in afwerking en ingebruikname.
+## Uurtarief en projectbudget
 
-Design, verdere afwerking, integratie in de dagelijkse workflow en optimalisatie kunnen daarna in volgende betaalde fases worden uitgevoerd.
+Het bestaande voorlopige tarief blijft **€85 per uur (excl. btw)**; de oprichter heeft in deze verduidelijking geen nieuw bedrag vastgesteld.
 
-Een onderzoeksfase kan ook uitwijzen dat een aanpak niet haalbaar is of moet veranderen. Bestede onderzoeksuren blijven betaald, ook wanneer het traject daarna stopt.
+Alle projectwerkzaamheden vallen onder het uurtarief: analyse, ontwerp, omgevingskeuze, programmeren, bouwen, tests, optimalisatie, livegang en feedbackverwerking.
 
-## Werken in afgesproken urenblokken
+Vooraf worden per fase werkzaamheden, verwachte uren en budget afgesproken. AITJE toont tussentijds voortgang en bespreekt de volgende stap. Nieuwe wensen, extra uren en feedbackrondes buiten de scope beginnen pas na akkoord. Er is geen belofte van onbeperkte rondes voor een vast bedrag.
 
-1. **Vraag en eerste stap bepalen.** AITJE en de klant bespreken wat moet worden onderzocht of gebouwd en welke voortgang de klant wil kunnen zien.
-2. **Uren afspreken.** De klant geeft aan hoeveel uur beschikbaar is. AITJE beoordeelt of daarin een zinvolle stap haalbaar is en stelt zo nodig een realistischer omvang voor.
-3. **De fase uitvoeren.** AITJE werkt binnen het afgesproken urenblok aan de gekozen stap.
-4. **Voortgang laten zien.** Na het blok laat AITJE zien wat werkt, wat is onderzocht en wat nog openstaat.
-5. **Samen de volgende stap kiezen.** De klant kan bijsturen, stoppen of akkoord geven op een volgend urenblok.
+De klant kan per fase bijsturen, doorgaan of stoppen. Een klein urenblok moet voldoende ruimte bieden voor zinvol onderzoek of zichtbare voortgang; er is geen vast minimum bevestigd.
 
-AITJE begint pas aan het volgende urenblok na akkoord van de klant.
+Hardware, hosting, licenties en externe model-/API-kosten worden apart begroot. Inrichtingswerk staat herkenbaar binnen het project en wordt niet daarnaast nogmaals als dezelfde installatie berekend.
 
-Er is geen vast minimumaantal uren bevestigd. Een klein blok moet wel genoeg ruimte bieden voor zinvol onderzoek of zichtbare voortgang. Niet iedere fase levert een volledige MVP op; die kan meerdere overeengekomen fases vragen.
+## Hardware en server
 
-## Van MVP naar dagelijks gebruik
+AITJE selecteert en configureert passende bestaande hardware en/of een serveromgeving voor de toepassing. De klant kan geschikte eigen hardware, een bestaande server of de eigen hostingpartij gebruiken.
 
-Na het aantonen van de kernwerking kan vervolgwerk bestaan uit:
+Eigen elektronica ontwerpen of veel fysieke hardware aanpassen is geen standaardonderdeel. Afwijkingen worden afzonderlijk onderzocht en afgesproken.
 
-- interface en design afwerken;
-- de oplossing koppelen aan bestaande systemen;
-- de workflow passend maken voor gebruikers;
-- toegang, instellingen en menselijke controle inrichten;
-- prestaties en modelkeuze verbeteren;
-- de omgeving installeren en testen;
-- documentatie en uitleg verzorgen.
+## Oplevering
 
-De klant kiest welke vervolgstappen worden uitgevoerd. Deze werkzaamheden worden tegen uurtarief uitgevoerd binnen de afgesproken fases.
+Volgens de afgesproken scope ontvangt de klant:
 
-Voor gebruiksklare oplevering gelden de afgesproken scope en uitgangspunten uit [Installatie en inrichting](implementation.md). Ondersteuning en onderhoud na oplevering worden afzonderlijk afgesproken.
+- de werkende maatwerkoplossing;
+- passende modellen, software en koppelingen;
+- een ingerichte hardware- of serveromgeving waar nodig;
+- een getest resultaat met de afgesproken feedback verwerkt;
+- livegang, toegang, documentatie en uitleg;
+- overdracht van de afgesproken klantspecifieke code en configuratie.
 
-## Instap via scan of concrete vraag
-
-Een AI-scan kan helpen als eerst breed onderzocht moet worden waar AI waarde toevoegt. Bij een al concrete vraag kan AITJE direct de eerste onderzoeks- of bouwfase afspreken.
-
-De AI-scan is een zelfstandige betaalde dienst en wordt niet met vervolgwerk verrekend.
-
-## Prijsopbouw
-
-Voorlopig dummy-uurtarief: **€85 per uur** voor onderzoek, ontwerp, bouw, inrichting en verdere afwerking.
-
-Het afgesproken aantal uren bepaalt het budget per fase. Hardware, servercapaciteit, externe licenties en API-kosten worden waar van toepassing apart afgesproken.
-
-Partnertarieven horen bij individuele partnerafspraken en worden niet als vast openbaar tarief op deze pagina gezet. Alle prijzen worden later gecontroleerd.
+Wat klaar betekent wordt vooraf concreet gemaakt: welke functies, controles en gebruikssituaties moeten werken, welke feedback wordt meegenomen en wat wordt overgedragen.
 
 ## Eigendom en hergebruik
 
-De klantspecifieke maatwerkoplossing wordt eigendom van de klant volgens de afgesproken oplevering.
+De afgesproken klantspecifieke maatwerkoplossing wordt eigendom van de klant, met de over te dragen code, configuratie en documentatie.
 
-AITJE mag generieke onderdelen en opgedane kennis hergebruiken. Het eigendom van vaste AITJE-producten en de gebruiksvoorwaarden van bestaande externe onderdelen blijven daarvan onderscheiden.
+AITJE mag generieke onderdelen en opgedane kennis hergebruiken. Vaste AITJE-producten en externe software houden hun eigen gebruiksvoorwaarden. Klantspecifieke data en vertrouwelijke onderdelen worden niet algemeen hergebruikt.
 
-Terugkerende behoeften kunnen nieuwe AITJE-producten inspireren. Er geldt geen vaste regel dat een oplossing na een bepaald aantal opdrachten automatisch een product wordt.
+## Na oplevering
 
-## Voor wie
+Ondersteuning, onderhoud, nieuwe modellen en verdere ontwikkeling worden apart afgesproken via een SLA of losse vervolgopdrachten. Een SLA is niet verplicht voor het gebruik van de opgeleverde oplossing.
 
-- Bedrijven en organisaties met een specifieke AI-vraag.
-- Makers en professionals met een idee voor een eigen toepassing.
-- IT-bedrijven en bureaus die AI-ontwikkeling voor hun klanten willen laten uitvoeren.
+## Websitepresentatie
 
-Bij werk via een IT-partner worden rolverdeling en contact met de eindklant afgesproken volgens het [partner-model](../../strategy/partner-model.md).
+Hero: **Jouw AI-project. Van idee tot eindproduct.**
 
-## Voorbeeldsituatie
+CTA: **Bespreek je AI-project**, met hetzelfde contactonderwerp `ai-op-maat`.
 
-**Een technisch bedrijf** wil op een bestaande tablet een AI-toepassing gebruiken voor een specifieke taak op locatie.
+De pagina toont zes open projectfases, een visuele feedbacklus en een overdrachtsblok met het bestaande 3D-workbenchbeeld. Dit vervangt voor Custom de generieke stappen en de dubbele opleveringslijst. Prijs, echte cases, FAQ en contact blijven onderdeel van de pagina.
 
-AITJE onderzoekt welke bestaande hardware, modellen en software daarvoor geschikt zijn. De klant en AITJE spreken een eerste urenblok af om de kernwerking te testen. Na de demonstratie kiest de klant of een volgende fase wordt besteed aan verdere ontwikkeling, een duidelijkere interface of integratie in de dagelijkse workflow.
-
-Dit is een voorbeeldsituatie, geen gerealiseerde klantcase.
-
-## Nog uit te werken
-
-- Definitieve tarieven.
-- Praktische vorm van voortgangsdemonstraties en akkoord per fase.
-- Opdrachtspecifieke afspraken over oplevering, toegang en overdracht.
+Cases: Council Hub, 3D-productmodellen en de spraakassistent voor de werkplaats; de gedeelde casebron is leidend.
 
 ## Bronnen en samenhang
 
-- Bevestigde antwoorden van de oprichter over AI op maat en gefaseerde MVP-ontwikkeling.
-- [Aanbodoverzicht](../overview.md), [Installatie en inrichting](implementation.md) en [Optimalisatie](optimization.md).
-- Contextdocumenten en het besluitenlog in `/redesign/context`.
+- Verduidelijking oprichter, 5 oktober 2026: persoonlijk compleet traject tot het afgesproken eindproduct, op uurbasis.
+- [Installatie en inrichting](implementation.md), [Optimalisatie](optimization.md) en [Ondersteuning en onderhoud](support.md).
+- [Prijsopbouw](../pricing.md), [vaste producten versus maatwerk](../../context/truths.md).

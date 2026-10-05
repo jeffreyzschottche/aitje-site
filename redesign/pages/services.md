@@ -2,75 +2,95 @@
 
 ## Status
 
-Dit document beschrijft de structuur van de dienstenoverzichtspagina. De indeling in acht diensten, de partnerroute onder Diensten en het uitlichten van AI-scan en Custom zijn bevestigd (besluiten 28, 49 en 51). Detailpagina's volgen [service.md](service.md).
+Op 5 oktober 2026 opnieuw ingericht op verzoek van de oprichter. De bestaande natuur-technologiehero blijft behouden. Alle acht diensten staan daarna direct samen in één overzicht: per dienst één zin over wat de klant krijgt en een eigen bestaand 3D-beeld. Detailpagina’s volgen [service.md](service.md) en de actuele dienstdocumenten.
 
-## Doel van de pagina
-
-De dienstenoverzichtspagina moet:
-1. Alle diensten overzichtelijk tonen
-2. Duidelijk maken wat elke dienst inhoudt
-3. Prijzen tonen bij afgebakende diensten
-4. Doorverwijzen naar detailpagina's of contact
+De oprichter wil vooral snel begrijpen wat AITJE allemaal kan doen. Lange introducties, losstaande uitgelichte diensten en dubbele promotie van tokenoptimalisatie zijn vervangen door één overzicht.
 
 ## Structuur
 
-### 1. Kop
+### 1. Bestaande hero
 
-**Titel (voorstel):**
-> Wat AITJE voor je doet
+**Van een AI-vraag naar iets dat werkt.**
 
-**Intro (voorstel):**
-> Onderzoek, advies, installatie, optimalisatie en ondersteuning. Van de eerste vraag tot het onderhoud jaren later.
+Je AI-vraag onderzoeken, een omgeving inrichten of een complete oplossing bouwen. AITJE helpt je kiezen en uitvoeren. Van de eerste vraag tot het onderhoud jaren later.
 
-### 2. Uitgelicht: AI-scan
+De bestaande achtergrond, gereedschapskist, typografie en hero-opmaak blijven staan.
 
-> **Niet weten waar te beginnen?**
-> De AI-scan is de standaard eerste stap. AITJE onderzoekt je werk, workflows en bestaande AI, en levert een beknopt rapport met kansen, prioriteiten en vervolgstappen.
-> Vanaf €595 (Excl btw)
+### 2. Alle diensten in één overzicht
 
-Knop: **Vraag een AI-scan aan**.
+**Wat AITJE voor je doet — Welke hulp heb jij nodig?**
 
-### 3. Uitgelicht: AITJE Custom — AI op maat
+Ontdekken, bouwen of verbeteren. Kies wat aansluit op jouw vraag.
 
-> **Iets specifieks nodig?**
-> Van idee naar werkende oplossing, op jouw hardware of server. In afgesproken urenblokken; na ieder blok beslis jij over het vervolg.
-> €85 per uur (Excl btw)
-
-Knop: **Bespreek je AI-idee**.
-
-### 4. Overige diensten
-
-Gelijkwaardige kaarten, per kaart een korte omschrijving, prijs of "per uur" en een link naar de detailpagina.
-
-| Dienst | Kern | Onderdelen (op de detailpagina) |
+| Dienst | Korte functie | Wat je krijgt, in één zin |
 | --- | --- | --- |
-| Advies en analyse | Architectuur, modelkeuze, kosten en bestaande opstellingen | Kostenanalyse |
-| Installatie en inrichting | Hardware of server kiezen en gebruiksklaar opleveren | Hardwareonderzoek |
-| Optimalisatie | Bestaande AI beter, goedkoper en betrouwbaarder maken | Guardrailcheck, kostenanalyse |
-| Veilig AI-gebruik | Datalocatie, gegevensstromen, richtlijnen en training | AI-datalocatiecheck, AI-beleid, AI-wegwijs |
-| Ondersteuning en onderhoud | Hulp, updates, modelbeheer en controles na oplevering | AITJE Core, Plus en Max |
-| Voor IT-bedrijven en bureaus | AITJE als AI-specialist voor jouw klanten | Samenwerkingsvormen |
+| AI-scan | Verkennen | Een praktisch rapport dat laat zien waar AI jouw werk kan verbeteren en welke stappen het meeste opleveren. |
+| Token management & optimalisatie | Besparen | Inzicht in je AI-kosten en een slimmere verdeling van abonnementen, modellen en taken binnen je workflow. |
+| Advies en analyse | Uitdenken | Een concreet antwoord op je AI-vraag, met een uitgewerkt plan, kosten, risico’s en controles. |
+| Installatie en inrichting | Inrichten | Je AI-software en modellen gebruiksklaar geïnstalleerd op passende hardware of een server, nieuw of bestaand. |
+| Optimalisatie | Verbeteren | Je bestaande chatbot, kennisbank of agent verbeteren met gerichte aanpassingen aan instructies, kennis, code en modellen. |
+| Veilig AI-gebruik | Beschermen | Praktische maatregelen om te bepalen welke data AI mag gebruiken, welke acties zijn toegestaan en wie controleert. |
+| AITJE Custom — AI op maat | Bouwen | Een workflow, agent of complete AI-toepassing op maat, verbonden met de systemen waarmee jij werkt. |
+| Ondersteuning en onderhoud | Beheren | Een vast aanspreekpunt voor onderhoud, modelbeheer, prompts, skills en persoonlijk advies over volgende verbeteringen. |
 
-Afgebakende onderdelen krijgen geen eigen kaart op het overzicht.
+De hele kaart verwijst naar de dienst. AI-scan krijgt een lichtgele achtergrond, Custom een donkergroene. De rest blijft licht. Alle diensten blijven direct zichtbaar.
 
-### 5. Cases
+Op ruime schermen staan vier kaarten naast elkaar, op tussenmaten twee. Op smalle schermen staat het beeld naast de korte tekst in één kolom.
 
-1-3 previews uit [cases.md](cases.md) met een dienst als gekoppeld aanbod.
+Prijzen komen uit `app/content/services.ts`, met algemene uitleg over de indicatieve status, btw en aparte hardware-, hosting- en modelkosten. Bij Veilig AI-gebruik heet de getoonde prijs expliciet **Datalocatiecheck €1.499**: dat bedrag geldt voor die check. Advies en analyse toont **Vast uurtarief**.
 
-### 6. CTA
+Onder het overzicht: je kunt bij elke dienst beginnen en AITJE helpt kiezen, met de contactroute `Bespreek je AI-vraag`.
 
-> Niet zeker welke dienst past? Bespreek je AI-vraag.
+### 3. De samenwerking
+
+**Van jouw vraag naar de volgende stap.**
+
+Een compacte open compositie met drie stappen:
+
+1. **Je vraag scherp krijgen:** je werk, systemen en doel.
+2. **Een aanpak afspreken:** keuzes, werkzaamheden en kosten ter goedkeuring.
+3. **Uitvoeren en verder helpen:** onderzoeken, bouwen, verbeteren en eventueel beheer.
+
+Dit beschrijft de samenwerking; de bezoeker hoeft niet eerst alle diensten in een vaste volgorde af te nemen.
+
+### 4. IT-bedrijven en bureaus
+
+**Jouw klant. AITJE als AI-specialist.**
+
+Jij verzorgt de IT, website of app. AITJE denkt mee over AI-vragen en kan de oplossing voor jouw klanten bouwen en beheren. Jij houdt de klantrelatie.
+
+Een lichtgroene sectie met de bestaande partners-illustratie en `Ontdek de samenwerking` naar `/diensten/voor-it-bedrijven`. De partnerroute staat apart van het overzicht van acht diensten.
+
+### 5. Praktijkcases
+
+**Zo ziet dat er in de praktijk uit.**
+
+Drie actuele cases: productverrijking en vertaling, de makelaarskennisbank en Council Hub. Afbeeldingen en inhoud komen uit de gedeelde casebron.
+
+### 6. Contact
+
+**Niet zeker welke dienst past?**
+
+Vertel wat je wilt bereiken. AITJE denkt mee over de route die bij je past, ook als die klein begint.
+
+## Beeldgebruik en interactie
+
+- Bestaande vrijstaande AITJE-beelden, één herkenbaar beeld per dienst.
+- Zichtbare focus en rustige hoverfeedback; beweging uit bij reduced motion.
+- Lange namen blijven volledig zichtbaar, met alle uitleg beschikbaar zonder hover.
+- Een open samenwerkingsblok en de brede partnersectie zorgen voor afwisseling na het overzicht.
 
 ## Niet op deze pagina
 
-- Een apart bundeloverzicht (bundels staan bij de relevante dienst, besluit 28)
-- Het partnertarief (interne dummydata, besluit 27)
-- Volledige SLA-vergelijking (staat op Ondersteuning en onderhoud)
+- Een apart bundeloverzicht.
+- Het interne partnertarief.
+- De volledige SLA-vergelijking; die staat bij Ondersteuning en onderhoud.
+- Technische verdieping en lange featurelijsten; die staan op de dienstpagina’s.
 
 ## Bronnen
 
-- [../offer/overview.md](../offer/overview.md) — aanbodoverzicht.
-- [../offer/services/](../offer/services/) — dienstdocumenten.
-- [../offer/pricing.md](../offer/pricing.md) — prijzen.
-- [../copy/calls-to-action.md](../copy/calls-to-action.md) — knoppen per dienst.
-- [../context/decisions.md](../context/decisions.md) — besluiten 27, 28, 49 en 51.
+- [../offer/services/](../offer/services/) — actuele diensten.
+- [../offer/pricing.md](../offer/pricing.md) — prijzen en afbakening.
+- [../visuals/principles.md](../visuals/principles.md) — visuele afwisseling.
+- [../copy/voice.md](../copy/voice.md) — stem en toon.
+- Verduidelijkingen van de oprichter op 5 oktober 2026.

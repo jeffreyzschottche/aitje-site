@@ -30,6 +30,14 @@ Gebruik consistente hover-, focus-, active- en disabled-toestanden. Vermijd wiss
 
 Volg [calls-to-action.md](../copy/calls-to-action.md) voor knopteksten en routes. Producten kennen de regelroute, demo-aanvraag en afzonderlijke zelfinstallatie-aankoop.
 
+## Dienstbalk en sectienavigatie
+
+Bevestigd op 5 oktober 2026: het patroon van AI-scan geldt voor alle negen dienstdetailpagina's, inclusief de IT-partnerroute. Eén gedeelde component `ServicePageNav.vue` voorkomt afwijkingen in de afwerking.
+
+Direct onder de hero staat een volle gele balk met drie korte kernpunten en lijniconen. De inhoud verschilt per dienst, de vorm niet. Daaronder staat de witte sectienavigatie met dezelfde rand, typografie en tussenruimte als op AI-scan. Er zit geen witte speling tussen deze onderdelen.
+
+Op mobiel staan de kernpunten onder elkaar en is de sectienavigatie één horizontaal scrollbare rij. Iedere link verwijst naar een bestaand onderdeel op dezelfde pagina; toetsenbordfocus blijft zichtbaar. Productpagina's behouden hun eigen bestaande navigatie.
+
 ## Kaarten
 
 Kaarten hebben bescheiden afgeronde hoeken, dunne randen en terughoudende schaduw. Geen dikke neo-brutalistische kaders of zware harde slagschaduw.

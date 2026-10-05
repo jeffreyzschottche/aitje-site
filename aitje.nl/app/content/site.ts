@@ -11,6 +11,7 @@ export const contact = {
 };
 
 export const mainCta = { label: "Bespreek je AI-vraag", to: "/contact" };
+export const customNavLabel = "AITJE Custom / AI op maat";
 
 export type NavLink = {
   label: string;
@@ -43,7 +44,7 @@ export const footerGroups: { title: string; links: NavLink[] }[] = [
       { label: "Alle diensten", to: "/diensten" },
       { label: "AI-scan", to: "/diensten/ai-scan" },
       { label: "Token management & optimalisatie", to: "/diensten/token-management-en-optimalisatie" },
-      { label: "AITJE Custom — AI op maat", to: "/diensten/aitje-custom" },
+      { label: customNavLabel, to: "/diensten/aitje-custom" },
       {
         label: "Ondersteuning en onderhoud",
         to: "/diensten/ondersteuning-en-onderhoud",

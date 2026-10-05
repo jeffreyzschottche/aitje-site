@@ -14,6 +14,35 @@ AITJE onderzoekt een bestaande AI-oplossing, maakt een meetbaar verbeterplan en 
 
 Optimalisatie is bedoeld voor AI die al wordt gebruikt maar beter, sneller, goedkoper, veiliger, inzichtelijker of onafhankelijker moet worden.
 
+Verduidelijking oprichter, 5 oktober 2026: dit kan een workflow, chatbot, interne kenniszoeker, voice agent of coding agent zijn. De optimalisatie bekijkt de gehele oplossing: instructies, kennis, code, tools en modellen.
+
+## Concrete mogelijkheden
+
+### Workflows en agents
+
+- Skills en rules expliciet maken, passend bij de gebruikte agent.
+- Een logische agentmappenstructuur en gerichte Markdown- en codebasedocumentatie maken.
+- Herbruikbare code en snippets inzetten voor vaste bewerkingen.
+- Tool calling verbeteren voor gerichte gegevensopvraging en gecontroleerde acties.
+- Context beperken tot wat voor de taak nodig is en onnodige calls of herhaalwerk verminderen.
+
+### Kennisbanken en RAG
+
+- De kennisbank herontwerpen: documenten opschonen, structureren en categoriseren.
+- Datum, prioriteit, roltoegang en broninformatie goed vastleggen.
+- Tekststukken en contextindeling aanpassen.
+- Embeddingmodel, vectordatabase, index, filters en rangschikking optimaliseren.
+- Bij een ander embeddingmodel de betrokken documenten opnieuw verwerken en indexeren; zoekvragen en documenten moeten in dezelfde passende vectorruimte worden verwerkt.
+- De gebruikte talen en zoekformulering beoordelen, bijvoorbeeld met meertalige embeddings of aangepaste zoekvragen.
+
+De verwijzing van de oprichter naar een andere ‘language’ voor RAG is op de pagina uitgewerkt als taalondersteuning en zoekformulering, naast embeddingmodelkeuze. Er is geen specifieke programmeertaal of modelnaam bevestigd.
+
+### Modelgedrag
+
+Een andere modelkeuze of configuratie kan voldoende zijn. Fine-tuning kan worden ingezet om taakgedrag met geschikte voorbeelden verder te trainen. Abliteration kan bij modellen met beschikbare gewichten weigeringsgedrag veranderen, bijvoorbeeld bij onnodige weigering van legitieme taken. Het is geen vervanging voor actuele bedrijfskennis, toegangsrechten of controles in de toepassing.
+
+De oorspronkelijke en aangepaste uitvoering worden met dezelfde voorbeeldtaken en criteria vergeleken. Kwaliteit, snelheid, verbruik en correctiewerk tellen mee; een vaste besparing wordt niet beloofd.
+
 AITJE is AI-engineer, niet alleen AITJE-productengineer. Daarom kan AITJE ook een omgeving onderzoeken en verbeteren die:
 
 - door de klant zelf is gebouwd;
@@ -190,3 +219,6 @@ Tenzij afzonderlijk afgesproken, zijn niet inbegrepen:
 - Bedrijfsoverzicht AITJE, september 2026.
 - Bevestigde antwoorden van de oprichter over Optimalisatie.
 - [../overview.md](../overview.md) en de contextdocumenten in `/redesign`.
+- [Hugging Face — Fine-tuning](https://huggingface.co/docs/transformers/training).
+- [Sentence Transformers — Semantic search](https://www.sbert.net/examples/sentence_transformer/applications/semantic-search/README.html) en [Multilingual models](https://github.com/huggingface/sentence-transformers/blob/main/docs/sentence_transformer/pretrained_models.md).
+- [Arditi e.a. — Refusal in Language Models Is Mediated by a Single Direction](https://arxiv.org/abs/2406.11717).

@@ -6,6 +6,10 @@ Dit document beschrijft de structuur voor individuele dienstpagina's (besluit 51
 
 Geldt voor: AI-scan, Advies en analyse, Installatie en inrichting, Optimalisatie, Veilig AI-gebruik, AITJE Custom en Ondersteuning en onderhoud. De pagina voor IT-bedrijven en bureaus heeft een eigen opzet in [partners.md](partners.md).
 
+Uitwerking 5 oktober 2026: AITJE Custom gebruikt voor Aanpak en Oplevering een eigen visuele compositie met zes projectfases, een feedbacklus en een overdrachtsblok. Het beschrijft een volledig maatwerktraject tot het afgesproken eindproduct; een prototype kan een tussenstap zijn. De gedeelde hero, prijs, cases, FAQ en contactroute blijven gebruikt.
+
+Keuze oprichter, 5 oktober 2026: alle individuele dienstpagina's gebruiken dezelfde gele balk en witte sectienavigatie als AI-scan. Ook Voor IT-bedrijven en bureaus volgt dit patroon. `ServicePageNav.vue` staat direct tegen de hero, toont drie korte kernpunten met iconen uit de centrale dienstinhoud en daarna de links naar de aanwezige paginaonderdelen. Dezelfde kleur, typografie, afstanden en mobiele behandeling gelden voor elke dienst. AI-scan behoudt de bestaande kernpunten en sectielinks; andere diensten krijgen passende teksten en ankers. De dienstenarchive houdt de eigen opzet.
+
 ## Doel van de pagina
 
 Een dienstpagina moet:

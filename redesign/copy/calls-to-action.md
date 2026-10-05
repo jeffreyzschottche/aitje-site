@@ -78,7 +78,7 @@ De knop vraagt een demo aan; er is nog geen automatische boekingsagenda, vaste d
 | Optimalisatie | Bespreek je huidige AI-oplossing | Onderzoek en verbeterplan bespreken. |
 | Veilig AI-gebruik | Bespreek je AI-gebruik | De situatie en aandachtspunten voorleggen. |
 | AI-datalocatiecheck | Vraag een AI-datalocatiecheck aan | De check aanvragen. |
-| AITJE Custom | Bespreek je AI-idee | De vraag en een mogelijke eerste fase bespreken. |
+| AITJE Custom | Bespreek je AI-project | De gewenste oplossing, het volledige traject en een eerste fase bespreken. |
 | Ondersteuning en onderhoud | Bespreek je SLA | Passende ondersteuning voor de omgeving afspreken. |
 
 Een demo kan ook buiten productpagina's worden aangeboden wanneer het helpt mogelijkheden te verduidelijken.

@@ -68,6 +68,19 @@ Hardware die de klant betaalt, wordt eigendom van de klant. Bij gehuurde server-
 
 AITJE stemt het advies af op onder andere toepassing, modellen, snelheid, aantal gelijktijdige gebruikers, groeiverwachting en budget.
 
+Verduidelijking oprichter, 5 oktober 2026:
+
+- Er is geen verplichte hardware of hostingpartij. AITJE gebruikt onder meer BOSGAME M5/M6 en Mac mini, en bij zwaardere toepassingen bijvoorbeeld NVIDIA DGX Spark of Dell PowerEdge.
+- Een eigen server, droplet, VPS of GPU-VPS (bijvoorbeeld bij Nebius) is eveneens mogelijk. AITJE kan de omgeving zoeken en regelen om de modellen, database en software te hosten.
+- Geschikte eerder aangeschafte hardware kan worden gebruikt. De klant mag zelf de server kiezen of hosten en de installatie aan AITJE overlaten.
+- De afgesproken hardware of serveromgeving wordt volledig geïnstalleerd en ingericht opgeleverd. Productkosten, hardware/serverhuur en aanvullende inrichting blijven afzonderlijke onderdelen in het voorstel.
+
+## Voorbereiding en installatierichtlijnen
+
+Vóór de implementatie worden capaciteit, toegang, netwerk, documenten en verantwoordelijkheden afgestemd. AITJE geeft aan welke gegevens over bestaande hardware, handleidingen of trainingsdocumenten vooraf nodig zijn. Zo kunnen ontbrekende bestanden, toegang of technische beperkingen vroeg worden ondervangen.
+
+Voor Assistent en Coder bestaan vaste werkwijzen en installatierichtlijnen. De architectuurkeuzes voor software, modellen, opslag en toegang zijn bewust gemaakt. Afwijken is mogelijk wanneer de situatie daarom vraagt; de gevolgen voor capaciteit, koppelingen en beheer en het extra werk worden vooraf beoordeeld en afgesproken.
+
 ## Op afstand of op locatie
 
 Installatie en inrichting kan op afstand of op locatie plaatsvinden, afhankelijk van de opdracht.

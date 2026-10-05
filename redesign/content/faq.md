@@ -67,7 +67,7 @@ Er is nog geen vaste datum. Laat je interesse weten op de productpagina, dan hoo
 Een onderzoek naar je werk, je workflows en je bestaande AI. Na een korte intake en een onderzoeksdagdeel krijg je een beknopt rapport met kansen, prioriteiten en vervolgstappen. Vanaf €595 (Excl btw). [AI-scan →](/diensten/ai-scan)
 
 **★ Wat doet AITJE bij Advies en analyse?**
-AITJE beantwoordt gerichte vragen over AI-architectuur, modelkeuze, kosten en bestaande opstellingen. Uurtarief €85 (Excl btw), een kostenanalyse vanaf €499.
+AITJE beantwoordt gerichte vragen over AI-architectuur, modelkeuze, kosten en bestaande opstellingen. Het werk wordt vooraf afgebakend en begroot tegen een vast uurtarief.
 
 **★ Wat valt onder Installatie en inrichting?**
 Hardware of server kiezen, de omgeving voorbereiden, het product installeren en accounts, modellen en bronnen inrichten, zodat alles gebruiksklaar is. Standaardinstallatie vanaf €199 (Excl btw).
@@ -79,7 +79,7 @@ Ja, via Optimalisatie. AITJE meet hoe je huidige oplossing werkt, maakt een verb
 Met de AI-datalocatiecheck zie je waar je AI-data wordt verwerkt en opgeslagen. Daarnaast zijn er praktische richtlijnen en training. AITJE signaleert aandachtspunten, maar geeft geen juridisch oordeel.
 
 **★ Hoe werkt AITJE Custom?**
-In vooraf afgesproken urenblokken tegen €85 per uur (Excl btw). Na ieder blok zie je de voortgang en beslis jij over doorgaan, bijsturen of stoppen. Het doel is eerst een werkende MVP.
+Een compleet maatwerktraject tot het afgesproken eindproduct, tegen een vast uurtarief. Scope, uren en budget worden vooraf per fase afgestemd. Een prototype kan een tussenstap zijn.
 
 **★ Wat houdt Ondersteuning en onderhoud in?**
 Een maandelijks abonnement met service-uren voor hulp, updates, modelbeheer en kleine verbeteringen: AITJE Core, Plus of Max, vanaf €49,99 per maand (Excl btw).
@@ -107,6 +107,9 @@ Bij lokaal gebruik op je eigen hardware of server blijven documenten en vragen i
 Niet automatisch. Lokaal betaal je geen tokenkosten, maar wel hardware, stroom en eventueel onderhoud. Of het veiliger is, hangt af van de inrichting. AITJE rekent met je door wat in jouw situatie past.
 
 ## Kosten
+
+**Wat vraagt AITJE per uur?**
+AITJE vraagt €85 per uur, exclusief btw. Je spreekt vooraf de werkzaamheden, het verwachte aantal uren en het budget af. Extra werk begint na jouw akkoord.
 
 **Hoe zijn de prijzen opgebouwd?**
 Uit drie onderdelen: het AI-product of de ontwikkeling, de hardware of server, en de installatie. Ondersteuning is optioneel en apart. Alle prijzen zijn exclusief btw.

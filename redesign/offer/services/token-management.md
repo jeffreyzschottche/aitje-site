@@ -6,14 +6,45 @@
 
 ## Wat de dienst doet
 
-Modelcalls beheren en efficiënte API-workflows bouwen of verbeteren. Frontier-modellen
-via externe API's, lokale modellen, eigen servers en on-device edge-modellen kunnen
-per taak worden gecombineerd. Code haalt data op, selecteert relevante informatie,
-rekent en valideert. De LLM krijgt gerichte context en een afgebakende opdracht.
+AITJE onderzoekt het AI-gebruik binnen de organisatie: welke teams gebruiken welke
+tools, modellen, abonnementen en API's, voor welke doeleinden en tegen welke kosten?
+Dat kan gaan om content, kennis, beeldgeneratie, code en andere toepassingen.
+
+De inventarisatie omvat tokens en andere relevante verbruikseenheden. Bij beeld,
+audio of video kunnen bijvoorbeeld credits, aantallen beelden of minuten worden
+gebruikt. Vergelijk verschillende eenheden op kosten per bruikbaar resultaat.
+
+Op basis van het daadwerkelijke gebruik onderzoekt AITJE onder meer:
+
+- meerdere kleinere abonnementen, gedeelde modelbudgetten of API-gebruik;
+- geavanceerde externe modellen, kleinere lokale modellen en edge-modellen;
+- groepen gespecialiseerde agents die afgebakende taken verdelen;
+- kleinere prompts en gerichte context per processtap;
+- vaste handelingen met code, gegevensselectie en hergebruik van resultaten;
+- centrale modelrouting, budgetten, limieten en logging.
+
+Agentclusters en meerdere modellen zijn mogelijke keuzes, geen doel op zich.
+Extra agents kunnen ook extra calls en beheer veroorzaken. Hardware, hosting,
+stroom en beheer blijven onderdeel van de afweging bij eigen modellen.
+
+Binnen de afgesproken scope kunnen workflows en modelcalls worden gebouwd of
+aangepast. Code haalt data op, selecteert relevante informatie, rekent en valideert.
+De LLM krijgt een afgebakende taak met alleen de benodigde context.
 
 Vergelijk modellen op eigen testtaken. Tokenprijs alleen is onvoldoende: meet kwaliteit,
 snelheid, retries, mislukte resultaten en totale kosten per bruikbaar eindresultaat.
 Waar passend: centrale modelrouting, caching, budgetten, limieten en logging.
+
+## Relatie met de AI-scan
+
+Token management is ook onderdeel van de brede AI-scan: huidig gebruik, abonnementen
+en optimalisatiekansen worden op hoofdlijnen geïnventariseerd. Een uitgebreide
+modelvergelijking, workflowaanpassingen, bouw en doorlopend beheer zijn afzonderlijk
+af te spreken vervolgwerk.
+
+Deze dienst kan ook direct worden afgenomen zonder voorafgaande scan. Een klant kan
+alleen een analyse laten uitvoeren of ook de voorgestelde wijzigingen laten bouwen.
+Inventarisatie, vergelijking, uitvoering en eventueel beheer worden vooraf afgebakend.
 
 ## Voorbeeldbedragen
 
@@ -30,4 +61,6 @@ en bij relevante API-/workflow-/LLM-kennisartikelen. AI-scan, Advies en analyse,
 Optimalisatie en AITJE Custom tonen deze dienst aanvullend bij gerelateerde diensten.
 Het contactformulier heeft het onderwerp token-management.
 
-De bestaande diensten en hun teksten blijven behouden.
+De dienstpagina toont eerst het gebruik binnen de organisatie en de mogelijke
+optimalisaties, daarna het bestaande technische workflowvoorbeeld. De algemene FAQ
+gebruikt dezelfde centrale dienstdefinitie.

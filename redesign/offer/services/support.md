@@ -30,6 +30,8 @@ Service-uren kunnen worden ingezet voor:
 - hulp bij vragen en problemen;
 - onderhoud en updates;
 - installatie en testen van passende modellen;
+- prompts, instructies en skills maken of verbeteren;
+- projectcontext en codebasedocumentatie gericht aanpassen;
 - kennisbankinrichting;
 - kleine uitbreidingen en workflowverbeteringen.
 
@@ -90,6 +92,16 @@ Max bevat daarnaast een tweede maandelijkse mail met een concreet toepassingside
 AITJE bewaart de reactie op zulke voorstellen, ook wanneer de klant geen interesse heeft. Die feedback helpt om volgende analyses en verbeterideeën beter af te stemmen.
 
 Bij Max bespreekt AITJE ook elk kwartaal ideeën en verdere ontwikkeling met de klant.
+
+### Aanvulling bevestigd op 5 oktober 2026
+
+- Core en Plus krijgen maandelijks een persoonlijke update. Max krijgt twee mails per maand, inclusief het toepassingsidee; dit is opnieuw bevestigd bij de uitbreiding van de pagina.
+- Het genoemde ‘gratis serviceuur’ wordt op de pagina als inbegrepen tijd uitgelegd: Core 1, Plus 2 en Max 3 uur per maand. Er is geen extra uur boven op deze tegoeden bevestigd.
+- Modelbeheer, prompts en skills vallen binnen de afgesproken service-uren. Hoe hoger het niveau, hoe proactiever AITJE ideeën en tips deelt.
+- Klanten kunnen op verzoek relevante analyses en vergelijkingen van AITJE ontvangen, afgestemd op hun stack. Dat zijn geen automatisch gemeten resultaten voor hun eigen toepassing.
+- AITJE kan een herbruikbare workflow voor vergelijkbaar werk voorstellen, met een businesscase en demo waar beschikbaar. De voorbeelden op de pagina zijn illustratieve berichten.
+- Een bestaande aanpak en kennis van de klantomgeving kunnen minder ontwerp- en bouwwerk vragen dan een volledig nieuw Custom-traject. Kleine aanpassingen kunnen binnen het tegoed vallen; meer werk krijgt vooraf een scope en prijs. Er is geen algemeen kortingstarief voor extra uren bevestigd.
+- Een volledig nieuw product of groot project blijft apart geoffreerd. Generieke herbruikbare onderdelen worden aangepast aan de klantomgeving.
 
 AI-wegwijs kan de samenwerking aanvullen volgens de gemaakte afspraken. De precieze toegang tot materialen en informatieve sessies is nog niet per niveau bepaald.
 

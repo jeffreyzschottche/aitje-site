@@ -11,12 +11,12 @@ const service = getService("token-management-en-optimalisatie")!;
         <AppIcon :name="service.icon" :size="25" />
       </span>
       <div class="min-w-0">
-        <p class="eyebrow text-brand-ink">Ook voor je model-API's</p>
+        <p class="eyebrow text-brand-ink">Grip op je AI-gebruik</p>
         <h2 class="mt-2 font-heading text-2xl font-semibold">{{ service.name }}</h2>
         <p class="mt-3 max-w-3xl leading-relaxed text-muted">{{ service.short }}</p>
         <p class="mt-2 text-sm leading-relaxed text-muted">
-          Frontier, lokaal of op een edge-apparaat: de taak bepaalt het model.
-          Code doet het vaste werk; AI krijgt gerichte context.
+          Van content en kennis tot beeld en code: de taak bepaalt het model.
+          Gerichte context en een slimme taakverdeling beperken onnodig verbruik.
         </p>
         <NuxtLink
           :to="`/diensten/${service.slug}`"

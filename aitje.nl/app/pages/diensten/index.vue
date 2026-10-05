@@ -1,22 +1,67 @@
 <script setup lang="ts">
-// Services overview (redesign/pages/services.md, besluiten 28, 49, 51).
-import { services, partnerService, getService } from "@/content/services";
+// One overview of the eight services; copy and layout: redesign/pages/services.md.
+import { services, partnerService } from "@/content/services";
+import { contactLink } from "@/content/site";
 
 usePageSeo({
   title: "Diensten",
   description:
-    "Wat AITJE voor je doet: AI-scan, advies en analyse, installatie, optimalisatie, veilig AI-gebruik, AI op maat en ondersteuning. Van eerste vraag tot onderhoud.",
+    "Alle diensten van AITJE in één overzicht: AI-scan, tokenoptimalisatie, advies, installatie, bestaande AI verbeteren, veilig gebruik, maatwerk en onderhoud.",
   breadcrumbs: [{ name: "Diensten", path: "/diensten" }],
 });
 useHead({
   link: [{ rel: "preload", as: "image", href: "/img/redesign/services-nature-tech-bridge.webp", fetchpriority: "high" }],
 });
 
-const scan = getService("ai-scan")!;
-const custom = getService("aitje-custom")!;
-const others = services.filter(
-  (s) => s.slug !== "ai-scan" && s.slug !== "aitje-custom",
-);
+const overview: Record<string, { action: string; text: string; image: string }> = {
+  "ai-scan": {
+    action: "Verkennen",
+    text: "Een praktisch rapport dat laat zien waar AI jouw werk kan verbeteren en welke stappen het meeste opleveren.",
+    image: "/img/redesign/owl-hero-cutout.webp",
+  },
+  "token-management-en-optimalisatie": {
+    action: "Besparen",
+    text: "Inzicht in je AI-kosten en een slimmere verdeling van abonnementen, modellen en taken binnen je workflow.",
+    image: "/img/redesign/token-management-cutout.webp",
+  },
+  "advies-en-analyse": {
+    action: "Uitdenken",
+    text: "Een concreet antwoord op je AI-vraag, met een uitgewerkt plan, kosten, risico’s en controles.",
+    image: "/img/redesign/advice-cutout.webp",
+  },
+  "installatie-en-inrichting": {
+    action: "Inrichten",
+    text: "Je AI-software en modellen gebruiksklaar geïnstalleerd op passende hardware of een server, nieuw of bestaand.",
+    image: "/img/redesign/infrastructure-cutout.webp",
+  },
+  "optimalisatie": {
+    action: "Verbeteren",
+    text: "Je bestaande chatbot, kennisbank of agent verbeteren met gerichte aanpassingen aan instructies, kennis, code en modellen.",
+    image: "/img/redesign/raven-scene-cutout.webp",
+  },
+  "veilig-ai-gebruik": {
+    action: "Beschermen",
+    text: "Praktische maatregelen om te bepalen welke data AI mag gebruiken, welke acties zijn toegestaan en wie controleert.",
+    image: "/img/redesign/safe-ai-cutout.webp",
+  },
+  "aitje-custom": {
+    action: "Bouwen",
+    text: "Een workflow, agent of complete AI-toepassing op maat, verbonden met de systemen waarmee jij werkt.",
+    image: "/img/covers/v2/aitje-custom.webp",
+  },
+  "ondersteuning-en-onderhoud": {
+    action: "Beheren",
+    text: "Een vast aanspreekpunt voor onderhoud, modelbeheer, prompts, skills en persoonlijk advies over volgende verbeteringen.",
+    image: "/img/redesign/support-cutout.webp",
+  },
+};
+const serviceCards = services.map(service => ({
+  ...service,
+  ...overview[service.slug],
+  priceLabel: service.slug === "veilig-ai-gebruik"
+    ? `Datalocatiecheck ${service.price.label}`
+    : service.price.label,
+}));
 </script>
 
 <template>
@@ -37,159 +82,85 @@ const others = services.filter(
       </template>
     </PageHero>
 
-    <!-- Uitgelicht -->
-    <section class="pb-16">
-      <div class="container-page grid gap-6 lg:grid-cols-2">
-        <NuxtLink
-          :to="`/diensten/${scan.slug}`"
-          class="group relative flex flex-col overflow-hidden rounded-panel bg-brand p-8 transition-transform duration-300 hover:-translate-y-1 md:p-10"
-        >
-          <UiBadge tone="dark" class="self-start"
-            >Startpunt van bijna elk traject</UiBadge
-          >
-          <h2
-            class="mt-8 font-heading text-[2rem] leading-tight font-bold md:text-[2.5rem]"
-          >
-            Niet weten waar je moet beginnen?
-          </h2>
-          <p class="mt-4 max-w-md text-lg text-ink/80">
-            De AI-scan onderzoekt je werk, je workflows en je bestaande AI. Je
-            krijgt een praktisch rapport met kansen en vervolgstappen.
-          </p>
-          <div class="mt-auto flex items-end justify-between gap-4 pt-10">
-            <div>
-              <p class="font-heading text-3xl font-bold">
-                {{ scan.price.label }}
-              </p>
-              <p class="text-sm text-ink/70">(Excl btw) · voorlopig</p>
-            </div>
-            <span
-              class="inline-flex items-center gap-2 rounded-full bg-ink px-5 py-3 text-sm font-semibold text-white"
-            >
-              {{ scan.cta.label }}
-              <AppIcon
-                name="arrow-right"
-                :size="16"
-                class="transition-transform group-hover:translate-x-1"
-              />
-            </span>
-          </div>
-        </NuxtLink>
-
-        <NuxtLink
-          :to="`/diensten/${custom.slug}`"
-          class="on-dark group relative flex flex-col overflow-hidden rounded-panel bg-ink p-8 text-white transition-transform duration-300 hover:-translate-y-1 md:p-10"
-        >
-          <img
-            src="/img/redesign/raven-scene.webp"
-            alt=""
-            loading="lazy"
-            class="absolute inset-0 -z-0 size-full object-cover opacity-30 transition-transform duration-700 group-hover:scale-105"
-          />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-ink via-ink/80 to-ink/30"
-          />
-          <div class="relative flex h-full flex-col">
-            <UiBadge tone="brand" class="self-start"
-              >AITJE Custom — AI op maat</UiBadge
-            >
-            <h2
-              class="mt-8 font-heading text-[2rem] leading-tight font-bold md:text-[2.5rem]"
-            >
-              Iets specifieks nodig?
-            </h2>
-            <p class="mt-4 max-w-md text-lg text-white/80">
-              Van idee naar werkende oplossing, op jouw hardware of server. Na
-              ieder urenblok beslis jij over het vervolg.
-            </p>
-            <div class="mt-auto flex items-end justify-between gap-4 pt-10">
-              <div>
-                <p class="font-heading text-3xl font-bold">
-                  {{ custom.price.label }}
-                </p>
-                <p class="text-sm text-white/60">(Excl btw) · voorlopig</p>
-              </div>
-              <span
-                class="inline-flex items-center gap-2 rounded-full bg-brand px-5 py-3 text-sm font-semibold text-ink"
-              >
-                {{ custom.cta.label }}
-                <AppIcon
-                  name="arrow-right"
-                  :size="16"
-                  class="transition-transform group-hover:translate-x-1"
-                />
-              </span>
-            </div>
-          </div>
-        </NuxtLink>
-      </div>
-    </section>
-
-    <section class="py-10">
-      <div class="container-page about-composition">
-        <div class="service-overview-art">
-          <img
-            src="/img/redesign/infrastructure.webp"
-            alt="Compacte AI-hardware, ter illustratie van een eigen omgeving"
-            width="1536"
-            height="1024"
-            loading="lazy"
-          /><span class="image-caption"
-            >MODELLEN + SOFTWARE + HARDWARE + MENSEN</span
-          >
-        </div>
-        <SectionHeading
-          eyebrow="Meer dan een advies"
-          title="Van uitzoeken tot gebruiksklaar."
-          intro="Een rapport is soms precies wat je nodig hebt. Soms een kleine aanpassing. En soms een complete omgeving. AITJE helpt je bepalen wat past en kan de uitvoering verzorgen."
-          ><CheckList
-            :items="[
-              'Een duidelijke scope vóór de start',
-              'Hardware, software en installatie apart begroot',
-              'Ondersteuning afspreken wanneer je die nodig hebt',
-            ]"
-            class="mt-7"
-        /></SectionHeading>
-      </div>
-    </section>
-    <!-- Overige diensten -->
-    <section class="py-10">
-      <div class="container-page"><TokenServiceCallout /></div>
-    </section>
-
-    <section class="py-16">
+    <section class="services-overview" aria-labelledby="services-overview-title">
       <div class="container-page">
-        <SectionHeading
-          eyebrow="Alle diensten"
-          title="Advies, uitvoering en ondersteuning."
-        />
-        <div class="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          <ServiceCard
-            v-for="service in others"
+        <div class="services-overview-heading">
+          <div>
+            <p class="eyebrow text-brand-ink">Wat AITJE voor je doet</p>
+            <h2 id="services-overview-title" class="section-title">Welke hulp heb jij nodig?</h2>
+            <p>Ontdekken, bouwen of verbeteren. Kies wat aansluit op jouw vraag.</p>
+          </div>
+          <span class="services-overview-count">{{ serviceCards.length }} diensten <span aria-hidden="true">/</span> los of samen</span>
+        </div>
+
+        <div class="services-overview-grid">
+          <NuxtLink
+            v-for="service in serviceCards"
             :key="service.slug"
             :to="`/diensten/${service.slug}`"
-            :name="service.name"
-            :text="service.short"
-            :icon="service.icon"
-            :price="service.price.label"
-          />
-          <ServiceCard
-            :to="`/diensten/${partnerService.slug}`"
-            :name="partnerService.name"
-            :text="partnerService.short"
-            :icon="partnerService.icon"
-            price="Per opdracht"
-            dark
-          />
+            class="service-summary"
+            :class="{
+              'service-summary-scan': service.slug === 'ai-scan',
+              'service-summary-custom on-dark': service.slug === 'aitje-custom',
+            }"
+          >
+            <div class="service-summary-visual" aria-hidden="true">
+              <span class="service-summary-action"><AppIcon :name="service.icon" :size="16" />{{ service.action }}</span>
+              <img :src="service.image" alt="" width="1024" height="1024" loading="lazy" />
+            </div>
+            <div class="service-summary-copy">
+              <h3>{{ service.name }}</h3>
+              <p>{{ service.text }}</p>
+            </div>
+            <div class="service-summary-footer">
+              <span>{{ service.priceLabel }}</span>
+              <span class="service-summary-arrow"><AppIcon name="arrow-up-right" :size="19" /></span>
+            </div>
+          </NuxtLink>
+        </div>
+        <p class="services-price-note">Prijzen excl. btw. De werkzaamheden en prijs stem je vooraf af; hardware, hosting en modelgebruik worden apart begroot.</p>
+
+        <div class="services-choice-note">
+          <p>Je kunt bij elke dienst beginnen. AITJE helpt je bepalen wat past.</p>
+          <NuxtLink :to="contactLink('ai-vraag')" class="text-link">Bespreek je AI-vraag<AppIcon name="arrow-right" :size="18" /></NuxtLink>
+        </div>
+      </div>
+    </section>
+
+    <section class="services-working" aria-labelledby="services-working-title">
+      <div class="container-page">
+        <div class="services-working-heading">
+          <p class="eyebrow text-brand-ink">Zo werkt de samenwerking</p>
+          <h2 id="services-working-title" class="section-title">Van jouw vraag<br />naar de volgende stap.</h2>
+          <p>Een losse sessie of een volledig traject: je weet vooraf wat AITJE doet en wat dat kost.</p>
+        </div>
+        <ol class="services-working-steps">
+          <li><span class="services-step-number">01</span><div><h3>Je vraag scherp krijgen</h3><p>Het werk, je systemen en wat je wilt bereiken vormen het vertrekpunt.</p></div></li>
+          <li><span class="services-step-number">02</span><div><h3>Een aanpak afspreken</h3><p>Je krijgt duidelijke keuzes, werkzaamheden en kosten om akkoord op te geven.</p></div></li>
+          <li><span class="services-step-number">03</span><div><h3>Uitvoeren en verder helpen</h3><p>AITJE onderzoekt, bouwt of verbetert en kan het beheer daarna verzorgen.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="services-partner" aria-labelledby="services-partner-title">
+      <div class="container-page services-partner-layout">
+        <div class="services-partner-art" aria-hidden="true">
+          <OrbitGraphic />
+          <img src="/img/redesign/partners-cutout.webp" alt="" width="1024" height="1024" loading="lazy" />
+        </div>
+        <div class="services-partner-copy">
+          <p class="eyebrow text-brand-ink">Voor IT-bedrijven en bureaus</p>
+          <h2 id="services-partner-title" class="section-title">Jouw klant.<br />AITJE als AI-specialist.</h2>
+          <p>Jij verzorgt de IT, website of app. AITJE denkt mee over AI-vragen en kan de oplossing voor jouw klanten bouwen en beheren. Jij houdt de klantrelatie.</p>
+          <UiButton :to="`/diensten/${partnerService.slug}`" variant="primary" arrow>Ontdek de samenwerking</UiButton>
         </div>
       </div>
     </section>
 
     <CasesSection
-      :slugs="[
-        'council-hub',
-        'documenten-doorzoeken-en-lakken',
-      ]"
+      title="Zo ziet dat er in de praktijk uit."
+      intro="Eigen kennis doorzoekbaar maken, productteksten verrijken of systemen verbinden: bekijk wat AITJE voor andere organisaties heeft gebouwd."
+      :slugs="['productteksten-zonder-tokenkosten', 'documenten-doorzoeken-en-lakken', 'council-hub']"
     />
 
     <CtaBanner
@@ -200,6 +171,358 @@ const others = services.filter(
 </template>
 
 <style scoped>
+.services-overview {
+  padding-block: 1.5rem 4rem;
+}
+.services-overview-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+.services-overview-heading h2,
+.services-working-heading h2,
+.services-partner-copy h2 {
+  margin-top: 0.75rem;
+}
+.services-overview-heading p:last-child,
+.services-working-heading > p:last-child {
+  margin-top: 1rem;
+  color: var(--color-muted);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+.services-overview-count {
+  display: inline-flex;
+  gap: 0.65rem;
+  flex-shrink: 0;
+  color: var(--color-muted);
+  font-size: 0.8rem;
+  padding-bottom: 0.3rem;
+}
+.services-overview-count span {
+  color: var(--color-brand-ink);
+}
+.services-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+.service-summary {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 1.3rem;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-panel);
+  background: var(--color-surface);
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+.service-summary-scan {
+  background: #fff7cc;
+  border-color: #ede0a0;
+}
+.service-summary-custom {
+  background: #18372d;
+  border-color: #18372d;
+  color: white;
+}
+.service-summary-visual {
+  position: relative;
+  height: 148px;
+  margin-bottom: 1.1rem;
+}
+.service-summary-action {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  z-index: 1;
+  font-size: 0.73rem;
+  font-weight: 500;
+  color: #625f4e;
+}
+.service-summary-custom .service-summary-action {
+  color: #efda8c;
+}
+.service-summary-visual img {
+  position: absolute;
+  right: -0.3rem;
+  bottom: -0.25rem;
+  width: 100%;
+  height: 126px;
+  object-fit: contain;
+  transition: transform 250ms ease;
+}
+.service-summary-copy {
+  flex: 1;
+}
+.service-summary-copy h3 {
+  min-height: 2.6em;
+  font-size: 1.22rem;
+  line-height: 1.3;
+  font-weight: 600;
+}
+.service-summary-copy p {
+  margin-top: 0.7rem;
+  font-size: 0.93rem;
+  line-height: 1.6;
+  color: var(--color-muted);
+}
+.service-summary-custom .service-summary-copy p {
+  color: #d5e2d9;
+}
+.service-summary-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgb(11 11 11 / 0.1);
+  font-size: 0.78rem;
+  line-height: 1.5;
+  font-weight: 500;
+}
+.service-summary-custom .service-summary-footer {
+  border-top-color: rgb(255 255 255 / 0.2);
+}
+.service-summary-arrow {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #f3f2ec;
+  color: var(--color-ink);
+  transition: background 180ms ease;
+}
+.service-summary-scan .service-summary-arrow,
+.service-summary-custom .service-summary-arrow {
+  background: var(--color-brand);
+}
+.service-summary:hover,
+.service-summary:focus-visible {
+  border-color: #aeaf96;
+  box-shadow: var(--shadow-card);
+  transform: translateY(-3px);
+}
+.service-summary:hover .service-summary-arrow,
+.service-summary:focus-visible .service-summary-arrow {
+  background: var(--color-brand);
+}
+.service-summary:hover .service-summary-visual img {
+  transform: translateY(-3px) scale(1.025);
+}
+.services-price-note {
+  max-width: 900px;
+  margin-top: 1.25rem;
+  font-size: 0.78rem;
+  line-height: 1.65;
+  color: var(--color-muted);
+}
+.services-choice-note {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-top: 1.8rem;
+  padding: 1.1rem 1.4rem;
+  border-radius: var(--radius-card);
+  background: #eeeee7;
+}
+.services-choice-note p {
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+.services-working {
+  padding-block: 2rem 5rem;
+}
+.services-working > .container-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: clamp(2rem, 6vw, 6rem);
+}
+.services-working-heading > p:last-child {
+  max-width: 440px;
+}
+.services-working-steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.services-working-steps li {
+  position: relative;
+  display: flex;
+  gap: 1.4rem;
+  padding-block: 1.3rem;
+}
+.services-working-steps li + li {
+  border-top: 1px solid var(--color-line);
+}
+.services-step-number {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--color-brand);
+  font: 500 0.8rem var(--font-mono);
+}
+.services-working-steps h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.services-working-steps p {
+  margin-top: 0.5rem;
+  font-size: 0.93rem;
+  line-height: 1.65;
+  color: var(--color-muted);
+}
+.services-partner {
+  overflow: hidden;
+  background: #e8edde;
+}
+.services-partner-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+  padding-block: 3.5rem;
+}
+.services-partner-art {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin-inline: auto;
+  aspect-ratio: 1.2;
+}
+.services-partner-art > :first-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+}
+.services-partner-art img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.services-partner-copy > p:not(.eyebrow) {
+  max-width: 520px;
+  margin-block: 1.5rem 1.7rem;
+  color: #485242;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+@media (max-width: 1099px) {
+  .services-overview-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .service-summary {
+    position: relative;
+    padding-top: 3.4rem;
+  }
+  .service-summary-visual {
+    position: static;
+    height: 0;
+    margin: 0;
+  }
+  .service-summary-action {
+    position: absolute;
+    top: 1.2rem;
+    left: 1.3rem;
+  }
+  .service-summary-visual img {
+    right: 0.8rem;
+    bottom: auto;
+    top: 3rem;
+    width: 92px;
+    height: 110px;
+  }
+  .service-summary-copy {
+    padding-right: 100px;
+  }
+  .service-summary-copy h3 {
+    min-height: 0;
+    font-size: 1.15rem;
+  }
+  .service-summary-copy p {
+    font-size: 0.91rem;
+  }
+}
+@media (max-width: 767px) {
+  .services-overview {
+    padding-block: 1.5rem 3rem;
+  }
+  .services-overview-heading {
+    display: block;
+  }
+  .services-overview-count {
+    margin-top: 1rem;
+  }
+  .services-overview-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.8rem;
+  }
+  .service-summary-copy h3 {
+    font-size: 1.2rem;
+  }
+  .service-summary-footer {
+    margin-top: 1rem;
+    padding-top: 0.8rem;
+  }
+  .services-choice-note {
+    display: block;
+    padding-inline: 1.1rem;
+  }
+  .services-choice-note a {
+    margin-top: 0.4rem;
+  }
+  .services-working {
+    padding-block: 1rem 3rem;
+  }
+  .services-working > .container-page {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+  }
+  .services-working-steps li {
+    gap: 1rem;
+  }
+  .services-partner-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+    padding-block: 2.5rem 3rem;
+  }
+  .services-partner-art {
+    max-width: 290px;
+  }
+}
+@media (max-width: 359px) {
+  .service-summary {
+    padding-inline: 1.1rem;
+  }
+  .service-summary-action {
+    left: 1.1rem;
+  }
+  .service-summary-copy {
+    padding-right: 75px;
+  }
+  .service-summary-visual img {
+    width: 72px;
+    right: 0.5rem;
+  }
+  .service-summary-copy h3 {
+    font-size: 1.05rem;
+  }
+}
 .services-bridge-hero {
   background: #0c211d;
   border-bottom: 0;

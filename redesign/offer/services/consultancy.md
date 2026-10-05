@@ -14,7 +14,7 @@ AITJE helpt bij concrete AI-vragen, beoordeelt bestaande plannen en oplossingen 
 
 Advies en analyse is bedoeld voor klanten die al een concrete vraag, een bestaand plan of een bestaande AI-oplossing hebben.
 
-AITJE kan kort meedenken tijdens een losse adviessessie of een groter vraagstuk als afgebakende analyse onderzoeken. Het resultaat is praktisch advies waarmee de klant een besluit kan nemen of een logische vervolgstap kan zetten.
+AITJE kan kort meedenken tijdens een losse adviessessie of een groter vraagstuk als afgebakende analyse onderzoeken. Het resultaat is praktisch advies of een uitvoerbaar plan: architectuur, gegevens, koppelingen, modelkeuze, kosten, valkuilen, testcases en guardrails. De vraag en de afgesproken scope bepalen de diepgang.
 
 ## Verschil met de AI-scan
 
@@ -44,7 +44,7 @@ De klant ontvangt:
 - een korte schriftelijke samenvatting;
 - aanbevelingen en mogelijke vervolgstappen.
 
-Voorlopig openbaar dummy-uurtarief: **€85 per uur**.
+Openbare prijsaanduiding: **Vast uurtarief**. Het bedrag, de scope en de verwachte uren worden vooraf afgesproken. Het eerdere openbare dummy-uurtarief van €85 en de vermelding ‘voorlopige prijs’ worden op deze dienst niet meer getoond (keuze oprichter, 5 oktober 2026).
 
 ### Afgebakende analyse
 
@@ -57,6 +57,8 @@ De uitkomst kan bijvoorbeeld bestaan uit:
 - een kosten- en haalbaarheidsanalyse;
 - een architectuurvoorstel;
 - risico's en aandachtspunten;
+- testcases en criteria om het resultaat te beoordelen;
+- guardrails voor toegang, acties, menselijke controle, logging en stopmomenten;
 - een onderbouwde aanbeveling met vervolgstappen.
 
 De vorm hoeft niet altijd een uitgebreid rapport te zijn. De afgesproken vraag bepaalt hoeveel onderzoek en documentatie nodig is.
@@ -142,6 +144,8 @@ Een advies of analyse kan leiden tot:
 
 Een advies verplicht de klant niet om vervolgwerk door AITJE te laten uitvoeren.
 
+AITJE kan het plan vervolgens bouwen en inrichten. Bouw wordt apart begroot en begint pas na akkoord op het plan en de benodigde uren. Een prototype of modeltest kan al deel uitmaken van de analyse, als dat vooraf in de scope en uren is meegenomen.
+
 ## Voorbeeldsituatie
 
 **Een marketingbureau** gebruikt meerdere AI-tools en abonnementen, maar weet niet welke overlap hebben en welk model voor iedere taak nodig is.
@@ -163,7 +167,7 @@ Tenzij afzonderlijk afgesproken, zijn niet inbegrepen:
 
 ## Wat nog gecontroleerd moet worden
 
-- definitief openbaar uurtarief;
+- uurtarief voor de offerte (op de website staat alleen ‘Vast uurtarief’);
 - definitieve vanafprijzen van de drie herkenbare onderdelen;
 - standaardduur en maximale groepsgrootte van de training;
 - vaste minimale inhoud van schriftelijke samenvattingen;

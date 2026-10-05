@@ -111,6 +111,10 @@ const trailingGroups: FaqGroup[] = [
     title: "Kosten",
     items: [
       {
+        q: "Wat vraagt AITJE per uur?",
+        a: "AITJE vraagt €85 per uur, exclusief btw. Je spreekt vooraf de werkzaamheden, het verwachte aantal uren en het budget af. Extra werk begint na jouw akkoord.",
+      },
+      {
         q: "Hoe zijn de prijzen opgebouwd?",
         a: "Uit drie onderdelen: het AI-product of de ontwikkeling, de hardware of server, en de installatie. Ondersteuning is optioneel en apart. Alle prijzen zijn exclusief btw.",
       },
