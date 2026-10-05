@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // One overview of the eight services; copy and layout: redesign/pages/services.md.
-import { services, partnerService } from "@/content/services";
+import { services, partnerService, serviceIllustrations } from "@/content/services";
 import { contactLink } from "@/content/site";
 
 usePageSeo({
@@ -13,51 +13,44 @@ useHead({
   link: [{ rel: "preload", as: "image", href: "/img/redesign/services-nature-tech-bridge.webp", fetchpriority: "high" }],
 });
 
-const overview: Record<string, { action: string; text: string; image: string }> = {
+const overview: Record<string, { action: string; text: string }> = {
   "ai-scan": {
     action: "Verkennen",
     text: "Een praktisch rapport dat laat zien waar AI jouw werk kan verbeteren en welke stappen het meeste opleveren.",
-    image: "/img/redesign/owl-hero-cutout.webp",
   },
   "token-management-en-optimalisatie": {
     action: "Besparen",
     text: "Inzicht in je AI-kosten en een slimmere verdeling van abonnementen, modellen en taken binnen je workflow.",
-    image: "/img/redesign/token-management-cutout.webp",
   },
   "advies-en-analyse": {
     action: "Uitdenken",
     text: "Een concreet antwoord op je AI-vraag, met een uitgewerkt plan, kosten, risico’s en controles.",
-    image: "/img/redesign/advice-cutout.webp",
   },
   "installatie-en-inrichting": {
     action: "Inrichten",
     text: "Je AI-software en modellen gebruiksklaar geïnstalleerd op passende hardware of een server, nieuw of bestaand.",
-    image: "/img/redesign/infrastructure-cutout.webp",
   },
   "optimalisatie": {
     action: "Verbeteren",
     text: "Je bestaande chatbot, kennisbank of agent verbeteren met gerichte aanpassingen aan instructies, kennis, code en modellen.",
-    image: "/img/redesign/raven-scene-cutout.webp",
   },
   "veilig-ai-gebruik": {
     action: "Beschermen",
     text: "Praktische maatregelen om te bepalen welke data AI mag gebruiken, welke acties zijn toegestaan en wie controleert.",
-    image: "/img/redesign/safe-ai-cutout.webp",
   },
   "aitje-custom": {
     action: "Bouwen",
     text: "Een workflow, agent of complete AI-toepassing op maat, verbonden met de systemen waarmee jij werkt.",
-    image: "/img/covers/v2/aitje-custom.webp",
   },
   "ondersteuning-en-onderhoud": {
     action: "Beheren",
     text: "Een vast aanspreekpunt voor onderhoud, modelbeheer, prompts, skills en persoonlijk advies over volgende verbeteringen.",
-    image: "/img/redesign/support-cutout.webp",
   },
 };
 const serviceCards = services.map(service => ({
   ...service,
   ...overview[service.slug],
+  image: serviceIllustrations[service.slug],
   priceLabel: service.slug === "veilig-ai-gebruik"
     ? `Datalocatiecheck ${service.price.label}`
     : service.price.label,
@@ -101,6 +94,8 @@ const serviceCards = services.map(service => ({
             class="service-summary"
             :class="{
               'service-summary-scan': service.slug === 'ai-scan',
+              'service-summary-installation': service.slug === 'installatie-en-inrichting',
+              'service-summary-safe on-dark': service.slug === 'veilig-ai-gebruik',
               'service-summary-custom on-dark': service.slug === 'aitje-custom',
             }"
           >
@@ -220,8 +215,18 @@ const serviceCards = services.map(service => ({
   transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
 }
 .service-summary-scan {
-  background: #fff7cc;
-  border-color: #ede0a0;
+  background: var(--color-brand);
+  border-color: var(--color-brand);
+}
+.service-summary-scan .service-summary-copy p {
+  color: #403a21;
+}
+.service-summary-safe {
+  background:
+    radial-gradient(ellipse at 85% 0%, rgb(115 117 119 / 0.28), transparent 60%),
+    linear-gradient(145deg, #292b2d, #101112);
+  border-color: #343638;
+  color: white;
 }
 .service-summary-custom {
   background: #18372d;
@@ -243,7 +248,8 @@ const serviceCards = services.map(service => ({
   font-weight: 500;
   color: #625f4e;
 }
-.service-summary-custom .service-summary-action {
+.service-summary-custom .service-summary-action,
+.service-summary-safe .service-summary-action {
   color: #efda8c;
 }
 .service-summary-visual img {
@@ -273,6 +279,9 @@ const serviceCards = services.map(service => ({
 .service-summary-custom .service-summary-copy p {
   color: #d5e2d9;
 }
+.service-summary-safe .service-summary-copy p {
+  color: #d6d6d3;
+}
 .service-summary-footer {
   display: flex;
   align-items: center;
@@ -285,7 +294,8 @@ const serviceCards = services.map(service => ({
   line-height: 1.5;
   font-weight: 500;
 }
-.service-summary-custom .service-summary-footer {
+.service-summary-custom .service-summary-footer,
+.service-summary-safe .service-summary-footer {
   border-top-color: rgb(255 255 255 / 0.2);
 }
 .service-summary-arrow {
@@ -299,8 +309,11 @@ const serviceCards = services.map(service => ({
   color: var(--color-ink);
   transition: background 180ms ease;
 }
-.service-summary-scan .service-summary-arrow,
-.service-summary-custom .service-summary-arrow {
+.service-summary-scan .service-summary-arrow {
+  background: rgb(255 255 255 / 0.8);
+}
+.service-summary-custom .service-summary-arrow,
+.service-summary-safe .service-summary-arrow {
   background: var(--color-brand);
 }
 .service-summary:hover,
@@ -312,6 +325,10 @@ const serviceCards = services.map(service => ({
 .service-summary:hover .service-summary-arrow,
 .service-summary:focus-visible .service-summary-arrow {
   background: var(--color-brand);
+}
+.service-summary-scan:hover .service-summary-arrow,
+.service-summary-scan:focus-visible .service-summary-arrow {
+  background: white;
 }
 .service-summary:hover .service-summary-visual img {
   transform: translateY(-3px) scale(1.025);
@@ -471,6 +488,12 @@ const serviceCards = services.map(service => ({
   .services-overview-grid {
     grid-template-columns: minmax(0, 1fr);
     gap: 0.8rem;
+  }
+  .service-summary-safe {
+    grid-row: 4;
+  }
+  .service-summary-installation {
+    grid-row: 6;
   }
   .service-summary-copy h3 {
     font-size: 1.2rem;

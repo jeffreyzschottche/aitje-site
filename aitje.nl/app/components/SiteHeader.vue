@@ -123,7 +123,10 @@ const isActive = (to: string) =>
   route.path === to || route.path.startsWith(`${to}/`);
 
 const onScroll = () => {
-  scrolled.value = window.scrollY > 70;
+  // Separate thresholds prevent flickering when scrolling near the transition.
+  scrolled.value = scrolled.value
+    ? window.scrollY > 24
+    : window.scrollY > 120;
 };
 
 let closeTimer: ReturnType<typeof setTimeout> | undefined;
@@ -165,16 +168,11 @@ watch(mobileOpen, (value) => {
       openMenu = null;
       mobileOpen = false;
     "
-    class="fixed inset-x-0 top-0 z-50 flex justify-center transition-[padding] duration-300"
-    :class="scrolled ? 'pt-3' : 'pt-0'"
+    class="site-header fixed inset-x-0 top-0 z-50 flex justify-center"
+    :class="{ 'site-header--compact': scrolled }"
   >
     <div
-      class="flex items-center justify-between gap-4 transition-all duration-300 ease-out"
-      :class="
-        scrolled
-          ? 'mx-3 h-14 w-full max-w-6xl rounded-full border border-line/80 bg-surface/85 px-3 pl-5 shadow-[0_10px_30px_-12px_rgb(0_0_0/0.25)] backdrop-blur-xl md:w-[88%]'
-          : 'h-20 w-full border-b border-line/60 bg-page/95 px-5 md:px-8'
-      "
+      class="site-header-shell flex items-center justify-between gap-4"
     >
       <NuxtLink
         to="/"
@@ -186,7 +184,7 @@ watch(mobileOpen, (value) => {
           alt="AITJE"
           width="588"
           height="241"
-          :class="scrolled ? 'h-7 w-auto' : 'h-8 w-auto'"
+          class="site-header-logo w-auto"
         />
       </NuxtLink>
 
@@ -362,3 +360,69 @@ watch(mobileOpen, (value) => {
     </Transition>
   </header>
 </template>
+
+<style scoped>
+.site-header {
+  --header-morph-duration: 700ms;
+  --header-morph-easing: cubic-bezier(0.4, 0, 0.2, 1);
+  padding-top: 0;
+  transition: padding-top var(--header-morph-duration) var(--header-morph-easing);
+}
+.site-header-shell {
+  width: 100%;
+  max-width: 100%;
+  height: 80px;
+  padding-inline: 20px;
+  border: 1px solid transparent;
+  border-bottom-color: color-mix(in srgb, var(--color-line) 60%, transparent);
+  border-radius: 0;
+  background: rgb(248 248 246 / 0.95);
+  box-shadow: 0 10px 30px -12px rgb(0 0 0 / 0);
+  backdrop-filter: blur(0);
+  transition-property: max-width, height, padding-inline, border-radius, border-color, background-color, box-shadow, backdrop-filter;
+  transition-duration: var(--header-morph-duration);
+  transition-timing-function: var(--header-morph-easing);
+}
+.site-header-logo {
+  height: 32px;
+  transition: height var(--header-morph-duration) var(--header-morph-easing);
+}
+.site-header--compact {
+  padding-top: 12px;
+}
+.site-header--compact .site-header-shell {
+  max-width: calc(100% - 24px);
+  height: 56px;
+  padding-inline: 20px 12px;
+  border-color: color-mix(in srgb, var(--color-line) 80%, transparent);
+  border-radius: 28px;
+  background: rgb(255 255 255 / 0.85);
+  box-shadow: 0 10px 30px -12px rgb(0 0 0 / 0.25);
+  backdrop-filter: blur(24px);
+}
+.site-header--compact .site-header-logo {
+  height: 28px;
+}
+@media (min-width: 768px) {
+  .site-header-shell {
+    padding-inline: 32px;
+  }
+}
+@media (min-width: 1280px) {
+  .site-header--compact .site-header-shell {
+    max-width: 88%;
+  }
+}
+@media (min-width: 1310px) {
+  .site-header--compact .site-header-shell {
+    max-width: 72rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-header,
+  .site-header-shell,
+  .site-header-logo {
+    transition: none;
+  }
+}
+</style>

@@ -1,4 +1,8 @@
 <script setup lang="ts">
+withDefaults(defineProps<{ eyebrow?: string; highlight?: boolean }>(), {
+  eyebrow: "De rol van AITJE",
+  highlight: false,
+});
 const examples = [
   "Voor computers de systeembeheerder.",
   "Voor je website je webdeveloper.",
@@ -37,7 +41,7 @@ onBeforeUnmount(() => {
 
 <template>
   <div ref="heading" class="about-role-heading max-w-3xl">
-    <p class="eyebrow mb-4 text-brand-ink">De rol van AITJE</p>
+    <p class="eyebrow mb-4 text-brand-ink">{{ eyebrow }}</p>
     <h2 class="section-title text-ink">
       <span class="sr-only">Voor computers de systeembeheerder. Voor AI: AITJE.</span>
       <span class="about-role-rotating" aria-hidden="true">
@@ -46,7 +50,7 @@ onBeforeUnmount(() => {
           <span :key="index" class="about-role-example">{{ examples[index] }}</span>
         </Transition>
       </span>
-      <span class="about-role-fixed" aria-hidden="true">Voor AI: AITJE.</span>
+      <span class="about-role-fixed" aria-hidden="true">Voor AI: <span :class="{ 'highlight-word': highlight }">AITJE.</span></span>
     </h2>
     <button
       v-if="!reducedMotion" type="button" class="about-role-pause"

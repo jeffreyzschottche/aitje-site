@@ -33,7 +33,7 @@ Ontdekken, bouwen of verbeteren. Kies wat aansluit op jouw vraag.
 | AITJE Custom — AI op maat | Bouwen | Een workflow, agent of complete AI-toepassing op maat, verbonden met de systemen waarmee jij werkt. |
 | Ondersteuning en onderhoud | Beheren | Een vast aanspreekpunt voor onderhoud, modelbeheer, prompts, skills en persoonlijk advies over volgende verbeteringen. |
 
-De hele kaart verwijst naar de dienst. AI-scan krijgt een lichtgele achtergrond, Custom een donkergroene. De rest blijft licht. Alle diensten blijven direct zichtbaar.
+De hele kaart verwijst naar de dienst. AI-scan krijgt een felgele AITJE-achtergrond, Veilig AI-gebruik een subtiele grijs-zwarte gradient met lichte tekst en Custom een donkergroene. De rest blijft licht. Dezelfde kleuren worden op home gebruikt. Alle diensten blijven direct zichtbaar.
 
 Op ruime schermen staan vier kaarten naast elkaar, op tussenmaten twee. Op smalle schermen staat het beeld naast de korte tekst in één kolom.
 

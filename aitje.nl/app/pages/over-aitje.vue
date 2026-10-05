@@ -137,10 +137,10 @@ const steps = [
           />
           <img
             class="about-founders-photo"
-            src="/img/redesign/aitje-founders.png"
+            src="/img/redesign/aitje-founders-kees-jeffrey.png"
             alt="Kees links en Jeffrey rechts, de twee oprichters van AITJE, in hun kantoor"
-            width="1376"
-            height="876"
+            width="1448"
+            height="1086"
             loading="lazy"
             decoding="async"
           />

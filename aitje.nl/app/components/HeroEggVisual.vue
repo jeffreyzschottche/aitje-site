@@ -9,7 +9,7 @@ const effectId = `hero-egg-${useId().replace(/:/g, "")}`;
       viewBox="0 0 1536 1064"
       preserveAspectRatio="xMaxYMax meet"
       role="img"
-      aria-label="Een glanzend ei met het AITJE-circuitsymbool in een nest op een bemoste rots met hangende bladeren"
+      aria-label="Een glanzend ei met het AITJE-circuitsymbool in een nest op een bemoste rots, met Local AI, On-premise en On-edge in de steen gegraveerd"
     >
       <defs>
         <radialGradient :id="`${effectId}-glow`">
@@ -27,7 +27,7 @@ const effectId = `hero-egg-${useId().replace(/:/g, "")}`;
         </clipPath>
       </defs>
       <image
-        href="/img/redesign/aitje-egg-hero-crisp.webp"
+        href="/img/redesign/aitje-egg-hero-engraved.webp"
         width="1536"
         height="1024"
       />

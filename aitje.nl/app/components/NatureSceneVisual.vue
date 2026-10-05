@@ -52,7 +52,7 @@ onMounted(() => {
         ref="visual"
         class="nature-scene-visual"
         viewBox="0 0 1536 1024"
-        preserveAspectRatio="xMidYMid slice"
+        preserveAspectRatio="xMinYMid slice"
         role="img"
         aria-label="Een kraai bij een ei met een gouden lichtkring tussen mos, takken en kabels"
       >
@@ -86,7 +86,7 @@ onMounted(() => {
     <svg
       class="nature-scene-bird"
       viewBox="0 0 1536 1024"
-      preserveAspectRatio="xMidYMid slice"
+      preserveAspectRatio="xMinYMid slice"
       aria-hidden="true"
     >
       <defs>
@@ -170,15 +170,19 @@ onMounted(() => {
   filter: drop-shadow(0 0 5px #ffde32) drop-shadow(0 0 13px #ffb300);
 }
 @media (max-width: 767px) {
-  .nature-scene-visual {
-    top: auto;
-    bottom: 0;
-    height: 390px;
-    width: 145%;
+  .nature-scene-crop {
+    mask-image: linear-gradient(to bottom, #000 76%, transparent);
+  }
+  .nature-scene-visual,
+  .nature-scene-bird {
+    top: -84px;
+    bottom: auto;
+    height: calc(100% + 84px);
+    width: 100%;
     max-width: none;
   }
   .nature-scene-bird {
-    display: none;
+    clip-path: inset(0 0 calc(100% - 86px) 0);
   }
 }
 </style>

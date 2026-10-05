@@ -144,4 +144,10 @@ onBeforeUnmount(() => media?.revert());
     bottom: 0;
   }
 }
+@media (max-width: 767px) {
+  .nest-corner {
+    left: 18px;
+    right: auto;
+  }
+}
 </style>

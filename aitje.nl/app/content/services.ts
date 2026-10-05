@@ -1064,6 +1064,19 @@ export const partnerService = {
   ],
 };
 
+// The existing transparent illustrations used in service overviews.
+export const serviceIllustrations: Record<string, string> = {
+  "ai-scan": "/img/redesign/owl-hero-cutout.webp",
+  "token-management-en-optimalisatie": "/img/redesign/token-management-cutout.webp",
+  "advies-en-analyse": "/img/redesign/advice-cutout.webp",
+  "installatie-en-inrichting": "/img/redesign/infrastructure-cutout.webp",
+  "optimalisatie": "/img/redesign/raven-scene-cutout.webp",
+  "veilig-ai-gebruik": "/img/redesign/safe-ai-cutout.webp",
+  "aitje-custom": "/img/covers/v2/aitje-custom.webp",
+  "ondersteuning-en-onderhoud": "/img/redesign/support-cutout.webp",
+  "voor-it-bedrijven": "/img/redesign/partners-cutout.webp",
+};
+
 // Generated nature-and-technology environments, one scene per service.
 // Prompts and source files: output/imagegen/service-backgrounds-manifest.json.
 for (const service of services) {

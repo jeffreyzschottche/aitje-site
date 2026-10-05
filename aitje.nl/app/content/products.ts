@@ -216,7 +216,7 @@ const productDefinitions: Product[] = [
     shortName: "Coder",
     status: "available",
     tagline:
-      "Je eigen coding agents op eigen hardware. Zonder externe tokenkosten.",
+      "Je eigen coding agents op eigen hardware of in een digitale omgeving. Zonder externe tokenkosten.",
     icon: "code",
     image: "/img/covers/v2/aitje-coder.webp",
     headline: "Je eigen coding agents. Zonder externe tokenkosten.",

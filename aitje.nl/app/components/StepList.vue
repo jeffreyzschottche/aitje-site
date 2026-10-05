@@ -1,6 +1,6 @@
 <script setup lang="ts">
 withDefaults(
-  defineProps<{ steps: { title: string; text: string }[]; dark?: boolean }>(),
+  defineProps<{ steps: { title: string; text: string; image?: string }[]; dark?: boolean }>(),
   { dark: false },
 );
 </script>
@@ -11,6 +11,17 @@ withDefaults(
     :style="{ '--step-count': steps.length }"
   >
     <li v-for="(step, i) in steps" :key="step.title">
+      <img
+        v-if="step.image"
+        class="step-illustration"
+        :src="step.image"
+        alt=""
+        aria-hidden="true"
+        width="1024"
+        height="1024"
+        loading="lazy"
+        decoding="async"
+      />
       <div class="step-marker">
         <span>{{ String(i + 1).padStart(2, "0") }}</span
         ><AppIcon v-if="i < steps.length - 1" name="arrow-right" :size="18" />

@@ -17,6 +17,8 @@ Ongeveer 80% breedte is de door de oprichter genoemde richting voor ruime scherm
 
 De overgang mag rustig verlopen, zonder inhoud te laten verspringen of menu's af te snijden. Test langere navigatietekst, focus, geopende menu's en gereduceerde beweging.
 
+Uitwerking op 5 oktober 2026: breedte, hoogte, padding, logo, ronding, achtergrond en schaduw veranderen samen in 700 ms, met dezelfde zachte versnelling en vertraging in beide richtingen. De brede toestand heeft een expliciete maximale breedte van 100%, zodat terugschakelen niet naar een niet-animeerbare waarde springt. De pill verschijnt na 120 px scrollen en wordt pas binnen 24 px van de bovenkant weer breed. Op kleinere schermen behoudt de pill meer breedte voor de bediening; bij een voorkeur voor minder beweging vervalt de overgang.
+
 De hoofdactie is **Bespreek je AI-vraag**. Exacte menu-indeling volgt uit sitemap.md; neem oude navigatievoorstellen niet automatisch over.
 
 ## Knoppen en links
