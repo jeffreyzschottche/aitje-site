@@ -56,13 +56,23 @@ De status per product moet later instelbaar zijn (besluit 09).
 
 Korte uitleg van de drie prijsonderdelen (product, hardware of server, installatie) en de twee routes: laten regelen of zelf installeren. Details op de productpagina.
 
-### 5. Cases
+Daarna volgt het blok **De infrastructuur achter je AI**, met de titel **Een complete omgeving voor jouw AI.** Dit gaat over de samenhang tussen lokale hardware, het netwerk, een eigen server of gehuurde serverruimte, rekenkracht, opslag, software en modellen. AITJE helpt deze omgeving kiezen en inrichten op basis van het werk van de klant.
 
-1-3 previews van cases met een product, zie [cases.md](cases.md).
+### 5. Custom
 
-### 6. Custom
+Een brede banner direct na de drie onderdelen van de aankoop en vóór het blok over AI-infrastructuur maakt de stap naar een eigen AI-project zichtbaar. De bestaande 3D-verpakking van AITJE Custom steekt boven de rand uit, met de natuurlijke werkplaats als achtergrond. Op mobiel staat de verpakking boven de gecentreerde tekst.
 
-> Iets specifieks nodig? Bekijk AITJE Custom — AI op maat.
+De banner sluit direct aan op de achtergrond van het aankoopblok, zonder witte strook. Op mobiel houdt het aankoopblok onderaan voldoende ruimte voor de uitstekende verpakking.
+
+**Titel:** Jouw idee. Op jouw manier.
+
+> Van een taak automatiseren tot je eigen app, AI-agent of 3D-ervaring. Wij helpen je de passende aanpak vinden en bouwen die rond jouw werk. Lokaal, op een server of met externe AI.
+
+Uitdenken → Bouwen → Opleveren. Knop: **Ontdek AITJE Custom** → `/diensten/aitje-custom`.
+
+### 6. Cases
+
+Drie previews van cases met een product: de development agency, gamelevels met AITJE Coder en documenten doorzoeken met AITJE Assistent. Zie [cases.md](cases.md).
 
 ### 7. CTA
 

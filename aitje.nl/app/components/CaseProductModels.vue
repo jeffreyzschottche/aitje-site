@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const { numberLocale } = useSiteLanguage();
 import type { ProductModelsStory } from "@/content/types";
 import ProductModelViewer from "./ProductModelViewer.vue";
 const props = defineProps<{ story: ProductModelsStory }>();
@@ -6,17 +7,17 @@ const selected = ref(0);
 const activeStep = ref(0);
 const model = computed(() => props.story.models[selected.value]!);
 const step = computed(() => props.story.workflow[activeStep.value]!);
-const money = (amount: number) => new Intl.NumberFormat("nl-NL", { style: "currency", currency: "EUR", maximumFractionDigits: amount < 10 ? 2 : 0 }).format(amount);
+const money = (amount: number) => new Intl.NumberFormat(numberLocale.value, { style: "currency", currency: "EUR", maximumFractionDigits: amount < 10 ? 2 : 0 }).format(amount);
 const catalogExample = 10000;
 </script>
 
 <template>
   <div class="product-models-story">
-    <section class="border-y border-line bg-brand">
-      <div class="container-page grid gap-7 py-9 md:grid-cols-3">
-        <div><p class="metric">10.000+</p><p class="mt-2 text-sm">Producten in de catalogus van de partner</p></div>
-        <div><p class="metric">11–18 cent</p><p class="mt-2 text-sm">API-kosten per product na optimalisatie</p></div>
-        <div><p class="metric">Circa 60%</p><p class="mt-2 text-sm">Lagere totale kosten, inclusief workflow-uren</p></div>
+    <section class="case-summary-bar border-y border-line bg-brand">
+      <div class="case-summary-grid container-page grid gap-7 py-9 md:grid-cols-3">
+        <div><p class="metric case-summary-value">10.000+</p><p class="case-summary-label mt-2 text-sm">Producten in de catalogus van de partner</p></div>
+        <div><p class="metric case-summary-value">11–18 cent</p><p class="case-summary-label mt-2 text-sm">API-kosten per product na optimalisatie</p></div>
+        <div><p class="metric case-summary-value">Circa 60%</p><p class="case-summary-label mt-2 text-sm">Lagere totale kosten, inclusief workflow-uren</p></div>
       </div>
     </section>
 
@@ -35,7 +36,6 @@ const catalogExample = 10000;
             </div>
             <ProductModelViewer :src="model.src" :name="model.name" poster="/img/cases/contact-lead.png" />
             <p class="mt-4 text-sm font-medium">{{ model.text }}</p>
-            <p class="mt-2 text-xs leading-relaxed text-muted">Deze illustratieve 3D-voorbeelden zijn voor deze pagina gemaakt op basis van de aangeleverde productfoto. Het zijn geen gevalideerde CAD-modellen uit de klantcatalogus.</p>
           </div>
         </div>
       </div>
@@ -88,7 +88,7 @@ const catalogExample = 10000;
         </div>
         <div class="mt-9 overflow-x-auto rounded-panel border border-line">
           <table class="w-full text-left text-sm">
-            <caption class="bg-sand px-6 py-4 text-left text-muted">API-kosten · indicatieve doorrekening voor {{ catalogExample.toLocaleString('nl-NL') }} producten</caption>
+            <caption class="bg-sand px-6 py-4 text-left text-muted">API-kosten · indicatieve doorrekening voor {{ catalogExample.toLocaleString(numberLocale) }} producten</caption>
             <thead><tr><th>Aanpak</th><th>Per product</th><th>Bij 10.000 producten</th></tr></thead>
             <tbody>
               <tr><td>Agent bedenkt de workflow zelf</td><td>Circa {{ money(story.costs.initialPerProductEur) }}</td><td>Circa {{ money(story.costs.initialPerProductEur * catalogExample) }}</td></tr>

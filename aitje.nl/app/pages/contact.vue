@@ -1,16 +1,19 @@
 <script setup lang="ts">
+import { staticPageSeo } from "@/content/seo";
 // Contact page (redesign/pages/contact.md, besluiten 46, 51). Buttons elsewhere prefill ?onderwerp= and ?product=.
 import {
   contactProducts,
+  contactTopicGroups,
   contactTopics,
   findContactProduct,
   findTopic,
+  findTopicGroup,
 } from "#shared/contactTopics";
 import { contact } from "@/content/site";
 
 usePageSeo({
-  title: "Contact",
-  description: `Bespreek je AI-vraag met AITJE. Mail ${contact.email} of vul het formulier in. AITJE denkt mee.`,
+  ...staticPageSeo["/contact"],
+  image: "/img/redesign/contact.webp",
   breadcrumbs: [{ name: "Contact", path: "/contact" }],
 });
 
@@ -42,10 +45,38 @@ watch(
 const status = ref<"idle" | "sending" | "sent" | "error">("idle");
 const errorMessage = ref("");
 
-const needsProduct = computed(() =>
-  Boolean(findTopic(form.topic)?.needsProduct),
+const selectedTopicGroup = computed({
+  get: () => findTopicGroup(form.topic)?.key ?? "ai-vraag",
+  set: (key: string) => {
+    const group = contactTopicGroups.find((group) => group.key === key);
+    if (group) form.topic = group.topics[0]!;
+  },
+});
+const topicGroup = computed(() => findTopicGroup(form.topic));
+const topicChoices = computed(() =>
+  contactTopics.filter((topic) =>
+    topicGroup.value?.topics.includes(topic.key) &&
+    (topic.key !== "interesse" || form.topic === "interesse" || contactProducts.some((product) => product.status === "planned")),
+  ),
 );
+
+const needsProduct = computed(() => {
+  const topic = findTopic(form.topic);
+  return Boolean(topic && "needsProduct" in topic && topic.needsProduct);
+});
 const selectedProduct = computed(() => findContactProduct(form.product));
+const messagePlaceholder = computed(() => {
+  switch (selectedTopicGroup.value) {
+    case "producten": return "Welk product lijkt je interessant? Vertel hoe je het wilt gebruiken en of je hulp bij de installatie wilt.";
+    case "ai-scan": return "Wat doet je organisatie en waar kost handwerk veel tijd? Vertel wat je wilt onderzoeken.";
+    case "ai-op-maat": return "Welke taak wil je automatiseren of wat wil je bouwen? Een eerste idee of een bestaand prototype is genoeg.";
+    case "optimalisatie": return "Welke AI of tools gebruik je nu? Wat kan beter: de resultaten, de snelheid of de kosten?";
+    case "veilig-ai": return "Welke AI gebruik je en waar maak je je zorgen over? Deel hier geen vertrouwelijke gegevens.";
+    case "sla": return "Voor welke AI-omgeving zoek je hulp? Vertel wat er speelt of welke ondersteuning je wilt.";
+    case "samenwerken": return "Vertel wat je bedrijf doet en hoe je met AITJE wilt samenwerken.";
+    default: return "Vertel wat je doet, waar je tegenaan loopt en wat je wilt bereiken. Je hoeft nog geen technische oplossing te kennen.";
+  }
+});
 
 const heading = computed(() => {
   const name = selectedProduct.value?.name;
@@ -64,6 +95,14 @@ const heading = computed(() => {
       return "Vraag een AI-scan aan";
     case "token-management":
       return "Bespreek je tokengebruik en API-workflow";
+    case "ai-verbeteren":
+      return "Haal meer uit je bestaande AI";
+    case "ai-op-maat":
+      return "Wat wil jij mogelijk maken?";
+    case "veilig-ai":
+      return "Krijg grip op je AI-gebruik";
+    case "sla":
+      return "Hulp bij jouw AI-omgeving";
     case "samenwerken":
       return "Bespreek een samenwerking";
     default:
@@ -262,21 +301,29 @@ const inputClass =
               <span class="text-sm font-semibold"
                 >Waar gaat je vraag over?</span
               >
-              <select v-model="form.topic" name="topic" :class="inputClass">
+              <select v-model="selectedTopicGroup" name="topic-group" :disabled="status === 'sending'" :class="inputClass">
                 <option
-                  v-for="topic in contactTopics"
+                  v-for="topic in contactTopicGroups"
                   :key="topic.key"
                   :value="topic.key"
                 >
                   {{ topic.label }}
                 </option>
               </select>
+              <span class="mt-2 block text-xs text-muted">Twijfel je? Kies advies over AI en vertel je vraag hieronder.</span>
+            </label>
+
+            <label v-if="topicChoices.length > 1" class="block">
+              <span class="text-sm font-semibold">{{ topicGroup?.detailLabel }}</span>
+              <select v-model="form.topic" name="topic" :disabled="status === 'sending'" :class="inputClass">
+                <option v-for="topic in topicChoices" :key="topic.key" :value="topic.key">{{ topic.label }}</option>
+              </select>
             </label>
 
             <label v-if="needsProduct" class="block">
               <span class="text-sm font-semibold">Product</span>
-              <select v-model="form.product" name="product" :class="inputClass">
-                <option value="">Kies een product</option>
+              <select v-model="form.product" name="product" :disabled="status === 'sending'" :class="inputClass">
+                <option value="">Ik weet het nog niet</option>
                 <option
                   v-for="p in contactProducts"
                   :key="p.slug"
@@ -296,7 +343,7 @@ const inputClass =
                 name="message"
                 rows="5"
                 required
-                placeholder="Bijvoorbeeld: we zijn een kantoor met 15 mensen en willen AI gebruiken zonder dat klantgegevens naar buiten gaan."
+                :placeholder="messagePlaceholder"
                 :class="inputClass"
               />
             </label>

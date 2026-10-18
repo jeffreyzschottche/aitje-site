@@ -6,6 +6,8 @@ Dit document beschrijft de structuur voor individuele case-pagina's onder `/case
 
 Het overzicht en de previews staan in [cases.md](cases.md).
 
+De gele resultatenbalken staan op mobiel in drie gecentreerde kolommen met compacte cijfers, gebalanceerde toelichting en subtiele scheidingslijnen. De desktopweergave blijft behouden.
+
 ## Doel van de pagina
 
 Een case-pagina moet:

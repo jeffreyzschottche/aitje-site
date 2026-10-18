@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import type { Product } from "@/content/types";
-withDefaults(
+import { euros, getInstalledProductOffer, introduction } from "@/content/pricing";
+const props = withDefaults(
   defineProps<{ product: Product; large?: boolean; showPrice?: boolean }>(),
   { large: false, showPrice: true },
 );
+const installedOffer = computed(() => getInstalledProductOffer(props.product.slug));
 </script>
 <template>
   <NuxtLink
@@ -63,10 +65,13 @@ withDefaults(
         ><span><AppIcon name="server" :size="16" />Eigen omgeving</span>
       </div>
       <div v-if="showPrice && product.price" class="product-card-price">
-        <span
-          ><strong>€{{ product.price }}</strong> / omgeving (Excl btw)</span
-        ><span>Voorlopige prijs</span>
+        <span><strong>{{ euros(installedOffer?.price ?? product.price) }}</strong>
+          {{ installedOffer ? 'met basisinstallatie' : 'per omgeving' }} (Excl btw)</span>
+        <span>{{ installedOffer?.introductory ? `Introductie · eerste ${introduction.products.customerLimit} betaalde klanten` : 'Hardware of serverhuur apart' }}</span>
       </div>
+      <p v-if="showPrice && installedOffer" class="px-6 pb-5 text-xs leading-relaxed text-muted md:px-8">
+        Los product voor zelfinstallatie: {{ euros(product.price!) }}. Hardware, serverhuur en aanvullende inrichting apart.
+      </p>
     </template>
     <template v-else
       ><div class="planned-art">
@@ -90,3 +95,13 @@ withDefaults(
     ></template>
   </NuxtLink>
 </template>
+
+<style scoped>
+.product-card-price {
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+.product-card-price > span {
+  line-height: 1.6;
+}
+</style>

@@ -1,0 +1,18 @@
+{
+  "createdOn": "2026-10-18",
+  "tool": "Built-in image_gen (imagegen skill)",
+  "assets": [
+    {
+      "file": "bosgame-aitje.png",
+      "siteFile": "bosgame-aitje.webp",
+      "reference": "User-provided BOSGAME pair photograph, 2026-10-18 16:57:16",
+      "prompt": "Use case: product-mockup. Reference image: the attached photograph shows the precise design and colours of two BOSGAME mini PCs with AITJE stickers. Create a beautiful premium realistic product photograph of these same two devices, isolated on genuine transparent background, wide landscape composition 3:2. Keep the silver unit on the left and deep navy blue unit on the right, both viewed at a three-quarter front angle, slightly staggered to create natural depth. Preserve the actual rectangular angular case silhouette, black horizontal front ventilation, orange power buttons, audio jack and USB ports. Preserve one crisp white AITJE sticker on the top of each device; exact legible uppercase text AITJE, black logo mark above the word as in the reference. Accurate, credible real hardware rather than a redesigned science-fiction server. Soft warm editorial studio lighting, graphite edges, subtle golden rim highlights matching a sophisticated local AI brand, physically accurate metal and plastic, crisp details, grounded soft contact shadows. Both complete devices entirely within frame, generous transparent padding, no extra objects, no text captions, no floating symbols, no hands, no desk, no background rectangle, no checkerboard. This is a clean high-end website product cutout for local on-edge AI hardware. Use the provided image as the hardware shape and sticker reference."
+    },
+    {
+      "file": "linux-aitje.png",
+      "siteFile": "linux-aitje.webp",
+      "prompt": "Use case: product-mockup. Asset type: premium realistic three-dimensional studio product illustration for an on-premise local AI server installation. Landscape 3:2, genuine transparent background. An elegant matte graphite compact Linux server tower on the LEFT, realistic fine metal vents and subtle warm amber status indicators. Beside it on the RIGHT a large high-end desktop monitor facing exactly front-on with an entirely blank flat dark charcoal screen, its screen is a clean 16:10 rectangle unobstructed for later overlay of a genuine code-native Linux terminal. Restrained keyboard in front. Small crisp white AITJE sticker on the upper part of the server, exact uppercase black text AITJE and a minimal round black connected-network icon. Realistic brushed metal, grounded soft contact shadows, sophisticated warm studio lighting and delicate golden rim lights. Quiet sophisticated technology aesthetic, readable sculptural depth, physically credible server hardware, no fantasy machinery. Whole monitor and tower visible with generous transparent margins. No backdrop scenery, no floor rectangle, no desk, no floating interface graphics, no invented CLI text, no other captions, no watermarks, no checkerboard. Screen remains blank. Composition should work over a warm cream or pale olive website section. This visually shows that AITJE AI software can also be installed on an organisation's own Linux server."
+    }
+  ],
+  "note": "AI-generated product illustrations; hardware is specified separately per installation. Linux terminal is a separate HTML layer, not generated text or a real server status."
+}

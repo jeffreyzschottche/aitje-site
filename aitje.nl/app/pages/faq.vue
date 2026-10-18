@@ -1,11 +1,12 @@
 <script setup lang="ts">
+import { staticPageSeo } from "@/content/seo";
 // General FAQ (redesign/pages/faq.md, besluiten 50-51: complete overview, FAQPage structured data).
 import { faqGroups } from "@/content/faq";
+const { text, locale } = useSiteLanguage();
 
 usePageSeo({
-  title: "Veelgestelde vragen",
-  description:
-    "Antwoorden over AITJE, de AI-producten, diensten, samenwerking, data en kosten. Staat je vraag er niet tussen? Bespreek je AI-vraag met AITJE.",
+  ...staticPageSeo["/faq"],
+  image: "/img/redesign/faq-forest-paths.webp",
   breadcrumbs: [{ name: "Veelgestelde vragen", path: "/faq" }],
   faq: faqGroups.flatMap((g) => g.items),
 });
@@ -18,9 +19,9 @@ const filteredGroups = computed(() =>
     .map((group) => ({
       ...group,
       items: group.items.filter((item) =>
-        `${item.q} ${item.a}`
-          .toLocaleLowerCase("nl")
-          .includes(search.value.trim().toLocaleLowerCase("nl")),
+        `${text(item.q)} ${text(item.a)}`
+          .toLocaleLowerCase(locale.value)
+          .includes(search.value.trim().toLocaleLowerCase(locale.value)),
       ),
     }))
     .filter((group) => group.items.length),
@@ -47,6 +48,10 @@ const filteredGroups = computed(() =>
 
     <section class="pb-24">
       <div class="container-page mb-10">
+        <div class="mb-6 flex flex-col gap-3 rounded-2xl border border-line bg-surface p-5 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
+          <p class="text-sm leading-relaxed text-muted">Alle producten, diensten en uurtarieven in één overzicht.</p>
+          <PriceListLink class="sm:shrink-0" />
+        </div>
         <label class="faq-search"
           ><AppIcon name="scan" :size="20" /><span class="sr-only"
             >Zoek in veelgestelde vragen</span

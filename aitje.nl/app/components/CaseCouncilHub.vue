@@ -8,7 +8,7 @@ const question = computed(() => props.story.questions[selected.value]!);
 
 <template>
   <div class="council-case">
-    <section class="council-metrics bg-brand"><div class="container-page"><dl><div><dt>Klanten na de overname</dt><dd>150 + 200 = 350</dd></div><div><dt>Kennis synchroniseren</dt><dd>{{ story.sync }}</dd></div><div><dt>Externe AI-tokenkosten</dt><dd>€0</dd></div></dl></div></section>
+    <section class="case-summary-bar council-metrics bg-brand"><div class="container-page"><dl class="case-summary-grid"><div><dt class="case-summary-label">Klanten na de overname</dt><dd class="case-summary-value"><span class="hidden md:inline">150 + 200 = </span>350</dd></div><div><dt class="case-summary-label">Kennis synchroniseren</dt><dd class="case-summary-value">{{ story.sync }}</dd></div><div><dt class="case-summary-label">Externe AI-tokenkosten</dt><dd class="case-summary-value">€0</dd></div></dl></div></section>
 
     <section class="section-space"><div class="container-page council-split">
       <div><p class="eyebrow text-brand-ink">De aanleiding</p><h2>De telefoon gaat.<br />Wat speelt er bij deze klant?</h2><p v-for="paragraph in story.intro" :key="paragraph" class="council-copy">{{ paragraph }}</p></div>

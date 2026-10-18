@@ -1,13 +1,14 @@
 <script setup lang="ts">
+import { staticPageSeo } from "@/content/seo";
 // One overview of the eight services; copy and layout: redesign/pages/services.md.
 import { services, partnerService, serviceIllustrations } from "@/content/services";
 import { contactLink } from "@/content/site";
 
 usePageSeo({
-  title: "Diensten",
-  description:
-    "Alle diensten van AITJE in één overzicht: AI-scan, tokenoptimalisatie, advies, installatie, bestaande AI verbeteren, veilig gebruik, maatwerk en onderhoud.",
+  ...staticPageSeo["/diensten"],
+  image: "/img/redesign/services-nature-tech-bridge.webp",
   breadcrumbs: [{ name: "Diensten", path: "/diensten" }],
+  items: [...services, partnerService].map(service => ({ name: service.name, path: `/diensten/${service.slug}`, description: service.short })),
 });
 useHead({
   link: [{ rel: "preload", as: "image", href: "/img/redesign/services-nature-tech-bridge.webp", fetchpriority: "high" }],
@@ -40,7 +41,7 @@ const overview: Record<string, { action: string; text: string }> = {
   },
   "aitje-custom": {
     action: "Bouwen",
-    text: "Een workflow, agent of complete AI-toepassing op maat, verbonden met de systemen waarmee jij werkt.",
+    text: "Automatiseringen, eigen apps, AI-agents en 3D/VR. AITJE helpt je kiezen en bouwen, lokaal of met externe AI.",
   },
   "ondersteuning-en-onderhoud": {
     action: "Beheren",
@@ -114,6 +115,7 @@ const serviceCards = services.map(service => ({
           </NuxtLink>
         </div>
         <p class="services-price-note">Prijzen excl. btw. De werkzaamheden en prijs stem je vooraf af; hardware, hosting en modelgebruik worden apart begroot.</p>
+        <PriceListLink class="mt-4" />
 
         <div class="services-choice-note">
           <p>Je kunt bij elke dienst beginnen. AITJE helpt je bepalen wat past.</p>

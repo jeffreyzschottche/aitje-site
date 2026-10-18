@@ -2,9 +2,9 @@
 // Sticky call to action on small screens, hidden on the contact page itself.
 import { contact, mainCta } from "@/content/site";
 
-const route = useRoute();
+const { basePath } = useSiteLanguage();
 const visible = ref(false);
-const hidden = computed(() => route.path.startsWith("/contact"));
+const hidden = computed(() => basePath.value.startsWith("/contact"));
 
 const onScroll = () => {
   visible.value = window.scrollY > 480;

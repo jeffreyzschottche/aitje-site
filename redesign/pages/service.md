@@ -8,9 +8,13 @@ Geldt voor: AI-scan, Advies en analyse, Installatie en inrichting, Optimalisatie
 
 Uitwerking 5 oktober 2026: AITJE Custom gebruikt voor Aanpak en Oplevering een eigen visuele compositie met zes projectfases, een feedbacklus en een overdrachtsblok. Het beschrijft een volledig maatwerktraject tot het afgesproken eindproduct; een prototype kan een tussenstap zijn. De gedeelde hero, prijs, cases, FAQ en contactroute blijven gebruikt.
 
+Aanvulling: Custom toont vóór de projectfases zes geïllustreerde mogelijkheden (automatisering, apps, kennis/agents, 3D/VR, koppelingen en hulp bij bestaande code), een interactieve keuze tussen lokaal, server en externe/hybride AI, drie groepen technologievoorbeelden en grip op gegevens, kosten en oplossing. De inhoud staat in `app/content/custom.ts`, de presentatie in `CustomPossibilities.vue`. De sectienavigatie krijgt alleen bij Custom **De mogelijkheden**. De tone of voice helpt bezoekers met een idee, lastige taak of prototype een haalbare eerste stap vinden.
+
 Keuze oprichter, 5 oktober 2026: alle individuele dienstpagina's gebruiken dezelfde gele balk en witte sectienavigatie als AI-scan. Ook Voor IT-bedrijven en bureaus volgt dit patroon. `ServicePageNav.vue` staat direct tegen de hero, toont drie korte kernpunten met iconen uit de centrale dienstinhoud en daarna de links naar de aanwezige paginaonderdelen. Dezelfde kleur, typografie, afstanden en mobiele behandeling gelden voor elke dienst. AI-scan behoudt de bestaande kernpunten en sectielinks; andere diensten krijgen passende teksten en ankers. De dienstenarchive houdt de eigen opzet.
 
 ## Doel van de pagina
+
+Op mobiel toont de gele balk drie gelijke kolommen met het icoon boven de gecentreerde tekst en subtiele scheidingslijnen. Desktop behoudt de horizontale iconen met tekst ernaast.
 
 Een dienstpagina moet:
 1. Duidelijk maken welke vraag de dienst beantwoordt
@@ -55,11 +59,11 @@ Afgebakende checks of pakketten binnen deze dienst, elk met korte uitleg en prij
 - Wat niet standaard inbegrepen is.
 - Wat als betaald vervolgwerk geldt.
 
-Prijzen blijven dummydata tot controle vóór publicatie.
+Prijzen en commerciële scopes volgen besluit 52 en offer/pricing.md: €75 per uur uitsluitend in de algemene FAQ; afgebakende diensten tonen hun eigen bedrag en scope. Introductie voor de eerste tien betaalde klanten bij de scan. SLA-tijdsbudgetten bevatten ook persoonlijk advies, controles en overleg.
 
 ### 8. Cases
 
-1-3 previews uit [cases.md](cases.md). Vervangt een los blok "Voorbeeldsituatie".
+Drie passende previews uit [cases.md](cases.md) op iedere individuele dienstpagina, inclusief AI-scan en de IT-partnerpagina. Vervangt een los blok "Voorbeeldsituatie".
 
 ### 9. Veelgestelde vragen
 
@@ -71,7 +75,7 @@ Dezelfde dienstknop als in de hero, eventueel met **Bespreek je AI-vraag** als t
 
 ### 11. Gerelateerde diensten en producten
 
-2-3 links, bijvoorbeeld van AI-scan naar Custom, of van Installatie naar Ondersteuning.
+Zes kaarten onder **Past hier ook bij**, bijvoorbeeld van AI-scan naar Custom, of van Installatie naar Ondersteuning. De handmatig gekozen gerelateerde diensten staan eerst; het overzicht wordt aangevuld met andere diensten. De huidige dienst en dubbele links worden uitgesloten. Dit gedeelde blok geldt ook voor AI-scan en de IT-partnerpagina: drie kolommen op desktop, twee op tablet en één op mobiel.
 
 ## Regels
 

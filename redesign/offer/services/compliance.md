@@ -2,7 +2,7 @@
 
 ## Status en uitgangspunt
 
-Deze inhoud is bevestigd met de oprichter. Prijzen blijven voorlopige dummydata; actuele technische informatie over aanbieders wordt per opdracht onderzocht.
+Inhoud, prijzen en afbakening zijn bevestigd met de oprichter op 5 oktober 2026, besluit 52. Actuele informatie over aanbieders wordt per opdracht onderzocht.
 
 AITJE helpt klanten begrijpen waar hun AI-data terechtkomt, welke controle zij hebben en hoe zij AI praktischer en veiliger kunnen gebruiken.
 
@@ -14,7 +14,9 @@ De nadruk ligt op datalocatie, gegevensstromen, instellingen en technische maatr
 
 Bij AI-gebruik kunnen berichten, documenten en andere gegevens naar externe aanbieders gaan. De geografische locatie van verwerking en opslag is een belangrijk onderdeel van de beoordeling.
 
-De AI-datalocatiecheck brengt de huidige situatie in kaart:
+Een eenvoudige AI-datalocatiecheck begint bij €225 exclusief btw, begroot op circa drie uur voor een beperkt aantal bekende AI-diensten en instellingen. De precieze diensten en oplevering worden vooraf afgesproken. De basisinventarisatie hoort bij de AI-scan; bekende bevindingen worden opnieuw gebruikt. Verdiepend technisch onderzoek krijgt een eigen urenbegroting.
+
+Binnen de afgesproken scope brengt de check de huidige situatie in kaart:
 
 - welke AI-diensten, aanbieders en modellen worden gebruikt;
 - welke gegevens vanuit welke processtappen worden verstuurd;
@@ -103,14 +105,14 @@ IT-partners kunnen deze begeleiding als dienst aan hun eigen MKB-klanten aanbied
 
 ## Prijs en afbakening
 
-Voorlopige bedragen uit de bestaande prijsbasis blijven uitsluitend dummydata:
+Bevestigde prijsbasis, exclusief btw:
 
-| Onderdeel | Voorlopige prijsbasis |
+| Onderdeel | Prijsbasis en scope |
 | --- | ---: |
-| AI-datalocatiecheck | €1.499, overgenomen van de voormalige Europese AI-check |
-| Vervolgonderzoek en uitvoering | €85 per uur |
-| AI-beleid | Vanaf €399, zie Advies en analyse |
-| Guardrailcheck | €449, zie Optimalisatie |
+| Eenvoudige AI-datalocatiecheck | Vanaf €225; circa drie uur voor een beperkte bekende situatie |
+| Vervolgonderzoek en uitvoering | €75 per uur, vooraf begroot |
+| Praktische interne AI-afspraken | Vanaf €349, circa drie uur; zie Advies en analyse |
+| Guardrailcheck | Vanaf €299, circa vier uur voor één workflow; zie Optimalisatie |
 
 De oude cursusprijs van €399 is historische dummydata. De invulling en eventuele losse prijs van AI-wegwijs worden later afgestemd; de dienst is geen vaste promptcursus.
 
@@ -139,7 +141,7 @@ AITJE levert praktische inzichten, begeleiding en technische verbeteringen. Juri
 
 ## Nog uit te werken
 
-- Definitieve prijs en scope van de AI-datalocatiecheck.
+- Werkelijke uren van de eenvoudige check meten en de scope per opdracht vastleggen.
 - Rapportvorm en werkwijze voor het vastleggen van onbekende locaties.
 - Inhoud, toegang en prijsafspraken voor AI-wegwijs en Promptpaleis.
 - Concrete afspraken voor levering via IT-partners.

@@ -22,8 +22,8 @@ const message = computed(() => messages[selected.value]!);
         <div>
           <p class="eyebrow text-brand-ink">Persoonlijke updates</p><h3>Relevant voor jouw omgeving.</h3>
           <p>Een ontwikkeling wordt gekoppeld aan jouw modellen, systemen en werkzaamheden. AITJE deelt wat die voor je kan betekenen, met een analyse of demo waar die beschikbaar is.</p>
-          <dl class="sla-mail-cadence"><div><dt>Core & Plus</dt><dd>1× per maand</dd></div><div><dt>Max</dt><dd>2× per maand</dd></div></dl>
-          <p class="sla-cadence-note">Max voegt een passend toepassingsidee en kwartaaloverleg toe. Je geeft aan welke analyses je wilt ontvangen en welke ideeën aansluiten op je werk.</p>
+          <dl class="sla-mail-cadence"><div><dt>Alle niveaus</dt><dd>Algemene update</dd></div><div><dt>Persoonlijk advies</dt><dd>Binnen je tijdsbudget</dd></div></dl>
+          <p class="sla-cadence-note">Samen kiezen we welke persoonlijke analyses, toepassingsideeën en gesprekken nuttig zijn. Ook een kwartaalcheck en overleg gebruiken het afgesproken tijdsbudget.</p>
         </div>
         <div class="sla-email-preview">
           <div class="sla-example-selector" aria-label="Bekijk een voorbeeldbericht"><button v-for="(item, index) in messages" :key="item.tab" type="button" :aria-pressed="selected === index" :class="{ active: selected === index }" @click="selected = index">{{ item.tab }}</button></div>

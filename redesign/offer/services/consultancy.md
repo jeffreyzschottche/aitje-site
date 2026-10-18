@@ -4,7 +4,7 @@
 
 **Beschikbaar** — inhoudelijk bevestigd.
 
-De genoemde bedragen zijn voorlopige dummyprijzen en worden vóór publicatie commercieel gecontroleerd.
+Prijzen en afbakening zijn bevestigd op 5 oktober 2026, besluit 52. Alle bedragen zijn exclusief btw.
 
 ## In één zin
 
@@ -44,7 +44,7 @@ De klant ontvangt:
 - een korte schriftelijke samenvatting;
 - aanbevelingen en mogelijke vervolgstappen.
 
-Openbare prijsaanduiding: **Vast uurtarief**. Het bedrag, de scope en de verwachte uren worden vooraf afgesproken. Het eerdere openbare dummy-uurtarief van €85 en de vermelding ‘voorlopige prijs’ worden op deze dienst niet meer getoond (keuze oprichter, 5 oktober 2026).
+**Gerichte adviessessie: €150** voor twee uur totaalwerk: voorbereiding, gesprek en korte aanbeveling. De gesprekstijd wordt vooraf afgestemd. Groter onderzoek wordt begroot tegen €75 per uur; het uurtariefbedrag staat alleen in de algemene FAQ. Bevindingen uit eerdere opdrachten worden opnieuw gebruikt.
 
 ### Afgebakende analyse
 
@@ -84,7 +84,7 @@ Deze onderdelen vallen onder Advies en analyse. Ze zijn herkenbaar en afgebakend
 
 AITJE brengt relevante AI-abonnementen, tokengebruik, modellen, infrastructuur en overlap in kaart. Daarna vergelijkt AITJE mogelijke alternatieven en benoemt waar gebruik mogelijk goedkoper of efficiënter kan.
 
-Voorlopige vanafprijs: **€499**.
+**Vanaf €325**, startbegroting circa drie uur voor een gerichte analyse met beschikbare facturen en gebruiksgegevens. Basisinventarisatie uit de scan wordt hergebruikt; een uitgebreidere vergelijking krijgt een eigen begroting.
 
 Een berekening is een praktische inschatting op basis van beschikbare gegevens en geen garantie op exacte toekomstige besparing.
 
@@ -98,7 +98,7 @@ Een praktische training waarin deelnemers leren hoe zij AI beter in hun dagelijk
 - privacy en gevoelige informatie;
 - AI op een herhaalbare manier in werkzaamheden toepassen.
 
-Voorlopige vanafprijs: **€399**.
+**€399** voor een teamsessie van twee uur met eigen praktijkvoorbeelden, voorbereiding en naslagmateriaal; circa vier uur werk in totaal. Teamgrootte en onderwerpen vooraf afspreken.
 
 De training wordt waar mogelijk afgestemd op herkenbare werkzaamheden van de deelnemers.
 
@@ -112,7 +112,7 @@ AITJE helpt praktische afspraken vastleggen over hoe AI binnen een organisatie w
 - wie verantwoordelijk is voor keuzes en resultaten;
 - hoe medewerkers met privacy, veiligheid en kwaliteit omgaan.
 
-Voorlopige vanafprijs: **€399**.
+**Vanaf €349**, circa drie uur voor gesprek, aanpassen van praktische interne afspraken en samen bespreken.
 
 AITJE levert praktische beoordeling en advies. Dit is geen bindend juridisch oordeel, certificering of vervanging voor gespecialiseerd juridisch advies.
 

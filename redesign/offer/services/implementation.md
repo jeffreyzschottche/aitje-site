@@ -4,7 +4,7 @@
 
 **Beschikbaar** — inhoudelijk bevestigd.
 
-Prijzen in dit document zijn voorlopig overgenomen als dummydata uit het bedrijfsdocument en worden later gecontroleerd.
+Prijzen en scope zijn bevestigd op 5 oktober 2026, besluit 52. Basisinstallatie vanaf €199; aanvullend onderzoek en inrichting tegen €75 per uur, vooraf begroot.
 
 ## In één zin
 
@@ -120,14 +120,14 @@ De precieze acceptatie, verantwoordelijkheden en eventuele garanties worden in d
 
 ## Prijsopbouw
 
-Voorlopige dummyprijzen uit het bedrijfsdocument:
+Bevestigde prijzen, exclusief btw. Basisinstallatie is begroot op twee tot tweeënhalf uur op een bekende, geschikte omgeving, inclusief testen, uitleg en afgesproken korte nazorg. Aanvullend netwerkwerk, kennisbankinrichting en koppelingen worden apart begroot. Bevindingen uit eerder onderzoek worden meegenomen.
 
-| Onderdeel | Voorlopige prijs |
+| Onderdeel | Bevestigde prijs |
 | --- | ---: |
 | Standaardinstallatie en inrichting | Vanaf €199 |
-| Onderzoek hardware bij een afwijkende situatie | €125 |
-| Onderzoek digitale omgeving bij maatwerk of server | €125 |
-| Uitgebreidere installatie en inrichting | €85 per uur of projectofferte |
+| Aanvullend hardwareonderzoek bij afwijkende situaties | €75 per uur, vooraf begroot |
+| Aanvullend onderzoek digitale omgeving | €75 per uur, vooraf begroot |
+| Uitgebreidere installatie en inrichting | €75 per uur of projectofferte |
 
 Een standaardinstallatie heeft een beperkte, vooraf afgesproken scope. Inhoudelijke inrichting, documentwerk, koppelingen, locatiebezoek en afwijkende techniek kunnen extra werkzaamheden zijn.
 

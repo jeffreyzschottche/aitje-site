@@ -43,16 +43,21 @@ Velden:
 - Telefoon (optioneel)
 - Bedrijf (optioneel)
 - Waar gaat je vraag over? (dropdown)
-  - Ik wil mijn AI-vraag bespreken
-  - Ik wil een product laten regelen
-  - Ik wil een demo aanvragen
-  - Ik wil een AI-scan
-  - Ik wil bestaande AI verbeteren
-  - Ik wil AI op maat
-  - Ik ben een IT-bedrijf of bureau en wil samenwerken
-  - Anders
+  - Advies over AI
+  - Een product of demo
+  - Een AI-scan
+  - Automatisering of AI op maat
+  - AI verbeteren of kosten verlagen
+  - Veilig AI-gebruik
+  - Ondersteuning en onderhoud
+  - Samenwerken met AITJE
+  - Iets anders
+- Bij een product of demo verschijnt de vervolgvraag: product met installatie, productdemo of zelfinstallatie. Interesse in een toekomstig product verschijnt zodra er een gepland product beschikbaar is, of bij een bestaande interesselink.
+- Bij AI verbeteren of kosten verlagen verschijnt de vervolgvraag: bestaande AI verbeteren of token- en API-kosten verlagen.
 - Product (verschijnt bij product, demo of interesse)
 - Bericht (verplicht)
+
+De onderwerpen zijn korter en gegroepeerd. De bestaande dertien onderwerpkeys blijven geldig in links en aanvragen; alleen de zichtbare keuze en labels zijn aangepast. De berichtplaceholder sluit aan op de gekozen categorie. Bij twijfel is advies over AI een goed beginpunt. De Resend-route, instellingen en mailverwerking zijn voor deze onderwerpoptimalisatie niet aangepast. Verzending wordt later live gecontroleerd.
 
 **Vooraf ingevuld vanuit knoppen:**
 
@@ -60,7 +65,7 @@ Velden:
 | --- | --- | --- |
 | Laat AITJE het regelen | Product laten regelen | Het product van de pagina |
 | Vraag een demo aan | Demo aanvragen | Het product van de pagina |
-| Laat je interesse weten (gepland product) | Anders, met "Interesse in [product]" | Het product van de pagina |
+| Laat je interesse weten (gepland product) | Interesse in een toekomstig product | Het product van de pagina |
 | Vraag een AI-scan aan | AI-scan | — |
 | Bespreek je AI-idee | AI op maat | — |
 | Bespreek een samenwerking | IT-bedrijf of bureau | — |

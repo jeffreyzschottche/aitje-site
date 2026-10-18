@@ -1,52 +1,32 @@
-# SLA-abonnementen
+# Ondersteuning en onderhoud — abonnementen
 
-## Aanbod
-
-AITJE biedt drie niveaus voor Ondersteuning en onderhoud: **AITJE Core, AITJE Plus en AITJE Max**.
+Bevestigd op 5 oktober 2026, besluit 52. Vervangt de eerdere prijzen, uren en onbegrensde proactieve extra's. Alle bedragen zijn exclusief btw.
 
 | | Core | Plus | Max |
 | --- | --- | --- | --- |
-| Naam | AITJE Core | AITJE Plus | AITJE Max |
-| Voorlopig per maand | €49,99 | €129,99 | €249 |
-| Service-uren per maand | 1 | 2 | 3 |
-| Maximale uren inclusief meegenomen tegoed | 2 | 4 | 6 |
-| E-mailcontact | Ja | Ja | Ja |
-| Telefonisch contact | Nee | Ja | Ja |
-| Prioriteit bij verzoeken | Nee | Nee | Ja |
-| Persoonlijke ontwikkelingsmail | Maandelijks | Maandelijks | Maandelijks |
-| Extra bedrijfsspecifiek toepassingsidee per mail | — | — | Maandelijks |
-| AI-APK en advies | — | Per kwartaal | Per kwartaal |
-| Overleg over verdere ontwikkeling | — | — | Per kwartaal |
+| Per maand | €49 | €129 | €249 |
+| Tijdsbudget | 30 minuten | 1,5 uur | 3 uur |
+| Maximaal met meegenomen tegoed | 1 uur | 3 uur | 6 uur |
+| Contact | E-mail | E-mail en telefoon | E-mail en telefoon, met prioriteit |
+| Algemene ontwikkelingsupdate | Ja | Ja | Ja |
+| Persoonlijk advies, modellen, prompts en skills | Binnen het budget | Binnen het budget | Binnen het budget |
+| Kwartaalcheck/AI-APK | Los af te spreken | In overleg, binnen budget | In overleg, binnen budget |
+| Overleg en toepassingsideeën | Binnen budget | Binnen budget | Binnen budget |
 
-De prijzen zijn de bevestigde voorlopige prijsrichting. Definitieve bedragen en btw-presentatie worden vóór publicatie gecontroleerd.
+## Tijd en afbakening
 
-## Afspraken voor alle niveaus
+- Persoonlijke analyses, controles, overleg, modeltests, onderhoud en uitvoering gebruiken hetzelfde budget; ook persoonlijke mails worden daarin begroot.
+- Een algemene ontwikkelingsupdate kan gezamenlijk voor klanten worden gemaakt en staat buiten het persoonlijke budget.
+- Samen wordt gekozen waar de tijd aan wordt besteed; er is geen vast aantal persoonlijke mails boven op het budget beloofd.
+- Ongebruikte tijd gaat één maand mee, tot maximaal één extra maandtegoed. De oudste tijd wordt eerst gebruikt en vervalt daarna.
+- Extra werk: €75 per uur, vooraf begroot en na akkoord. Op de site staat het bedrag alleen bij de algemene uurtarief-FAQ.
+- Grote uitbreidingen en Custom-projecten krijgen een aparte begroting.
+- Plus en Max kunnen een kwartaalcheck inplannen binnen het tegoed, eventueel met meegenomen tijd. Ook advies en implementatie tellen mee.
 
-- Bereikbaar maandag tot en met vrijdag, 09.00–18.00 uur, uitgezonderd feestdagen.
-- Nog geen concrete reactietijden vastgesteld.
-- Uren gaan één maand mee, met maximaal één maandtegoed als spaarlimiet; oudste uren gaan eerst.
-- Service-uren zijn voor hulp, onderhoud, modelupdates en kleine verbeteringen.
-- AITJE bepaalt of werk binnen de SLA past.
-- Extra werk volgt na akkoord tegen normaal uurtarief, zonder kortingen.
-- Grote uitbreidingen en productontwikkeling worden apart geoffreerd en niet over SLA-maanden verdeeld.
-- Mails, inbegrepen APK's en het Max-kwartaaloverleg vallen buiten de service-uren.
-- Modelinstallaties en tests gebeuren in overleg en gebruiken service-uren.
-- Opzeggen tijdens een maand betekent beëindiging aan het einde van de volgende kalendermaand.
+## Bereikbaarheid en looptijd
 
-## Modelbeheer en AI-APK
+Werkdagen van 09.00 tot 18.00 uur, uitgezonderd feestdagen. Prioriteit is geen vaste oplostijd. Opzegging tijdens een maand eindigt aan het einde van de volgende kalendermaand.
 
-Modelbeheer is onderdeel van de SLA en geen apart abonnement. Een APK is inbegrepen bij Plus en Max. Een losse APK is op aanvraag beschikbaar, met een ondergeschikte plek op de site.
+Ondersteuning is bedoeld voor door AITJE geleverde of ingerichte omgevingen. Een onbekende externe omgeving wordt eerst beoordeeld en zo nodig aangepast via een afzonderlijke opdracht. Zonder abonnement blijft de opgeleverde productversie bruikbaar; hulp, updates en beheer kunnen los worden afgenomen.
 
-AITJE bewaart feedback op de extra Max-voorstellen om nieuwe analyses en verbeterideeën beter op de klant af te stemmen.
-
-## Afbakening
-
-De SLA is bedoeld voor door AITJE geleverde of ingerichte omgevingen. Een externe oplossing gaat eerst via een passend betaald refactor- of herbouwtraject voordat ondersteuning wordt afgesproken.
-
-Gebruik van de gekochte productversie blijft mogelijk zonder SLA; hulp is dan los in te kopen.
-
-De oude pakketnamen, uurkortingen, losse Modelbeheer-prijs en automatische voortzetting van een startpakket gelden niet als bevestigde afspraken voor deze nieuwe structuur. Eventuele productbundels worden afzonderlijk bepaald.
-
-## Leidende uitwerking
-
-Zie [Ondersteuning en onderhoud](services/support.md) voor de volledige afspraken, voorbeelden en nog uit te werken punten. De keuzes zijn vastgelegd in [besluit 37](../context/decisions.md).
+Zie [prijsopbouw](pricing.md) en [dienstuitwerking](services/support.md).

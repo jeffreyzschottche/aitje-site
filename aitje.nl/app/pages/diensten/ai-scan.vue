@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import { serviceStructuredData } from "@/utils/structuredData";
 // AI-scan: confirmed scope in redesign/offer/services/ai-scan.md.
 import { getService } from "@/content/services";
 import ServicePageNav from "@/components/ServicePageNav.vue";
+import { euros, introduction, scanIntroductionNote, pricing } from "@/content/pricing";
 
 const service = getService("ai-scan")!;
 const sections = [
@@ -52,10 +54,10 @@ const examples = [
 
 const selectedExample = computed(() => examples[activeExample.value]!);
 const steps = [
-  { title: "De vraag scherp krijgen", label: "Vooraf", text: "In een korte intake bespreek je het doel, de betrokken mensen en de processen die AITJE gaat bekijken." },
+  { title: "De vraag scherp krijgen", label: "Vooraf", text: "In een korte intake kies je maximaal drie belangrijke processen en de betrokken medewerkers. Zo blijft het onderzoek gericht en overzichtelijk." },
   { title: "Meekijken met je werk", label: "Onderzoeksdagdeel · circa 4 uur", text: "Gesprekken en concrete werkvoorbeelden laten zien hoe taken, systemen en informatie samenhangen. Dit kan op locatie of op afstand." },
   { title: "Kansen beoordelen", label: "Na het onderzoek", text: "AITJE weegt de mogelijkheden af tegen de moeite, kosten, risico’s en verwachte waarde voor jouw organisatie." },
-  { title: "Een richting meegeven", label: "Praktisch rapport", text: "Je ontvangt de bevindingen, prioriteiten en aanbevolen vervolgstappen. Waar redelijk te berekenen, met een globale kosten- of besparingsinschatting." },
+  { title: "Een richting meegeven", label: "Rapport + bespreking", text: "Je ontvangt de bevindingen, prioriteiten en aanbevolen vervolgstappen. Daarna bespreken we het rapport in ongeveer een halfuur. Waar redelijk te berekenen, voegen we een globale kosten- of besparingsinschatting toe." },
 ];
 
 const reportItems = [
@@ -86,10 +88,7 @@ usePageSeo({
     { name: "AI-scan", path: "/diensten/ai-scan" },
   ],
   faq: service.faq,
-  schema: [{
-    "@type": "Service", name: service.name, description: service.subline,
-    provider: { "@id": `${useRuntimeConfig().public.siteUrl}/#organization` }, areaServed: "NL",
-  }],
+  schema: [serviceStructuredData(service)],
 });
 </script>
 
@@ -108,8 +107,9 @@ usePageSeo({
       <template #before><NuxtLink to="/diensten" class="scan-back-link">← Alle diensten</NuxtLink></template>
       <div class="scan-hero-actions">
         <UiButton :to="service.cta.to" size="lg" arrow>{{ service.cta.label }}</UiButton>
-        <p><strong>{{ service.price.label }}</strong><span>Excl. btw</span></p>
+        <p><strong>{{ service.price.label }}</strong><span>{{ introduction.scan.active ? 'Introductieprijs · excl. btw' : 'Excl. btw' }}</span></p>
       </div>
+      <p v-if="introduction.scan.active" class="mt-4 max-w-xl text-sm leading-relaxed text-white/80">{{ scanIntroductionNote }} Reguliere prijs: {{ euros(pricing.scan.standard) }}.</p>
     </PageHero>
 
     <ServicePageNav :highlights="service.highlights" :sections="sections" label="Op deze AI-scanpagina" />
@@ -118,7 +118,7 @@ usePageSeo({
       <div class="scan-intro-copy">
         <p class="eyebrow text-brand-ink">Wat is een AI-scan?</p>
         <h2>Eerst je werk begrijpen.</h2>
-        <p class="scan-copy">De AI-scan is een onderzoek naar hoe jouw organisatie werkt en waar AI iets kan toevoegen. AITJE kijkt met je mee: van een terugkerende taak tot de software, informatie en mensen erachter.</p>
+        <p class="scan-copy">De AI-scan onderzoekt maximaal drie belangrijke werkprocessen. AITJE kijkt met je mee: van een terugkerende taak tot de software, informatie en mensen erachter. Tijdens de intake kiezen we samen wat de meeste aandacht verdient.</p>
         <p class="scan-copy">Zo wordt duidelijk waar een aanpassing zinvol is, wat daarvoor nodig is en waar je beter nog niets verandert. Je ontvangt een praktisch rapport waarmee je gericht kunt kiezen.</p>
         <div class="scan-intro-note"><AppIcon name="message" :size="22" /><p>Je hoeft nog geen AI-plan te hebben. Een taak die veel tijd kost, of twijfel over je huidige AI, is een goed vertrekpunt.</p></div>
       </div>
@@ -129,7 +129,7 @@ usePageSeo({
     </div></section>
 
     <section class="scan-section scan-focus"><div class="container-page">
-      <div class="scan-heading-row"><div><p class="eyebrow text-brand-ink">Wat AITJE onderzoekt</p><h2>Het hele proces telt.</h2></div><p class="scan-copy">Waar komt een vraag binnen? Waar staat de informatie? Wie controleert het resultaat? AI wordt pas bruikbaar als die stappen op elkaar aansluiten.</p></div>
+      <div class="scan-heading-row"><div><p class="eyebrow text-brand-ink">Wat AITJE onderzoekt</p><h2>Het hele proces telt.</h2></div><p class="scan-copy">Waar komt een vraag binnen? Waar staat de informatie? Wie controleert het resultaat? De basisinventarisatie van AI-abonnementen, kosten en gegevensstromen hoort bij de scan. Bij vervolgwerk gebruiken we die bevindingen opnieuw.</p></div>
       <div class="scan-process-map" aria-label="Een voorbeeld van een werkproces">
         <span class="scan-map-label">Bijvoorbeeld een klantvraag</span>
         <ol><li><AppIcon name="message" :size="24" /><span>Vraag ontvangen</span></li><li><AppIcon name="search" :size="24" /><span>Informatie zoeken</span></li><li><AppIcon name="pen" :size="24" /><span>Antwoord maken</span></li><li><AppIcon name="check" :size="24" /><span>Controleren</span></li><li><AppIcon name="plug" :size="24" /><span>Verwerken</span></li></ol>
@@ -169,7 +169,7 @@ usePageSeo({
     </div></section>
 
     <section id="dienst-prijs" class="scan-section scan-pricing"><div class="container-page scan-split">
-      <div class="scan-price-block"><p class="eyebrow text-brand-ink">Kosten &amp; afspraken</p><h2>{{ service.price.label }}</h2><p class="scan-price-note">Excl. btw</p><p class="scan-copy">Een korte intake, een onderzoeksdagdeel van ongeveer vier uur, beoordeling en een praktisch rapport. De precieze scope en prijs worden vooraf afgesproken.</p><UiButton :to="service.cta.to" arrow>{{ service.cta.label }}</UiButton></div>
+      <div class="scan-price-block"><p class="eyebrow text-brand-ink">Kosten &amp; afspraken</p><h2>{{ service.price.label }}</h2><p class="scan-price-note">{{ introduction.scan.active ? 'Introductieprijs · excl. btw' : 'Excl. btw' }}</p><p class="scan-copy">{{ service.price.note }}</p><UiButton :to="service.cta.to" arrow>{{ service.cta.label }}</UiButton></div>
       <div class="scan-scope"><h3>De scan geeft richting.</h3><p>Een oplossing bouwen, installeren of uitgebreid technisch testen wordt apart afgesproken. De scan omvat geen volledig technisch ontwerp, bindende businesscase of juridisch advies.</p><div><AppIcon name="handshake" :size="23" /><p><strong>Je kiest zelf het vervolg.</strong> Het rapport is van jou. Je hoeft daarna geen opdracht bij AITJE af te nemen.</p></div></div>
     </div></section>
 
@@ -177,7 +177,7 @@ usePageSeo({
 
     <section id="dienst-vragen" class="scan-section"><div class="container-page scan-faq-grid"><SectionHeading eyebrow="Veelgestelde vragen" title="Nog een vraag over de scan?"><NuxtLink to="/faq" class="scan-text-link">Alle veelgestelde vragen <AppIcon name="arrow-right" :size="17" /></NuxtLink></SectionHeading><FaqList :items="service.faq" /></div></section>
 
-    <section class="scan-next"><div class="container-page"><p class="eyebrow text-brand-ink">Heb je al een concrete vraag?</p><h2>Dan kun je ook direct verder.</h2><div class="scan-next-links"><NuxtLink to="/diensten/advies-en-analyse"><AppIcon name="compass" :size="24" /><div><strong>Advies en analyse</strong><span>Een gerichte technische vraag laten onderzoeken.</span></div><AppIcon name="arrow-up-right" :size="18" /></NuxtLink><NuxtLink to="/diensten/aitje-custom"><AppIcon name="sparkles" :size="24" /><div><strong>AITJE Custom</strong><span>Een specifieke AI-oplossing laten bouwen.</span></div><AppIcon name="arrow-up-right" :size="18" /></NuxtLink><NuxtLink to="/diensten/token-management-en-optimalisatie"><AppIcon name="gauge" :size="24" /><div><strong>Token management &amp; optimalisatie</strong><span>Modelkeuze, workflows en AI-kosten verbeteren.</span></div><AppIcon name="arrow-up-right" :size="18" /></NuxtLink></div></div></section>
+    <RelatedServices :slug="service.slug" />
 
     <CtaBanner title="Waar kan AI jouw werk verbeteren?" text="Vertel waar je team tijd verliest of waar je over twijfelt. AITJE helpt je bepalen wat de scan voor jouw organisatie moet onderzoeken." :primary="service.cta" :secondary="{ label: 'Bespreek je AI-vraag', to: '/contact' }" />
   </div>

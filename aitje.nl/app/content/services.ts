@@ -1,7 +1,8 @@
 // Services (redesign/offer/services, offer/pricing.md, pages/service.md, besluiten 28, 31-37, 51).
-// Prices are dummy data until checked before publication (besluit 19).
+// Current prices and scopes approved by the founder on 5 October 2026.
 import type { Service } from "./types";
 import { contactLink } from "./site";
+import { euros, introduction, scanIntroductionNote, pricing, scanPrice, serviceTime } from "./pricing";
 
 export const services: Service[] = [
   {
@@ -21,7 +22,7 @@ export const services: Service[] = [
       "Van terugkerende taken tot je huidige AI-gebruik: AITJE onderzoekt hoe je werkt en waar verbetering mogelijk is. Je ontvangt een praktisch rapport met kansen, prioriteiten en vervolgstappen.",
     cta: { label: "Vraag een AI-scan aan", to: contactLink("ai-scan") },
     intro: [
-      "De AI-scan is een onderzoek naar hoe jouw organisatie werkt en waar AI iets kan toevoegen. AITJE kijkt naar taken, systemen, informatie en huidig AI-gebruik om te bepalen waar tijd, geld of kwaliteit verloren gaat.",
+      "De AI-scan onderzoekt maximaal drie belangrijke werkprocessen. AITJE kijkt naar taken, systemen, informatie en huidig AI-gebruik om te bepalen waar tijd, geld of kwaliteit verloren gaat. Tijdens de intake kiezen we samen de processen en betrokken medewerkers.",
       "Je ontvangt een praktisch rapport met concrete kansen en prioriteiten. Zo kun je kiezen wat je wilt verbeteren en wat daarvoor nodig is. De uitkomst kan ook zijn dat je voorlopig niets hoeft te veranderen.",
     ],
     forWho: [
@@ -45,23 +46,26 @@ export const services: Service[] = [
       },
       {
         title: "Rapport",
-        text: "Een beknopt, praktisch rapport met kansen, prioriteiten, risico's en logische vervolgstappen.",
+        text: "Een beknopt, praktisch rapport met kansen, prioriteiten, risico's en vervolgstappen. Je bespreekt het resultaat daarna in een gesprek van ongeveer een halfuur.",
       },
     ],
     deliverables: [
       "Overzicht van de onderzochte processen en je huidige AI-gebruik",
+      "Basisinventarisatie van AI-abonnementen, kosten en gegevensstromen",
       "Concrete kansen om AI toe te passen of te verbeteren",
       "Een praktische prioritering van die kansen",
       "De verwachte impact op werk, kwaliteit, kosten of continuïteit",
       "Risico's, aandachtspunten en geadviseerde vervolgstappen",
       "Waar redelijk te berekenen: een globale kosten- of besparingsinschatting",
+      "Een bespreking van het rapport en de aanbevolen vervolgstappen",
     ],
     price: {
-      label: "Vanaf €595",
-      note: "Intake, onderzoeksdagdeel van ongeveer vier uur, beoordeling en rapport. De scope en prijs stem je vooraf af.",
+      label: euros(scanPrice),
+      note: `${introduction.scan.active ? `${scanIntroductionNote} Reguliere prijs: ${euros(pricing.scan.standard)}. ` : ""}Inclusief intake, circa vier uur onderzoek naar maximaal drie processen, beoordeling, compact rapport en een bespreking van een halfuur. De scope en eventuele reis- of locatiekosten spreek je vooraf af.`,
     },
     notIncluded: [
       "Uitgebreide technische modeltests of een volledig technisch ontwerp",
+      "Organisatiebreed onderzoek buiten de afgesproken processen of een diepgaande datalocatiecheck",
       "Het bouwen of installeren van een oplossing",
       "Een bindende businesscase of financiële garantie",
       "Juridisch, financieel of compliance-advies",
@@ -69,7 +73,7 @@ export const services: Service[] = [
     faq: [
       {
         q: "Wat is een AI-scan?",
-        a: "Een onderzoek naar je werkprocessen, de systemen die je gebruikt en je huidige AI-gebruik. Na een korte intake en een onderzoeksdagdeel van ongeveer vier uur ontvang je een praktisch rapport met kansen, prioriteiten en vervolgstappen. Vanaf €595 (excl. btw), met scope en prijs vooraf afgesproken.",
+        a: `Een onderzoek naar maximaal drie werkprocessen, de systemen die je gebruikt en je huidige AI-gebruik. Inclusief intake, circa vier uur onderzoek, een compact rapport en een bespreking van een halfuur. ${introduction.scan.active ? `De introductieprijs is ${euros(scanPrice)} voor de eerste ${introduction.scan.customerLimit} betaalde klanten; de reguliere prijs is ${euros(pricing.scan.standard)}.` : `De prijs is ${euros(scanPrice)}.`} Alle bedragen zijn exclusief btw. Scope en eventuele reis- of locatiekosten spreek je vooraf af.`,
         general: true,
       },
       {
@@ -86,7 +90,15 @@ export const services: Service[] = [
       },
       {
         q: "Kijkt de AI-scan ook naar abonnementen en tokenkosten?",
-        a: "Ja. De scan brengt huidig AI-gebruik, abonnementen en mogelijke optimalisaties op hoofdlijnen in kaart. Een diepere modelvergelijking, het aanpassen van workflows en beheer worden apart afgesproken via [Token management & optimalisatie](/diensten/token-management-en-optimalisatie).",
+        a: "Ja. De basisinventarisatie van AI-gebruik, abonnementen, kosten en gegevensstromen hoort erbij. Bij vervolgwerk gebruiken we die bevindingen opnieuw. Een diepere modelvergelijking, het aanpassen van workflows en beheer worden apart afgesproken via [Token management & optimalisatie](/diensten/token-management-en-optimalisatie).",
+      },
+      {
+        q: "Onderzoekt de scan ook waar mijn data terechtkomt?",
+        a: "De scan inventariseert gebruikte AI-diensten, gegevensstromen en duidelijke aandachtspunten. Instellingen en verwerking of opslag door aanbieders diepgaand verifiëren kan extra onderzoek vragen. Met een [AI-datalocatiecheck](/diensten/veilig-ai-gebruik) betaal je alleen voor de aanvullende verdieping; bevindingen uit de scan nemen we mee.",
+      },
+      {
+        q: "Moet ik eerst een scan kopen voordat ik een product kan bestellen?",
+        a: "Nee. Als je doel en benodigde omgeving al duidelijk zijn, kun je rechtstreeks een product met installatie afnemen. Voor een concrete vraag is ook een gerichte adviessessie mogelijk.",
       },
       {
         q: "Krijgt AITJE toegang tot al mijn systemen en gegevens?",
@@ -108,7 +120,7 @@ export const services: Service[] = [
     ],
     related: ["advies-en-analyse", "aitje-custom", "optimalisatie"],
     seoDescription:
-      "De AI-scan van AITJE: ontdek waar AI jouw werk makkelijker, beter of goedkoper maakt. Praktisch rapport met kansen en vervolgstappen. Vanaf €595.",
+      `De AI-scan van AITJE: circa vier uur onderzoek naar maximaal drie processen, een compact rapport en bespreking. ${introduction.scan.active ? "Introductieprijs" : "Prijs"} ${euros(scanPrice)}, excl. btw.`,
   },
   {
     slug: "token-management-en-optimalisatie",
@@ -170,9 +182,8 @@ export const services: Service[] = [
       "Documentatie en afspraken over gegevens, toegang en eventueel beheer",
     ],
     price: {
-      label: "Op aanvraag",
-      onRequest: true,
-      note: "Inventarisatie, vergelijking, uitvoering en eventueel beheer worden vooraf afgebakend. Je kunt ook alleen een analyse laten doen. Abonnementen, modelgebruik, hardware en hosting worden apart begroot.",
+      label: "Vast uurtarief",
+      note: "Inventarisatie, vergelijking, uitvoering en eventueel beheer krijgen vooraf een urenbegroting. Je kunt ook alleen een analyse laten doen. Bevindingen uit de AI-scan gebruiken we opnieuw. Abonnementen, modelgebruik, hardware en hosting worden apart begroot.",
     },
     notIncluded: [
       "Externe API-kosten, hardware, hosting of softwarelicenties",
@@ -304,24 +315,29 @@ export const services: Service[] = [
     ],
     parts: [
       {
+        name: "Gerichte adviessessie",
+        text: "Eén concrete AI-vraag, met voorbereiding, een gesprek en een korte schriftelijke aanbeveling. Twee uur werk in totaal; de gesprekstijd spreken we vooraf af.",
+        price: euros(pricing.advice.price),
+      },
+      {
         name: "Kostenanalyse",
-        text: "Abonnementen, tokengebruik, modellen en infrastructuur in kaart, met alternatieven en waar het goedkoper of efficiënter kan.",
-        price: "Vanaf €499",
+        text: "Gerichte analyse van beschikbare facturen en gebruiksgegevens, met alternatieven en verbeterkansen. Startbegroting: circa drie uur. Een basisinventarisatie uit de AI-scan nemen we mee.",
+        price: `Vanaf ${euros(pricing.costAnalysis.from)}`,
       },
       {
         name: "Praktisch werken met AI",
-        text: "Training voor je team: goede opdrachten geven, het juiste model kiezen, resultaten controleren en omgaan met gevoelige informatie.",
-        price: "Vanaf €399",
+        text: "Een teamsessie van twee uur met eigen praktijkvoorbeelden, voorbereiding en naslagmateriaal. Circa vier uur werk in totaal. Teamgrootte en onderwerpen spreken we vooraf af.",
+        price: euros(pricing.training.price),
       },
       {
         name: "AI-beleid",
-        text: "Praktische afspraken over welke tools en gegevens wel en niet mogen, en wie waarvoor verantwoordelijk is.",
-        price: "Vanaf €399",
+        text: "Praktische interne afspraken over tools, gegevens en verantwoordelijkheden, aangepast aan jouw organisatie en samen besproken. Startbegroting: circa drie uur.",
+        price: `Vanaf ${euros(pricing.aiGuidelines.from)}`,
       },
     ],
     price: {
-      label: "Vast uurtarief",
-      note: "Je spreekt vooraf het uurtarief, de scope en de verwachte uren af. Een grotere analyse krijgt een eigen voorstel. Eventuele bouw wordt apart begroot en start na jouw akkoord.",
+      label: `Vanaf ${euros(pricing.advice.price)}`,
+      note: "Voor een gerichte adviessessie met twee uur werk in totaal, inclusief voorbereiding, gesprek en korte aanbeveling. Een grotere analyse krijgt een eigen urenbegroting. Bestaande bevindingen nemen we mee; eventuele bouw start na jouw akkoord op een apart voorstel.",
     },
     notIncluded: [
       "Bouw of installatie van de geadviseerde oplossing",
@@ -340,7 +356,7 @@ export const services: Service[] = [
       },
       {
         q: "Kan ik AITJE los inhuren voor een paar uur?",
-        a: "Ja. Voor een gerichte vraag kan AITJE een paar uur meedenken. Het vaste uurtarief en de verwachte uren spreek je vooraf af. Een groter vraagstuk krijgt een afgebakend voorstel.",
+        a: `Ja. Een gerichte adviessessie kost ${euros(pricing.advice.price)} exclusief btw en omvat twee uur werk in totaal: voorbereiding, gesprek en korte aanbeveling. Een groter vraagstuk krijgt een afgebakend voorstel met verwachte uren en budget.`,
       },
       {
         q: "Wordt het idee ook getest?",
@@ -358,6 +374,7 @@ export const services: Service[] = [
     caseSlugs: [
       "productteksten-zonder-tokenkosten",
       "chatgpt-of-codex-in-je-eigen-organisatie",
+      "3d-productmodellen-met-ai",
     ],
     related: ["ai-scan", "optimalisatie", "veilig-ai-gebruik"],
     seoDescription:
@@ -419,18 +436,18 @@ export const services: Service[] = [
     parts: [
       {
         name: "Standaardinstallatie",
-        text: "Assistent of Coder volgens de vaste installatierichtlijnen op een geschikte, vooraf afgestemde omgeving installeren en inrichten.",
-        price: "Vanaf €199",
+        text: "Assistent of Coder installeren, testen en uitleg geven op een geschikte, vooraf afgestemde omgeving. Begroot op twee tot tweeënhalf uur, inclusief afgesproken korte nazorg.",
+        price: `Vanaf ${euros(pricing.installation.from)}`,
       },
       {
         name: "Hardwareonderzoek",
-        text: "Bestaande hardware beoordelen of uitzoeken welke computer en capaciteit passen bij de modellen en het gebruik.",
-        price: "€125",
+        text: "Aanvullend onderzoek bij afwijkende hardware of capaciteit. Eerdere bevindingen uit een scan of advies gebruiken we opnieuw; extra onderzoek krijgt vooraf een urenbegroting.",
+        price: "Vast uurtarief",
       },
       {
         name: "Onderzoek digitale omgeving",
-        text: "Je eigen server, hosting en netwerk beoordelen, inclusief benodigde toegang en mogelijke beperkingen voor de installatie.",
-        price: "€125",
+        text: "Verdiepend onderzoek naar een server, hosting of netwerk wanneer de omgeving nog onvoldoende duidelijk is. Scope en uren spreken we vooraf af.",
+        price: "Vast uurtarief",
       },
       {
         name: "Uitgebreidere inrichting",
@@ -439,8 +456,8 @@ export const services: Service[] = [
       },
     ],
     price: {
-      label: "Vanaf €199",
-      note: "Voor een standaardinstallatie met vooraf afgesproken scope. Productkosten, hardware of serverhuur en aanvullende inrichting staan apart in het voorstel. Je kunt ook geschikte eigen hardware of zelf gekozen hosting gebruiken.",
+      label: `Vanaf ${euros(pricing.installation.from)}`,
+      note: "Voor een basisinstallatie op een bekende, geschikte omgeving: installeren, testen, uitleg en afgesproken korte nazorg, begroot op twee tot tweeënhalf uur. Productkosten en infrastructuur staan apart. Netwerkwerk, uitgebreide kennisbankinrichting en koppelingen krijgen een eigen begroting. Bevindingen uit eerder onderzoek gebruiken we opnieuw.",
     },
     notIncluded: [
       "De prijs van hardware of servercapaciteit",
@@ -451,7 +468,7 @@ export const services: Service[] = [
     faq: [
       {
         q: "Wat valt onder Installatie en inrichting?",
-        a: "AITJE helpt een passende computer, server, droplet of GPU-VPS kiezen en installeert de afgesproken AI-software, modellen en gegevensopslag. Accounts, rollen, bronnen en koppelingen worden ingericht volgens de vooraf afgesproken scope. Na een test ontvang je uitleg en basisdocumentatie. Standaardinstallatie vanaf €199 (excl. btw), met hardware en serverkosten apart.",
+        a: `Een basisinstallatie begint bij ${euros(pricing.installation.from)} exclusief btw: de afgesproken software installeren, testen en uitleg geven op een bekende, geschikte omgeving, met korte nazorg zoals afgesproken. Hiervoor begroten we twee tot tweeënhalf uur. Productkosten, hardware of serverhuur, netwerkwerk, uitgebreide kennisbankinrichting en koppelingen worden afzonderlijk begroot.`,
         general: true,
       },
       {
@@ -494,7 +511,7 @@ export const services: Service[] = [
         general: true,
       },
     ],
-    caseSlugs: ["chatgpt-of-codex-in-je-eigen-organisatie", "spraak-naar-werkorder"],
+    caseSlugs: ["chatgpt-of-codex-in-je-eigen-organisatie", "spraak-naar-werkorder", "council-hub"],
     related: ["ondersteuning-en-onderhoud", "aitje-custom", "ai-scan"],
     seoDescription:
       "AITJE kiest en richt hardware, een server of GPU-VPS in voor je AI-oplossing. Ook op bestaande hardware of eigen hosting. Software, modellen en opslag gebruiksklaar.",
@@ -555,8 +572,8 @@ export const services: Service[] = [
     parts: [
       {
         name: "Guardrailcheck",
-        text: "Controle van begrenzingen, menselijke controle, foutafhandeling, noodstop en logging. Inbouwen gaat per uur.",
-        price: "€449",
+        text: "Circa vier uur voor één afgebakende workflow: begrenzingen, menselijke controle, foutafhandeling en logging controleren en gericht testen. Je ontvangt bevindingen; aanpassingen worden apart begroot.",
+        price: `Vanaf ${euros(pricing.guardrailCheck.from)}`,
       },
     ],
     price: {
@@ -603,7 +620,7 @@ export const services: Service[] = [
         a: "Nee. Het is een praktische technische beoordeling, geen juridisch oordeel of garantie dat een systeem nooit fouten maakt.",
       },
     ],
-    caseSlugs: ["3d-productmodellen-met-ai", "council-hub"],
+    caseSlugs: ["3d-productmodellen-met-ai", "council-hub", "productteksten-zonder-tokenkosten"],
     related: [
       "advies-en-analyse",
       "ondersteuning-en-onderhoud",
@@ -665,13 +682,13 @@ export const services: Service[] = [
     parts: [
       {
         name: "AI-datalocatiecheck",
-        text: "In welke landen wordt jouw AI-data verwerkt en opgeslagen? Aanbieders, bekende servers, landen en instellingen in kaart.",
-        price: "€1.499",
+        text: "Gerichte check van een beperkt aantal bekende AI-diensten, beschikbare providerinformatie en instellingen. Circa drie uur voor een eenvoudige situatie. Bevindingen uit een scan gebruiken we opnieuw; onzekerheden blijven zichtbaar.",
+        price: `Vanaf ${euros(pricing.dataCheck.from)}`,
       },
       {
         name: "Praktische maatregelen",
         text: "Anonimisatie, rolrechten in RAG, guardrails, bevestiging door medewerkers, budgetlimieten en logging. De gekozen aanpassingen worden vooraf afgesproken.",
-        price: "Per uur",
+        price: "Vast uurtarief",
       },
       {
         name: "AI-wegwijs",
@@ -680,8 +697,8 @@ export const services: Service[] = [
       },
     ],
     price: {
-      label: "€1.499",
-      note: "Voor de AI-datalocatiecheck: overzicht en verbeteradvies op hoofdlijnen. Een maatregelenplan, technische aanpassingen en vervolgonderzoek worden apart op scope en uren afgesproken.",
+      label: `Vanaf ${euros(pricing.dataCheck.from)}`,
+      note: "Voor een eenvoudige AI-datalocatiecheck, begroot op circa drie uur voor een beperkt aantal bekende diensten. De basisinventarisatie hoort al bij de AI-scan; eerdere bevindingen gebruiken we opnieuw. Verdiepend technisch onderzoek en uitvoering krijgen een aparte urenbegroting. De onderzochte diensten en oplevering spreek je vooraf af.",
     },
     notIncluded: [
       "Een bindend juridisch oordeel, certificering of compliancegarantie",
@@ -689,6 +706,11 @@ export const services: Service[] = [
       "Uitgebreid vervolgonderzoek",
     ],
     faq: [
+      {
+        q: "Wat kost een AI-datalocatiecheck?",
+        a: `Vanaf ${euros(pricing.dataCheck.from)} exclusief btw voor een eenvoudige situatie, begroot op circa drie uur. We controleren een vooraf afgesproken, beperkt aantal bekende AI-diensten, instellingen en beschikbare providerinformatie. De basisinventarisatie is onderdeel van de AI-scan. Eerdere bevindingen gebruiken we opnieuw; aanvullend technisch onderzoek en maatregelen begroten we apart.`,
+        general: true,
+      },
       {
         q: "Hoe helpt AITJE bij veilig AI-gebruik?",
         a: "AITJE brengt gegevensstromen, toegang, datalocaties en instellingen in kaart en kan praktische maatregelen inrichten. Denk aan persoonsgegevens verwijderen vóór een externe modelcall, rolrechten voor de kennisbank, menselijke bevestiging, guardrails, gebruikslimieten en logging. Onderzoek en uitvoering worden vooraf afgebakend.",
@@ -749,6 +771,7 @@ export const services: Service[] = [
     caseSlugs: [
       "documenten-doorzoeken-en-lakken",
       "chatgpt-of-codex-in-je-eigen-organisatie",
+      "spraak-naar-werkorder",
     ],
     related: ["advies-en-analyse", "installatie-en-inrichting", "ai-scan"],
     seoDescription:
@@ -757,40 +780,42 @@ export const services: Service[] = [
   {
     slug: "aitje-custom",
     name: "AITJE Custom — AI op maat",
-    short: "Een persoonlijk AI-project, van analyse en ontwerp tot bouwen, testen en gebruiksklare oplevering.",
+    short: "Automatiseringen, eigen apps, AI-agents en 3D/VR. Van jouw vraag naar een passende oplossing, lokaal of met externe AI.",
     icon: "sparkles",
     highlights: [
-      { icon: "compass", text: "Van analyse tot livegang" },
-      { icon: "code", text: "Bouwen en bijsturen" },
-      { icon: "sparkles", text: "Compleet maatwerkproject" },
+      { icon: "workflow", text: "Automatisering, apps & meer" },
+      { icon: "server", text: "Lokale & externe AI" },
+      { icon: "compass", text: "Van idee tot werkende oplossing" },
     ],
     image: "/img/covers/v2/aitje-custom.webp",
-    headline: "Jouw AI-project. Van idee tot eindproduct.",
+    headline: "Alles rond AI. Op maat voor jouw werk.",
     subline:
-      "Van analyse en ontwerp tot bouwen, testen en live zetten. AITJE ontwikkelt je oplossing op uurbasis en verwerkt feedback tot het afgesproken eindproduct klaar is.",
-    cta: { label: "Bespreek je AI-project", to: contactLink("ai-op-maat") },
+      "Een taak automatiseren, een eigen app bouwen of verder met je bestaande AI. Wij helpen je kiezen, bouwen en gebruiken. Lokaal, op een server of met externe AI: jouw situatie bepaalt de aanpak.",
+    cta: { label: "Bespreek je idee", to: contactLink("ai-op-maat") },
     intro: [
-      "AITJE Custom is je persoonlijke AI-project voor een vraag die verder gaat dan de vaste producten en oplossingen. Dat kan een nieuwe toepassing zijn, of een bestaande aanpak die anders wordt ingericht voor jouw werk, gegevens en systemen.",
-      "Je spreekt af wat de oplossing moet doen en wat er nodig is om die in gebruik te nemen. AITJE verzorgt het hele traject: uitdenken, de techniek kiezen, programmeren, koppelen, testen en verbeteren. Ook live zetten en de afgesproken feedbackrondes horen bij het project.",
+      "AITJE Custom is één aanspreekpunt voor jouw vragen en ideeën rond AI. Van een workflow in n8n of Zapier tot een eigen toepassing voor telefoon, desktop of tablet, een AI-agent, 3D-visualisatie of VR-ervaring. We verbinden modellen, software en systemen tot iets dat past bij jouw werk.",
+      "Je hoeft geen technisch plan of geschikte server te hebben. Vertel welke taak veel tijd kost, wat je wilt bouwen of waar je huidige oplossing vastloopt. Wij helpen je wegwijs worden, onderzoeken de beste aanpak voor jouw situatie en begeleiden het bouwen, testen en in gebruik nemen. Gegevens, kosten en onafhankelijkheid nemen we vanaf het begin mee.",
     ],
     forWho: [
-      "Een vraag die verder gaat dan een vast product",
-      "Een eigen workflow, agent of toepassing",
-      "Een bestaande oplossing op een nieuwe manier inzetten",
-      "IT-bedrijven die maatwerk voor klanten willen laten bouwen",
+      "Je wilt terugkerende taken automatiseren",
+      "Je hebt een idee voor een eigen app, agent of visuele ervaring",
+      "Je bouwt al met AI en kunt hulp gebruiken met code of kosten",
+      "Je zoekt een passende lokale, externe of gecombineerde aanpak",
+      "Je wilt eerst begrijpen wat haalbaar is en wat het oplevert",
+      "Je wilt als IT-bedrijf maatwerk voor een klant laten bouwen",
     ],
     steps: [
       {
         title: "Analyse & ontwerp",
-        text: "Je werk, het doel en de gewenste werking uitdenken, inclusief gegevens, koppelingen, risico’s en een plan om het resultaat te testen.",
+        text: "Beginnen bij de taak die tijd kost of het idee dat je wilt uitwerken. We onderzoeken kansen, gegevens, bestaande tools en een haalbare eerste stap.",
       },
       {
         title: "De omgeving kiezen",
-        text: "Passende modellen, hardware en een server kiezen: lokaal, via een API of gecombineerd, met capaciteit, privacy, kosten en beheer in beeld.",
+        text: "Modellen, automatiseringstools en infrastructuur vergelijken: lokaal, op een server, via externe AI of gecombineerd. Werking, gegevens, kosten en beheer bepalen de keuze.",
       },
       {
         title: "Bouwen & koppelen",
-        text: "Software programmeren, de interface maken en je systemen verbinden, met de instructies, kennis en controles die de toepassing nodig heeft.",
+        text: "De workflow, app, agent of visuele ervaring bouwen en met je systemen verbinden. We richten kennis, instructies, toegang en passende controles in.",
       },
       {
         title: "Testen & optimaliseren",
@@ -815,7 +840,7 @@ export const services: Service[] = [
     ],
     price: {
       label: "Vast uurtarief",
-      note: "Het hele traject werkt op uurbasis: analyse, ontwerp, ontwikkeling, tests, optimalisatie, livegang en feedback. Vooraf spreek je de scope, verwachte uren en budget per fase af. Extra werk begint na jouw akkoord. Hardware, hosting, licenties en externe modelkosten worden apart begroot.",
+      note: `Start met een afgebakende onderzoeksfase van vier tot acht uur (${euros(pricing.hourlyRate * pricing.custom.firstPhaseMinHours)}–${euros(pricing.hourlyRate * pricing.custom.firstPhaseMaxHours)}, excl. btw) voor vraag, haalbaarheid en aanpak. Daarna begroten we bouwen, testen en opleveren per fase. Extra werk begint na jouw akkoord. Hardware, hosting, licenties en externe modelkosten staan apart.`,
     },
     notIncluded: [
       "Hardware, hosting, licenties en externe API-kosten",
@@ -825,9 +850,33 @@ export const services: Service[] = [
     ],
     faq: [
       {
+        q: "Hoe klein kan ik beginnen met AITJE Custom?",
+        a: `Je kunt starten met vier tot acht uur onderzoek naar de vraag, technische haalbaarheid en aanpak: ${euros(pricing.hourlyRate * pricing.custom.firstPhaseMinHours)}–${euros(pricing.hourlyRate * pricing.custom.firstPhaseMaxHours)}, exclusief btw. Dit is de onderzoeksfase. Voor ontwikkeling, tests, livegang en overdracht krijg je daarna een eigen begroting. Per fase kun je doorgaan, bijsturen of stoppen.`,
+      },
+      {
         q: "Hoe werkt AITJE Custom?",
-        a: "AITJE Custom is een compleet maatwerktraject voor een vraag die verder gaat dan de vaste producten en oplossingen. AITJE analyseert, ontwerpt, kiest de techniek, bouwt, test, optimaliseert en zet de oplossing live. Ook de afgesproken feedbackrondes en overdracht horen erbij. Je betaalt de afgesproken werkzaamheden tegen uurtarief; uren en budget worden vooraf per fase afgestemd.",
+        a: "AITJE Custom helpt met jouw vragen en ideeën rond AI: automatiseringen, koppelingen, apps voor telefoon, desktop of tablet, AI-agents en 3D/VR-toepassingen. Ook als je bestaande code, workflow of prototype hulp nodig heeft. We onderzoeken de passende combinatie van lokale en externe AI, software en infrastructuur, bouwen en testen de oplossing en begeleiden de ingebruikname. Scope, uren en budget spreken we vooraf per fase af.",
         general: true,
+      },
+      {
+        q: "Kan ik ook aankloppen als ik alleen een idee of een lastige taak heb?",
+        a: "Ja. Je hoeft nog geen model, platform of server te kiezen. Vertel wat je nu doet, wat je anders wilt en waar je tegenaan loopt. We helpen de vraag concreet maken en kiezen een haalbare eerste stap. Dat kan beginnen met onderzoek, een kleine automatisering of hulp aan iets dat je al gebruikt.",
+      },
+      {
+        q: "Werkt AITJE met n8n, Zapier, OpenAI en Claude?",
+        a: "Die kunnen onderdeel van de oplossing zijn, net als Make, OpenRouter, lokale modellen, Ollama, vLLM en andere tools. We kiezen wat bij je taak, gegevens, bestaande systemen en budget past. Een externe dienst houdt zijn eigen voorwaarden en gebruikskosten; we maken duidelijk welke onderdelen lokaal draaien en welke gegevens naar buiten gaan.",
+      },
+      {
+        q: "Kunnen jullie ook een app, 3D-karakter of VR-toepassing bouwen?",
+        a: "Ja, dat kan binnen een afgesproken Custom-project. Denk aan een interne webapp voor telefoon of tablet, een desktoptool, een interactief productmodel, visuele inzage in data of een digitaal karakter voor uitleg en training. We toetsen de gewenste werking, apparaten, gegevens en haalbaarheid voordat we de bouw begroten.",
+      },
+      {
+        q: "Ik ben al aan het vibe coden. Kunnen jullie helpen?",
+        a: "Ja. We kunnen bestaande code en je werkwijze nalopen, fouten onderzoeken, de inrichting verbeteren en helpen je prototype bruikbaar te maken. Ook oplopende modelkosten, eindeloos debuggen en ontbrekende koppelingen kunnen we onderzoeken. We spreken eerst af welke code en taken we bekijken en welk budget beschikbaar is.",
+      },
+      {
+        q: "Kunnen jullie lokale AI goedkoper en veiliger inrichten?",
+        a: "We onderzoeken welke opstelling in jouw situatie passend is. Lokale modelstappen kunnen zonder externe tokenkosten draaien en gegevens in je eigen omgeving verwerken. Hardware, stroom, serverhuur en beheer tellen wel mee. Toegangsrechten, minimale gegevensdeling, controles en eventuele externe koppelingen nemen we mee in het ontwerp. We vergelijken de opties in plaats van vooraf een vaste besparing te beloven.",
       },
       {
         q: "Moet het iets zijn dat AITJE nog nooit heeft gebouwd?",
@@ -851,7 +900,7 @@ export const services: Service[] = [
       },
       {
         q: "Kan AITJE mijn bestaande hardware en systemen gebruiken?",
-        a: "Ja, als ze geschikt zijn voor de toepassing. AITJE beoordeelt de capaciteit, toegang en mogelijkheden voor koppelingen. Je kunt eigen hardware, een bestaande server of je hostingpartij gebruiken. Waar nodig helpt AITJE een nieuwe omgeving kiezen en inrichten; de kosten worden apart afgesproken.",
+        a: "Ja, als ze geschikt zijn voor de toepassing. Je hoeft niet vooraf zelf hardware te bezitten: we kunnen de benodigde omgeving regelen. Denk aan een Mac mini, BOSGAME, Dell AI-server of NVIDIA DGX Spark, een eigen server, een Hetzner VPS voor passende taken of GPU-capaciteit bij Nebius. Het model, de taak, het aantal gebruikers en je budget bepalen wat geschikt is. Infrastructuurkosten begroten we apart.",
       },
       {
         q: "Moet de oplossing lokaal draaien?",
@@ -885,7 +934,7 @@ export const services: Service[] = [
       "ondersteuning-en-onderhoud",
     ],
     seoDescription:
-      "AITJE Custom is je complete AI-project op uurbasis: analyse, ontwerp, hardware of server kiezen, ontwikkelen, testen, optimaliseren, live zetten en feedback verwerken.",
+      "AI op maat: workflows met n8n of Zapier, eigen apps, agents en 3D/VR. AITJE helpt kiezen en bouwen, met lokale of externe AI en grip op gegevens en kosten.",
   },
   {
     slug: "ondersteuning-en-onderhoud",
@@ -905,7 +954,7 @@ export const services: Service[] = [
     cta: { label: "Bespreek je SLA", to: contactLink("sla") },
     intro: [
       "Met een SLA, een Service Level Agreement, spreek je af hoe AITJE je AI-omgeving ondersteunt en verder helpt. Je hebt iemand die je opstelling kent: voor problemen, onderhoud, passende modellen, betere prompts en skills die aansluiten op je werk.",
-      "AITJE kijkt ook vooruit. Welke nieuwe ontwikkeling is relevant voor jouw stack? Welke analyse helpt je kiezen? Is er al een workflow voor vergelijkbaar werk die bij jou past? Hoe uitgebreider de SLA, hoe proactiever AITJE ideeën, tips en demo's met je deelt.",
+      "Je kiest een duidelijk tijdsbudget: een halfuur bij Core, anderhalf uur bij Plus of drie uur bij Max. Persoonlijk advies, controles, overleg en uitvoering vallen binnen dat budget. We gebruiken de tijd voor de vragen en verbeteringen die voor jou het meest opleveren.",
     ],
     forWho: [
       "Een AITJE-product of ingerichte AI-omgeving",
@@ -916,31 +965,32 @@ export const services: Service[] = [
     steps: [
       {
         title: "Niveau kiezen",
-        text: "Core, Plus of Max: afgestemd op je omgeving, de gewenste hulp en hoeveel proactief advies je wilt ontvangen.",
+        text: "Core, Plus of Max: afgestemd op je omgeving, de gewenste hulp en het maandelijkse tijdsbudget.",
       },
       {
         title: "Hulp & verbeteringen",
         text: "Inbegrepen uren inzetten voor hulp, onderhoud, modelbeheer, prompts, skills en kleine aanpassingen. Groter werk wordt vooraf besproken.",
       },
       {
-        title: "Persoonlijke updates",
-        text: "Relevante modelontwikkelingen, analyses en toepassingsideeën voor jouw stack. De frequentie en mate van meedenken volgen je SLA-niveau.",
+        title: "Relevant blijven",
+        text: "Een algemene update deelt relevante ontwikkelingen. Persoonlijke analyses en toepassingsideeën stemmen we af binnen je tijdsbudget.",
       },
       {
         title: "AI-APK & vervolg",
-        text: "Bij Plus en Max per kwartaal een beoordeling met advies. Een passende verbetering of demo? Jij kiest of AITJE die implementeert.",
+        text: "Bij Plus en Max kan een kwartaalcheck met advies worden ingepland binnen het beschikbare tijdsbudget. Jij kiest welke verbeteringen worden uitgevoerd.",
       },
     ],
     deliverables: [
       "Inbegrepen service-uren voor hulp en kleine verbeteringen",
       "Beheer van modellen, prompts en skills binnen de afgesproken uren",
-      "Persoonlijke updates over je omgeving en relevante mogelijkheden",
+      "Een algemene update over relevante ontwikkelingen",
+      "Persoonlijk advies en overleg binnen je tijdsbudget",
       "Op verzoek inzage in passende analyses van AITJE",
-      "Bij Plus en Max: telefonisch contact en een AI-APK per kwartaal",
+      "Bij Plus en Max: telefonisch contact en een kwartaalcheck binnen het beschikbare tijdsbudget",
     ],
     price: {
-      label: "Vanaf €49,99 per maand",
-      note: "Opzeggen tijdens een maand betekent beëindiging aan het einde van de volgende kalendermaand.",
+      label: `Vanaf ${euros(pricing.support.core.monthly)} per maand`,
+      note: "Core bevat 30 minuten, Plus 1,5 uur en Max 3 uur per maand. Persoonlijke analyses, controles, overleg en uitvoering tellen mee. Een algemene ontwikkelingsupdate staat daar los van. Ongebruikte tijd gaat één maand mee, tot maximaal één extra maandtegoed. Opzeggen tijdens een maand betekent beëindiging aan het einde van de volgende kalendermaand.",
     },
     notIncluded: [
       "Extra werk buiten de service-uren (na akkoord, tegen normaal uurtarief)",
@@ -950,7 +1000,7 @@ export const services: Service[] = [
     faq: [
       {
         q: "Wat houdt Ondersteuning en onderhoud in?",
-        a: "Een SLA met inbegrepen service-uren en doorlopend meedenken over je AI-omgeving. AITJE helpt met onderhoud, modellen, prompts, skills en kleine verbeteringen, en deelt relevante ontwikkelingen en ideeën. Core, Plus en Max verschillen in uren, contact en proactiviteit. Vanaf €49,99 per maand (excl. btw).",
+        a: `Core kost ${euros(pricing.support.core.monthly)} per maand voor 30 minuten, Plus ${euros(pricing.support.plus.monthly)} voor 1,5 uur en Max ${euros(pricing.support.max.monthly)} voor 3 uur, exclusief btw. Hulp, onderhoud, persoonlijk advies, controles, overleg en uitvoering vallen binnen dat tijdsbudget. Een algemene ontwikkelingsupdate staat daar los van. Extra werk begint na jouw akkoord.`,
         general: true,
       },
       {
@@ -959,11 +1009,11 @@ export const services: Service[] = [
       },
       {
         q: "Wat gebeurt er met ongebruikte uren?",
-        a: "Ongebruikte uren gaan één maand mee, met maximaal één maandtegoed. De oudste uren gaan eerst.",
+        a: "Ongebruikte tijd gaat één maand mee, met maximaal één extra maandtegoed. Daardoor is maximaal één uur bij Core, drie uur bij Plus of zes uur bij Max beschikbaar. De oudste tijd wordt eerst gebruikt en vervalt na die extra maand.",
       },
       {
-        q: "Hoe werkt het inbegrepen serviceuur?",
-        a: "Bij Core zit één serviceuur per maand in de SLA, bij Plus twee en bij Max drie. Daarvoor krijg je geen aparte urenfactuur. De uren kunnen worden gebruikt voor hulp, onderhoud, modelbeheer, prompts, skills en kleine aanpassingen. Werk buiten het tegoed wordt vooraf met je afgesproken.",
+        q: "Hoe werkt het inbegrepen tijdsbudget?",
+        a: "Core bevat 30 minuten per maand, Plus 1,5 uur en Max 3 uur. Hulp, onderhoud, modeltests, prompts, skills, persoonlijke analyses, overleg en controles gebruiken hetzelfde budget. We spreken af waar de tijd naartoe gaat. Meer werk wordt vooraf begroot en begint pas na jouw akkoord.",
       },
       {
         q: "Kan AITJE ook prompts en skills voor mijn team maken?",
@@ -978,12 +1028,12 @@ export const services: Service[] = [
         a: "Ja, als je dat wilt kan AITJE relevante analyses en vergelijkingen delen. Bijvoorbeeld onderzoek naar modellen of manieren om een workflow in te richten. De selectie wordt afgestemd op jouw omgeving; een onderzoeksresultaat wordt niet automatisch als resultaat voor jouw toepassing voorgesteld.",
       },
       {
-        q: "Hoe vaak krijg ik een persoonlijke update?",
-        a: "Bij Core en Plus één keer per maand. Bij Max twee keer per maand: een update met relevante ontwikkelingen en een bericht met een passend toepassingsidee. Hoe uitgebreider de SLA, hoe proactiever AITJE meedenkt. Bij Max hoort ook een kwartaaloverleg over verdere ontwikkeling.",
+        q: "Hoe blijf ik op de hoogte van relevante ontwikkelingen?",
+        a: "Je ontvangt een algemene update over relevante ontwikkelingen. Persoonlijk advies, een analyse voor jouw omgeving of een toepassingsidee spreken we af binnen je beschikbare tijdsbudget. Er is geen vast aantal persoonlijke mails buiten dat budget inbegrepen.",
       },
       {
         q: "Wat krijg ik bij een AI-APK?",
-        a: "Bij Plus en Max beoordeelt AITJE ieder kwartaal de afgesproken omgeving en geeft advies over werking, kosten, modelkeuze, instellingen en kansen voor verbetering. De APK en het advies vallen buiten de service-uren. Het uitvoeren van verbeteringen gebruikt de beschikbare uren of wordt apart afgesproken.",
+        a: "Bij Plus en Max kan een kwartaalcheck worden ingepland voor werking, kosten, modelkeuze, instellingen en verbeterkansen. De controle, het advies en eventuele uitvoering tellen mee in je beschikbare tijdsbudget. Met meegenomen tijd kun je ruimte voor zo'n check verzamelen. Extra werk begroten we vooraf.",
       },
       {
         q: "Hoe helpt AITJE met nieuwe workflows?",
@@ -998,7 +1048,7 @@ export const services: Service[] = [
         a: "Op werkdagen van 09.00 tot 18.00 uur, uitgezonderd feestdagen. Core heeft e-mailcontact, Plus en Max ook telefonisch contact. Max krijgt prioriteit bij verzoeken. De SLA legt de afspraken voor jouw omgeving vast; er wordt geen vaste oplostijd beloofd.",
       },
     ],
-    caseSlugs: ["chatgpt-of-codex-in-je-eigen-organisatie", "council-hub"],
+    caseSlugs: ["chatgpt-of-codex-in-je-eigen-organisatie", "council-hub", "documenten-doorzoeken-en-lakken"],
     related: ["installatie-en-inrichting", "optimalisatie", "aitje-custom"],
     seoDescription:
       "AITJE blijft meedenken via Core, Plus of Max. Inbegrepen service-uren, modellen, prompts, skills, AI-APK-advies en passende analyses en workflowdemo's.",
@@ -1008,48 +1058,50 @@ export const services: Service[] = [
 export const slaPlans = [
   {
     name: "AITJE Core",
-    price: "€49,99",
-    hours: 1,
-    maxHours: 2,
+    price: euros(pricing.support.core.monthly),
+    minutes: pricing.support.core.minutes,
     features: [
       "E-mailcontact",
-      "Maandelijkse ontwikkelingsmail",
-      "Modellen, prompts en skills binnen service-uren",
-      "Relevante analyses op verzoek",
+      "Algemene ontwikkelingsupdate",
+      "Hulp en onderhoud binnen je tijdsbudget",
+      "Persoonlijk advies in overleg, binnen hetzelfde budget",
     ],
     highlight: false,
   },
   {
     name: "AITJE Plus",
-    price: "€129,99",
-    hours: 2,
-    maxHours: 4,
+    price: euros(pricing.support.plus.monthly),
+    minutes: pricing.support.plus.minutes,
     features: [
       "E-mail en telefonisch contact",
-      "Maandelijkse ontwikkelingsmail",
-      "Modellen, prompts en skills binnen service-uren",
-      "Relevante analyses op verzoek",
-      "AI-APK en advies per kwartaal",
+      "Algemene ontwikkelingsupdate",
+      "Modellen, prompts en skills binnen je tijdsbudget",
+      "Persoonlijke analyses en advies binnen hetzelfde budget",
+      "Kwartaalcheck in overleg, binnen je tijdsbudget",
     ],
     highlight: true,
   },
   {
     name: "AITJE Max",
-    price: "€249",
-    hours: 3,
-    maxHours: 6,
+    price: euros(pricing.support.max.monthly),
+    minutes: pricing.support.max.minutes,
     features: [
       "E-mail en telefonisch contact",
       "Prioriteit bij verzoeken",
-      "Modellen, prompts en skills binnen service-uren",
-      "Relevante analyses op verzoek",
-      "AI-APK en advies per kwartaal",
-      "2× per maand een persoonlijke mail, inclusief toepassingsidee",
-      "Kwartaaloverleg over verdere ontwikkeling",
+      "Algemene ontwikkelingsupdate",
+      "Modellen, prompts en skills binnen je tijdsbudget",
+      "Persoonlijke analyses en toepassingsideeën binnen hetzelfde budget",
+      "Kwartaalcheck en overleg binnen je tijdsbudget",
     ],
     highlight: false,
   },
-];
+].map(plan => ({
+  ...plan,
+  hours: plan.minutes / 60,
+  maxHours: (plan.minutes * 2) / 60,
+  timeLabel: serviceTime(plan.minutes),
+  maxTimeLabel: serviceTime(plan.minutes * 2),
+}));
 
 export const partnerService = {
   slug: "voor-it-bedrijven",
@@ -1057,6 +1109,14 @@ export const partnerService = {
   short:
     "AITJE als AI-specialist voor jouw klanten. Jij houdt de klantrelatie.",
   icon: "handshake",
+  related: [
+    "aitje-custom",
+    "installatie-en-inrichting",
+    "advies-en-analyse",
+    "ondersteuning-en-onderhoud",
+    "optimalisatie",
+    "veilig-ai-gebruik",
+  ],
   highlights: [
     { icon: "users", text: "Jouw klantrelatie" },
     { icon: "sparkles", text: "AITJE als AI-specialist" },
@@ -1092,4 +1152,27 @@ for (const service of services) {
 
 export const getService = (slug: string) =>
   services.find((s) => s.slug === slug);
+
+export const getRelatedServices = (slug: string) => {
+  const current = slug === partnerService.slug ? partnerService : getService(slug);
+  const available = [...services.map(service => ({
+    slug: service.slug,
+    name: service.name,
+    short: service.short,
+    icon: service.icon,
+    price: service.price.label,
+  })), {
+    slug: partnerService.slug,
+    name: partnerService.name,
+    short: partnerService.short,
+    icon: partnerService.icon,
+    price: "Per opdracht",
+  }];
+  // Keep the selected related services first, then complete the six-card grid.
+  return [...new Set([...(current?.related ?? []), ...available.map(item => item.slug)])]
+    .filter(relatedSlug => relatedSlug !== slug)
+    .map(relatedSlug => available.find(item => item.slug === relatedSlug))
+    .filter((item): item is (typeof available)[number] => item !== undefined)
+    .slice(0, 6);
+};
 export const featuredServices = ["ai-scan", "aitje-custom"];

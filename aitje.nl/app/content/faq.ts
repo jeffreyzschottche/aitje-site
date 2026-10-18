@@ -4,6 +4,7 @@ import type { Faq } from "./types";
 import { availableProducts } from "./products";
 import { services } from "./services";
 import { contact } from "./site";
+import { euros, introduction, pricing } from "./pricing";
 
 export type FaqGroup = {
   id: string;
@@ -111,12 +112,24 @@ const trailingGroups: FaqGroup[] = [
     title: "Kosten",
     items: [
       {
+        q: "Waar vind ik de volledige prijslijst?",
+        a: "[Bekijk de volledige prijslijst (PDF)](/prijslijst-aitje.pdf) voor alle producten, diensten, uurtarieven en ondersteuningsabonnementen. Je vindt er ook wat is inbegrepen en de voorwaarden van het introductieaanbod. Alle bedragen zijn exclusief btw.",
+      },
+      {
         q: "Wat vraagt AITJE per uur?",
-        a: "AITJE vraagt €85 per uur, exclusief btw. Je spreekt vooraf de werkzaamheden, het verwachte aantal uren en het budget af. Extra werk begint na jouw akkoord.",
+        a: `AITJE vraagt ${euros(pricing.hourlyRate)} per uur, exclusief btw. Je spreekt vooraf de werkzaamheden, het verwachte aantal uren en het budget af. Extra werk begint na jouw akkoord.`,
       },
       {
         q: "Hoe zijn de prijzen opgebouwd?",
         a: "Uit drie onderdelen: het AI-product of de ontwikkeling, de hardware of server, en de installatie. Ondersteuning is optioneel en apart. Alle prijzen zijn exclusief btw.",
+      },
+      ...(introduction.scan.active || introduction.products.active ? [{
+        q: "Hoe werkt het introductieaanbod?",
+        a: `${introduction.scan.active ? `Voor de AI-scan geldt het introductieaanbod voor de eerste ${introduction.scan.customerLimit} betaalde klanten: ${euros(pricing.scan.introductory)} (regulier ${euros(pricing.scan.standard)}). ` : ""}${introduction.products.active ? `Voor Assistent en Coder geldt het introductieaanbod voor de eerste ${introduction.products.customerLimit} betaalde klanten: Assistent met basisinstallatie ${euros(pricing.products["aitje-assistent"].introductoryInstalled)} (regulier vanaf ${euros(pricing.products["aitje-assistent"].software + pricing.installation.from)}) en Coder met basisinstallatie ${euros(pricing.products["aitje-coder"].introductoryInstalled)} (regulier vanaf ${euros(pricing.products["aitje-coder"].software + pricing.installation.from)}). ` : ""}Beschikbaarheid wordt bevestigd in de offerte. Hardware, serverhuur, reis- of locatiekosten en aanvullende inrichting worden vooraf apart begroot. Alle bedragen zijn exclusief btw.`,
+      }] : []),
+      {
+        q: "Betaal ik opnieuw voor onderzoek dat al tijdens de scan is gedaan?",
+        a: "Bevindingen uit een scan of eerdere opdracht gebruiken we opnieuw. De basisinventarisatie van AI-gebruik, kosten en gegevensstromen hoort bij de scan. Bij vervolgwerk betaal je voor aanvullende verdieping of uitvoering, met een vooraf afgesproken scope en begroting.",
       },
       {
         q: "Wat betekent 'zonder externe tokenkosten'?",

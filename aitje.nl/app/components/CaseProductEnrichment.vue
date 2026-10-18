@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const { numberLocale } = useSiteLanguage();
 import type { ProductEnrichmentStory } from "@/content/types";
 import CaseTokenCosts from "@/components/CaseTokenCosts.vue";
 
@@ -6,8 +7,8 @@ const props = defineProps<{ story: ProductEnrichmentStory }>();
 const selected = ref(0);
 const step = computed(() => props.story.workflow[selected.value]!);
 const totalUsd = computed(() => props.story.run.hours * props.story.run.hourlyUsd);
-const number = (value: number, digits = 0) => value.toLocaleString("nl-NL", { maximumFractionDigits: digits });
-const dollars = (value: number, digits = 2) => `$${value.toLocaleString("nl-NL", { minimumFractionDigits: digits, maximumFractionDigits: digits })}`;
+const number = (value: number, digits = 0) => value.toLocaleString(numberLocale.value, { maximumFractionDigits: digits });
+const dollars = (value: number, digits = 2) => `$${value.toLocaleString(numberLocale.value, { minimumFractionDigits: digits, maximumFractionDigits: digits })}`;
 const metrics = computed(() => [
   { value: number(props.story.run.products), label: "producten verwerkt" },
   { value: `${props.story.run.hours} uur`, label: "eerste catalogusrun" },

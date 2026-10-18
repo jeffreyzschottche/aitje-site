@@ -1,8 +1,7 @@
 <script setup lang="ts">
+import { staticPageSeo } from "@/content/seo";
 usePageSeo({
-  title: "Over AITJE — De AI-specialist van dichtbij",
-  description:
-    "Een Nederlands AI-productbedrijf en specialist. AITJE onderzoekt, bouwt, installeert en blijft bereikbaar. Ontdek de mensen, expertise en visie achter AITJE.",
+  ...staticPageSeo["/over-aitje"],
   image: "/img/redesign/about.webp",
   breadcrumbs: [{ name: "Over AITJE", path: "/over-aitje" }],
 });

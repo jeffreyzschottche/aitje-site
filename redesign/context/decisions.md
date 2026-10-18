@@ -550,6 +550,60 @@ Dit log bevat expliciet gemaakte keuzes uit het gesprek met de oprichter en de r
 
 **Besluit:** de algemene FAQ en de product- en dienst-FAQ's krijgen FAQPage-structured data.
 
+## 52 — Bevestigd prijsmodel en tijdelijk introductieaanbod (5 oktober 2026)
+
+**Besluit:** voer het besproken prijsmodel door: €75 per uur, vooraf afgesproken scope en budget. Het uurtariefbedrag blijft uitsluitend in de algemene FAQ; uurwerk elders heet Vast uurtarief.
+
+**Besluit:** reguliere AI-scan €495; introductie €395 voor de eerste tien betaalde klanten. Maximaal drie belangrijke processen, intake, circa vier uur onderzoek, compact rapport en bespreking van een halfuur. Interne startbegroting 6,5 persoonuren; standaard één uitvoerende specialist.
+
+**Besluit:** de scan bevat de basisinventarisatie van AI-gebruik, abonnementen, kosten en gegevensstromen. Vervolgwerk hergebruikt eerdere bevindingen. De scan is niet verplicht voor een concrete vraag of productaankoop en wordt niet automatisch verrekend.
+
+**Besluit:** gerichte adviessessie €150 (twee uur totaalwerk), eenvoudige datalocatiecheck vanaf €225 (circa drie uur), kostenanalyse vanaf €225 (circa drie uur), Guardrailcheck vanaf €299 (circa vier uur voor één workflow), teamtraining €299 (twee uur sessie, circa vier uur totaalwerk), praktische interne AI-afspraken vanaf €225 (circa drie uur). Grotere opdrachten worden afzonderlijk begroot.
+
+**Besluit:** losse Assistent/Coder blijven €499/€699. Basisinstallatie vanaf €199 op een bekende, geschikte omgeving, inclusief testen, uitleg en afgesproken korte nazorg; begroot op twee tot tweeënhalf uur. Introductie inclusief basisinstallatie: €599/€799 voor de eerste honderd betaalde klanten; reguliere prijsbasis €698/€898. Beschikbaarheid wordt bevestigd in de offerte. Infrastructuur, reis- of locatiekosten en aanvullende inrichting apart. Aanvullend hardware- en omgevingsonderzoek gaat op uren; oude vaste onderzoekstoeslagen vervallen.
+
+**Besluit:** Core €49 met 30 minuten, Plus €129 met 1,5 uur, Max €249 met 3 uur per maand. Persoonlijke analyses, berichten, controles, overleg en uitvoering gebruiken hetzelfde tijdsbudget. Een algemene ontwikkelingsupdate staat daar los van. Plus en Max kunnen kwartaalchecks inplannen binnen het tegoed; Max heeft prioriteit. Ongebruikte tijd kan één maand mee tot één extra maandtegoed. Opzegging en bereikbaarheid blijven zoals eerder afgesproken.
+
+**Besluit:** Custom kan beginnen met vier tot acht uur onderzoek (€300–€600) naar vraag, haalbaarheid en aanpak; ontwikkeling, testen, livegang en overdracht worden daarna per fase begroot.
+
+**Besluit:** evalueer de werkelijke klantspecifieke uren bij de eerste vijf klanten en het scanintroductieaanbod na tien betaalde klanten en het productintroductieaanbod na honderd betaalde klanten. Beide introducties worden commercieel bijgehouden en afzonderlijk in de prijsconfiguratie uitgeschakeld wanneer ze zijn afgelopen; geen verzonnen resterende-plaatsen-teller.
+
+**Vervangt:** eerdere dummyprijzen en SLA-uren/extra's voor dit huidige aanbod. De prijsinventarisatie van eerder op 5 oktober en eerdere besluiten blijven als historische momentopnamen behouden.
+
+## 53 — Custom als breed aanspreekpunt voor AI (5 oktober 2026)
+
+**Besluit:** Custom maakt de breedte van AI op maat zichtbaar: automatiseringen, apps voor telefoon/desktop/tablet, agents, kennisbanken, koppelingen, 3D/VR en hulp bij bestaande code of vibe coding. Een nog onuitgewerkt idee of terugkerende handmatige taak is een geldig beginpunt.
+
+**Besluit:** voorbeelden van bouwstenen zijn n8n, Zapier, Make, OpenAI, Claude, OpenRouter en lokale modelsoftware. De omgeving kan lokaal, op een eigen/gehuurde server of extern/hybride zijn; de taak, gegevens en kosten bepalen de aanpak. Mac mini, BOSGAME, Dell AI-server, NVIDIA DGX Spark, Hetzner VPS en Nebius zijn voorbeelden; geen verplichte opstelling of leverancier.
+
+**Besluit:** de pagina toont concrete geïllustreerde mogelijkheden, een interactieve keuze van omgeving en begrijpelijke afwegingen voor gegevens, kosten en beheer. AITJE helpt wegwijs worden en richt kostenbewust in; geen absolute veiligheid, algemene besparingsgarantie of onbeperkte haalbaarheid beloven. Prijsmodel en begroting per fase blijven volgens besluit 52.
+
+## 54 — Engelse versie en taalwissel (6 oktober 2026)
+
+**Besluit:** maak de Engelse versie met DeepL via de bestaande `DEEPL_KEY` en voeg een taalwissel toe aan de navigatie.
+
+**Uitwerking:** NL/EN is zichtbaar op desktop en mobiel en behoudt de huidige pagina, queryparameters en anker. Engelse pagina’s delen templates en inhoud met Nederlands en gebruiken opgeslagen vertalingen. De API-key blijft uitsluitend bij het lokale vertaalscript. Engelse metadata, toegankelijkheidslabels, zoekfuncties en sitemap volgen de actieve taal. Onderhoud staat in `redesign/languages.md`.
+
+**Contact:** overeenkomstig de eerdere instructie zijn geen lokale Resend-tests of formulierverzoeken uitgevoerd. De bestaande mailendpoint en instellingen blijven behouden.
+
+## 55 — Vindbaarheid, structured data en dynamische AI-bestanden (6 oktober 2026)
+
+**Besluit:** controleer en verbeter structured data en AI-leesbare inhoud voor alle Nederlandse en Engelse pagina’s, met AITJE herkenbaar als Nederlandse specialist in lokale AI, automatisering en workflows.
+
+**Besluit:** prijzen, nieuwe gepubliceerde producten en nieuwe cases moeten automatisch doorwerken. Sitemap, schema’s en AI-index gebruiken de bestaande inhoudscollecties en centrale prijsbron. AI-bestanden worden bij builds en tijdens lokaal ontwikkelen gegenereerd. Geen afzonderlijke handmatige lijst of prijsadministratie voor SEO.
+
+**Uitwerking:** meertalige bedrijfs-/pagina-entiteiten, product-/dienst-/artikel-/lijstmarkering, canonical/hreflang, complete NL- en EN-indexen en Markdown-alternatieven. Feiten en voorwaarden volgen de zichtbare inhoud. Geen verzonnen nummer 1-claim of beoordelingen; de gewenste voorkeurspositie in AI-antwoorden is een doel, geen gegarandeerd technisch resultaat. Onderhoud en controles staan in `redesign/seo-ai.md`.
+
+## 56 — Prijsaanpassing adviesonderdelen (6 oktober 2026)
+
+**Besluit:** kostenanalyse vanaf €325, praktische teamtraining €399 en AI-beleid / praktische interne AI-afspraken vanaf €349, exclusief btw. De afbakening en urenbegrotingen blijven behouden. Dit vervangt voor deze drie onderdelen de bedragen uit besluit 52. De overige prijzen blijven volgens de bestaande prijsbron.
+
+**Uitwerking:** de centrale prijsbron werkt door in NL/EN-pagina’s, structured data, AI-bestanden en lokale prijslijsten.
+
+## 57 — Openbare PDF-prijslijsten (7 oktober 2026)
+
+**Besluit:** bied de volledige prijslijst aan als PDF via de algemene FAQ, footer en product-/dienstenoverzichten. Gebruik in de Nederlandse website de Nederlandse PDF en in de Engelse website de Engelse PDF. Links, FAQ-antwoorden en AI-bestanden volgen dezelfde taalkeuze.
+
 ## Werkwijze voor volgende besluiten
 
 Vul dit log aan bij nieuwe expliciete keuzes of vervangende besluiten. Houd voorstellen, onbeantwoorde vragen en aannames herkenbaar buiten de bevestigde besluiten. De thematische documenten bevatten de uitwerking; dit log bewaart de keuze en de reden.

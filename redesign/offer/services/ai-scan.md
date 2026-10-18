@@ -4,7 +4,7 @@
 
 **Beschikbaar** — inhoudelijk bevestigd.
 
-De genoemde prijs is voorlopig dummydata en wordt vóór publicatie commercieel gecontroleerd.
+Prijs en scope zijn bevestigd op 5 oktober 2026, besluit 52: €495 regulier en €395 introductie voor de eerste tien betaalde klanten.
 
 ## In één zin
 
@@ -12,7 +12,7 @@ De AI-scan brengt in kaart hoe een organisatie werkt, welke AI, software en abon
 
 ## Wat de AI-scan is
 
-De AI-scan is de standaard eerste stap voor vrijwel ieder nieuw traject. AITJE onderzoekt op hoofdlijnen:
+De AI-scan is een mogelijke eerste stap. Een product of concrete adviesvraag kan rechtstreeks worden afgenomen. Binnen de standaardscan worden maximaal drie belangrijke processen gekozen. AITJE onderzoekt op hoofdlijnen:
 
 - hoe het werk en de belangrijkste processen verlopen;
 - welke taken binnen iedere processtap worden uitgevoerd;
@@ -21,7 +21,9 @@ De AI-scan is de standaard eerste stap voor vrijwel ieder nieuw traject. AITJE o
 - waar AI mogelijk waarde kan toevoegen;
 - welke risico's, afhankelijkheden en praktische beperkingen relevant zijn.
 
-Het doel is eerst een goed totaalbeeld op te bouwen. De scan is dus geen verkooppraatje voor één vooraf gekozen product en ook niet automatisch het begin van een bouwopdracht.
+De basisinventarisatie van AI-gebruik, abonnementen, kosten en gegevensstromen hoort bij de scan. Bij vervolgwerk worden deze bevindingen opnieuw gebruikt. Verwerking/opslag bij aanbieders diepgaand verifiëren kan aanvullende datalocatiecheck-uren vragen.
+
+Het doel is eerst een goed beeld van de afgesproken processen op te bouwen. De scan is dus geen verkooppraatje voor één vooraf gekozen product en ook niet automatisch het begin van een bouwopdracht.
 
 Token management valt binnen dit brede onderzoek: de scan inventariseert AI-gebruik,
 abonnementen en optimalisatiekansen op hoofdlijnen. Een uitgebreide modelvergelijking,
@@ -72,7 +74,7 @@ Volledige systeemtoegang is geen standaardonderdeel. De organisatie bepaalt voor
 
 ### 4. Beoordeling en rapport
 
-Na het verzamelen van de informatie beoordeelt AITJE de situatie op hoofdlijnen en werkt de belangrijkste bevindingen uit in een beknopt praktisch rapport.
+Na het onderzoek beoordeelt AITJE de situatie en werkt de belangrijkste bevindingen uit in een compact praktisch rapport. Daarna volgt een bespreking van ongeveer een halfuur. Interne startbegroting: 0,5 uur intake/voorbereiding, vier uur onderzoek, 1,5 uur beoordeling/rapport en 0,5 uur bespreking: 6,5 persoonuren. Uitvoering in beginsel door één specialist.
 
 ## Wat de klant krijgt
 
@@ -103,14 +105,15 @@ Wanneer zo'n vervolgstap nuttig is, benoemt AITJE dit in het rapport of bespreek
 
 ## Prijs
 
-**Vanaf €595** voor:
+**€495 regulier; €395 introductie voor de eerste tien betaalde klanten**, exclusief btw, voor:
 
 - een korte intake;
 - een onderzoeksdagdeel van ongeveer vier uur;
 - beoordeling van de verzamelde informatie;
-- een beknopt praktisch rapport.
+- een compact praktisch rapport;
+- een bespreking van ongeveer een halfuur.
 
-€595 is voorlopige dummydata. De uiteindelijke prijs en scope worden vóór de scan afgestemd. Extra onderzoek buiten de afgesproken scope wordt afzonderlijk aangeboden.
+Beschikbaarheid van de introductie wordt in de offerte bevestigd. Maximaal drie belangrijke processen; scope en eventuele reis- of locatiekosten vooraf afspreken. Groter onderzoek krijgt een eigen begroting. Er is geen teller met een verzonnen aantal resterende plaatsen.
 
 De prijs van de AI-scan wordt niet automatisch verrekend met een vervolgopdracht. De scan is een zelfstandige betaalde dienst met een eigen resultaat.
 
@@ -152,7 +155,7 @@ Dit is een voorbeeldsituatie, geen gerealiseerde klantcase.
 
 ## Wat nog gecontroleerd moet worden
 
-- definitieve vanafprijs;
+- Werkelijke uitvoeringstijd meten bij de eerste vijf klanten;
 - voorwaarden voor reis- en locatiekosten;
 - standaard doorlooptijd voor het rapport;
 - maximale scope binnen het onderzoeksdagdeel;

@@ -1,12 +1,13 @@
 <script setup lang="ts">
+import { staticPageSeo } from "@/content/seo";
 // Cases overview; case stories and artwork share one content source.
 import { cases } from "@/content/cases";
 
 usePageSeo({
-  title: "Cases",
-  description:
-    "AI in het dagelijkse werk: interne kennis doorzoeken, werkprocessen verbinden en software ontwikkelen. Bekijk de toepassingen en de aanpak van AITJE.",
+  ...staticPageSeo["/cases"],
+  image: "/img/redesign/cases-greenhouse-workshop.webp",
   breadcrumbs: [{ name: "Cases", path: "/cases" }],
+  items: cases.map(item => ({ name: item.title, path: `/cases/${item.slug}`, description: item.summary })),
 });
 useHead({
   link: [{ rel: "preload", as: "image", href: "/img/redesign/cases-greenhouse-workshop.webp", fetchpriority: "high" }],

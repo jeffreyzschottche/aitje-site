@@ -1,173 +1,103 @@
 # Prijsoverzicht en prijsopbouw
 
-## Status
+## Bevestigd prijsmodel — 5 oktober 2026, bijgewerkt op 6 oktober 2026
 
-Dit is het centrale overzicht van prijsopbouw en voorlopige bedragen voor het redesign. Bedragen uit het bedrijfsdocument zijn dummydata; latere keuzes van de oprichter gaan voor.
+De oprichter heeft het onderstaande prijsmodel en de bijbehorende afbakening goedgekeurd. Dit vervangt de eerdere dummyprijzen en SLA-uren; zie besluit 52 in de besluitenlog. Alle bedragen zijn exclusief btw.
 
-De aanbodstructuur is bevestigd. Definitieve bedragen worden vóór publicatie gecontroleerd. Vermeld bij prijzen steeds **(Excl btw)** volgens de gekozen presentatierichting.
+De uitvoerbare prijsgegevens staan centraal in **aitje.nl/app/content/pricing.ts**. Product- en dienstcontent, FAQ, prijsblokken en kaarten gebruiken deze gegevens. De openbare bestanden **llms.txt** en **llms-full.txt** worden automatisch bij builds en tijdens ontwikkeling gesynchroniseerd.
 
-Keuze oprichter, 5 oktober 2026: Advies en analyse toont **Vast uurtarief** in plaats van het eerdere openbare bedrag van €85 met ‘voorlopige prijs’. Tarief, scope en verwachte uren worden vooraf afgesproken. Eventuele bouw krijgt een aparte begroting en begint na akkoord op het plan en de uren.
+## Openbare PDF-prijslijst
 
-Aanvullende keuze oprichter, 5 oktober 2026: het bedrag **€85 per uur, exclusief btw** staat op de website uitsluitend bij de algemene FAQ-vraag **Wat vraagt AITJE per uur?** Diensten, onderdelen, overzichtskaarten en gerelateerde kaarten tonen voor uurwerk **Vast uurtarief**. Dienstpagina's tonen geen vermelding ‘voorlopige prijs’ of ‘voorlopige vanafprijs’. De bedragen in onderstaande tabellen blijven interne prijsreferenties, geen instructie om het uurtarief opnieuw op andere pagina's te publiceren.
+De volledige prijslijst is beschikbaar via `/prijslijst-aitje.pdf` (Nederlands) en `/pricelist-aitje.pdf` (Engels). De FAQ, footer en de product-/dienstenoverzichten bieden een link in de actieve taal. De PDF bevat producten, diensten, uurtarieven, ondersteuning en introductievoorwaarden. Bij een prijswijziging worden de PDF’s en hun publicatiekopieën vernieuwd; zie `output/pricelists/README.md`.
 
-## Drie herkenbare prijsonderdelen
+## Uurtarief
 
-Bij producten en complete oplossingen worden drie onderdelen zichtbaar gemaakt:
+**€75 per persoonuur** voor advies, verdiepend onderzoek, optimalisatie, tokenmanagement, aanvullende inrichting en Custom. Scope, verwachte uren en budget worden vooraf afgesproken. Extra werk begint na akkoord.
 
-| Onderdeel | Wat de klant betaalt |
-| --- | --- |
-| **1. AI-product of ontwikkeling** | Een vast AI-product per geïnstalleerde omgeving/device, of de afgesproken ontwikkeluren voor AI op maat. |
-| **2. Hardware of server** | De passende computer of hardware, of servercapaciteit bij een aanbieder. |
-| **3. Installatie en inrichting** | De werkzaamheden om de afgesproken omgeving gebruiksklaar op te leveren. |
+Het bedrag staat in de algemene FAQ-vraag **Wat vraagt AITJE per uur?** en in de openbare PDF-prijslijst. Bij uurwerk elders staat **Vast uurtarief**. Een afgebakende dienst of projectfase kan een eigen bedrag tonen.
 
-Bij AI op maat heet het eerste onderdeel **Ontwerp en ontwikkeling**. De offerte maakt duidelijk welke werkzaamheden bij ontwikkeling en welke bij installatie horen, zodat hetzelfde werk niet dubbel wordt berekend.
+Begroot voorbereiding, klantcontact, tests, rapportage, uitleg en afgesproken nazorg mee. Reken intern in persoonuren: vier uur onderzoek met twee specialisten is acht uur inzet. Algemene productontwikkeling is apart van klantspecifiek werk.
 
-Ondersteuning via een SLA staat afzonderlijk als optionele vervolgstap. Maak eenmalige bedragen, uurtarieven en terugkerende kosten herkenbaar.
+## Introductieaanbod
 
-## Vaste AI-producten
+De AI-scan geldt voor de **eerste tien betaalde klanten**. Het productaanbod voor Assistent en Coder geldt voor de **eerste honderd betaalde klanten**:
 
-| Product | Status | Voorlopige productprijs |
-| --- | --- | --- |
-| AITJE Assistent | Beschikbaar | €499 (Excl btw) |
-| AITJE Coder | Beschikbaar | €699 (Excl btw) |
+| Aanbod | Introductie | Reguliere prijsbasis | Klantlimiet |
+| --- | ---: | ---: | ---: |
+| AI-scan | €395 | €495 | 10 |
+| Assistent met basisinstallatie | €599 | Vanaf €698 | 100 voor het productaanbod |
+| Coder met basisinstallatie | €799 | Vanaf €898 | 100 voor het productaanbod |
 
-De aankoop geldt per geïnstalleerde omgeving of device, zonder licentieprijs per gebruiker binnen die omgeving. De capaciteit van de omgeving begrenst het praktische gebruik.
+Beschikbaarheid wordt in de offerte bevestigd. De site toont geen verzonnen aantal resterende plaatsen. De actuele beschikbaarheid wordt commercieel bijgehouden; zet **introduction.scan.active** of **introduction.products.active** afzonderlijk uit wanneer het betreffende aanbod is afgelopen en synchroniseer de openbare AI-informatie.
 
-De productprijs geeft blijvend gebruik van de opgeleverde versie. Hardware, installatie door AITJE, updates en ondersteuning zijn niet automatisch inbegrepen.
+Hardware, serverhuur, eventuele reis- of locatiekosten en aanvullende inrichting staan apart. De productbundels bevatten het product, basisinstallatie, testen, uitleg en afgesproken korte nazorg op een bekende, geschikte omgeving. Er wordt geen verplichte SLA aan gekoppeld.
 
-AITJE Custom is een dienst en staat niet tussen de vaste producten.
+## Losse producten
 
-## Twee routes op productpagina's
+| Product | Per omgeving/device, voor zelfinstallatie |
+| --- | ---: |
+| AITJE Assistent | €499 |
+| AITJE Coder | €699 |
 
-### Zelf installeren
+Geen licentieprijs per gebruiker binnen de omgeving. De aankoop geeft blijvend gebruik van de opgeleverde versie. Infrastructuur, installatie door AITJE, updates en doorlopende ondersteuning zijn afzonderlijk.
 
-De klant koopt het AI-product en installeert het op geschikte eigen hardware. Installatiewerk door AITJE wordt niet berekend als de klant dit volledig zelf doet.
+Normale productprijs plus basisinstallatie is €499 + €199 = €698 voor Assistent en €699 + €199 = €898 voor Coder. De introductiebundels hebben €99 voordeel. De offerte maakt deze opbouw zichtbaar en begroting van extra werk gebeurt vooraf.
 
-Nieuwe hardware is niet nodig wanneer de aanwezige hardware geschikt is.
+## Diensten en urenbegroting
 
-### Gebruiksklaar laten opleveren
+| Onderdeel | Prijs | Afbakening/startbegroting |
+| --- | ---: | --- |
+| AI-scan | €495 regulier; €395 introductie | Maximaal drie belangrijke processen; intake, circa vier uur onderzoek, compact rapport en bespreking van een halfuur. |
+| Gerichte adviessessie | €150 | Twee uur werk in totaal: voorbereiding, gesprek en korte aanbeveling. |
+| Eenvoudige datalocatiecheck | Vanaf €225 | Circa drie uur; beperkt aantal bekende AI-diensten, instellingen, beschikbare providerinformatie en bevindingen. |
+| Gerichte kostenanalyse | Vanaf €325 | Circa drie uur; beschikbare facturen en gebruiksgegevens, alternatieven en verbeterkansen. |
+| Guardrailcheck | Vanaf €299 | Circa vier uur; één afgebakende workflow, gerichte controles, tests en bevindingen. Uitvoering apart. |
+| Praktische teamtraining | €399 | Circa vier uur totaalwerk, waarvan twee uur teamsessie; teamgrootte en onderwerpen vooraf afspreken. |
+| Praktische interne AI-afspraken | Vanaf €349 | Circa drie uur; gesprek, aanpassen van richtlijnen en bespreken. |
+| Basisinstallatie | Vanaf €199 | Twee tot tweeënhalf uur op een bekende, geschikte omgeving, inclusief testen, uitleg en afgesproken korte nazorg. |
+| Afwijkende infrastructuur/uitgebreide inrichting | €75 per uur | Vooraf een eigen begroting voor netwerk, server, toegang, kennisbankwerk en koppelingen. |
+| Optimalisatie, tokenmanagement en Custom | €75 per uur | Afgebakende opdracht of projectfase met budget. |
 
-AITJE helpt passende hardware of een server kiezen en verzorgt de afgesproken installatie en inrichting.
+Dit zijn startbegrotingen, geen gemeten uitvoeringstijden of onbeperkte pakketten. De onderzochte onderdelen, toegang, input en oplevering worden vooraf vastgesteld. Een grotere scope krijgt een eigen begroting.
 
-De klant krijgt vooraf een overzicht van productkosten, eventuele hardware en installatiewerk. Een vaste hardwareprijs op de site is niet passend: de benodigde capaciteit verschilt per klant.
+## Eén onderzoek als basis
 
-### Voorbeeld van een prijsblok
+De AI-scan bevat de basisinventarisatie van AI-gebruik, abonnementen, kosten, gegevensstromen en duidelijke aandachtspunten. Eerdere bevindingen worden opnieuw gebruikt. Verdiepend onderzoek wordt alleen voor aanvullende vragen en werk begroot.
 
-| AITJE Assistent | Prijs |
-| --- | --- |
-| AI-product | €499 (Excl btw) |
-| Hardware | Afhankelijk van benodigde capaciteit; prijs in de offerte |
-| Installatie en inrichting | Vanaf €199 (Excl btw) |
-| SLA | Optioneel, afzonderlijk per maand |
+De eenvoudige datalocatiecheck vervangt het oude vaste bedrag voor de bredere check. Verwerking/opslag bij aanbieders exact vaststellen kan extra onderzoek vragen; onbekende informatie blijft zichtbaar. Een omvangrijke technische audit krijgt een eigen begroting.
 
-Dit voorbeeld bevat geen vaste totaalprijs zolang de hardware en installatiescope onbekend zijn.
+Een scan is niet verplicht voor een product, installatie of concrete adviesvraag. De scan blijft een zelfstandige betaalde dienst en wordt niet automatisch verrekend met een vervolgopdracht.
 
-## Hardware en serverkosten
+Interne scanbegroting: 0,5 uur intake/voorbereiding + 4 uur onderzoek + 1,5 uur beoordeling/rapport + 0,5 uur bespreking = **6,5 persoonuren**. Uitvoering in beginsel door één specialist.
 
-### Hardware
+## Infrastructuur en installatie
 
-AITJE adviseert de benodigde capaciteit op basis van toepassing, modellen, gewenste snelheid en gelijktijdig gebruik.
+AITJE kan de benodigde hardware of serveromgeving regelen. Er is geen verplichting om vooraf zelf geschikte apparatuur te bezitten. Hardware, serverhuur en overige infrastructuurkosten worden apart begroot; gehuurde capaciteit wordt rechtstreeks aan de aanbieder betaald.
 
-De klant kan hardware zelf inkopen op advies van AITJE of via AITJE laten leveren. Bij levering via AITJE staat de hardwareprijs in de offerte, apart van het AI-product en de installatie.
+De basisinstallatie omvat geen onbeperkt netwerkwerk, documentopschoning, kennisbankinrichting of koppelingen. Aanvullend hardware- of omgevingsonderzoek krijgt een urenbegroting; de twee oude vaste onderzoekstoeslagen vervallen. Bekende informatie uit de scan of eerdere opdrachten wordt meegenomen.
 
-Er wordt geen vaste algemene hardwareprijs gepubliceerd. Betaalde hardware wordt eigendom van de klant.
+## Custom
 
-### Gehuurde server
+Begin desgewenst met een onderzoeksfase van **vier tot acht uur, €300–€600**, voor de vraag, haalbaarheid en aanpak. Dit bedrag betreft de onderzoeksfase. Ontwikkeling, tests, livegang, feedback en overdracht worden daarna apart per fase begroot.
 
-Serverkosten zijn variabel en worden rechtstreeks door de klant aan de aanbieder betaald. AITJE helpt kiezen en regelt de technische inrichting; de eigen werkzaamheden worden apart gefactureerd.
+De klant kan per fase doorgaan, bijsturen of stoppen. Bestede onderzoeksuren blijven betaald. Inrichtingswerk en ontwikkeling staan herkenbaar in dezelfde begroting en worden niet dubbel berekend.
 
-Publieke uitleg:
+## Ondersteuning
 
-> Serverkosten betaal je rechtstreeks aan de aanbieder. AITJE helpt je kiezen en richt alles in.
+| Niveau | Per maand | Tijdsbudget | Maximaal met één maand meegenomen tijd |
+| --- | ---: | ---: | ---: |
+| Core | €49 | 30 minuten | 1 uur |
+| Plus | €129 | 1,5 uur | 3 uur |
+| Max | €249 | 3 uur | 6 uur |
 
-Maak duidelijk dat terugkerende serverkosten losstaan van de SLA. Presenteer serverhuur niet als een eenmalige aanschaf of als inbegrepen AITJE-abonnement.
+Hulp, modeltests, onderhoud, prompts, skills, persoonlijke analyses, overleg, controles en uitvoering gebruiken hetzelfde tijdsbudget. De klant en AITJE spreken af waar de tijd aan wordt besteed. Een algemene ontwikkelingsupdate staat daar los van; er is geen vast aantal persoonlijke mails boven op het budget inbegrepen.
 
-## Installatie en onderzoek
+Plus en Max kunnen een kwartaalcheck binnen het beschikbare tegoed inplannen; Max heeft prioriteit en kan ook overleg binnen het budget afspreken. Extra werk tegen normaal uurtarief na akkoord. Grote projecten krijgen een aparte offerte.
 
-| Onderdeel | Voorlopige prijs |
-| --- | --- |
-| Standaardinstallatie en inrichting | Vanaf €199 (Excl btw) |
-| Hardwareonderzoek bij afwijkende situaties | €125 (Excl btw) |
-| Onderzoek digitale omgeving bij maatwerk/server | €125 (Excl btw) |
-| Uitgebreidere inrichting | €85 per uur (Excl btw), of projectofferte |
+Ongebruikte tijd gaat maximaal één maand mee, tot één extra maandtegoed; oudste tijd eerst. Bereikbaar op werkdagen van 09.00 tot 18.00 uur, uitgezonderd feestdagen. Opzegging eindigt aan het einde van de volgende kalendermaand. Er is geen vaste oplostijd toegezegd.
 
-De scope wordt vooraf afgesproken. Inhoudelijk documentwerk, kennisbankinrichting, koppelingen en afwijkende techniek zijn niet onbeperkt inbegrepen in de standaardinstallatie.
+## Evaluatie
 
-## Diensten
+Meet bij de eerste vijf klanten alle klantspecifieke uren, inclusief voorbereiding, contact, tests, uitleg en nazorg. Beoordeel of afwijkingen eenmalige leerkosten of structurele scopeproblemen zijn. Evalueer het scanintroductieaanbod na de eerste tien betaalde klanten en het productintroductieaanbod na honderd betaalde klanten.
 
-| Dienst | Voorlopige prijs | Afbakening |
-| --- | --- | --- |
-| AI-scan | Vanaf €595 (Excl btw) | Intake, circa vier uur onderzoek, beoordeling en beknopt rapport. |
-| Kostenanalyse | Vanaf €499 (Excl btw) | Afgebakende analyse onder Advies en analyse. |
-| AI-beleid | Vanaf €399 (Excl btw) | Praktische interne richtlijnen. |
-| Guardrailcheck | €449 (Excl btw) | Controle en bevindingen; uitvoering apart. |
-| AI-datalocatiecheck | €1.499 (Excl btw) | Huidige aanbieders, servers en landen in kaart; vervolgonderzoek en uitvoering apart. |
-| Advies, optimalisatieonderzoek en overig uurwerk | €85 per uur (Excl btw) | Volgens afgesproken scope. |
-
-Er is één AI-scan. De oude varianten met modeltest en compleetpakket vervallen. De scan is een zelfstandige betaalde dienst en wordt niet verrekend met vervolgwerk.
-
-AI-wegwijs is aanvullende begeleiding binnen samenwerking/SLA of een losse afspraak. Er is nog geen nieuwe vaste prijs bevestigd; publiceer de oude promptcursusprijs niet automatisch als AI-wegwijs-pakket.
-
-Een losse AI-APK is op aanvraag beschikbaar, zonder prominente prijskaart. De actuele scope en prijs moeten nog worden bepaald.
-
-## AI op maat
-
-Voorlopig normaal tarief: **€85 per uur (Excl btw)**.
-
-Onderzoek en ontwikkeling gebeuren in vooraf afgesproken urenblokken. Na ieder blok laat AITJE voortgang zien en beslist de klant over doorgaan, bijsturen of stoppen. Bestede onderzoeksuren worden betaald, ook wanneer een aanpak niet haalbaar blijkt.
-
-Verduidelijking oprichter, 5 oktober 2026: Custom is het volledige persoonlijke project tot het afgesproken eindproduct, met analyse, ontwerp, omgevingskeuze, ontwikkeling, tests, optimalisatie, livegang, feedbackrondes en overdracht. Een prototype kan een tussenstap zijn. Alle werkzaamheden vallen onder hetzelfde uurtarief en het vooraf afgestemde budget per fase. Nieuwe wensen en extra uren worden eerst afgesproken. Hardware, hosting, licenties en externe modelkosten worden apart begroot; inrichtingswerk wordt binnen de projectbegroting herkenbaar gemaakt en niet dubbel berekend.
-
-## SLA's
-
-| SLA | Voorlopige maandprijs | Service-uren per maand |
-| --- | --- | --- |
-| AITJE Core | €49,99 per maand (Excl btw) | 1 |
-| AITJE Plus | €129,99 per maand (Excl btw) | 2 |
-| AITJE Max | €249 per maand (Excl btw) | 3 |
-
-De volledige inhoud staat in [subscriptions.md](subscriptions.md) en [Ondersteuning en onderhoud](services/support.md).
-
-Modelbeheer valt onder de SLA. APK's zijn inbegrepen bij Plus en Max; het kwartaaloverleg hoort bij Max. Mails en inbegrepen controles/overleg vallen buiten de service-uren.
-
-Ongebruikte uren kunnen één maand mee met één maandtegoed als spaarlimiet. Extra werk is na akkoord tegen normaal uurtarief, zonder korting. Grote projecten worden afzonderlijk geoffreerd en niet uit opeenvolgende SLA-maanden gefinancierd.
-
-## Interne en nog niet bevestigde prijzen
-
-### IT-partners
-
-Het eerdere bedrag van €65 per uur is uitsluitend interne dummydata. Publiceer geen vast partnertarief; partnerafspraken worden afzonderlijk gemaakt.
-
-### Geplande producten
-
-Deze producten worden inhoudelijk voorlopig overgeslagen. Bewaar de oude bedragen als interne referentie, niet als bevestigde actuele verkoopprijzen.
-
-| Product | Historische dummyprijs |
-| --- | --- |
-| AITJE Manager | €699 (Excl btw) |
-| AITJE Notulist | €299 (Excl btw) |
-| AITJE Prepper | €149 (Excl btw) |
-| AITJE 3D | €499 (Excl btw) |
-| AITJE Beeld | €599 (Excl btw) |
-| AITJE Video | €699 (Excl btw) |
-| AITJE Muziek | €599 (Excl btw) |
-
-### Oude bundels
-
-Startpakket, Doorlichting en Compliance zijn nog niet opnieuw afgestemd op het gewijzigde aanbod. Behandel hun oude prijzen, kortingen, inbegrepen SLA-maanden en automatische verlenging niet als bevestigde afspraken.
-
-Eventuele toekomstige bundels staan bij het relevante aanbod en krijgen geen apart hoofdoverzicht.
-
-## Nog af te ronden
-
-- Definitieve bedragen en dienstscopes vóór publicatie.
-- Prijspresentatie en voorwaarden voor de verschillende klantgroepen.
-- Eventuele nieuwe bundels.
-- Kosten voor reizen, verzending en afwijkende installaties.
-- Offertesjabloon met product/ontwikkeling, hardware/server en installatie als herkenbare onderdelen.
-
-## Bronnen en samenhang
-
-- Bestaande voorlopige prijzen uit het bedrijfsdocument van september 2026.
-- Latere bevestigde keuzes van de oprichter, met name SLA-prijzen en driedelige prijsopbouw.
-- [Besluitenlog](../context/decisions.md) en de bevestigde product- en dienstbeschrijvingen.
+De prijsinventarisatie van eerder op 5 oktober blijft een historische momentopname vóór dit besluit; die bedragen worden niet als actueel aanbod hergebruikt. Geplande producten en oude bundels hebben geen bevestigd huidig verkoopbedrag. IT-partneropdrachten worden afzonderlijk begroot.

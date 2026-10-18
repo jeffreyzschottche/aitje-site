@@ -130,11 +130,11 @@ De klant kan de complete Coder-omgeving ook aanschaffen en zelf op geschikte har
 
 Toon drie losse onderdelen:
 
-1. **AITJE Coder:** voorlopig €699 per geïnstalleerde omgeving of device;
+1. **AITJE Coder:** €699 per omgeving of device voor zelfinstallatie;
 2. **installatie en inrichting:** apart, afhankelijk van de gekozen opstelling;
 3. **hardware of server:** apart, afhankelijk van capaciteit en gebruik.
 
-Alle bedragen zijn dummydata en worden vóór publicatie gecontroleerd.
+Bevestigd op 5 oktober 2026, besluit 52. Basisinstallatie vanaf €199 op een bekende, geschikte omgeving, begroot op twee tot tweeënhalf uur inclusief testen, uitleg en afgesproken korte nazorg. Normale prijsbasis voor product en basisinstallatie: €898. Introductie voor de eerste honderd betaalde klanten: €799, met €99 voordeel. Beschikbaarheid wordt in de offerte bevestigd. Alle bedragen zijn exclusief btw; infrastructuur en aanvullende inrichting worden apart begroot. Een scan is niet verplicht.
 
 ## Voor wie
 

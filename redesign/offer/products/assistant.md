@@ -135,11 +135,11 @@ Deze route maakt duidelijk dat ondersteuning en installatie door AITJE niet verp
 
 Toon drie losse onderdelen:
 
-1. **AITJE Assistent:** voorlopig €499 per geïnstalleerde omgeving of device;
-2. **installatie en inrichting:** voorlopig €199 voor een standaardopstelling;
+1. **AITJE Assistent:** €499 per omgeving of device voor zelfinstallatie;
+2. **basisinstallatie:** vanaf €199 op een bekende, geschikte omgeving, begroot op twee tot tweeënhalf uur inclusief testen, uitleg en afgesproken korte nazorg;
 3. **hardware of server:** apart, afhankelijk van de gekozen omgeving.
 
-Alle bedragen zijn dummydata en worden vóór publicatie gecontroleerd.
+Bevestigd op 5 oktober 2026, besluit 52. Normale prijsbasis voor product en basisinstallatie: €698. Introductie voor de eerste honderd betaalde klanten: €599, met €99 voordeel. Beschikbaarheid wordt in de offerte bevestigd. Alle bedragen zijn exclusief btw; infrastructuur en aanvullende inrichting worden apart begroot. Een scan is niet verplicht.
 
 De productprijs mag niet als “software en inrichting” worden beschreven wanneer installatie apart wordt berekend.
 

@@ -41,9 +41,10 @@ const year = new Date().getFullYear();
               <AppIcon name="phone" :size="16" /> {{ contact.phone }}
             </a>
           </div>
-          <UiButton :to="mainCta.to" arrow class="mt-8">{{
-            mainCta.label
-          }}</UiButton>
+          <div class="mt-8 flex flex-col items-start gap-5">
+            <UiButton :to="mainCta.to" arrow>{{ mainCta.label }}</UiButton>
+            <PriceListLink dark />
+          </div>
         </div>
 
         <div class="grid grid-cols-2 gap-8 sm:grid-cols-4">

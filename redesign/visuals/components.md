@@ -38,7 +38,7 @@ Bevestigd op 5 oktober 2026: het patroon van AI-scan geldt voor alle negen diens
 
 Direct onder de hero staat een volle gele balk met drie korte kernpunten en lijniconen. De inhoud verschilt per dienst, de vorm niet. Daaronder staat de witte sectienavigatie met dezelfde rand, typografie en tussenruimte als op AI-scan. Er zit geen witte speling tussen deze onderdelen.
 
-Op mobiel staan de kernpunten onder elkaar en is de sectienavigatie één horizontaal scrollbare rij. Iedere link verwijst naar een bestaand onderdeel op dezelfde pagina; toetsenbordfocus blijft zichtbaar. Productpagina's behouden hun eigen bestaande navigatie.
+Op mobiel staan de drie kernpunten in gelijke kolommen, met een icoon boven de gecentreerde tekst en subtiele scheidingslijnen. De sectienavigatie is één horizontaal scrollbare rij. Iedere link verwijst naar een bestaand onderdeel op dezelfde pagina; toetsenbordfocus blijft zichtbaar. Productpagina's behouden hun eigen bestaande navigatie.
 
 ## Kaarten
 

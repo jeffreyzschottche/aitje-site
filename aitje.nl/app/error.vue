@@ -3,8 +3,9 @@ import type { NuxtError } from "#app";
 
 const props = defineProps<{ error: NuxtError }>();
 const notFound = computed(() => props.error.statusCode === 404);
+const { text, localePath } = useSiteLanguage();
 
-useHead({ title: notFound.value ? "Pagina niet gevonden | AITJE" : "Er ging iets mis | AITJE" });
+useHead(() => ({ title: text(notFound.value ? "Pagina niet gevonden | AITJE" : "Er ging iets mis | AITJE") }));
 </script>
 
 <template>
@@ -20,7 +21,7 @@ useHead({ title: notFound.value ? "Pagina niet gevonden | AITJE" : "Er ging iets
         {{ notFound ? "De pagina die je zoekt bestaat niet (meer). Misschien vind je hieronder wat je zocht." : "Probeer het later opnieuw, of neem direct contact op." }}
       </p>
       <div class="mt-9 flex flex-col gap-3 sm:flex-row">
-        <UiButton to="/" arrow @click="clearError({ redirect: '/' })">Naar de homepage</UiButton>
+        <UiButton to="/" arrow @click="clearError({ redirect: localePath('/') })">Naar de homepage</UiButton>
         <UiButton to="/contact" variant="secondary">Bespreek je AI-vraag</UiButton>
       </div>
       </div>

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { productStructuredData } from "@/utils/structuredData";
 // Product page (redesign/pages/product.md, besluiten 41, 45, 46, 51).
 import {
   availableProducts,
@@ -7,6 +8,7 @@ import {
   localNote,
 } from "@/content/products";
 import { contactLink } from "@/content/site";
+import { euros, getInstalledProductOffer, productIntroductionNote, pricing } from "@/content/pricing";
 
 const route = useRoute();
 const product = getProduct(String(route.params.slug));
@@ -20,6 +22,7 @@ if (!product) {
 }
 
 const available = product.status === "available";
+const installedOffer = getInstalledProductOffer(product.slug);
 const others = availableProducts.filter((p) => p.slug !== product.slug);
 if (["aitje-assistent", "aitje-coder"].includes(product.slug)) {
   useHead({
@@ -38,17 +41,7 @@ usePageSeo({
     { name: product.name, path: `/producten/${product.slug}` },
   ],
   faq: product.faq,
-  schema: available
-    ? [
-        {
-          "@type": "Product",
-          name: product.name,
-          description: product.subline,
-          brand: { "@type": "Brand", name: "AITJE" },
-          // Prices remain provisional until approved; no commercial Offer schema yet.
-        },
-      ]
-    : [],
+  schema: [productStructuredData(product)],
 });
 </script>
 
@@ -108,13 +101,16 @@ usePageSeo({
             >
           </div>
           <p class="mt-5 text-sm text-muted">
-            Voorlopig <strong class="text-ink">€{{ product.price }}</strong> per
-            omgeving, excl. btw ·
+            <strong class="text-ink">Vanaf {{ euros(installedOffer?.price ?? product.price!) }}</strong>
+            {{ installedOffer ? 'met basisinstallatie' : 'per omgeving' }}, excl. btw ·
             <a
               href="#prijs"
               class="underline decoration-brand underline-offset-4 hover:text-ink"
               >Bekijk de prijsopbouw</a
             >
+          </p>
+          <p v-if="installedOffer?.introductory" class="mt-2 max-w-xl text-xs leading-relaxed text-muted">
+            {{ productIntroductionNote }} Hardware en serverhuur apart.
           </p>
         </div>
         <div class="relative">
@@ -131,6 +127,9 @@ usePageSeo({
       </div>
     </section>
 
+    <AssistantExperience v-if="product.slug === 'aitje-assistent'" />
+    <CoderExperience v-else-if="product.slug === 'aitje-coder'" />
+    <template v-else>
     <nav class="product-jumpnav" aria-label="Op deze productpagina">
       <div class="container-page">
         <a href="#werking">Zo werkt het</a
@@ -252,14 +251,19 @@ usePageSeo({
       </div>
     </section>
 
+    </template>
+
     <!-- Prijs -->
-    <section id="prijs" class="scroll-mt-24 bg-sand py-20 md:py-24">
+    <AssistantPricing v-if="product.slug === 'aitje-assistent'" />
+    <CoderPricing v-else-if="product.slug === 'aitje-coder'" />
+    <section v-else id="prijs" class="scroll-mt-24 bg-sand py-20 md:py-24">
       <div class="container-page">
         <SectionHeading
           eyebrow="Prijs"
           title="Eerlijk opgebouwd. Jij ziet wat je betaalt."
-          intro="Het product, de hardware en de installatie staan apart. Zo weet je precies waar je geld naartoe gaat."
+          intro="Je ziet wat het product en de basisinstallatie kosten. Hardware, serverhuur en aanvullende inrichting worden apart begroot. AITJE kan de benodigde omgeving voor je regelen."
         />
+        <p v-if="product.slug === 'aitje-assistent'" class="mt-6 max-w-3xl leading-relaxed text-muted">Bij lokale modelverwerking is er geen externe tokenrekening. Hardware of hosting, energie, onderhoud en eventuele externe modellen blijven onderdeel van de totale kosten. Hieronder staan de actuele producttarieven; de capaciteit en aanvullende inrichting komen in je offerte.</p>
         <div class="mt-12 grid gap-6 lg:grid-cols-[1.35fr_1fr]">
           <!-- Laat AITJE het regelen -->
           <div class="rounded-panel border-2 border-ink bg-surface p-7 md:p-9">
@@ -268,9 +272,15 @@ usePageSeo({
               <UiBadge tone="brand">Aanbevolen</UiBadge>
             </div>
             <p class="mt-2 text-muted">
-              AITJE adviseert de hardware, installeert en levert gebruiksklaar
-              op.
+              AITJE installeert op een geschikte, vooraf afgestemde omgeving,
+              test de werking en geeft uitleg. Korte nazorg spreken we vooraf af.
             </p>
+            <div v-if="installedOffer" class="mt-6 rounded-card bg-brand/15 p-5">
+              <p class="text-sm font-medium">{{ installedOffer.introductory ? 'Introductie inclusief basisinstallatie' : 'Product inclusief basisinstallatie' }}</p>
+              <p class="mt-2 font-heading text-4xl font-bold">{{ euros(installedOffer.price) }}</p>
+              <p v-if="installedOffer.introductory" class="mt-2 text-sm text-muted">Reguliere prijs voor product en basisinstallatie: {{ euros(installedOffer.standard) }}.</p>
+              <p v-if="installedOffer.introductory" class="mt-2 text-xs leading-relaxed text-muted">{{ productIntroductionNote }}</p>
+            </div>
             <dl class="mt-8 divide-y divide-line border-y border-line">
               <div class="flex items-baseline justify-between gap-4 py-4">
                 <dt>{{ product.name }}</dt>
@@ -290,6 +300,14 @@ usePageSeo({
                   Afhankelijk van capaciteit, in je offerte
                 </dd>
               </div>
+              <div v-if="installedOffer?.discount" class="flex items-baseline justify-between gap-4 py-4">
+                <dt>Introductievoordeel</dt>
+                <dd class="text-right font-semibold">−{{ euros(installedOffer.discount) }}</dd>
+              </div>
+              <div v-if="installedOffer" class="flex items-baseline justify-between gap-4 py-4 font-semibold">
+                <dt>Product + basisinstallatie</dt>
+                <dd class="text-right font-heading text-xl">{{ euros(installedOffer.price) }}</dd>
+              </div>
               <div class="flex items-baseline justify-between gap-4 py-4">
                 <dt>
                   <NuxtLink
@@ -299,13 +317,15 @@ usePageSeo({
                   >
                 </dt>
                 <dd class="text-right text-sm text-muted">
-                  Optioneel, vanaf €49,99 p/m
+                  Optioneel, vanaf {{ euros(pricing.support.core.monthly) }} p/m
                 </dd>
               </div>
             </dl>
             <p class="mt-5 text-xs text-muted">
-              Voorlopige prijzen (Excl btw). Het definitieve bedrag wordt
-              bevestigd in je offerte. Hardware en scope bepalen de totaalprijs.
+              Alle bedragen zijn exclusief btw. De basisinstallatie is begroot op
+              twee tot tweeënhalf uur op een bekende, geschikte omgeving.
+              Hardware, serverhuur, reis- of locatiekosten, netwerkwerk, uitgebreide kennisbankinrichting
+              en koppelingen staan apart in je offerte.
             </p>
             <UiButton
               :to="contactLink('product-regelen', product.slug)"
@@ -345,12 +365,12 @@ usePageSeo({
 
         <div class="mt-6 grid gap-6 md:grid-cols-2">
           <div class="rounded-card border border-line bg-surface p-6">
-            <h3 class="font-heading font-semibold">Wat erbij zit</h3>
+            <h3 class="font-heading font-semibold">Bij het losse product</h3>
             <CheckList :items="product.included ?? []" class="mt-4" />
           </div>
           <div class="rounded-card border border-line bg-surface p-6">
             <h3 class="font-heading font-semibold">
-              Niet automatisch inbegrepen
+              Aanvullend op het losse product
             </h3>
             <CheckList
               :items="product.notIncluded ?? []"

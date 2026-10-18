@@ -1,10 +1,11 @@
 <script setup lang="ts">
+const { numberLocale } = useSiteLanguage();
 import type { ProductEnrichmentStory } from "@/content/types";
 
 const props = defineProps<{ story: ProductEnrichmentStory }>();
 const scenario = ref<"reported" | "schema">("reported");
 const characterMillions = ref<number | string>("");
-const euros = (value: number) => `€ ${value.toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+const euros = (value: number) => `€ ${value.toLocaleString(numberLocale.value, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 const deeplEstimate = computed(() => {
   const volume = Number(characterMillions.value);
   if (characterMillions.value === "" || !Number.isFinite(volume) || volume < 0 || volume > 50) return null;
@@ -19,8 +20,8 @@ const volumes = computed(() => scenario.value === "schema"
   : props.story.tokenCosts.reportedMillions);
 const inputMillions = computed(() => volumes.value.map(volume => volume * input.value / total.value));
 const outputMillions = computed(() => volumes.value.map(volume => volume * output.value / total.value));
-const number = (value: number, digits = 0) => value.toLocaleString("nl-NL", { maximumFractionDigits: digits });
-const usd = (value: number) => `$${value.toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+const number = (value: number, digits = 0) => value.toLocaleString(numberLocale.value, { maximumFractionDigits: digits });
+const usd = (value: number) => `$${value.toLocaleString(numberLocale.value, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 const range = (values: number[], format: (n: number) => string) => values.map(format).join(" – ");
 const cost = (inputRate: number, outputRate: number) => volumes.value.map((_, i) => inputMillions.value[i]! * inputRate + outputMillions.value[i]! * outputRate);
 </script>

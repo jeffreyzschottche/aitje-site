@@ -3,6 +3,7 @@
 import { articles, getArticle } from "@/content/knowledge";
 
 const route = useRoute();
+const { locale } = useSiteLanguage();
 const article = getArticle(String(route.params.slug));
 
 if (!article) {
@@ -26,7 +27,7 @@ const related = [
   ),
 ].slice(0, 3);
 
-const updated = new Intl.DateTimeFormat("nl-NL", {
+const updated = new Intl.DateTimeFormat(locale.value === "en" ? "en-GB" : "nl-NL", {
   day: "numeric",
   month: "long",
   year: "numeric",
@@ -45,6 +46,8 @@ usePageSeo({
       "@type": "Article",
       headline: article.title,
       description: article.excerpt,
+      articleSection: article.topic,
+      citation: article.sources?.map(source => source.url),
       dateModified: article.lastUpdated,
       author: { "@id": `${useRuntimeConfig().public.siteUrl}/#organization` },
       publisher: {

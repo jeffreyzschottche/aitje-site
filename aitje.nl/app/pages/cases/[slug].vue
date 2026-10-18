@@ -31,11 +31,12 @@ usePageSeo({
     { name: "Cases", path: "/cases" },
     { name: item.title, path: `/cases/${item.slug}` },
   ],
+  schema: [{ "@type": "Article", headline: item.title, description: item.summary, genre: item.label, articleSection: item.context }],
 });
 </script>
 
 <template>
-  <div>
+  <div class="case-detail">
     <PageHero
       class="case-detail-hero"
       :class="{ 'product-models-hero': item.productModels || item.gameLevels || item.councilHub || item.developmentAgency }"
@@ -162,4 +163,46 @@ usePageSeo({
 .product-models-hero :deep(.photo-bg) { z-index: 0; }
 .product-models-hero :deep(.photo-wash) { z-index: 1; }
 .product-models-hero :deep(.page-hero-layout) { position: relative; z-index: 2; }
+@media (max-width: 767px) {
+  .case-detail :deep(.case-summary-bar) {
+    padding-block: 1.25rem;
+  }
+  .case-detail :deep(.case-summary-grid) {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+    padding-block: 0;
+  }
+  .case-detail :deep(.case-summary-grid > div) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 0;
+    padding-inline: .5rem;
+    text-align: center;
+  }
+  .case-detail :deep(.case-summary-grid > div + div) {
+    border-left: 1px solid rgb(11 11 11 / .15);
+  }
+  .case-detail :deep(.case-summary-value) {
+    order: 0;
+    margin-top: 0;
+    font: 700 clamp(1rem, 4.4vw, 1.4rem)/1.2 var(--font-heading);
+    letter-spacing: -.04em;
+    text-wrap: balance;
+  }
+  .case-detail :deep(.case-summary-value span:not(.hidden)) {
+    display: block;
+    font-size: .65rem;
+    font-weight: 500;
+    margin-top: .2rem;
+  }
+  .case-detail :deep(.case-summary-label) {
+    order: 1;
+    margin-top: .65rem;
+    font-size: .72rem;
+    line-height: 1.5;
+    text-wrap: balance;
+  }
+}
 </style>

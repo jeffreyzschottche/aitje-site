@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { staticPageSeo } from "@/content/seo";
 // Product overview (redesign/pages/products.md, besluiten 09, 28, 51).
 import {
   availableProducts,
@@ -6,12 +7,13 @@ import {
   installPrice,
 } from "@/content/products";
 import { contactLink } from "@/content/site";
+import { introduction, productIntroductionNote } from "@/content/pricing";
 
 usePageSeo({
-  title: "AI-producten",
-  description:
-    "De AI-producten van AITJE: AITJE Assistent en AITJE Coder, gebruiksklaar op je eigen hardware of server. Zelf installeren of door AITJE laten opleveren.",
+  ...staticPageSeo["/producten"],
+  image: "/img/redesign/products-botanical-gallery.webp",
   breadcrumbs: [{ name: "Producten", path: "/producten" }],
+  items: [...availableProducts, ...plannedProducts].map(product => ({ name: product.name, path: `/producten/${product.slug}`, description: product.tagline })),
 });
 useHead({
   link: [{ rel: "preload", as: "image", href: "/img/redesign/products-botanical-gallery.webp", fetchpriority: "high" }],
@@ -30,7 +32,7 @@ const priceParts = [
   },
   {
     title: "Installatie en inrichting",
-    text: `Zelf doen, of AITJE levert gebruiksklaar op vanaf €${installPrice}.`,
+    text: `Zelf doen, of AITJE installeert, test en geeft uitleg vanaf €${installPrice}. Basisinstallatie op een bekende, geschikte omgeving; aanvullende inrichting apart.`,
     icon: "wrench",
   },
 ];
@@ -64,9 +66,9 @@ const priceParts = [
 
     <section v-if="availableProducts.length" class="pb-20">
       <div class="container-page">
-        <div class="mb-8 flex items-center gap-3">
+        <div class="mb-8 flex flex-wrap items-center gap-3">
           <UiBadge tone="brand" dot>Beschikbaar</UiBadge>
-          <span class="text-sm text-muted">Werkend en te bestellen</span>
+          <p v-if="introduction.products.active" class="text-sm leading-relaxed text-muted">{{ productIntroductionNote }}</p>
         </div>
         <div class="grid gap-6 md:grid-cols-2">
           <ProductCard
@@ -75,10 +77,11 @@ const priceParts = [
             :product="product"
           />
         </div>
+        <PriceListLink class="mt-6" />
       </div>
     </section>
 
-    <section class="bg-sand py-20">
+    <section class="products-purchase-section bg-sand py-20">
       <div class="container-page grid gap-12 lg:grid-cols-[1fr_1.4fr]">
         <SectionHeading
           eyebrow="Hoe je een product krijgt"
@@ -106,6 +109,8 @@ const priceParts = [
       </div>
     </section>
 
+    <CustomProjectBanner />
+
     <section v-if="plannedProducts.length" class="py-20">
       <div class="container-page">
         <SectionHeading
@@ -126,14 +131,14 @@ const priceParts = [
     <section class="section-space environment-section">
       <div class="container-page">
         <SectionHeading
-          eyebrow="Hardware is de basis, niet het hele product"
-          title="Een omgeving die past bij je ambities."
-          intro="De software, modellen en inrichting maken het product. De gekozen hardware bepaalt de capaciteit."
+          eyebrow="De infrastructuur achter je AI"
+          title="Een complete omgeving voor jouw AI."
+          intro="Van lokale hardware en je netwerk tot een eigen server of gehuurde serverruimte: AITJE helpt je de juiste infrastructuur kiezen en inrichten. We stemmen rekenkracht, opslag, verbindingen, software en modellen af op jouw werk."
         /><AiEnvironment class="mt-10" />
       </div>
     </section>
     <CasesSection
-      :slugs="['chatgpt-of-codex-in-je-eigen-organisatie', 'coder-game-in-24-uur']"
+      :slugs="['chatgpt-of-codex-in-je-eigen-organisatie', 'coder-game-in-24-uur', 'documenten-doorzoeken-en-lakken']"
       title="Producten in de praktijk."
     />
 
@@ -180,6 +185,9 @@ const priceParts = [
   filter: drop-shadow(0 20px 28px rgb(0 0 0 / 0.3));
 }
 @media (max-width: 767px) {
+  .products-purchase-section {
+    padding-bottom: 9rem;
+  }
   .products-gallery-hero {
     margin-bottom: 30px;
   }

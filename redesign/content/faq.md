@@ -1,6 +1,6 @@
 # Algemene FAQ — inhoud
 
-> **CONCEPT.** Vragen en antwoorden zijn gebaseerd op de bevestigde documenten in `/redesign`. Prijzen zijn dummydata (besluit 19). Controleer de antwoorden vóór publicatie. Structuur volgens [pages/faq.md](../pages/faq.md).
+> **CONCEPT.** Vragen en antwoorden zijn gebaseerd op de bevestigde documenten in `/redesign`. Prijzen en commerciële scopes volgen het goedgekeurde prijsmodel van 5 oktober 2026 (besluit 52). Controleer de antwoorden vóór publicatie. Structuur volgens [pages/faq.md](../pages/faq.md).
 >
 > Vragen met ★ staan ook op de betreffende product- of dienstpagina, vanuit dezelfde bron.
 
@@ -45,7 +45,7 @@ Je eigen AI-chatassistent, vergelijkbaar met ChatGPT, maar op je eigen apparaat 
 De lokale basis wel: chat, kennisbank en beheer werken zolang je apparaat of server en het lokale netwerk beschikbaar zijn. Websearch en updates hebben internet nodig.
 
 **★ Wat kost AITJE Assistent?**
-Het product kost €499 (Excl btw) per omgeving, zonder kosten per gebruiker. Hardware en installatie komen er apart bij, afhankelijk van je situatie.
+Los product €499 (Excl btw) per omgeving, zonder licentieprijs per gebruiker. Met basisinstallatie: introductieprijs €599 voor de eerste honderd betaalde klanten, reguliere prijsbasis vanaf €698. Beschikbaarheid in de offerte bevestigd; hardware, serverhuur en aanvullende inrichting apart.
 
 ### AITJE Coder
 **★ Wat is AITJE Coder?**
@@ -55,7 +55,7 @@ Een eigen omgeving voor coding agents: een lokaal alternatief voor diensten als 
 Ja. Je gebruikt Coder via de terminal, de AITJE-interface of een ondersteund coding-harnas zoals OpenCode.
 
 **★ Wat kost AITJE Coder?**
-Het product kost €699 (Excl btw) per omgeving, zonder externe tokenkosten voor lokaal gebruik. Hardware en installatie komen er apart bij.
+Los product €699 (Excl btw) per omgeving. Met basisinstallatie: introductieprijs €799 voor de eerste honderd betaalde klanten, reguliere prijsbasis vanaf €898. Beschikbaarheid in de offerte bevestigd; hardware, serverhuur en aanvullende inrichting apart.
 
 ### Geplande producten
 **Wanneer komen de andere producten beschikbaar?**
@@ -64,7 +64,7 @@ Er is nog geen vaste datum. Laat je interesse weten op de productpagina, dan hoo
 ## Diensten
 
 **★ Wat is een AI-scan?**
-Een onderzoek naar je werk, je workflows en je bestaande AI. Na een korte intake en een onderzoeksdagdeel krijg je een beknopt rapport met kansen, prioriteiten en vervolgstappen. Vanaf €595 (Excl btw). [AI-scan →](/diensten/ai-scan)
+Intake, circa vier uur onderzoek naar maximaal drie processen, compact rapport en bespreking van een halfuur. Basisinventarisatie van AI-gebruik, kosten en gegevensstromen inbegrepen. Introductie €395 voor de eerste tien betaalde klanten, regulier €495 (Excl btw). [AI-scan →](/diensten/ai-scan)
 
 **★ Wat doet AITJE bij Advies en analyse?**
 AITJE beantwoordt gerichte vragen over AI-architectuur, modelkeuze, kosten en bestaande opstellingen. Het werk wordt vooraf afgebakend en begroot tegen een vast uurtarief.
@@ -79,10 +79,10 @@ Ja, via Optimalisatie. AITJE meet hoe je huidige oplossing werkt, maakt een verb
 Met de AI-datalocatiecheck zie je waar je AI-data wordt verwerkt en opgeslagen. Daarnaast zijn er praktische richtlijnen en training. AITJE signaleert aandachtspunten, maar geeft geen juridisch oordeel.
 
 **★ Hoe werkt AITJE Custom?**
-Een compleet maatwerktraject tot het afgesproken eindproduct, tegen een vast uurtarief. Scope, uren en budget worden vooraf per fase afgestemd. Een prototype kan een tussenstap zijn.
+Hulp bij jouw vragen en ideeën rond AI: automatiseringen, koppelingen, apps voor telefoon, desktop of tablet, agents en 3D/VR. Ook bestaande code of een prototype kan hulp krijgen. AITJE onderzoekt de passende lokale, externe of gecombineerde aanpak en bouwt en test de oplossing. Scope, uren en budget worden vooraf per fase afgestemd.
 
 **★ Wat houdt Ondersteuning en onderhoud in?**
-Een maandelijks abonnement met service-uren voor hulp, updates, modelbeheer en kleine verbeteringen: AITJE Core, Plus of Max, vanaf €49,99 per maand (Excl btw).
+Core €49 per maand met 30 minuten, Plus €129 met 1,5 uur en Max €249 met 3 uur (Excl btw). Persoonlijke analyses, controles, overleg en uitvoering tellen mee in dat budget. Algemene ontwikkelingsupdate apart; ongebruikte tijd gaat één maand mee tot maximaal één extra maandtegoed.
 
 **★ Werkt AITJE samen met IT-bedrijven en bureaus?**
 Ja. Jij houdt de klantrelatie, AITJE levert de AI-expertise. Hoe zichtbaar AITJE is, spreken jullie per opdracht af. [Voor IT-bedrijven →](/diensten/voor-it-bedrijven)
@@ -108,11 +108,20 @@ Niet automatisch. Lokaal betaal je geen tokenkosten, maar wel hardware, stroom e
 
 ## Kosten
 
+**Waar vind ik de volledige prijslijst?**
+[Bekijk de volledige prijslijst (PDF)](/prijslijst-aitje.pdf) voor alle producten, diensten, uurtarieven en ondersteuningsabonnementen. Je vindt er ook wat is inbegrepen en de voorwaarden van het introductieaanbod. Alle bedragen zijn exclusief btw. Op de Engelse website verwijst deze link naar `/pricelist-aitje.pdf`.
+
 **Wat vraagt AITJE per uur?**
-AITJE vraagt €85 per uur, exclusief btw. Je spreekt vooraf de werkzaamheden, het verwachte aantal uren en het budget af. Extra werk begint na jouw akkoord.
+AITJE vraagt €75 per uur, exclusief btw. Je spreekt vooraf de werkzaamheden, het verwachte aantal uren en het budget af. Extra werk begint na jouw akkoord.
 
 **Hoe zijn de prijzen opgebouwd?**
 Uit drie onderdelen: het AI-product of de ontwikkeling, de hardware of server, en de installatie. Ondersteuning is optioneel en apart. Alle prijzen zijn exclusief btw.
+
+**Hoe werkt het introductieaanbod?**
+Voor de AI-scan geldt het introductieaanbod voor de eerste tien betaalde klanten: €395 (regulier €495). Voor Assistent en Coder geldt het introductieaanbod voor de eerste honderd betaalde klanten: Assistent met basisinstallatie €599 (regulier vanaf €698) en Coder met basisinstallatie €799 (regulier vanaf €898). Beschikbaarheid wordt bevestigd in de offerte. Hardware, serverhuur, reis- of locatiekosten en aanvullende inrichting worden vooraf apart begroot. Alle bedragen zijn exclusief btw.
+
+**Betaal ik opnieuw voor onderzoek dat al tijdens de scan is gedaan?**
+Bevindingen uit een scan of eerdere opdracht gebruiken we opnieuw. De basisinventarisatie van AI-gebruik, kosten en gegevensstromen hoort bij de scan. Bij vervolgwerk betaal je voor aanvullende verdieping of uitvoering, met een vooraf afgesproken scope en begroting.
 
 **Wat betekent "zonder verbruikskosten"?**
 Dat je bij lokaal gebruik niet per vraag of per token betaalt aan een externe AI-aanbieder. Je gebruikt het zo vaak als je hardware aankan. Externe modellen kunnen wel gebruikskosten hebben.

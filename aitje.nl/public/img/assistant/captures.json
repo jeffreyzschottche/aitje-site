@@ -1,0 +1,121 @@
+[
+  {
+    "scene": "chat-visualisatie",
+    "route": "/c/chat",
+    "duration": 5.5,
+    "width": 1152,
+    "height": 800,
+    "video": "video/chat-visualisatie.mp4",
+    "gif": "gifs/chat-visualisatie.gif",
+    "poster": "posters/chat-visualisatie.png",
+    "source": "Real frontend on localhost:3000 with synthetic browser API fixtures; prepared scenarios, no model calls or performance measurement"
+  },
+  {
+    "scene": "chat-proces",
+    "route": "/c/chat",
+    "duration": 5.55,
+    "width": 1152,
+    "height": 800,
+    "video": "video/chat-proces.mp4",
+    "gif": "gifs/chat-proces.gif",
+    "poster": "posters/chat-proces.png",
+    "source": "Real frontend on localhost:3000 with synthetic browser API fixtures; prepared scenarios, no model calls or performance measurement"
+  },
+  {
+    "scene": "admin-modellen",
+    "route": "/admin/roles/review",
+    "duration": 4.95,
+    "width": 1152,
+    "height": 800,
+    "video": "video/admin-modellen.mp4",
+    "gif": "gifs/admin-modellen.gif",
+    "poster": "posters/admin-modellen.png",
+    "source": "Real frontend on localhost:3000 with synthetic browser API fixtures; prepared scenarios, no model calls or performance measurement"
+  },
+  {
+    "scene": "admin-budget",
+    "route": "/admin/roles/review",
+    "duration": 4.9,
+    "width": 1152,
+    "height": 800,
+    "video": "video/admin-budget.mp4",
+    "gif": "gifs/admin-budget.gif",
+    "poster": "posters/admin-budget.png",
+    "source": "Real frontend on localhost:3000 with synthetic browser API fixtures; prepared scenarios, no model calls or performance measurement"
+  },
+  {
+    "scene": "admin-verbruik",
+    "route": "/admin/usage",
+    "duration": 4.85,
+    "width": 1152,
+    "height": 800,
+    "video": "video/admin-verbruik.mp4",
+    "gif": "gifs/admin-verbruik.gif",
+    "poster": "posters/admin-verbruik.png",
+    "source": "Real frontend on localhost:3000 with synthetic browser API fixtures; prepared scenarios, no model calls or performance measurement"
+  },
+  {
+    "scene": "kennis-documenten",
+    "route": "/kennis/documents",
+    "duration": 2.35,
+    "width": 1152,
+    "height": 800,
+    "video": "video/kennis-documenten.mp4",
+    "gif": "gifs/kennis-documenten.gif",
+    "poster": "posters/kennis-documenten.png",
+    "source": "Real frontend on localhost:3000 with synthetic browser API fixtures; prepared scenarios, no model calls or performance measurement"
+  },
+  {
+    "scene": "taken-overzicht",
+    "route": "/tasks",
+    "duration": 2.25,
+    "width": 1152,
+    "height": 800,
+    "video": "video/taken-overzicht.mp4",
+    "gif": "gifs/taken-overzicht.gif",
+    "poster": "posters/taken-overzicht.png",
+    "source": "Real frontend on localhost:3000 with synthetic browser API fixtures; prepared scenarios, no model calls or performance measurement"
+  },
+  {
+    "scene": "admin-guardrails",
+    "route": "/admin/guardrails",
+    "duration": 4.635,
+    "source": "Real frontend with synthetic browser API fixtures; prepared scenarios, no model calls or performance measurement"
+  },
+  {
+    "scene": "admin-skills",
+    "route": "/admin/skills",
+    "duration": 4.022,
+    "source": "Real frontend with synthetic browser API fixtures; prepared scenarios, no model calls or performance measurement"
+  },
+  {
+    "scene": "admin-modes",
+    "route": "/admin/modes",
+    "duration": 4.072,
+    "source": "Real frontend with synthetic browser API fixtures; prepared scenarios, no model calls or performance measurement"
+  },
+  {
+    "scene": "admin-netwerk",
+    "route": "/admin/network",
+    "duration": 4.001,
+    "source": "Real frontend with synthetic browser API fixtures; prepared scenarios, no model calls or performance measurement"
+  },
+  {
+    "scene": "admin-systeem",
+    "route": "/admin/system",
+    "duration": 4.144,
+    "source": "Real frontend with synthetic browser API fixtures; prepared scenarios, no model calls or performance measurement"
+  },
+  {
+    "scene": "chat-render",
+    "route": "/c/chat",
+    "duration": 5.518,
+    "source": "Real frontend with synthetic browser API fixtures; prepared scenarios, no model calls or performance measurement"
+  },
+  {
+    "scene": "chat-quiz",
+    "route": "/c/chat",
+    "duration": 8.618,
+    "source": "Real frontend with synthetic browser API fixtures; prepared scenarios, no model calls or performance measurement"
+  }
+]

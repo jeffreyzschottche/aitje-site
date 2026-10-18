@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const { numberLocale } = useSiteLanguage();
 import type { DevelopmentAgencyStory } from "@/content/types";
 
 const props = defineProps<{ story: DevelopmentAgencyStory }>();
@@ -8,16 +9,16 @@ const task = computed(() => props.story.tasks[selectedTask.value]!);
 const oldMonthly = computed(() => props.story.costs.subscriptions * props.story.costs.subscriptionMonthlyEur);
 const saving = computed(() => oldMonthly.value - props.story.costs.sharedMonthlyEur);
 const savingPercent = computed(() => Math.round(saving.value / oldMonthly.value * 100));
-const eur = (amount: number) => new Intl.NumberFormat("nl-NL", { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(amount);
+const eur = (amount: number) => new Intl.NumberFormat(numberLocale.value, { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(amount);
 </script>
 
 <template>
   <div class="agency-case">
-    <section class="agency-metrics bg-brand">
-      <div class="container-page"><dl>
-        <div><dt>Modellen om uit te kiezen</dt><dd>{{ story.modelCount }}</dd></div>
-        <div><dt>Gezamenlijk API-budget</dt><dd>{{ eur(story.costs.sharedMonthlyEur) }} <span>/ maand</span></dd></div>
-        <div><dt>Minder modelbudget</dt><dd>Circa {{ savingPercent }}%</dd></div>
+    <section class="case-summary-bar agency-metrics bg-brand">
+      <div class="container-page"><dl class="case-summary-grid">
+        <div><dt class="case-summary-label">Modellen om uit te kiezen</dt><dd class="case-summary-value">{{ story.modelCount }}</dd></div>
+        <div><dt class="case-summary-label">Gezamenlijk API-budget</dt><dd class="case-summary-value">{{ eur(story.costs.sharedMonthlyEur) }} <span>/ maand</span></dd></div>
+        <div><dt class="case-summary-label">Minder modelbudget</dt><dd class="case-summary-value">Circa {{ savingPercent }}%</dd></div>
       </dl></div>
     </section>
 

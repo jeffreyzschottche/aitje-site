@@ -1,18 +1,21 @@
 <script setup lang="ts">
+import { staticPageSeo } from "@/content/seo";
 // Knowledge centre: featured introduction, searchable articles and topic filters.
 import { articles, knowledgeCategories, featuredArticleSlugs } from "@/content/knowledge";
 import type { KnowledgeCategory } from "@/content/types";
 
 usePageSeo({
-  title: "Kenniscentrum",
-  description: "Heldere uitleg over AI, modellen en je eigen AI-omgeving. Wat is een LLM, wat is lokale AI, wat doet een agent? Het kenniscentrum van AITJE.",
+  ...staticPageSeo["/kenniscentrum"],
+  image: "/img/redesign/knowledge-jungle-library.webp",
   breadcrumbs: [{ name: "Kenniscentrum", path: "/kenniscentrum" }],
+  items: articles.map(article => ({ name: article.title, path: `/kenniscentrum/${article.slug}`, description: article.excerpt })),
 });
 useHead({
   link: [{ rel: "preload", as: "image", href: "/img/redesign/knowledge-jungle-library.webp", fetchpriority: "high" }],
 });
 
 const route = useRoute();
+const { text } = useSiteLanguage();
 const router = useRouter();
 const search = ref("");
 const active = computed<KnowledgeCategory | null>(() => {
@@ -24,13 +27,13 @@ const setCategory = (name: KnowledgeCategory | null) =>
 
 const featured = articles.find(a => a.slug === featuredArticleSlugs[0]);
 const normalize = (value: string) => value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase("nl-NL").replace(/[^\p{L}\p{N}]+/gu, " ").trim();
-const searchIndex = articles.map(article => ({
+const searchIndex = computed(() => articles.map(article => ({
   article,
-  text: normalize([article.title, article.excerpt, article.topic, ...article.sections.map(section => section.title + " " + section.content)].join(" ")),
-}));
+  text: normalize([text(article.title), text(article.excerpt), text(article.topic), ...article.sections.map(section => text(section.title) + " " + text(section.content))].join(" ")),
+})));
 const matching = computed(() => {
   const terms = normalize(search.value).split(/\s+/).filter(Boolean);
-  return searchIndex.filter(entry => terms.every(term => entry.text.includes(term))).map(entry => entry.article);
+  return searchIndex.value.filter(entry => terms.every(term => entry.text.includes(term))).map(entry => entry.article);
 });
 const list = computed(() => active.value ? matching.value.filter(a => a.topic === active.value) : matching.value);
 const countFor = (name: KnowledgeCategory) => matching.value.filter(a => a.topic === name).length;

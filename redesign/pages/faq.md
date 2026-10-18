@@ -105,6 +105,8 @@ Bij de bouw per vraag bepalen:
 
 ## Structured data
 
+De FAQ bevat boven de zoekfunctie een link naar de volledige PDF-prijslijst en onder **Kosten** de vraag **Waar vind ik de volledige prijslijst?** Beide openen de PDF in de taal van de pagina, in een nieuw tabblad.
+
 De algemene FAQ en de FAQ's op product- en dienstpagina's krijgen FAQPage-structured data (schema.org), besluit 51. Vragen en antwoorden staan daarvoor letterlijk en zichtbaar op de pagina.
 
 ## Niet op deze pagina

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const { numberLocale } = useSiteLanguage();
 import type { WorkshopVoiceStory } from "@/content/types";
 const props = defineProps<{ costs: WorkshopVoiceStory["costs"] }>();
 const cars = ref(6);
@@ -32,9 +33,9 @@ const rows = computed(() => props.costs.models.map(model => {
   return { ...model, textUsd, apiEur, saving: apiEur - boxCost.value };
 }));
 const selected = computed(() => rows.value[selectedModel.value]!);
-const euro = (value: number) => new Intl.NumberFormat("nl-NL", { style: "currency", currency: "EUR" }).format(value);
-const usd = (value: number) => new Intl.NumberFormat("nl-NL", { style: "currency", currency: "USD" }).format(value);
-const number = (value: number) => new Intl.NumberFormat("nl-NL", { maximumFractionDigits: 1 }).format(value);
+const euro = (value: number) => new Intl.NumberFormat(numberLocale.value, { style: "currency", currency: "EUR" }).format(value);
+const usd = (value: number) => new Intl.NumberFormat(numberLocale.value, { style: "currency", currency: "USD" }).format(value);
+const number = (value: number) => new Intl.NumberFormat(numberLocale.value, { maximumFractionDigits: 1 }).format(value);
 const payback = computed(() => selected.value.saving > 0 ? `${number(props.costs.hardwareEur / selected.value.saving)} maanden` : "Geen terugverdientijd");
 </script>
 

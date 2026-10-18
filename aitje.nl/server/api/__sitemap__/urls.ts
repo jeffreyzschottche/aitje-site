@@ -1,12 +1,11 @@
 // Dynamic routes for @nuxtjs/sitemap: products, services, cases and knowledge articles.
-import { products } from "~/content/products";
-import { services } from "~/content/services";
-import { cases } from "~/content/cases";
-import { articles } from "~/content/knowledge";
+import { searchPages } from "~/content/searchCatalog";
+import { englishPath } from "#shared/siteLocales";
 
-export default defineSitemapEventHandler(() => [
-  ...products.map((p) => ({ loc: `/producten/${p.slug}` })),
-  ...services.map((s) => ({ loc: `/diensten/${s.slug}` })),
-  ...cases.map((c) => ({ loc: `/cases/${c.slug}` })),
-  ...articles.map((a) => ({ loc: `/kenniscentrum/${a.slug}`, lastmod: a.lastUpdated })),
-]);
+export default defineSitemapEventHandler(() => {
+  return searchPages.map(page => ({ loc: page.path, lastmod: page.lastmod })).flatMap((page) => {
+    const en = englishPath(page.loc);
+    const alternatives = [{ hreflang: "nl", href: page.loc }, { hreflang: "en", href: en }, { hreflang: "x-default", href: page.loc }];
+    return [{ ...page, alternatives }, { ...page, loc: en, alternatives }];
+  });
+});

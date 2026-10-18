@@ -1,11 +1,13 @@
 <script setup lang="ts">
+import { serviceStructuredData } from "@/utils/structuredData";
 // Service page (redesign/pages/service.md, besluit 51).
-import { getService, slaPlans, partnerService } from "@/content/services";
+import { getService, slaPlans } from "@/content/services";
 import InstallationSetup from "@/components/InstallationSetup.vue";
 import OptimizationOptions from "@/components/OptimizationOptions.vue";
 import SafeAiControls from "@/components/SafeAiControls.vue";
 import SlaPartnership from "@/components/SlaPartnership.vue";
 import CustomProjectJourney from "@/components/CustomProjectJourney.vue";
+import CustomPossibilities from "@/components/CustomPossibilities.vue";
 import ServicePageNav from "@/components/ServicePageNav.vue";
 
 const route = useRoute();
@@ -19,16 +21,12 @@ if (!service) {
   });
 }
 
-const related = service.related.map((slug) =>
-  slug === partnerService.slug
-    ? { ...partnerService, price: "Per opdracht" }
-    : { ...getService(slug)!, price: getService(slug)!.price.label },
-);
 const isSupport = service.slug === "ondersteuning-en-onderhoud";
 const isAdvice = service.slug === "advies-en-analyse";
 const isCustom = service.slug === "aitje-custom";
 const sections = [
   { label: "Wat houdt het in?", href: "#over-de-dienst" },
+  ...(isCustom ? [{ label: "De mogelijkheden", href: "#mogelijkheden" }] : []),
   { label: "De aanpak", href: "#aanpak" },
   { label: "Wat je krijgt", href: "#oplevering" },
   { label: "Kosten & afspraken", href: isSupport ? "#sla-niveaus" : "#dienst-prijs" },
@@ -44,15 +42,7 @@ usePageSeo({
     { name: service.name, path: `/diensten/${service.slug}` },
   ],
   faq: service.faq,
-  schema: [
-    {
-      "@type": "Service",
-      name: service.name,
-      description: service.subline,
-      provider: { "@id": `${useRuntimeConfig().public.siteUrl}/#organization` },
-      areaServed: "NL",
-    },
-  ],
+  schema: [serviceStructuredData(service)],
 });
 </script>
 
@@ -113,6 +103,7 @@ usePageSeo({
     <OptimizationOptions v-if="service.slug === 'optimalisatie'" />
     <SafeAiControls v-if="service.slug === 'veilig-ai-gebruik'" />
     <SlaPartnership v-if="isSupport" />
+    <CustomPossibilities v-if="isCustom" />
 
     <template v-if="service.slug === 'token-management-en-optimalisatie'">
       <TokenUsageOverview />
@@ -189,7 +180,7 @@ usePageSeo({
           <SectionHeading
             eyebrow="Kies je niveau"
             title="AITJE Core, Plus of Max."
-            intro="Alle niveaus: bereikbaar op werkdagen van 09.00 tot 18.00 uur. Ongebruikte uren gaan één maand mee."
+            intro="Een vast tijdsbudget voor hulp, persoonlijk advies, controles en uitvoering. Bereikbaar op werkdagen van 09.00 tot 18.00 uur. Ongebruikte tijd gaat één maand mee."
             dark
           />
           <div class="mt-12 grid gap-5 lg:grid-cols-3">
@@ -207,7 +198,7 @@ usePageSeo({
                 v-if="plan.highlight"
                 tone="dark"
                 class="absolute top-6 right-6"
-                >Met AI-APK</UiBadge
+                >Met kwartaalcheck</UiBadge
               >
               <h3 class="font-heading text-xl font-bold">{{ plan.name }}</h3>
               <p class="mt-5 font-heading text-4xl font-bold">
@@ -220,8 +211,10 @@ usePageSeo({
                 per maand, excl. btw
               </p>
               <p class="mt-6 font-mono text-sm">
-                {{ plan.hours }} {{ plan.hours === 1 ? "serviceuur" : "serviceuren" }}
-                per maand inbegrepen
+                {{ plan.timeLabel }} per maand inbegrepen
+              </p>
+              <p class="mt-2 text-xs" :class="plan.highlight ? 'text-ink/70' : 'text-muted-dark'">
+                Met meegenomen tijd maximaal {{ plan.maxTimeLabel }} beschikbaar.
               </p>
               <ul class="mt-5 space-y-2.5 text-sm">
                 <li v-for="f in plan.features" :key="f" class="flex gap-2">
@@ -243,6 +236,10 @@ usePageSeo({
               >
             </div>
           </div>
+          <p class="mt-7 max-w-3xl text-sm leading-relaxed text-muted-dark">
+            Persoonlijke analyses, controles, overleg en uitvoering gebruiken hetzelfde tijdsbudget.
+            Een algemene ontwikkelingsupdate staat daar los van. Extra werk krijgt vooraf een begroting.
+          </p>
         </div>
       </div>
     </section>
@@ -293,26 +290,11 @@ usePageSeo({
     </section>
 
     <!-- Gerelateerd -->
-    <section class="border-t border-line py-20">
-      <div class="container-page">
-        <h2 class="font-heading text-2xl font-bold">Past hier ook bij</h2>
-        <div class="mt-8 grid gap-4 md:grid-cols-3">
-          <ServiceCard
-            v-for="item in related"
-            :key="item.slug"
-            :to="`/diensten/${item.slug}`"
-            :name="item.name"
-            :text="item.short"
-            :icon="item.icon"
-            :price="item.price"
-          />
-        </div>
-      </div>
-    </section>
+    <RelatedServices :slug="service.slug" />
 
     <CtaBanner
-      :title="service.headline"
-      :text="service.subline"
+      :title="isCustom ? 'Wat wil jij slimmer aanpakken?' : service.headline"
+      :text="isCustom ? 'Vertel welke taak tijd kost, wat je wilt bouwen of waar je vastloopt. AITJE helpt je wegwijs worden en een haalbare eerste stap kiezen.' : service.subline"
       :primary="service.cta"
       :secondary="{ label: 'Bespreek je AI-vraag', to: '/contact' }"
     />

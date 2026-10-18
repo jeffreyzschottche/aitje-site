@@ -30,14 +30,14 @@ Ontdekken, bouwen of verbeteren. Kies wat aansluit op jouw vraag.
 | Installatie en inrichting | Inrichten | Je AI-software en modellen gebruiksklaar geïnstalleerd op passende hardware of een server, nieuw of bestaand. |
 | Optimalisatie | Verbeteren | Je bestaande chatbot, kennisbank of agent verbeteren met gerichte aanpassingen aan instructies, kennis, code en modellen. |
 | Veilig AI-gebruik | Beschermen | Praktische maatregelen om te bepalen welke data AI mag gebruiken, welke acties zijn toegestaan en wie controleert. |
-| AITJE Custom — AI op maat | Bouwen | Een workflow, agent of complete AI-toepassing op maat, verbonden met de systemen waarmee jij werkt. |
+| AITJE Custom — AI op maat | Bouwen | Automatiseringen, eigen apps, AI-agents en 3D/VR. AITJE helpt je kiezen en bouwen, lokaal of met externe AI. |
 | Ondersteuning en onderhoud | Beheren | Een vast aanspreekpunt voor onderhoud, modelbeheer, prompts, skills en persoonlijk advies over volgende verbeteringen. |
 
 De hele kaart verwijst naar de dienst. AI-scan krijgt een felgele AITJE-achtergrond, Veilig AI-gebruik een subtiele grijs-zwarte gradient met lichte tekst en Custom een donkergroene. De rest blijft licht. Dezelfde kleuren worden op home gebruikt. Alle diensten blijven direct zichtbaar.
 
 Op ruime schermen staan vier kaarten naast elkaar, op tussenmaten twee. Op smalle schermen staat het beeld naast de korte tekst in één kolom.
 
-Prijzen komen uit `app/content/services.ts`, met algemene uitleg over de indicatieve status, btw en aparte hardware-, hosting- en modelkosten. Bij Veilig AI-gebruik heet de getoonde prijs expliciet **Datalocatiecheck €1.499**: dat bedrag geldt voor die check. Advies en analyse toont **Vast uurtarief**.
+Prijzen komen uit de centrale `app/content/pricing.ts` via `app/content/services.ts`, volgens besluit 52. De AI-scan toont de introductieprijs €395 voor de eerste tien betaalde klanten, regulier €495. Veilig AI-gebruik start met een eenvoudige datalocatiecheck vanaf €225; Advies en analyse met een gerichte adviessessie van €150. Bij uurwerk staat **Vast uurtarief**; alleen de algemene FAQ noemt €75 per uur. Btw, infrastructuur en aanvullende werkzaamheden worden afzonderlijk uitgelegd.
 
 Onder het overzicht: je kunt bij elke dienst beginnen en AITJE helpt kiezen, met de contactroute `Bespreek je AI-vraag`.
 

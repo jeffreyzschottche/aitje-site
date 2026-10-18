@@ -5,6 +5,7 @@ import { services, partnerService } from "@/content/services";
 import { customNavLabel, mainCta } from "@/content/site";
 
 const route = useRoute();
+const { basePath } = useSiteLanguage();
 const scrolled = ref(false);
 const mobileOpen = ref(false);
 const openMenu = ref<string | null>(null);
@@ -120,7 +121,7 @@ for (const menu of menus) {
 }
 
 const isActive = (to: string) =>
-  route.path === to || route.path.startsWith(`${to}/`);
+  basePath.value === to || basePath.value.startsWith(`${to}/`);
 
 const onScroll = () => {
   // Separate thresholds prevent flickering when scrolling near the transition.
@@ -188,7 +189,7 @@ watch(mobileOpen, (value) => {
         />
       </NuxtLink>
 
-      <nav class="hidden lg:block" aria-label="Hoofdnavigatie">
+      <nav class="hidden xl:block" aria-label="Hoofdnavigatie">
         <ul class="flex items-center gap-1">
           <li
             v-for="menu in menus"
@@ -199,7 +200,7 @@ watch(mobileOpen, (value) => {
           >
             <NuxtLink
               :to="menu.to"
-              class="flex items-center gap-1 rounded-full px-3.5 py-2 text-[0.93rem] font-medium transition-colors hover:bg-ink/5"
+              class="flex items-center gap-1 rounded-full px-3.5 py-2 text-[0.93rem] font-medium whitespace-nowrap transition-colors hover:bg-ink/5"
               :class="isActive(menu.to) ? 'text-ink' : 'text-ink/75'"
               :aria-expanded="menu.columns ? openMenu === menu.key : undefined"
               @focus="menu.columns && open(menu.key)"
@@ -276,6 +277,7 @@ watch(mobileOpen, (value) => {
       </nav>
 
       <div class="flex items-center gap-2">
+        <LanguageToggle />
         <UiButton
           :to="mainCta.to"
           size="sm"
@@ -284,7 +286,7 @@ watch(mobileOpen, (value) => {
         >
         <button
           type="button"
-          class="grid size-10 place-items-center rounded-full hover:bg-ink/5 lg:hidden"
+          class="grid size-10 place-items-center rounded-full hover:bg-ink/5 xl:hidden"
           :aria-expanded="mobileOpen"
           aria-controls="mobile-menu"
           :aria-label="mobileOpen ? 'Menu sluiten' : 'Menu openen'"
@@ -304,7 +306,7 @@ watch(mobileOpen, (value) => {
       <div
         v-if="mobileOpen"
         id="mobile-menu"
-        class="fixed inset-0 top-0 -z-10 overflow-y-auto bg-page px-5 pt-24 pb-10 lg:hidden"
+        class="fixed inset-0 top-0 -z-10 overflow-y-auto bg-page px-5 pt-24 pb-10 xl:hidden"
       >
         <nav aria-label="Mobiele navigatie">
           <ul class="divide-y divide-line border-y border-line">

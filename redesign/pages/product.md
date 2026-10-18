@@ -61,7 +61,7 @@ Herkenbare werkzaamheden en situaties. Geen verplichte doelgroepkeuze.
 | Installatie en inrichting | Vanaf €199 (Excl btw) |
 | Ondersteuning en onderhoud | Optioneel: Core, Plus of Max, per maand |
 
-Geen totaalprijs zolang hardware en scope onbekend zijn. Bedragen zijn dummydata tot controle vóór publicatie (besluit 19).
+Bevestigd prijsmodel: besluit 52. Toon een totaal voor het product met basisinstallatie, met infrastructuur en aanvullende inrichting apart. Introductie voor de eerste honderd betaalde klanten: Assistent €599 en Coder €799; reguliere prijsbasis €698/€898. Zelfinstallatie blijft €499/€699. Beschikbaarheid wordt in de offerte bevestigd; geen verzonnen resterende-plaatsen-teller.
 
 Knop bij dit blok: **Laat AITJE het regelen**.
 

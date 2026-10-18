@@ -1,11 +1,17 @@
 // Products (redesign/offer/products, pages/product.md, besluiten 09, 28, 45, 46, 51).
-// Prices are dummy data until checked before publication (besluit 19).
+// Current price model approved by the founder on 5 October 2026.
 import type { Product } from "./types";
+import { euros, getInstalledProductOffer, productIntroductionNote, pricing } from "./pricing";
 
 export const localNote =
   "Dit geldt voor de lokale functies. Gebruik je externe modellen of online tools, dan kunnen gegevensdeling, kosten en afhankelijkheden verschillen.";
 
-export const installPrice = 199;
+export const installPrice = pricing.installation.from;
+
+function productPriceAnswer(slug: keyof typeof pricing.products) {
+  const offer = getInstalledProductOffer(slug)!;
+  return `Het losse product kost ${euros(pricing.products[slug].software)} per omgeving, zonder licentieprijs per gebruiker. Met basisinstallatie, testen, uitleg en afgesproken korte nazorg ${offer.introductory ? `geldt een introductieprijs van ${euros(offer.price)}; de reguliere prijs begint bij ${euros(offer.standard)}. ${productIntroductionNote}` : `begint de prijs bij ${euros(offer.price)}.`} Hardware, serverhuur en aanvullende inrichting worden apart begroot. Alle bedragen zijn exclusief btw.`;
+}
 
 // Set status to "disabled" to unpublish a product everywhere.
 const productDefinitions: Product[] = [
@@ -101,7 +107,7 @@ const productDefinitions: Product[] = [
       "Updates, nieuwe modellen en ondersteuning na oplevering",
       "Externe API- of gebruikskosten",
     ],
-    price: 499,
+    price: pricing.products["aitje-assistent"].software,
     selfInstall: [
       "Je installeert AITJE Assistent zelf op geschikte eigen hardware.",
       "Je krijgt de complete omgeving met chat, beheer en kennisbank.",
@@ -157,7 +163,7 @@ const productDefinitions: Product[] = [
       },
       {
         q: "Wat kost AITJE Assistent?",
-        a: "De voorlopige productprijs is €499 (excl. btw) per omgeving, zonder kosten per gebruiker. Hardware en installatie komen er apart bij, afhankelijk van je situatie.",
+        a: productPriceAnswer("aitje-assistent"),
         general: true,
       },
       {
@@ -208,7 +214,7 @@ const productDefinitions: Product[] = [
       "documenten-doorzoeken-en-lakken",
     ],
     seoDescription:
-      "AITJE Assistent: je eigen AI-chatassistent met kennisbank, op je eigen hardware of server. Chat lokaal zonder externe tokenkosten. Vanaf €499 per omgeving.",
+      `AITJE Assistent: lokale chat met kennisbank. Los product ${euros(pricing.products["aitje-assistent"].software)}; vanaf ${euros(getInstalledProductOffer("aitje-assistent")!.price)} met basisinstallatie. Excl. btw en infrastructuur.`,
   },
   {
     slug: "aitje-coder",
@@ -221,10 +227,10 @@ const productDefinitions: Product[] = [
     image: "/img/covers/v2/aitje-coder.webp",
     headline: "Je eigen coding agents. Zonder externe tokenkosten.",
     subline:
-      "Op je eigen hardware of server, met je code in je eigen omgeving. Werk lokaal door als externe AI-diensten uitvallen, via je terminal, de AITJE-interface of een ondersteund coding-harnas.",
+      "Geef een taak in gewone taal. Een agent werkt in een eigen kopie van je repository, draait de tests en legt het resultaat ter review voor. Het model draait op een box in jullie eigen netwerk.",
     intro: [
       "AITJE Coder is een eigen alternatief voor diensten zoals Codex en Claude Code: een complete lokale codeeromgeving die projecten leest en wijzigt, commando's uitvoert en programmeertaken iteratief afrondt.",
-      "AITJE heeft het uitzoekwerk al gedaan. Vijf zorgvuldig gekozen lokale codeermodellen, Ollama, een grafische interface, API-toegang en CLI-configuratie zitten gebruiksklaar in één product. Je gebruikt het via de terminal, de AITJE-interface of een ondersteund harnas zoals OpenCode.",
+      "AITJE heeft het uitzoekwerk al gedaan. Geselecteerde lokale codeermodellen, een agent met review en pull requests, een web-app voor beheer en de koppeling met tools als Claude Code, OpenCode, Codex en Aider zitten gebruiksklaar in één product.",
     ],
     forWho: [
       "Ontwikkelbureaus die dagelijks met coding agents werken",
@@ -248,7 +254,7 @@ const productDefinitions: Product[] = [
       {
         problem: "Modellen, interfaces en harnassen uitzoeken kost dagen.",
         solution:
-          "Vijf geselecteerde modellen, in gewone taal uitgelegd, klaar voor gebruik.",
+          "Geselecteerde lokale modellen, op de box ingesteld en klaar voor gebruik.",
       },
       {
         problem: "Je code moet in je eigen omgeving blijven.",
@@ -270,11 +276,11 @@ const productDefinitions: Product[] = [
       {
         icon: "plug",
         title: "Ondersteunde harnassen",
-        text: "Koppel Coder aan OpenCode en andere ondersteunde coding-harnassen.",
+        text: "Koppel Coder aan Claude Code, OpenCode, Codex, Aider en andere coding agents.",
       },
       {
         icon: "cpu",
-        title: "Vijf vaste modellen",
+        title: "Geselecteerde modellen",
         text: "Licht, snel of krachtig: je kiest per taak, zonder modelnamen te hoeven kennen.",
       },
       {
@@ -289,10 +295,10 @@ const productDefinitions: Product[] = [
       },
     ],
     included: [
-      "Vijf geselecteerde lokale codeermodellen",
-      "Ollama voor het lokaal draaien en beheren van modellen",
+      "Geselecteerde lokale codeermodellen, ingesteld voor de box",
+      "Agent met live verloop, review en pull requests naar GitHub, GitLab of Gitea",
       "Grafische AITJE-interface, API-toegang en CLI",
-      "Koppeling met OpenCode en andere ondersteunde harnassen",
+      "Koppeling met Claude Code, OpenCode, Codex, Aider en andere tools",
       "Blijvend gebruik van de opgeleverde versie, per omgeving of device",
     ],
     notIncluded: [
@@ -302,7 +308,7 @@ const productDefinitions: Product[] = [
       "Updates, nieuwe modellen en ondersteuning na oplevering",
       "Externe API- of gebruikskosten",
     ],
-    price: 699,
+    price: pricing.products["aitje-coder"].software,
     selfInstall: [
       "Je installeert AITJE Coder zelf op geschikte eigen hardware.",
       "Je krijgt de complete omgeving met modellen, interface, API en CLI.",
@@ -324,7 +330,7 @@ const productDefinitions: Product[] = [
       },
       {
         title: "Compatibiliteit",
-        text: "OpenCode wordt ondersteund. Welke andere harnassen officieel worden ondersteund, wordt vóór publicatie bevestigd. Coder belooft geen werking met iedere tool.",
+        text: "Configuraties staan klaar voor Claude Code, OpenCode, Codex CLI, Aider, Cline, Roo Code, Kilo Code, Continue en Zed. Claude Code praat rechtstreeks met de Anthropic Messages-API van de box, de andere tools met een OpenAI-compatibel endpoint. Coder belooft geen werking met iedere tool.",
       },
     ],
     faq: [
@@ -335,12 +341,12 @@ const productDefinitions: Product[] = [
       },
       {
         q: "Werkt Coder met mijn eigen tools?",
-        a: "Je gebruikt Coder via de terminal, de AITJE-interface of een ondersteund coding-harnas zoals OpenCode.",
+        a: "Ja. Claude Code, OpenCode, Codex, Aider, Cline, Continue en andere tools praten met de box in plaats van met een clouddienst. De pagina /connect op de box geeft het certificaat, je persoonlijke sleutel en een kant-en-klare configuratie per tool. Taken voor de agent geef je in de web-app.",
         general: true,
       },
       {
         q: "Wat kost AITJE Coder?",
-        a: "De voorlopige productprijs is €699 (excl. btw) per omgeving, zonder externe tokenkosten voor lokaal gebruik. Hardware en installatie komen er apart bij.",
+        a: productPriceAnswer("aitje-coder"),
         general: true,
       },
       {
@@ -349,7 +355,7 @@ const productDefinitions: Product[] = [
       },
       {
         q: "Kan ik zelf een ander model toevoegen?",
-        a: "Ja. Je kunt zelf een geschikt model toevoegen, of AITJE los of via een SLA vragen de modelselectie te onderhouden.",
+        a: "Ja. Een lokaal model toevoegen of verwijderen gebeurt op de box zelf; AITJE kan dat los of via een SLA voor je doen. Een beheerder kan daarnaast een externe aanbieder toevoegen. Die modellen staan standaard voor niemand open: je staat ze per gebruiker toe.",
       },
       {
         q: "Met welke programmeertalen en frameworks kan AITJE Coder werken?",
@@ -363,12 +369,12 @@ const productDefinitions: Product[] = [
       },
       {
         q: "Hoe bepaal ik welke bestanden en commando’s een coding agent mag gebruiken?",
-        a: "Dat stel je in via het coding-harnas: de tool waarmee je de agent laat werken. De mogelijkheden voor toegang en toestemming hangen van dat harnas af. Geplande coding-taken werken via pull requests op GitHub, met toegang via een personal access token (PAT). Daarbij bepalen we welke repository en toegangsrechten de agent krijgt.",
+        a: "Bij taken via de web-app werkt de agent in een afgeschermde container met een eigen kopie van de repository. Hij mag pakketten installeren, maar kan jullie interne netwerk niet bereiken. Je bepaalt per repository de toegang; voor GitHub log je eenmalig in met een code, zonder zelf een token te maken. Werk je met een eigen tool zoals Claude Code of OpenCode, dan bepaalt die tool welke bestanden en commando's de agent mag gebruiken.",
         general: true,
       },
       {
         q: "Kan ik wijzigingen van AITJE Coder eerst beoordelen voordat ze worden toegepast?",
-        a: "Ja. Bij geplande coding-taken worden wijzigingen als pull request op GitHub aangeboden. Je kunt de voorgestelde wijzigingen bekijken en beoordelen voordat je ze samenvoegt. Bij interactief gebruik bepaalt het gekozen coding-harnas welke goedkeuringsmomenten beschikbaar zijn.",
+        a: "Ja. Bij taken via de web-app verandert er niets tot je het resultaat goedkeurt. Je leest het verslag van de agent en ziet elke gewijzigde regel. Goedkeuren opent een pull request bij GitHub, GitLab of Gitea; Wijzigingen nodig keurt af of laat de agent opnieuw beginnen. Bij interactief gebruik bepaalt je eigen tool welke goedkeuringsmomenten er zijn.",
         general: true,
       },
       {
@@ -379,7 +385,7 @@ const productDefinitions: Product[] = [
     ],
     caseSlugs: ["chatgpt-of-codex-in-je-eigen-organisatie", "coder-game-in-24-uur", "3d-productmodellen-met-ai"],
     seoDescription:
-      "AITJE Coder: je eigen coding agents op eigen hardware of server. Lokaal alternatief voor Claude Code en Codex, zonder externe tokenkosten. Vanaf €699.",
+      `AITJE Coder: je eigen lokale coding agents. Los product ${euros(pricing.products["aitje-coder"].software)}; vanaf ${euros(getInstalledProductOffer("aitje-coder")!.price)} met basisinstallatie. Excl. btw en infrastructuur.`,
   },
   planned({
     slug: "aitje-manager",

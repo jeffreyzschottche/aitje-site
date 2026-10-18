@@ -1,11 +1,10 @@
 <script setup lang="ts">
+import { staticPageSeo } from "@/content/seo";
 import { availableProducts } from "@/content/products";
 import { articles, featuredArticleSlugs } from "@/content/knowledge";
 import { services, partnerService, serviceIllustrations } from "@/content/services";
 usePageSeo({
-  title: "AITJE — Je partner in AI",
-  description:
-    "AI op je eigen hardware of server. Jij houdt de controle, AITJE regelt de techniek. Eigen AI-producten, advies, installatie en AI op maat.",
+  ...staticPageSeo["/"],
   image: "/img/redesign/aitje-egg-hero-engraved.webp",
 });
 useHead({

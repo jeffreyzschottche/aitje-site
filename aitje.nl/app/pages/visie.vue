@@ -1,10 +1,9 @@
 <script setup lang="ts">
+import { staticPageSeo } from "@/content/seo";
 // Vision page (redesign/pages/vision.md, context/vision.md, besluiten 49-50).
 
 usePageSeo({
-  title: "Visie",
-  description:
-    "De visie van AITJE: Nederlandse organisaties houden toegang tot krachtige AI in eigen beheer, zonder onbedoeld afhankelijk te worden van gesloten platformen.",
+  ...staticPageSeo["/visie"],
   image: "/img/redesign/local-growth.webp",
   breadcrumbs: [
     { name: "Over AITJE", path: "/over-aitje" },

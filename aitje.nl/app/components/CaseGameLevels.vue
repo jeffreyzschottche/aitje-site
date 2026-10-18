@@ -14,7 +14,7 @@ const colors = ["#ffd00a", "#a7c88b", "#f08d63", "#98bad1"];
 
 <template>
   <div class="game-levels-case">
-    <section class="bg-brand py-9"><div class="container-page grid gap-7 sm:grid-cols-3"><div><p class="game-metric">25 levels</p><p class="mt-2 text-sm">Nieuwe levels per week</p></div><div><p class="game-metric">€0</p><p class="mt-2 text-sm">Externe kosten per AI-token</p></div><div><p class="game-metric">Eigen server</p><p class="mt-2 text-sm">Qwen via een eigen API-endpoint</p></div></div></section>
+    <section class="case-summary-bar bg-brand py-9"><div class="case-summary-grid container-page grid gap-7 sm:grid-cols-3"><div><p class="game-metric case-summary-value">25 levels</p><p class="case-summary-label mt-2 text-sm">Nieuwe levels per week</p></div><div><p class="game-metric case-summary-value">€0</p><p class="case-summary-label mt-2 text-sm">Externe kosten per AI-token</p></div><div><p class="game-metric case-summary-value">Eigen server</p><p class="case-summary-label mt-2 text-sm">Qwen via een eigen API-endpoint</p></div></div></section>
 
     <section class="section-space"><div class="container-page game-split">
       <div><p class="eyebrow text-brand-ink">De vraag van het marketingbureau</p><h2>De game was live.<br />Hoe bouw je verder?</h2><p v-for="paragraph in story.intro" :key="paragraph" class="game-copy">{{ paragraph }}</p></div>

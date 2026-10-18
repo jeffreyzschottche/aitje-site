@@ -3,10 +3,18 @@
   "type": "module",
   "private": true,
   "scripts": {
+    "prebuild": "npm run translations:check",
+    "pregenerate": "npm run translations:check",
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
+    "translate:english": "node scripts/translate-site.mjs",
+    "translations:check": "node scripts/translate-site.mjs --check",
+    "seo:generate": "node scripts/generate-ai-files.mjs",
+    "seo:check": "node scripts/generate-ai-files.mjs --check",
+    "seo:test": "node scripts/check-seo-dynamics.mjs",
+    "seo:audit": "node scripts/check-seo-pages.mjs",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {

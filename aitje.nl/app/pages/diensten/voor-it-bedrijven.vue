@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { staticPageSeo } from "@/content/seo";
 // Partner route: redesign/pages/partners.md and redesign/strategy/partner-model.md.
 import { contactLink } from "@/content/site";
 import { partnerService } from "@/content/services";
@@ -14,13 +15,13 @@ const sections = [
 ];
 
 usePageSeo({
-  title: "AI-specialist voor IT-bedrijven en bureaus",
-  description: "Jouw klanten vragen om AI. AITJE helpt IT-bedrijven en bureaus met onderzoek, bouw en beheer van AI-oplossingen. Jij houdt de klantrelatie en de regie.",
+  ...staticPageSeo["/diensten/voor-it-bedrijven"],
   image: "/img/redesign/partners.webp",
   breadcrumbs: [
     { name: "Diensten", path: "/diensten" },
     { name: "Voor IT-bedrijven en bureaus", path: "/diensten/voor-it-bedrijven" },
   ],
+  schema: [{ "@type": "Service", name: partnerService.name, serviceType: partnerService.name, description: partnerService.short, image: "/img/redesign/partners.webp", areaServed: { "@type": "Country", identifier: "NL", name: "Nederland" } }],
 });
 
 const routes = [
@@ -122,6 +123,7 @@ const visibility = [
     </div></section>
 
     <CasesSection :slugs="['3d-productmodellen-met-ai', 'chatgpt-of-codex-in-je-eigen-organisatie', 'productteksten-zonder-tokenkosten']" title="Bekijk wat AITJE bouwt." intro="Van koppelingen met bestaande software tot lokale modellen en voordelige AI-workflows. Bekijk hoe die techniek in echte opdrachten is ingezet." />
+    <RelatedServices :slug="partnerService.slug" />
     <CtaBanner title="Een klant vraagt om AI?" text="Vertel wat de klant wil bereiken en welk deel jouw bedrijf verzorgt. AITJE denkt mee over het technische AI-deel." :primary="cta" />
   </div>
 </template>

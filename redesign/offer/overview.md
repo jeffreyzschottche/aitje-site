@@ -54,7 +54,7 @@ Een product bestaat commercieel uit drie losse onderdelen:
 
 Hardware die de klant betaalt, blijft eigendom van de klant.
 
-Prijzen worden direct bij producten getoond. Alle huidige bedragen uit de PDF blijven dummydata totdat ze vóór publicatie zijn gecontroleerd.
+Prijzen worden direct bij beschikbare producten getoond. De actuele bedragen en scope zijn bevestigd in besluit 52 en staan in `pricing.md`; eerdere PDF-prijzen zijn historische referenties. Productintroductie: €599/€799 met basisinstallatie voor de eerste honderd betaalde klanten. Zelfinstallatie blijft €499/€699; infrastructuur apart.
 
 ## Diensten
 
@@ -62,7 +62,7 @@ Diensten worden gegroepeerd in herkenbare hoofddiensten. Specifieke checks, anal
 
 ### 1. AI-scan
 
-De AI-scan is de standaard eerste stap voor vrijwel ieder nieuw traject.
+De AI-scan is een zelfstandige optie voor een brede vraag, begrensd op maximaal drie belangrijke processen. Een product, installatie of concrete adviesvraag kan ook rechtstreeks worden afgenomen.
 
 Er is één brede scan, geen drie afzonderlijke commerciële varianten. AITJE onderzoekt:
 
@@ -180,8 +180,8 @@ De uitleg en technische diepte verschillen per pagina en doelgroep; het onderlig
 ## Prijscommunicatie
 
 - Toon prijzen direct bij producten en afgebakende diensten.
-- Markeer de huidige bedragen intern als dummydata.
-- Controleer en vervang dummyprijzen vóór publicatie.
+- Gebruik het bevestigde prijsmodel uit `pricing.md` en besluit 52.
+- Bewaar eerdere prijsinventarisaties als historische momentopnamen.
 - Maak zichtbaar wat productgebruik, installatie en hardware afzonderlijk kosten.
 - Gebruik een vanafprijs wanneer de omvang na een intake wordt bepaald.
 - Publiceer het interne partnertarief niet als vaste prijs op de openbare website.

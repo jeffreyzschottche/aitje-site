@@ -5,7 +5,7 @@
     </a>
     <SiteHeader />
     <main id="main" class="flex-1">
-      <NuxtPage />
+      <NuxtPage :page-key="route => route.path" />
     </main>
     <SiteFooter />
     <MobileCta />

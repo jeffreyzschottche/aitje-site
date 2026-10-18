@@ -4,7 +4,7 @@
 
 **Beschikbaar** — inhoudelijk bevestigd.
 
-Prijzen in dit document zijn voorlopig overgenomen als dummydata uit het bedrijfsdocument en worden later gecontroleerd.
+Prijzen en afbakening zijn bevestigd op 5 oktober 2026, besluit 52.
 
 ## In één zin
 
@@ -135,7 +135,7 @@ AITJE beoordeelt waar relevant onder andere:
 - logging en inzicht in uitgevoerde stappen;
 - situaties waarin het systeem niet zelfstandig mag handelen.
 
-Voorlopige dummyprijs voor de controle en bevindingen: **€449**.
+**Vanaf €299** voor circa vier uur onderzoek naar één afgebakende workflow: gerichte controles, tests en bevindingen. Uitvoering wordt afzonderlijk begroot.
 
 Het daadwerkelijk inbouwen van verbeteringen wordt afzonderlijk op urenbasis of via een offerte uitgevoerd.
 
@@ -164,8 +164,8 @@ De precieze inhoud, frequentie en responstijden horen bij de afspraken voor Onde
 
 ## Prijsopbouw
 
-- Onderzoek en het verbeterplan: **€85 per uur** als voorlopige dummyprijs.
-- Guardrailcheck: **€449** als voorlopige dummyprijs.
+- Onderzoek en het verbeterplan: **€75 per uur**, vooraf begroot. Bevindingen uit eerdere opdrachten worden meegenomen.
+- Guardrailcheck: **vanaf €299**, circa vier uur voor één afgebakende workflow.
 - Uitvoering van gekozen verbeteringen: per uur of projectofferte.
 - Externe licenties, API-kosten, hardware en servercapaciteit: apart wanneer van toepassing.
 

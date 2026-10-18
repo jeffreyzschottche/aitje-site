@@ -2,17 +2,42 @@
 
 ## Status en positie
 
-Leidende beschrijving van AITJE Custom, aangevuld met de verduidelijking van de oprichter op 5 oktober 2026. Custom is een persoonlijk maatwerkproject voor vragen die de vaste producten en oplossingen onvoldoende afdekken. De route staat ook onder Producten in de navigatie, maar is geen vast softwarepakket.
+Leidende beschrijving van AITJE Custom, aangevuld met de verduidelijking van de oprichter op 5 oktober 2026. Custom is één aanspreekpunt voor vragen en ideeën rond AI: van automatisering en koppelingen tot apps, agents, 3D/VR en hulp bij bestaande code. De route staat ook onder Producten in de navigatie, maar is geen vast softwarepakket.
 
 ## In één zin
 
-Je complete AI-project op uurbasis: van analyse en ontwerp tot bouwen, testen, live zetten, feedback verwerken en het afgesproken eindproduct overdragen.
+Alles rond AI, op maat voor jouw werk: wegwijs worden, een passende aanpak kiezen, bouwen, testen en de oplossing in gebruik nemen, op uurbasis met een budget per fase.
 
 ## Wanneer Custom past
 
 Het kan gaan om iets dat AITJE nog niet heeft gebouwd, maar ook om een bestaande aanpak die op een andere manier wordt toegepast. De werkzaamheden, gegevens, systemen en gebruikers van de klant bepalen het project.
 
-Bijvoorbeeld een specifieke workflow, agent, interface, integratie, kennisbank of AI-toepassing op een tablet. Een vaste oplossing kan als bouwsteen worden gebruikt en worden aangevuld met klantspecifieke code, configuratie en koppelingen.
+De klant hoeft nog geen model, tool of hardware te hebben. Een terugkerende taak, eerste idee of half werkend prototype is voldoende om een gesprek te beginnen. AITJE helpt de vraag en een haalbare eerste stap bepalen.
+
+De mogelijkheden worden zichtbaar gemaakt met zes concrete routes:
+
+- **Automatisering:** mails verwerken, offertes voorbereiden, gegevens overnemen, planning of werkorders, met menselijke controle waar nodig.
+- **Eigen apps:** kleine toepassingen voor telefoon, desktop en tablet, interne webapps, spraak/foto-invoer en dashboards.
+- **Kennis en agents:** documenten doorzoeken, samenvattingen, eigen kennisbanken, toegangsrechten en koppelingen naar bestaande systemen.
+- **3D en VR:** interactieve productmodellen, visuele inzage in gegevens, digitale karakters en ervaringen voor uitleg of training; de gewenste werking wordt vooraf op haalbaarheid getoetst.
+- **Bestaande tools verbinden:** n8n, Zapier, Make, API’s, webhooks, websites, mailbox, CRM en ERP.
+- **Hulp bij bestaande code:** vibe coding, prototypes, fouten, oplopende modelkosten, tijdrovend debuggen, kwaliteit en bruikbare oplevering.
+
+Een vaste oplossing kan als bouwsteen worden gebruikt en worden aangevuld met klantspecifieke code, configuratie en koppelingen.
+
+## Tools, modellen en omgeving
+
+De situatie bepaalt de keuze; geen vooraf verplichte leverancier of model. De voorbeelden vormen geen garantie dat iedere combinatie geschikt is of onbeperkt binnen een vast bedrag wordt geleverd.
+
+- **Automatisering en systemen:** n8n, Zapier, Make, Microsoft 365, WordPress, CRM/ERP en eigen API-koppelingen.
+- **AI en modellen:** OpenAI, Claude, OpenRouter, Mistral, Qwen, Ollama, vLLM en Hugging Face.
+- **Infrastructuur:** een Mac mini, BOSGAME, Dell AI-server, NVIDIA DGX Spark, eigen server/netwerk, een Hetzner VPS voor passende taken of Nebius GPU-capaciteit.
+
+De pagina maakt drie routes met een interactieve keuze zichtbaar: **lokaal**, **eigen/gehuurde server** en **externe AI/hybride**. Iedere route beschrijft de verwerking, gegevens en kosten in gewone taal. Een gehuurde server is bij een provider; die wordt niet als verwerking op locatie voorgesteld. Zapier, externe modeldiensten en online koppelingen worden niet als volledig lokaal of kostenvrij gepresenteerd.
+
+Lokaal gebruik kan externe tokenkosten voor lokale modelstappen vermijden; hardware, stroom, serverhuur en beheer blijven onderdeel van de afweging. Externe modellen worden bewust per taak ingezet, met aandacht voor gedeelde gegevens, voorwaarden en gebruikskosten.
+
+De commerciële belofte is helpen kiezen en kostenbewust inrichten, met toegangsrechten, minimale gegevensdeling, menselijke controle en budgetlimieten als ontwerpkeuzes. Geen vaste besparing, absolute veiligheid of haalbaarheid voor elk idee beloven.
 
 Als Assistent, Coder of een vaste oplossing de vraag al voldoende afdekt, bespreekt AITJE die route. Alleen een server inrichten valt onder Installatie en inrichting; een gerichte verbetering kan onder Optimalisatie vallen. Custom brengt de benodigde onderdelen samen in één project.
 
@@ -37,7 +62,7 @@ Een onderzoek kan uitwijzen dat een aanpak aangepast moet worden of onvoldoende 
 
 ## Uurtarief en projectbudget
 
-Het bestaande voorlopige tarief blijft **€85 per uur (excl. btw)**; de oprichter heeft in deze verduidelijking geen nieuw bedrag vastgesteld.
+Bevestigd op 5 oktober 2026, besluit 52: **€75 per uur (excl. btw)**. Een eerste onderzoeksfase kan vier tot acht uur (€300–€600) omvatten voor vraag, haalbaarheid en aanpak. Ontwikkeling, tests, livegang en overdracht krijgen daarna een eigen begroting per fase. Het uurtariefbedrag staat op de site alleen in de algemene FAQ.
 
 Alle projectwerkzaamheden vallen onder het uurtarief: analyse, ontwerp, omgevingskeuze, programmeren, bouwen, tests, optimalisatie, livegang en feedbackverwerking.
 
@@ -78,11 +103,13 @@ Ondersteuning, onderhoud, nieuwe modellen en verdere ontwikkeling worden apart a
 
 ## Websitepresentatie
 
-Hero: **Jouw AI-project. Van idee tot eindproduct.**
+Hero: **Alles rond AI. Op maat voor jouw werk.**
 
-CTA: **Bespreek je AI-project**, met hetzelfde contactonderwerp `ai-op-maat`.
+CTA: **Bespreek je idee**, met hetzelfde contactonderwerp `ai-op-maat`. Tussen de voorbeelden: **Vertel ons je idee**.
 
-De pagina toont zes open projectfases, een visuele feedbacklus en een overdrachtsblok met het bestaande 3D-workbenchbeeld. Dit vervangt voor Custom de generieke stappen en de dubbele opleveringslijst. Prijs, echte cases, FAQ en contact blijven onderdeel van de pagina.
+Vóór de projectfases toont `CustomPossibilities.vue` zes geïllustreerde mogelijkheden, de interactieve keuze van omgeving, drie groepen bouwstenen en de drie ontwerpprincipes: grip op gegevens, kosten en oplossing. Inhoud staat in `app/content/custom.ts`. De sectienavigatie krijgt **De mogelijkheden** als extra link.
+
+Daarna volgen zes open projectfases, een visuele feedbacklus en een overdrachtsblok met het bestaande 3D-workbenchbeeld. Dit vervangt voor Custom de generieke stappen en de dubbele opleveringslijst. Prijs, echte cases, FAQ en contact blijven onderdeel van de pagina. De FAQ benoemt ook onuitgewerkte ideeën, apps/3D/VR, vibe coding, tools en kostenbewuste lokale verwerking.
 
 Cases: Council Hub, 3D-productmodellen en de spraakassistent voor de werkplaats; de gedeelde casebron is leidend.
 
@@ -91,3 +118,5 @@ Cases: Council Hub, 3D-productmodellen en de spraakassistent voor de werkplaats;
 - Verduidelijking oprichter, 5 oktober 2026: persoonlijk compleet traject tot het afgesproken eindproduct, op uurbasis.
 - [Installatie en inrichting](implementation.md), [Optimalisatie](optimization.md) en [Ondersteuning en onderhoud](support.md).
 - [Prijsopbouw](../pricing.md), [vaste producten versus maatwerk](../../context/truths.md).
+
+Voorbeeldnamen en hun positionering gecontroleerd op officiële sites, 5 oktober 2026: [n8n](https://n8n.io/), [Zapier](https://help.zapier.com/hc/en-us/articles/26583719914381-Use-of-AI-within-Zapier), [Make](https://www.make.com/en), [Claude](https://claude.com/product/overview), [OpenRouter](https://openrouter.ai/docs/quickstart), [Nebius](https://nebius.com/), [Hetzner Cloud](https://www.hetzner.com/cloud/), [NVIDIA DGX Spark](https://www.nvidia.com/en-us/products/workstations/dgx-spark/), [Mac mini](https://www.apple.com/mac-mini/), [BOSGAME](https://www.bosgamepc.com/) en [Dell AI](https://www.dell.com/en-us/shop/scc/sc/artificial-intelligence). Namen zijn voorbeelden van bouwstenen; er wordt geen partnerschap geïmpliceerd.

@@ -1,5 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import tailwindcss from "@tailwindcss/vite";
+import { fileURLToPath } from "node:url";
+import { localizedTemplatesPlugin } from "./scripts/lib/localize-template.mjs";
+import { englishPath } from "./shared/siteLocales";
+import { generateAiFiles } from "./scripts/generate-ai-files.mjs";
 
 const redirect = (to: string) => ({ redirect: { to, statusCode: 301 } });
 
@@ -7,6 +11,22 @@ export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
   modules: ["@nuxtjs/sitemap"],
+  hooks: {
+    // Also runs for direct Nuxt builds, not just the npm build command.
+    async "build:before"() {
+      await generateAiFiles();
+    },
+    async "builder:watch"(_event, path) {
+      const file = path.replaceAll("\\", "/");
+      if (/(?:^|\/)(?:(?:app\/)?(?:content|data|pages)\/|shared\/(?:translations\/|siteLocales\.ts|siteTranslations\.ts))/.test(file)) {
+        await generateAiFiles({ quiet: true });
+      }
+    },
+    "pages:extend"(pages) {
+      const english = pages.map((page) => ({ ...page, name: `en-${page.name}`, path: englishPath(page.path) }));
+      pages.push(...english);
+    },
+  },
   site: {
     url: process.env.NUXT_PUBLIC_SITE_URL || "https://aitje.com",
   },
@@ -45,6 +65,8 @@ export default defineNuxtConfig({
   },
   css: ["./app/assets/css/main.css"],
   routeRules: {
+    // HTML pages remain the canonical search results; Markdown is an alternate.
+    "/llms/pages/**": { headers: { "Content-Type": "text/markdown; charset=utf-8" } },
     // Cases replace the old use-case and case routes (besluit 51).
     "/use-cases": redirect("/cases"),
     "/use-cases/**": redirect("/cases"),
@@ -89,6 +111,6 @@ export default defineNuxtConfig({
     },
   },
   vite: {
-    plugins: [tailwindcss()],
+    plugins: [localizedTemplatesPlugin(fileURLToPath(new URL("./app/", import.meta.url))), tailwindcss()],
   },
 });

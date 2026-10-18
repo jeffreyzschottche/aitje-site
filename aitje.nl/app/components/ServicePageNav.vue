@@ -22,7 +22,7 @@ function keepFocusedLinkVisible(event: FocusEvent) {
       <div class="container-page service-summary-inner">
         <span v-for="highlight in highlights" :key="highlight.text">
           <AppIcon :name="highlight.icon" :size="20" />
-          {{ highlight.text }}
+          <span class="service-summary-text">{{ highlight.text }}</span>
         </span>
       </div>
     </div>
@@ -44,8 +44,28 @@ function keepFocusedLinkVisible(event: FocusEvent) {
   .service-summary-inner > span { font-size: .78rem; gap: .5rem; }
 }
 @media (max-width: 767px) {
-  .service-summary-inner { flex-wrap: wrap; gap: .85rem; padding-block: 1rem; }
-  .service-summary-inner > span { flex-basis: 100%; }
-  .service-summary-inner svg { width: 17px; height: 17px; }
+  .service-summary-inner {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 0;
+    padding-block: 1.25rem;
+  }
+  .service-summary-inner > span {
+    min-width: 0;
+    flex-direction: column;
+    gap: .65rem;
+    padding-inline: .5rem;
+    text-align: center;
+    line-height: 1.45;
+  }
+  .service-summary-inner > span + span {
+    border-left: 1px solid rgb(11 11 11 / .15);
+  }
+  .service-summary-text {
+    max-width: 14ch;
+    text-wrap: balance;
+  }
+  .service-summary-inner svg { width: 22px; height: 22px; }
 }
 </style>
