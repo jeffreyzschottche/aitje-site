@@ -60,7 +60,7 @@
               <div class="ah-terminal-bar">
                 <span /><span /><span /><i>Linux · lokale AI</i>
               </div>
-              <code><span class="ah-prompt">$</span> ollama run qwen3.8</code>
+              <code><span class="ah-prompt">$</span> aitje run qwen3.8</code>
               <div class="ah-terminal-model">
                 <span>Qwen3.8</span><span>LOCAL</span>
               </div>

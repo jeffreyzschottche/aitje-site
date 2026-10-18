@@ -6,7 +6,7 @@ De header en hero van de bestaande productpagina zijn behouden. De secties erond
 
 `public/img/assistant/v2/` bevat twee nieuwe 3D-illustraties, gemaakt met de ingebouwde image_gen-tool en de imagegen-skill. De PNG-bronnen behouden transparantie. De website gebruikt de gecomprimeerde WebP-versies met een afzonderlijke laag echte schermopnamen. De volledige prompts en herkomst staan in `v2/provenance.json`. De hardware is een conceptillustratie, geen specificatie van meegeleverde hardware.
 
-`public/img/assistant/v3/` bevat de twee aanvullende beelden voor de bovenkant van de pagina: de zilveren en blauwe BOSGAME met AITJE-sticker, op basis van de aangeleverde referentiefoto, en een Linux-server met monitor. Ook deze zijn met de ingebouwde image_gen-tool gemaakt. PNG-bronnen, WebP-versies en de volledige prompts staan samen in deze map; zie `v3/provenance.json`. De Linux-terminal wordt als leesbare HTML over het scherm geplaatst. Het is een installatieschets met een bestaande Ollama-opdracht, geen live serverstatus.
+`public/img/assistant/v3/` bevat de twee aanvullende beelden voor de bovenkant van de pagina: de zilveren en blauwe BOSGAME met AITJE-sticker, op basis van de aangeleverde referentiefoto, en een Linux-server met monitor. Ook deze zijn met de ingebouwde image_gen-tool gemaakt. PNG-bronnen, WebP-versies en de volledige prompts staan samen in deze map; zie `v3/provenance.json`. De Linux-terminal wordt als leesbare HTML over het scherm geplaatst. Op verzoek van de opdrachtgever toont de installatieschets `aitje run qwen3.8`; dit is geen live serverstatus.
 
 ## Productopnamen herhalen
 
