@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>AURA — kinetisch productconcept</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        display: grid;
+        grid-template-rows: auto minmax(0, 1fr) auto;
+        overflow: hidden;
+        margin: 0;
+        color: #233024;
+        background: #e8e9df;
+        font:
+          13px system-ui,
+          sans-serif;
+      }
+      .head {
+        position: relative;
+        z-index: 1;
+        padding: 20px 24px 0;
+        pointer-events: none;
+      }
+      .head small {
+        font: 9px monospace;
+        letter-spacing: 3px;
+        color: #718167;
+      }
+      .head h1 {
+        font-size: 33px;
+        line-height: 1;
+        letter-spacing: -1.8px;
+        margin: 8px 0;
+      }
+      .head p {
+        font-size: 11px;
+        color: #7b8574;
+        margin: 0;
+      }
+      #stage {
+        position: relative;
+        width: 100%;
+        min-height: 0;
+        overflow: hidden;
+      }
+      canvas {
+        display: block;
+        width: 100%;
+        height: 100%;
+        touch-action: none;
+      }
+      .hint {
+        display: block;
+        margin-top: 8px;
+        font: 9px monospace;
+        color: #6c7a60;
+      }
+      .controls {
+        padding: 17px 24px 20px;
+        border-top: 1px solid #c9d1bf;
+        background: #f0f2e9;
+        display: grid;
+        gap: 15px;
+      }
+      .row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .finishes {
+        display: flex;
+        gap: 6px;
+      }
+      button {
+        min-height: 44px;
+        font: 11px system-ui;
+        cursor: pointer;
+        background: #f8f9f3;
+        border: 1px solid #c7d1b9;
+        border-radius: 6px;
+        padding: 7px 10px;
+        color: #47573b;
+      }
+      button:focus-visible,
+      input:focus-visible {
+        outline: 2px solid #718d39;
+        outline-offset: 3px;
+      }
+      button[aria-pressed="true"] {
+        background: #253521;
+        color: white;
+        border-color: #253521;
+      }
+      label {
+        display: flex;
+        justify-content: space-between;
+        font: 10px monospace;
+        margin-bottom: 7px;
+        color: #677658;
+      }
+      input {
+        accent-color: #829649;
+        width: 100%;
+        margin: 0;
+        min-height: 28px;
+      }
+      .actions {
+        display: flex;
+        gap: 6px;
+      }
+      .swatch {
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        margin-right: 4px;
+      }
+      .gold {
+        background: #bc944b;
+      }
+      .silver {
+        background: #a4b3bb;
+      }
+      .copper {
+        background: #b77d58;
+      }
+      @media (max-width: 420px) {
+        .head {
+          padding: 18px 17px 0;
+        }
+        .head h1 {
+          font-size: 28px;
+        }
+        .hint {
+          font-size: 8px;
+        }
+        .controls {
+          padding: 15px 17px;
+        }
+        .row {
+          gap: 9px;
+        }
+        button {
+          padding: 7px 8px;
+          font-size: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="head">
+      <small>AITJE CODER / VOORBEELDGENERATIE</small>
+      <h1>AURA</h1>
+      <p>Kinetisch productconcept</p>
+      <span class="hint">SLEEP OM TE DRAAIEN ↗</span>
+    </div>
+    <div id="stage" role="img" aria-label="Interactief 3D-productconcept"></div>
+    <div class="controls">
+      <div class="row">
+        <div class="finishes" role="group" aria-label="Afwerking">
+          <button data-finish="#b99043" aria-pressed="true">
+            <span class="swatch gold"></span>Messing</button
+          ><button data-finish="#a9b9c2" aria-pressed="false">
+            <span class="swatch silver"></span>Staal</button
+          ><button data-finish="#bf7f5a" aria-pressed="false">
+            <span class="swatch copper"></span>Koper
+          </button>
+        </div>
+        <div class="actions">
+          <button id="motion" aria-pressed="true">Pauzeren</button
+          ><button id="reset">Reset</button>
+        </div>
+      </div>
+      <div>
+        <label for="explode"
+          ><span>Exploded view</span><span id="explode-value">0%</span></label
+        ><input id="explode" type="range" min="0" max="100" value="0" />
+      </div>
+    </div>
+    <script type="module" src="./aura.bundle.js"></script>
+  </body>
+</html>

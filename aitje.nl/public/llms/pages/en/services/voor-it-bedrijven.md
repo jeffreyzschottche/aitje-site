@@ -14,7 +14,7 @@ Whether you manage servers, build websites or develop apps, AITJE adds specialis
 
 The division of roles
 
-## You’re in control. AITJE helps build.
+## You stay in control. AITJE helps build.
 
 AITJE operates as a technical subcontractor within your project. First, the AI component, the price and the responsibilities are agreed. You can then present a clear proposal to your client.
 

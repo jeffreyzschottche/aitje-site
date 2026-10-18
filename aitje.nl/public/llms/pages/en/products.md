@@ -6,8 +6,8 @@ Official page: https://aitje.com/en/products
 
 AITJE is a Dutch AI specialist in local AI, automation and smarter workflows. Proprietary AI products, consultancy, development, installation and support, with independence as our guiding principle.
 
-- [AITJE Assistent: Your own AI chat assistant. Under your control.](https://aitje.com/en/products/aitje-assistent): AITJE Assistent: local chat with knowledge base. Stand-alone product €499; from €599 including basic installation. Excl. VAT and infrastructure.
-- [AITJE Coder: Your own coding agents. With no external token costs.](https://aitje.com/en/products/aitje-coder): AITJE Coder: your own local coding agents. Stand-alone product €699; from €799 including basic installation. Excluding VAT and infrastructure.
+- [AITJE Assistent: Your own AI chat assistant. Under your control.](https://aitje.com/en/products/aitje-assistent): AITJE Chat Assistent AI Station: local chat, RAG and privacy management on hardware or a server. From €599 including basic installation, excluding VAT and infrastructure.
+- [AITJE Coder: Your own coding agents. With no external token costs.](https://aitje.com/en/products/aitje-coder): AITJE Coder AI Station: coding agents, Git review and scheduled tasks on hardware or a server. From €799 including basic installation, excluding VAT and infrastructure.
 
 ## Prices and conditions
 

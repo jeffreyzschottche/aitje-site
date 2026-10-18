@@ -6,7 +6,7 @@ const year = new Date().getFullYear();
 
 <template>
   <footer class="on-dark bg-ink text-white">
-    <div class="container-page pt-20 pb-10">
+    <div class="site-footer-content container-page pt-20 pb-10">
       <div class="grid gap-12 lg:grid-cols-[1.2fr_2fr]">
         <div>
           <img
@@ -78,3 +78,11 @@ const year = new Date().getFullYear();
     </div>
   </footer>
 </template>
+
+<style scoped>
+@media (max-width: 639px) {
+  .site-footer-content {
+    padding-bottom: calc(7rem + env(safe-area-inset-bottom, 0px));
+  }
+}
+</style>

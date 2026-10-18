@@ -1,0 +1,2 @@
+# Bundled Three.js contains verbatim GLSL strings; review the demo source instead.
+public/demos/coder/*.bundle.js linguist-generated=true -whitespace

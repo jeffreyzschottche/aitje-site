@@ -1,5 +1,6 @@
 import { Resend } from "resend";
 import { findContactProduct, findTopic } from "#shared/contactTopics";
+import { findDeploymentOption } from "#shared/deploymentOptions";
 
 type ContactRequestBody = {
   name?: string;
@@ -8,6 +9,7 @@ type ContactRequestBody = {
   company?: string;
   topic?: string;
   product?: string;
+  environment?: string;
   message?: string;
   /** Honeypot: real visitors leave this empty. */
   website?: string;
@@ -51,6 +53,7 @@ export default defineEventHandler(async (event) => {
   const message = clean(body.message);
   const topic = findTopic(clean(body.topic)) ?? findTopic("anders")!;
   const product = findContactProduct(clean(body.product));
+  const environment = findDeploymentOption(clean(body.environment));
 
   if (!name || !email || !message) {
     throw createError({ statusCode: 400, statusMessage: "Vul je naam, e-mailadres en bericht in." });
@@ -71,6 +74,7 @@ export default defineEventHandler(async (event) => {
     ["Bedrijf", company || "-"],
     ["Onderwerp", topic.label],
     ["Product", product?.name ?? "-"],
+    ["Hardware/hosting", environment?.label ?? "Nog te kiezen"],
   ];
 
   const { error } = await resend.emails.send({
@@ -103,6 +107,7 @@ export default defineEventHandler(async (event) => {
       <p>Hoi ${escapeHtml(firstName ?? name)},</p>
       <p>Bedankt voor je bericht. Je vraag is goed aangekomen en AITJE neemt contact met je op.</p>
       <p><strong>Onderwerp:</strong> ${escapeHtml(topic.label)}${product ? ` (${escapeHtml(product.name)})` : ""}</p>
+      ${environment ? `<p><strong>Hardware/hosting:</strong> ${escapeHtml(environment.label)}</p>` : ""}
       <p><strong>Je bericht:</strong><br />${escapeHtml(message).replaceAll("\n", "<br />")}</p>
       <p>Wil je iets aanvullen? Beantwoord deze mail gewoon.</p>
       <p>Groet,<br />AITJE — Je partner in AI</p>
@@ -113,6 +118,7 @@ export default defineEventHandler(async (event) => {
       "Bedankt voor je bericht. Je vraag is goed aangekomen en AITJE neemt contact met je op.",
       "",
       `Onderwerp: ${topic.label}${product ? ` (${product.name})` : ""}`,
+      ...(environment ? [`Hardware/hosting: ${environment.label}`] : []),
       "",
       "Je bericht:",
       message,

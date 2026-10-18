@@ -94,7 +94,9 @@ const view = computed(() => views[selected.value]!);
 }
 .aw-toolbar > div {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.3rem;
+  max-width: 100%;
   padding: 0.3rem;
   border: 1px solid var(--color-line);
   border-radius: 0.9rem;
@@ -102,6 +104,7 @@ const view = computed(() => views[selected.value]!);
 }
 .aw-toolbar button {
   display: flex;
+  min-height: 44px;
   gap: 0.5rem;
   align-items: center;
   border-radius: 0.6rem;

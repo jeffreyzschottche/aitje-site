@@ -1,49 +1,39 @@
 <script setup lang="ts">
-import { euros, getInstalledProductOffer, pricing, productIntroductionNote } from "@/content/pricing";
+import {
+  euros,
+  getInstalledProductOffer,
+  pricing,
+  productIntroductionNote,
+} from "@/content/pricing";
 import { contactLink } from "@/content/site";
 
 const offer = getInstalledProductOffer("aitje-coder")!;
 const software = pricing.products["aitje-coder"].software;
-const environment = ref(0);
-const environments = [
-  {
-    name: "Box voor één developer",
-    icon: "cpu",
-    title: "Compact, voor één developer.",
-    text: "Een box met 32 GB geheugen draait één agenttaak tegelijk, naast aanvullen en chat in de editor. Op deze uitvoering is AITJE Coder doorgemeten. De hardware staat apart in je offerte.",
-  },
-  {
-    name: "Box voor een team",
-    icon: "server",
-    title: "Meer geheugen voor een team.",
-    text: "Een box met 128 GB geheugen is bedoeld voor meer developers en zwaardere modellen. Metingen op deze uitvoering volgen. We stemmen capaciteit en gelijktijdig gebruik af in de proef.",
-  },
-  {
-    name: "Eigen hardware",
-    icon: "wrench",
-    title: "Benut wat er al staat.",
-    text: "We beoordelen vooraf of jullie hardware geschikt is voor het model, de agent en het verwachte gebruik. Capaciteit, energie en beheer blijven onderdeel van de afweging.",
-  },
-];
-const current = computed(() => environments[environment.value]!);
 </script>
 <template>
   <section id="prijs" class="coder-pricing">
     <div class="container-page">
       <div class="cp-heading">
-        <p class="eyebrow text-brand-ink">De investering in jullie eigen coding agents</p>
+        <p class="eyebrow text-brand-ink">
+          De investering in jullie eigen coding agents
+        </p>
         <h2>Eén keer betalen.<br />Geen teller per opdracht.</h2>
         <p>
           Je koopt AITJE Coder per omgeving. Voor lokaal modelgebruik is er geen
-          externe tokenrekening. Hardware, energie en onderhoud horen wel bij
-          de totale kosten; die maken we vooraf zichtbaar.
+          externe tokenrekening. Hardware, energie en onderhoud horen wel bij de
+          totale kosten; die maken we vooraf zichtbaar.
         </p>
       </div>
       <div class="cp-main">
         <div class="cp-product">
           <div class="cp-scene">
             <span class="cp-small-label">Local AI · in eigen beheer</span>
-            <ProductPackshot src="/img/covers/v2/aitje-coder.webp" alt="AITJE Coder-productverpakking" loading="lazy" class="cp-packshot" />
+            <ProductPackshot
+              src="/img/covers/v2/aitje-coder.webp"
+              alt="AITJE Coder-productverpakking"
+              loading="lazy"
+              class="cp-packshot"
+            />
             <div class="cp-tags">
               <span><AppIcon name="workflow" :size="16" />Agent</span>
               <span><AppIcon name="terminal" :size="16" />Eigen tools</span>
@@ -54,7 +44,11 @@ const current = computed(() => environments[environment.value]!);
             <AppIcon name="users" :size="26" />
             <div>
               <strong>Eén product voor jullie omgeving.</strong>
-              <p>Blijvend gebruik van de opgeleverde versie. Het aantal gebruikers en taken tegelijk past binnen de capaciteit van de box.</p>
+              <p>
+                Blijvend gebruik van de opgeleverde versie. Het aantal
+                gebruikers en taken tegelijk past binnen de capaciteit van de
+                gekozen omgeving.
+              </p>
             </div>
           </div>
         </div>
@@ -65,54 +59,82 @@ const current = computed(() => environments[environment.value]!);
           </div>
           <p class="cp-price">{{ euros(offer.price) }}</p>
           <p class="cp-price-note">Product + basisinstallatie · excl. btw</p>
+          <p class="hardware-cost-note">
+            <AppIcon name="plus" :size="19" /> Hardware of hosting komt er apart
+            bij · op offerte
+          </p>
           <div class="cp-bars" aria-hidden="true">
-            <span class="cp-software" :style="{ flex: software }" /><span class="cp-installation" :style="{ flex: pricing.installation.from }" />
+            <span class="cp-software" :style="{ flex: software }" /><span
+              class="cp-installation"
+              :style="{ flex: pricing.installation.from }"
+            />
           </div>
           <dl class="cp-breakdown">
-            <div><dt><i class="cp-software" />AITJE Coder-software</dt><dd>{{ euros(software) }}</dd></div>
-            <div><dt><i class="cp-installation" />Installatie en inrichting</dt><dd>vanaf {{ euros(pricing.installation.from) }}</dd></div>
-            <div v-if="offer.discount"><dt>Introductievoordeel</dt><dd>−{{ euros(offer.discount) }}</dd></div>
-            <div class="cp-total"><dt>Product + basisinstallatie</dt><dd>{{ euros(offer.price) }}</dd></div>
+            <div>
+              <dt><i class="cp-software" />AITJE Coder-software</dt>
+              <dd>{{ euros(software) }}</dd>
+            </div>
+            <div>
+              <dt><i class="cp-installation" />Installatie en inrichting</dt>
+              <dd>vanaf {{ euros(pricing.installation.from) }}</dd>
+            </div>
+            <div v-if="offer.discount">
+              <dt>Introductievoordeel</dt>
+              <dd>−{{ euros(offer.discount) }}</dd>
+            </div>
+            <div class="cp-total">
+              <dt>Product + basisinstallatie</dt>
+              <dd>{{ euros(offer.price) }}</dd>
+            </div>
           </dl>
-          <p v-if="offer.introductory" class="cp-fine">Regulier vanaf {{ euros(offer.standard) }}. {{ productIntroductionNote }}</p>
-          <UiButton :to="contactLink('product-regelen', 'aitje-coder')" arrow size="lg" class="mt-6 w-full">Laat AITJE het regelen</UiButton>
-          <p class="cp-fine">Installeren op een vooraf afgestemde, geschikte box, de werking testen en uitleg geven. Korte nazorg spreken we af. De basisinstallatie is begroot op twee tot tweeënhalf uur.</p>
+          <p v-if="offer.introductory" class="cp-fine">
+            Regulier vanaf {{ euros(offer.standard) }}.
+            {{ productIntroductionNote }}
+          </p>
+          <UiButton
+            :to="contactLink('product-regelen', 'aitje-coder')"
+            arrow
+            size="lg"
+            class="mt-6 w-full"
+            >Laat AITJE het regelen</UiButton
+          >
+          <p class="cp-fine">
+            Installeren op een vooraf afgestemde, geschikte hardware- of
+            serveromgeving, de werking testen en uitleg geven. Korte nazorg
+            spreken we af. De basisinstallatie is begroot op twee tot tweeënhalf
+            uur.
+          </p>
         </div>
       </div>
 
-      <div class="cp-environment">
-        <div>
-          <p class="eyebrow text-brand-ink">De software krijgt een eigen plek</p>
-          <h3>{{ current.title }}</h3>
-          <div class="cp-environment-tabs" role="group" aria-label="Kies een omgeving">
-            <button v-for="(item, i) in environments" :key="item.name" type="button" :aria-pressed="environment === i" @click="environment = i">
-              <AppIcon :name="item.icon" :size="18" />{{ item.name }}
-            </button>
-          </div>
-          <p>{{ current.text }}</p>
-        </div>
-        <div class="cp-stack">
-          <div><AppIcon :name="current.icon" :size="29" /><strong>{{ current.name }}</strong><span>Hardware · apart begroot</span></div>
-          <span class="cp-plus" aria-hidden="true">+</span>
-          <div><AppIcon name="package" :size="27" /><strong>AITJE Coder</strong><span>Software en afgesproken inrichting</span></div>
-        </div>
-      </div>
+      <ProductDeploymentPicker product="aitje-coder" />
 
       <div class="cp-complete">
         <div>
           <AppIcon name="workflow" :size="26" />
           <h3>De complete omgeving</h3>
-          <p>Lokale modellen, de agent met review en pull requests, wachtrij en planning, de koppeling met je eigen tools en het beheer.</p>
+          <p>
+            Lokale modellen, de agent met review en pull requests, wachtrij en
+            planning, de koppeling met je eigen tools en het beheer.
+          </p>
         </div>
         <div>
           <AppIcon name="server" :size="26" />
           <h3>Lokale verwerking</h3>
-          <p>Geen externe tokenkosten voor lokale modellen. Sta je externe modellen toe, dan rekent die aanbieder zelf af; budgetten begrenzen dat.</p>
+          <p>
+            Geen externe tokenkosten voor lokale modellen. Sta je externe
+            modellen toe, dan rekent die aanbieder zelf af; budgetten begrenzen
+            dat.
+          </p>
         </div>
         <div>
           <AppIcon name="lifebuoy" :size="26" />
           <h3>Hulp op jullie niveau</h3>
-          <p>Ondersteuning en onderhoud zijn optioneel, vanaf {{ euros(pricing.support.core.monthly) }} per maand. Updates en nieuwe modellen spreken we apart af.</p>
+          <p>
+            Ondersteuning en onderhoud zijn optioneel, vanaf
+            {{ euros(pricing.support.core.monthly) }} per maand. Updates en
+            nieuwe modellen spreken we apart af.
+          </p>
         </div>
       </div>
 
@@ -121,21 +143,57 @@ const current = computed(() => environments[environment.value]!);
           <AppIcon name="terminal" :size="30" />
           <div>
             <h3>Zelf installeren op geschikte hardware</h3>
-            <p>De complete softwareomgeving voor {{ euros(software) }} per omgeving, excl. btw. Installatie en hardware zijn niet inbegrepen; hulp kun je apart afspreken.</p>
+            <p>
+              De complete softwareomgeving voor {{ euros(software) }} per
+              omgeving, excl. btw. Installatie en hardware zijn niet inbegrepen;
+              hulp kun je apart afspreken.
+            </p>
           </div>
-          <UiButton :to="contactLink('zelfinstallatie', 'aitje-coder')" variant="dark" arrow>Bestel voor zelfinstallatie</UiButton>
+          <UiButton
+            :to="contactLink('zelfinstallatie', 'aitje-coder')"
+            variant="dark"
+            arrow
+            >Bestel voor zelfinstallatie</UiButton
+          >
         </div>
         <details>
-          <summary>Wat komt er eventueel aanvullend bij?<AppIcon name="chevron-down" :size="18" /></summary>
+          <summary>
+            Wat komt er eventueel aanvullend bij?<AppIcon
+              name="chevron-down"
+              :size="18"
+            />
+          </summary>
           <div class="cp-additions">
-            <span><AppIcon name="cpu" :size="19" />De box of andere hardware, en energie</span>
-            <span><AppIcon name="code" :size="19" />Koppelen van extra Git-servers en repositories</span>
-            <span><AppIcon name="plug" :size="19" />Eigen uitbreidingen en koppelingen op maat</span>
-            <span><AppIcon name="wrench" :size="19" />Updates, nieuwe modellen en begeleiding</span>
-            <span><AppIcon name="globe" :size="19" />Kosten van externe modellen, als je die toestaat</span>
-            <span><AppIcon name="compass" :size="19" />Reis-, locatie- en netwerkwerk</span>
+            <span
+              ><AppIcon name="cpu" :size="19" />Hardware, serverhuur en
+              energie</span
+            >
+            <span
+              ><AppIcon name="code" :size="19" />Koppelen van extra Git-servers
+              en repositories</span
+            >
+            <span
+              ><AppIcon name="plug" :size="19" />Eigen uitbreidingen en
+              koppelingen op maat</span
+            >
+            <span
+              ><AppIcon name="wrench" :size="19" />Updates, nieuwe modellen en
+              begeleiding</span
+            >
+            <span
+              ><AppIcon name="globe" :size="19" />Kosten van externe modellen,
+              als je die toestaat</span
+            >
+            <span
+              ><AppIcon name="compass" :size="19" />Reis-, locatie- en
+              netwerkwerk</span
+            >
           </div>
-          <p>Alle bedragen zijn exclusief btw. Deze onderdelen worden vooraf apart begroot. Een demo helpt bepalen welke box en inrichting passen.</p>
+          <p>
+            Alle bedragen zijn exclusief btw. Deze onderdelen worden vooraf
+            apart begroot. Een demo helpt bepalen welke omgeving en inrichting
+            passen.
+          </p>
         </details>
       </div>
     </div>
@@ -171,7 +229,8 @@ const current = computed(() => environments[environment.value]!);
   min-width: 0;
 }
 .cp-scene {
-  background: radial-gradient(ellipse at 50% 60%, #e6cf64a0, transparent 65%), #e4e3dc;
+  background:
+    radial-gradient(ellipse at 50% 60%, #e6cf64a0, transparent 65%), #e4e3dc;
   border: 1px solid #d3d1c6;
   border-radius: 1.5rem;
   padding: 2rem;
@@ -520,5 +579,22 @@ const current = computed(() => environments[environment.value]!);
   .cp-breakdown > div {
     font-size: 0.78rem;
   }
+}
+.hardware-cost-note {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1rem;
+  margin: 1rem 0;
+  background: #fff3be;
+  border: 1px solid #e4ca59;
+  border-radius: 0.8rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.6;
+  color: #40370d;
+}
+.hardware-cost-note svg {
+  flex-shrink: 0;
 }
 </style>

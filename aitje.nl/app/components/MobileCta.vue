@@ -26,7 +26,7 @@ onBeforeUnmount(() => window.removeEventListener("scroll", onScroll));
   >
     <div
       v-if="visible && !hidden"
-      class="fixed inset-x-0 bottom-0 z-40 flex gap-2 border-t border-line bg-surface/95 p-3 backdrop-blur-lg sm:hidden"
+      class="mobile-cta fixed inset-x-0 bottom-0 z-40 flex gap-2 border-t border-line bg-surface/95 p-3 backdrop-blur-lg sm:hidden"
     >
       <UiButton :to="mainCta.to" class="flex-1" arrow>{{
         mainCta.label
@@ -41,3 +41,9 @@ onBeforeUnmount(() => window.removeEventListener("scroll", onScroll));
     </div>
   </Transition>
 </template>
+
+<style scoped>
+.mobile-cta {
+  padding-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
+}
+</style>

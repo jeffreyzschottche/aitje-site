@@ -4,12 +4,13 @@
       <div class="ah-heading">
         <div>
           <p class="eyebrow text-brand-ink">Local AI · on edge · on-premise</p>
-          <h2>Je eigen AI.<br />Op je bureau. Of je eigen server.</h2>
+          <h2>Je eigen AI.<br />Op je bureau. Of op een server.</h2>
         </div>
         <p>
-          AITJE Assistent draait op een compacte computer op locatie of een
-          geschikte Linux-server in jullie eigen omgeving. Je team werkt gewoon
-          via de browser. AITJE stemt de hardware, modellen en inrichting af op
+          AITJE Assistent draait op een BOSGAME, een geschikte Mac mini of
+          server op locatie, in jullie eigen cloud of bij een hostingpartij. Een
+          VPS, GPU-server of extern model-endpoint kan onderdeel zijn van de
+          opstelling. AITJE stemt hardware, modelverwerking en beheer af op
           jullie gebruik.
         </p>
       </div>
@@ -30,10 +31,10 @@
           <div class="ah-copy">
             <h3>Een kleine computer.<br />Een eigen AI-omgeving.</h3>
             <p>
-              Een BOSGAME met passend geheugen kan het lokale model en de
-              Assistent op locatie draaien. Jullie documenten, kennisbank en
-              verwerking blijven binnen de ingerichte omgeving zolang je lokale
-              diensten gebruikt.
+              Een BOSGAME M5, M6 of geschikte Mac mini met passend geheugen kan
+              het lokale model en de Assistent op locatie draaien. Jullie
+              documenten, kennisbank en verwerking blijven binnen de ingerichte
+              omgeving zolang je lokale diensten gebruikt.
             </p>
             <div class="ah-chips">
               <span>Lokaal model</span><span>Eigen kennisbank</span
@@ -75,12 +76,13 @@
             </div>
           </figure>
           <div class="ah-copy">
-            <h3>Dezelfde Assistent.<br />Op jullie eigen server.</h3>
+            <h3>Dezelfde Assistent.<br />Op de server die bij jullie past.</h3>
             <p>
-              Gebruik geschikte eigen servercapaciteit en opslag. We stemmen
-              bereikbaarheid, toegang en modelverwerking af met jullie IT.
-              Gebruikers hoeven zelf geen model op hun laptop of telefoon te
-              installeren.
+              Gebruik eigen servercapaciteit, een VPS bij Hetzner,
+              DigitalOcean-cloudcapaciteit of een AITJE-server. De applicatie en
+              modelverwerking kunnen samen of apart draaien; we stemmen
+              capaciteit en toegang af met jullie IT. Gebruikers hoeven zelf
+              geen model op hun laptop of telefoon te installeren.
             </p>
             <div class="ah-chips">
               <span>Linux-server</span><span>Eigen netwerk</span

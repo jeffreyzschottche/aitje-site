@@ -94,7 +94,7 @@ A dedicated environment for coding agents: a local alternative to services such 
 
 ### Does Coder work with my own tools?
 
-Yes. Claude Code, OpenCode, Codex, Aider, Cline, Continue and other tools communicate with the box rather than with a cloud service. The /connect page on the box provides the certificate, your private key and a ready-to-use configuration for each tool. You enter tasks for the agent in the web app.
+Yes. Claude Code, OpenCode, Codex, Aider, Cline, Continue and other tools connect to your own model environment. The /connect page in the AITJE environment provides the certificate, your private key and a ready-to-use configuration for each tool. You assign tasks to the agent via the web app.
 
 ### How much does AITJE Coder cost?
 

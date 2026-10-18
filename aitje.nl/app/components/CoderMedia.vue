@@ -1,5 +1,5 @@
 <script setup lang="ts">
-/** Short montages of real AITJE Coder screenshots. Only visible clips play; GIF is an explicit alternative. */
+/** Real screenshot montages play directly as GIFs; reduced motion uses stills. */
 const props = withDefaults(
   defineProps<{
     scene: string;
@@ -10,53 +10,36 @@ const props = withDefaults(
   { portrait: false },
 );
 const root = ref<HTMLElement>();
-const video = ref<HTMLVideoElement>();
-const running = ref(false);
-const format = ref<"video" | "gif">("video");
-const poster = computed(() => `/img/coder/posters/${props.scene}.webp`);
+const visible = ref(false);
+const reduced = ref(false);
+let observer: IntersectionObserver | undefined;
+let motion: MediaQueryList | undefined;
+const source = computed(() =>
+  visible.value && !reduced.value
+    ? `/img/coder/gifs/${props.scene}.gif`
+    : `/img/coder/posters/${props.scene}.webp`,
+);
 const dimensions = computed(() =>
   props.portrait ? { width: 590, height: 1276 } : { width: 1440, height: 900 },
 );
-let observer: IntersectionObserver | undefined;
-let reduced: MediaQueryList | undefined;
-let userPaused = false;
-function setPlayback() {
-  if (!video.value) return;
-  if (running.value && format.value === "video")
-    video.value.play().catch(() => {
-      running.value = false;
-    });
-  else video.value.pause();
-}
-function toggle() {
-  userPaused = running.value;
-  running.value = !running.value;
-}
-function changeFormat() {
-  video.value?.pause();
-  format.value = format.value === "gif" ? "video" : "gif";
-}
-function motionChange() {
-  if (reduced?.matches) {
-    running.value = false;
-    userPaused = true;
-  }
-}
+const updateMotion = () => {
+  reduced.value = motion?.matches ?? false;
+};
 onMounted(() => {
-  reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
-  reduced.addEventListener("change", motionChange);
+  motion = matchMedia("(prefers-reduced-motion: reduce)");
+  updateMotion();
+  motion.addEventListener("change", updateMotion);
   observer = new IntersectionObserver(
     ([entry]) => {
-      running.value = !!entry?.isIntersecting && !userPaused && !reduced?.matches;
+      visible.value = !!entry?.isIntersecting;
     },
-    { threshold: 0.3 },
+    { rootMargin: "200px" },
   );
   if (root.value) observer.observe(root.value);
 });
-watch([running, format, () => props.scene], () => nextTick(setPlayback));
 onBeforeUnmount(() => {
   observer?.disconnect();
-  reduced?.removeEventListener("change", motionChange);
+  motion?.removeEventListener("change", updateMotion);
 });
 </script>
 <template>
@@ -72,59 +55,18 @@ onBeforeUnmount(() => {
         :style="{ aspectRatio: `${dimensions.width} / ${dimensions.height}` }"
       >
         <img
-          v-if="format === 'gif' && running"
-          :src="`/img/coder/gifs/${scene}.gif`"
-          :alt="title"
-          :width="dimensions.width"
-          :height="dimensions.height"
-        />
-        <img
-          v-else-if="format === 'gif'"
-          :src="poster"
+          :src="source"
           :alt="title"
           :width="dimensions.width"
           :height="dimensions.height"
           loading="lazy"
         />
-        <video
-          v-else
-          :key="scene"
-          ref="video"
-          :poster="poster"
-          muted
-          loop
-          playsinline
-          preload="none"
-          :width="dimensions.width"
-          :height="dimensions.height"
-          :aria-label="title"
-        >
-          <source :src="`/img/coder/video/${scene}.mp4`" type="video/mp4" />
-        </video>
-      </div>
-      <div class="cm-controls">
-        <button
-          type="button"
-          :aria-label="running ? 'Montage pauzeren' : 'Montage afspelen'"
-          @click="toggle"
-        >
-          <AppIcon :name="running ? 'pause' : 'play'" :size="14" />{{
-            running ? "Pauzeren" : "Afspelen"
-          }}</button
-        ><span>Korte montage</span
-        ><button
-          type="button"
-          :aria-pressed="format === 'gif'"
-          @click="changeFormat"
-        >
-          {{ format === "gif" ? "Bekijk als video" : "Bekijk als GIF" }}
-        </button>
       </div>
     </div>
     <figcaption>
       {{
         caption ||
-        "Echte screenshots van AITJE Coder met een fictief demoproject. De agent heeft deze taken werkelijk uitgevoerd; de montage is ingekort en zegt niets over snelheid."
+        "Echte screenshots met een fictief demoproject. De agenttaken zijn werkelijk uitgevoerd; de montage toont geen doorlooptijd."
       }}
     </figcaption>
   </figure>
@@ -135,6 +77,7 @@ onBeforeUnmount(() => {
   margin: 0;
 }
 .cm-portrait {
+  width: 100%;
   max-width: 21rem;
   margin-inline: auto;
 }
@@ -181,56 +124,25 @@ onBeforeUnmount(() => {
 .cm-screen {
   background: #1a1a1a;
 }
-.cm-screen img,
-.cm-screen video {
+.cm-screen img {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-}
-.cm-controls {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
-  padding: 0.7rem 1rem;
-  border-top: 1px solid #2a2a26;
-  color: #d4d4cd;
-  font-size: 0.7rem;
-}
-.cm-controls button {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  color: inherit;
-  cursor: pointer;
-}
-.cm-controls button:hover {
-  color: #facc15;
-}
-.cm-controls > span {
-  color: #8a8a83;
+  object-fit: contain;
 }
 .coder-media figcaption {
-  font-size: 0.72rem;
-  line-height: 1.6;
+  font-size: 0.68rem;
+  line-height: 1.8;
   margin-top: 1rem;
-  color: var(--color-muted);
-}
-.cm-portrait .cm-controls > span,
-.cm-portrait .cm-recorded {
-  display: none;
+  color: #8c9680;
 }
 @media (max-width: 480px) {
   .cm-bar {
     gap: 0.5rem;
+    font-size: 0.56rem;
   }
-  .cm-recorded,
-  .cm-controls > span {
+  .cm-recorded {
     display: none;
-  }
-  .cm-controls {
-    font-size: 0.65rem;
   }
 }
 </style>

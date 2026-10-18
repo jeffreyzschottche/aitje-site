@@ -80,11 +80,14 @@ const tasks = [
         <a href="#werking">Voor je team</a
         ><a href="#mogelijkheden">Bedrijfskennis</a
         ><a href="#eigen-hardware">Eigen hardware</a
+        ><a href="#kennis-rag">Kennis &amp; RAG</a
         ><a href="#tokens-output">Tokens &amp; output</a
         ><a href="#regie">Beheer</a><a href="#prijs">Prijs &amp; installatie</a
         ><a href="#product-vragen">Vragen</a>
       </div>
     </nav>
+
+    <AiStationLabel product="assistant" />
 
     <AssistantHardware />
 
@@ -298,6 +301,8 @@ const tasks = [
       </div>
     </section>
 
+    <AssistantRag />
+
     <section id="omgeving" class="as-section container-page as-split">
       <div>
         <p class="eyebrow text-brand-ink">Jouw omgeving, jouw modelkeuze</p>
@@ -352,9 +357,15 @@ const tasks = [
       </div>
     </section>
 
+    <AiStationArchitecture product="assistant" />
+
+    <ProductModelRoutes product="assistant" />
+
     <AssistantAnswerLab />
 
     <AssistantCostOutput />
+
+    <AssistantExternalPrivacy />
 
     <section id="regie" class="as-dark as-overlap as-control-section">
       <div class="container-page">
@@ -951,21 +962,7 @@ const tasks = [
 .as-knowledge-section .as-knowledge-route {
   margin-top: 1rem;
 }
-@media (min-width: 901px) and (max-width: 1100px) {
-  .as-feature-intro {
-    padding-right: 51%;
-    min-height: 22rem;
-  }
-  .as-feature-intro > .as-art-v2 {
-    right: -2rem;
-    width: 59%;
-    top: -10rem;
-  }
-  .as-control-section .as-feature-intro > .as-art-v2 {
-    top: -8rem;
-  }
-}
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
   .as-overlap {
     padding-top: 0;
   }

@@ -10,12 +10,13 @@ import { parse as parseTemplate } from "@vue/compiler-dom";
 export async function generateAiFiles({ check = false, quiet = false, rootDir } = {}) {
   const root = rootDir ?? fileURLToPath(new URL("../", import.meta.url));
   const siteUrl = (process.env.NUXT_PUBLIC_SITE_URL || "https://aitje.com").replace(/\/$/, "");
-  const modules = ["searchCatalog", "products", "services", "cases", "knowledge", "faq", "seo", "pricing", "custom"];
+  const modules = ["searchCatalog", "products", "services", "cases", "knowledge", "faq", "seo", "pricing", "custom", "productTrailers", "coderCapabilities"];
   const entry = modules.map((name, i) => `import * as m${i} from './app/content/${name}.ts';`).join("\n") + `
   import { localizedPath } from './shared/siteLocales.ts';
+  import { deploymentOptions } from './shared/deploymentOptions.ts';
   import { loadEnglishTranslations, translateText } from './shared/siteTranslations.ts';
   await loadEnglishTranslations();
-  export default { ${modules.map((name, i) => `${name}: m${i}`).join(",")}, localizedPath, translateText };`;
+  export default { ${modules.map((name, i) => `${name}: m${i}`).join(",")}, localizedPath, translateText, deploymentOptions };`;
   const bundled = await build({ stdin: { contents: entry, resolveDir: root, loader: "ts" }, bundle: true, write: false, platform: "node", format: "esm", alias: { "@": path.join(root, "app") } });
   const data = (await import(`data:text/javascript;base64,${Buffer.from(bundled.outputFiles[0].text).toString("base64")}`)).default;
   const { searchPages } = data.searchCatalog;
@@ -93,9 +94,20 @@ export async function generateAiFiles({ check = false, quiet = false, rootDir } 
         const product = data.products.products.find(item => item.slug === slug);
         body.push(`${L.status}: ${product.status === "available" ? L.available : L.planned}`, paragraph(product.intro), `## ${L.who}\n\n${bullets(product.forWho)}`);
         if (product.features?.length) body.push(`## ${L.features}\n\n${titled(product.features)}`);
+        if (product.slug === "aitje-coder") body.push(...data.coderCapabilities.coderCapabilities.map(group => `## ${text(group.name)}\n\n${text(group.label)}\n\n${titled(group.items)}`));
         if (product.included?.length) body.push(`## ${L.included}\n\n${bullets(product.included)}`);
         if (product.notIncluded?.length) body.push(`## ${L.excluded}\n\n${bullets(product.notIncluded)}`);
         if (product.technical?.length) body.push(titled(product.technical));
+        if (["aitje-assistent", "aitje-coder"].includes(product.slug)) {
+          const offer = data.pricing.getInstalledProductOffer(product.slug);
+          body.push(`## ${L.pricing}\n\n${text("Product voor zelfinstallatie")}: ${money(product.price)}. ${text("Product + basisinstallatie")}: ${money(offer.price)}. ${L.vat}\n\n${L.infrastructure}`);
+          if (offer.introductory) body.push(text(data.pricing.productIntroductionNote));
+          body.push(`## ${text("Hardware en hosting")}\n\n${data.deploymentOptions.map(option => `### ${text(option.label)}\n\n${text(option.description)}\n\n${text(option.extra)}.`).join("\n\n")}`);
+          const trailer = data.productTrailers.getProductTrailer(product.slug);
+          body.push(`## ${text(trailer.title)}\n\n${text(trailer.description)}\n\n[YouTube](${trailer.watchUrl})`);
+          const demo = key => `${url("/contact")}?${new URLSearchParams({ onderwerp: key, product: product.slug })}`;
+          body.push(`[${text("Vraag een demo op locatie aan")}](${demo("demo-fysiek")})\n\n[${text("Vraag een demo-endpoint aan")}](${demo("demo-endpoint")})`);
+        }
         if (product.faq?.length) body.push(`## ${L.faq}\n\n${questionAnswers(product.faq)}`);
       } else if (page.kind === "service") {
         const service = data.services.services.find(item => item.slug === slug);

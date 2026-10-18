@@ -8,28 +8,6 @@ import {
 import { contactLink } from "@/content/site";
 const offer = getInstalledProductOffer("aitje-assistent")!;
 const software = pricing.products["aitje-assistent"].software;
-const environment = ref(0);
-const environments = [
-  {
-    name: "Eigen hardware",
-    icon: "server",
-    title: "Benut wat er al staat.",
-    text: "We beoordelen vooraf of jullie apparaat of server geschikt is voor de modellen, kennisbank en het verwachte gebruik. Capaciteit en energie blijven onderdeel van de afweging.",
-  },
-  {
-    name: "Nieuwe hardware",
-    icon: "cpu",
-    title: "Passende rekenkracht voor jullie team.",
-    text: "AITJE kan een passende omgeving helpen kiezen en regelen. De hardware staat apart in de offerte, afgestemd op model, geheugen en gelijktijdig gebruik.",
-  },
-  {
-    name: "Een serveromgeving",
-    icon: "globe",
-    title: "Een eigen omgeving op de afgesproken server.",
-    text: "De software wordt op een geschikte server ingericht. Serverhuur, capaciteit, bereikbaarheid en beheer spreken we vooraf af. Hosting is aanvullend op het product.",
-  },
-];
-const current = computed(() => environments[environment.value]!);
 </script>
 <template>
   <section id="prijs" class="assistant-pricing">
@@ -78,6 +56,10 @@ const current = computed(() => environments[environment.value]!);
           </div>
           <p class="ap-price">{{ euros(offer.price) }}</p>
           <p class="ap-price-note">Product + basisinstallatie · excl. btw</p>
+          <p class="hardware-cost-note">
+            <AppIcon name="plus" :size="19" /> Hardware of hosting komt er apart
+            bij · op offerte
+          </p>
           <div class="ap-price-bars" aria-hidden="true">
             <span class="ap-software-bar" :style="{ flex: software }" /><span
               class="ap-install-bar"
@@ -120,43 +102,8 @@ const current = computed(() => environments[environment.value]!);
           </p>
         </div>
       </div>
-      <div class="ap-environment">
-        <div>
-          <p class="eyebrow text-brand-ink">
-            De software krijgt een eigen plek
-          </p>
-          <h3>{{ current.title }}</h3>
-          <div
-            class="ap-environment-tabs"
-            role="group"
-            aria-label="Kies een installatieomgeving"
-          >
-            <button
-              v-for="(item, i) in environments"
-              :key="item.name"
-              type="button"
-              :aria-pressed="environment === i"
-              @click="environment = i"
-            >
-              <AppIcon :name="item.icon" :size="18" />{{ item.name }}
-            </button>
-          </div>
-          <p>{{ current.text }}</p>
-        </div>
-        <div class="ap-cost-stack">
-          <div>
-            <AppIcon :name="current.icon" :size="29" /><strong>{{
-              current.name
-            }}</strong
-            ><span>Hardware of hosting · apart begroot</span>
-          </div>
-          <span class="ap-stack-plus" aria-hidden="true">+</span>
-          <div>
-            <AppIcon name="package" :size="27" /><strong>AITJE Assistent</strong
-            ><span>Software en afgesproken inrichting</span>
-          </div>
-        </div>
-      </div>
+      <ProductDeploymentPicker product="aitje-assistent" />
+
       <div class="ap-complete">
         <div>
           <AppIcon name="message" :size="26" />
@@ -628,5 +575,22 @@ const current = computed(() => environments[environment.value]!);
   .ap-breakdown > div {
     font-size: 0.78rem;
   }
+}
+.hardware-cost-note {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1rem;
+  margin: 1rem 0;
+  background: #fff3be;
+  border: 1px solid #e4ca59;
+  border-radius: 0.8rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.6;
+  color: #40370d;
+}
+.hardware-cost-note svg {
+  flex-shrink: 0;
 }
 </style>

@@ -1,0 +1,44 @@
+{
+  "title": "AITJE Coder — M6 model comparison, C6 round 2",
+  "date": "2026-09-17",
+  "source": "AITJE_Coder/docs/goals/c6-modelvergelijking-m6.md (internal measurement, round 2)",
+  "hardware": "BOSGAME M6, 32 GB",
+  "stack": "Management API -> queue -> worker -> OpenHands -> LiteLLM -> local model runtime",
+  "method": {
+    "tasks": [
+      "Discount codes with hidden edge-case tests",
+      "Half-up rounding without changing existing tests",
+      "Command-line invoice tool with error handling"
+    ],
+    "repeatsPerTask": 2,
+    "runsPerModel": 6,
+    "validation": "Hidden tests; grader checked against failing baseline and passing reference solutions. Models switched per run."
+  },
+  "results": [
+    {
+      "model": "tiel-coder-35b",
+      "passed": 6,
+      "total": 6,
+      "medianSeconds": 553
+    },
+    {
+      "model": "ornith-35b (1.0)",
+      "passed": 5,
+      "total": 6,
+      "medianSeconds": 384
+    },
+    {
+      "model": "ornith-1.5-35b",
+      "passed": 4,
+      "total": 6,
+      "medianSeconds": 831
+    }
+  ],
+  "limitations": [
+    "One small Python repository and two repeats per task; not a general success rate.",
+    "Timing includes model switching and is indicative.",
+    "Code style/readability was not graded.",
+    "An earlier grading error for added tests was corrected; these are the corrected round 2 results.",
+    "Separate from the 18 October marketing screenshot demo and from published model-card benchmarks."
+  ]
+}

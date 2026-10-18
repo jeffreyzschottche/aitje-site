@@ -10,6 +10,7 @@ import {
   findTopicGroup,
 } from "#shared/contactTopics";
 import { contact } from "@/content/site";
+import { deploymentGroups, deploymentOptions, findDeploymentOption } from "#shared/deploymentOptions";
 
 usePageSeo({
   ...staticPageSeo["/contact"],
@@ -30,6 +31,7 @@ const form = reactive({
   company: "",
   topic: initialTopic as string,
   product: initialProduct as string,
+  environment: findDeploymentOption(String(route.query.omgeving ?? ""))?.key ?? "",
   message: "",
   website: "",
 });
@@ -39,6 +41,7 @@ watch(
   (query) => {
     form.topic = findTopic(String(query.onderwerp ?? ""))?.key ?? "ai-vraag";
     form.product = findContactProduct(String(query.product ?? ""))?.slug ?? "";
+    form.environment = findDeploymentOption(String(query.omgeving ?? ""))?.key ?? "";
   },
 );
 
@@ -66,6 +69,8 @@ const needsProduct = computed(() => {
 });
 const selectedProduct = computed(() => findContactProduct(form.product));
 const messagePlaceholder = computed(() => {
+  if (form.topic === "demo-fysiek") return "In welke plaats wil je de demo? Vertel welke taken je op de hardware wilt zien en wanneer een bezoek jullie uitkomt.";
+  if (form.topic === "demo-endpoint") return "Waar wil je het demo-endpoint voor gebruiken en met welke tools wil je het koppelen? Vertel wat je wilt testen.";
   switch (selectedTopicGroup.value) {
     case "producten": return "Welk product lijkt je interessant? Vertel hoe je het wilt gebruiken en of je hulp bij de installatie wilt.";
     case "ai-scan": return "Wat doet je organisatie en waar kost handwerk veel tijd? Vertel wat je wilt onderzoeken.";
@@ -83,6 +88,10 @@ const heading = computed(() => {
   switch (form.topic) {
     case "demo":
       return name ? `Vraag een demo aan van ${name}` : "Vraag een demo aan";
+    case "demo-fysiek":
+      return name ? `Vraag een fysieke demo aan van ${name}` : "Vraag een fysieke demo op locatie aan";
+    case "demo-endpoint":
+      return name ? `Vraag een demo-endpoint aan voor ${name}` : "Vraag een demo-endpoint aan";
     case "product-regelen":
       return name ? `Laat AITJE ${name} regelen` : "Laat AITJE het regelen";
     case "zelfinstallatie":
@@ -110,6 +119,12 @@ const heading = computed(() => {
   }
 });
 
+const introduction = computed(() => {
+  if (form.topic === "demo-fysiek") return "AITJE komt bij jullie langs met hardware voor een persoonlijke demo. Laat weten waar je de demo wilt en wat je wilt zien; we nemen contact op om het bezoek af te stemmen.";
+  if (form.topic === "demo-endpoint") return "Probeer de AI op afstand via een demo-endpoint. Vertel wat je wilt testen; we nemen contact op om de toegang en de toepassing af te stemmen.";
+  return "";
+});
+
 const submit = async () => {
   if (status.value === "sending") return;
   status.value = "sending";
@@ -117,7 +132,7 @@ const submit = async () => {
   try {
     await $fetch("/api/contact", {
       method: "POST",
-      body: { ...form, product: needsProduct.value ? form.product : "" },
+      body: { ...form, product: needsProduct.value ? form.product : "", environment: needsProduct.value ? form.environment : "" },
     });
     status.value = "sent";
     window.gtag?.("event", "generate_lead", {
@@ -155,6 +170,7 @@ const inputClass =
             Vertel waar je tegenaan loopt of wat je wilt bereiken. AITJE denkt
             mee en laat je weten welke route past.
           </p>
+          <p v-if="introduction" class="mt-4 max-w-md text-sm leading-relaxed text-muted">{{ introduction }}</p>
 
           <div class="contact-scene mt-8 max-w-sm">
             <ServiceScene
@@ -331,6 +347,16 @@ const inputClass =
                 >
                   {{ p.name }}
                 </option>
+              </select>
+            </label>
+
+            <label v-if="needsProduct" class="block">
+              <span class="text-sm font-semibold">Hardware en hosting</span>
+              <select v-model="form.environment" name="environment" :disabled="status === 'sending'" :class="inputClass">
+                <option value="">Nog te kiezen / graag advies</option>
+                <optgroup v-for="group in deploymentGroups" :key="group.key" :label="group.label">
+                  <option v-for="option in deploymentOptions.filter(option => option.group === group.key)" :key="option.key" :value="option.key">{{ option.label }}</option>
+                </optgroup>
               </select>
             </label>
 

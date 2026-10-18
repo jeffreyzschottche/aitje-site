@@ -57,6 +57,7 @@ for (const file of await filesIn(path.join(root, "app"))) {
   } else collectJs(source);
 }
 collectJs(await fs.readFile(path.join(root, "shared/contactTopics.ts"), "utf8"));
+collectJs(await fs.readFile(path.join(root, "shared/deploymentOptions.ts"), "utf8"));
 // Translate validation messages in the form without changing the working mail endpoint.
 const contactEndpoint = await fs.readFile(path.join(root, "server/api/contact.post.ts"), "utf8");
 for (const match of contactEndpoint.matchAll(/statusMessage:\s*"([^"]+)"/g)) add(match[1]);

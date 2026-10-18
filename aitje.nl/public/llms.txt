@@ -39,8 +39,8 @@ Hardware, serverhuur, reis- of locatiekosten en aanvullende inrichting worden ap
 
 ## AI-producten
 
-- [AITJE Assistent: Je eigen AI-chatassistent. Onder jouw controle.](https://aitje.com/llms/pages/producten/aitje-assistent.md): AITJE Assistent: lokale chat met kennisbank. Los product €499; vanaf €599 met basisinstallatie. Excl. btw en infrastructuur. Webpagina: https://aitje.com/producten/aitje-assistent
-- [AITJE Coder: Je eigen coding agents. Zonder externe tokenkosten.](https://aitje.com/llms/pages/producten/aitje-coder.md): AITJE Coder: je eigen lokale coding agents. Los product €699; vanaf €799 met basisinstallatie. Excl. btw en infrastructuur. Webpagina: https://aitje.com/producten/aitje-coder
+- [AITJE Assistent: Je eigen AI-chatassistent. Onder jouw controle.](https://aitje.com/llms/pages/producten/aitje-assistent.md): AITJE Chat Assistent AI Station: lokale chat, RAG en privacybeheer op hardware of server. Vanaf €599 met basisinstallatie, excl. btw en infrastructuur. Webpagina: https://aitje.com/producten/aitje-assistent
+- [AITJE Coder: Je eigen coding agents. Zonder externe tokenkosten.](https://aitje.com/llms/pages/producten/aitje-coder.md): AITJE Coder AI Station: coding agents, Git-review en geplande taken op hardware of server. Vanaf €799 met basisinstallatie, excl. btw en infrastructuur. Webpagina: https://aitje.com/producten/aitje-coder
 
 ## AI-diensten
 

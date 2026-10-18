@@ -12,11 +12,12 @@ const siteUrl = (process.env.NUXT_PUBLIC_SITE_URL || "https://aitje.com").replac
 const bundled = await build({ stdin: { contents: `
 import { searchPages } from './app/content/searchCatalog.ts';
 import { getProduct } from './app/content/products.ts';
+import { getProductTrailer } from './app/content/productTrailers.ts';
 import { englishPath } from './shared/siteLocales.ts';
 import { loadEnglishTranslations, translateText } from './shared/siteTranslations.ts';
 await loadEnglishTranslations();
-export default { searchPages, englishPath, translateText, getProduct };`, resolveDir: root, loader: "ts" }, bundle: true, write: false, platform: "node", format: "esm", alias: { "@": path.join(root, "app") } });
-const { searchPages, englishPath, translateText, getProduct } = (await import(`data:text/javascript;base64,${Buffer.from(bundled.outputFiles[0].text).toString("base64")}`)).default;
+export default { searchPages, englishPath, translateText, getProduct, getProductTrailer };`, resolveDir: root, loader: "ts" }, bundle: true, write: false, platform: "node", format: "esm", alias: { "@": path.join(root, "app") } });
+const { searchPages, englishPath, translateText, getProduct, getProductTrailer } = (await import(`data:text/javascript;base64,${Buffer.from(bundled.outputFiles[0].text).toString("base64")}`)).default;
 const get = async pathname => {
   const response = await fetch(`${baseUrl}${pathname}`, { signal: AbortSignal.timeout(30000), redirect: "manual" });
   assert.equal(response.status, 200, `${pathname}: HTTP ${response.status}`);
@@ -82,6 +83,21 @@ const inspect = async page => {
     }
     if (entityType === "Product") {
       const product = getProduct(page.path.split("/").at(-1));
+      const trailer = getProductTrailer(product.slug);
+      if (trailer) {
+        const video = graph.find(item => item["@type"] === "VideoObject");
+        assert(video, `${page.route}: missing trailer structured data`);
+        assert.equal(video.name, translateText(trailer.title, page.locale));
+        assert.equal(video.embedUrl, trailer.embedUrl);
+        assert.equal(video.thumbnailUrl, trailer.thumbnailUrl);
+        assert.equal(video.uploadDate, trailer.uploadDate);
+        assert.equal(video.duration, trailer.duration);
+        assert.equal(video.inLanguage, "nl");
+        assert.equal(entity.subjectOf["@id"], video["@id"]);
+        assert.equal(video.about["@id"], entity["@id"]);
+        assert.equal(entity.additionalProperty.length, product.features.length);
+        assert(html.includes(trailer.embedUrl.replaceAll("&", "&amp;")), `${page.route}: schema trailer is not embedded`);
+      }
       if (product.status === "available" && product.price !== undefined) assert(entity.offers?.length, `${page.route}: missing priced offers`);
       else assert(!entity.offers, `${page.route}: invented price for planned/unpriced product`);
       for (const offer of entity.offers ?? []) {
@@ -108,6 +124,10 @@ const inspect = async page => {
   const snapshot = await get(new URL(markdown.href).pathname);
   assert(snapshot.headers.get("content-type").includes("text/markdown"));
   assert(snapshot.text.includes(canonical), "Markdown canonical does not match HTML");
+  if (["/producten/aitje-assistent", "/producten/aitje-coder"].includes(page.path)) {
+    for (const term of ["BOSGAME M5", "BOSGAME M6", "Mac mini", "Hetzner", "DigitalOcean", "Nebius", "demo-fysiek", "demo-endpoint"]) assert(snapshot.text.includes(term), `${page.route}: enriched AI snapshot missing ${term}`);
+    assert(snapshot.text.includes(page.path.endsWith("assistent") ? "pgvector" : "GitHub"));
+  }
   inspected++;
 };
 await Promise.all(Array.from({ length: 4 }, async () => {

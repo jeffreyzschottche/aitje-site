@@ -6,7 +6,7 @@ const modes = [
   {
     icon: "workflow",
     title: "Taken voor de agent",
-    where: "In de web-app van de box",
+    where: "In de web-app van jullie omgeving",
     question: "Repareer de btw-afronding en zorg dat alle tests slagen.",
     answer:
       "Je geeft een taak in gewone taal. De agent werkt zelfstandig in een eigen kopie van de repository en legt het resultaat ter review voor. Geschikt voor tests, bugs, kleine features en dependency-updates.",
@@ -17,7 +17,7 @@ const modes = [
     where: "Claude Code, OpenCode, Codex, Aider, Cline",
     question: "Leg uit hoe de CSV-export werkt en voeg een kolom toe.",
     answer:
-      "De coding agent die je team al gebruikt, praat met de box in plaats van met een clouddienst. Jij blijft in de loop en keurt elke stap goed op de manier van je eigen tool.",
+      "De coding agent die je team al gebruikt, praat met jullie eigen model-endpoint op hardware, een server of in de cloud. Jij blijft in de loop en keurt elke stap goed op de manier van je eigen tool.",
   },
   {
     icon: "code",
@@ -25,10 +25,12 @@ const modes = [
     where: "Continue, Zed en andere editors",
     question: "Schrijf de docstring voor deze functie.",
     answer:
-      "Een klein, snel model vult aan terwijl je typt. Voor vragen en uitleg gebruik je het grotere model. Beide staan op de box klaar.",
+      "Een klein, snel model vult aan terwijl je typt. Voor vragen en uitleg gebruik je het grotere model. Beide staan in jullie modelomgeving klaar.",
   },
 ];
 const screen = ref(0);
+const screenDevice = ref<"desktop" | "phone">("desktop");
+const screenTheme = ref<"light" | "dark">("dark");
 const screens = [
   {
     name: "Nieuwe taak",
@@ -64,45 +66,62 @@ const screens = [
   },
 ];
 const view = computed(() => screens[screen.value]!);
+const hasPhone = computed(() =>
+  ["composer-leeg", "taak-resultaat"].includes(view.value.shot),
+);
+watch(screen, () => {
+  if (!hasPhone.value) screenDevice.value = "desktop";
+});
 
 const online = ref(false);
 const flows = [
   {
     what: "Opdrachten en code",
-    local: "Blijven op de box wanneer je een lokaal model gebruikt. Dat is de standaard.",
+    local:
+      "Blijven op de box wanneer je een lokaal model gebruikt. Dat is de standaard.",
   },
   {
     what: "Pakketten installeren",
-    local: "De agent mag het internet op om pakketten te installeren. Jullie netwerk is afgeschermd: geen NAS, printers of servers.",
+    local:
+      "De agent mag het internet op om pakketten te installeren. Jullie netwerk is afgeschermd: geen NAS, printers of servers.",
   },
   {
     what: "Op het web zoeken",
-    local: "Via een zoekdienst op de box. Alleen de zoekvraag gaat naar buiten, niet je opdracht of code. Per box of per taak uit te zetten.",
+    local:
+      "Via een zoekdienst op de box. Alleen de zoekvraag gaat naar buiten, niet je opdracht of code. Per box of per taak uit te zetten.",
   },
   {
     what: "Een goedgekeurde wijziging",
-    local: "Gaat als pull request naar jullie Git-server: GitHub, GitLab of Gitea.",
+    local:
+      "Gaat als pull request naar jullie Git-server: GitHub, GitLab of Gitea.",
   },
   {
     what: "Externe modellen",
-    local: "Standaard uit. Een beheerder kan een aanbieder toevoegen en per gebruiker toestaan. Wie zo'n model kiest, stuurt opdracht en code naar die aanbieder.",
+    local:
+      "Standaard uit. Een beheerder kan een aanbieder toevoegen en per gebruiker toestaan. Wie zo'n model kiest, stuurt opdracht en code naar die aanbieder.",
   },
   {
     what: "MCP-koppelingen",
-    local: "Alleen bij taken waarvoor je ze aanvinkt. Wat de agent doorgeeft, kan code bevatten.",
+    local:
+      "Alleen bij taken waarvoor je ze aanvinkt. Wat de agent doorgeeft, kan code bevatten.",
   },
   {
     what: "Meldingen",
-    local: "Status en een vaste reden bij een mislukte taak. Nooit code of foutmeldingen naar een chatkanaal.",
+    local:
+      "Status en een vaste reden bij een mislukte taak. Nooit code of foutmeldingen naar een chatkanaal.",
   },
   {
     what: "Telemetrie en support",
-    local: "Telemetrie staat standaard uit. Support op afstand loopt via een tunnel die jullie zelf aan- en uitzetten.",
+    local:
+      "Telemetrie staat standaard uit. Support op afstand loopt via een tunnel die jullie zelf aan- en uitzetten.",
   },
 ];
 
 const clients = [
-  { name: "Claude Code", note: "Rechtstreeks, via de Anthropic Messages-API van de box" },
+  {
+    name: "Claude Code",
+    note: "Rechtstreeks, via de Anthropic Messages-API van de box",
+  },
   { name: "OpenCode", note: "Aanbevolen, met kant-en-klare configuratie" },
   { name: "Codex CLI", note: "Configuratie via aitje-coder config codex" },
   { name: "Aider", note: "Ook met sessies in het overzicht" },
@@ -110,34 +129,56 @@ const clients = [
   { name: "Continue · Zed", note: "Aanvullen en chat in je editor" },
 ];
 
-const reliability = [
-  { icon: "server", title: "Beheer op de box zelf", text: "Een beheerconsole op het scherm van de box, ook bruikbaar als de rest stilligt. Na een stroomstoring start de box vanzelf weer op." },
-  { icon: "repeat", title: "Updates met een vangnet", text: "Updates komen via een ondertekend manifest. Komt een nieuwe versie niet gezond op, dan zet de box de vorige terug. Het moment kiezen we samen." },
-  { icon: "box", title: "Elke nacht een back-up", text: "De database wordt elke nacht veiliggesteld en 14 dagen bewaard. Stond de box uit, dan wordt de back-up ingehaald. Herstellen is één commando." },
-  { icon: "shield", title: "Geheimen versleuteld", text: "Toegangstokens en webhook-geheimen staan versleuteld in de database. Webhook-adressen komen niet in logbestanden of supportbundels." },
-  { icon: "gauge", title: "Grenzen voor de agent", text: "Een agenttaak mag maximaal 20 GB aan bestanden maken en stopt als de schijf vol dreigt te lopen. Een waakhond herstart vastgelopen diensten." },
-  { icon: "file-search", title: "Bewaartermijn", text: "Opdrachten, verslagen en wijzigingen van niet-goedgekeurde taken verdwijnen na 90 dagen. Het logboek legt elke beheerhandeling vast." },
-];
-
-const runs = [
-  { task: "btw-afronding repareren", result: "Alle 3 de tests slagen", requests: "24", tokens: "274.965", time: "4 min" },
-  { task: "Tests voor klantcontrole", result: "Klaar voor review", requests: "22", tokens: "306.514", time: "—" },
-  { task: "btw per tarief in de CSV-export", result: "Klaar voor review", requests: "88", tokens: "2.551.541", time: "—" },
-];
-const limits = [
-  "De kwaliteit hangt af van model en taak. Kleine, duidelijke opdrachten met een controleerbare uitkomst werken het best.",
-  "De box houdt één groot model tegelijk in het geheugen. Wisselen kost op de 32 GB-uitvoering 30 tot 55 seconden.",
-  "Op de 32 GB-uitvoering draait één agenttaak tegelijk. De rest wacht in de wachtrij.",
-  "Het model neemt soms een Nederlandse naam uit de code verkeerd over. Meestal ziet de agent dat en herstelt hij het zelf.",
-  "De 128 GB-uitvoering is nog niet op echte hardware doorgemeten. Die cijfers volgen.",
-];
-
 const delivery = ref(0);
 const deliveries = [
-  { name: "Toepassing", icon: "message", title: "Begin bij het werk dat blijft liggen.", text: "We kijken welke repositories meedoen, wie ermee werkt en welke taken je wilt uitbesteden. Zo kiezen we de box en het model die erbij passen.", label: "Jullie vraagset", items: ["Repositories en Git-server", "Aantal developers en gelijktijdig gebruik", "Drie representatieve taken voor de proef"] },
-  { name: "Box", icon: "server", title: "De rekenkracht op jullie netwerk.", text: "We installeren de box, zetten het certificaat klaar en maken hem bereikbaar in jullie netwerk. De box herkent zelf welke uitvoering het is en stelt zich daarop in.", label: "Jullie omgeving", items: ["32 GB voor één developer of 128 GB voor een team", "Bereikbaar via de browser op het eigen netwerk", "Agent afgeschermd van de rest van het netwerk"] },
-  { name: "Inrichting", icon: "shield", title: "Repositories, rollen en spelregels.", text: "We verbinden de repositories, maken accounts en rollen aan en zetten skills, budgetten en meldingen klaar. Daarna koppelen we de editors van je developers.", label: "Jullie inrichting", items: ["Repositories en toegang voor pull requests", "Rollen, sleutels en budgetten", "Editors en CLI via /connect"] },
-  { name: "Overdracht", icon: "handshake", title: "Samen controleren met jullie eigen taken.", text: "We draaien jullie representatieve taken, beoordelen het resultaat en de wachttijd en leggen uit hoe review, wachtrij en beheer werken. Nazorg en updates spreken we af.", label: "Jullie oplevering", items: ["Eigen taken uitgevoerd en beoordeeld", "Uitleg voor developers en beheerder", "Afspraken over updates en support"] },
+  {
+    name: "Toepassing",
+    icon: "message",
+    title: "Begin bij het werk dat blijft liggen.",
+    text: "We kijken welke repositories meedoen, wie ermee werkt en welke taken je wilt uitbesteden. Zo kiezen we de box en het model die erbij passen.",
+    label: "Jullie vraagset",
+    items: [
+      "Repositories en Git-server",
+      "Aantal developers en gelijktijdig gebruik",
+      "Drie representatieve taken voor de proef",
+    ],
+  },
+  {
+    name: "Box",
+    icon: "server",
+    title: "De rekenkracht op jullie netwerk.",
+    text: "We installeren de box, zetten het certificaat klaar en maken hem bereikbaar in jullie netwerk. De box herkent zelf welke uitvoering het is en stelt zich daarop in.",
+    label: "Jullie omgeving",
+    items: [
+      "32 GB voor één developer of 128 GB voor een team",
+      "Bereikbaar via de browser op het eigen netwerk",
+      "Agent afgeschermd van de rest van het netwerk",
+    ],
+  },
+  {
+    name: "Inrichting",
+    icon: "shield",
+    title: "Repositories, rollen en spelregels.",
+    text: "We verbinden de repositories, maken accounts en rollen aan en zetten skills, budgetten en meldingen klaar. Daarna koppelen we de editors van je developers.",
+    label: "Jullie inrichting",
+    items: [
+      "Repositories en toegang voor pull requests",
+      "Rollen, sleutels en budgetten",
+      "Editors en CLI via /connect",
+    ],
+  },
+  {
+    name: "Overdracht",
+    icon: "handshake",
+    title: "Samen controleren met jullie eigen taken.",
+    text: "We draaien jullie representatieve taken, beoordelen het resultaat en de wachttijd en leggen uit hoe review, wachtrij en beheer werken. Nazorg en updates spreken we af.",
+    label: "Jullie oplevering",
+    items: [
+      "Eigen taken uitgevoerd en beoordeeld",
+      "Uitleg voor developers en beheerder",
+      "Afspraken over updates en support",
+    ],
+  },
 ];
 const stage = computed(() => deliveries[delivery.value]!);
 </script>
@@ -146,27 +187,43 @@ const stage = computed(() => deliveries[delivery.value]!);
   <div class="coder-story">
     <nav class="product-jumpnav" aria-label="Op deze productpagina">
       <div class="container-page">
-        <a href="#werking">Voor je team</a><a href="#taak">Een taak</a
-        ><a href="#wachtrij">Wachtrij</a><a href="#tools">Je eigen tools</a
+        <a href="#werking">Voor je team</a
+        ><a href="#codevoorbeelden">Code &amp; resultaat</a
+        ><a href="#taak">Een taak</a><a href="#wachtrij">Wachtrij</a
+        ><a href="#tools">Je eigen tools</a
         ><a href="#omgeving">Eigen omgeving</a><a href="#regie">Beheer</a
-        ><a href="#prestaties">Prestaties</a><a href="#prijs">Prijs</a
+        ><a href="#alle-functies">Alle functies</a
+        ><a href="#repository-planning">Git &amp; planning</a
+        ><a href="#coder-ai-station">AI Station</a
+        ><a href="#coder-modelkwaliteit">Modellen</a
+        ><a href="#lokale-kosten">Lokale kosten</a
+        ><a href="#modelverwerking">Inference</a><a href="#prijs">Prijs</a
         ><a href="#product-vragen">Vragen</a>
       </div>
     </nav>
 
+    <AiStationLabel product="coder" />
+
     <section id="werking" class="cx-section container-page">
       <div class="cx-intro">
-        <p class="eyebrow text-brand-ink">Local AI · on-premise · in eigen beheer</p>
-        <h2>Een box op kantoor<br />die code schrijft.</h2>
+        <p class="eyebrow text-brand-ink">
+          Local AI · on-premise · in eigen beheer
+        </p>
+        <h2>Een eigen AI-omgeving<br />die code schrijft.</h2>
         <p>
           AITJE Coder is een complete omgeving voor coding agents op jullie
-          eigen netwerk. Het taalmodel draait op de box zelf. Developers geven
-          taken in gewone taal, werken met hun eigen tools en keuren elk
-          resultaat goed voordat er iets in de repository verandert.
+          gekozen hardware of server. Het taalmodel rekent in die omgeving of
+          via een bewust gekozen extern endpoint. Developers geven taken in
+          gewone taal, werken met hun eigen tools en keuren elk resultaat goed
+          voordat er iets in de repository verandert.
         </p>
       </div>
       <div class="cx-modes">
-        <div class="cx-mode-list" role="group" aria-label="Kies een manier van werken">
+        <div
+          class="cx-mode-list"
+          role="group"
+          aria-label="Kies een manier van werken"
+        >
           <button
             v-for="(item, i) in modes"
             :key="item.title"
@@ -185,13 +242,18 @@ const stage = computed(() => deliveries[delivery.value]!);
           <span class="cx-label">Een herkenbare opdracht</span>
           <p class="cx-question">“{{ modes[mode]!.question }}”</p>
           <p>{{ modes[mode]!.answer }}</p>
-          <span class="cx-caption">Drie manieren van werken op dezelfde box. Je kunt ze naast elkaar gebruiken.</span>
+          <span class="cx-caption"
+            >Drie manieren van werken op dezelfde box. Je kunt ze naast elkaar
+            gebruiken.</span
+          >
         </div>
       </div>
 
       <div class="cx-workspace">
         <div class="cx-toolbar">
-          <span class="cx-label">Eén web-app. Alles van één taak op één plek.</span>
+          <span class="cx-label"
+            >Eén web-app. Alles van één taak op één plek.</span
+          >
           <div role="group" aria-label="Bekijk de schermen">
             <button
               v-for="(item, i) in screens"
@@ -205,13 +267,51 @@ const stage = computed(() => deliveries[delivery.value]!);
             </button>
           </div>
         </div>
-        <div id="cx-screen" class="cx-stage">
+        <div class="cx-device-controls">
+          <div role="group" aria-label="Kies het schermformaat">
+            <button
+              type="button"
+              :aria-pressed="screenDevice === 'desktop'"
+              @click="screenDevice = 'desktop'"
+            >
+              <AppIcon name="layout" :size="15" />Desktop</button
+            ><button
+              type="button"
+              :aria-pressed="screenDevice === 'phone'"
+              :disabled="!hasPhone"
+              @click="screenDevice = 'phone'"
+            >
+              <AppIcon name="phone" :size="15" />Telefoon
+            </button>
+          </div>
+          <div role="group" aria-label="Kies het productthema">
+            <button
+              type="button"
+              :aria-pressed="screenTheme === 'dark'"
+              @click="screenTheme = 'dark'"
+            >
+              Donker</button
+            ><button
+              type="button"
+              :aria-pressed="screenTheme === 'light'"
+              @click="screenTheme = 'light'"
+            >
+              Licht
+            </button>
+          </div>
+        </div>
+        <div
+          id="cx-screen"
+          class="cx-stage"
+          :class="{ 'cx-stage-phone': screenDevice === 'phone' }"
+        >
           <CoderScreen
-            :key="view.shot"
+            :key="`${view.shot}-${screenDevice}-${screenTheme}`"
             :shot="view.shot"
             :path="view.path"
             :alt="view.title"
-            theme="light"
+            :theme="screenTheme"
+            :phone="screenDevice === 'phone'"
           />
           <div class="cx-stage-caption" aria-live="polite">
             <strong>{{ view.title }}</strong>
@@ -219,8 +319,8 @@ const stage = computed(() => deliveries[delivery.value]!);
           </div>
         </div>
         <p class="cx-caption">
-          Echte schermen in het lichte thema, met een fictief demoproject.
-          Donker is de standaard; iedere gebruiker kiest zelf.
+          Echte productopnamen, met een fictief demoproject. Kies desktop of de
+          beschikbare telefoonopname en bekijk beide thema’s.
         </p>
       </div>
 
@@ -228,27 +328,45 @@ const stage = computed(() => deliveries[delivery.value]!);
         <div>
           <AppIcon name="shield" :size="22" />
           <h3>Niets verandert zonder review</h3>
-          <p>De agent werkt in een eigen kopie. Pas na jouw goedkeuring gaat er een pull request naar de repository.</p>
+          <p>
+            De agent werkt in een eigen kopie. Pas na jouw goedkeuring gaat er
+            een pull request naar de repository.
+          </p>
         </div>
         <div>
           <AppIcon name="wifi-off" :size="22" />
           <h3>Geen tokenrekening per opdracht</h3>
-          <p>Lokale modellen draaien op de box. De agent mag itereren tot de tests slagen, zonder teller bij een cloudaanbieder.</p>
+          <p>
+            Lokale modellen draaien op de box. De agent mag itereren tot de
+            tests slagen, zonder teller bij een cloudaanbieder.
+          </p>
         </div>
         <div>
           <AppIcon name="phone" :size="22" />
           <h3>Ook vanaf je telefoon</h3>
-          <p>De web-app werkt op elk scherm binnen je netwerk. Bekijk een resultaat en keur het goed vanaf je telefoon.</p>
+          <p>
+            De web-app werkt op elk scherm binnen je netwerk. Bekijk een
+            resultaat en keur het goed vanaf je telefoon.
+          </p>
         </div>
         <div>
           <AppIcon name="globe" :size="22" />
           <h3>Vier talen, twee thema's</h3>
-          <p>De interface in het Nederlands, Engels, Duits en Frans, donker of licht. Opdrachten geef je in je eigen taal.</p>
+          <p>
+            De interface in het Nederlands, Engels, Duits en Frans, donker of
+            licht. Opdrachten geef je in je eigen taal.
+          </p>
         </div>
       </div>
     </section>
 
+    <CoderCodeStudio />
+
     <CoderTaskRoute />
+
+    <CoderRepositoryWorkflow />
+
+    <CoderLocalValue />
 
     <section id="wachtrij" class="cx-section container-page cx-split">
       <div>
@@ -256,25 +374,51 @@ const stage = computed(() => deliveries[delivery.value]!);
         <h2>Werkt door terwijl<br />jij iets anders doet.</h2>
         <p>
           Zet taken in de wachtrij of plan ze vooruit. De agent werkt ze één
-          voor één af. Het resultaat staat klaar voor review wanneer jij er
-          weer bent.
+          voor één af. Het resultaat staat klaar voor review wanneer jij er weer
+          bent.
         </p>
         <ul class="cx-points">
           <li>
             <AppIcon name="repeat" :size="20" />
-            <div><strong>Inplannen zoals het jullie uitkomt</strong><span>Elke werkdag, dag of week, één keer op een datum, bij een push, bij een issue uit GitHub Issues of Linear, of met een eigen cron-schema.</span></div>
+            <div>
+              <strong>Inplannen zoals het jullie uitkomt</strong
+              ><span
+                >Elke werkdag, dag of week, één keer op een datum, bij een push,
+                bij een issue uit GitHub Issues of Linear, of met een eigen
+                cron-schema.</span
+              >
+            </div>
           </li>
           <li>
             <AppIcon name="workflow" :size="20" />
-            <div><strong>Rondes achter elkaar</strong><span>Laat de agent 2 tot 20 keer doorwerken op zijn eigen resultaat. Jij beoordeelt alleen het eindresultaat.</span></div>
+            <div>
+              <strong>Rondes achter elkaar</strong
+              ><span
+                >Laat de agent 2 tot 20 keer doorwerken op zijn eigen resultaat.
+                Jij beoordeelt alleen het eindresultaat.</span
+              >
+            </div>
           </li>
           <li>
             <AppIcon name="users" :size="20" />
-            <div><strong>Developers gaan voor</strong><span>Wie in de editor of chat met het model werkt, gaat voor. Wachtende taken starten zodra het stil is, en uiterlijk 10 minuten na het indienen.</span></div>
+            <div>
+              <strong>Developers gaan voor</strong
+              ><span
+                >Wie in de editor of chat met het model werkt, gaat voor.
+                Wachtende taken starten zodra het stil is, en uiterlijk 10
+                minuten na het indienen.</span
+              >
+            </div>
           </li>
           <li>
             <AppIcon name="mail" :size="20" />
-            <div><strong>Een melding als het klaar is</strong><span>Per mail, Slack, Teams of Mattermost, bij klaar voor review, bij mislukken met de reden erbij en na het mergen.</span></div>
+            <div>
+              <strong>Een melding als het klaar is</strong
+              ><span
+                >Per mail, Slack, Teams of Mattermost, bij klaar voor review,
+                bij mislukken met de reden erbij en na het mergen.</span
+              >
+            </div>
           </li>
         </ul>
       </div>
@@ -285,14 +429,16 @@ const stage = computed(() => deliveries[delivery.value]!);
       />
     </section>
 
+    <CoderMobile />
+
     <section id="tools" class="cx-tools">
       <div class="container-page">
         <div class="cx-heading">
           <p class="eyebrow text-brand-ink">Je eigen tools</p>
           <h2>Werk met de coding agents<br />die je team al kent.</h2>
           <p>
-            De box spreekt de taal van de bekende tools. Je verandert alleen
-            het adres en de sleutel; je workflow blijft hetzelfde.
+            De box spreekt de taal van de bekende tools. Je verandert alleen het
+            adres en de sleutel; je workflow blijft hetzelfde.
           </p>
         </div>
         <div class="cx-tools-grid">
@@ -303,9 +449,9 @@ const stage = computed(() => deliveries[delivery.value]!);
               <span>{{ client.note }}</span>
             </div>
             <p class="cx-caption">
-              Voor elk van deze tools staat een configuratie klaar. Lange sessies in Claude Code, OpenCode,
-              Codex en Aider worden automatisch samengevat voordat ze
-              vastlopen.
+              Voor elk van deze tools staat een configuratie klaar. Lange
+              sessies in Claude Code, OpenCode, Codex en Aider worden
+              automatisch samengevat voordat ze vastlopen.
             </p>
           </div>
           <div class="cx-connect">
@@ -325,7 +471,12 @@ aitje-coder session --taak "Bug oplossen" opencode</code></pre>
         </div>
         <div class="cx-tools-bottom">
           <div>
-            <CoderScreen shot="sessies" path="/sessies" alt="Mijn sessies: werk vanuit clients met modelverzoeken en tokens" theme="light" />
+            <CoderScreen
+              shot="sessies"
+              path="/sessies"
+              alt="Mijn sessies: werk vanuit clients met modelverzoeken en tokens"
+              theme="light"
+            />
             <h3>Ook editorwerk is zichtbaar</h3>
             <p>
               Mijn sessies toont het werk vanuit je eigen tools, met
@@ -358,48 +509,97 @@ aitje-coder session --taak "Bug oplossen" opencode</code></pre>
       <div class="cx-split">
         <div>
           <p class="eyebrow text-brand-ink">Jouw omgeving, jouw code</p>
-          <h2>Het model draait op de box.<br />De box staat bij jullie.</h2>
+          <h2>
+            Jullie AI, jullie keuze.<br />Van eigen hardware tot cloudserver.
+          </h2>
           <p>
-            AITJE Coder is één compacte computer op jullie netwerk. Het model,
-            de agent, de web-app en de database draaien daarop. Laptops en
-            telefoons zijn de toegang, via de browser of de eigen tools.
+            AITJE Coder draait op een BOSGAME, een geschikte Mac mini, jullie
+            eigen lokale server, een cloudserver of een externe omgeving. We
+            kunnen applicatie en modellen samen installeren of inference via een
+            afzonderlijk endpoint inrichten. Jullie kiezen waar je je
+            onafhankelijker door voelt; AITJE stemt hardware, toegang en beheer
+            daarop af.
           </p>
           <div class="cx-tiers">
             <div>
               <span class="cx-label">32 GB</span>
               <strong>Voor één developer</strong>
-              <p>Eén agenttaak tegelijk. Standaard met tiel-coder-35b, dat tot 128k tokens per gesprek onthoudt. Op echte hardware doorgemeten.</p>
+              <p>
+                Eén agenttaak tegelijk. Standaard met tiel-coder-35b, dat tot
+                128k tokens per gesprek onthoudt. Op echte hardware doorgemeten.
+              </p>
             </div>
             <div>
               <span class="cx-label">128 GB</span>
               <strong>Voor een team</strong>
-              <p>Meer geheugen voor grotere modellen en meer gebruik tegelijk. Metingen op deze uitvoering volgen; we stemmen de capaciteit af in de proef.</p>
+              <p>
+                Meer geheugen voor grotere modellen en meer gebruik tegelijk.
+                Metingen op deze uitvoering volgen; we stemmen de capaciteit af
+                in de proef.
+              </p>
             </div>
           </div>
         </div>
         <div class="cx-infra">
           <div class="cx-toggle" role="group" aria-label="Kies wat je ziet">
-            <button type="button" :aria-pressed="!online" @click="online = false">Alleen de box</button
-            ><button type="button" :aria-pressed="online" @click="online = true">Met online functies</button>
+            <button
+              type="button"
+              :aria-pressed="!online"
+              @click="online = false"
+            >
+              Eigen modelomgeving</button
+            ><button
+              type="button"
+              :aria-pressed="online"
+              @click="online = true"
+            >
+              Met online functies
+            </button>
           </div>
           <div class="cx-flow">
             <div>
-              <AppIcon name="layout" :size="24" /><strong>Je laptop of telefoon</strong><span>Browser · terminal · editor</span>
+              <AppIcon name="layout" :size="24" /><strong
+                >Je laptop of telefoon</strong
+              ><span>Browser · terminal · editor</span>
             </div>
-            <span class="cx-flow-line">↓ eigen netwerk</span>
+            <span class="cx-flow-line"
+              >↓ eigen netwerk of beveiligde verbinding</span
+            >
             <div class="cx-box">
-              <AppIcon name="server" :size="28" /><strong>Jullie AITJE Coder-box</strong>
-              <span>Lokaal model · agent in een afgeschermde container · web-app · database</span>
+              <AppIcon name="server" :size="28" /><strong
+                >Jullie AITJE Coder-omgeving</strong
+              >
+              <span
+                >Lokaal model · agent in een afgeschermde container · web-app ·
+                database</span
+              >
             </div>
             <template v-if="online">
               <span class="cx-flow-line">↓ alleen wat jullie aanzetten</span>
               <div class="cx-external">
-                <span><AppIcon name="code" :size="16" />Git-server voor pull requests</span>
-                <span><AppIcon name="package" :size="16" />Pakketregisters voor de agent</span>
-                <span><AppIcon name="search" :size="16" />Zoekvraag via de zoekdienst</span>
-                <span><AppIcon name="plug" :size="16" />Aangevinkte MCP-koppelingen</span>
-                <span><AppIcon name="globe" :size="16" />Externe modellen, als toegestaan</span>
-                <span><AppIcon name="mail" :size="16" />Meldingen zonder code</span>
+                <span
+                  ><AppIcon name="code" :size="16" />Git-server voor pull
+                  requests</span
+                >
+                <span
+                  ><AppIcon name="package" :size="16" />Pakketregisters voor de
+                  agent</span
+                >
+                <span
+                  ><AppIcon name="search" :size="16" />Zoekvraag via de
+                  zoekdienst</span
+                >
+                <span
+                  ><AppIcon name="plug" :size="16" />Aangevinkte
+                  MCP-koppelingen</span
+                >
+                <span
+                  ><AppIcon name="globe" :size="16" />Externe modellen, als
+                  toegestaan</span
+                >
+                <span
+                  ><AppIcon name="mail" :size="16" />Meldingen zonder code</span
+                >
               </div>
             </template>
           </div>
@@ -413,7 +613,7 @@ aitje-coder session --taak "Bug oplossen" opencode</code></pre>
         </div>
       </div>
       <div class="cx-flows">
-        <h3>Wat verlaat de box, en wanneer?</h3>
+        <h3>Wat verlaat jullie omgeving, en wanneer?</h3>
         <dl>
           <div v-for="row in flows" :key="row.what">
             <dt>{{ row.what }}</dt>
@@ -423,72 +623,21 @@ aitje-coder session --taak "Bug oplossen" opencode</code></pre>
       </div>
     </section>
 
+    <AiStationArchitecture product="coder" />
+
+    <ProductModelRoutes product="coder" />
+
     <CoderControl />
 
-    <section id="betrouwbaar" class="cx-section container-page">
-      <div class="cx-heading">
-        <p class="eyebrow text-brand-ink">Gebouwd om op kantoor te staan</p>
-        <h2>Een box die je niet<br />dagelijks hoeft te verzorgen.</h2>
-        <p>
-          Back-ups, updates en herstel zitten in het product. Wat AITJE op
-          afstand mag doen, bepalen jullie.
-        </p>
-      </div>
-      <div class="cx-reliability">
-        <div v-for="item in reliability" :key="item.title">
-          <AppIcon :name="item.icon" :size="22" />
-          <h3>{{ item.title }}</h3>
-          <p>{{ item.text }}</p>
-        </div>
-      </div>
-    </section>
+    <CoderFeatureMap />
 
-    <section id="prestaties" class="cx-proof">
-      <div class="container-page">
-        <div class="cx-split cx-proof-grid">
-          <div>
-            <p class="eyebrow text-brand-ink">Prestaties op echt werk</p>
-            <h2>Eerlijk over wat<br />je kunt verwachten.</h2>
-            <p>
-              Een ranglijst van modellen zegt weinig over jullie code. Daarom
-              tonen we wat de agent op de demo echt deed, en wat we nog niet
-              weten. In de proef meten we met jullie eigen taken.
-            </p>
-            <UiButton :to="contactLink('demo', 'aitje-coder')" arrow class="mt-7">Test met jullie eigen taken</UiButton>
-          </div>
-          <div class="cx-runs">
-            <span class="cx-label">Demo · 18-10-2026 · 32 GB-box · tiel-coder-35b</span>
-            <table>
-              <thead>
-                <tr><th>Taak</th><th>Uitkomst</th><th>Verzoeken</th><th>Tokens</th><th>Duur</th></tr>
-              </thead>
-              <tbody>
-                <tr v-for="run in runs" :key="run.task">
-                  <td>{{ run.task }}</td><td>{{ run.result }}</td><td>{{ run.requests }}</td><td>{{ run.tokens }}</td><td>{{ run.time }}</td>
-                </tr>
-              </tbody>
-            </table>
-            <p class="cx-caption">
-              Eén uitvoering per taak, geen benchmark. Alle drie eindigden als
-              Klaar voor review. De duur staat er alleen waar het scherm hem
-              toont. Tokens zijn modelverkeer op de box, geen kosten.
-            </p>
-          </div>
-        </div>
-        <div class="cx-limits">
-          <h3>Goed om vooraf te weten</h3>
-          <ul>
-            <li v-for="limit in limits" :key="limit">
-              <AppIcon name="check" :size="17" />{{ limit }}
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
+    <CoderModelEvidence />
 
     <section class="cx-delivery container-page">
       <div class="cx-heading">
-        <p class="eyebrow text-brand-ink">Van eerste gesprek tot eerste pull request</p>
+        <p class="eyebrow text-brand-ink">
+          Van eerste gesprek tot eerste pull request
+        </p>
         <h2>AITJE zet het neer.<br />Jullie gaan ermee werken.</h2>
         <p>
           We kiezen en testen de configuratie met jullie taken. Kwaliteit,
@@ -496,7 +645,11 @@ aitje-coder session --taak "Bug oplossen" opencode</code></pre>
           werk.
         </p>
       </div>
-      <div class="cx-delivery-tabs" role="group" aria-label="Bekijk de invoering">
+      <div
+        class="cx-delivery-tabs"
+        role="group"
+        aria-label="Bekijk de invoering"
+      >
         <button
           v-for="(item, i) in deliveries"
           :key="item.name"
@@ -505,19 +658,30 @@ aitje-coder session --taak "Bug oplossen" opencode</code></pre>
           aria-controls="cx-delivery-detail"
           @click="delivery = i"
         >
-          <span>0{{ i + 1 }}</span><AppIcon :name="item.icon" :size="22" /><strong>{{ item.name }}</strong>
+          <span>0{{ i + 1 }}</span
+          ><AppIcon :name="item.icon" :size="22" /><strong>{{
+            item.name
+          }}</strong>
         </button>
       </div>
-      <div id="cx-delivery-detail" class="cx-delivery-detail" aria-live="polite">
+      <div
+        id="cx-delivery-detail"
+        class="cx-delivery-detail"
+        aria-live="polite"
+      >
         <div>
           <h3>{{ stage.title }}</h3>
           <p>{{ stage.text }}</p>
-          <UiButton :to="contactLink('demo', 'aitje-coder')" arrow class="mt-6">Plan een demo met jullie code</UiButton>
+          <UiButton :to="contactLink('demo', 'aitje-coder')" arrow class="mt-6"
+            >Plan een demo met jullie code</UiButton
+          >
         </div>
         <div class="cx-board">
           <span class="cx-label">{{ stage.label }}</span>
           <div v-for="(item, i) in stage.items" :key="item">
-            <span>0{{ i + 1 }}</span><strong>{{ item }}</strong><AppIcon name="check" :size="18" />
+            <span>0{{ i + 1 }}</span
+            ><strong>{{ item }}</strong
+            ><AppIcon name="check" :size="18" />
           </div>
         </div>
       </div>
@@ -582,7 +746,10 @@ aitje-coder session --taak "Bug oplossen" opencode</code></pre>
 }
 .coder-story button {
   cursor: pointer;
-  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  transition:
+    background 0.15s,
+    color 0.15s,
+    border-color 0.15s;
 }
 
 /* Manieren van werken */
@@ -671,7 +838,8 @@ aitje-coder session --taak "Bug oplossen" opencode</code></pre>
 }
 .cx-stage {
   border-radius: 1.5rem;
-  background: radial-gradient(ellipse at 60% 30%, #f3e8b4, transparent 70%), #e9e8e2;
+  background:
+    radial-gradient(ellipse at 60% 30%, #f3e8b4, transparent 70%), #e9e8e2;
   padding: 2.5rem 4rem 2rem;
 }
 .cx-stage .coder-screen {
@@ -805,10 +973,13 @@ aitje-coder session --taak "Bug oplossen" opencode</code></pre>
 }
 .cx-tools-bottom {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 0.8fr;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 0.8fr);
   gap: 2.5rem;
   margin-top: 4rem;
   align-items: start;
+}
+.cx-tools-bottom > * {
+  min-width: 0;
 }
 .cx-tools-bottom h3 {
   margin: 1.4rem 0 0.6rem;
@@ -1194,9 +1365,100 @@ aitje-coder session --taak "Bug oplossen" opencode</code></pre>
     font-size: 0.75rem;
   }
 }
+@media (max-width: 480px) {
+  .cx-delivery-tabs {
+    grid-template-columns: 1fr;
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   .coder-story button {
     transition: none;
+  }
+}
+.cx-limits summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #4c5c3e;
+  list-style: none;
+}
+.cx-limits summary::-webkit-details-marker {
+  display: none;
+}
+.cx-limits[open] summary {
+  margin-bottom: 1.2rem;
+}
+.cx-device-controls {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0.7rem 0 1.2rem;
+}
+.cx-device-controls > div {
+  display: flex;
+  gap: 0.4rem;
+}
+.cx-device-controls button {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: 1px solid #d5dccb;
+  padding: 0.45rem 0.7rem;
+  border-radius: 2rem;
+  color: #70815d;
+  font-size: 0.65rem;
+  cursor: pointer;
+}
+.cx-device-controls button[aria-pressed="true"] {
+  background: #2c3c23;
+  color: #e3edcf;
+  border-color: #2c3c23;
+}
+.cx-device-controls button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+.cx-stage.cx-stage-phone {
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  background: #e9eddf;
+  padding: 2rem 3rem;
+  border: 1px solid #d2dcc3;
+  border-radius: 1.3rem;
+}
+.cx-stage.cx-stage-phone .coder-screen {
+  width: 17rem;
+  max-width: 100%;
+  justify-self: center;
+}
+.cx-stage.cx-stage-phone .cx-stage-caption {
+  max-width: 27rem;
+}
+#wachtrij {
+  padding-bottom: 12rem;
+}
+@media (max-width: 760px) {
+  .cx-stage.cx-stage-phone {
+    grid-template-columns: 1fr;
+    padding: 1.3rem;
+    gap: 1.5rem;
+  }
+  .cx-device-controls {
+    gap: 0.5rem;
+  }
+  .cx-device-controls button {
+    font-size: 0.6rem;
+    padding: 0.45rem 0.6rem;
+  }
+  .cx-stage.cx-stage-phone .coder-screen {
+    width: 15rem;
+  }
+  #wachtrij {
+    padding-bottom: 7rem;
   }
 }
 </style>

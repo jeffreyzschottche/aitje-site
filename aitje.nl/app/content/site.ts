@@ -21,9 +21,10 @@ export type NavLink = {
 };
 export type NavItem = { label: string; to: string; children?: NavLink[] };
 
-export const contactLink = (topic: string, product?: string) => {
+export const contactLink = (topic: string, product?: string, environment?: string) => {
   const params = new URLSearchParams({ onderwerp: topic });
   if (product) params.set("product", product);
+  if (environment) params.set("omgeving", environment);
   return `/contact?${params.toString()}`;
 };
 

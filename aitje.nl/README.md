@@ -82,6 +82,12 @@ After editing Dutch copy, run `npm run translate:english` with `DEEPL_KEY` in th
 
 See [language implementation notes](../redesign/languages.md) for routes, maintenance and contact-form scope.
 
+## Product demonstrations and source copy
+
+The Assistant and Coder pages use real product screenshots alongside clearly labelled website examples. Media provenance, source prompts and feature coverage are documented in [Assistant media](docs/assistant-page-media.md) and [Coder media](docs/coder-page-media.md). Readable HTML snapshots of the product copy are in [docs/product-copy](docs/product-copy/README.md).
+
+Run `npm run demos:coder` after changing the source examples in `app/content/coder-demos/`. This rebuilds the standalone AURA WebGL scene, the Orbit projectboard and their downloadable source archives. The script uses the existing Three.js/esbuild dependencies and the local `zip` command. Generated examples are committed under `public/demos/coder/`.
+
 ## Search and AI-readable content
 
 Prices are maintained in `app/content/pricing.ts`. Published products, services, cases and knowledge articles come from their existing content modules. `app/content/searchCatalog.ts` derives the page inventory automatically; do not add these pages separately to a sitemap or AI index.

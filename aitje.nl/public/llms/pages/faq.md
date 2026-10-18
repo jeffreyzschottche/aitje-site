@@ -94,7 +94,7 @@ Een eigen omgeving voor coding agents: een lokaal alternatief voor diensten als 
 
 ### Werkt Coder met mijn eigen tools?
 
-Ja. Claude Code, OpenCode, Codex, Aider, Cline, Continue en andere tools praten met de box in plaats van met een clouddienst. De pagina /connect op de box geeft het certificaat, je persoonlijke sleutel en een kant-en-klare configuratie per tool. Taken voor de agent geef je in de web-app.
+Ja. Claude Code, OpenCode, Codex, Aider, Cline, Continue en andere tools verbinden met jullie eigen modelomgeving. De pagina /connect in de AITJE-omgeving geeft het certificaat, je persoonlijke sleutel en een kant-en-klare configuratie per tool. Taken voor de agent geef je in de web-app.
 
 ### Wat kost AITJE Coder?
 

@@ -2,7 +2,7 @@
 
 Officiële pagina: https://aitje.com/producten/aitje-assistent
 
-> AITJE Assistent: lokale chat met kennisbank. Los product €499; vanaf €599 met basisinstallatie. Excl. btw en infrastructuur.
+> AITJE Chat Assistent AI Station: lokale chat, RAG en privacybeheer op hardware of server. Vanaf €599 met basisinstallatie, excl. btw en infrastructuur.
 
 Status: Beschikbaar
 
@@ -76,6 +76,86 @@ Snelheid, modelgrootte, aantal gelijktijdige gebruikers en kennisbankruimte hang
 
 Minimale en aanbevolen specificaties worden vóór publicatie bevestigd. Twijfel je of je hardware geschikt is? Vraag het AITJE.
 
+## Prijzen en voorwaarden
+
+Product voor zelfinstallatie: €499. Product + basisinstallatie: €599. Alle prijzen zijn exclusief btw.
+
+Hardware, serverhuur, reis- of locatiekosten en aanvullende inrichting worden apart begroot.
+
+Introductieaanbod voor Assistent en Coder voor de eerste 100 betaalde klanten. Beschikbaarheid wordt bevestigd in je offerte.
+
+## Hardware en hosting
+
+### BOSGAME M5
+
+Compacte AI-computer met een ruime geheugenconfiguratie voor lokale modellen. Model, geheugen en gelijktijdig gebruik stemmen we vooraf af.
+
+Hardware apart op offerte.
+
+### BOSGAME M6
+
+Compacte lokale AI-omgeving voor een passend model en jullie dagelijkse werk. We kiezen de configuratie op basis van jullie taken.
+
+Hardware apart op offerte.
+
+### Mac mini · M6
+
+Apple Silicon voor lokale AI op een compacte Mac. We toetsen modelondersteuning, geheugen en installatie aan jullie workflow.
+
+Mac en inrichting apart op offerte.
+
+### Mac mini · M5 Pro
+
+Een Mac mini met meer geheugenmogelijkheden voor geschikte lokale modellen. De gekozen uitvoering en software-inrichting staan in je offerte.
+
+Mac en inrichting apart op offerte.
+
+### Eigen hardware gebruiken
+
+Hebben jullie al een geschikte computer of GPU-workstation? We beoordelen wat daarop past en richten de omgeving daarop in.
+
+Geschiktheid en eventuele extra inrichting op offerte.
+
+### Eigen lokale server
+
+Op jullie eigen server, on premise of in een eigen datacenteromgeving. Toegang, opslag, modelcapaciteit en beheer stemmen we met jullie IT af.
+
+Extra servercapaciteit en inrichting op offerte.
+
+### Hetzner · VPS of server
+
+Een eigen cloudomgeving bij Hetzner. De applicatie kan op een VPS; voor de modellen kiezen we passende CPU/GPU-capaciteit of een afzonderlijk inference-endpoint.
+
+Serverhuur en modelverwerking apart op offerte.
+
+### DigitalOcean · cloud of GPU
+
+De AITJE-omgeving op cloudcapaciteit, met waar nodig GPU-rekenkracht of een gekoppeld model-endpoint. We kiezen capaciteit en bereikbaarheid voor jullie gebruik.
+
+Cloudcapaciteit en modelverwerking apart op offerte.
+
+### Een server van AITJE
+
+Gebruik AITJE-servers in datacenters voor taalmodellen, coding agents en inference via een endpoint. De omgeving wordt ingericht voor jullie workflow.
+
+Hosting, capaciteit en inference op offerte.
+
+### Zoek met ons een passende oplossing
+
+Eigen hardware, een externe server, cloud of een combinatie: vertel waar jullie onafhankelijker van willen worden. AITJE zoekt een passende technische en financiële inrichting.
+
+Oplossing en totale investering op offerte.
+
+## AITJE Chat Assistent — producttrailer
+
+Ontdek AITJE Chat Assistent: chat, bedrijfskennis en beheer met AI in jullie eigen omgeving.
+
+[YouTube](https://www.youtube.com/watch?v=NLznu5msvwg)
+
+[Vraag een demo op locatie aan](https://aitje.com/contact?onderwerp=demo-fysiek&product=aitje-assistent)
+
+[Vraag een demo-endpoint aan](https://aitje.com/contact?onderwerp=demo-endpoint&product=aitje-assistent)
+
 ## Veelgestelde vragen
 
 ### Wat is AITJE Assistent?
@@ -125,6 +205,26 @@ Wijzigingen worden bij de databasesynchronisatie verwerkt. De informatie wordt o
 ### Kunnen afdelingen elk hun eigen afgeschermde kennisbank krijgen?
 
 Ja. Je kunt bepaalde kennis aan specifieke gebruikersrollen toewijzen. Daarmee bepaal je welke medewerkers toegang hebben tot welke informatie, bijvoorbeeld per afdeling of functie.
+
+### Waar worden de database en vectoren van de kennisbank opgeslagen?
+
+De Assistent gebruikt PostgreSQL met pgvector in de ingerichte AITJE-omgeving. Daar staan de doorzoekbare passages en vectoren; originele kennisbestanden worden apart op diezelfde omgeving bewaard. Of dat bij jullie op locatie, op een eigen server of in de cloud is, leggen we vooraf vast.
+
+### Kan ik OpenAI of Claude gebruiken met lokale anonimisering?
+
+Ja, als jullie beheerder externe modellen toestaat. AITJE kan herkende persoonsgegevens vóór de modelaanroep lokaal door codes vervangen en waarden in het antwoord lokaal terugzetten. Dit is omkeerbare pseudonimisering, geen volledige anonimiteitsgarantie; niet-herkende inhoud kan meegaan. Rollen kunnen anonimisering verplicht stellen, modellen beperken en gebruikskosten begrenzen.
+
+### Welke hardware- en hostingkeuzes zijn er?
+
+BOSGAME M5 of M6, een geschikte Mac mini, bestaande hardware, een eigen server, Hetzner, DigitalOcean of een AITJE-server in het datacenter. Applicatie en model kunnen samen of afzonderlijk draaien. De productprijs omvat geen nieuwe hardware, serverhuur of betaalde inference; die kosten komen apart in de offerte.
+
+### Kan AITJE de modelverwerking via Nebius of eigen servers verzorgen?
+
+Ja. Nebius Token Factory biedt krachtige open modellen via betaalde externe inference; de beheerde koppeling ondersteunt modelrechten, budgetten en het ingestelde anonimiseringsbeleid. AITJE biedt ook taalmodellen en inference op eigen datacenterservers, ingericht voor jullie workflow. Capaciteit, verwerkingslocatie en tarieven spreken we vooraf af.
+
+### Kan ik een demo op locatie of een demo-endpoint aanvragen?
+
+Ja. Kies een fysieke demo op locatie met hardware of vraag een demo-endpoint aan om op afstand te testen. Je keuze en het product worden vooraf ingevuld in het contactformulier en meegestuurd met de aanvraag. We nemen contact op om bezoek of toegang af te stemmen.
 
 ## Contact
 

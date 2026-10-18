@@ -208,13 +208,33 @@ const productDefinitions: Product[] = [
         a: "Ja. Je kunt bepaalde kennis aan specifieke gebruikersrollen toewijzen. Daarmee bepaal je welke medewerkers toegang hebben tot welke informatie, bijvoorbeeld per afdeling of functie.",
         general: true,
       },
+      {
+        q: "Waar worden de database en vectoren van de kennisbank opgeslagen?",
+        a: "De Assistent gebruikt PostgreSQL met pgvector in de ingerichte AITJE-omgeving. Daar staan de doorzoekbare passages en vectoren; originele kennisbestanden worden apart op diezelfde omgeving bewaard. Of dat bij jullie op locatie, op een eigen server of in de cloud is, leggen we vooraf vast.",
+      },
+      {
+        q: "Kan ik OpenAI of Claude gebruiken met lokale anonimisering?",
+        a: "Ja, als jullie beheerder externe modellen toestaat. AITJE kan herkende persoonsgegevens vóór de modelaanroep lokaal door codes vervangen en waarden in het antwoord lokaal terugzetten. Dit is omkeerbare pseudonimisering, geen volledige anonimiteitsgarantie; niet-herkende inhoud kan meegaan. Rollen kunnen anonimisering verplicht stellen, modellen beperken en gebruikskosten begrenzen.",
+      },
+      {
+        q: "Welke hardware- en hostingkeuzes zijn er?",
+        a: "BOSGAME M5 of M6, een geschikte Mac mini, bestaande hardware, een eigen server, Hetzner, DigitalOcean of een AITJE-server in het datacenter. Applicatie en model kunnen samen of afzonderlijk draaien. De productprijs omvat geen nieuwe hardware, serverhuur of betaalde inference; die kosten komen apart in de offerte.",
+      },
+      {
+        q: "Kan AITJE de modelverwerking via Nebius of eigen servers verzorgen?",
+        a: "Ja. Nebius Token Factory biedt krachtige open modellen via betaalde externe inference; de beheerde koppeling ondersteunt modelrechten, budgetten en het ingestelde anonimiseringsbeleid. AITJE biedt ook taalmodellen en inference op eigen datacenterservers, ingericht voor jullie workflow. Capaciteit, verwerkingslocatie en tarieven spreken we vooraf af.",
+      },
+      {
+        q: "Kan ik een demo op locatie of een demo-endpoint aanvragen?",
+        a: "Ja. Kies een fysieke demo op locatie met hardware of vraag een demo-endpoint aan om op afstand te testen. Je keuze en het product worden vooraf ingevuld in het contactformulier en meegestuurd met de aanvraag. We nemen contact op om bezoek of toegang af te stemmen.",
+      },
     ],
     caseSlugs: [
       "chatgpt-of-codex-in-je-eigen-organisatie",
       "documenten-doorzoeken-en-lakken",
     ],
     seoDescription:
-      `AITJE Assistent: lokale chat met kennisbank. Los product ${euros(pricing.products["aitje-assistent"].software)}; vanaf ${euros(getInstalledProductOffer("aitje-assistent")!.price)} met basisinstallatie. Excl. btw en infrastructuur.`,
+      `AITJE Chat Assistent AI Station: lokale chat, RAG en privacybeheer op hardware of server. Vanaf ${euros(getInstalledProductOffer("aitje-assistent")!.price)} met basisinstallatie, excl. btw en infrastructuur.`,
   },
   {
     slug: "aitje-coder",
@@ -227,7 +247,7 @@ const productDefinitions: Product[] = [
     image: "/img/covers/v2/aitje-coder.webp",
     headline: "Je eigen coding agents. Zonder externe tokenkosten.",
     subline:
-      "Geef een taak in gewone taal. Een agent werkt in een eigen kopie van je repository, draait de tests en legt het resultaat ter review voor. Het model draait op een box in jullie eigen netwerk.",
+      "Geef een taak in gewone taal. Een agent werkt in een eigen kopie van je repository, draait tests en legt het resultaat ter review voor. Op een BOSGAME, Mac mini, lokale server, cloudserver of extern endpoint: jij kiest de omgeving, AITJE richt hem in.",
     intro: [
       "AITJE Coder is een eigen alternatief voor diensten zoals Codex en Claude Code: een complete lokale codeeromgeving die projecten leest en wijzigt, commando's uitvoert en programmeertaken iteratief afrondt.",
       "AITJE heeft het uitzoekwerk al gedaan. Geselecteerde lokale codeermodellen, een agent met review en pull requests, een web-app voor beheer en de koppeling met tools als Claude Code, OpenCode, Codex en Aider zitten gebruiksklaar in één product.",
@@ -254,7 +274,7 @@ const productDefinitions: Product[] = [
       {
         problem: "Modellen, interfaces en harnassen uitzoeken kost dagen.",
         solution:
-          "Geselecteerde lokale modellen, op de box ingesteld en klaar voor gebruik.",
+          "Geselecteerde lokale modellen, ingesteld voor jullie hardware of server en klaar voor gebruik.",
       },
       {
         problem: "Je code moet in je eigen omgeving blijven.",
@@ -295,7 +315,7 @@ const productDefinitions: Product[] = [
       },
     ],
     included: [
-      "Geselecteerde lokale codeermodellen, ingesteld voor de box",
+      "Geselecteerde lokale codeermodellen, ingesteld voor jullie omgeving",
       "Agent met live verloop, review en pull requests naar GitHub, GitLab of Gitea",
       "Grafische AITJE-interface, API-toegang en CLI",
       "Koppeling met Claude Code, OpenCode, Codex, Aider en andere tools",
@@ -341,7 +361,7 @@ const productDefinitions: Product[] = [
       },
       {
         q: "Werkt Coder met mijn eigen tools?",
-        a: "Ja. Claude Code, OpenCode, Codex, Aider, Cline, Continue en andere tools praten met de box in plaats van met een clouddienst. De pagina /connect op de box geeft het certificaat, je persoonlijke sleutel en een kant-en-klare configuratie per tool. Taken voor de agent geef je in de web-app.",
+        a: "Ja. Claude Code, OpenCode, Codex, Aider, Cline, Continue en andere tools verbinden met jullie eigen modelomgeving. De pagina /connect in de AITJE-omgeving geeft het certificaat, je persoonlijke sleutel en een kant-en-klare configuratie per tool. Taken voor de agent geef je in de web-app.",
         general: true,
       },
       {
@@ -355,7 +375,7 @@ const productDefinitions: Product[] = [
       },
       {
         q: "Kan ik zelf een ander model toevoegen?",
-        a: "Ja. Een lokaal model toevoegen of verwijderen gebeurt op de box zelf; AITJE kan dat los of via een SLA voor je doen. Een beheerder kan daarnaast een externe aanbieder toevoegen. Die modellen staan standaard voor niemand open: je staat ze per gebruiker toe.",
+        a: "Ja. Een lokaal model toevoegen of verwijderen gebeurt in jullie modelomgeving; AITJE kan dat los of via een SLA voor je doen. Een beheerder kan daarnaast een externe aanbieder toevoegen. Die modellen staan standaard voor niemand open: je staat ze per gebruiker toe.",
       },
       {
         q: "Met welke programmeertalen en frameworks kan AITJE Coder werken?",
@@ -382,10 +402,30 @@ const productDefinitions: Product[] = [
         a: "Ja. Coder kan tests schrijven, bestaande tests uitvoeren en fouten onderzoeken. De agent kan daarvoor je code, foutmeldingen en testresultaten gebruiken om een wijziging voor te stellen. Je kunt de tests en wijzigingen vervolgens zelf beoordelen.",
         general: true,
       },
+      {
+        q: "Moet AITJE Coder op een box op kantoor draaien?",
+        a: "Nee. De omgeving kan op een BOSGAME M5/M6, een geschikte Mac mini, bestaande hardware, een lokale server, een cloudserver bij bijvoorbeeld Hetzner of DigitalOcean of een AITJE-server draaien. Applicatie, agents en modelverwerking kunnen samen of afzonderlijk worden ingericht. AITJE zoekt de omgeving die past bij jullie workflow en gewenste onafhankelijkheid.",
+      },
+      {
+        q: "Kan de coding agent taken inplannen en pull requests voorbereiden?",
+        a: "Ja. Je kunt taken eenmalig of herhaald plannen, met ondersteunde tijdschema’s en push- of issuegebeurtenissen. De server zet werk in de wachtrij. De agent werkt in een eigen werkkopie, toont wijzigingen en controles en bereidt na review een pull request voor. De benodigde server, rechten, modellen en Git-diensten moeten beschikbaar zijn.",
+      },
+      {
+        q: "Welke extra kosten komen er naast de productprijs bij?",
+        a: "De genoemde productprijs met basisinstallatie is geen totaalprijs inclusief hardware. Nieuwe hardware, serverhuur, aanvullende inrichting, ondersteuning en eventuele externe inference worden apart begroot. Kies je een eigen model op eigen rekenkracht, dan is er geen externe API-tokenrekening; voor betaalde providers gelden hun tarieven.",
+      },
+      {
+        q: "Kan Coder externe inference via Nebius of AITJE-servers gebruiken?",
+        a: "Een beheerder kan een ondersteund extern model of OpenAI-compatibel endpoint toevoegen, waaronder een geschikte Nebius Token Factory-koppeling. AITJE biedt daarnaast eigen datacenterservers voor modellen, coding agents en workflowgerichte inference. We testen modelkwaliteit en gereedschapsgebruik op jullie taken en leggen toegang, capaciteit en kosten vooraf vast.",
+      },
+      {
+        q: "Kan ik een fysieke demo of een demo-endpoint aanvragen?",
+        a: "Ja. Vraag een bezoek met hardware aan of kies een demo-endpoint voor een proef op afstand. Het contactformulier neemt Coder en de gekozen demo-optie over. Je kunt daar ook je voorkeur voor hardware of hosting aangeven.",
+      },
     ],
     caseSlugs: ["chatgpt-of-codex-in-je-eigen-organisatie", "coder-game-in-24-uur", "3d-productmodellen-met-ai"],
     seoDescription:
-      `AITJE Coder: je eigen lokale coding agents. Los product ${euros(pricing.products["aitje-coder"].software)}; vanaf ${euros(getInstalledProductOffer("aitje-coder")!.price)} met basisinstallatie. Excl. btw en infrastructuur.`,
+      `AITJE Coder AI Station: coding agents, Git-review en geplande taken op hardware of server. Vanaf ${euros(getInstalledProductOffer("aitje-coder")!.price)} met basisinstallatie, excl. btw en infrastructuur.`,
   },
   planned({
     slug: "aitje-manager",

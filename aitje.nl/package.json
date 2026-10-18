@@ -9,6 +9,7 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
+    "demos:coder": "node scripts/build-coder-demos.mjs",
     "translate:english": "node scripts/translate-site.mjs",
     "translations:check": "node scripts/translate-site.mjs --check",
     "seo:generate": "node scripts/generate-ai-files.mjs",

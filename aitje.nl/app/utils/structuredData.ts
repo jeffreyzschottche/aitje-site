@@ -1,5 +1,6 @@
 import type { Product, Service } from "../content/types";
 import { getInstalledProductOffer, productIntroductionNote, pricing, scanIntroductionNote, introduction } from "../content/pricing";
+import { getProductTrailer } from "../content/productTrailers";
 
 const pricedOffer = (name: string, amount: number, description: string, from = false, monthly = false) => ({
   "@type": "Offer",
@@ -24,6 +25,12 @@ export function productStructuredData(product: Product) {
     image: product.image,
     sku: product.slug,
     brand: { "@type": "Brand", name: "AITJE" },
+    ...(["aitje-assistent", "aitje-coder"].includes(product.slug) ? {
+      category: "AI Station",
+      additionalProperty: (product.features ?? []).map(feature => ({
+        "@type": "PropertyValue", name: feature.title, value: feature.text,
+      })),
+    } : {}),
     ...(product.status === "available" && product.price !== undefined ? {
       offers: [
         { ...pricedOffer(product.name, product.price, "Los product voor zelfinstallatie. Hardware, serverhuur en installatie apart. Eén aankoop per omgeving, zonder licentieprijs per gebruiker."), availability: "https://schema.org/InStock" },
@@ -33,6 +40,22 @@ export function productStructuredData(product: Product) {
         }] : []),
       ],
     } : {}),
+  };
+}
+
+export function productVideoStructuredData(slug: string) {
+  const video = getProductTrailer(slug);
+  if (!video) return undefined;
+  return {
+    "@type": "VideoObject",
+    name: video.title,
+    description: video.description,
+    thumbnailUrl: video.thumbnailUrl,
+    uploadDate: video.uploadDate,
+    duration: video.duration,
+    embedUrl: video.embedUrl,
+    sameAs: video.watchUrl,
+    inLanguage: "nl",
   };
 }
 

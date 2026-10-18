@@ -43,7 +43,7 @@ const tabs = [
   {
     name: "Budgetten",
     icon: "gauge",
-    shot: "budgetten",
+    shot: "budget-scope",
     path: "/instellingen/budgetten",
     title: "Grenzen aan gebruik, ook als je externe modellen toestaat.",
     text: "Stel geld- en tokenbudgetten in voor het bedrijf, een gebruiker, een aanbieder of een model, per dag, week, maand of jaar. Lokale modellen kosten hier €0. Voor externe modellen vul je de EUR-tarieven zelf in.",
@@ -130,12 +130,18 @@ const roles = [
             </li>
           </ul>
         </div>
-        <CoderScreen
-          :key="current.shot"
-          :shot="current.shot"
-          :path="current.path"
-          :alt="current.title"
-        />
+        <div>
+          <CoderScreen
+            :key="current.shot"
+            :shot="current.shot"
+            :path="current.path"
+            :alt="current.title"
+          />
+          <p v-if="current.shot === 'budget-scope'" class="cc-shot-note">
+            Echte beheerweergave uit de lokale testomgeving, met
+            voorbeeldinstellingen.
+          </p>
+        </div>
       </div>
 
       <div class="cc-roles">
@@ -144,9 +150,9 @@ const roles = [
           <h3>Eén account per persoon. Drie rollen.</h3>
           <p>
             Iedere developer krijgt een eigen account en een persoonlijke
-            sleutel met eigen limieten. Uitnodigen gaat met een link of
-            QR-code die 24 uur werkt. Elke beheerhandeling komt in gewone
-            woorden in het logboek.
+            sleutel met eigen limieten. Uitnodigen gaat met een link of QR-code
+            die 24 uur werkt. Elke beheerhandeling komt in gewone woorden in het
+            logboek.
           </p>
         </div>
         <ol>
@@ -199,6 +205,12 @@ const roles = [
   max-width: 48rem;
   margin-bottom: 2.5rem;
 }
+.coder-control .cc-shot-note {
+  font-size: 0.65rem;
+  color: #8e9d80;
+  line-height: 1.8;
+  margin-top: 0.8rem;
+}
 .cc-heading > p:last-child {
   font-size: 1.05rem;
 }
@@ -231,6 +243,9 @@ const roles = [
   gap: 3rem;
   align-items: center;
   padding-top: 2.5rem;
+}
+.cc-detail > div {
+  min-width: 0;
 }
 .cc-copy h3 {
   font-family: var(--font-heading);

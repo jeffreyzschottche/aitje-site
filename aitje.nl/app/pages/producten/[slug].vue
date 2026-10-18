@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { productStructuredData } from "@/utils/structuredData";
+import { productStructuredData, productVideoStructuredData } from "@/utils/structuredData";
 // Product page (redesign/pages/product.md, besluiten 41, 45, 46, 51).
 import {
   availableProducts,
@@ -24,6 +24,7 @@ if (!product) {
 const available = product.status === "available";
 const installedOffer = getInstalledProductOffer(product.slug);
 const others = availableProducts.filter((p) => p.slug !== product.slug);
+const trailerSchema = productVideoStructuredData(product.slug);
 if (["aitje-assistent", "aitje-coder"].includes(product.slug)) {
   useHead({
     link: [{ rel: "preload", as: "image", href: product.background, fetchpriority: "high" }],
@@ -41,7 +42,7 @@ usePageSeo({
     { name: product.name, path: `/producten/${product.slug}` },
   ],
   faq: product.faq,
-  schema: [productStructuredData(product)],
+  schema: [productStructuredData(product), ...(trailerSchema ? [trailerSchema] : [])],
 });
 </script>
 
@@ -127,6 +128,10 @@ usePageSeo({
       </div>
     </section>
 
+    <ProductDemoIntro
+      v-if="product.slug === 'aitje-assistent' || product.slug === 'aitje-coder'"
+      :kind="product.slug === 'aitje-coder' ? 'coder' : 'assistant'"
+    />
     <AssistantExperience v-if="product.slug === 'aitje-assistent'" />
     <CoderExperience v-else-if="product.slug === 'aitje-coder'" />
     <template v-else>
@@ -254,6 +259,10 @@ usePageSeo({
     </template>
 
     <!-- Prijs -->
+    <AitjeInferenceServers
+      v-if="product.slug === 'aitje-assistent' || product.slug === 'aitje-coder'"
+      :product="product.slug"
+    />
     <AssistantPricing v-if="product.slug === 'aitje-assistent'" />
     <CoderPricing v-else-if="product.slug === 'aitje-coder'" />
     <section v-else id="prijs" class="scroll-mt-24 bg-sand py-20 md:py-24">

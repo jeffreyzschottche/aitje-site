@@ -2,7 +2,7 @@
 
 Official page: https://aitje.com/en/products/aitje-assistent
 
-> AITJE Assistent: local chat with knowledge base. Stand-alone product €499; from €599 including basic installation. Excl. VAT and infrastructure.
+> AITJE Chat Assistent AI Station: local chat, RAG and privacy management on hardware or a server. From €599 including basic installation, excluding VAT and infrastructure.
 
 Status: Available
 
@@ -76,6 +76,86 @@ Speed, model size, number of concurrent users and knowledge base capacity depend
 
 Minimum and recommended specifications will be confirmed prior to publication. Not sure whether your hardware is suitable? Ask AITJE.
 
+## Prices and conditions
+
+Product for self-installation: €499. Product + basic installation: €599. All prices exclude VAT.
+
+Hardware, server rental, travel or on-site costs and additional configuration are quoted separately.
+
+Introductory offer for Assistant and Coder for the first 100 paying customers. Availability will be confirmed in your quotation.
+
+## Hardware and hosting
+
+### BOSGAME M5
+
+Compact AI computer with a generous memory configuration for local models. We tailor the model, memory and concurrent usage in advance.
+
+Hardware quoted separately.
+
+### BOSGAME M6
+
+A compact local AI environment tailored to a suitable model and your day-to-day work. We select the configuration based on your tasks.
+
+Hardware quoted separately.
+
+### Mac mini · M6
+
+Apple Silicon for local AI on a compact Mac. We assess model support, memory and installation in relation to your workflow.
+
+Mac and setup quoted separately.
+
+### Mac mini · M5 Pro
+
+A Mac mini with greater memory capacity for suitable local models. The chosen configuration and software setup are detailed in your quotation.
+
+Mac and setup quoted separately.
+
+### Using your own hardware
+
+Do you already have a suitable computer or GPU workstation? We’ll assess what’s suitable for it and configure the environment accordingly.
+
+Suitability and any additional setup subject to quotation.
+
+### Own local server
+
+On your own server, on-premises or in your own data centre environment. We coordinate access, storage, model capacity and management with your IT department.
+
+Additional server capacity and setup subject to quotation.
+
+### Hetzner · VPS or server
+
+A dedicated cloud environment with Hetzner. The application can run on a VPS; for the models, we select suitable CPU/GPU capacity or a separate inference endpoint.
+
+Server hire and model processing are quoted separately.
+
+### DigitalOcean · cloud or GPU
+
+The AITJE environment runs on cloud capacity, with GPU computing power or a linked model endpoint where required. We select capacity and availability to suit your needs.
+
+Cloud capacity and model processing quoted separately.
+
+### An AITJE server
+
+Use AITJE servers in data centres for language models, coding agents and inference via an endpoint. The environment will be configured to suit your workflow.
+
+Hosting, capacity and inference subject to quotation.
+
+### Work with us to find a suitable solution
+
+Whether it’s your own hardware, an external server, the cloud or a combination: tell us what you want to become more independent from. AITJE will find a suitable technical and financial setup.
+
+Solution and total investment to be quoted.
+
+## AITJE Chat Assistent — product trailer
+
+Discover AITJE Chat Assistant: chat, business knowledge and management with AI in your own environment.
+
+[YouTube](https://www.youtube.com/watch?v=NLznu5msvwg)
+
+[Request an on-site demo](https://aitje.com/en/contact?onderwerp=demo-fysiek&product=aitje-assistent)
+
+[Request a demo endpoint](https://aitje.com/en/contact?onderwerp=demo-endpoint&product=aitje-assistent)
+
 ## Frequently asked questions
 
 ### What is ‘AITJE Assistent’?
@@ -125,6 +205,26 @@ Changes are processed during database synchronisation. The information is broken
 ### Can each department have its own secure knowledge base?
 
 Yes. You can assign specific knowledge to particular user roles. This allows you to determine which employees have access to which information, for example by department or role.
+
+### Where are the database and vectors from the knowledge base stored?
+
+The Assistent uses PostgreSQL with pgvector in the configured AITJE environment. This is where the searchable passages and vectors are stored; original knowledge bases are stored separately on the same environment. We will agree in advance whether this is at your premises, on your own server or in the cloud.
+
+### Can I use OpenAI or Claude with local anonymisation?
+
+Yes, provided your administrator permits external models. AITJE can replace recognised personal data locally with codes before the model is called and restore values locally in the response. This is reversible pseudonymisation, not a guarantee of complete anonymity; unrecognised content may still be included. Roles can make anonymisation mandatory, restrict models and limit usage costs.
+
+### What hardware and hosting options are available?
+
+BOSGAME M5 or M6, a suitable Mac mini, existing hardware, your own server, Hetzner, DigitalOcean or an AITJE server in the data centre. The application and model can run together or separately. The product price does not include new hardware, server rental or paid inference; these costs are itemised separately in the quotation.
+
+### Can AITJE handle model processing via Nebius or its own servers?
+
+Yes. Nebius Token Factory offers powerful open models via paid external inference; the managed integration supports model rights, budgets and the configured anonymisation policy. AITJE also offers language models and inference on its own data centre servers, configured for your workflow. Capacity, processing location and rates are agreed in advance.
+
+### Can I request an on-site demo or a demo endpoint?
+
+Yes. Choose an on-site demo with hardware or request a demo endpoint for remote testing. Your choice and the product will be pre-filled in the contact form and sent along with the request. We will contact you to arrange a visit or access.
 
 ## Contact
 

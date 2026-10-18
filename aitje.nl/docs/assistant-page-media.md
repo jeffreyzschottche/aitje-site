@@ -43,3 +43,23 @@ Guardrails zijn uitgewerkt met de drie huidige soorten: kennis lokaal houden, ac
 De vier benchmarks komen uit [de officiële Qwen3.8-27B-modelkaart](https://huggingface.co/Qwen/Qwen3.8-27B). Ze vergelijken met Opus 4.6 Max, niet met de nieuwere modellen in de prijstabel. Twee getoonde taken vallen hoger uit voor Qwen, twee voor Claude. Het zijn Qwens eigen evaluaties, geen BOSGAME- of AITJE-metingen. De kwantisatie en de gebruikte hardware kunnen andere praktijkscores opleveren. [Ollama](https://ollama.com/library/qwen3.8) documenteert de lokale modelopdracht.
 
 De elektriciteitsindicatie van minder dan €0,40 per dag en circa 8–12 outputtokens/s voor een 4-bit 100B/120B-model zijn door de opdrachtgever gerapporteerde AITJE-praktijkervaringen op BOSGAME-hardware. M5/gpt-oss-120b en M6/Qwen3.8 zijn daarbij genoemd. Er is geen onderliggend meetlog, stroomtarief of gemeten gemiddeld vermogen aangeleverd. De pagina schrijft deze cijfers daarom toe aan AITJE, noemt de afhankelijkheden en presenteert ze niet als totale kosten of algemene snelheidsgarantie. Het daarnaast genoemde bedrag ‘0.12cent’ is door de onduidelijke eenheid niet gepubliceerd; €0,40 per dag is expliciet bevestigd als 40 cent.
+
+## Aanvullende AI Station- en RAG-uitleg
+
+`AiStationArchitecture.vue` en `AssistantRag.vue` voegen tekst en visualisaties toe zonder de bestaande productsecties weg te halen. De vectoropslag is expliciet beschreven als pgvector in de lokale PostgreSQL-database, met originele bestanden buiten de webroot. Bronnen: `docs/architecture/contexts/knowledge.md`, `backend/aitje/knowledge/infrastructure/orm.py`, `backend/aitje/knowledge/application/retrieval.py` en `docs/runbooks/install.md` in de Assistent-repository.
+
+De RAG-uitleg volgt de werkelijke keten: structuurbehoudende passagevorming, embeddings, scope in de databasequery, hybride vector-/trefwoordselectie, weging, ontdubbelen, reranking, drempel en contextbudget. De gebruiker ziet bronverwijzingen met opnieuw gecontroleerde toegang. Testvraag en de opgeslagen evaluatieset worden uitgelegd als controle op gevonden bronnen; antwoordkwaliteit vraagt daarnaast semantische beoordeling.
+
+`docs/runbooks/rag-acceptatie.md` maakt expliciet dat de fictieve seed en gesimuleerde Mac-regressies geen echte BOSGAME-modelacceptatie bewijzen. Er wordt daarom geen algemeen RAG-nauwkeurigheidspercentage verzonnen. De pagina beschrijft een acceptatieproef met eigen vragen, rollen, documenten en echte lokale modellen. Bij offline gebruik moeten modellen en index vooraf lokaal beschikbaar zijn; externe bronverversing en andere online diensten hebben afzonderlijke afhankelijkheden.
+
+## Responsive en bediening
+
+De responsivecontrole van 18 oktober 2026 voor beide productpagina’s staat bij [Coder: responsive en bediening](coder-page-media.md#responsive-en-bediening). Ook de Nederlandse en Engelse Assistent-pagina, de werkplektabbladen, beheervoorbeelden en de vaste mobiele contactbalk zijn daarin meegenomen.
+
+## Externe modellen, hardware en trailers
+
+De Assistent heeft aanvullende uitleg over Nebius Token Factory, OpenAI/Claude met lokale pseudonimisering en inference op AITJE-servers. De uitleg is gecontroleerd tegen `docs/privacy.md` en `docs/runbooks/nebius.md` in de productrepository. De tekst maakt onderscheid tussen herkende persoonsgegevens, niet-herkende inhoud, afbeeldingen en afzonderlijke web-/MCP-kanalen.
+
+`public/img/assistant/v4/privacy-gateway.png` en de WebP-versie zijn met de ingebouwde image_gen-tool gemaakt. Transparantie is behouden. De volledige prompt staat in [v4/provenance.json](../public/img/assistant/v4/provenance.json); het beeld is een conceptillustratie van lokale maskering vóór externe inference.
+
+Beide productpagina’s delen de demo-intro, de expliciete extra hardware-/hostingkosten en de opstellingskeuze. Producttrailers en hun geverifieerde publicatiedata staan in `app/content/productTrailers.ts`. Zie [de releasecontrole](product-pages-release.md) voor de samenhang met contactaanvragen, vertalingen, AI-bestanden en structured data.

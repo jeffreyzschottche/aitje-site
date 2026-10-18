@@ -47,7 +47,7 @@ export function usePageSeo(seo: PageSeo) {
     const image = absoluteUrl(seo.image ?? "/img/redesign/owl-hero.webp");
     const fullTitle = basePath.value === "/" ? text(seo.title) : `${text(seo.title)} | AITJE`;
 
-    const fixedSchemaFields = new Set(["@type", "@id", "url", "image", "logo", "item", "dateModified", "datePublished", "price", "minPrice", "priceCurrency", "availability", "sku", "identifier", "inLanguage", "availableLanguage", "billingDuration", "unitCode", "contactType", "citation"]);
+    const fixedSchemaFields = new Set(["@type", "@id", "url", "image", "logo", "item", "dateModified", "datePublished", "price", "minPrice", "priceCurrency", "availability", "sku", "identifier", "inLanguage", "availableLanguage", "billingDuration", "unitCode", "contactType", "citation", "embedUrl", "thumbnailUrl", "uploadDate", "duration", "sameAs"]);
     const translateSchema = (value: unknown, key = ""): unknown => {
       if (fixedSchemaFields.has(key)) return value;
       if (typeof value === "string") return text(value);
@@ -70,6 +70,8 @@ export function usePageSeo(seo: PageSeo) {
         mainEntityOfPage: { "@id": pageId },
         ...(typeof item.image === "string" ? { image: absoluteUrl(item.image) } : {}),
         ...(type === "Service" ? { provider: { "@id": organizationId } } : {}),
+        ...(type === "Product" && seo.schema?.some(schema => schema["@type"] === "VideoObject") ? { subjectOf: { "@id": `${url}#videoobject` } } : {}),
+        ...(type === "VideoObject" ? { publisher: { "@id": organizationId }, about: { "@id": `${url}#product` } } : {}),
         ...(type === "Article" ? {
           image,
           inLanguage: locale.value,

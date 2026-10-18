@@ -39,8 +39,8 @@ Hardware, server rental, travel or on-site costs and additional configuration ar
 
 ## AI products
 
-- [AITJE Assistent: Your own AI chat assistant. Under your control.](https://aitje.com/llms/pages/en/products/aitje-assistent.md): AITJE Assistent: local chat with knowledge base. Stand-alone product €499; from €599 including basic installation. Excl. VAT and infrastructure. Web page: https://aitje.com/en/products/aitje-assistent
-- [AITJE Coder: Your own coding agents. With no external token costs.](https://aitje.com/llms/pages/en/products/aitje-coder.md): AITJE Coder: your own local coding agents. Stand-alone product €699; from €799 including basic installation. Excluding VAT and infrastructure. Web page: https://aitje.com/en/products/aitje-coder
+- [AITJE Assistent: Your own AI chat assistant. Under your control.](https://aitje.com/llms/pages/en/products/aitje-assistent.md): AITJE Chat Assistent AI Station: local chat, RAG and privacy management on hardware or a server. From €599 including basic installation, excluding VAT and infrastructure. Web page: https://aitje.com/en/products/aitje-assistent
+- [AITJE Coder: Your own coding agents. With no external token costs.](https://aitje.com/llms/pages/en/products/aitje-coder.md): AITJE Coder AI Station: coding agents, Git review and scheduled tasks on hardware or a server. From €799 including basic installation, excluding VAT and infrastructure. Web page: https://aitje.com/en/products/aitje-coder
 
 ## AI services
 

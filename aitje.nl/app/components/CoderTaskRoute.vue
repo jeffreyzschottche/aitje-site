@@ -71,12 +71,13 @@ const current = computed(() => steps[step.value]!);
         <div>
           <p class="eyebrow">Van opdracht tot pull request</p>
           <h2>Geef de opdracht.<br />Houd de regie.</h2>
+          <p>
+            Een taak voor AITJE Coder doorloopt altijd dezelfde vijf stappen. De
+            agent doet het werk in een eigen kopie. Jij beoordeelt het resultaat
+            en beslist wat er naar de repository gaat.
+          </p>
         </div>
-        <p>
-          Een taak voor AITJE Coder doorloopt altijd dezelfde vijf stappen. De
-          agent doet het werk in een eigen kopie. Jij beoordeelt het resultaat
-          en beslist wat er naar de repository gaat.
-        </p>
+        <CoderArtwork class="cr-art" variant="workbench" scene="review" />
       </div>
       <div class="cr-steps" role="group" aria-label="Stappen van een taak">
         <button
@@ -87,7 +88,8 @@ const current = computed(() => steps[step.value]!);
           aria-controls="cr-detail"
           @click="step = i"
         >
-          <span>0{{ i + 1 }}</span>{{ item.name }}
+          <span>0{{ i + 1 }}</span
+          >{{ item.name }}
         </button>
       </div>
       <div id="cr-detail" class="cr-detail" aria-live="polite">
@@ -196,7 +198,9 @@ const current = computed(() => steps[step.value]!);
   font-size: 0.9rem;
   cursor: pointer;
   color: #d8d8d2;
-  transition: color 0.15s, border-color 0.15s;
+  transition:
+    color 0.15s,
+    border-color 0.15s;
 }
 .cr-steps button span {
   display: block;
@@ -318,6 +322,75 @@ const current = computed(() => steps[step.value]!);
     flex: 0 0 auto;
     padding-inline: 0.6rem;
     font-size: 0.8rem;
+  }
+}
+/* The owl and monitor cross the real section edge. */
+.coder-route {
+  position: relative;
+  overflow: visible;
+  padding-top: 3.5rem;
+  background: #10170f;
+}
+.cr-heading {
+  display: block;
+  position: relative;
+  min-height: 25rem;
+  margin-bottom: 1rem;
+}
+.cr-heading > div {
+  max-width: 42%;
+  position: relative;
+  z-index: 2;
+}
+.cr-heading > div > p:last-child {
+  font-size: 0.95rem;
+  margin-top: 1.4rem;
+  color: #a6b69a;
+}
+.cr-art {
+  position: absolute;
+  right: -3.7rem;
+  top: -11rem;
+  width: 66%;
+  max-width: none;
+  z-index: 1;
+}
+@media (max-width: 1100px) {
+  .coder-route {
+    padding-top: 0;
+  }
+  .cr-heading {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    gap: 2rem;
+  }
+  .cr-heading > div {
+    max-width: 100%;
+    order: 2;
+  }
+  .cr-art {
+    position: relative;
+    right: auto;
+    top: auto;
+    order: 1;
+    width: 100%;
+    max-width: 44rem;
+    align-self: center;
+    margin-top: -4.5rem;
+  }
+  .cr-heading {
+    margin-bottom: 2rem;
+  }
+}
+@media (max-width: 480px) {
+  .cr-art {
+    width: 112%;
+    align-self: center;
+    margin-top: -3rem;
+  }
+  .cr-heading > div {
+    padding-top: 0.5rem;
   }
 }
 </style>
