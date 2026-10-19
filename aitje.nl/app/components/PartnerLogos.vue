@@ -8,6 +8,14 @@ const partners = [
     url: "https://gtedge.ai",
     text: "Ontwikkelt GT AI OS: een platform om AI lokaal te draaien op eigen hardware. Met privacy, compliance en controle als uitgangspunt.",
   },
+  {
+    name: "NVIDIA Developer Program",
+    logo: "/img/partners/nvidia-white.svg",
+    width: 164,
+    height: 30,
+    url: "https://developer.nvidia.com/developer-program",
+    text: "AITJE is lid van het NVIDIA Developer Program. Dat geeft toegang tot NVIDIA's SDK's, tools en technische kennis voor AI op NVIDIA-hardware.",
+  },
 ];
 </script>
 
