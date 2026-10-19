@@ -183,7 +183,7 @@ export async function generateAiFiles({ check = false, quiet = false, rootDir } 
   };
   // Only prune this generator's own page snapshots, when a page is unpublished.
   for (const file of await filesIn(path.join(root, "public/llms/pages"))) {
-    const name = path.relative(root, file);
+    const name = path.relative(root, file).replaceAll("\\", "/");
     if (!output.has(name)) {
       if (check) mismatches.push(name); else await fs.unlink(file);
     }

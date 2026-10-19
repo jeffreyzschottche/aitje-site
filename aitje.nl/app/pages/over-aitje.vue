@@ -179,6 +179,7 @@ const steps = [
             <h3>{{ field.title }}</h3>
           </div>
         </div>
+        <PartnerLogos />
         <TechnologyLogoSlider />
       </div>
     </section>
