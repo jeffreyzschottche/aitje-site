@@ -129,6 +129,10 @@ const audiences = [
           </a>
         </div>
       </div>
+      <p class="hero-statement">
+        <span>Iedereen kan AI gebruiken.</span>
+        <strong>Niet iedereen kan AI implementeren.</strong>
+      </p>
     </section>
 
     <section id="ontdek" class="benefit-strip">

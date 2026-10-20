@@ -351,6 +351,32 @@ a:hover .product-card-copy .round-arrow {
   display: grid;
   place-items: center;
 }
+.hero-statement {
+  position: absolute;
+  top: calc(208px + clamp(3.75rem, 6.5vw, 6.15rem));
+  left: 39%;
+  width: min(29%, 25rem);
+  padding-left: 1rem;
+  border-left: 2px solid var(--color-brand);
+  font-family: var(--font-heading);
+  font-size: clamp(0.95rem, 1.3vw, 1.25rem);
+  line-height: 1.55;
+  letter-spacing: -0.025em;
+  text-shadow: 0 2px 14px rgb(10 25 24 / 0.7);
+}
+.hero-statement span,
+.hero-statement strong {
+  display: block;
+  text-wrap: balance;
+}
+.hero-statement span {
+  color: rgb(255 255 255 / 0.9);
+}
+.hero-statement strong {
+  margin-top: 0.25rem;
+  color: var(--color-brand);
+  font-weight: 600;
+}
 .benefit-strip {
   background: var(--color-page);
   border-bottom: 1px solid var(--color-line);
@@ -1612,6 +1638,9 @@ a:hover .product-card-copy .round-arrow {
   .home-hero-copy {
     width: 56%;
   }
+  .hero-statement {
+    top: calc(192px + clamp(3.75rem, 6.5vw, 6.15rem));
+  }
   .hero-actions > a {
     padding-inline: 20px;
     font-size: 0.85rem;
@@ -1730,6 +1759,16 @@ a:hover .product-card-copy .round-arrow {
   }
   .hero-scroll {
     display: none;
+  }
+  .hero-statement {
+    top: auto;
+    bottom: calc(var(--hero-mobile-art-height) * 0.55 - var(--hero-mobile-overhang));
+    left: max(16px, calc((100% - 460px) / 2));
+    width: 40%;
+    max-width: 190px;
+    padding-left: 0.65rem;
+    font-size: clamp(0.75rem, 2.6vw, 0.95rem);
+    line-height: 1.5;
   }
   .benefit-grid {
     gap: 25px 0;
