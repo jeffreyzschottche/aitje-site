@@ -2,13 +2,24 @@
 import { staticPageSeo } from "@/content/seo";
 import { availableProducts } from "@/content/products";
 import { articles, featuredArticleSlugs } from "@/content/knowledge";
-import { services, partnerService, serviceIllustrations } from "@/content/services";
+import {
+  services,
+  partnerService,
+  serviceIllustrations,
+} from "@/content/services";
 usePageSeo({
   ...staticPageSeo["/"],
   image: "/img/redesign/aitje-egg-hero-engraved.webp",
 });
 useHead({
-  link: [{ rel: "preload", as: "image", href: "/img/redesign/aitje-egg-hero-engraved.webp", fetchpriority: "high" }],
+  link: [
+    {
+      rel: "preload",
+      as: "image",
+      href: "/img/redesign/aitje-egg-hero-engraved.webp",
+      fetchpriority: "high",
+    },
+  ],
 });
 const featured = featuredArticleSlugs
   .map((slug) => articles.find((a) => a.slug === slug))
@@ -35,7 +46,7 @@ const benefits = [
     text: "Van de eerste keuze tot de inrichting van je omgeving: we denken mee en helpen je verder.",
   },
 ];
-const homeServices = [...services, partnerService].map(service => ({
+const homeServices = [...services, partnerService].map((service) => ({
   ...service,
   illustration: serviceIllustrations[service.slug],
 }));
@@ -104,22 +115,40 @@ const audiences = [
           <h1>
             <span class="hero-title-line">Je partner</span>
             <span class="hero-title-line">
-              in <span class="highlight-word hero-title-highlight">AI.<svg class="hero-title-underline" viewBox="0 0 160 26" preserveAspectRatio="none" fill="none" aria-hidden="true"><path d="M8 18 C48 8 108 8 152 13" stroke="currentColor" stroke-width="7" stroke-linecap="round" /></svg></span>
+              in
+              <span class="highlight-word hero-title-highlight"
+                >AI.<svg
+                  class="hero-title-underline"
+                  viewBox="0 0 160 26"
+                  preserveAspectRatio="none"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M8 18 C48 8 108 8 152 13"
+                    stroke="currentColor"
+                    stroke-width="7"
+                    stroke-linecap="round"
+                  /></svg
+              ></span>
             </span>
           </h1>
           <p class="hero-intro">
             <span class="hero-intro-lead">
-              Jouw AI-specialisten voor lokale AI, automatisering en slimmere workflows.
+              Jouw AI-specialisten voor lokale AI, automatisering en slimmere
+              workflows.
             </span>
             Met onafhankelijkheid als uitgangspunt.
           </p>
           <p class="hero-description">
             Wij regelen je AI-oplossing van advies tot installatie, inclusief de
-            benodigde hardware of serveromgeving. Met lokale AI blijft je data in
-            eigen beheer, zonder externe tokenkosten.
+            benodigde hardware of serveromgeving. Met lokale AI blijft je data
+            in eigen beheer, zonder externe tokenkosten.
           </p>
           <div class="hero-actions">
-            <UiButton to="/diensten" size="lg" arrow>Ontdek de diensten</UiButton>
+            <UiButton to="/diensten" size="lg" arrow
+              >Ontdek de diensten</UiButton
+            >
             <UiButton to="/producten" variant="secondary" size="lg">
               Bekijk de producten
             </UiButton>
@@ -150,15 +179,21 @@ const audiences = [
           <h2>Wie we zijn</h2>
           <div class="home-about-prose">
             <p>
-              <strong>Altijd dichtbij. Altijd beschikbaar. Volledig in eigen beheer.</strong>
+              <strong
+                >Altijd dichtbij. Altijd beschikbaar. Volledig in eigen
+                beheer.</strong
+              >
               Met lokale AI-oplossingen blijf je onafhankelijk van internet,
               externe providers en platformstoringen. Je data blijft binnen je
               organisatie en je voorkomt onnodige abonnementskosten.
             </p>
             <p>
-              <em>Wij helpen je AI slimmer, veiliger en goedkoper in te zetten:</em>
-              met duidelijke producten, uitbreidingsmogelijkheden en persoonlijke
-              begeleiding.
+              <em
+                >Wij helpen je AI slimmer, veiliger en goedkoper in te
+                zetten:</em
+              >
+              met duidelijke producten, uitbreidingsmogelijkheden en
+              persoonlijke begeleiding.
             </p>
             <p>De kracht van AI, zonder de controle uit handen te geven.</p>
           </div>
@@ -181,7 +216,15 @@ const audiences = [
             src="https://www.youtube.com/embed/3ZJgaJGeRS4?start=70"
             title="AITJE video"
             loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allow="
+              accelerometer;
+              autoplay;
+              clipboard-write;
+              encrypted-media;
+              gyroscope;
+              picture-in-picture;
+              web-share;
+            "
             referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen
           />
@@ -208,7 +251,8 @@ const audiences = [
             class="home-service-card"
             :class="{
               'home-service-card--scan': service.slug === 'ai-scan',
-              'home-service-card--installation': service.slug === 'installatie-en-inrichting',
+              'home-service-card--installation':
+                service.slug === 'installatie-en-inrichting',
               'home-service-card--safe': service.slug === 'veilig-ai-gebruik',
               'home-service-card--custom': service.slug === 'aitje-custom',
             }"
@@ -228,7 +272,11 @@ const audiences = [
                 <AppIcon name="arrow-up-right" :size="17" />
               </span>
             </div>
-            <h3>{{ service.slug === 'aitje-custom' ? 'AITJE Custom' : service.name }}</h3>
+            <h3>
+              {{
+                service.slug === "aitje-custom" ? "AITJE Custom" : service.name
+              }}
+            </h3>
             <p>{{ service.short }}</p>
           </NuxtLink>
         </div>
@@ -244,7 +292,11 @@ const audiences = [
         <div class="nature-scene-copy">
           <p class="eyebrow text-brand">02 / Eigen regie</p>
           <h2>
-            Je eigen AI.<br /><span>Een wereld <span class="scene-title-phrase">vol met</span> mogelijkheden.</span>
+            Je eigen AI.<br /><span
+              >Een wereld
+              <span class="scene-title-phrase">vol met</span>
+              mogelijkheden.</span
+            >
           </h2>
           <p>
             Je kennis is waardevol. Je gereedschap ook. AITJE helpt je AI
@@ -261,7 +313,10 @@ const audiences = [
       </div>
     </section>
 
-    <section v-if="availableProducts.length" class="section-space product-section">
+    <section
+      v-if="availableProducts.length"
+      class="section-space product-section"
+    >
       <div class="container-page">
         <div class="section-topline">
           <SectionHeading

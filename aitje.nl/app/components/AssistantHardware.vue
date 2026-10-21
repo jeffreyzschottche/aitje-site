@@ -27,6 +27,49 @@
               height="1024"
               loading="lazy"
             />
+            <svg
+              class="ah-branding"
+              viewBox="0 0 1536 1024"
+              aria-hidden="true"
+            >
+              <defs>
+                <clipPath id="ah-silver-sticker">
+                  <polygon points="550,361 650,352 757,546 647,559" />
+                </clipPath>
+                <clipPath id="ah-blue-sticker">
+                  <polygon points="1222,282 1320,274 1423,442 1324,454" />
+                </clipPath>
+              </defs>
+              <image
+                href="/img/assistant/v5/bosgame-silver-sticker.webp"
+                x="540"
+                y="340"
+                width="232"
+                height="240"
+                clip-path="url(#ah-silver-sticker)"
+              />
+              <image
+                href="/img/assistant/v5/bosgame-blue-sticker.webp"
+                x="1212"
+                y="264"
+                width="224"
+                height="204"
+                clip-path="url(#ah-blue-sticker)"
+              />
+              <!-- The original navigation artwork follows each sticker's plane. -->
+              <image
+                href="/img/logo-dark.png"
+                width="588"
+                height="241"
+                transform="matrix(.159864 .287415 -.323651 .033195 644 367)"
+              />
+              <image
+                href="/img/logo-dark.png"
+                width="588"
+                height="241"
+                transform="matrix(.159864 .246599 -.302905 .024896 1312 289)"
+              />
+            </svg>
           </figure>
           <div class="ah-copy">
             <h3>Een kleine computer.<br />Een eigen AI-omgeving.</h3>
@@ -54,6 +97,31 @@
               height="1024"
               loading="lazy"
             />
+            <svg
+              class="ah-branding"
+              viewBox="0 0 1536 1024"
+              aria-hidden="true"
+            >
+              <defs>
+                <clipPath id="ah-server-sticker">
+                  <polygon points="303,184 411,191 411,236 303,229" />
+                </clipPath>
+              </defs>
+              <image
+                href="/img/assistant/v5/linux-sticker.webp"
+                x="296"
+                y="176"
+                width="124"
+                height="68"
+                clip-path="url(#ah-server-sticker)"
+              />
+              <image
+                href="/img/logo-dark.png"
+                width="588"
+                height="241"
+                transform="matrix(.170068 .011905 0 .170124 307 188)"
+              />
+            </svg>
             <div
               class="ah-terminal"
               aria-label="Illustratie van een lokale modelopdracht in een Linux-terminal"
@@ -170,6 +238,13 @@
   display: block;
   width: 100%;
   height: auto;
+}
+.ah-branding {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
 }
 .ah-copy {
   padding: 0 2rem 2rem;

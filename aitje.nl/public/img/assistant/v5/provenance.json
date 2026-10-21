@@ -1,0 +1,54 @@
+{
+  "createdOn": "2026-10-19",
+  "tool": "Built-in image_gen (imagegen skill)",
+  "logo": {
+    "file": "/img/logo-dark.png",
+    "source": "https://www.aitje.com/img/logo-dark.png",
+    "sha256": "545992dc310e47fc6f6548b691d06d4d9e644892a845496f59ec287dc102488d",
+    "placement": "Original unmodified navigation artwork rendered by responsive SVG image layers in app/components/AssistantHardware.vue. Each image transform follows its physical sticker's plane."
+  },
+  "assets": [
+    {
+      "file": "bosgame-branding-base.png",
+      "editTarget": "../v3/bosgame-aitje.png",
+      "prompt": "Use case: precise-object-edit. Edit this 1536x1024 product photograph of two mini PCs. Remove ALL black artwork and lettering from BOTH white stickers on top of the silver and navy devices. The two stickers must be completely BLANK, clean solid white with NO logo, NO icon and NO letters. Preserve each white sticker's exact shape, size, position, perspective and subtle material shading. Change ONLY the black ink on those two white stickers; all other pixels, hardware details, AMD labels, orange buttons, colours, lighting, framing and shadows must remain unchanged. Keep the exact original 1536x1024 canvas and genuine transparent alpha background. These blank white stickers will receive the official brand artwork as a separate precise website image layer.",
+      "siteFiles": [
+        {
+          "file": "bosgame-silver-sticker.webp",
+          "crop": {
+            "x": 540,
+            "y": 340,
+            "width": 232,
+            "height": 240
+          }
+        },
+        {
+          "file": "bosgame-blue-sticker.webp",
+          "crop": {
+            "x": 1212,
+            "y": 264,
+            "width": 224,
+            "height": 204
+          }
+        }
+      ]
+    },
+    {
+      "file": "linux-branding-base.png",
+      "editTarget": "../v3/linux-aitje.png",
+      "prompt": "Use case: precise-object-edit. Edit this 1536x1024 product photograph of a graphite Linux server tower, monitor and keyboard. Remove ALL black artwork and lettering from the small white brand sticker on the UPPER FRONT of the server tower. This single sticker must become completely BLANK, clean white with NO logo, NO icon, NO letters. Preserve the white sticker's exact shape, size, position, perspective and subtle material shading. Change ONLY the black ink on that small sticker; all other hardware, vents, lights, warm reflections, framing, shadows, keyboard and monitor must remain unchanged. The exact position of the monitor and all four corners of its blank dark screen must be preserved for the existing website terminal overlay. Keep the original 1536x1024 canvas and genuine transparent alpha background. The blank white sticker will receive the official logo as a separate precise website image layer.",
+      "siteFiles": [
+        {
+          "file": "linux-sticker.webp",
+          "crop": {
+            "x": 296,
+            "y": 176,
+            "width": 124,
+            "height": 68
+          }
+        }
+      ]
+    }
+  ],
+  "note": "Imagegen removes the inaccurate branding from the existing white stickers. Only the cleaned sticker areas are used on the website, cropped as optimized WebP patches and clipped inside the original white stickers by SVG. The underlying v3 product images retain their original hardware, lighting, alpha transparency and shadows. All three stickers display the exact original logo file through code-native overlays. The complete generated PNG sources are retained for provenance; they contain blank stickers by design. The terminal remains a separate HTML layer."
+}
