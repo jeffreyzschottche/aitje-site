@@ -6,7 +6,7 @@ const partners = [
     width: 720,
     height: 238,
     url: "https://gtedge.ai",
-    text: "Ontwikkelt GT AI OS: een platform om AI lokaal te draaien op eigen hardware. Met privacy, compliance en controle als uitgangspunt.",
+    text: "AITJE en GT Edge AI zijn partners. We organiseren samen evenementen en adviseren elkaar over lokale AI.",
   },
   {
     name: "NVIDIA Developer Program",
